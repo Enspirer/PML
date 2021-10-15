@@ -33,7 +33,7 @@
                         </div>
                         <div class="form-group">
                             <label>Status <span class="text-danger">*</span></label>
-                            <select class="form-control" name="status" required>
+                            <select class="form-control custom-select" name="status" required>
                                 <option value="Enabled">Enable</option>   
                                 <option value="Disabled">Disable</option>                                
                             </select>
@@ -65,7 +65,7 @@
                             </div> 
                             <div class="form-group">
                                 <label>Type <span class="text-danger">*</span></label>
-                                <select class="form-control" name="type" onchange="yesnoCheck(this);" required>
+                                <select class="form-control custom-select" name="type" onchange="yesnoCheck(this);" required>
                                     <option value="" selected disabled>Select...</option> 
                                     <option value="article">Article</option>   
                                     <option value="youtube">Youtube Link</option>                                

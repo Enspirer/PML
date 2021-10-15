@@ -128,7 +128,7 @@ class SettingsSeeder extends Seeder
         ->insert(
             [             
             'key' => 'phone_number',
-            'value' => '[{"number1":"0731002003"},{"number2":"0731002004"}]', 
+            'value' => '[{"number":"0731002003"},{"number":"0731002004"}]', 
             'user_id' => 1,
             ]
         ); 
@@ -177,6 +177,54 @@ class SettingsSeeder extends Seeder
             [             
             'key' => 'email',
             'value' => 'info@example.com', 
+            'user_id' => 1,
+            ]
+        );  
+        DB::table('settings')
+        ->insert(
+            [             
+            'key' => 'sidebar_advertiment_1',
+            'value' => null, 
+            'user_id' => 1,
+            ]
+        ); 
+        DB::table('settings')
+        ->insert(
+            [             
+            'key' => 'sidebar_advertiment_description_1',
+            'value' => null, 
+            'user_id' => 1,
+            ]
+        ); 
+        DB::table('settings')
+        ->insert(
+            [             
+            'key' => 'sidebar_advertiment_link_1',
+            'value' => null, 
+            'user_id' => 1,
+            ]
+        ); 
+        DB::table('settings')
+        ->insert(
+            [             
+            'key' => 'sidebar_advertiment_2',
+            'value' => null, 
+            'user_id' => 1,
+            ]
+        ); 
+        DB::table('settings')
+        ->insert(
+            [             
+            'key' => 'sidebar_advertiment_description_2',
+            'value' => null, 
+            'user_id' => 1,
+            ]
+        ); 
+        DB::table('settings')
+        ->insert(
+            [             
+            'key' => 'sidebar_advertiment_link_2',
+            'value' => null, 
             'user_id' => 1,
             ]
         );  

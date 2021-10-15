@@ -31,7 +31,21 @@
                         </a>
                     </li> 
                 </ul>
-            </li>  
+            </li> 
+            
+            <li class="nav-item nav-dropdown ">
+                <a class="nav-link nav-dropdown-toggle " href="#">
+                    <i class="nav-icon fas fa-scroll"></i>
+                    Advertisement
+                </a>
+                <ul class="nav-dropdown-items">
+                    <li class="nav-item">
+                        <a class="nav-link {{active_class(Route::is('admin/sidebar_ad'))}}" href="{{ route('admin.sidebar_ad.index') }}">
+                            Sidebar Advertisement
+                        </a>
+                    </li> 
+                </ul>
+            </li>
             
 
             <li class="nav-item">

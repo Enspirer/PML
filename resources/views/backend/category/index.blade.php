@@ -84,7 +84,7 @@
 
                         <div class="form-group">
                             <label>Status <span class="text-danger">*</span></label>
-                            <select class="form-control" name="status" required>
+                            <select class="form-control custom-select" name="status" required>
                                 <option value="Enabled">Enable</option>   
                                 <option value="Disabled">Disable</option>                                
                             </select>

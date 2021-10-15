@@ -38,7 +38,7 @@
 
                         <div class="form-group">
                             <label>Status <span class="text-danger">*</span></label>
-                            <select class="form-control" name="status" required>
+                            <select class="form-control custom-select" name="status" required>
                                 <option value="Enabled" {{ $categories->status == 'Enabled' ? "selected" : "" }}>Enable</option>   
                                 <option value="Disabled" {{ $categories->status == 'Disabled' ? "selected" : "" }}>Disable</option>                                
                             </select>

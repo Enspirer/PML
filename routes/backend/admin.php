@@ -5,6 +5,7 @@ use App\Http\Controllers\Backend\FileManagerController;
 use App\Http\Controllers\Backend\SettingsController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\PostController;
+use App\Http\Controllers\Backend\AdvertisementController;
 
 // All route names are prefixed with 'admin.'.
 Route::redirect('/', '/admin/dashboard', 301);
@@ -26,6 +27,10 @@ Route::get('post/edit/{id}', [PostController::class, 'edit'])->name('post.edit')
 Route::post('post/update', [PostController::class, 'update'])->name('post.update');
 Route::get('post/delete/{id}', [PostController::class, 'destroy'])->name('post.destroy');
 
+Route::get('sidebar_ad', [AdvertisementController::class, 'index'])->name('sidebar_ad.index');
+Route::post('sidebar_ad/store', [AdvertisementController::class, 'store'])->name('sidebar_ad.store');
+Route::post('sidebar_ad/update1', [AdvertisementController::class, 'update1'])->name('sidebar_ad.update1');
+Route::post('sidebar_ad/update2', [AdvertisementController::class, 'update2'])->name('sidebar_ad.update2');
 
 
 Route::get('file_manager', [FileManagerController::class, 'index'])->name('file_manager.index');

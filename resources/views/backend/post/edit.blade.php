@@ -33,7 +33,7 @@
                         </div>
                         <div class="form-group">
                             <label>Status <span class="text-danger">*</span></label>
-                            <select class="form-control" name="status" required>
+                            <select class="form-control custom-select" name="status" required>
                                 <option value="Enabled" {{$post->status == 'Enabled' ? "selected" : ""}}>Enable</option>   
                                 <option value="Disabled" {{$post->status == 'Disabled' ? "selected" : ""}}>Disable</option>                                
                             </select>
@@ -65,7 +65,7 @@
                             </div> 
                             <div class="form-group">
                                 <label>Type <span class="text-danger">*</span></label>
-                                <select class="form-control" name="type" id="type" onchange="yesnoCheck(this);" required>
+                                <select class="form-control custom-select" name="type" id="type" onchange="yesnoCheck(this);" required>
                                     <option value="" selected disabled>Select...</option> 
                                     <option value="article" {{$post->type == 'article' ? "selected" : "" }}>Article</option>   
                                     <option value="youtube" {{$post->type == 'youtube' ? "selected" : "" }}>Youtube Link</option>                                

@@ -25,6 +25,10 @@ Breadcrumbs::for('admin.post.edit', function ($trail) {
     $trail->push('Edit Post', route('admin.post.edit',1));
 });
 
+Breadcrumbs::for('admin.sidebar_ad.index', function ($trail) {
+    $trail->push('Sidbar Advertisement', route('admin.sidebar_ad.index'));
+});
+
 Breadcrumbs::for('admin.file_manager.index', function ($trail) {
     $trail->push('File Manager', route('admin.file_manager.index'));
 });
