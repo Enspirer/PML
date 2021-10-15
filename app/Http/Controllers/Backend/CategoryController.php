@@ -34,7 +34,7 @@ class CategoryController extends Controller
                     return $status;
                 })
                 ->addColumn('icon', function($data){
-                    $img = '<img src="'.uploaded_asset($data->id).'" style="width: 60%">';
+                    $img = '<img src="'.uploaded_asset($data->icon).'" style="width: 60%">';
                  
                     return $img;
                 })

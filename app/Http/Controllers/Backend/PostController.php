@@ -40,7 +40,7 @@ class PostController extends Controller
                     return $status;
                 })
                 ->addColumn('feature_image', function($data){
-                    $img = '<img src="'.uploaded_asset($data->id).'" style="width: 50%">';
+                    $img = '<img src="'.uploaded_asset($data->feature_image).'" style="width: 50%">';
                  
                     return $img;
                 })
