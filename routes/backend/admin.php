@@ -3,16 +3,34 @@
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\FileManagerController;
 use App\Http\Controllers\Backend\SettingsController;
+use App\Http\Controllers\Backend\CategoryController;
+use App\Http\Controllers\Backend\PostController;
 
 // All route names are prefixed with 'admin.'.
 Route::redirect('/', '/admin/dashboard', 301);
 Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
 
+Route::get('category', [CategoryController::class, 'index'])->name('category.index');
+Route::post('category/store', [CategoryController::class, 'store'])->name('category.store');
+Route::get('category/getdetails', [CategoryController::class, 'getdetails'])->name('category.getdetails');
+Route::get('category/edit/{id}', [CategoryController::class, 'edit'])->name('category.edit');
+Route::post('category/update', [CategoryController::class, 'update'])->name('category.update');
+Route::get('category/delete/{id}', [CategoryController::class, 'destroy'])->name('category.destroy');
+
+Route::get('post', [PostController::class, 'index'])->name('post.index');
+Route::get('post/create', [PostController::class, 'create'])->name('post.create');
+Route::post('post/store', [PostController::class, 'store'])->name('post.store');
+Route::get('post/getdetails', [PostController::class, 'getdetails'])->name('post.getdetails');
+Route::get('post/edit/{id}', [PostController::class, 'edit'])->name('post.edit');
+Route::post('post/update', [PostController::class, 'update'])->name('post.update');
+Route::get('post/delete/{id}', [PostController::class, 'destroy'])->name('post.destroy');
+
+
+
 Route::get('file_manager', [FileManagerController::class, 'index'])->name('file_manager.index');
 Route::get('file_manager/getdetails', [FileManagerController::class, 'getdetails'])->name('file_manager.getdetails');
 Route::get('file_manager/delete/{id}', [FileManagerController::class, 'destroy'])->name('file_manager.destroy');
-
 
 Route::get('settings', [SettingsController::class, 'index'])->name('settings.index');
 Route::post('settings/update', [SettingsController::class, 'settings_update'])->name('settings_update');
