@@ -41,3 +41,23 @@ p {
 ::placeholder { /* Chrome/Opera/Safari */
    font-size: 0.8rem;
 }
+
+
+
+
+
+
+
+
+
+@media screen and (min-width: 1300px) {
+    .container, .container-lg, .container-md, .container-sm, .container-xl {
+        max-width: 1350px!important;
+    }
+}
+
+@media screen and (min-width: 1100px) {
+    .container, .container-lg, .container-md, .container-sm, .container-xl {
+        max-width: 1250px!important;
+    }
+}

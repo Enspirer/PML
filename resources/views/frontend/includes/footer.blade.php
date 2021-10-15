@@ -1,4 +1,4 @@
-<section class="container-fluid pt-5 pb-3 text-white" style="background-color: #16202C; margin-top: 5rem;">
+<section class="container-fluid pt-5 pb-3 text-white" style="background-color: #16202C;">
     <div class="container">
         <div class="row">
             <div class="col-3">

@@ -74,10 +74,10 @@
 
             <div class="col-3 right">
                 <div class="row mb-3">
-                    <div class="col-4 pe-0">
-                        <img src="{{ url('img/frontend/index/1.png') }}" alt="" class="img-fluid w-100" style="height: 4rem; object-fit: cover;">
+                    <div class="col-6 pe-0">
+                        <img src="{{ url('img/frontend/index/1.png') }}" alt="" class="img-fluid w-100" style="height: 5rem; object-fit: cover;">
                     </div>
-                    <div class="col-8">
+                    <div class="col-6">
                         <h6 class="fw-bolder" style="font-size: 0.8rem;">Bendetta Caretta collection | Bendetta collection</h6>
                         <p style="font-size: 0.8rem;">Carmelo Benilla Jr</p>
                         <p style="font-size: 0.7rem;">1.1 M views  2 months ago</p>
@@ -85,10 +85,10 @@
                 </div>
 
                 <div class="row mb-3">
-                    <div class="col-4 pe-0">
+                    <div class="col-6 pe-0">
                         <img src="{{ url('img/frontend/index/2.png') }}" alt="" class="img-fluid w-100" style="height: 4rem; object-fit: cover;">
                     </div>
-                    <div class="col-8">
+                    <div class="col-6">
                         <h6 class="fw-bolder" style="font-size: 0.8rem;">Bendetta Caretta collection | Bendetta collection</h6>
                         <p style="font-size: 0.8rem;">Carmelo Benilla Jr</p>
                         <p style="font-size: 0.7rem;">1.1 M views  2 months ago</p>
@@ -96,10 +96,10 @@
                 </div>
 
                 <div class="row mb-3">
-                    <div class="col-4 pe-0">
-                        <img src="{{ url('img/frontend/index/3.png') }}" alt="" class="img-fluid w-100" style="height: 4rem; object-fit: cover;">
+                    <div class="col-6 pe-0">
+                        <img src="{{ url('img/frontend/index/3.png') }}" alt="" class="img-fluid w-100" style="height: 5rem; object-fit: cover;">
                     </div>
-                    <div class="col-8">
+                    <div class="col-6">
                         <h6 class="fw-bolder" style="font-size: 0.8rem;">Bendetta Caretta collection | Bendetta collection</h6>
                         <p style="font-size: 0.8rem;">Carmelo Benilla Jr</p>
                         <p style="font-size: 0.7rem;">1.1 M views  2 months ago</p>
@@ -107,10 +107,10 @@
                 </div>
 
                 <div class="row mb-3">
-                    <div class="col-4 pe-0">
-                        <img src="{{ url('img/frontend/index/4.png') }}" alt="" class="img-fluid w-100" style="height: 4rem; object-fit: cover;">
+                    <div class="col-6 pe-0">
+                        <img src="{{ url('img/frontend/index/4.png') }}" alt="" class="img-fluid w-100" style="height: 5rem; object-fit: cover;">
                     </div>
-                    <div class="col-8">
+                    <div class="col-6">
                         <h6 class="fw-bolder" style="font-size: 0.8rem;">Bendetta Caretta collection | Bendetta collection</h6>
                         <p style="font-size: 0.8rem;">Carmelo Benilla Jr</p>
                         <p style="font-size: 0.7rem;">1.1 M views  2 months ago</p>
@@ -118,10 +118,10 @@
                 </div>
 
                 <div class="row mb-3">
-                    <div class="col-4 pe-0">
-                        <img src="{{ url('img/frontend/index/5.png') }}" alt="" class="img-fluid w-100" style="height: 4rem; object-fit: cover;">
+                    <div class="col-6 pe-0">
+                        <img src="{{ url('img/frontend/index/5.png') }}" alt="" class="img-fluid w-100" style="height: 5rem; object-fit: cover;">
                     </div>
-                    <div class="col-8">
+                    <div class="col-6">
                         <h6 class="fw-bolder" style="font-size: 0.8rem;">Bendetta Caretta collection | Bendetta collection</h6>
                         <p style="font-size: 0.8rem;">Carmelo Benilla Jr</p>
                         <p style="font-size: 0.7rem;">1.1 M views  2 months ago</p>
@@ -129,10 +129,10 @@
                 </div>
 
                 <div class="row mb-3">
-                    <div class="col-4 pe-0">
-                        <img src="{{ url('img/frontend/index/6.png') }}" alt="" class="img-fluid w-100" style="height: 4rem; object-fit: cover;">
+                    <div class="col-6 pe-0">
+                        <img src="{{ url('img/frontend/index/6.png') }}" alt="" class="img-fluid w-100" style="height: 5rem; object-fit: cover;">
                     </div>
-                    <div class="col-8">
+                    <div class="col-6">
                         <h6 class="fw-bolder" style="font-size: 0.8rem;">Bendetta Caretta collection | Bendetta collection</h6>
                         <p style="font-size: 0.8rem;">Carmelo Benilla Jr</p>
                         <p style="font-size: 0.7rem;">1.1 M views  2 months ago</p>
@@ -140,10 +140,10 @@
                 </div>
 
                 <div class="row mb-3">
-                    <div class="col-4 pe-0">
-                        <img src="{{ url('img/frontend/index/7.png') }}" alt="" class="img-fluid w-100" style="height: 4rem; object-fit: cover;">
+                    <div class="col-6 pe-0">
+                        <img src="{{ url('img/frontend/index/7.png') }}" alt="" class="img-fluid w-100" style="height: 5rem; object-fit: cover;">
                     </div>
-                    <div class="col-8">
+                    <div class="col-6">
                         <h6 class="fw-bolder" style="font-size: 0.8rem;">Bendetta Caretta collection | Bendetta collection</h6>
                         <p style="font-size: 0.8rem;">Carmelo Benilla Jr</p>
                         <p style="font-size: 0.7rem;">1.1 M views  2 months ago</p>
@@ -276,7 +276,7 @@
     </div>
 
 
-    <div class="container social" style="margin-top: 5rem;">
+    <div class="container social" style="margin-top: 5rem; margin-bottom: 5rem;">
         <div class="row justify-content-center align-items-center mb-5">
             <div class="col-1 text-center">
                 <a href="#" target="_blank"><i class="fab fa-facebook-square"></i></a>
