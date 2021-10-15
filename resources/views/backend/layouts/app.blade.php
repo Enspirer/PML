@@ -24,6 +24,7 @@
     <script src="https://cdn.ckeditor.com/ckeditor5/29.0.0/classic/ckeditor.js"></script>
 
     <link rel="stylesheet" href="{{url('css/aiz-core.css')}}">  
+    <link rel="stylesheet" href="{{url('css/vendors.css')}}">
     
     <script>
         var AIZ = AIZ || {};
