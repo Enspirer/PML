@@ -128,7 +128,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Description</label>
-                                <textarea class="form-control" name="description" rows="2">{{ get_settings('sidebar_advertiment_description_1') }}</textarea>
+                                <textarea class="form-control" name="description" rows="4">{{ get_settings('sidebar_advertiment_description_1') }}</textarea>
                             </div>
                             <div class="mt-4" align="right">
                                 <input type="submit" class="btn btn-success" value="Update">
@@ -160,7 +160,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Description</label>
-                                <textarea class="form-control" name="description" rows="2">{{ get_settings('sidebar_advertiment_description_2') }}</textarea>
+                                <textarea class="form-control" name="description" rows="4">{{ get_settings('sidebar_advertiment_description_2') }}</textarea>
                             </div>
                             <div class="mt-4" align="right">
                                 <input type="submit" class="btn btn-success" value="Update">
