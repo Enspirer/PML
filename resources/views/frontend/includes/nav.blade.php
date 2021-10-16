@@ -10,19 +10,25 @@
           <a class="nav-link fw-bold p-0 active" aria-current="page" href="#">Home</a>
         </li>
         <li class="nav-item px-4 border-end">
-          <a class="nav-link fw-bold p-0" href="#">For Sale</a>
+          <a class="nav-link fw-bold p-0" href="{{ route('frontend.for_sale') }}">For Sale</a>
         </li>
         <li class="nav-item px-4 border-end">
           <a class="nav-link fw-bold p-0" href="#">For Rent</a>
         </li>
         <li class="nav-item px-4 border-end">
+          <a class="nav-link fw-bold p-0" href="#">Lands</a>
+        </li>
+        <li class="nav-item px-4 border-end">
+          <a class="nav-link fw-bold p-0" href="#">New Development</a>
+        </li>
+        <li class="nav-item px-4 border-end">
           <a class="nav-link fw-bold p-0" href="#">Finance</a>
         </li>
         <li class="nav-item px-4 border-end">
-          <a class="nav-link fw-bold p-0" href="#">Market Trends</a>
+          <a class="nav-link fw-bold p-0" href="#">Agents</a>
         </li>
         <li class="nav-item ps-4 pe-0">
-          <a class="nav-link fw-bold p-0" href="#">Agents</a>
+          <a class="nav-link fw-bold p-0" href="#">Contact Us</a>
         </li>
 
         <div class="log-reg position-absolute">
