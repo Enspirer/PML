@@ -3,6 +3,9 @@
 use App\Http\Controllers\Frontend\ContactController;
 use App\Http\Controllers\Frontend\AizUploadController;
 use App\Http\Controllers\Frontend\HomeController;
+use App\Http\Controllers\Frontend\ForSaleController;
+
+
 use App\Http\Controllers\Frontend\User\AccountController;
 use App\Http\Controllers\Frontend\User\DashboardController;
 use App\Http\Controllers\Frontend\User\ProfileController;
@@ -21,6 +24,9 @@ Route::get('/aiz-uploader/get_uploaded_files', [AizUploadController::class, 'get
 Route::post('/aiz-uploader/get_file_by_ids', [AizUploadController::class, 'get_preview_files']);
 Route::get('/aiz-uploader/download/{id}', [AizUploadController::class, 'attachment_download'])->name('download_attachment');
 Route::get('uploads/all/{file_name}',[AizUploadController::class,'get_image_content']);
+
+
+Route::get('for-sale', [ForSaleController::class, 'index'])->name('for_sale');
 
 /*
  * These frontend controllers require the user to be logged in
