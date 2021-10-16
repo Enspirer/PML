@@ -14,15 +14,20 @@
                     <div class="row align-items-center">
                         <div class="col-6">
                             <h3 class="text-white text-center mb-2">Login to your account.</h3>
-                            <form>
+                            {{ html()->form('POST', route('frontend.auth.login.post'))->open() }}
                                 <div class="mb-3">
-                                    <label for="email" class="form-label text-white mb-0 me-3 form-label">Email Address</label>
-                                    <input type="text" class="form-control text-white" value="" name="email" id="email">
+                                    <label for="email" class="form-label text-white mb-0 me-3 form-label">Email Address</label>                                    
+                                    {{ html()->email('email')
+                                        ->class('form-control text-white')
+                                        ->attribute('maxlength', 191)
+                                        ->required() }}   
                                 </div>
 
                                 <div class="mb-3">
                                     <label for="password" class="form-label text-white mb-0 me-3 form-label">Password</label>
-                                    <input type="password" class="form-control text-white" id="password" name="password" aria-describedby="password">
+                                    {{ html()->password('password')
+                                        ->class('form-control text-white')
+                                        ->required() }}
                                 </div>
 
                                 <div class="row mb-1">
@@ -36,14 +41,14 @@
 
                                 <div class="row mb-0 align-items-center">
                                     <div class="col-6">
-                                        <a href="#" class="text-decoration-none text-white" style="font-size: 0.9rem;">Forgot Your Password?</a>
+                                        <a href="{{ route('frontend.auth.password.reset') }}" class="text-decoration-none text-white" style="font-size: 0.9rem;">Forgot Your Password?</a>
                                     </div>
 
                                     <div class="col-6 text-end">
                                         <button type="submit" class="btn login-btn w-50">Login</button>
                                     </div>
                                 </div>
-                            </form>
+                            {{ html()->form()->close() }}
 
                             <div class="row justify-content-center">
                                 <div class="col-12">

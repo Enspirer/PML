@@ -32,7 +32,27 @@
                     </li>
                         
                 </ul>
-            </li>  
+            </li>
+            
+            <li class="nav-item nav-dropdown ">
+                <a class="nav-link nav-dropdown-toggle " href="#">
+                    <i class="nav-icon fas fa-user-tie"></i>
+                    Agents
+                </a>
+
+                <ul class="nav-dropdown-items">   
+                    <li class="nav-item">
+                        <a class="nav-link {{active_class(Route::is('admin/agent'))}}" href="{{ route('admin.agent.index') }}">
+                            Agents
+                        </a>
+                    </li>                
+                    <li class="nav-item">
+                        <a class="nav-link {{active_class(Route::is('admin/agent_request'))}}" href="{{ route('admin.agent_request.index') }}">
+                            Agent Request
+                        </a>
+                    </li>                        
+                </ul>
+            </li> 
            
             <li class="nav-item nav-dropdown ">
                 <a class="nav-link nav-dropdown-toggle " href="#">

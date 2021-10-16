@@ -27,6 +27,23 @@ Breadcrumbs::for('admin.property_type.edit', function ($trail) {
     $trail->push('Edit', route('admin.property_type.edit',1));
 });
 
+Breadcrumbs::for('admin.agent.index', function ($trail) {
+    $trail->push('Agent', route('admin.agent.index'));
+});
+Breadcrumbs::for('admin.agent.create', function ($trail) {
+    $trail->push('Create Agent', route('admin.agent.create'));
+});
+Breadcrumbs::for('admin.agent.edit', function ($trail) {
+    $trail->push('Edit', route('admin.agent.edit',1));
+});
+
+Breadcrumbs::for('admin.agent_request.index', function ($trail) {
+    $trail->push('Agent Request', route('admin.agent_request.index'));
+});
+Breadcrumbs::for('admin.agent_request.edit', function ($trail) {
+    $trail->push('Approval', route('admin.agent_request.edit',1));
+});
+
 Breadcrumbs::for('admin.category.index', function ($trail) {
     $trail->push('Category', route('admin.category.index'));
 });

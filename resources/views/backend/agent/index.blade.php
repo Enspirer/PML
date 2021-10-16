@@ -1,6 +1,6 @@
 @extends('backend.layouts.app')
 
-@section('title', __('Property Type'))
+@section('title', __('Agent'))
 
 @section('content')
 
@@ -10,9 +10,9 @@
 
             <div class="card">
                 <div class="card-header">
-                    <strong>Property Type&nbsp;</strong>
+                    <strong>Agent</strong>
 
-                    <a href="{{route('admin.property_type.create')}}" class="btn btn-primary pull-right ml-4">Create New</a>
+                    <a href="{{route('admin.agent.create')}}" class="btn btn-primary pull-right ml-4">Create New</a>
                    
                 </div><!--card-header-->
 
@@ -21,9 +21,9 @@
                         <thead>
                             <tr>
                                 <th scope="col">#ID</th>
-                                <th scope="col">Type Name</th>
-                                <th scope="col">Activated Fields</th>
-                                <th scope="col">Status</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Agent Type</th>
+                                <th scope="col">Admin Approval</th>
                                 <th scope="col">Option</th>
                             </tr>
                         </thead>
@@ -71,13 +71,13 @@
         $(function () {
             var table = $('#villadatatable').DataTable({
                 processing: true,
-                ajax: "{{route('admin.property_type.getDetails')}}",
+                ajax: "{{route('admin.agent.getdetails')}}",
                 serverSide: true,
                 order: [[0, "desc"]],
                 columns: [
                     {data: 'id', name: 'id'},
-                    {data: 'property_type_name', name: 'property_type_name'},
-                    {data: 'activated_fields', name: 'activated_fields'},
+                    {data: 'name', name: 'name'},
+                    {data: 'agent_type', name: 'agent_type'},
                     {data: 'status', name: 'status'},
                     {data: 'action', name: 'action', orderable: false, searchable: false},
                 ]
@@ -93,7 +93,7 @@
 
             $('#ok_button').click(function(){
             $.ajax({
-            url:"property_type/delete/"+user_id,
+            url:"agent/delete/"+user_id,
             
             success:function(data)
             {

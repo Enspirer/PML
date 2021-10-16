@@ -12,6 +12,8 @@
                 <div class="card-header">
                     <strong>Property List</strong>
 
+                    <a href="{{route('admin.property.create')}}" class="btn btn-primary pull-right ml-4">Create New</a>
+                   
                 </div><!--card-header-->
 
                 <div class="card-body">
@@ -19,8 +21,8 @@
                         <thead>
                             <tr>
                                 <th scope="col">#ID</th>
+                                <th scope="col">Image</th>
                                 <th scope="col">Name</th>
-                                <th scope="col">Country</th>
                                 <th scope="col">Price</th>
                                 <th scope="col">Admin Approval</th>
                                 <th scope="col">Option</th>
@@ -44,7 +46,7 @@
                     {{csrf_field()}}
                     <div class="modal-header">
                         <h3 class="modal-title" id="ModalDeleteLabel">Delete</h3>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                        <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
                             <!-- <span aria-hidden="true">&times;</span> -->
                         </button>
                     </div>
@@ -55,7 +57,7 @@
 
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         <button type="button" class="btn btn-danger" name="ok_button" id="ok_button">Delete</button>
                        
                     </div>
@@ -75,8 +77,8 @@
                 order: [[0, "desc"]],
                 columns: [
                     {data: 'id', name: 'id'},
+                    {data: 'feature_image', name: 'feature_image'},
                     {data: 'name', name: 'name'},
-                    {data: 'country', name: 'country'},
                     {data: 'price', name: 'price'},
                     {data: 'admin_approval', name: 'admin_approval'},
                     {data: 'action', name: 'action', orderable: false, searchable: false},

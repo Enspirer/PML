@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class SidebarAd extends Model
+class AgentRequest extends Model
 {
     //
 }

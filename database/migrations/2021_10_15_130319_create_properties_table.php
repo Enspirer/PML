@@ -15,12 +15,12 @@ class CreatePropertiesTable extends Migration
     {
         Schema::create('properties', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->text('long');
-            $table->text('lat');
+            $table->text('long')->nullable();
+            $table->text('lat')->nullable();
             $table->text('beds')->nullable();
             $table->text('baths')->nullable();
-            $table->text('property_type');
-            $table->text('price');
+            $table->text('property_type')->nullable();
+            $table->text('price')->nullable();
             $table->text('negotiable')->nullable();
             $table->text('land_size')->nullable();
             $table->text('listed_since')->nullable();
@@ -31,18 +31,19 @@ class CreatePropertiesTable extends Migration
             $table->text('farm_type')->nullable();
             $table->text('building_type')->nullable();
             $table->text('open_house_only')->nullable();
-            $table->text('transaction_type');
+            $table->text('transaction_type')->nullable();
             $table->text('parking_type')->nullable();
-            $table->text('country');
-            $table->text('name');
-            $table->text('main_category');
+            $table->text('country')->nullable();
+            $table->text('city')->nullable();
+            $table->text('name')->nullable();
+            $table->text('main_category')->nullable();
             $table->text('meta_description')->nullable();
-            $table->text('slug');
+            $table->text('slug')->nullable();
             $table->text('image_ids')->nullable();
-            $table->text('user_id');
-            $table->text('admin_approval')->nullable();
-            $table->text('country_manager_approval')->nullable();
+            $table->text('user_id')->nullable();
             $table->text('feature_image_id')->nullable();
+            $table->text('admin_approval')->nullable();
+            $table->text('description')->nullable();
             $table->timestamps();
         });
     }
