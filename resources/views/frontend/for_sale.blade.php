@@ -375,7 +375,7 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-12 p-0 mb-4">
+                    <div class="col-12 p-0 mb-4 custom-shadow">
                         <div class="card">
                             <img src="{{ url('img/frontend/for_sale/ad_1.png') }}" class="img-fluid" alt="..." style="object-fit: cover; height: 15rem;">
                             <div class="card-body text-end">
@@ -383,7 +383,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-12 p-0 mb-4">
+                    <div class="col-12 p-0 mb-4 custom-shadow">
                         <div class="card">
                             <img src="{{ url('img/frontend/for_sale/ad_2.png') }}" class="img-fluid" alt="..." style="object-fit: cover; height: 15rem;">
                             <div class="card-body text-end">
@@ -392,7 +392,7 @@
                         </div>
                     </div>
 
-                    <div class="col-12 p-0">
+                    <div class="col-12 p-0 custom-shadow">
                         <div class="card">
                             <img src="{{ url('img/frontend/for_sale/ad_3.png') }}" class="img-fluid" alt="..." style="object-fit: cover; height: 25rem;">
                         </div>
