@@ -11,11 +11,14 @@
         <div class="row side-links">
 
             <div class="col-3 left">
-                <a class="btn custom-shadow w-100 mb-3"><img src="{{ url('img/frontend/index/location-pin.png') }}" alt="" class="me-3">Find a Land</a>
-                <a class="btn custom-shadow w-100 mb-3"><img src="{{ url('img/frontend/index/house.png') }}" alt="" class="me-3">Build Your House</a>
-                <a class="btn custom-shadow w-100 mb-3"><img src="{{ url('img/frontend/index/livingroom.png') }}" alt="" class="me-3">Interior Designs</a>
-                <a class="btn custom-shadow w-100 mb-3"><img src="{{ url('img/frontend/index/mortgage.png') }}" alt="" class="me-3">Mortgages</a>
-                <a class="btn custom-shadow w-100 mb-3"><img src="{{ url('img/frontend/index/compass.png') }}" alt="" class="me-3">Vaastu</a>
+                <a class="btn link-btn w-100 mb-3"><img src="{{ url('img/frontend/index/location-pin.png') }}" alt="" class="me-3">Find a Land</a>
+                <a class="btn link-btn w-100 mb-3"><img src="{{ url('img/frontend/index/house.png') }}" alt="" class="me-3">Build Your House</a>
+                <a class="btn link-btn w-100 mb-3"><img src="{{ url('img/frontend/index/livingroom.png') }}" alt="" class="me-3">Interior Designs</a>
+                <a class="btn link-btn w-100 mb-3"><img src="{{ url('img/frontend/index/mortgage.png') }}" alt="" class="me-3">Mortgages</a>
+                <a class="btn link-btn w-100 mb-3"><img src="{{ url('img/frontend/index/compass.png') }}" alt="" class="me-3">Vaastu</a>
+                <a class="btn link-btn w-100 mb-3"><img src="{{ url('img/frontend/index/compass.png') }}" alt="" class="me-3">Vaastu</a>
+                <a class="btn link-btn w-100 mb-3"><img src="{{ url('img/frontend/index/compass.png') }}" alt="" class="me-3">Vaastu</a>
+                <a class="btn link-btn w-100 mb-3"><img src="{{ url('img/frontend/index/compass.png') }}" alt="" class="me-3">Vaastu</a>
             </div>
 
             <div class="col-6 center">
@@ -24,15 +27,17 @@
                         <input type="text" name="search_keyword" class="form-control p-3 rounded-0" aria-label="search" data-bs-toggle="modal" data-bs-target="#exampleModal" placeholder="Search">
 
                         <button type="submit" class="btn text-white rounded-0" style="background-color : #35495E;"><i class="fas fa-search"></i></button>
+
+                        <button type="button" class="btn text-white rounded-0 border-start" style="background-color : #35495E;">Filter<img src="{{ url('img/frontend/index/filter.png') }}" alt="" class="ms-3" style="height: 1rem;"></button>
                     </div>
                 </form>
 
                 <div class="row mt-3 scroll-box">
-                    <div class="col-12 mb-3" style="padding-right: 10px;">
+                    <div class="col-12 mb-3" style="padding-right: 8px;">
                         <img src="{{ url('img/frontend/index/blog.png') }}" alt="" class="img-fluid w-100" style="object-fit: cover; height: 20rem;">
                     </div>
 
-                    <div class="col-12 mb-3" style="padding-right: 10px;">
+                    <div class="col-12 mb-3" style="padding-right: 8px;">
                         <h5 class="fw-bold" style="font-size: 1.15rem;">08 common interview questions and answers - Job Interview Skills</h5>
 
                         <div class="row mt-2">
@@ -66,7 +71,7 @@
                         </div>
                     </div>
 
-                    <div class="col-12" style="padding-right: 10px;">
+                    <div class="col-12" style="padding-right: 8px;">
                         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Assumenda temporibus, nesciunt, veniam facilis fugit odio suscipit accusamus, eaque laboriosam obcaecati vel aliquam eius dolorem consequatur perferendis inventore ratione rem voluptatibus ipsum dignissimos quia! Inventore error, similique est natus illo distinctio. Quia commodi iste optio eum ut dolore hic, natus quasi, fuga ipsum pariatur saepe velit laudantium animi. Eius id maxime magni commodi illo blanditiis, consequatur repudiandae asperiores quis, doloremque culpa. Cupiditate explicabo dolores magni tempore velit et voluptates aspernatur hic. Asperiores ut, voluptatem enim quasi necessitatibus nesciunt aut voluptatibus cumque eos architecto similique corporis vel ad repellendus doloremque inventore facilis, recusandae odio. Dolores id ducimus assumenda voluptate a vero molestias commodi nobis iusto, iure excepturi officiis architecto itaque velit, totam sit magni. Hic, illo quisquam? Nam suscipit quidem, eius voluptate dolorum temporibus! Aliquid pariatur, tenetur numquam similique excepturi corrupti maiores temporibus officia dolorem necessitatibus! Neque illum quasi animi! Ab minus inventore fugit! Quaerat magni aspernatur quos laudantium provident? Quam corporis atque voluptatem eos numquam, ipsa pariatur enim sunt officiis cumque dolor aperiam et nostrum, aut non omnis minima doloribus est minus eveniet iure distinctio quas? Possimus quae labore asperiores laudantium commodi architecto magni nam ratione et id tempore quisquam dolorem quam aliquid impedit deserunt velit corporis, distinctio atque dolore enim perspiciatis quaerat saepe exercitationem! Porro error, eligendi voluptate rerum, harum expedita saepe dicta, quasi adipisci iste vel! Non earum, et illo suscipit, dolore sint fuga asperiores, ipsum eos minus explicabo voluptatibus aperiam. Quidem aliquam illo ipsa nisi similique dolore, cumque veritatis consectetur ducimus vitae ipsum magnam repellat totam quibusdam tempore natus, quia soluta est aliquid accusamus, adipisci modi delectus et. Molestias, dolorum? Error exercitationem magnam alias. Dolore, aliquid illum! Iste repudiandae quod vitae adipisci magnam, cumque culpa voluptates officia odit blanditiis esse, id corrupti enim! Ut aliquam cum dolore unde quis molestias similique accusamus voluptatem, dolores iusto nemo modi non, dignissimos aliquid iure soluta cumque rerum, ea error eveniet odit voluptates. Minus voluptatibus reiciendis similique perferendis, at quaerat sit tenetur voluptatem labore id consequuntur doloribus dolores temporibus illo placeat nobis laboriosam fugiat autem ipsum quasi numquam consequatur. Architecto, quaerat cumque perferendis, veniam ea cupiditate nobis omnis tempora voluptates, illo aspernatur ipsa quibusdam quos ad enim ratione nam vero? Officia, voluptatibus nulla dolorum enim natus doloribus ducimus at labore vitae earum adipisci quia cum aliquam repudiandae vero tenetur? Quidem labore perspiciatis voluptate illum quaerat id numquam assumenda, sequi, molestiae magnam rerum.</p>
                     </div>
                 </div>
@@ -138,26 +143,15 @@
                         <p style="font-size: 0.7rem;">1.1 M views  2 months ago</p>
                     </div>
                 </div>
-
-                <div class="row mb-3">
-                    <div class="col-6 pe-0">
-                        <img src="{{ url('img/frontend/index/7.png') }}" alt="" class="img-fluid w-100" style="height: 5rem; object-fit: cover;">
-                    </div>
-                    <div class="col-6">
-                        <h6 class="fw-bolder" style="font-size: 0.8rem;">Bendetta Caretta collection | Bendetta collection</h6>
-                        <p style="font-size: 0.8rem;">Carmelo Benilla Jr</p>
-                        <p style="font-size: 0.7rem;">1.1 M views  2 months ago</p>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
 
 
 
-    <div class="properties" style="margin-top: 5rem;">
+    <div class="properties" style="margin-top: 3rem;">
         <div class="container">
-            <div class="row justify-content-between align-items-center">
+            <!-- <div class="row justify-content-between align-items-center">
                 <div class="col-4">
                     <form>
                         <div class="input-group">
@@ -177,7 +171,7 @@
                         </div>
                     </form>
                 </div>
-            </div>
+            </div> -->
 
             <div class="row mt-5 mb-4">
                 <div class="col-3">
@@ -276,6 +270,76 @@
     </div>
 
 
+    <div class="container" style="margin-top: 4rem;">
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                <div class="card custom-shadow">
+                        <img src="{{ url('img/frontend/index/5.png') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
+                        <div class="card-body text-center">
+                            <h5 class="fw-bold">$450, 000</h5>
+                            <p>4 Bed Semidetached house</p>
+                            <p>541, Rosewood place,</p>
+                            <p>Colombo, Sri Lanka</p>
+                            <p>3<i class="fas fa-bed ms-2 me-3"></i> 5<i class="fas fa-bath ms-2"></i></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                <div class="card custom-shadow">
+                        <img src="{{ url('img/frontend/index/4.png') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
+                        <div class="card-body text-center">
+                            <h5 class="fw-bold">$450, 000</h5>
+                            <p>4 Bed Semidetached house</p>
+                            <p>541, Rosewood place,</p>
+                            <p>Colombo, Sri Lanka</p>
+                            <p>3<i class="fas fa-bed ms-2 me-3"></i> 5<i class="fas fa-bath ms-2"></i></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                <div class="card custom-shadow">
+                        <img src="{{ url('img/frontend/index/3.png') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
+                        <div class="card-body text-center">
+                            <h5 class="fw-bold">$450, 000</h5>
+                            <p>4 Bed Semidetached house</p>
+                            <p>541, Rosewood place,</p>
+                            <p>Colombo, Sri Lanka</p>
+                            <p>3<i class="fas fa-bed ms-2 me-3"></i> 5<i class="fas fa-bath ms-2"></i></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                <div class="card custom-shadow">
+                        <img src="{{ url('img/frontend/index/2.png') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
+                        <div class="card-body text-center">
+                            <h5 class="fw-bold">$450, 000</h5>
+                            <p>4 Bed Semidetached house</p>
+                            <p>541, Rosewood place,</p>
+                            <p>Colombo, Sri Lanka</p>
+                            <p>3<i class="fas fa-bed ms-2 me-3"></i> 5<i class="fas fa-bath ms-2"></i></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                <div class="card custom-shadow">
+                        <img src="{{ url('img/frontend/index/1.png') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
+                        <div class="card-body text-center">
+                            <h5 class="fw-bold">$450, 000</h5>
+                            <p>4 Bed Semidetached house</p>
+                            <p>541, Rosewood place,</p>
+                            <p>Colombo, Sri Lanka</p>
+                            <p>3<i class="fas fa-bed ms-2 me-3"></i> 5<i class="fas fa-bath ms-2"></i></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+    </div>
+
+
     <div class="container social" style="margin-top: 5rem; margin-bottom: 5rem;">
         <div class="row justify-content-center align-items-center mb-5">
             <div class="col-1 text-center">
@@ -338,7 +402,7 @@
                 <div class="card" style="height: 25rem;">
                     <img src="{{ url('img/frontend/index/social_3.png') }}" class="card-img-top" alt="..." style="object-fit: cover; height: 13rem;">
                     <div class="card-body p-2">
-                        <p class="card-text mb-1" style="overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 5; /* number of lines to show */-webkit-box-orient: vertical;height: 130px; font-size: 0.8rem;">We're giving away 100,000,000 $Shib to 5 random people (20,000,000 each)Money bag RocketFollow Me! Gem stoneRetweet and Like. Open handsComment #SHIBARMY  ⚠followers only giveaway⚠ #BTC  #ETH #Giveaway #ADA</p>
+                        <p class="card-text mb-1" style="overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 5; /* number of lines to show */-webkit-box-orient: vertical;height: 115px; font-size: 0.8rem;">We're giving away 100,000,000 $Shib to 5 random people (20,000,000 each)Money bag RocketFollow Me! Gem stoneRetweet and Like. Open handsComment #SHIBARMY  ⚠followers only giveaway⚠ #BTC  #ETH #Giveaway #ADA</p>
                         
                         <div class="row justify-content-between mt-3 align-items-center">
                             <div class="col-5">
@@ -356,7 +420,7 @@
                 <div class="card" style="height: 25rem;">
                     <img src="{{ url('img/frontend/index/social_4.png') }}" class="card-img-top" alt="..." style="object-fit: cover; height: 13rem;">
                     <div class="card-body p-2">
-                        <p class="card-text mb-1" style="overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 5; /* number of lines to show */-webkit-box-orient: vertical;height: 130px; font-size: 0.8rem;">We're giving away 100,000,000 $Shib to 5 random people (20,000,000 each)Money bag RocketFollow Me! Gem stoneRetweet and Like. Open handsComment #SHIBARMY  ⚠followers only giveaway⚠ #BTC  #ETH #Giveaway #ADA</p>
+                        <p class="card-text mb-1" style="overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 5; /* number of lines to show */-webkit-box-orient: vertical;height: 115px; font-size: 0.8rem;">We're giving away 100,000,000 $Shib to 5 random people (20,000,000 each)Money bag RocketFollow Me! Gem stoneRetweet and Like. Open handsComment #SHIBARMY  ⚠followers only giveaway⚠ #BTC  #ETH #Giveaway #ADA</p>
 
                         <div class="row justify-content-between mt-3 align-items-center">
                             <div class="col-5">
@@ -374,3 +438,23 @@
 </div>
 
 @endsection
+
+@push('after-scripts')
+
+    <script>
+      var swiper = new Swiper(".mySwiper", {
+        slidesPerView: 4,
+        spaceBetween: 20,
+        loop: true,
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        autoplay: {
+          delay: 4000,
+          disableOnInteraction: false,
+        }
+      });
+    </script>
+
+@endpush

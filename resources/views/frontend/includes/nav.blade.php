@@ -25,6 +25,14 @@
           <a class="nav-link fw-bold p-0" href="#">Agents</a>
         </li>
 
+        <div class="log-reg position-absolute">
+            <a class="login fw-bold d-inline-block me-4 text-decoration-none" href="{{ route('frontend.auth.login') }}">Login</a>
+
+            <a class="register fw-bold d-inline-block border px-4 text-decoration-none" href="{{ route('frontend.auth.register') }}">Register</a>
+        </div>
+        
+        
+
         <select name="" id="" class="form-control position-absolute">
             <option value="">Select Country</option>
         </select>
