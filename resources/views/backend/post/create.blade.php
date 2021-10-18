@@ -73,14 +73,14 @@
                             </div>
                             <div class="form-group" id="article" style="display: none;">
                                 <div class="form-group">
-                                    <label>Article</label>
+                                    <label>Article <span class="text-danger">*</span></label>
                                     <textarea type="text" id="editor" class="form-control" name="article"></textarea>
                                 </div> 
                             </div>   
                             <div class="form-group" id="youtube" style="display: none;">
                                 <div class="form-group">
-                                    <label>Youtube Link</label>
-                                    <input type="text" class="form-control" name="youtube">
+                                    <label>Youtube Link <span class="text-danger">*</span></label>
+                                    <input type="url" class="form-control" name="youtube">
                                 </div>
                             </div>                              
 

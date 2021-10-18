@@ -15,6 +15,20 @@
 
             <li class="nav-item nav-dropdown ">
                 <a class="nav-link nav-dropdown-toggle " href="#">
+                    <i class="nav-icon fas fa-flag"></i> 
+                    Countries
+                </a>
+                <ul class="nav-dropdown-items">
+                    <li class="nav-item">
+                        <a class="nav-link {{active_class(Route::is('admin/country'))}}" href="{{ route('admin.country.index') }}">
+                            Countries
+                        </a>
+                    </li>                      
+                </ul>
+            </li>
+
+            <li class="nav-item nav-dropdown ">
+                <a class="nav-link nav-dropdown-toggle " href="#">
                     <i class="nav-icon fas fa-building"></i>
                     Properties
                 </a>
@@ -93,6 +107,13 @@
                 <a class="nav-link {{active_class(Route::is('admin/file_manager'))}}" href="{{ route('admin.file_manager.index') }}">
                 <i class="nav-icon fas fa-folder-open"></i>
                     File Manager
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link {{active_class(Route::is('admin/contact_us'))}}" href="{{ route('admin.contact_us.index') }}">
+                    <i class="nav-icon fas fa-comments"></i>
+                    Contact Us
                 </a>
             </li>
 

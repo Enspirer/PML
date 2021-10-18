@@ -9,11 +9,20 @@ use App\Http\Controllers\Backend\AdvertisementController;
 use App\Http\Controllers\Backend\PropertyController;
 use App\Http\Controllers\Backend\PropertyTypeController;
 use App\Http\Controllers\Backend\AgentRequestController;
-
+use App\Http\Controllers\Backend\CountryController;
+use App\Http\Controllers\Backend\ContactUsController;
 
 // All route names are prefixed with 'admin.'.
 Route::redirect('/', '/admin/dashboard', 301);
 Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+Route::get('country', [CountryController::class, 'index'])->name('country.index');
+Route::get('country/create', [CountryController::class, 'create'])->name('country.create');
+Route::post('country/store', [CountryController::class, 'store'])->name('country.store');
+Route::get('country/getdetails', [CountryController::class, 'getdetails'])->name('country.getdetails');
+Route::get('country/edit/{id}', [CountryController::class, 'edit'])->name('country.edit');
+Route::post('country/update', [CountryController::class, 'update'])->name('country.update');
+Route::get('country/delete/{id}', [CountryController::class, 'destroy'])->name('country.destroy');
 
 Route::get('property', [PropertyController::class, 'index'])->name('property.index');
 Route::get('property/create', [PropertyController::class, 'create'])->name('property.create');
@@ -65,10 +74,16 @@ Route::post('sidebar_ad/store', [AdvertisementController::class, 'store'])->name
 Route::post('sidebar_ad/update1', [AdvertisementController::class, 'update1'])->name('sidebar_ad.update1');
 Route::post('sidebar_ad/update2', [AdvertisementController::class, 'update2'])->name('sidebar_ad.update2');
 
-
 Route::get('file_manager', [FileManagerController::class, 'index'])->name('file_manager.index');
 Route::get('file_manager/getdetails', [FileManagerController::class, 'getdetails'])->name('file_manager.getdetails');
 Route::get('file_manager/delete/{id}', [FileManagerController::class, 'destroy'])->name('file_manager.destroy');
+
+Route::get('contact_us', [ContactUsController::class, 'index'])->name('contact_us.index');
+Route::get('contact_us/getdetails', [ContactUsController::class, 'getDetails'])->name('contact_us.getDetails');
+Route::get('contact_us/edit/{id}', [ContactUsController::class, 'edit'])->name('contact_us.edit');
+Route::post('contact_us/update', [ContactUsController::class, 'update'])->name('contact_us.update');
+Route::get('contact_us/delete/{id}', [ContactUsController::class, 'destroy'])->name('contact_us.destroy');
+
 
 Route::get('settings', [SettingsController::class, 'index'])->name('settings.index');
 Route::post('settings/update', [SettingsController::class, 'settings_update'])->name('settings_update');

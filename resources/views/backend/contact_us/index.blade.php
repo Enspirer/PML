@@ -1,19 +1,18 @@
 @extends('backend.layouts.app')
 
-@section('title', __('Products'))
+@section('title', __('Contact Us'))
 
 @section('content')
-    
+
 
 <div class="row">
         <div class="col">
 
             <div class="card">
                 <div class="card-header">
-                    <strong>Post&nbsp;</strong>
+                    <strong>Contact Us</strong>
 
-                    <a href="{{route('admin.post.create')}}" class="btn btn-primary pull-right ml-4">Create New</a>
-                   
+                  
                 </div><!--card-header-->
 
                 <div class="card-body">
@@ -21,9 +20,8 @@
                         <thead>
                             <tr>
                                 <th scope="col">#ID</th>
-                                <th scope="col">Feature Image</th>
-                                <th scope="col">Title</th>
-                                <th scope="col">Order</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Email</th>
                                 <th scope="col">Status</th>
                                 <th scope="col">Option</th>
                             </tr>
@@ -72,14 +70,13 @@
         $(function () {
             var table = $('#villadatatable').DataTable({
                 processing: true,
-                ajax: "{{route('admin.post.getdetails')}}",
+                ajax: "{{route('admin.contact_us.getDetails')}}",
                 serverSide: true,
                 order: [[0, "desc"]],
                 columns: [
                     {data: 'id', name: 'id'},
-                    {data: 'feature_image', name: 'feature_image'},
-                    {data: 'title', name: 'title'},
-                    {data: 'order', name: 'order'},
+                    {data: 'name', name: 'name'},
+                    {data: 'email', name: 'email'},
                     {data: 'status', name: 'status'},
                     {data: 'action', name: 'action', orderable: false, searchable: false},
                 ]
@@ -95,7 +92,7 @@
 
             $('#ok_button').click(function(){
             $.ajax({
-            url:"post/delete/"+user_id,
+            url:"contact_us/delete/"+user_id,
             
             success:function(data)
             {

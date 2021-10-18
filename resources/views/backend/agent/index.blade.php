@@ -10,7 +10,7 @@
 
             <div class="card">
                 <div class="card-header">
-                    <strong>Agent</strong>
+                    <strong>Agents</strong>
 
                     <a href="{{route('admin.agent.create')}}" class="btn btn-primary pull-right ml-4">Create New</a>
                    
