@@ -117,6 +117,13 @@
                 </a>
             </li>
 
+            <li class="nav-item">
+                <a class="nav-link {{active_class(Route::is('admin/search'))}}" href="{{ route('admin.search.index') }}">
+                    <i class="nav-icon fas fa-search"></i>
+                    Search
+                </a>
+            </li>
+
             @if ($logged_in_user->isAdmin())
                 <li class="nav-title">
                     @lang('menus.backend.sidebar.system')

@@ -86,6 +86,10 @@ Breadcrumbs::for('admin.contact_us.edit', function ($trail) {
     $trail->push('Edit', route('admin.contact_us.edit',1));
 });
 
+Breadcrumbs::for('admin.search.index', function ($trail) {
+    $trail->push('Search', route('admin.search.index'));
+});
+
 Breadcrumbs::for('admin.settings.index', function ($trail) {
     $trail->push('General Settings', route('admin.settings.index'));
 });
