@@ -5,20 +5,20 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 
 /**
- * Class ForSaleController.
+ * Class LandsController.
  */
-class ForSaleController extends Controller
+class LandsController extends Controller
 {
     /**
      * @return \Illuminate\View\View
      */
     public function index()
     {
-        return view('frontend.for_sale');
+        return view('frontend.lands');
     }
 
     public function singleProperty()
     {
-        return view('frontend.for_sale_single');
+        return view('frontend.lands_single');
     }
 }

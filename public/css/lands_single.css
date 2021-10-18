@@ -1,0 +1,127 @@
+.apart-avail {
+    left: 1.5rem;
+    top: 1rem;
+    z-index: 1;
+}
+.apart-avail button {
+    font-size: 0.8rem;
+    background-color: rgb(255, 255, 255, 0.5);
+    padding: 0.3rem 0.8rem!important;
+    border-radius: 30px;
+    line-height: 15px;
+}
+.mySwiper2 {
+    height: 400px!important;
+}
+.mySwiper2 img {
+    object-fit: cover;
+    height: 400px;
+    width: 100%;
+}
+
+.mySwiper {
+    height: 400px!important;
+}
+.mySwiper img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}
+
+.prom-logo {
+    top: 8.5rem;
+    left: 1rem;
+}
+.tooltip.show {
+    opacity: 1;
+}
+  
+.tooltip-inner {
+background-color: #35495E;
+}
+
+.similar .apart-avail {
+    left: 1.5rem;
+    top: 0.2rem;
+}
+.similar .apart-avail button {
+    font-size: 0.6rem;
+    background-color: rgb(255, 255, 255, 0.5);
+    padding: 0.1rem 0.5rem!important;
+    border-radius: 30px;
+    line-height: 15px;
+}
+
+.swiper-button-next, .swiper-rtl .swiper-button-prev {
+    right: 5px!important;
+    background-color: rgb(255, 255, 255, 0.5);
+    padding: 20px;
+}
+.swiper-button-prev, .swiper-rtl .swiper-button-next {
+    left: 5px!important;
+    background-color: rgb(255, 255, 255, 0.5);
+    padding: 20px;
+}
+.swiper-button-next:after, .swiper-rtl .swiper-button-prev:after {
+    font-size: 1.3rem;
+    color: #000000;
+    font-weight: 800;
+}
+.swiper-button-prev:after, .swiper-rtl .swiper-button-next:after {
+    font-size: 1.3rem;
+    color: #000000;
+    font-weight: 800;
+}
+.find-out {
+    border: 1px solid #39B54A!important;
+    color: #39B54A;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    font-weight: 800;
+    padding: 0.4rem 1.2rem!important;
+    line-height: 19px;
+}
+
+.card-body {
+    padding: 0.9rem!important;
+}
+
+.features ::marker {
+    font-size: 1.8rem!important;
+}
+.features li {
+    font-size: 0.9rem;
+}
+
+
+.paragraph.collapse:not(.show) {
+    display: flex;
+    height: 6rem;
+    overflow: hidden;
+}
+
+.paragraph.collapsing {
+    height: 6rem;
+}
+
+.features a.collapsed::after {
+    content: 'See full description';
+}
+
+.features a:not(.collapsed)::after {
+    content: 'Hide description';
+}
+
+
+
+
+/* maps */
+.gm-style-iw-d {
+    overflow: hidden!important;
+}
+.gm-style-iw button {
+    display: none!important;
+}
+.gm-style .gm-style-iw-c {
+    padding: 8px!important;
+}

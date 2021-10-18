@@ -21,12 +21,13 @@ p {
     color: white!important;
 }
 .navbar-nav select {
-    width: 11%;
-    top: -3.5rem;
-    right: 0.5rem;
+    width: 15%;
+    top: -2.9rem;
+    right: 22.5rem;
     border-radius: 0!important;
     background-color: #16202C;
     color:white;
+    border: none;
 }
 .navbar-brand {
     bottom: 0rem;
@@ -41,7 +42,7 @@ p {
 }
 .log-reg {
     top: -3.5rem;
-    right: 12rem;
+    right: 0rem;
 }
 .log-reg .register {
     padding-top: 0.39rem;
