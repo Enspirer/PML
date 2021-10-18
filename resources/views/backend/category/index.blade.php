@@ -56,7 +56,10 @@
                             <label>Name <span class="text-danger">*</span></label>
                             <input type="text" class="form-control" name="name" required>
                         </div>
-
+                        <div class="form-group">
+                            <label>Description</label>
+                            <textarea class="form-control" name="description" rows="1"></textarea>
+                        </div>
                         <div class="form-group">
                             <label>Icon
                                 <span class="text-danger">*</span>
@@ -70,18 +73,11 @@
                             </div>
                             <div class="file-preview box sm">
                             </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label>Description</label>
-                            <textarea class="form-control" name="description" rows="1"></textarea>
-                        </div>
-
+                        </div>  
                         <div class="form-group">
                             <label>Order <span class="text-danger">*</span></label>
                             <input type="number" class="form-control" name="order" required>
                         </div>
-
                         <div class="form-group">
                             <label>Status <span class="text-danger">*</span></label>
                             <select class="form-control custom-select" name="status" required>

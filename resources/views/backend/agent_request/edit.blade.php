@@ -40,7 +40,7 @@
                                                 <table class="table table-hover table-borderless">
                                                     <tbody>
                                                         <tr>
-                                                            <td style="font-weight: 600;">Agent Type:</td>
+                                                            <td style="font-weight: 600; width: 50%">Agent Type:</td>
                                                             <td>{{ $agent_request->agent_type }}</td>
                                                         </tr>
                                                         @if($agent_request->agent_type == 'Individual')
@@ -53,38 +53,7 @@
                                                                 <td style="font-weight: 600;">Company Reg Number:</td>
                                                                 <td>{{ $agent_request->company_registration_number }}</td>
                                                             </tr>
-                                                        @endif                                                        
-                                                        <tr>
-                                                            <td style="font-weight: 600;">Email:</td>
-                                                            <td>{{ $agent_request->email }}</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td style="font-weight: 600;">Request:</td>
-                                                            <td>{{ $agent_request->request }}</td>
-                                                        </tr>
-                                                        <!-- <tr>
-                                                            <td style="font-weight: 600;">Description</td>
-                                                            <td>{{ $agent_request->description_message }}</td>
-                                                        </tr> -->
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                            
-                                            <div class="col-6 pe-0">
-                                                <table class="table table-hover table-borderless">
-                                                    <tbody>
-                                                        <tr>
-                                                            <td style="font-weight: 600;">Tax Number:</td>
-                                                            <td>{{ $agent_request->tax_number }}</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td style="font-weight: 600;">Telephone:</td>
-                                                            <td>{{ $agent_request->telephone }}</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td style="font-weight: 600;">Address:</td>
-                                                            <td>{{ $agent_request->address }}</td>
-                                                        </tr>
+                                                        @endif   
                                                         <tr>
                                                             <td style="font-weight: 600;">Validation:</td>
                                                             <td>{{ $agent_request->validation_type }}</td>
@@ -107,17 +76,41 @@
                                                         <tr>
                                                             @if($agent_request->validation_type == 'NIC')
                                                                 <td style="font-weight: 600;">NIC Photo:</td>
-                                                                <td><img src="{{url('files/agent_request/',$agent_request->nic_photo)}}" style="width: 40%;" alt="" ></td>
-                                                            
+                                                                <td><img src="{{ uploaded_asset($agent_request->nic_photo) }}" style="width: 40%;" alt="" ></td>                                                            
                                                             @elseif($agent_request->validation_type == 'Passport')
                                                                 <td style="font-weight: 600;">Passport Photo:</td>
-                                                                <td> <img src="{{url('files/agent_request/',$agent_request->passport_photo)}}" style="width: 40%;" alt="" ></td>
-
+                                                                <td> <img src="{{ uploaded_asset($agent_request->passport_photo) }}" style="width: 40%;" alt="" ></td>
                                                             @else                        
                                                                 <td style="font-weight: 600;">License Photo:</td>
-                                                                <td><img src="{{url('files/agent_request/',$agent_request->license_photo)}}" style="width: 40%;" alt="" ></td>
-                                                                
+                                                                <td><img src="{{ uploaded_asset($agent_request->license_photo) }}" style="width: 40%;" alt="" ></td>                                                                
                                                             @endif
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            
+                                            <div class="col-6 pe-0">
+                                                <table class="table table-hover table-borderless">
+                                                    <tbody>                                                     
+                                                        <tr>
+                                                            <td style="font-weight: 600;">Email:</td>
+                                                            <td>{{ $agent_request->email }}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="font-weight: 600;">Telephone:</td>
+                                                            <td>{{ $agent_request->telephone }}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="font-weight: 600;">Address:</td>
+                                                            <td>{{ $agent_request->address }}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="font-weight: 600;">Tax Number:</td>
+                                                            <td>{{ $agent_request->tax_number }}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="font-weight: 600;">Request:</td>
+                                                            <td>{{ $agent_request->request }}</td>
                                                         </tr>
                                                     </tbody>
                                                 </table>
@@ -145,7 +138,7 @@
                     <div class="card-body">
                         <div class="" style="border-style: ridge;border-width: 3px;padding: 20px;">
                             <div class="form-group">
-                                <label>Status</label>
+                                <label>Status <span class="text-danger">*</span></label>
                                 <select class="form-control" name="status" required>
                                     <option value="Approved" {{ $agent_request->status == 'Approved' ? "selected" : "" }}>Approve</option>   
                                     <option value="Disapproved" {{ $agent_request->status == 'Disapproved' ? "selected" : "" }}>Disapprove</option> 

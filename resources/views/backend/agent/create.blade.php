@@ -22,15 +22,20 @@
                         <div class="row">
                             <div class="col-6">
                                 <div>
-                                    <label for="city" class="form-label mb-2 mt-4 required">City <span class="text-danger">*</span></label>
-                                    <input type="text" class="form-control" name="city" required>
-                                </div>                                 
-                            </div>
-                            <div class="col-6">
-                                <div>
                                     <label class="form-label mb-2 mt-4 required">Email <span class="text-danger">*</span></label>
                                     <input type="email" class="form-control" name="email" required>
                                 </div>  
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label class="form-label mb-2 mt-4">Country <span class="text-danger">*</span></label>
+                                    <select class="form-control custom-select" name="country" required>
+                                        <option value="" selected disabled>Select...</option>
+                                        @foreach($countries as $country)
+                                            <option value="{{$country->id}}">{{$country->country_name}}</option>  
+                                        @endforeach
+                                    </select>
+                                </div>
                             </div>
                         </div>
                         <div class="row">
@@ -43,18 +48,24 @@
                                         <option value="Company">Company</option>
                                     </select>
                                 </div>  
-                            </div>                           
+                            </div>                              
+                            <div class="col-6">
+                                <div>
+                                    <label for="city" class="form-label mb-2 mt-4 required">City <span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" name="city" required>
+                                </div>                                 
+                            </div>                         
                         </div> 
                         <div class="row">
                             <div class="col-6 company_name d-none">
                                 <div>
-                                    <label class="form-label mb-2 mt-4 required">Company Name</label>
+                                    <label class="form-label mb-2 mt-4 required">Company Name <span class="text-danger">*</span></label>
                                     <input type="text" class="form-control" name="company_name">
                                 </div> 
                             </div>  
                             <div class="col-6 company_reg_no d-none">
                                 <div>
-                                    <label class="form-label mb-2 mt-4 required">Company Registration Number</label>
+                                    <label class="form-label mb-2 mt-4 required">Company Registration Number <span class="text-danger">*</span></label>
                                     <input type="text" class="form-control" name="company_reg_no">
                                 </div>  
                             </div>
@@ -91,7 +102,7 @@
                             <div class="col-6">
                                 <div>
                                     <label class="form-label mb-2 mt-4">Tax Number <span class="text-danger">*</span></label>
-                                    <input type="text" class="form-control" name="tax">
+                                    <input type="text" class="form-control" name="tax" required>
                                 </div>
                             </div>
                         </div>
@@ -117,15 +128,15 @@
                             <div class="col-6">  
                                     
                                 <div id="divFrmNIC" class="form-group form-validate-div" style="display:none">
-                                    <label class="form-label mb-2 mt-4 required">NIC</label>
+                                    <label class="form-label mb-2 mt-4 required">NIC <span class="text-danger">*</span></label>
                                     <input type="text" class="form-control" id="nic" name="nic" placeholder="NIC Number" > 
                                 </div>
                                 <div id="divFrmPassport" class="form-group form-validate-div" style="display:none">
-                                    <label class="form-label mb-2 mt-4 required">Passport</label>
+                                    <label class="form-label mb-2 mt-4 required">Passport <span class="text-danger">*</span></label>
                                     <input type="text" class="form-control" id="passport" name="passport" placeholder="Passport Number" > 
                                  </div>
                                 <div id="divFrmLicense" class="form-group form-validate-div" style="display:none">
-                                    <label class="form-label mb-2 mt-4 required">License</label>
+                                    <label class="form-label mb-2 mt-4 required">License <span class="text-danger">*</span></label>
                                     <input type="text" class="form-control" id="license" name="license" placeholder="License Number" > 
                                 </div>
                             </div>
@@ -220,7 +231,7 @@
                 <div class="card-body">
                     <div class="" style="border-style: ridge;border-width: 3px;padding: 20px;">
                         <div class="form-group">
-                            <label>Admin Approval</label>
+                            <label>Admin Approval <span class="text-danger">*</span></label>
                             <select class="form-control" name="admin_approval" required>
                                 <option value="Approved">Approve</option>   
                                 <option value="Disapproved">Disapprove</option> 

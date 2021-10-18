@@ -37,7 +37,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-12">
+                            <div class="col-6">
                                 <div>
                                     <label for="price" class="form-label mb-2 mt-3">Price <span class="text-danger">*</span></label>
                                     <input type="number" class="form-control" name="price" id="price" aria-describedby="price" value="{{ $property->price }}" required placeholder="$">
@@ -45,6 +45,17 @@
                                         Please enter property price in US currency
                                     </div>
                                 </div>  
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label class="form-label mb-2 mt-3">Country <span class="text-danger">*</span></label>
+                                    <select class="form-control custom-select" name="country" required>
+                                        <option value="" selected disabled>Select...</option>
+                                        @foreach($countries as $country)
+                                            <option value="{{$country->id}}" {{ $country->id == $property->country ? "selected" : "" }}>{{$country->country_name}}</option>  
+                                        @endforeach
+                                    </select>
+                                </div>
                             </div>
                         </div>
                         <div class="row">
@@ -146,7 +157,7 @@
                 <div class="card-body">
                     <div class="" style="border-style: ridge;border-width: 3px;padding: 20px;">
                         <div class="form-group">
-                            <label>Admin Approval</label>
+                            <label>Admin Approval <span class="text-danger">*</span></label>
                             <select class="form-control" name="admin_approval" required>
                                 <option value="Approved" {{ $property->admin_approval == 'Approved' ? "selected" : "" }}>Approve</option>   
                                 <option value="Disapproved" {{ $property->admin_approval == 'Disapproved' ? "selected" : "" }}>Disapprove</option> 

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use DataTables;
 use DB;
 use App\Models\Properties;
+use App\Models\Country;
 use App\Models\PropertyType;
 
 class PropertyController extends Controller
@@ -20,9 +21,11 @@ class PropertyController extends Controller
     public function create()
     {
         $property_type = PropertyType::where('status',1)->get();
+        $countries = Country::where('status',1)->get();
 
         return view('backend.property.create',[
-            'property_type' => $property_type
+            'property_type' => $property_type,
+            'countries' => $countries
         ]);
     }
 
@@ -83,6 +86,7 @@ class PropertyController extends Controller
         $addprop->description=$request->description;  
         $addprop->price=$request->price;
         $addprop->main_category=$request->category; 
+        $addprop->country=$request->country; 
         $addprop->city=$request->city;
         $addprop->feature_image_id=$request->feature_image;
         $addprop->image_ids=$request->multiple_images;
@@ -132,15 +136,15 @@ class PropertyController extends Controller
     public function edit($id)
     {
         $property = Properties::where('id',$id)->first();
-
         $property_type = PropertyType::where('status',1)->get();
-        // $property_type = PropertyType::where('id', $property->property_type)->first();
+        $countries = Country::where('status',1)->get();
         
         // dd($property_type);              
 
         return view('backend.property.edit', [
             'property' => $property,
-            'property_type' => $property_type     
+            'property_type' => $property_type,
+            'countries' => $countries  
         ]);  
     }
 
@@ -167,6 +171,7 @@ class PropertyController extends Controller
         $update->price=$request->price;
         $update->main_category=$request->category; 
         $update->city=$request->city;
+        $update->country=$request->country;
         $update->feature_image_id=$request->feature_image;
         $update->image_ids=$request->multiple_images;
         $update->meta_description=$request->meta_description;        

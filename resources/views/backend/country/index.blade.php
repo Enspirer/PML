@@ -1,6 +1,6 @@
 @extends('backend.layouts.app')
 
-@section('title', __('Products'))
+@section('title', __('Country'))
 
 @section('content')
     
@@ -10,9 +10,9 @@
 
             <div class="card">
                 <div class="card-header">
-                    <strong>Post&nbsp;</strong>
+                    <strong>Country&nbsp;</strong>
 
-                    <a href="{{route('admin.post.create')}}" class="btn btn-primary pull-right ml-4">Create New</a>
+                    <a href="{{route('admin.country.create')}}" class="btn btn-primary pull-right ml-4">Create New</a>
                    
                 </div><!--card-header-->
 
@@ -21,9 +21,8 @@
                         <thead>
                             <tr>
                                 <th scope="col">#ID</th>
-                                <th scope="col">Feature Image</th>
-                                <th scope="col">Title</th>
-                                <th scope="col">Order</th>
+                                <th scope="col">Country Name</th>
+                                <th scope="col">Currency</th>
                                 <th scope="col">Status</th>
                                 <th scope="col">Option</th>
                             </tr>
@@ -72,14 +71,13 @@
         $(function () {
             var table = $('#villadatatable').DataTable({
                 processing: true,
-                ajax: "{{route('admin.post.getdetails')}}",
+                ajax: "{{route('admin.country.getdetails')}}",
                 serverSide: true,
                 order: [[0, "desc"]],
                 columns: [
                     {data: 'id', name: 'id'},
-                    {data: 'feature_image', name: 'feature_image'},
-                    {data: 'title', name: 'title'},
-                    {data: 'order', name: 'order'},
+                    {data: 'country_name', name: 'country_name'},
+                    {data: 'currency', name: 'currency'},
                     {data: 'status', name: 'status'},
                     {data: 'action', name: 'action', orderable: false, searchable: false},
                 ]
@@ -95,7 +93,7 @@
 
             $('#ok_button').click(function(){
             $.ajax({
-            url:"post/delete/"+user_id,
+            url:"country/delete/"+user_id,
             
             success:function(data)
             {

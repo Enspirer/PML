@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use DataTables;
 use DB;
+use App\Models\Country;
 use App\Models\AgentRequest;
 
 class AgentRequestController extends Controller
@@ -18,16 +19,39 @@ class AgentRequestController extends Controller
 
     public function agent_create()
     {
-        return view('backend.agent.create');
+        $countries = Country::where('status',1)->get();
+
+        return view('backend.agent.create',[
+            'countries' => $countries
+        ]);
     }
 
     public function agent_store(Request $request)
     {        
-
         // dd($request);
 
+        if($request->photo == null){
+            return back()->withErrors('Please Add Agent Photo');
+        }
+
+        if($request->validate == 'NIC'){
+            if($request->nic_photo == null){
+                return back()->withErrors('Please Add NIC Photo');
+            }
+        }
+        if($request->validate == 'Passport'){
+            if($request->passport_photo == null){
+                return back()->withErrors('Please Add Passport Photo');
+            }
+        }if($request->validate == 'License'){
+            if($request->license_photo == null){
+                return back()->withErrors('Please Add License Photo');
+            }
+        }
+      
         $addagent = new AgentRequest;
 
+        $addagent->country=$request->country; 
         $addagent->city=$request->city; 
         $addagent->name=$request->name;   
         $addagent->email=$request->email;     
@@ -71,7 +95,7 @@ class AgentRequestController extends Controller
     {
         if($request->ajax())
         {
-            $data = AgentRequest::get();
+            $data = AgentRequest::where('status','!=','Pending')->get();
             return DataTables::of($data)
             
                     ->addColumn('action', function($data){
@@ -101,11 +125,13 @@ class AgentRequestController extends Controller
     public function agent_edit($id)
     {
         $agent_request = AgentRequest::where('id',$id)->first();
+        $countries = Country::where('status',1)->get();
         
         // dd($agent_request);              
 
         return view('backend.agent.edit',[
-            'agent_request' => $agent_request         
+            'agent_request' => $agent_request,
+            'countries' => $countries         
         ]);  
     }
 
@@ -114,8 +140,28 @@ class AgentRequestController extends Controller
 
         // dd($request);
 
+        if($request->photo == null){
+            return back()->withErrors('Please Add Agent Photo');
+        }
+
+        if($request->validate == 'NIC'){
+            if($request->nic_photo == null){
+                return back()->withErrors('Please Add NIC Photo');
+            }
+        }
+        if($request->validate == 'Passport'){
+            if($request->passport_photo == null){
+                return back()->withErrors('Please Add Passport Photo');
+            }
+        }if($request->validate == 'License'){
+            if($request->license_photo == null){
+                return back()->withErrors('Please Add License Photo');
+            }
+        }
+
         $update = new AgentRequest;
 
+        $update->country=$request->country; 
         $update->city=$request->city; 
         $update->name=$request->name;   
         $update->email=$request->email;     
