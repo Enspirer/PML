@@ -148,7 +148,6 @@
     </div>
 
 
-
     <div class="properties" style="margin-top: 3rem;">
         <div class="container">
             <!-- <div class="row justify-content-between align-items-center">
@@ -340,7 +339,7 @@
     </div>
 
 
-    <div class="container social" style="margin-top: 5rem; margin-bottom: 5rem;">
+    <div class="container social" style="margin-top: 5rem; margin-bottom: 3rem;">
         <div class="row justify-content-center align-items-center mb-5">
             <div class="col-1 text-center">
                 <a href="#" target="_blank"><i class="fab fa-facebook-square"></i></a>

@@ -4,6 +4,8 @@ use App\Http\Controllers\Frontend\ContactController;
 use App\Http\Controllers\Frontend\AizUploadController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\ForSaleController;
+use App\Http\Controllers\Frontend\NewDevelopmentController;
+use App\Http\Controllers\Frontend\LandsController;
 
 
 use App\Http\Controllers\Frontend\User\AccountController;
@@ -27,6 +29,10 @@ Route::get('uploads/all/{file_name}',[AizUploadController::class,'get_image_cont
 
 
 Route::get('for-sale', [ForSaleController::class, 'index'])->name('for_sale');
+Route::get('for-sale/single-property', [ForSaleController::class, 'singleProperty'])->name('for_sale_single');
+Route::get('lands', [LandsController::class, 'index'])->name('lands');
+Route::get('lands/single-property', [LandsController::class, 'singleProperty'])->name('lands_single');
+Route::get('new-development', [NewDevelopmentController::class, 'index'])->name('new_development');
 
 /*
  * These frontend controllers require the user to be logged in

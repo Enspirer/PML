@@ -73,5 +73,12 @@ background-color: #35495E;
 }
 
 .featured_properties .card:hover {
-    border: 1px solid black;;
+    border: 1px solid black;
 }
+
+
+.search-bar select {
+    font-size: 0.9rem;
+}
+
+

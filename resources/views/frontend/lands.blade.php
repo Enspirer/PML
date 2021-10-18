@@ -3,14 +3,14 @@
 @section('title', app_name() . ' | ' . __('navs.general.home'))
 
 @push('after-styles')
-    <link href="{{ url('css/for_sale.css') }}" rel="stylesheet">
+    <link href="{{ url('css/lands.css') }}" rel="stylesheet">
 @endpush
 
 @section('content')
     <div class="container index" style="margin-top: 9rem;">
         <div class="row">
             <div class="col-12">
-                <p><a href="" class="text-decoration-none text-dark fw-bold">Property Market Live</a> > <a href="" class="text-decoration-none text-dark fw-bold">For Sale</a> > <a href="" class="text-decoration-none text-dark fw-bold">Sri Lanka Rent</a></p>
+                <p><a href="" class="text-decoration-none text-dark fw-bold">Property Market Live</a> > <a href="" class="text-decoration-none text-dark fw-bold">Lands</a> > <a href="" class="text-decoration-none text-dark fw-bold">Lands for Sale in Sri Lanka</a></p>
             </div>
         </div>
     </div>
@@ -19,7 +19,7 @@
         <div class="row" style="margin-bottom: 3rem;">
             <div class="col-9">
                 
-                <h3>Property for sale in <span class="fw-bold">Sri Lanka</span></h3>
+                <h3>Lands for sale in <span class="fw-bold">Sri Lanka</span></h3>
                     
                 <div class="row align-items-center">
                     <div class="col-6">
@@ -49,43 +49,59 @@
                     </div>
                 </div>
 
-                <div class="row mt-4 align-items-center">
-                    <div class="col-2">
-                        <button class="btn bg-white border px-3">All Rooms</button>
+                
+                <div class="swiper mySwiper mt-4 category-slide">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide text-center">
+                            <button class="btn bg-white border px-3 w-75">All Land</button>
+                        </div>
+                        <div class="swiper-slide text-center">
+                            <button class="btn bg-white border px-3 w-75">Beachfront Land</button>
+                        </div>
+                        <div class="swiper-slide text-center">
+                            <button class="btn bg-white border px-3 w-75">Coconut Land</button>
+                        </div>
+                        <div class="swiper-slide text-center">
+                            <button class="btn bg-white border px-3 w-75">Cultivated Land</button>
+                        </div>
+                        <div class="swiper-slide text-center">
+                            <button class="btn bg-white border px-3 w-75">TeaPlant Land</button>
+                        </div>
+                        <div class="swiper-slide text-center">
+                            <button class="btn bg-white border px-3 w-75">Beach Land</button>
+                        </div>
+                        <div class="swiper-slide text-center">
+                            <button class="btn bg-white border px-3 w-75">TeaPlant Land</button>
+                        </div>
+                        <div class="swiper-slide text-center">
+                            <button class="btn bg-white border px-3 w-75">Cultivated Land</button>
+                        </div>
+                        <div class="swiper-slide text-center">
+                            <button class="btn bg-white border px-3 w-75">Coconut Land</button>
+                        </div>
                     </div>
-                    <div class="col-2">
-                        <button class="btn bg-white border px-3">1 bedroom</button>
-                    </div>
-                    <div class="col-2">
-                        <button class="btn bg-white border px-3">2 bedrooms</button>
-                    </div>
-                    <div class="col-2">
-                        <button class="btn bg-white border px-3">3 bedrooms</button>
-                    </div>
-                    <div class="col-2">
-                        <button class="btn bg-white border px-3">4 bedrooms</button>
-                    </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
                 </div>
 
                 <div class="row mt-5 featured_properties">
                     <div class="col-4">
                         <div class="card custom-shadow position-relative">
-                            <a href="{{ route('frontend.for_sale_single') }}" class="text-decoration-none text-dark">
-                                <img src="{{ url('img/frontend/for_sale/1.png') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
-                                <div class="card-body mt-2">
+                            <a href="{{ route('frontend.lands_single') }}" class="text-decoration-none text-dark">
+                                <img src="{{ url('img/frontend/new_development/1.png') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
+                                <div class="card-body mt-3">
                                     <div class="row mb-2">
                                         <div class="col-10">
-                                            <h5 class="fw-bold">$450, 000</h5>
+                                            <h5 class="fw-bold">Rs. 120,000 <span class="fw-normal" style="font-size: 0.9rem; color: rgb(0, 0, 0, 0.45)">Per Perch</span></h5>
                                         </div>
                                         <div class="col-1">
                                             <button class="fas fa-heart border-0" style="color: #F60331; background-color: white;"></button>
                                         </div>
                                     </div>
                                     
-                                    <p>4 Bed Semidetached house</p>
-                                    <p>541, Rosewood place,</p>
-                                    <p class="mb-1">Colombo, Sri Lanka</p>
-                                    <p>3<i class="fas fa-bed ms-2 me-3"></i> 5<i class="fas fa-bath ms-2"></i></p>
+                                    <h6 class="fw-bold">Commercial Land for Sale</h6>
+                                    <p class="mb-2 text-dark">541,  Rosewood place, Colombo, Sri Lanka</p>
+                                    <p class="mb-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis incidunt ut aspernatur, nam magni cum nemo at a beatae tempora!</p>
                                 </div>
 
                                 <div class="position-absolute apart-avail">
@@ -110,102 +126,104 @@
 
                     <div class="col-4">
                         <div class="card custom-shadow position-relative">
-                            <img src="{{ url('img/frontend/for_sale/1.png') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
-                            <div class="card-body mt-2">
-                                <div class="row mb-2">
-                                    <div class="col-10">
-                                        <h5 class="fw-bold">$450, 000</h5>
+                            <a href="{{ route('frontend.for_sale_single') }}" class="text-decoration-none text-dark">
+                                <img src="{{ url('img/frontend/new_development/2.png') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
+                                <div class="card-body mt-3">
+                                    <div class="row mb-2">
+                                        <div class="col-10">
+                                            <h5 class="fw-bold">Rs. 120,000 <span class="fw-normal" style="font-size: 0.9rem; color: rgb(0, 0, 0, 0.45)">Per Perch</span></h5>
+                                        </div>
+                                        <div class="col-1">
+                                            <button class="far fa-heart border-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Add to favorite" style="color: #F60331; background-color: white;"></button>
+                                        </div>
                                     </div>
-                                    <div class="col-1">
-                                        <button class="far fa-heart border-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Add to favorite" style="color: #F60331; background-color: white;"></button>
+                                    
+                                    <h6 class="fw-bold">Commercial Land for Sale</h6>
+                                    <p class="mb-2 text-dark">541,  Rosewood place, Colombo, Sri Lanka</p>
+                                    <p class="mb-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis incidunt ut aspernatur, nam magni cum nemo at a beatae tempora!</p>
+                                </div>
+
+                                <div class="position-absolute apart-avail">
+                                    <button class="btn fw-bold me-3">APARTMENT</button>
+                                    <button class="btn fw-bold" style="color: #39B54A">AVAILABLE</button>
+                                </div>
+
+
+                                <div class="row align-items-center prom-logo position-absolute">
+                                    <div class="col-6">
+                                        <div class="py-1 ps-3" style="background-color: #FF0000;">
+                                            <p class="text-white" style="font-size: 0.7rem;"><img src="{{ url('img/frontend/for_sale/promoted.png') }}" alt="">FEATURED</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 text-end">
+                                        <img src="{{ url('img/frontend/for_sale/almond.png') }}" alt="">
                                     </div>
                                 </div>
-                                
-                                <p>4 Bed Semidetached house</p>
-                                <p>541, Rosewood place,</p>
-                                <p class="mb-1">Colombo, Sri Lanka</p>
-                                <p>3<i class="fas fa-bed ms-2 me-3"></i> 5<i class="fas fa-bath ms-2"></i></p>
-                            </div>
-
-                            <div class="position-absolute apart-avail">
-                                <button class="btn fw-bold me-3">APARTMENT</button>
-                                <button class="btn fw-bold" style="color: #39B54A">AVAILABLE</button>
-                            </div>
-
-
-                            <div class="row align-items-center prom-logo position-absolute">
-                                <div class="col-6">
-                                    <div class="py-1 ps-3" style="background-color: #FF0000;">
-                                        <p class="text-white" style="font-size: 0.7rem;"><img src="{{ url('img/frontend/for_sale/promoted.png') }}" alt="">PROMOTED</p>
-                                    </div>
-                                </div>
-                                <div class="col-6 text-end">
-                                    <img src="{{ url('img/frontend/for_sale/almond.png') }}" alt="">
-                                </div>
-                            </div>
+                            </a>
                         </div>
                     </div>
 
                     <div class="col-4">
                         <div class="card custom-shadow position-relative">
-                            <img src="{{ url('img/frontend/for_sale/1.png') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
-                            <div class="card-body mt-2">
-                                <div class="row mb-2">
-                                    <div class="col-10">
-                                        <h5 class="fw-bold">$450, 000</h5>
+                            <a href="{{ route('frontend.for_sale_single') }}" class="text-decoration-none text-dark">
+                                <img src="{{ url('img/frontend/new_development/3.png') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
+                                <div class="card-body mt-3">
+                                    <div class="row mb-2">
+                                        <div class="col-10">
+                                            <h5 class="fw-bold">Rs. 120,000 <span class="fw-normal" style="font-size: 0.9rem; color: rgb(0, 0, 0, 0.45)">Per Perch</span></h5>
+                                        </div>
+                                        <div class="col-1">
+                                            <button class="fas fa-heart border-0" style="color: #F60331; background-color: white;"></button>
+                                        </div>
                                     </div>
-                                    <div class="col-1">
-                                        <button class="fas fa-heart border-0" style="color: #F60331; background-color: white;"></button>
+                                    
+                                    <h6 class="fw-bold">Commercial Land for Sale</h6>
+                                    <p class="mb-2 text-dark">541,  Rosewood place, Colombo, Sri Lanka</p>
+                                    <p class="mb-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis incidunt ut aspernatur, nam magni cum nemo at a beatae tempora!</p>
+                                </div>
+
+                                <div class="position-absolute apart-avail">
+                                    <button class="btn fw-bold me-3">APARTMENT</button>
+                                    <button class="btn fw-bold" style="color: #39B54A">AVAILABLE</button>
+                                </div>
+
+
+                                <div class="row align-items-center prom-logo position-absolute">
+                                    <div class="col-6">
+                                        <div class="py-1 ps-3" style="background-color: #FF0000;">
+                                            <p class="text-white" style="font-size: 0.7rem;"><img src="{{ url('img/frontend/for_sale/promoted.png') }}" alt="">FEATURED</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 text-end">
+                                        <img src="{{ url('img/frontend/for_sale/almond.png') }}" alt="">
                                     </div>
                                 </div>
-                                
-                                <p>4 Bed Semidetached house</p>
-                                <p>541, Rosewood place,</p>
-                                <p class="mb-1">Colombo, Sri Lanka</p>
-                                <p>3<i class="fas fa-bed ms-2 me-3"></i> 5<i class="fas fa-bath ms-2"></i></p>
-                            </div>
-
-                            <div class="position-absolute apart-avail">
-                                <button class="btn fw-bold me-3">APARTMENT</button>
-                                <button class="btn fw-bold" style="color: #39B54A">AVAILABLE</button>
-                            </div>
-
-
-                            <div class="row align-items-center prom-logo position-absolute">
-                                <div class="col-6">
-                                    <div class="py-1 ps-3" style="background-color: #FF0000;">
-                                        <p class="text-white" style="font-size: 0.7rem;"><img src="{{ url('img/frontend/for_sale/promoted.png') }}" alt="">PROMOTED</p>
-                                    </div>
-                                </div>
-                                <div class="col-6 text-end">
-                                    <img src="{{ url('img/frontend/for_sale/almond.png') }}" alt="">
-                                </div>
-                            </div>
+                            </a>
                         </div>
                     </div>
                 </div>
 
 
-                <div class="row" style="margin-top: 5rem;">
+                <div class="row land-properties" style="margin-top: 5rem;">
                     <div class="col-12">
                         <div class="row custom-shadow mb-4 mx-1">
                             <div class="col-6 p-3">
                                 <div class="swiper mySwiper2" id="swiper_1">
                                     <div class="swiper-wrapper">
                                         <div class="swiper-slide">
-                                            <img src="{{ url('img/frontend/for_sale/1.png') }}"/>
+                                            <img src="{{ url('img/frontend/new_development/8.png') }}"/>
                                         </div>
                                         <div class="swiper-slide">
-                                            <img src="{{ url('img/frontend/for_sale/2.png') }}" />
+                                            <img src="{{ url('img/frontend/new_development/7.png') }}" />
                                         </div>
                                         <div class="swiper-slide">
-                                            <img src="{{ url('img/frontend/for_sale/3.png') }}" />
+                                            <img src="{{ url('img/frontend/new_development/6.png') }}" />
                                         </div>
                                         <div class="swiper-slide">
-                                            <img src="{{ url('img/frontend/for_sale/4.png') }}" />
+                                            <img src="{{ url('img/frontend/new_development/5.png') }}" />
                                         </div>
                                         <div class="swiper-slide">
-                                            <img src="{{ url('img/frontend/for_sale/5.png') }}" />
+                                            <img src="{{ url('img/frontend/new_development/4.png') }}" />
                                         </div>
                                     </div>
                                     <div class="swiper-button-next"></div>
@@ -219,26 +237,26 @@
                                 <div thumbsSlider="" class="swiper mySwiper mt-2" id="swiper_small_1">
                                     <div class="swiper-wrapper">
                                         <div class="swiper-slide">
-                                            <img src="{{ url('img/frontend/for_sale/1.png') }}"/>
+                                            <img src="{{ url('img/frontend/new_development/8.png') }}"/>
                                         </div>
                                         <div class="swiper-slide">
-                                            <img src="{{ url('img/frontend/for_sale/2.png') }}" />
+                                            <img src="{{ url('img/frontend/new_development/7.png') }}" />
                                         </div>
                                         <div class="swiper-slide">
-                                            <img src="{{ url('img/frontend/for_sale/3.png') }}" />
+                                            <img src="{{ url('img/frontend/new_development/6.png') }}" />
                                         </div>
                                         <div class="swiper-slide">
-                                            <img src="{{ url('img/frontend/for_sale/4.png') }}" />
+                                            <img src="{{ url('img/frontend/new_development/5.png') }}" />
                                         </div>
                                         <div class="swiper-slide">
-                                            <img src="{{ url('img/frontend/for_sale/5.png') }}" />
+                                            <img src="{{ url('img/frontend/new_development/4.png') }}" />
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="col-6 p-3">
-                                <div class="row align-items-center mb-4 pt-4">
+                                <div class="row align-items-center mb-4 pt-2">
                                     <div class="col-6">
                                         <div class="py-1 w-75 text-center" style="background-color: #FF0000;">
                                             <p class="text-white">Premium Listing</p>
@@ -251,19 +269,18 @@
 
                                 <div class="row">
                                     <div class="col-12">
-                                        <div class="row mb-3">
+                                        <div class="row mb-2">
                                             <div class="col-10">
-                                                <h3 class="fw-bold">$450, 000</h3>
+                                                <h3 class="fw-bold">Rs. 120,000 <span class="fw-normal" style="font-size: 1rem; color: rgb(0, 0, 0, 0.45)">Per Perch</span></h3>
                                             </div>
                                             <!-- <div class="col-1">
                                                 <button class="fas fa-heart border-0" style="color: #F60331; background-color: white;"></button>
                                             </div> -->
                                         </div>
 
-                                        <p class="mb-3" style="font-size: 1rem;">3<i class="fas fa-bed ms-2 me-3"></i> 5<i class="fas fa-bath ms-2"></i></p>
-
-                                        <p style="font-size: 1.3rem; color: black">3 Bed flat for sale</p>
-                                        <p style="font-size: 1rem;">541, Rosewood place, Colombo, Sri Lanka</p>
+                                        <p class="mb-2" style="font-size: 1.3rem; color: black">Commercial Land for Sale</p>
+                                        <p class="mb-2" style="font-size: 1rem; color: black">541, Rosewood place, Colombo, Sri Lanka</p>
+                                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni voluptatum quae ipsam, fugit quos ut nobis eum minus laudantium eaque adipisci.</p>
 
                                         <div class="mt-4">
                                             <p class="mb-3 fs-6"><i class="fas fa-phone-alt me-3"></i></i>+94 77 700 9990</p>
@@ -277,24 +294,24 @@
                             </div>
                         </div>
 
-                        <div class="row custom-shadow mx-1">
+                        <div class="row custom-shadow mb-4 mx-1">
                             <div class="col-6 p-3">
                                 <div class="swiper mySwiper2" id="swiper_2">
                                     <div class="swiper-wrapper">
                                         <div class="swiper-slide">
-                                            <img src="{{ url('img/frontend/for_sale/6.png') }}"/>
+                                            <img src="{{ url('img/frontend/new_development/1.png') }}"/>
                                         </div>
                                         <div class="swiper-slide">
-                                            <img src="{{ url('img/frontend/for_sale/7.png') }}" />
+                                            <img src="{{ url('img/frontend/new_development/2.png') }}" />
                                         </div>
                                         <div class="swiper-slide">
-                                            <img src="{{ url('img/frontend/for_sale/1.png') }}" />
+                                            <img src="{{ url('img/frontend/new_development/3.png') }}" />
                                         </div>
                                         <div class="swiper-slide">
-                                            <img src="{{ url('img/frontend/for_sale/2.png') }}" />
+                                            <img src="{{ url('img/frontend/new_development/4.png') }}" />
                                         </div>
                                         <div class="swiper-slide">
-                                            <img src="{{ url('img/frontend/for_sale/3.png') }}" />
+                                            <img src="{{ url('img/frontend/new_development/5.png') }}" />
                                         </div>
                                     </div>
                                     <div class="swiper-button-next"></div>
@@ -308,26 +325,26 @@
                                 <div thumbsSlider="" class="swiper mySwiper mt-2" id="swiper_small_2">
                                     <div class="swiper-wrapper">
                                         <div class="swiper-slide">
-                                            <img src="{{ url('img/frontend/for_sale/6.png') }}"/>
+                                            <img src="{{ url('img/frontend/new_development/1.png') }}"/>
                                         </div>
                                         <div class="swiper-slide">
-                                            <img src="{{ url('img/frontend/for_sale/7.png') }}" />
+                                            <img src="{{ url('img/frontend/new_development/2.png') }}" />
                                         </div>
                                         <div class="swiper-slide">
-                                            <img src="{{ url('img/frontend/for_sale/1.png') }}" />
+                                            <img src="{{ url('img/frontend/new_development/3.png') }}" />
                                         </div>
                                         <div class="swiper-slide">
-                                            <img src="{{ url('img/frontend/for_sale/2.png') }}" />
+                                            <img src="{{ url('img/frontend/new_development/4.png') }}" />
                                         </div>
                                         <div class="swiper-slide">
-                                            <img src="{{ url('img/frontend/for_sale/3.png') }}" />
+                                            <img src="{{ url('img/frontend/new_development/5.png') }}" />
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="col-6 p-3">
-                                <div class="row align-items-center mb-4 pt-4">
+                                <div class="row align-items-center mb-4 pt-2">
                                     <div class="col-6">
                                         <div class="py-1 w-75 text-center" style="background-color: #FF0000;">
                                             <p class="text-white">Premium Listing</p>
@@ -340,16 +357,18 @@
 
                                 <div class="row">
                                     <div class="col-12">
-                                        <div class="row mb-3">
+                                        <div class="row mb-2">
                                             <div class="col-10">
-                                                <h3 class="fw-bold">$450, 000</h3>
+                                                <h3 class="fw-bold">Rs. 120,000 <span class="fw-normal" style="font-size: 1rem; color: rgb(0, 0, 0, 0.45)">Per Perch</span></h3>
                                             </div>
+                                            <!-- <div class="col-1">
+                                                <button class="fas fa-heart border-0" style="color: #F60331; background-color: white;"></button>
+                                            </div> -->
                                         </div>
 
-                                        <p class="mb-3" style="font-size: 1rem;">3<i class="fas fa-bed ms-2 me-3"></i> 5<i class="fas fa-bath ms-2"></i></p>
-
-                                        <p style="font-size: 1.3rem; color: black">3 Bed flat for sale</p>
-                                        <p style="font-size: 1rem;">541, Rosewood place, Colombo, Sri Lanka</p>
+                                        <p class="mb-2" style="font-size: 1.3rem; color: black">Commercial Land for Sale</p>
+                                        <p class="mb-2" style="font-size: 1rem; color: black">541, Rosewood place, Colombo, Sri Lanka</p>
+                                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni voluptatum quae ipsam, fugit quos ut nobis eum minus laudantium eaque adipisci.</p>
 
                                         <div class="mt-4">
                                             <p class="mb-3 fs-6"><i class="fas fa-phone-alt me-3"></i></i>+94 77 700 9990</p>
@@ -425,6 +444,16 @@
 @endsection
 
 @push('after-scripts')
+
+    <script>
+      var swiper = new Swiper(".category-slide", {
+        slidesPerView: 4,
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      });
+    </script>
 
     <script>
       var swiper = new Swiper("#swiper_small_1", {
