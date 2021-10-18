@@ -11,6 +11,7 @@ use App\Http\Controllers\Backend\PropertyTypeController;
 use App\Http\Controllers\Backend\AgentRequestController;
 use App\Http\Controllers\Backend\CountryController;
 use App\Http\Controllers\Backend\ContactUsController;
+use App\Http\Controllers\Backend\SearchController;
 
 // All route names are prefixed with 'admin.'.
 Route::redirect('/', '/admin/dashboard', 301);
@@ -84,6 +85,10 @@ Route::get('contact_us/edit/{id}', [ContactUsController::class, 'edit'])->name('
 Route::post('contact_us/update', [ContactUsController::class, 'update'])->name('contact_us.update');
 Route::get('contact_us/delete/{id}', [ContactUsController::class, 'destroy'])->name('contact_us.destroy');
 
+Route::get('search', [SearchController::class, 'index'])->name('search.index');
+Route::get('search/getdetails', [SearchController::class, 'getdetails'])->name('search.getdetails');
+Route::get('search/show/{id}', [SearchController::class, 'show'])->name('search.show');
+Route::get('search/delete/{id}', [SearchController::class, 'destroy'])->name('search.destroy');
 
 Route::get('settings', [SettingsController::class, 'index'])->name('settings.index');
 Route::post('settings/update', [SettingsController::class, 'settings_update'])->name('settings_update');
