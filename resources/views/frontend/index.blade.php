@@ -48,7 +48,6 @@
 
                     <div class="col-12 mb-3" style="padding-right: 8px;">
                         <h5 class="fw-bold" style="font-size: 1.15rem;">08 common interview questions and answers - Job Interview Skills</h5>
-                        <button type="submit" class="btn text-white rounded-0" style="background-color : #35495E;"><i class="fas fa-search"></i></button>
 
                         <div class="row mt-2">
                             <div class="col-5">
@@ -60,7 +59,8 @@
                                         <p style="font-size: 0.8rem">Jun 29, 2014</p>
                                     </div>
                                 </div>
-                        <button type="button" class="btn text-white rounded-0 border-start" style="background-color : #35495E;">Filter<img src="{{ url('img/frontend/index/filter.png') }}" alt="" class="ms-3" style="height: 1rem;"></button>
+                            </div>
+                        </div>
                     </div>
                 </form>
 
@@ -419,7 +419,7 @@
                         <p class="card-text mb-1" style="font-size: 0.8rem;">We're giving away 100,000,000 $Shib to 5 random people (20,000,000 each)Money bag RocketFollow Me! Gem stoneRetweet and Like. Open handsComment #SHIBARMY  ⚠followers only giveaway⚠ #BTC  #ETH #Giveaway #ADA</p>
                         
                         <div class="row justify-content-between mt-3 align-items-center">
-                            <div class="col-5">
+                            <div class="col-7">
                                 <p style="color: #55ACEE; font-size: 0.8rem">7 minutes ago</p>
                             </div>
                             <div class="col-5 text-end">
@@ -438,7 +438,7 @@
                         <p class="card-text mb-1" style="font-size: 0.8rem;">We're giving away 100,000,000 $Shib to 5 random people (20,000,000 each)Money bag RocketFollow Me! Gem stoneRetweet and Like. Open handsComment #SHIBARMY  ⚠followers only giveaway⚠ #BTC  #ETH #Giveaway #ADA</p>
                         
                         <div class="row justify-content-between mt-3 align-items-center">
-                            <div class="col-5">
+                            <div class="col-7">
                                 <p style="color: #55ACEE; font-size: 0.8rem">7 minutes ago</p>
                             </div>
                             <div class="col-5 text-end">
@@ -457,7 +457,7 @@
                         <p class="card-text mb-1" style="overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 5; /* number of lines to show */-webkit-box-orient: vertical;height: 115px; font-size: 0.8rem;">We're giving away 100,000,000 $Shib to 5 random people (20,000,000 each)Money bag RocketFollow Me! Gem stoneRetweet and Like. Open handsComment #SHIBARMY  ⚠followers only giveaway⚠ #BTC  #ETH #Giveaway #ADA</p>
                         
                         <div class="row justify-content-between mt-3 align-items-center">
-                            <div class="col-5">
+                            <div class="col-7">
                                 <p style="color: #55ACEE; font-size: 0.8rem">7 minutes ago</p>
                             </div>
                             <div class="col-5 text-end">
@@ -475,7 +475,7 @@
                         <p class="card-text mb-1" style="overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 5; /* number of lines to show */-webkit-box-orient: vertical;height: 115px; font-size: 0.8rem;">We're giving away 100,000,000 $Shib to 5 random people (20,000,000 each)Money bag RocketFollow Me! Gem stoneRetweet and Like. Open handsComment #SHIBARMY  ⚠followers only giveaway⚠ #BTC  #ETH #Giveaway #ADA</p>
 
                         <div class="row justify-content-between mt-3 align-items-center">
-                            <div class="col-5">
+                            <div class="col-7">
                                 <p style="color: #55ACEE; font-size: 0.8rem">7 minutes ago</p>
                             </div>
                             <div class="col-5 text-end">

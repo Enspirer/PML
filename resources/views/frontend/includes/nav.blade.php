@@ -46,7 +46,7 @@
                 </div>
             </div>
 
-            <select name="" id="" class="position-absolute me-3" style="right: 21rem;">
+            <select name="" id="" class="position-absolute me-3" style="right: 20rem; top: -3rem">
                 <option value="">Select Your Country</option>
             </select>
         @else
