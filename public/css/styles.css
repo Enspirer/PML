@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 * {
-    font-family: 'Josefin Sans', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6, p {
@@ -19,6 +19,7 @@ p {
 }
 .navbar-nav a {
     color: white!important;
+    font-size: 0.9rem;
 }
 .navbar-nav select {
     width: 15%;
@@ -32,6 +33,26 @@ p {
 .navbar-brand {
     bottom: 0rem;
 }
+
+.navbar .dropdown-menu {
+    min-width: 10rem!important;
+    left: 10.5rem;
+    top: 3.5rem;
+    border-top: 5px solid #39B54A;
+    background-color: #FFFFFF;
+    padding-bottom: 0!important;
+}
+
+.navbar .dropdown-menu .dropdown-item {
+    border-bottom: 1px solid #707070;
+    color: black!important;
+    padding: 0.5rem 1rem!important;
+}
+
+.navbar .dropdown-menu .dropdown-item:hover {
+    background-color: #E3EDEF;
+}
+
 .logo {
     height: 4.5rem;
 }

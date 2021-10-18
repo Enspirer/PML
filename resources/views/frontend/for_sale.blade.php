@@ -19,7 +19,7 @@
         <div class="row" style="margin-bottom: 3rem;">
             <div class="col-9">
                 
-                <h3>Property for sale in <span class="fw-bold">Sri Lanka</span></h3>
+                <h4>Property for sale in <span class="fw-bold">Sri Lanka</span></h4>
                     
                 <div class="row align-items-center">
                     <div class="col-6">
@@ -49,7 +49,7 @@
                     </div>
                 </div>
 
-                <div class="row mt-4 align-items-center">
+                <div class="row mt-4 align-items-center btn-filters">
                     <div class="col-2">
                         <button class="btn bg-white border px-3">All Rooms</button>
                     </div>
@@ -82,7 +82,7 @@
                                         </div>
                                     </div>
                                     
-                                    <p>4 Bed Semidetached house</p>
+                                    <h6 class="fw-bold mb-2">4 Bed Semidetached house</h6>
                                     <p>541, Rosewood place,</p>
                                     <p class="mb-1">Colombo, Sri Lanka</p>
                                     <p>3<i class="fas fa-bed ms-2 me-3"></i> 5<i class="fas fa-bath ms-2"></i></p>
@@ -121,7 +121,7 @@
                                     </div>
                                 </div>
                                 
-                                <p>4 Bed Semidetached house</p>
+                                <h6 class="fw-bold mb-2">4 Bed Semidetached house</h6>
                                 <p>541, Rosewood place,</p>
                                 <p class="mb-1">Colombo, Sri Lanka</p>
                                 <p>3<i class="fas fa-bed ms-2 me-3"></i> 5<i class="fas fa-bath ms-2"></i></p>
@@ -159,7 +159,7 @@
                                     </div>
                                 </div>
                                 
-                                <p>4 Bed Semidetached house</p>
+                                <h6 class="fw-bold mb-2">4 Bed Semidetached house</h6>
                                 <p>541, Rosewood place,</p>
                                 <p class="mb-1">Colombo, Sri Lanka</p>
                                 <p>3<i class="fas fa-bed ms-2 me-3"></i> 5<i class="fas fa-bath ms-2"></i></p>
@@ -253,7 +253,7 @@
                                     <div class="col-12">
                                         <div class="row mb-3">
                                             <div class="col-10">
-                                                <h3 class="fw-bold">$450, 000</h3>
+                                                <h4 class="fw-bold">$450, 000</h4>
                                             </div>
                                             <!-- <div class="col-1">
                                                 <button class="fas fa-heart border-0" style="color: #F60331; background-color: white;"></button>
@@ -262,15 +262,15 @@
 
                                         <p class="mb-3" style="font-size: 1rem;">3<i class="fas fa-bed ms-2 me-3"></i> 5<i class="fas fa-bath ms-2"></i></p>
 
-                                        <p style="font-size: 1.3rem; color: black">3 Bed flat for sale</p>
+                                        <p class="fw-bold mb-2" style="font-size: 1.1rem; color: black">3 Bed flat for sale</p>
                                         <p style="font-size: 1rem;">541, Rosewood place, Colombo, Sri Lanka</p>
 
                                         <div class="mt-4">
-                                            <p class="mb-3 fs-6"><i class="fas fa-phone-alt me-3"></i></i>+94 77 700 9990</p>
+                                            <p class="mb-3 fw-bold"><i class="fas fa-phone-alt me-3"></i></i>+94 77 700 9990</p>
 
-                                            <p class="mb-3 fs-6"><i class="fas fa-envelope me-3"></i>info@agentname.com</p>
+                                            <p class="mb-3 fw-bold"><i class="fas fa-envelope me-3"></i>info@agentname.com</p>
 
-                                            <p class="mb-3 fs-6"><i class="fas fa-heart me-3"></i>Save Property</p>
+                                            <p class="mb-3 fw-bold"><i class="fas fa-heart me-3"></i>Save Property</p>
                                         </div>
                                     </div>
                                 </div>
@@ -342,21 +342,21 @@
                                     <div class="col-12">
                                         <div class="row mb-3">
                                             <div class="col-10">
-                                                <h3 class="fw-bold">$450, 000</h3>
+                                                <h4 class="fw-bold">$450, 000</h4>
                                             </div>
                                         </div>
 
                                         <p class="mb-3" style="font-size: 1rem;">3<i class="fas fa-bed ms-2 me-3"></i> 5<i class="fas fa-bath ms-2"></i></p>
 
-                                        <p style="font-size: 1.3rem; color: black">3 Bed flat for sale</p>
+                                        <p class="fw-bold mb-2" style="font-size: 1.1rem; color: black">3 Bed flat for sale</p>
                                         <p style="font-size: 1rem;">541, Rosewood place, Colombo, Sri Lanka</p>
 
                                         <div class="mt-4">
-                                            <p class="mb-3 fs-6"><i class="fas fa-phone-alt me-3"></i></i>+94 77 700 9990</p>
+                                            <p class="mb-3 fw-bold"><i class="fas fa-phone-alt me-3"></i></i>+94 77 700 9990</p>
 
-                                            <p class="mb-3 fs-6"><i class="fas fa-envelope me-3"></i>info@agentname.com</p>
+                                            <p class="mb-3 fw-bold"><i class="fas fa-envelope me-3"></i>info@agentname.com</p>
 
-                                            <p class="mb-3 fs-6"><i class="fas fa-heart me-3"></i>Save Property</p>
+                                            <p class="mb-3 fw-bold"><i class="fas fa-heart me-3"></i>Save Property</p>
                                         </div>
                                     </div>
                                 </div>
@@ -371,7 +371,7 @@
                     <div class="col-12 text-center">
                         <a href="#" class="btn py-2 fw-bold text-white w-100 rounded-pill" style="border: 1.5px solid #707070; background-color: #35495E">
                             <div class="row justify-content-center">
-                                <div class="col-3 p-0">
+                                <div class="col-2 p-0">
                                     <i class="fas fa-envelope"></i>
                                 </div>
                                 <div class="col-7 p-0 text-start">
@@ -383,7 +383,7 @@
                     <div class="col-12 text-center mt-4">
                         <a href="" class="btn py-2 fw-bold w-100 rounded-pill" style="border: 1.5px solid #707070">
                             <div class="row justify-content-center">
-                                <div class="col-3 p-0">
+                                <div class="col-2 p-0">
                                     <i class="far fa-heart"></i>
                                 </div>
                                 <div class="col-7 p-0 text-start">

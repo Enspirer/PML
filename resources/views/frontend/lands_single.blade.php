@@ -73,11 +73,11 @@
 
                 <div class="row">
                     <div class="col-9">
-                        <h3 class="fw-bold mt-4">$450, 000 <span class="fw-normal" style="font-size: 1rem; color: rgb(0, 0, 0, 0.45)">Per Perch</span></h3>
+                        <h3 class="fw-bold mt-4 mb-1">$450, 000 <span class="fw-normal" style="font-size: 1rem; color: rgb(0, 0, 0, 0.45)">Per Perch</span></h3>
 
-                        <p style="font-size: 1.3rem; color: black">Commercial Land for Sale</p>
+                        <p class="fw-bold" style="font-size: 1.2rem; color: black">Commercial Land for Sale</p>
 
-                        <p style="font-size: 1rem;">541, Rosewood place, Colombo, Sri Lanka</p>
+                        <p class="mb-1" style="font-size: 1rem;">541, Rosewood place, Colombo, Sri Lanka</p>
                         
                     </div>
 
@@ -98,6 +98,14 @@
                         <hr>
                     </div>
                 </div>
+
+
+                <div class="row">
+                    <div class="col-12">
+                        <div id="map" style="height: 350px; width: 100%"></div>
+                    </div>
+                </div>
+
 
                 <div class="row mt-4">
                     <div class="col-12">
@@ -170,10 +178,10 @@
                                                 <div class="col-12 text-center mb-2">
                                                     <a href="#" class="btn py-2 fw-bold text-white w-100 rounded-pill" style="border: 1.5px solid #707070; background-color: #35495E">
                                                         <div class="row justify-content-center">
-                                                            <div class="col-3 p-0">
+                                                            <div class="col-2 p-0">
                                                                 <i class="fas fa-phone-alt"></i>
                                                             </div>
-                                                            <div class="col-7 p-0 text-start">
+                                                            <div class="col-7 p-0 text-start" style="font-size: 0.9rem;">
                                                                 +94 77 125 1542
                                                             </div>
                                                         </div>
@@ -182,10 +190,10 @@
                                                 <div class="col-12 text-center mb-2">
                                                     <a href="" class="btn py-2 fw-bold w-100 rounded-pill" style="border: 1.5px solid #707070">
                                                         <div class="row justify-content-center">
-                                                            <div class="col-3 p-0">
+                                                            <div class="col-2 p-0">
                                                                 <i class="fas fa-envelope"></i>
                                                             </div>
-                                                            <div class="col-7 p-0 text-start">
+                                                            <div class="col-7 p-0 text-start" style="font-size: 0.9rem;">
                                                                 Send email to agent
                                                             </div>
                                                         </div>
@@ -194,10 +202,10 @@
                                                 <div class="col-12 text-center mb-2">
                                                     <a href="" class="btn py-2 fw-bold w-100 rounded-pill" style="border: 1.5px solid #707070">
                                                         <div class="row justify-content-center">
-                                                            <div class="col-3 p-0">
+                                                            <div class="col-2 p-0">
                                                                 <i class="far fa-heart"></i>
                                                             </div>
-                                                            <div class="col-7 p-0 text-start">
+                                                            <div class="col-7 p-0 text-start" style="font-size: 0.9rem;">
                                                                 Save this Property
                                                             </div>
                                                         </div>
@@ -231,9 +239,9 @@
                                                 </div>
                                             </div>
                                             
-                                            <h6 class="fw-bold">Commercial Land for Sale</h6>
-                                            <p class="mb-2 text-dark">541,  Rosewood place, Colombo, Sri Lanka</p>
-                                            <p class="mb-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis incidunt ut aspernatur, nam magni cum nemo at a beatae tempora!</p>
+                                            <h6 class="fw-bold mb-2">Commercial Land for Sale</h6>
+                                            <p class="mb-2 text-dark">541, Rosewood place, Colombo, Sri Lanka</p>
+                                            <p class="mb-1" style="font-size: 0.8rem">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis incidunt ut aspernatur, nam magni cum nemo at a beatae tempora!</p>
                                         </div>
 
                                         <div class="position-absolute apart-avail">
@@ -270,9 +278,9 @@
                                                 </div>
                                             </div>
                                             
-                                            <h6 class="fw-bold">Commercial Land for Sale</h6>
-                                            <p class="mb-2 text-dark">541,  Rosewood place, Colombo, Sri Lanka</p>
-                                            <p class="mb-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis incidunt ut aspernatur, nam magni cum nemo at a beatae tempora!</p>
+                                            <h6 class="fw-bold mb-2">Commercial Land for Sale</h6>
+                                            <p class="mb-2 text-dark">541, Rosewood place, Colombo, Sri Lanka</p>
+                                            <p class="mb-1" style="font-size: 0.8rem">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis incidunt ut aspernatur, nam magni cum nemo at a beatae tempora!</p>
                                         </div>
 
                                         <div class="position-absolute apart-avail">
@@ -309,9 +317,9 @@
                                                 </div>
                                             </div>
                                             
-                                            <h6 class="fw-bold">Commercial Land for Sale</h6>
-                                            <p class="mb-2 text-dark">541,  Rosewood place, Colombo, Sri Lanka</p>
-                                            <p class="mb-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis incidunt ut aspernatur, nam magni cum nemo at a beatae tempora!</p>
+                                            <h6 class="fw-bold mb-2">Commercial Land for Sale</h6>
+                                            <p class="mb-2 text-dark">541, Rosewood place, Colombo, Sri Lanka</p>
+                                            <p class="mb-1" style="font-size: 0.8rem">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis incidunt ut aspernatur, nam magni cum nemo at a beatae tempora!</p>
                                         </div>
 
                                         <div class="position-absolute apart-avail">
@@ -339,7 +347,7 @@
 
                 <div class="row justify-content-end mt-3">
                     <div class="col-6 text-end">
-                        <a href="{{ route('frontend.for_sale') }}" class="text-decoration-underline fs-5 text-dark">See all residential properties to sell</a>
+                        <a href="{{ route('frontend.for_sale') }}" class="text-decoration-underline text-dark">See all residential properties to sell</a>
                     </div>
                 </div>
             </div>
@@ -347,10 +355,6 @@
                     
 
             <div class="col-3">
-                <div class="row justify-content-center mb-5">
-                    <div id="map" style="height: 546px; width: 100%"></div>
-                </div>
-
                 <div class="row">
                     <div class="col-12 p-0 mb-4 custom-shadow">
                         <div class="card">
@@ -424,13 +428,13 @@
             });
 
             let infoWindow = new google.maps.InfoWindow({
-                content:    `<div class="row align-items-center" style="height: 190px; width: 100%">
+                content:    `<div class="row align-items-center" style="height: 170px; width: 200px">
                                 <div class="col-12">
-                                    <img src="{{ url('img/frontend/for_sale/1.png') }}" alt="" class="img-fluid mb-3" style="height: 107px!important; object-fit: cover!important; border-radius: 13px;">
+                                    <img src="{{ url('img/frontend/new_development/1.png') }}" alt="" class="img-fluid w-100 mb-2" style="height: 98px!important; object-fit: cover!important; border-radius: 13px;">
                                 </div>
                                 <div class="col-12">
-                                    <h5 class="fw-bold mb-2" style="color: #39B54A">$450, 000</h5>
-                                    <p class="mb-2" style="font-size: 0.9rem;">541, Rosewood place, colombo, Sri Lanka</p>
+                                    <h5 class="fw-bold mb-1" style="color: #39B54A">$450, 000</h5>
+                                    <p class="mb-2" style="font-size: 0.8rem;">541, Rosewood place, colombo, Sri Lanka</p>
                                 </div>
                             </div>`
             });

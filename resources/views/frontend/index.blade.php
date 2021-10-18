@@ -7,8 +7,28 @@
 @endpush
 
 @section('content')
-    <div class="container index" style="margin-top: 9rem;">
-        <div class="row side-links">
+
+    <div class="container-fluid home-search" style="padding-top: 8.5rem; padding-bottom: 2rem; background-color: #e6e9eb">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-9">
+                    <form>
+                        <div class="input-group">
+                            <input type="text" name="search_keyword" class="form-control p-4 rounded-0" aria-label="search" data-bs-toggle="modal" data-bs-target="#exampleModal" placeholder="Search">
+
+                            <button type="submit" class="btn text-white rounded-0 px-4" style="background-color : #35495E;"><i class="fas fa-search"></i></button>
+
+                            <button type="button" class="btn text-white rounded-0 border-start" style="background-color : #35495E;">Filter<img src="{{ url('img/frontend/index/filter.png') }}" alt="" class="ms-3" style="height: 1rem;"></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container index" style="margin-top: 2rem;">
+        <div class="row">
 
             <div class="col-3 left">
                 <a class="btn link-btn w-100 mb-3"><img src="{{ url('img/frontend/index/location-pin.png') }}" alt="" class="me-3">Find a Land</a>
@@ -22,17 +42,7 @@
             </div>
 
             <div class="col-6 center">
-                <form>
-                    <div class="input-group">
-                        <input type="text" name="search_keyword" class="form-control p-3 rounded-0" aria-label="search" data-bs-toggle="modal" data-bs-target="#exampleModal" placeholder="Search">
-
-                        <button type="submit" class="btn text-white rounded-0" style="background-color : #35495E;"><i class="fas fa-search"></i></button>
-
-                        <button type="button" class="btn text-white rounded-0 border-start" style="background-color : #35495E;">Filter<img src="{{ url('img/frontend/index/filter.png') }}" alt="" class="ms-3" style="height: 1rem;"></button>
-                    </div>
-                </form>
-
-                <div class="row mt-3 scroll-box">
+                <div class="row scroll-box">
                     <div class="col-12 mb-3" style="padding-right: 8px;">
                         <img src="{{ url('img/frontend/index/blog.png') }}" alt="" class="img-fluid w-100" style="object-fit: cover; height: 20rem;">
                     </div>

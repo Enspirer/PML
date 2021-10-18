@@ -1,4 +1,4 @@
-.index .side-links a {
+.index .left a {
     color: #666666;
     font-weight: 600;
     text-align: left;
@@ -10,10 +10,14 @@
     box-shadow: 0px 0px 3px 1px rgba(0,0,0,0.75);
 }
 
+.home-search ::placeholder { /* Chrome/Opera/Safari */
+    font-size: 1rem;
+ }
+
 
 /* scroll */
 .center .scroll-box {
-    height: 508px;
+    height: 560px;
     overflow-y: scroll;
     overflow-x: hidden;
 }
@@ -50,11 +54,11 @@
 }
 .swiper-button-next:after, .swiper-rtl .swiper-button-prev:after {
     font-size: 2rem;
-    color: #f70332;
+    color: black;
     font-weight: 800;
 }
 .swiper-button-prev:after, .swiper-rtl .swiper-button-next:after {
     font-size: 2rem;
-    color: #f70332;
+    color: black;
     font-weight: 800;
 }

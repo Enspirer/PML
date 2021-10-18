@@ -10,7 +10,7 @@
     <div class="container index" style="margin-top: 9rem;">
         <div class="row">
             <div class="col-12">
-                <p><a href="" class="text-decoration-none text-dark fw-bold">Property Market Live</a> > <a href="" class="text-decoration-none text-dark fw-bold">New Development/a> > <a href="" class="text-decoration-none text-dark fw-bold">New Development in Sri Lanka</a></p>
+                <p><a href="" class="text-decoration-none text-dark fw-bold">Property Market Live</a> > <a href="" class="text-decoration-none text-dark fw-bold">New Development</a> > <a href="" class="text-decoration-none text-dark fw-bold">New Development in Sri Lanka</a></p>
             </div>
         </div>
     </div>
@@ -19,7 +19,7 @@
         <div class="row" style="margin-bottom: 3rem;">
             <div class="col-9">
                 
-                <h3>New Development in <span class="fw-bold">Sri Lanka</span></h3>
+                <h4>New Development in <span class="fw-bold">Sri Lanka</span></h4>
                     
                 <div class="row align-items-center">
                     <div class="col-6">
@@ -53,9 +53,9 @@
                                         </div>
                                     </div>
                                     
-                                    <h6 class="fw-bold">Commercial Land for Sale</h6>
+                                    <h6 class="fw-bold mb-2">Commercial Land for Sale</h6>
                                     <p class="mb-2 text-dark">541,  Rosewood place, Colombo, Sri Lanka</p>
-                                    <p class="mb-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis incidunt ut aspernatur, nam magni cum nemo at a beatae tempora!</p>
+                                    <p class="mb-1" style="font-size: 0.8rem">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis incidunt ut aspernatur, nam magni cum nemo at a beatae tempora!</p>
                                 </div>
 
                                 <div class="position-absolute apart-avail">
@@ -92,9 +92,9 @@
                                         </div>
                                     </div>
                                     
-                                    <h6 class="fw-bold">Commercial Land for Sale</h6>
+                                    <h6 class="fw-bold mb-2">Commercial Land for Sale</h6>
                                     <p class="mb-2 text-dark">541,  Rosewood place, Colombo, Sri Lanka</p>
-                                    <p class="mb-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis incidunt ut aspernatur, nam magni cum nemo at a beatae tempora!</p>
+                                    <p class="mb-1" style="font-size: 0.8rem">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis incidunt ut aspernatur, nam magni cum nemo at a beatae tempora!</p>
                                 </div>
 
                                 <div class="position-absolute apart-avail">
@@ -131,9 +131,9 @@
                                         </div>
                                     </div>
                                     
-                                    <h6 class="fw-bold">Commercial Land for Sale</h6>
+                                    <h6 class="fw-bold mb-2">Commercial Land for Sale</h6>
                                     <p class="mb-2 text-dark">541,  Rosewood place, Colombo, Sri Lanka</p>
-                                    <p class="mb-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis incidunt ut aspernatur, nam magni cum nemo at a beatae tempora!</p>
+                                    <p class="mb-1" style="font-size: 0.8rem">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis incidunt ut aspernatur, nam magni cum nemo at a beatae tempora!</p>
                                 </div>
 
                                 <div class="position-absolute apart-avail">
@@ -393,23 +393,23 @@
                                     <div class="col-12">
                                         <div class="row mb-2">
                                             <div class="col-10">
-                                                <h3 class="fw-bold">Altezza Residencies</h3>
+                                                <h4 class="fw-bold">Altezza Residencies</h4>
                                             </div>
                                             <!-- <div class="col-1">
                                                 <button class="fas fa-heart border-0" style="color: #F60331; background-color: white;"></button>
                                             </div> -->
                                         </div>
 
-                                        <p class="mb-2" style="font-size: 1.3rem; color: black">24M upwards</p>
+                                        <p class="mb-2 fw-bold" style="font-size: 1.1rem; color: black">24M upwards</p>
                                         <p class="mb-2" style="font-size: 1rem; color: black">541, Rosewood place, Colombo, Sri Lanka</p>
                                         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni voluptatum quae ipsam, fugit quos ut nobis eum minus laudantium eaque adipisci.</p>
 
                                         <div class="mt-4">
-                                            <p class="mb-3 fs-6"><i class="fas fa-phone-alt me-3"></i></i>+94 77 700 9990</p>
+                                            <p class="mb-3 fw-bold"><i class="fas fa-phone-alt me-3"></i></i>+94 77 700 9990</p>
 
-                                            <p class="mb-3 fs-6"><i class="fas fa-envelope me-3"></i>info@agentname.com</p>
+                                            <p class="mb-3 fw-bold"><i class="fas fa-envelope me-3"></i>info@agentname.com</p>
 
-                                            <p class="mb-3 fs-6"><i class="fas fa-heart me-3"></i>Save Property</p>
+                                            <p class="mb-3 fw-bold"><i class="fas fa-heart me-3"></i>Save Property</p>
                                         </div>
                                     </div>
                                 </div>
@@ -481,23 +481,23 @@
                                     <div class="col-12">
                                         <div class="row mb-2">
                                             <div class="col-10">
-                                                <h3 class="fw-bold">Altezza Residencies</h3>
+                                                <h4 class="fw-bold">Altezza Residencies</h4>
                                             </div>
                                             <!-- <div class="col-1">
                                                 <button class="fas fa-heart border-0" style="color: #F60331; background-color: white;"></button>
                                             </div> -->
                                         </div>
 
-                                        <p class="mb-2" style="font-size: 1.3rem; color: black">24M upwards</p>
+                                        <p class="mb-2 fw-bold" style="font-size: 1.1rem; color: black">24M upwards</p>
                                         <p class="mb-2" style="font-size: 1rem; color: black">541, Rosewood place, Colombo, Sri Lanka</p>
                                         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni voluptatum quae ipsam, fugit quos ut nobis eum minus laudantium eaque adipisci.</p>
 
                                         <div class="mt-4">
-                                            <p class="mb-3 fs-6"><i class="fas fa-phone-alt me-3"></i></i>+94 77 700 9990</p>
+                                            <p class="mb-3 fw-bold"><i class="fas fa-phone-alt me-3"></i></i>+94 77 700 9990</p>
 
-                                            <p class="mb-3 fs-6"><i class="fas fa-envelope me-3"></i>info@agentname.com</p>
+                                            <p class="mb-3 fw-bold"><i class="fas fa-envelope me-3"></i>info@agentname.com</p>
 
-                                            <p class="mb-3 fs-6"><i class="fas fa-heart me-3"></i>Save Property</p>
+                                            <p class="mb-3 fw-bold"><i class="fas fa-heart me-3"></i>Save Property</p>
                                         </div>
                                     </div>
                                 </div>
@@ -512,7 +512,7 @@
                     <div class="col-12 text-center">
                         <a href="#" class="btn py-2 fw-bold text-white w-100 rounded-pill" style="border: 1.5px solid #707070; background-color: #35495E">
                             <div class="row justify-content-center">
-                                <div class="col-3 p-0">
+                                <div class="col-2 p-0">
                                     <i class="fas fa-envelope"></i>
                                 </div>
                                 <div class="col-7 p-0 text-start">
@@ -524,7 +524,7 @@
                     <div class="col-12 text-center mt-4">
                         <a href="" class="btn py-2 fw-bold w-100 rounded-pill" style="border: 1.5px solid #707070">
                             <div class="row justify-content-center">
-                                <div class="col-3 p-0">
+                                <div class="col-2 p-0">
                                     <i class="far fa-heart"></i>
                                 </div>
                                 <div class="col-7 p-0 text-start">

@@ -79,32 +79,34 @@ background-color: #35495E;
     border: 1px solid black;;
 }
 
-
+.category-slide button {
+    font-size: 0.9rem;
+}
 .category-slide .swiper-button-next, .category-slide .swiper-rtl .swiper-button-prev {
     right: 0px!important;
     background-color: rgb(255, 255, 255, 0.5);
     background: #39B54A;
     border-radius: 60px;
-    width: 29px;
-    height: 30px;
-    top: 65%;
+    width: 22px;
+    height: 22px;
+    top: 70%;
 }
 .category-slide .swiper-button-prev, .category-slide .swiper-rtl .swiper-button-next {
     left: 0px!important;
     background-color: rgb(255, 255, 255, 0.5);
     background: #39B54A;
     border-radius: 60px;
-    width: 29px;
-    height: 30px;
-    top: 65%;
+    width: 22px;
+    height: 22px;
+    top: 70%;
 }
 .category-slide .swiper-button-next:after, .category-slide .swiper-rtl .swiper-button-prev:after {
-    font-size: 1.1rem;
+    font-size: 0.7rem;
     color: #ffffff;
     font-weight: 800;
 }
 .category-slide .swiper-button-prev:after, .swiper-rtl .swiper-button-next:after {
-    font-size: 1.1rem;
+    font-size: 0.7rem;
     color: #ffffff;
     font-weight: 800;
 }
