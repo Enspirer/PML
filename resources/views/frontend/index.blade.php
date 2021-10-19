@@ -37,36 +37,43 @@
                 @if($latest_post != null)
                     <div class="row mt-3 scroll-box">
                         @if($latest_post->type != 'youtube')
-                            <div class="col-12 mb-3" style="padding-right: 8px;">
-                                <img src="{{ uploaded_asset($latest_post->feature_image) }}" alt="" class="img-fluid w-100 main-image" style="object-fit: cover; height: 20rem;">
-                            </div>
+                            <div id="article_panel">
+                                <div class="col-12 mb-3" style="padding-right: 8px;">
+                                    <img src="{{ uploaded_asset($latest_post->feature_image) }}" alt="" class="img-fluid w-100 main-image" style="object-fit: cover; height: 20rem;">
+                                </div>
 
-                            <div class="col-12 mb-3" style="padding-right: 8px;">
-                                <h5 class="fw-bold title"  style="font-size: 1.15rem;">{{$latest_post->title}}</h5>                               
-                            </div>                            
+                                <div class="col-12 mb-3" style="padding-right: 8px;">
+                                    <h5 class="fw-bold title"  style="font-size: 1.15rem;">{{$latest_post->title}}</h5>
+                                </div>
 
-                            <div class="col-12 description" style="padding-right: 8px;">
-                                <p>{!! $latest_post->article !!}</p>
+                                <div class="col-12 description" style="padding-right: 8px;">
+                                    <p>{!! $latest_post->article !!}</p>
+                                </div>
                             </div>
+                           
 
                         @else
 
-                        <input type="hidden" value="{{ preg_match("#(?<=v=)[a-zA-Z0-9-]+(?=&)|(?<=v\/)[^&\n]+|(?<=v=)[^&\n]+|(?<=youtu.be/)[^&\n]+#", $latest_post->youtube, $defaultmatch) }}" />
-                            
-                            <div id="ytb" youtubeid="{{$defaultmatch[0]}}"></div>
+                            <div id="video_panel">
+                                <input type="hidden" value="{{ preg_match("#(?<=v=)[a-zA-Z0-9-]+(?=&)|(?<=v\/)[^&\n]+|(?<=v=)[^&\n]+|(?<=youtu.be/)[^&\n]+#", $latest_post->youtube, $defaultmatch) }}" />
 
-                            <div class="col-12 mb-3" style="padding-right: 8px;">
-                                <iframe style="height:330px" class="img-fluid w-100 main-image" id="youtube_player" src="https://www.youtube.com/embed/{{ $defaultmatch[0] }}?rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+                                <div id="ytb" youtubeid="{{$defaultmatch[0]}}"></div>
+
+                                <div class="col-12 mb-3" style="padding-right: 8px;">
+                                    <iframe style="height:330px" class="img-fluid w-100 main-image" id="youtube_player" src="https://www.youtube.com/embed/{{ $defaultmatch[0] }}?rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
                                 <!-- <img src="{{ uploaded_asset($latest_post->feature_image) }}" alt="" class="img-fluid w-100 main-image" style="object-fit: cover; height: 20rem;"> -->
+                                </div>
+
+                                <div class="col-12 mb-3" style="padding-right: 8px;">
+                                    <h5 class="fw-bold title"  style="font-size: 1.15rem;">{{$latest_post->title}}</h5>
+                                </div>
+
+                                <div class="col-12 description" style="padding-right: 8px;">
+                                    <p>{!! $latest_post->description !!}</p>
+                                </div>
                             </div>
 
-                            <div class="col-12 mb-3" style="padding-right: 8px;">
-                                <h5 class="fw-bold title"  style="font-size: 1.15rem;">{{$latest_post->title}}</h5>
-                            </div>
-                            
-                            <div class="col-12 description" style="padding-right: 8px;">
-                                <p>{!! $latest_post->description !!}</p>
-                            </div>                            
+                                
                     
                         @endif
                     </div>
@@ -480,23 +487,18 @@
 
   <!--product image change-->
     <script>
-      $(document).ready(function(){
 
-            $('.right img').on('click',function(){
-                let image = $(this).attr('src');
-                $(".main-image").attr("src", image);
-
-                let title = $(this).parent().siblings().find('h6').text();
-                $(".title").text(title);
-
-                let description = $(this).parent().siblings().find('p').text();
-                $(".description").text(description);
-            });
-      });
 
       function getVideoContect(youtubeid){
-            $("#youtube_player").attr("src", youtubeid);
+            $("#youtube_player").attr("src", 'https://www.youtube.com/embed/' + youtubeid);
+            $("#article_panel").hide();
+            $('#video_panel').show();
             // alert(youtubeid);
+      }
+      
+      function getArticleContent(id) {
+          $("#article_panel").show();
+          $('#video_panel').hide();
       }
 
     </script>
