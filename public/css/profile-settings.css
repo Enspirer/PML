@@ -1,0 +1,141 @@
+.nav-pills .nav-item {
+    margin-right: 1rem;
+}
+.nav-pills .nav-link {
+    border: 2px solid #35495E!important;
+    border-radius: 0;
+    color: #35495E;
+}
+.nav-pills .nav-link.active {
+    background-color: #35495E;
+}
+.profile-settings a p {
+    font-size: 1rem!important;
+    display: inline-block!important;
+    border-bottom: 2px solid transparent;
+}
+.profile-settings a img {
+    margin-right: 1rem;
+    height: 1.5rem;
+}
+.profile-settings .active p {
+    border-bottom: 2px solid #39B54A;
+}
+.profile-settings .nav-link:hover p{
+    border-bottom: 2px solid #39B54A!important;
+}
+
+.sections {
+    border-radius: 1rem;
+    -webkit-box-shadow: 0px 0px 4px -1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 4px -1px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 4px -1px rgba(0,0,0,0.75);
+}
+
+/* scroll */
+.right {
+    height: 688px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+.right::-webkit-scrollbar {
+    width: 8px;
+    border: 1px solid #35495E;
+}
+.right::-webkit-scrollbar-track {
+    border-radius: 0;
+    background: white;
+}
+.right::-webkit-scrollbar-thumb {
+    border-radius: 0;
+    background: #35495E;
+}
+
+
+.sections .form-control, .sections .form-select {
+    background-color: transparent;
+    border-radius: 0;
+    border: none;
+    border-bottom: 1px solid #35495E;
+}
+.sections h5 {
+    color: #35495E;
+}
+.sections .form-label {
+    color: #35495E!important;
+    font-weight: 700;
+}
+
+
+
+
+
+
+
+.user-settings label {
+    font-size: 0.9rem;
+}
+
+
+.form-check .form-check-input {
+    margin-left: -1.0rem!important;
+    margin-right: 1rem;
+}
+/* .fa, .fas {
+    font-weight: 900;
+    color: white;
+    text-align: center;
+    background-color: #23A1C0;
+    padding: 0.75rem;
+    border-radius: 50px;
+} */
+
+.account-dashboard-cards {
+    border: 3px solid #94ca60;
+    display: inline-block;
+    border-radius: 80px;
+    color: #ff8000;
+    padding: 1rem!important;
+}
+
+
+.select2-container .select2-selection--single {
+    height: 45px;
+    width: 500px;
+}
+
+.btn-close {
+    width: 0.4em;
+    height: 0.3em;
+    position: relative;
+    top: -0.85rem;
+}
+
+.table-head {
+    color: #8898aa;
+    border-color: #e9ecef;
+    background-color: #f6f9fc;
+    font-size: 0.85rem;
+}
+
+.table-data {
+    font-size: 0.95rem;
+}
+
+.table-btn {
+    padding: .100rem .50rem;
+}
+
+.pen-dis {
+    filter: grayscale(100%);
+}
+
+.advertisement .fa, .advertisement .fas {
+    color: #4195E1;
+    background-color: white!important;
+    padding: 0 0.75rem;
+}
+
+.ad-hide {
+    display: block!important;
+}
