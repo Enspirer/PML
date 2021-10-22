@@ -62,3 +62,8 @@
     color: black;
     font-weight: 800;
 }
+
+
+.right .article .paragraph p {
+    font-size: 0.8rem;
+}

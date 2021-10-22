@@ -20,15 +20,26 @@ p {
 .navbar-nav a {
     color: white!important;
     font-size: 0.9rem;
+    border-bottom: 2px solid transparent;
+}
+.navbar-nav a:hover {
+    border-bottom: 2px solid red!important;
+}
+.navbar-nav a.active {
+    border-bottom: 2px solid red!important;
+}
+.navbar-nav .nav-item {
+    z-index: 1;
 }
 .navbar-nav select {
     width: 15%;
-    top: -3.2rem;
-    right: 22rem;
+    top: -2.9rem;
+    right: 20rem;
     border-radius: 0!important;
     background-color: #16202C;
     color:white;
     border: none;
+    font-size: 0.9rem;
 }
 .navbar-brand {
     bottom: 0rem;
@@ -72,6 +83,21 @@ p {
 
 ::placeholder { /* Chrome/Opera/Safari */
    font-size: 0.8rem;
+}
+.input-group-text {
+    display: flex;
+    align-items: center;
+    /* padding: .375rem .75rem; */
+    margin-bottom: 0;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    text-align: center;
+    white-space: nowrap;
+    background-color: #e9ecef;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
 }
 
 
