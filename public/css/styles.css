@@ -31,10 +31,10 @@ p {
 .navbar-nav .nav-item {
     z-index: 1;
 }
-.navbar-nav select {
+.navbar select {
     width: 15%;
-    top: -2.9rem;
-    right: 20rem;
+    top: -3.1rem;
+    right: 22rem;
     border-radius: 0!important;
     background-color: #16202C;
     color:white;
@@ -75,6 +75,13 @@ p {
 .log-reg {
     top: -3.5rem;
     right: 0rem;
+}
+.log-reg a, .log-reg select {
+    color: white;
+    font-size: 0.9rem;
+}
+.log-reg a:hover {
+    color: white!important;
 }
 .log-reg .register {
     padding-top: 0.39rem;
