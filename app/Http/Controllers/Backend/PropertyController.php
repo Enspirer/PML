@@ -46,7 +46,23 @@ class PropertyController extends Controller
                         $img = '<img src="'.uploaded_asset($data->feature_image_id).'" style="width: 60%">';
                      
                         return $img;
-                    })                    
+                    })   
+                    ->addColumn('promoted', function($data){
+                        if($data->promoted == 'Enabled'){
+                            $status = '<span class="badge badge-success">Promoted</span>';
+                        }else{
+                            $status = '<span class="badge badge-warning">Disabled</span>';
+                        }   
+                        return $status;
+                    })
+                    ->addColumn('premium', function($data){
+                        if($data->premium == 'Enabled'){
+                            $status = '<span class="badge badge-success">Premium</span>';
+                        }else{
+                            $status = '<span class="badge badge-warning">Disabled</span>';
+                        }   
+                        return $status;
+                    })                 
                     ->addColumn('admin_approval', function($data){
                         if($data->admin_approval == 'Approved'){
                             $status = '<span class="badge badge-success">Approved</span>';
@@ -58,7 +74,7 @@ class PropertyController extends Controller
                         return $status;
                     })
                     
-                    ->rawColumns(['action','admin_approval','feature_image'])
+                    ->rawColumns(['action','admin_approval','feature_image','promoted','premium'])
                     ->make(true);
         }
         return back();
@@ -94,6 +110,8 @@ class PropertyController extends Controller
         $addprop->slug=$request->slug;        
         $addprop->transaction_type=$request->transaction_type;
         $addprop->admin_approval=$request->admin_approval;
+        $addprop->promoted=$request->promoted;
+        $addprop->premium=$request->premium;
         $addprop->user_id = auth()->user()->id;
 
         if($request->land_size){
@@ -178,6 +196,8 @@ class PropertyController extends Controller
         $update->slug=$request->slug;        
         $update->transaction_type=$request->transaction_type;
         $update->admin_approval=$request->admin_approval;
+        $update->promoted=$request->promoted;
+        $update->premium=$request->premium;
         $update->user_id = auth()->user()->id;
 
         if($request->land_size){

@@ -1,8 +1,8 @@
 <?php
 
 namespace App\Http\Controllers\Frontend;
-
 use App\Http\Controllers\Controller;
+use App\Models\Properties;
 
 /**
  * Class ForSaleController.
@@ -14,7 +14,24 @@ class ForSaleController extends Controller
      */
     public function index()
     {
-        return view('frontend.for_sale');
+
+        $properties_promoted = Properties::where('promoted','Enabled')->where('main_category','For Rent')->where('admin_approval','Approved')->take(3)->latest()->get();
+        // dd($properties_promoted);
+
+        $properties_premium = Properties::where('premium','Enabled')->where('main_category','For Rent')->where('admin_approval','Approved')->get();
+        // dd($properties_premium);
+
+        $properties = Properties::where('premium','!=','Enabled')->where('main_category','For Rent')->where('admin_approval','Approved')->paginate(2);
+
+        $count_for_sale = count($properties);
+        // dd($count_for_sale);
+
+        return view('frontend.for_sale',[
+            'properties_promoted' => $properties_promoted,
+            'count_for_sale' => $count_for_sale,
+            'properties' => $properties,
+            'properties_premium' => $properties_premium
+        ]);
     }
 
     public function singleProperty()

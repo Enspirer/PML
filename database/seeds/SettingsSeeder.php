@@ -227,7 +227,79 @@ class SettingsSeeder extends Seeder
             'value' => null, 
             'user_id' => 1,
             ]
-        );  
+        );         
+        DB::table('settings')
+        ->insert(
+            [             
+            'key' => 'property_page_advertiment_1',
+            'value' => null, 
+            'user_id' => 1,
+            ]
+        ); 
+        DB::table('settings')
+        ->insert(
+            [             
+            'key' => 'property_page_description_1',
+            'value' => null, 
+            'user_id' => 1,
+            ]
+        ); 
+        DB::table('settings')
+        ->insert(
+            [             
+            'key' => 'property_page_link_1',
+            'value' => null, 
+            'user_id' => 1,
+            ]
+        ); 
+        DB::table('settings')
+        ->insert(
+            [             
+            'key' => 'property_page_advertiment_2',
+            'value' => null, 
+            'user_id' => 1,
+            ]
+        ); 
+        DB::table('settings')
+        ->insert(
+            [             
+            'key' => 'property_page_description_2',
+            'value' => null, 
+            'user_id' => 1,
+            ]
+        ); 
+        DB::table('settings')
+        ->insert(
+            [             
+            'key' => 'property_page_link_2',
+            'value' => null, 
+            'user_id' => 1,
+            ]
+        ); 
+        DB::table('settings')
+        ->insert(
+            [             
+            'key' => 'property_page_advertiment_3',
+            'value' => null, 
+            'user_id' => 1,
+            ]
+        ); 
+        DB::table('settings')
+        ->insert(
+            [             
+            'key' => 'property_page_description_3',
+            'value' => null, 
+            'user_id' => 1,
+            ]
+        ); 
+        DB::table('settings')
+        ->insert(
+            [             
+            'key' => 'property_page_link_3',
+            'value' => null, 
+            'user_id' => 1,
+            ]
+        ); 
         
     }
 }

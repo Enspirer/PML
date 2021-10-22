@@ -1,6 +1,6 @@
 @extends('backend.layouts.app')
 
-@section('title', __('Home Page Advertisement'))
+@section('title', __('Property Page Advertisement'))
 
 @section('content')
 
@@ -100,6 +100,7 @@
           <div class="list-group list-group-flush account-settings-links">
             <a class="list-group-item list-group-item-action active" data-toggle="list" href="#ad1">Advertisement 1</a>
             <a class="list-group-item list-group-item-action" data-toggle="list" href="#ad2">Advertisement 2</a>
+            <a class="list-group-item list-group-item-action" data-toggle="list" href="#info">Advertisement 3</a>
         </div>
         </div>
         <div class="col-md-9">
@@ -107,7 +108,7 @@
             <div class="tab-pane fade active show" id="ad1">
                 <div class="card-body">
                    
-                    <form action="{{route('admin.sidebar_ad.update1')}}" method="post" enctype="multipart/form-data">                    
+                    <form action="{{route('admin.property_page_ad.update1')}}" method="post" enctype="multipart/form-data">                    
                         {{csrf_field()}}
                             
                             <div class="form-group">
@@ -117,18 +118,18 @@
                                         <div class="input-group-text bg-soft-secondary font-weight-medium">Browse</div>
                                     </div>
                                     <div class="form-control file-amount">Choose File</div>
-                                    <input type="hidden" name="image" value="{{ get_settings('sidebar_advertiment_1') }}"  class="selected-files" >
+                                    <input type="hidden" name="image" value="{{ get_settings('property_page_advertiment_1') }}"  class="selected-files" >
                                 </div>
                                 <div class="file-preview box sm">
                                 </div>
                             </div>  
                             <div class="form-group">
                                 <label>Link</label>
-                                <input type="text" class="form-control" name="link" value="{{ get_settings('sidebar_advertiment_link_1') }}"/>
+                                <input type="text" class="form-control" name="link" value="{{ get_settings('property_page_link_1') }}"/>
                             </div>
                             <div class="form-group">
                                 <label>Description</label>
-                                <textarea class="form-control" name="description" rows="4">{{ get_settings('sidebar_advertiment_description_1') }}</textarea>
+                                <textarea class="form-control" name="description" rows="4">{{ get_settings('property_page_description_1') }}</textarea>
                             </div>
                             <div class="mt-4" align="right">
                                 <input type="submit" class="btn btn-success" value="Update">
@@ -139,7 +140,7 @@
             </div>
             <div class="tab-pane fade" id="ad2">
                 <div class="card-body">
-                <form action="{{route('admin.sidebar_ad.update2')}}" method="post" enctype="multipart/form-data">                    
+                <form action="{{route('admin.property_page_ad.update2')}}" method="post" enctype="multipart/form-data">                    
                         {{csrf_field()}}
                             
                             <div class="form-group">
@@ -149,18 +150,49 @@
                                         <div class="input-group-text bg-soft-secondary font-weight-medium">Browse</div>
                                     </div>
                                     <div class="form-control file-amount">Choose File</div>
-                                    <input type="hidden" name="image" value="{{ get_settings('sidebar_advertiment_2') }}"  class="selected-files" >
+                                    <input type="hidden" name="image" value="{{ get_settings('property_page_advertiment_2') }}"  class="selected-files" >
                                 </div>
                                 <div class="file-preview box sm">
                                 </div>
                             </div>  
                             <div class="form-group">
                                 <label>Link</label>
-                                <input type="text" class="form-control" name="link" value="{{ get_settings('sidebar_advertiment_link_2') }}"/>
+                                <input type="text" class="form-control" name="link" value="{{ get_settings('property_page_link_2') }}"/>
                             </div>
                             <div class="form-group">
                                 <label>Description</label>
-                                <textarea class="form-control" name="description" rows="4">{{ get_settings('sidebar_advertiment_description_2') }}</textarea>
+                                <textarea class="form-control" name="description" rows="4">{{ get_settings('property_page_description_2') }}</textarea>
+                            </div>
+                            <div class="mt-4" align="right">
+                                <input type="submit" class="btn btn-success" value="Update">
+                            </div>
+                    </form>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="info">
+                <div class="card-body">
+                    <form action="{{route('admin.property_page_ad.update3')}}" method="post" enctype="multipart/form-data">                    
+                        {{csrf_field()}}
+                            
+                            <div class="form-group">
+                                <label>Image <span class="text-danger">*</span></label>
+                                <div class="input-group" data-toggle="aizuploader" data-type="image">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text bg-soft-secondary font-weight-medium">Browse</div>
+                                    </div>
+                                    <div class="form-control file-amount">Choose File</div>
+                                    <input type="hidden" name="image" value="{{ get_settings('property_page_advertiment_3') }}"  class="selected-files" >
+                                </div>
+                                <div class="file-preview box sm">
+                                </div>
+                            </div>  
+                            <div class="form-group">
+                                <label>Link</label>
+                                <input type="text" class="form-control" name="link" value="{{ get_settings('property_page_link_3') }}"/>
+                            </div>
+                            <div class="form-group">
+                                <label>Description</label>
+                                <textarea class="form-control" name="description" rows="4">{{ get_settings('property_page_description_3') }}</textarea>
                             </div>
                             <div class="mt-4" align="right">
                                 <input type="submit" class="btn btn-success" value="Update">
