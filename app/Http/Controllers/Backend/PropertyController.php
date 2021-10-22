@@ -9,6 +9,7 @@ use DB;
 use App\Models\Properties;
 use App\Models\Country;
 use App\Models\PropertyType;
+use App\Models\AgentRequest;
 
 class PropertyController extends Controller
 {
@@ -23,9 +24,12 @@ class PropertyController extends Controller
         $property_type = PropertyType::where('status',1)->get();
         $countries = Country::where('status',1)->get();
 
+        $agents = AgentRequest::where('status','Approved')->get();
+
         return view('backend.property.create',[
             'property_type' => $property_type,
-            'countries' => $countries
+            'countries' => $countries,
+            'agents' => $agents
         ]);
     }
 
@@ -112,7 +116,7 @@ class PropertyController extends Controller
         $addprop->admin_approval=$request->admin_approval;
         $addprop->promoted=$request->promoted;
         $addprop->premium=$request->premium;
-        $addprop->user_id = auth()->user()->id;
+        $addprop->user_id = $request->agent_user_id;
 
         if($request->land_size){
             $addprop->land_size=$request->land_size;
@@ -156,13 +160,16 @@ class PropertyController extends Controller
         $property = Properties::where('id',$id)->first();
         $property_type = PropertyType::where('status',1)->get();
         $countries = Country::where('status',1)->get();
+
+        $agents = AgentRequest::where('status','Approved')->get();
         
         // dd($property_type);              
 
         return view('backend.property.edit', [
             'property' => $property,
             'property_type' => $property_type,
-            'countries' => $countries  
+            'countries' => $countries,
+            'agents' => $agents
         ]);  
     }
 
@@ -198,7 +205,8 @@ class PropertyController extends Controller
         $update->admin_approval=$request->admin_approval;
         $update->promoted=$request->promoted;
         $update->premium=$request->premium;
-        $update->user_id = auth()->user()->id;
+        $update->user_id = $request->agent_user_id;
+
 
         if($request->land_size){
             $update->land_size=$request->land_size;
