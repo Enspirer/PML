@@ -96,7 +96,12 @@
                 <ul class="nav-dropdown-items">
                     <li class="nav-item">
                         <a class="nav-link {{active_class(Route::is('admin/sidebar_ad'))}}" href="{{ route('admin.sidebar_ad.index') }}">
-                            Sidebar Advertisement
+                            Home Page Ad
+                        </a>
+                    </li> 
+                    <li class="nav-item">
+                        <a class="nav-link {{active_class(Route::is('admin/property_page_ad'))}}" href="{{ route('admin.property_page_ad.index') }}">
+                            Property Page Ad
                         </a>
                     </li> 
                 </ul>

@@ -21,7 +21,7 @@
                             <div class="col-6">
                                 <div>
                                     <label for="propertyType" class="form-label mb-2 required">Property Type <span class="text-danger">*</span></label>
-                                    <select class="form-select" aria-label="propertyType" name="propertyType" id="propertyType" onChange="renderFields()" required>
+                                    <select class="form-control custom-select" aria-label="propertyType" name="propertyType" id="propertyType" onChange="renderFields()" required>
                                         <option selected disabled value="">Select...</option>
                                         @foreach($property_type as $type)
                                             <option value="{{$type->id}}"> {{$type->property_type_name}} </option>
@@ -52,7 +52,7 @@
                                     <select class="form-control custom-select" name="country" required>
                                         <option value="" selected disabled>Select...</option>
                                         @foreach($countries as $country)
-                                            <option value="{{$country->id}}">{{$country->country_name}}</option>  
+                                            <option value="{{$country->country_name}}">{{$country->country_name}}</option>  
                                         @endforeach
                                     </select>
                                 </div>
@@ -62,12 +62,10 @@
                             <div class="col-6">
                                 <div>
                                     <label for="category" class="form-label mb-2 mt-3">Category <span class="text-danger">*</span></label>
-                                    <select class="form-select" aria-label="category" id="category" name="category" required>
+                                    <select class="form-control custom-select" aria-label="category" id="category" name="category" required>
                                         <option selected disabled value="">Choose...</option>
-                                        <option value="Commercial">Commercial</option>
-                                        <option value="Residential">Residential</option>
-                                        <option value="TP_Developer">TP Developer</option>
-                                        <option value="Investments">Investments</option>
+                                        <option value="For Sale">For Sale</option>
+                                        <option value="For Rent">For Rent</option>
                                     </select>
                                 </div>  
                             </div>
@@ -113,7 +111,7 @@
                                     </div>
                                 </div> 
                             </div>
-                        </div>
+                        </div>                        
                         <div class="row">
                             <div class="col-6">
                                 <div>
@@ -158,7 +156,27 @@
             <div class="card">
                 <div class="card-body">
                     <div class="" style="border-style: ridge;border-width: 3px;padding: 20px;">
-                        <div class="form-group">
+                        <div class="row">
+                            <div class="col-6">
+                                <div>
+                                    <label for="promoted" class="form-label mb-2">Promoted <span class="text-danger">*</span></label>
+                                    <select class="form-control custom-select" aria-label="promoted" id="promoted" name="promoted" required>
+                                        <option value="Enabled">Enabled</option>
+                                        <option value="Disabled" selected>Disabled</option>
+                                    </select>
+                                </div>  
+                            </div>
+                            <div class="col-6">
+                                <div>
+                                    <label for="premium" class="form-label mb-2">Premium Listing <span class="text-danger">*</span></label>
+                                    <select class="form-control custom-select" aria-label="premium" id="premium" name="premium" required>
+                                        <option value="Enabled">Enabled</option>
+                                        <option value="Disabled" selected>Disabled</option>
+                                    </select>
+                                </div>  
+                            </div>
+                        </div>
+                        <div class="form-group mt-4">
                             <label>Admin Approval <span class="text-danger">*</span></label>
                             <select class="form-control" name="admin_approval" required>
                                 <option value="Approved">Approve</option>   
