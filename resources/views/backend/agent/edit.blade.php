@@ -32,7 +32,7 @@
                                     <select class="form-control custom-select" name="country" required>
                                         <option value="" selected disabled>Select...</option>
                                         @foreach($countries as $country)
-                                            <option value="{{$country->id}}" {{ $country->id == $agent_request->country ? "selected" : "" }}>{{$country->country_name}}</option>  
+                                            <option value="{{$country->country_name}}" {{ $country->country_name == $agent_request->country ? "selected" : "" }}>{{$country->country_name}}</option>  
                                         @endforeach
                                     </select>
                                 </div>
@@ -75,12 +75,6 @@
 
                         <div class="row">
                             <div class="col-6">
-                                <div>
-                                    <label class="form-label mb-2 mt-4 required">Request <span class="text-danger">*</span></label>
-                                    <input type="text" class="form-control" value="{{$agent_request->request}}" name="request_field" required>
-                                </div> 
-                            </div>
-                            <div class="col-6">
                                 <div class="form-group">
                                     <label class="mb-2 mt-4">Agent Photo
                                         <span class="text-danger">*</span>
@@ -96,12 +90,34 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label class="mb-2 mt-4">Logo
+                                        <span class="text-danger">*</span>
+                                    </label>
+                                    <div class="input-group" data-toggle="aizuploader" data-type="image">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text bg-soft-secondary font-weight-medium">Browse</div>
+                                        </div>
+                                        <div class="form-control file-amount">Choose File</div>
+                                        <input type="hidden" name="logo" value="{{$agent_request->logo}}" class="selected-files" >
+                                    </div>
+                                    <div class="file-preview box sm">
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
                         <div class="row">
                             <div class="col-6">
                                 <div>
-                                    <label class="form-label mb-2 mt-4">Tax Number <span class="text-danger">*</span></label>
+                                    <label class="form-label mb-2 mt-3 required">Request <span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" value="{{$agent_request->request}}" name="request_field" required>
+                                </div> 
+                            </div>
+                            <div class="col-6">
+                                <div>
+                                    <label class="form-label mb-2 mt-3">Tax Number <span class="text-danger">*</span></label>
                                     <input type="text" class="form-control" value="{{$agent_request->tax_number}}" name="tax" required>
                                 </div>
                             </div>

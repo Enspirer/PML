@@ -20,6 +20,22 @@
                             </div>
                             <div class="col-6">
                                 <div>
+                                    <label for="agent_user_id" class="form-label mb-2 required">Agent User <span class="text-danger">*</span></label>
+                                    
+                                    <datalist class="form-group w-100" name="agent_user_id" id="agent_user_id" >
+                                    @foreach($agents as $agent)
+                                        <option value="{{ $agent->id }}">{{ $agent->name }} - {{ $agent->email }}</option>
+                                    @endforeach
+                                    </datalist>   
+                            
+                                    <input class="form-control w-100" autoComplete="on" value="{{ App\Models\AgentRequest::where('id',$property->user_id)->first()->id }}" name="agent_user_id" list="agent_user_id" required/> 
+
+                                </div>  
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-12">
+                                <div>
                                     <label for="propertyType" class="form-label mb-2 required">Property Type <span class="text-danger">*</span></label>
                                     <select class="form-control custom-select" aria-label="propertyType" name="propertyType" id="propertyType" onChange="renderFields()" required>
                                         <option selected disabled value="">Select...</option>                                        

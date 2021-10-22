@@ -34,6 +34,10 @@ class AgentRequestController extends Controller
             return back()->withErrors('Please Add Agent Photo');
         }
 
+        if($request->logo == null){
+            return back()->withErrors('Please Add Logo');
+        }
+
         if($request->validate == 'NIC'){
             if($request->nic_photo == null){
                 return back()->withErrors('Please Add NIC Photo');
@@ -59,6 +63,7 @@ class AgentRequestController extends Controller
         $addagent->company_name=$request->company_name;
         $addagent->company_registration_number=$request->company_reg_no;
         $addagent->photo=$request->photo; 
+        $addagent->logo=$request->logo; 
         $addagent->request=$request->request_field;        
         $addagent->tax_number=$request->tax;        
         $addagent->address=$request->address;
@@ -144,6 +149,10 @@ class AgentRequestController extends Controller
             return back()->withErrors('Please Add Agent Photo');
         }
 
+        if($request->logo == null){
+            return back()->withErrors('Please Add Logo');
+        }
+
         if($request->validate == 'NIC'){
             if($request->nic_photo == null){
                 return back()->withErrors('Please Add NIC Photo');
@@ -169,6 +178,7 @@ class AgentRequestController extends Controller
         $update->company_name=$request->company_name;
         $update->company_registration_number=$request->company_reg_no;
         $update->photo=$request->photo; 
+        $update->logo=$request->logo; 
         $update->request=$request->request_field;        
         $update->tax_number=$request->tax;        
         $update->address=$request->address;

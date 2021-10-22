@@ -111,7 +111,9 @@
                                             </div>
                                         </div>                                        
                                         <div class="col-6 text-end">
-                                            <img src="{{ url('img/frontend/for_sale/almond.png') }}" alt="">
+                                            @if(App\Models\AgentRequest::where('id',$property_pro->user_id)->first() != null)
+                                            <img src="{{ uploaded_asset(App\Models\AgentRequest::where('id',$property_pro->user_id)->first()->logo) }}" width="60%">
+                                            @endif
                                         </div>
                                     </div>
                                 </a>
@@ -167,7 +169,9 @@
                                             </div>
                                         </div>
                                         <div class="col-6 text-end">
-                                            <img src="{{ url('img/frontend/for_sale/almond.png') }}" alt="">
+                                        @if(App\Models\AgentRequest::where('id',$premium->user_id)->first() != null)
+                                            <img src="{{ uploaded_asset(App\Models\AgentRequest::where('id',$premium->user_id)->first()->logo) }}" width="50%">
+                                        @endif
                                         </div>
                                     </div>
 
@@ -197,9 +201,11 @@
                                             <p style="font-size: 1rem;">{{$premium->city}}, {{$premium->country}}</p>
 
                                             <div class="mt-4">
-                                                <p class="mb-3 fw-bold"><i class="fas fa-phone-alt me-3"></i></i>+94 77 700 9990</p>
 
-                                                <p class="mb-3 fw-bold"><i class="fas fa-envelope me-3"></i>info@agentname.com</p>
+                                            @if(App\Models\AgentRequest::where('id',$premium->user_id)->first() != null)
+                                                <p class="mb-3 fw-bold"><i class="fas fa-phone-alt me-3"></i></i>{{App\Models\AgentRequest::where('id',$premium->user_id)->first()->telephone}}</p>
+                                                <p class="mb-3 fw-bold"><i class="fas fa-envelope me-3"></i>{{App\Models\AgentRequest::where('id',$premium->user_id)->first()->email}}</p>
+                                            @endif
 
                                                 <p class="mb-3 fw-bold"><i class="fas fa-heart me-3"></i>Save Property</p>
                                             </div>
@@ -248,19 +254,21 @@
                                 </div>
 
                                 <div class="col-6 p-3">
-                                    <div class="row align-items-center mb-4 pt-4">
+                                    <!-- <div class="row align-items-center mb-4 pt-4">
                                         <div class="col-6">
-                                            <!-- <div class="py-1 w-75 text-center" style="background-color: #FF0000;">
+                                            <div class="py-1 w-75 text-center" style="background-color: #FF0000;">
                                                 <p class="text-white">Premium Listing</p>
-                                            </div> -->
+                                            </div>
                                         </div>
                                         <div class="col-6 text-end">
-                                            <img src="{{ url('img/frontend/for_sale/almond.png') }}" alt="">
+                                            @if(App\Models\AgentRequest::where('id',$normal->user_id)->first() != null)
+                                            <img src="{{ uploaded_asset(App\Models\AgentRequest::where('id',$normal->user_id)->first()->logo) }}" width="50%">
+                                            @endif
                                         </div>
-                                    </div>
+                                    </div> -->
 
-                                    <div class="row">
-                                        <div class="col-12">
+                                    <div class="row mb-4 pt-4">
+                                        <div class="col-8">
                                             <div class="row mb-3">
                                                 <div class="col-10">
                                                     <h4 class="fw-bold">${{$normal->price}}</h4>
@@ -285,12 +293,19 @@
                                             <p style="font-size: 1rem;">{{$normal->city}}, {{$normal->country}}</p>
 
                                             <div class="mt-4">
-                                                <p class="mb-3 fw-bold"><i class="fas fa-phone-alt me-3"></i></i>+94 77 700 9990</p>
 
-                                                <p class="mb-3 fw-bold"><i class="fas fa-envelope me-3"></i>info@agentname.com</p>
+                                                @if(App\Models\AgentRequest::where('id',$normal->user_id)->first() != null)
+                                                    <p class="mb-3 fw-bold"><i class="fas fa-phone-alt me-3"></i></i>{{App\Models\AgentRequest::where('id',$normal->user_id)->first()->telephone}}</p>
+                                                    <p class="mb-3 fw-bold"><i class="fas fa-envelope me-3"></i>{{App\Models\AgentRequest::where('id',$normal->user_id)->first()->email}}</p>
+                                                @endif
 
                                                 <p class="mb-3 fw-bold"><i class="fas fa-heart me-3"></i>Save Property</p>
                                             </div>
+                                        </div>
+                                        <div class="col-4 text-end align-items-center">
+                                            @if(App\Models\AgentRequest::where('id',$normal->user_id)->first() != null)
+                                            <img src="{{ uploaded_asset(App\Models\AgentRequest::where('id',$normal->user_id)->first()->logo) }}" width="85%">
+                                            @endif
                                         </div>
                                     </div>
                                 </div>
