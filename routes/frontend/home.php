@@ -6,6 +6,7 @@ use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\ForSaleController;
 use App\Http\Controllers\Frontend\NewDevelopmentController;
 use App\Http\Controllers\Frontend\LandsController;
+use App\Http\Controllers\Frontend\AgentsController;
 
 
 use App\Http\Controllers\Frontend\User\AccountController;
@@ -17,7 +18,7 @@ use App\Http\Controllers\Frontend\User\ProfileController;
  * All route names are prefixed with 'frontend.'.
  */
 Route::get('/', [HomeController::class, 'index'])->name('index');
-Route::get('contact', [ContactController::class, 'index'])->name('contact');
+Route::get('contact-us', [ContactController::class, 'index'])->name('contact_us');
 Route::post('contact/send', [ContactController::class, 'send'])->name('contact.send');
 
 Route::post('/aiz-uploader', [AizUploadController::class, 'show_uploader']);
@@ -33,6 +34,8 @@ Route::get('for-sale/single-property', [ForSaleController::class, 'singlePropert
 Route::get('lands', [LandsController::class, 'index'])->name('lands');
 Route::get('lands/single-property', [LandsController::class, 'singleProperty'])->name('lands_single');
 Route::get('new-development', [NewDevelopmentController::class, 'index'])->name('new_development');
+
+Route::get('agents', [AgentsController::class, 'index'])->name('agents');
 
 /*
  * These frontend controllers require the user to be logged in

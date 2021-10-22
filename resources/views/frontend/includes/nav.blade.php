@@ -7,36 +7,37 @@
     <div class="collapse navbar-collapse position-relative" id="navbarSupportedContent">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item px-4 border-end">
-          <a class="nav-link fw-bold p-0 active" aria-current="page" href="{{ route('frontend.index') }}">Home</a>
+          <a class="nav-link fw-bold p-0 {{ Request::segment(1) == '' ? 'active' : null }}" aria-current="page" href="{{ route('frontend.index') }}">Home</a>
         </li>
         <li class="nav-item px-4 border-end">
-          <a class="nav-link fw-bold p-0" href="{{ route('frontend.for_sale') }}">For Sale</a>
+          <a class="nav-link fw-bold p-0 {{ Request::segment(1) == 'for-sale' ? 'active' : null }}" href="{{ route('frontend.for_sale') }}">For Sale</a>
         </li>
         <li class="nav-item px-4 border-end">
-          <a class="nav-link fw-bold p-0" href="#">For Rent</a>
+          <a class="nav-link fw-bold p-0 {{ Request::segment(1) == 'for-rent' ? 'active' : null }}" href="">For Rent</a>
         </li>
         <li class="nav-item px-4 border-end">
-          <a class="nav-link fw-bold p-0" href="{{ route('frontend.lands') }}">Lands</a>
+          <a class="nav-link fw-bold p-0 {{ Request::segment(1) == 'lands' ? 'active' : null }}" href="{{ route('frontend.lands') }}">Lands</a>
         </li>
         <li class="nav-item px-4 border-end">
-          <a class="nav-link fw-bold p-0" href="{{ route('frontend.new_development') }}">New Development</a>
+          <a class="nav-link fw-bold p-0 {{ Request::segment(1) == 'new-development' ? 'active' : null }}" href="{{ route('frontend.new_development') }}">New Development</a>
         </li>
         <li class="nav-item px-4 border-end">
-          <a class="nav-link fw-bold p-0" href="#">Finance</a>
+          <a class="nav-link fw-bold p-0 {{ Request::segment(1) == 'finance' ? 'active' : null }}" href="#">Finance</a>
         </li>
         <li class="nav-item px-4 border-end">
-          <a class="nav-link fw-bold p-0" href="#">Agents</a>
+          <a class="nav-link fw-bold p-0 {{ Request::segment(1) == 'agents' ? 'active' : null }}" href="{{ route('frontend.agents') }}">Agents</a>
         </li>
         <li class="nav-item ps-4 pe-0">
-          <a class="nav-link fw-bold p-0" href="#">Contact Us</a>
+          <a class="nav-link fw-bold p-0 {{ Request::segment(1) == 'contact-us' ? 'active' : null }}" href="{{ route('frontend.contact_us') }}">Contact Us</a>
         </li>
+      </ul>
 
         @auth
             <div class="log-reg position-absolute" style="top: -4.1rem">
-                <a class="wishlist fw-bold d-inline-block px-4 text-decoration-none border-start border-end" href=""><i class="far fa-heart me-2"></i> Wish List</a>
+                <a class="wishlist fw-bold d-inline-block px-4 text-decoration-none border-start border-end text-white" href=""><i class="far fa-heart me-2"></i> Wish List</a>
 
                 <a class="nav-link dropdown-toggle d-inline-block ps-4 mb-4" href="{{route('frontend.auth.login')}}" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <img src="{{ url('img/frontend/user.png') }}" class="rounded-circle" style="height: 50px; width: 50px; margin-right: 1.4rem;"> <span class="text-white fw-bold user-name">{{auth()->user()->first_name}}</span>
+                    <img src="{{ url('img/frontend/user.jpg') }}" class="rounded-circle" style="height: 50px; width: 50px; margin-right: 1.4rem;"> <span class="text-white fw-bold user-name">{{auth()->user()->first_name}}</span>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                   <a class="dropdown-item" href="{{ route('frontend.user.dashboard') }}">My Account</a>
@@ -46,13 +47,13 @@
                 </div>
             </div>
 
-            <select name="" id="" class="position-absolute me-3" style="right: 20rem; top: -3rem">
+            <select name="" id="" class="position-absolute me-3" style="top: -2.9rem; right: 20rem;">
                 <option value="">Select Your Country</option>
             </select>
         @else
 
             <div class="log-reg position-absolute">
-                <a class="wishlist fw-bold d-inline-block px-4 text-decoration-none border-start border-end" href=""><i class="far fa-heart me-2"></i> Wish List</a>
+                <a class="wishlist fw-bold d-inline-block px-4 text-decoration-none border-start border-end" href="{{ route('frontend.auth.login') }}"><i class="far fa-heart me-2"></i> Wish List</a>
                 
                 <a class="login fw-bold d-inline-block px-4 text-decoration-none" href="{{ route('frontend.auth.login') }}">Login</a>
 

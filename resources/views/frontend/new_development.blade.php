@@ -15,8 +15,8 @@
         </div>
     </div>
 
-    <div class="container mt-4">
-        <div class="row" style="margin-bottom: 3rem;">
+    <div class="container mt-4" style="margin-bottom: 3rem;">
+        <div class="row">
             <div class="col-9">
                 
                 <h4>New Development in <span class="fw-bold">Sri Lanka</span></h4>
@@ -555,7 +555,7 @@
 
                     <div class="col-12 p-0 custom-shadow">
                         <div class="card">
-                            <img src="{{ url('img/frontend/for_sale/ad_3.png') }}" class="img-fluid" alt="..." style="object-fit: cover; height: 25rem;">
+                            <img src="{{ url('img/frontend/for_sale/ad_3.png') }}" class="img-fluid" alt="..." style="object-fit: cover; height: 20rem;">
                         </div>
                     </div>
                 </div>

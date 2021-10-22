@@ -1,0 +1,44 @@
+.banner {
+    background: url('../img/frontend/agents/banner.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 470px;
+}
+.banner .form-control, .banner .form-select {
+    background-color: transparent;
+    border-radius: 0;
+    border: none;
+    border-bottom: 2px solid #FFFFFF;
+}
+.banner select {
+    color: white!important;
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='white' class='fas fa-chevron-down' viewBox='0 0 16 16'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>");
+    
+}
+.banner select option {
+    background-color: rgb(255, 255, 255, 0.2)!important;
+    color: black!important;
+}
+.agents .logo {
+    height: 6rem;
+    object-fit: cover;
+    border: 1px solid #707070;
+    border-radius: 50px;
+}
+.prom-logo {
+    top: 0rem;
+    left: 0rem;
+}
+.find-out {
+    border: 1px solid #39B54A!important;
+    color: #39B54A;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    font-weight: 800;
+    padding: 0.4rem 1.2rem!important;
+    line-height: 19px;
+}
+.card-body {
+    padding: 0.9rem!important;
+}

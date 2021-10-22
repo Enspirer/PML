@@ -41,33 +41,11 @@
                 <a class="btn link-btn w-100 mb-3"><img src="{{ url('img/frontend/index/compass.png') }}" alt="" class="me-3">Vaastu</a>
             </div>
 
-            <div class="col-6 center">
-                <form>
-                    <div class="input-group">
-                        <input type="text" name="search_keyword" class="form-control p-3 rounded-0" aria-label="search" data-bs-toggle="modal" data-bs-target="#exampleModal" placeholder="Search">
-
-                    <div class="col-12 mb-3" style="padding-right: 8px;">
-                        <h5 class="fw-bold" style="font-size: 1.15rem;">08 common interview questions and answers - Job Interview Skills</h5>
-
-                        <div class="row mt-2">
-                            <div class="col-5">
-                                <div class="row">
-                                    <div class="col-6 pe-0">
-                                        <p style="font-size: 0.8rem">18,719,690 views</p>
-                                    </div>
-                                    <div class="col-6">
-                                        <p style="font-size: 0.8rem">Jun 29, 2014</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-
-                                
+            <div class="col-6 center">             
                 @if($latest_post != null)
-                    <div class="row mt-3 scroll-box">
-                        @if($latest_post->type != 'youtube')
+                    <div class="row scroll-box">
+
+                        <div class="article d-none">
                             <div class="col-12 mb-3" style="padding-right: 8px;">
                                 <img src="{{ uploaded_asset($latest_post->feature_image) }}" alt="" class="img-fluid w-100 main-image" style="object-fit: cover; height: 20rem;">
                             </div>
@@ -77,29 +55,26 @@
                             </div>                            
 
                             <div class="col-12 description" style="padding-right: 8px;">
-                                <p>{!! $latest_post->article !!}</p>
+                                <div style="font-size: 0.9rem; color: #666666;">{!! $latest_post->article !!}</div>
                             </div>
+                        </div>
+                    
+                        <div class="video d-none">
+                            <div class="col-12 mb-3" style="padding-right: 8px; height: 20rem;">
 
-                        @else
-
-                        <input type="hidden" value="{{ preg_match("#(?<=v=)[a-zA-Z0-9-]+(?=&)|(?<=v\/)[^&\n]+|(?<=v=)[^&\n]+|(?<=youtu.be/)[^&\n]+#", $latest_post->youtube, $defaultmatch) }}" />
-                            
-                            <div id="ytb" youtubeid="{{$defaultmatch[0]}}"></div>
-
-                            <div class="col-12 mb-3" style="padding-right: 8px;">
-                                <iframe style="height:330px" class="img-fluid w-100 main-image" id="youtube_player" src="https://www.youtube.com/embed/{{ $defaultmatch[0] }}?rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
-                                <!-- <img src="{{ uploaded_asset($latest_post->feature_image) }}" alt="" class="img-fluid w-100 main-image" style="object-fit: cover; height: 20rem;"> -->
+                                <input type="hidden" value="{{ preg_match("#(?<=v=)[a-zA-Z0-9-]+(?=&)|(?<=v\/)[^&\n]+|(?<=v=)[^&\n]+|(?<=youtu.be/)[^&\n]+#", $latest_post->youtube, $default_match) }}" />
+                                
+                                <iframe style="height:20rem" class="img-fluid w-100" id="youtube_player" src="https://www.youtube.com/embed/{{ $default_match[0] }}?rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             </div>
 
                             <div class="col-12 mb-3" style="padding-right: 8px;">
-                                <h5 class="fw-bold title"  style="font-size: 1.15rem;">{{$latest_post->title}}</h5>
+                                <h5 class="fw-bold title" style="font-size: 1.15rem;">{{$latest_post->title}}</h5>
                             </div>
                             
                             <div class="col-12 description" style="padding-right: 8px;">
-                                <p>{!! $latest_post->description !!}</p>
-                            </div>                            
-                    
-                        @endif
+                                <div style="font-size: 0.9rem; color: #666666;">{!! $latest_post->description !!}</div>
+                            </div>
+                        </div>
                     </div>
                 @endif
             </div>
@@ -108,123 +83,46 @@
                 @if(count($posts) != 0)
                     @foreach($posts as $key => $post)
                         @if($post->type != 'youtube')
-                            <div class="row mb-3">
+                            <div class="row mb-3 article">
                                 <div class="col-6 pe-0">
                                     <img src="{{ uploaded_asset($post->feature_image) }}"  alt="" class="img-fluid w-100" style="height: 5rem; object-fit: cover;">
                                 </div>
                                 <div class="col-6">
                                     <h6 class="fw-bolder aa" style="font-size: 0.8rem; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical;">{{ $post->title }}</h6>
                                     <div style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;">
-                                        <p style="font-size: 0.8rem;">{!! $post->article !!}</p>
+                                        <div class="paragraph" style="color: #666666;">{!! $post->article !!}</div>
                                     </div>
                                     <!-- <p style="font-size: 0.7rem;">1.1 M views  2 months ago</p> -->
                                 </div>
                             </div>
                         @else
 
-                        <input type="hidden" value="{{ preg_match("#(?<=v=)[a-zA-Z0-9-]+(?=&)|(?<=v\/)[^&\n]+|(?<=v=)[^&\n]+|(?<=youtu.be/)[^&\n]+#", $post->youtube, $matches) }}" />
-                            <div class="row mb-3" youtubeid="{{ $matches[0] }}">
+                            <div class="row mb-3 video">
+
+                                <input type="hidden" value="{{ preg_match("#(?<=v=)[a-zA-Z0-9-]+(?=&)|(?<=v\/)[^&\n]+|(?<=v=)[^&\n]+|(?<=youtu.be/)[^&\n]+#", $post->youtube, $matches) }}" />
+
+                                <input type="hidden" class="video-value" value="{{ $matches[0] }}" />
+
                                 <div class="col-6 pe-0">
-                                    <img src="{{ uploaded_asset($post->feature_image) }}"  alt="" class="img-fluid w-100" style="height: 5rem; object-fit: cover;" onClick="getVideoContect('{{$matches[0]}}')">
-                                    <!-- <span><i class="fa fa-play"></i></span> -->
+                                    <img src="{{ uploaded_asset($post->feature_image) }}"  alt="" class="img-fluid w-100" style="height: 5rem; object-fit: cover;">
                                 </div>
                                 <div class="col-6">
                                     <h6 class="fw-bolder aa" style="font-size: 0.8rem; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical;">{{ $post->title }}</h6>
                                     <div style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;">
-                                        <p style="font-size: 0.9rem;">{!! $post->description !!}</p>
+                                        <div class="paragraph" style="font-size: 0.8rem; color: #666666;">{!! $post->description !!}</div>
                                     </div>
-                                    <!-- <p style="font-size: 0.8rem; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;">{!! $post->description !!}</p> -->
-                                    <!-- <p style="font-size: 0.7rem;">1.1 M views  2 months ago</p> -->
                                 </div>
                             </div>
                         @endif
                     @endforeach
                 @endif
-
-                <!-- <div class="row mb-3">
-                    <div class="col-6 pe-0">
-                        <img src="{{ url('img/frontend/index/2.png') }}" alt="" class="img-fluid w-100" style="height: 4rem; object-fit: cover;">
-                    </div>
-                    <div class="col-6">
-                        <h6 class="fw-bolder" style="font-size: 0.8rem;">Caretta collection | Bendetta collection</h6>
-                        <p style="font-size: 0.8rem;">Carmelo Benilla Jr drzgdzrgdxrgx</p>
-                        <p style="font-size: 0.7rem;">1.1 M views  2 months ago</p>
-                    </div>
-                </div>
-
-                <div class="row mb-3">
-                    <div class="col-6 pe-0">
-                        <img src="{{ url('img/frontend/index/3.png') }}" alt="" class="img-fluid w-100" style="height: 5rem; object-fit: cover;">
-                    </div>
-                    <div class="col-6">
-                        <h6 class="fw-bolder" style="font-size: 0.8rem;">collection | Bendetta collection</h6>
-                        <p style="font-size: 0.8rem;">Carmelo Benilla Jr</p>
-                        <p style="font-size: 0.7rem;">1.1 M views  2 months ago</p>
-                    </div>
-                </div>
-
-                <div class="row mb-3">
-                    <div class="col-6 pe-0">
-                        <img src="{{ url('img/frontend/index/4.png') }}" alt="" class="img-fluid w-100" style="height: 5rem; object-fit: cover;">
-                    </div>
-                    <div class="col-6">
-                        <h6 class="fw-bolder" style="font-size: 0.8rem;">Bendetta Caretta collection | Bendetta collection</h6>
-                        <p style="font-size: 0.8rem;">Carmelo Benilla Jr</p>
-                        <p style="font-size: 0.7rem;">1.1 M views  2 months ago</p>
-                    </div>
-                </div>
-
-                <div class="row mb-3">
-                    <div class="col-6 pe-0">
-                        <img src="{{ url('img/frontend/index/5.png') }}" alt="" class="img-fluid w-100" style="height: 5rem; object-fit: cover;">
-                    </div>
-                    <div class="col-6">
-                        <h6 class="fw-bolder" style="font-size: 0.8rem;">Bendetta Caretta collection | Bendetta collection</h6>
-                        <p style="font-size: 0.8rem;">Carmelo Benilla Jr</p>
-                        <p style="font-size: 0.7rem;">1.1 M views  2 months ago</p>
-                    </div>
-                </div>
-
-                <div class="row mb-3">
-                    <div class="col-6 pe-0">
-                        <img src="{{ url('img/frontend/index/6.png') }}" alt="" class="img-fluid w-100" style="height: 5rem; object-fit: cover;">
-                    </div>
-                    <div class="col-6">
-                        <h6 class="fw-bolder" style="font-size: 0.8rem;">Bendetta Caretta collection | Bendetta collection</h6>
-                        <p style="font-size: 0.8rem;">Carmelo Benilla Jr</p>
-                        <p style="font-size: 0.7rem;">1.1 M views  2 months ago</p>
-                    </div>
-                </div> -->
             </div>
-
         </div>
     </div>
 
 
     <div class="properties" style="margin-top: 3rem;">
         <div class="container">
-            <!-- <div class="row justify-content-between align-items-center">
-                <div class="col-4">
-                    <form>
-                        <div class="input-group">
-                            <button type="submit" class="btn text-white" style="background-color : #35495E; border-top-left-radius: 35px; border-bottom-left-radius: 35px;"><i class="fas fa-search"></i></button>
-                        
-                            <input type="text" name="search_keyword" class="form-control p-3" aria-label="search" data-bs-toggle="modal" data-bs-target="#exampleModal" placeholder="Search" style="border-top-right-radius: 35px; border-bottom-right-radius: 35px;">
-                        </div>
-                    </form>
-                </div>
-
-                <div class="col-2">
-                    <form>
-                        <div class="input-group">
-                            <input type="text" name="search_keyword" class="form-control p-3" aria-label="search" data-bs-toggle="modal" data-bs-target="#exampleModal" placeholder="Filters" style="border-top-left-radius: 35px; border-bottom-left-radius: 35px;">
- 
-                            <button type="submit" class="btn text-white" style="background-color : #35495E; border-top-right-radius: 35px; border-bottom-right-radius: 35px;"><img src="{{ url('img/frontend/index/filter.png') }}" alt="" style="height: 1rem;"></button>
-                        </div>
-                    </form>
-                </div>
-            </div> -->
-
             <div class="row mt-5 mb-4">
                 <div class="col-3">
                     <div class="card custom-shadow">
@@ -509,27 +407,53 @@
       });
     </script>
 
-  <!--product image change-->
+
     <script>
       $(document).ready(function(){
 
-            $('.right img').on('click',function(){
-                let image = $(this).attr('src');
+            let post_type = '<?php echo $latest_post->type; ?>';
+
+            if(post_type != 'youtube') {
+                $('.article').removeClass('d-none');
+            } else {
+                $('.video').removeClass('d-none');
+            }
+
+
+            $('.right .article').on('click',function(){
+                $('.center .video').addClass('d-none');
+                $('.center .article').removeClass('d-none');
+
+                let vid = $('.center .video iframe').attr('src');
+                $('.center .video iframe').attr('src', vid);
+
+                let image = $(this).find('img').attr('src');
                 $(".main-image").attr("src", image);
 
-                let title = $(this).parent().siblings().find('h6').text();
+                let title = $(this).find('h6').text();
                 $(".title").text(title);
 
-                let description = $(this).parent().siblings().find('p').text();
-                $(".description").text(description);
+                let description = $(this).find('.paragraph').text();
+                $(".description div").text(description);
+            });
+
+            $('.right .video').on('click',function(){
+
+                $('.center .video').removeClass('d-none');
+                $('.center .article').addClass('d-none');
+
+                let link = $(this).find('.video-value').val();
+                let video = 'https://www.youtube.com/embed/' + link;
+
+                $('.center .video iframe').attr('src', video);
+
+                let title = $(this).find('h6').text();
+                $(".title").text(title);
+
+                let description = $(this).find('.paragraph').text();
+                $(".description div").text(description);
             });
       });
-
-      function getVideoContect(youtubeid){
-            $("#youtube_player").attr("src", youtubeid);
-            // alert(youtubeid);
-      }
-
     </script>
 
 @endpush

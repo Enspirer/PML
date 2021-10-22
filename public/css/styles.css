@@ -20,15 +20,26 @@ p {
 .navbar-nav a {
     color: white!important;
     font-size: 0.9rem;
+    border-bottom: 2px solid transparent;
 }
-.navbar-nav select {
+.navbar-nav a:hover {
+    border-bottom: 2px solid red!important;
+}
+.navbar-nav a.active {
+    border-bottom: 2px solid red!important;
+}
+.navbar-nav .nav-item {
+    z-index: 1;
+}
+.navbar select {
     width: 15%;
-    top: -3.2rem;
+    top: -3.1rem;
     right: 22rem;
     border-radius: 0!important;
     background-color: #16202C;
     color:white;
     border: none;
+    font-size: 0.9rem;
 }
 .navbar-brand {
     bottom: 0rem;
@@ -65,6 +76,13 @@ p {
     top: -3.5rem;
     right: 0rem;
 }
+.log-reg a, .log-reg select {
+    color: white;
+    font-size: 0.9rem;
+}
+.log-reg a:hover {
+    color: white!important;
+}
 .log-reg .register {
     padding-top: 0.39rem;
     padding-bottom: 0.39rem;
@@ -72,6 +90,21 @@ p {
 
 ::placeholder { /* Chrome/Opera/Safari */
    font-size: 0.8rem;
+}
+.input-group-text {
+    display: flex;
+    align-items: center;
+    /* padding: .375rem .75rem; */
+    margin-bottom: 0;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    text-align: center;
+    white-space: nowrap;
+    background-color: #e9ecef;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
 }
 
 

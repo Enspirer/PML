@@ -2,14 +2,37 @@
     <div class="container">
         <div class="row">
             <div class="col-3">
-                <a href=""><img src="{{ url('img/frontend/logo.png') }}" alt="" class="logo"></a>
+                <a href="{{ route('frontend.index') }}"><img src="{{ url('img/frontend/logo.png') }}" alt="" class="logo"></a>
+
                 <p class="text-white mt-3 mb-3">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
 
-                <p class="text-white mb-3"><i class="fas fa-phone-alt text-white me-3"></i></i>+94 777000000</p>
+                <div class="row">
+                    <div class="col-2 pe-0">
+                        <i class="fas fa-phone-alt text-white"></i>
+                    </div>
+                    <div class="col-10 ps-0">
+                        <p class="text-white mb-3">+94 777000000</p>
+                    </div>
+                </div>
 
-                <p class="text-white mb-3"><i class="fas fa-envelope text-white me-3"></i>info@propertymarketlive.com</p>
+                <div class="row">
+                    <div class="col-2 pe-0">
+                        <i class="fas fa-envelope text-white"></i>
+                    </div>
+                    <div class="col-10 ps-0">
+                        <p class="text-white mb-3">info@propertymarketlive.com</p>
+                    </div>
+                </div>
 
-                <p class="text-white mb-3"><i class="fas fa-map-marker-alt text-white me-3"></i>123/A, Colombo 05, Sri Lanka.</p>
+                <div class="row">
+                    <div class="col-2 pe-0">
+                        <i class="fas fa-map-marker-alt text-white"></i>
+                    </div>
+                    <div class="col-10 ps-0">
+                        <p class="text-white mb-3">123/A, Colombo 05, Sri Lanka.</p>
+                    </div>
+                </div>
+               
             </div>
             <div class="col-3 ps-5">
                 <h5 class="fw-bolder mt-2 mb-4">Top Products</h5>
