@@ -148,9 +148,11 @@
                 </div>
 
                 <div class="col-3">
-                    <div class="card custom-shadow">
-                        <img src="{{ url('img/frontend/index/ad_1.png') }}" alt="" class="img-fluid w-100" style="height: 19.2rem; object-fit: cover;">
-                    </div>
+                    <a href="{{ get_settings('sidebar_advertiment_link_1') }}" target="_blank">
+                        <div class="card custom-shadow">
+                            <img src="{{ uploaded_asset(get_settings('sidebar_advertiment_1')) }}" alt="" class="img-fluid w-100" style="height: 19.2rem; object-fit: cover;">
+                        </div>
+                    </a>
                 </div>
             </div>
 
@@ -195,9 +197,11 @@
                 </div>
 
                 <div class="col-3">
-                    <div class="card custom-shadow">
-                        <img src="{{ url('img/frontend/index/ad_2.png') }}" alt="" class="img-fluid w-100" style="height: 19.2rem; object-fit: cover;">
-                    </div>
+                    <a href="{{ get_settings('sidebar_advertiment_link_2') }}" target="_blank">
+                        <div class="card custom-shadow">
+                            <img src="{{ uploaded_asset(get_settings('sidebar_advertiment_2')) }}" alt="" class="img-fluid w-100" style="height: 19.2rem; object-fit: cover;">
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>

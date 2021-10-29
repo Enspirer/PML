@@ -23,7 +23,8 @@ class ForSaleController extends Controller
 
         $properties = Properties::where('premium','!=','Enabled')->where('main_category','For Rent')->where('admin_approval','Approved')->paginate(2);
 
-        $count_for_sale = count($properties);
+        $all_properties = Properties::where('main_category','For Rent')->where('admin_approval','Approved')->get();
+        $count_for_sale = count($all_properties);
         // dd($count_for_sale);
 
         return view('frontend.for_sale',[

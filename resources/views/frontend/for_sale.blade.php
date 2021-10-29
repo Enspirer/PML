@@ -71,6 +71,12 @@
                     </div>
                 </div>
 
+                @if($count_for_sale == 0)
+                    @include('frontend.includes.not_found',[
+                        'not_found_title' => 'Properties Not Found',
+                    ])
+                @endif    
+               
                 @if(count($properties_promoted) != 0 )
                     <div class="row mt-5 featured_properties">
                         @foreach($properties_promoted as $key => $property_pro)
@@ -438,24 +444,5 @@
 @endforeach  
 @endif  
 
-    <!-- <script>
-      var swiper = new Swiper("#swiper_small_2", {
-        spaceBetween: 10,
-        slidesPerView: 4,
-        freeMode: true,
-        watchSlidesProgress: true,
-      });
-      var swiper2 = new Swiper("#swiper_2", {
-        spaceBetween: 10,
-        loop: true,
-        navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
-        },
-        thumbs: {
-          swiper: swiper,
-        },
-      });
-    </script> -->
 
 @endpush
