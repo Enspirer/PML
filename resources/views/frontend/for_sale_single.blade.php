@@ -7,7 +7,11 @@
 @endpush
 
 @section('content')
-    <div class="container index" style="margin-top: 9rem;">
+
+    @include('frontend.includes.search')
+
+
+    <div class="container index" style="margin-top: 2rem;">
         <div class="row">
             <div class="col-12">
                 <p><a href="" class="text-decoration-none text-dark fw-bold">Back to Search Results</a></p>
@@ -73,11 +77,11 @@
 
                 <div class="row">
                     <div class="col-9">
-                        <h3 class="fw-bold mt-4">$450, 000</h3>
+                        <h3 class="fw-bold mt-4 mb-1">$450, 000</h3>
 
-                        <p style="font-size: 1.3rem; color: black">3 Bed flat for sale</p>
+                        <p class="fw-bold" style="font-size: 1.2rem; color: black">3 Bed flat for sale</p>
 
-                        <p style="font-size: 1rem;">541, Rosewood place, Colombo, Sri Lanka</p>
+                        <p class="mb-1" style="font-size: 1rem;">541, Rosewood place, Colombo, Sri Lanka</p>
                         
                     </div>
 
@@ -96,6 +100,12 @@
                 <div class="row mt-3">
                     <div class="col-12">
                         <hr>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <div id="map" style="height: 350px; width: 100%"></div>
                     </div>
                 </div>
 
@@ -173,7 +183,7 @@
                                                             <div class="col-3 p-0">
                                                                 <i class="fas fa-phone-alt"></i>
                                                             </div>
-                                                            <div class="col-7 p-0 text-start">
+                                                            <div class="col-7 p-0 text-start" style="font-size: 0.9rem;">
                                                                 +94 77 125 1542
                                                             </div>
                                                         </div>
@@ -185,7 +195,7 @@
                                                             <div class="col-3 p-0">
                                                                 <i class="fas fa-envelope"></i>
                                                             </div>
-                                                            <div class="col-7 p-0 text-start">
+                                                            <div class="col-7 p-0 text-start" style="font-size: 0.9rem;">
                                                                 Send email to agent
                                                             </div>
                                                         </div>
@@ -197,7 +207,7 @@
                                                             <div class="col-3 p-0">
                                                                 <i class="far fa-heart"></i>
                                                             </div>
-                                                            <div class="col-7 p-0 text-start">
+                                                            <div class="col-7 p-0 text-start" style="font-size: 0.9rem;">
                                                                 Save this Property
                                                             </div>
                                                         </div>
@@ -220,7 +230,7 @@
                             <div class="col-4">
                                 <div class="card custom-shadow position-relative">
                                     <img src="{{ url('img/frontend/for_sale/1.png') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
-                                    <div class="card-body mt-2">
+                                    <div class="card-body mt-3">
                                         <div class="row mb-2">
                                             <div class="col-10">
                                                 <h5 class="fw-bold">$450, 000</h5>
@@ -230,7 +240,7 @@
                                             </div>
                                         </div>
                                         
-                                        <p>4 Bed Semidetached house</p>
+                                        <h6 class="fw-bold mb-2">4 Bed Semidetached house</h6>
                                         <p>541, Rosewood place,</p>
                                         <p class="mb-1">Colombo, Sri Lanka</p>
                                         <p>3<i class="fas fa-bed ms-2 me-3"></i> 5<i class="fas fa-bath ms-2"></i></p>
@@ -258,7 +268,7 @@
                             <div class="col-4">
                                 <div class="card custom-shadow position-relative">
                                     <img src="{{ url('img/frontend/for_sale/2.png') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
-                                    <div class="card-body mt-2">
+                                    <div class="card-body mt-3">
                                         <div class="row mb-2">
                                             <div class="col-10">
                                                 <h5 class="fw-bold">$450, 000</h5>
@@ -268,7 +278,7 @@
                                             </div>
                                         </div>
                                         
-                                        <p>4 Bed Semidetached house</p>
+                                        <h6 class="fw-bold mb-2">4 Bed Semidetached house</h6>
                                         <p>541, Rosewood place,</p>
                                         <p class="mb-1">Colombo, Sri Lanka</p>
                                         <p>3<i class="fas fa-bed ms-2 me-3"></i> 5<i class="fas fa-bath ms-2"></i></p>
@@ -296,7 +306,7 @@
                             <div class="col-4">
                                 <div class="card custom-shadow position-relative">
                                     <img src="{{ url('img/frontend/for_sale/3.png') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
-                                    <div class="card-body mt-2">
+                                    <div class="card-body mt-3">
                                         <div class="row mb-2">
                                             <div class="col-10">
                                                 <h5 class="fw-bold">$450, 000</h5>
@@ -306,7 +316,7 @@
                                             </div>
                                         </div>
                                         
-                                        <p>4 Bed Semidetached house</p>
+                                        <h6 class="fw-bold mb-2">4 Bed Semidetached house</h6>
                                         <p>541, Rosewood place,</p>
                                         <p class="mb-1">Colombo, Sri Lanka</p>
                                         <p>3<i class="fas fa-bed ms-2 me-3"></i> 5<i class="fas fa-bath ms-2"></i></p>
@@ -336,7 +346,7 @@
 
                 <div class="row justify-content-end mt-3">
                     <div class="col-6 text-end">
-                        <a href="{{ route('frontend.for_sale') }}" class="text-decoration-underline fs-5 text-dark">See all residential properties to sell</a>
+                        <a href="{{ route('frontend.for_sale') }}" class="text-decoration-underline text-dark">See all residential properties to sell</a>
                     </div>
                 </div>
             </div>
@@ -344,10 +354,6 @@
                     
 
             <div class="col-3">
-                <div class="row justify-content-center mb-5">
-                    <div id="map" style="height: 546px; width: 100%"></div>
-                </div>
-
                 <div class="row">
                     <div class="col-12 p-0 mb-4 custom-shadow">
                         <div class="card">
@@ -409,7 +415,7 @@
     <script>
         function initMap() {
             let options = {
-                zoom: 11,
+                zoom: 12,
                 center: {lat: 6.9271, lng: 79.8612}
             }
 
@@ -421,13 +427,13 @@
             });
 
             let infoWindow = new google.maps.InfoWindow({
-                content:    `<div class="row align-items-center" style="height: 190px; width: 100%">
+                content:    `<div class="row align-items-center" style="height: 170px; width: 200px">
                                 <div class="col-12">
-                                    <img src="{{ url('img/frontend/for_sale/1.png') }}" alt="" class="img-fluid mb-3" style="height: 107px!important; object-fit: cover!important; border-radius: 13px;">
+                                    <img src="{{ url('img/frontend/for_sale/1.png') }}" alt="" class="img-fluid w-100 mb-2" style="height: 98px!important; object-fit: cover!important; border-radius: 13px;">
                                 </div>
                                 <div class="col-12">
-                                    <h5 class="fw-bold mb-2" style="color: #39B54A">$450, 000</h5>
-                                    <p class="mb-2" style="font-size: 0.9rem;">541, Rosewood place, colombo, Sri Lanka</p>
+                                    <h5 class="fw-bold mb-1" style="color: #39B54A">$450, 000</h5>
+                                    <p class="mb-2" style="font-size: 0.8rem;">541, Rosewood place, colombo, Sri Lanka</p>
                                 </div>
                             </div>`
             });

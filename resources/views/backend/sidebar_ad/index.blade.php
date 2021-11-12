@@ -1,6 +1,6 @@
 @extends('backend.layouts.app')
 
-@section('title', __('Sidebar Advertisement'))
+@section('title', __('Home Page Advertisement'))
 
 @section('content')
 
@@ -96,7 +96,7 @@
 
     <div class="card overflow-hidden">
       <div class="row no-gutters row-bordered row-border-light">
-        <div class="col-md-3 pt-0">
+        <div class="col-md-3 mt-3 pt-0">
           <div class="list-group list-group-flush account-settings-links">
             <a class="list-group-item list-group-item-action active" data-toggle="list" href="#ad1">Advertisement 1</a>
             <a class="list-group-item list-group-item-action" data-toggle="list" href="#ad2">Advertisement 2</a>

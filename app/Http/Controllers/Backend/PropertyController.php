@@ -9,6 +9,7 @@ use DB;
 use App\Models\Properties;
 use App\Models\Country;
 use App\Models\PropertyType;
+use App\Models\AgentRequest;
 
 class PropertyController extends Controller
 {
@@ -23,9 +24,12 @@ class PropertyController extends Controller
         $property_type = PropertyType::where('status',1)->get();
         $countries = Country::where('status',1)->get();
 
+        $agents = AgentRequest::where('status','Approved')->get();
+
         return view('backend.property.create',[
             'property_type' => $property_type,
-            'countries' => $countries
+            'countries' => $countries,
+            'agents' => $agents
         ]);
     }
 
@@ -46,7 +50,23 @@ class PropertyController extends Controller
                         $img = '<img src="'.uploaded_asset($data->feature_image_id).'" style="width: 60%">';
                      
                         return $img;
-                    })                    
+                    })   
+                    ->addColumn('promoted', function($data){
+                        if($data->promoted == 'Enabled'){
+                            $status = '<span class="badge badge-success">Promoted</span>';
+                        }else{
+                            $status = '<span class="badge badge-warning">Disabled</span>';
+                        }   
+                        return $status;
+                    })
+                    ->addColumn('premium', function($data){
+                        if($data->premium == 'Enabled'){
+                            $status = '<span class="badge badge-success">Premium</span>';
+                        }else{
+                            $status = '<span class="badge badge-warning">Disabled</span>';
+                        }   
+                        return $status;
+                    })                 
                     ->addColumn('admin_approval', function($data){
                         if($data->admin_approval == 'Approved'){
                             $status = '<span class="badge badge-success">Approved</span>';
@@ -58,7 +78,7 @@ class PropertyController extends Controller
                         return $status;
                     })
                     
-                    ->rawColumns(['action','admin_approval','feature_image'])
+                    ->rawColumns(['action','admin_approval','feature_image','promoted','premium'])
                     ->make(true);
         }
         return back();
@@ -94,7 +114,9 @@ class PropertyController extends Controller
         $addprop->slug=$request->slug;        
         $addprop->transaction_type=$request->transaction_type;
         $addprop->admin_approval=$request->admin_approval;
-        $addprop->user_id = auth()->user()->id;
+        $addprop->promoted=$request->promoted;
+        $addprop->premium=$request->premium;
+        $addprop->user_id = $request->agent_user_id;
 
         if($request->land_size){
             $addprop->land_size=$request->land_size;
@@ -138,13 +160,16 @@ class PropertyController extends Controller
         $property = Properties::where('id',$id)->first();
         $property_type = PropertyType::where('status',1)->get();
         $countries = Country::where('status',1)->get();
+
+        $agents = AgentRequest::where('status','Approved')->get();
         
         // dd($property_type);              
 
         return view('backend.property.edit', [
             'property' => $property,
             'property_type' => $property_type,
-            'countries' => $countries  
+            'countries' => $countries,
+            'agents' => $agents
         ]);  
     }
 
@@ -178,7 +203,10 @@ class PropertyController extends Controller
         $update->slug=$request->slug;        
         $update->transaction_type=$request->transaction_type;
         $update->admin_approval=$request->admin_approval;
-        $update->user_id = auth()->user()->id;
+        $update->promoted=$request->promoted;
+        $update->premium=$request->premium;
+        $update->user_id = $request->agent_user_id;
+
 
         if($request->land_size){
             $update->land_size=$request->land_size;

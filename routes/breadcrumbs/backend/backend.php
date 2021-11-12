@@ -72,7 +72,10 @@ Breadcrumbs::for('admin.post.edit', function ($trail) {
 });
 
 Breadcrumbs::for('admin.sidebar_ad.index', function ($trail) {
-    $trail->push('Sidbar Advertisement', route('admin.sidebar_ad.index'));
+    $trail->push('Home Page Advertisement', route('admin.sidebar_ad.index'));
+});
+Breadcrumbs::for('admin.property_page_ad.index', function ($trail) {
+    $trail->push('Property Page Advertisement', route('admin.property_page_ad.index'));
 });
 
 Breadcrumbs::for('admin.file_manager.index', function ($trail) {
@@ -84,6 +87,10 @@ Breadcrumbs::for('admin.contact_us.index', function ($trail) {
 });
 Breadcrumbs::for('admin.contact_us.edit', function ($trail) {
     $trail->push('Edit', route('admin.contact_us.edit',1));
+});
+
+Breadcrumbs::for('admin.search.index', function ($trail) {
+    $trail->push('Search', route('admin.search.index'));
 });
 
 Breadcrumbs::for('admin.settings.index', function ($trail) {

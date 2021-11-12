@@ -24,6 +24,8 @@
                                 <th scope="col">Image</th>
                                 <th scope="col">Name</th>
                                 <th scope="col">Price</th>
+                                <th scope="col">Promoted</th>
+                                <th scope="col">Premium</th>
                                 <th scope="col">Admin Approval</th>
                                 <th scope="col">Option</th>
                             </tr>
@@ -80,6 +82,8 @@
                     {data: 'feature_image', name: 'feature_image'},
                     {data: 'name', name: 'name'},
                     {data: 'price', name: 'price'},
+                    {data: 'promoted', name: 'promoted'},
+                    {data: 'premium', name: 'premium'},
                     {data: 'admin_approval', name: 'admin_approval'},
                     {data: 'action', name: 'action', orderable: false, searchable: false},
                 ]

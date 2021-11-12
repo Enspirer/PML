@@ -20,8 +20,24 @@
                             </div>
                             <div class="col-6">
                                 <div>
+                                    <label for="agent_user_id" class="form-label mb-2 required">Agent User <span class="text-danger">*</span></label>
+                                    
+                                    <datalist class="form-group w-100" name="agent_user_id" id="agent_user_id" >
+                                    @foreach($agents as $agent)
+                                        <option value="{{ $agent->id }}">{{ $agent->name }} - {{ $agent->email }}</option>
+                                    @endforeach
+                                    </datalist>   
+                            
+                                    <input class="form-control w-100" autoComplete="on" value="{{ App\Models\AgentRequest::where('id',$property->user_id)->first()->id }}" name="agent_user_id" list="agent_user_id" required/> 
+
+                                </div>  
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-12">
+                                <div>
                                     <label for="propertyType" class="form-label mb-2 required">Property Type <span class="text-danger">*</span></label>
-                                    <select class="form-select" aria-label="propertyType" name="propertyType" id="propertyType" onChange="renderFields()" required>
+                                    <select class="form-control custom-select" aria-label="propertyType" name="propertyType" id="propertyType" onChange="renderFields()" required>
                                         <option selected disabled value="">Select...</option>                                        
                                         @foreach($property_type as $type)
                                                 <option value="{{$type->id}}" {{ $property->property_type == $type->id ? "selected" : "" }}> {{$type->property_type_name}} </option>
@@ -52,7 +68,7 @@
                                     <select class="form-control custom-select" name="country" required>
                                         <option value="" selected disabled>Select...</option>
                                         @foreach($countries as $country)
-                                            <option value="{{$country->id}}" {{ $country->id == $property->country ? "selected" : "" }}>{{$country->country_name}}</option>  
+                                            <option value="{{$country->country_name}}" {{ $country->country_name == $property->country ? "selected" : "" }}>{{$country->country_name}}</option>  
                                         @endforeach
                                     </select>
                                 </div>
@@ -62,12 +78,10 @@
                             <div class="col-6">
                                 <div>
                                     <label for="category" class="form-label mb-2 mt-3">Category <span class="text-danger">*</span></label>
-                                    <select class="form-select" aria-label="category" id="category" name="category" required>
+                                    <select class="form-control custom-select" aria-label="category" id="category" name="category" required>
                                         <option selected disabled value="">Choose...</option>
-                                        <option value="Commercial">Commercial</option>
-                                        <option value="Residential">Residential</option>
-                                        <option value="TP_Developer">TP Developer</option>
-                                        <option value="Investments">Investments</option>
+                                        <option value="For Sale" {{ $property->main_category == 'For Sale' ? "selected" : "" }}>For Sale</option>
+                                        <option value="For Rent" {{ $property->main_category == 'For Rent' ? "selected" : "" }}>For Rent</option>
                                     </select>
                                 </div>  
                             </div>
@@ -156,7 +170,27 @@
             <div class="card">
                 <div class="card-body">
                     <div class="" style="border-style: ridge;border-width: 3px;padding: 20px;">
-                        <div class="form-group">
+                        <div class="row">
+                            <div class="col-6">
+                                <div>
+                                    <label for="promoted" class="form-label mb-2">Promoted <span class="text-danger">*</span></label>
+                                    <select class="form-control custom-select" aria-label="promoted" id="promoted" name="promoted" required>
+                                        <option value="Enabled" {{ $property->promoted == 'Enabled' ? "selected" : "" }}>Enabled</option>
+                                        <option value="Disabled" {{ $property->promoted == 'Disabled' ? "selected" : "" }}>Disabled</option>
+                                    </select>
+                                </div>  
+                            </div>
+                            <div class="col-6">
+                                <div>
+                                    <label for="premium" class="form-label mb-2">Premium Listing <span class="text-danger">*</span></label>
+                                    <select class="form-control custom-select" aria-label="premium" id="premium" name="premium" required>
+                                        <option value="Enabled" {{ $property->premium == 'Enabled' ? "selected" : "" }}>Enabled</option>
+                                        <option value="Disabled" {{ $property->premium == 'Disabled' ? "selected" : "" }}>Disabled</option>
+                                    </select>
+                                </div>  
+                            </div>
+                        </div>
+                        <div class="form-group mt-4">
                             <label>Admin Approval <span class="text-danger">*</span></label>
                             <select class="form-control" name="admin_approval" required>
                                 <option value="Approved" {{ $property->admin_approval == 'Approved' ? "selected" : "" }}>Approve</option>   

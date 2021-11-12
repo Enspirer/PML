@@ -76,13 +76,13 @@
                                                         <tr>
                                                             @if($agent_request->validation_type == 'NIC')
                                                                 <td style="font-weight: 600;">NIC Photo:</td>
-                                                                <td><img src="{{ uploaded_asset($agent_request->nic_photo) }}" style="width: 40%;" alt="" ></td>                                                            
+                                                                <td><img src="{{ uploaded_asset($agent_request->nic_photo) }}" style="width: 80%;" alt="" ></td>                                                            
                                                             @elseif($agent_request->validation_type == 'Passport')
                                                                 <td style="font-weight: 600;">Passport Photo:</td>
-                                                                <td> <img src="{{ uploaded_asset($agent_request->passport_photo) }}" style="width: 40%;" alt="" ></td>
+                                                                <td> <img src="{{ uploaded_asset($agent_request->passport_photo) }}" style="width: 80%;" alt="" ></td>
                                                             @else                        
                                                                 <td style="font-weight: 600;">License Photo:</td>
-                                                                <td><img src="{{ uploaded_asset($agent_request->license_photo) }}" style="width: 40%;" alt="" ></td>                                                                
+                                                                <td><img src="{{ uploaded_asset($agent_request->license_photo) }}" style="width: 80%;" alt="" ></td>                                                                
                                                             @endif
                                                         </tr>
                                                     </tbody>
@@ -111,6 +111,10 @@
                                                         <tr>
                                                             <td style="font-weight: 600;">Request:</td>
                                                             <td>{{ $agent_request->request }}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="font-weight: 600;">Logo:</td>
+                                                            <td><img src="{{ uploaded_asset($agent_request->logo) }}" style="width: 60%;" alt="" ></td>
                                                         </tr>
                                                     </tbody>
                                                 </table>

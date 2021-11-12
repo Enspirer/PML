@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 * {
-    font-family: 'Josefin Sans', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6, p {
@@ -13,25 +13,61 @@ p {
     color: #666666;
 }
 
+.home-search ::placeholder {
+    font-size: 1rem;
+}
+
 .navbar {
     padding-top: 4.5rem!important;
     background-color: #16202C;
 }
 .navbar-nav a {
     color: white!important;
+    font-size: 0.9rem;
+    border-bottom: 2px solid transparent;
 }
-.navbar-nav select {
+.navbar-nav a:hover {
+    border-bottom: 2px solid red!important;
+}
+.navbar-nav a.active {
+    border-bottom: 2px solid red!important;
+}
+.navbar-nav .nav-item {
+    z-index: 1;
+}
+.navbar select {
     width: 15%;
-    top: -2.9rem;
-    right: 22.5rem;
+    top: -3.1rem;
+    right: 22rem;
     border-radius: 0!important;
     background-color: #16202C;
     color:white;
     border: none;
+    font-size: 0.9rem;
 }
 .navbar-brand {
     bottom: 0rem;
 }
+
+.navbar .dropdown-menu {
+    min-width: 10rem!important;
+    left: 10.5rem;
+    top: 3.5rem;
+    border-top: 5px solid #39B54A;
+    background-color: #FFFFFF;
+    padding-bottom: 0!important;
+}
+
+.navbar .dropdown-menu .dropdown-item {
+    border-bottom: 1px solid #707070;
+    color: black!important;
+    padding: 0.5rem 1rem!important;
+}
+
+.navbar .dropdown-menu .dropdown-item:hover {
+    background-color: #E3EDEF;
+}
+
 .logo {
     height: 4.5rem;
 }
@@ -44,6 +80,13 @@ p {
     top: -3.5rem;
     right: 0rem;
 }
+.log-reg a, .log-reg select {
+    color: white;
+    font-size: 0.9rem;
+}
+.log-reg a:hover {
+    color: white!important;
+}
 .log-reg .register {
     padding-top: 0.39rem;
     padding-bottom: 0.39rem;
@@ -51,6 +94,21 @@ p {
 
 ::placeholder { /* Chrome/Opera/Safari */
    font-size: 0.8rem;
+}
+.input-group-text {
+    display: flex;
+    align-items: center;
+    /* padding: .375rem .75rem; */
+    margin-bottom: 0;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    text-align: center;
+    white-space: nowrap;
+    background-color: #e9ecef;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
 }
 
 

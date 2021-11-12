@@ -11,6 +11,7 @@ use App\Http\Controllers\Backend\PropertyTypeController;
 use App\Http\Controllers\Backend\AgentRequestController;
 use App\Http\Controllers\Backend\CountryController;
 use App\Http\Controllers\Backend\ContactUsController;
+use App\Http\Controllers\Backend\SearchController;
 
 // All route names are prefixed with 'admin.'.
 Route::redirect('/', '/admin/dashboard', 301);
@@ -70,9 +71,13 @@ Route::post('post/update', [PostController::class, 'update'])->name('post.update
 Route::get('post/delete/{id}', [PostController::class, 'destroy'])->name('post.destroy');
 
 Route::get('sidebar_ad', [AdvertisementController::class, 'index'])->name('sidebar_ad.index');
-Route::post('sidebar_ad/store', [AdvertisementController::class, 'store'])->name('sidebar_ad.store');
 Route::post('sidebar_ad/update1', [AdvertisementController::class, 'update1'])->name('sidebar_ad.update1');
 Route::post('sidebar_ad/update2', [AdvertisementController::class, 'update2'])->name('sidebar_ad.update2');
+
+Route::get('property_page_ad', [AdvertisementController::class, 'property_index'])->name('property_page_ad.index');
+Route::post('property_page_ad/update1', [AdvertisementController::class, 'property_update1'])->name('property_page_ad.update1');
+Route::post('property_page_ad/update2', [AdvertisementController::class, 'property_update2'])->name('property_page_ad.update2');
+Route::post('property_page_ad/update3', [AdvertisementController::class, 'property_update3'])->name('property_page_ad.update3');
 
 Route::get('file_manager', [FileManagerController::class, 'index'])->name('file_manager.index');
 Route::get('file_manager/getdetails', [FileManagerController::class, 'getdetails'])->name('file_manager.getdetails');
@@ -84,6 +89,10 @@ Route::get('contact_us/edit/{id}', [ContactUsController::class, 'edit'])->name('
 Route::post('contact_us/update', [ContactUsController::class, 'update'])->name('contact_us.update');
 Route::get('contact_us/delete/{id}', [ContactUsController::class, 'destroy'])->name('contact_us.destroy');
 
+Route::get('search', [SearchController::class, 'index'])->name('search.index');
+Route::get('search/getdetails', [SearchController::class, 'getdetails'])->name('search.getdetails');
+Route::get('search/show/{id}', [SearchController::class, 'show'])->name('search.show');
+Route::get('search/delete/{id}', [SearchController::class, 'destroy'])->name('search.destroy');
 
 Route::get('settings', [SettingsController::class, 'index'])->name('settings.index');
 Route::post('settings/update', [SettingsController::class, 'settings_update'])->name('settings_update');
