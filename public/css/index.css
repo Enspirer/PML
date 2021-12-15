@@ -10,9 +10,6 @@
     box-shadow: 0px 0px 3px 1px rgba(0,0,0,0.75);
 }
 
-.home-search ::placeholder { /* Chrome/Opera/Safari */
-    font-size: 1rem;
- }
 
 
 /* scroll */

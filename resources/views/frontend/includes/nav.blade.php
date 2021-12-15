@@ -1,6 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-light fixed-top">
   <div class="container position-relative">
-    <a class="navbar-brand text-white position-absolute" href="{{ route('frontend.index') }}"><img src="{{ url('img/frontend/logo.png') }}" alt="" class="logo"></a>
+    <a class="navbar-brand text-white position-absolute" href="{{ route('frontend.index') }}">
+        <img src="{{ url('logo.gif') }}" alt="" class="logo"></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
