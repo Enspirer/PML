@@ -85,7 +85,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-6">
+                            <!-- <div class="col-6">
                                 <div>
                                     <label for="category" class="form-label mb-2 mt-3">Category <span class="text-danger">*</span></label>
                                     <select class="form-control custom-select" aria-label="category" id="category" name="category" required>
@@ -94,7 +94,7 @@
                                         <option value="For Rent">For Rent</option>
                                     </select>
                                 </div>  
-                            </div>
+                            </div> -->
                             <div class="col-6">
                                 <div>
                                     <label for="city" class="form-label mb-2 mt-3">City <span class="text-danger">*</span></label>

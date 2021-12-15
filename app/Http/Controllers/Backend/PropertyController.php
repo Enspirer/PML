@@ -130,7 +130,7 @@ class PropertyController extends Controller
         $addprop->property_type=$request->propertyType; 
         $addprop->description=$request->description;  
         $addprop->price=$request->price;
-        $addprop->main_category=$request->category; 
+        // $addprop->main_category=$request->category; 
         $addprop->country=$request->country; 
         $addprop->area=$request->area; 
         $addprop->city=$request->city;
@@ -220,7 +220,7 @@ class PropertyController extends Controller
         $update->property_type=$request->propertyType; 
         $update->description=$request->description;  
         $update->price=$request->price;
-        $update->main_category=$request->category; 
+        // $update->main_category=$request->category; 
         $update->city=$request->city;
         $update->area=$request->area; 
         $update->country=$request->country;
