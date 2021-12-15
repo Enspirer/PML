@@ -12,6 +12,8 @@ use App\Http\Controllers\Backend\AgentRequestController;
 use App\Http\Controllers\Backend\CountryController;
 use App\Http\Controllers\Backend\ContactUsController;
 use App\Http\Controllers\Backend\SearchController;
+use App\Http\Controllers\Backend\LocationController;
+
 
 // All route names are prefixed with 'admin.'.
 Route::redirect('/', '/admin/dashboard', 301);
@@ -32,6 +34,8 @@ Route::get('property/getdetails', [PropertyController::class, 'getDetails'])->na
 Route::get('property/edit/{id}', [PropertyController::class, 'edit'])->name('property.edit');
 Route::post('property/update', [PropertyController::class, 'update'])->name('property.update');
 Route::get('property/delete/{id}', [PropertyController::class, 'destroy'])->name('property.destroy');
+Route::get('findLocWithCountryID/{id}', [PropertyController::class, 'findLocWithCountryID'])->name('findLocWithCountryID');
+
 
 Route::get('property_type', [PropertyTypeController::class, 'index'])->name('property_type.index');
 Route::get('property_type/create', [PropertyTypeController::class, 'create'])->name('property_type.create');
@@ -110,3 +114,10 @@ Route::get('contactus_thanks', [SettingsController::class, 'contactus_thanks'])-
 Route::post('contactus_thanks_update/update', [SettingsController::class, 'contactus_thanks_update'])->name('contactus_thanks_update');
 
 
+Route::get('location', [LocationController::class, 'index'])->name('location.index');
+Route::get('location/create', [LocationController::class, 'create'])->name('location.create');
+Route::post('location/store', [LocationController::class, 'store'])->name('location.store');
+Route::get('location/getdetails', [LocationController::class, 'getdetails'])->name('location.getdetails');
+Route::get('location/edit/{id}', [LocationController::class, 'edit'])->name('location.edit');
+Route::post('location/update', [LocationController::class, 'update'])->name('location.update');
+Route::get('location/delete/{id}', [LocationController::class, 'destroy'])->name('location.destroy');

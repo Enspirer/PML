@@ -113,4 +113,14 @@ Breadcrumbs::for('admin.contactus_thanks', function ($trail) {
     $trail->push('Contact Us Thanks Email', route('admin.contactus_thanks'));
 });
 
+Breadcrumbs::for('admin.location.index', function ($trail) {
+    $trail->push('Location Area', route('admin.location.index'));
+});
+Breadcrumbs::for('admin.location.create', function ($trail) {
+    $trail->push('Create Location Area', route('admin.location.create'));
+});
+Breadcrumbs::for('admin.location.edit', function ($trail) {
+    $trail->push('Edit Location Area', route('admin.location.edit',1));
+});
+
 

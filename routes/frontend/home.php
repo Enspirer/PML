@@ -29,13 +29,17 @@ Route::get('/aiz-uploader/download/{id}', [AizUploadController::class, 'attachme
 Route::get('uploads/all/{file_name}',[AizUploadController::class,'get_image_content']);
 
 
-Route::get('for-sale', [ForSaleController::class, 'index'])->name('for_sale');
-Route::get('for-sale/single-property', [ForSaleController::class, 'singleProperty'])->name('for_sale_single');
+
 Route::get('lands', [LandsController::class, 'index'])->name('lands');
 Route::get('lands/single-property', [LandsController::class, 'singleProperty'])->name('lands_single');
 Route::get('new-development', [NewDevelopmentController::class, 'index'])->name('new_development');
 
 Route::get('agents', [AgentsController::class, 'index'])->name('agents');
+
+// Route::get('for-sale', [ForSaleController::class, 'index'])->name('for_sale');
+Route::get('for-sale/single-property', [ForSaleController::class, 'singleProperty'])->name('for_sale_single');
+
+Route::get('search_result_filter/{key_name}/{min_price}/{max_price}/{transaction_type}/{property_type}/{listed_since}/{building_type}/{beds}/{baths}/{land_size}/{open_house}/{zoning_type}/{units}/{building_size}/{farm_type}/{parking_type}/{city}',[ForSaleController::class,'for_sale'])->name('for_sale');
 
 /*
  * These frontend controllers require the user to be logged in

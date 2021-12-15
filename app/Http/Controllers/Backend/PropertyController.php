@@ -10,6 +10,7 @@ use App\Models\Properties;
 use App\Models\Country;
 use App\Models\PropertyType;
 use App\Models\AgentRequest;
+use App\Models\Location;
 
 class PropertyController extends Controller
 {
@@ -31,6 +32,30 @@ class PropertyController extends Controller
             'countries' => $countries,
             'agents' => $agents
         ]);
+    }
+
+    public function findLocWithCountryID($id)
+    {
+        // dd($id);
+        $locations = Location::where('country',$id)->get();
+
+        $output_array = [];
+
+        foreach($locations as $key => $location){
+
+
+            $array_out = [
+                'location_country' => $location->country,
+                'location_id' => $location->id,
+                'location_district' => $location->district
+            ];
+
+            array_push($output_array,$array_out);
+        }
+
+        // dd($output_array);
+
+        return response()->json($output_array);
     }
 
     public function getDetails(Request $request)
@@ -107,6 +132,7 @@ class PropertyController extends Controller
         $addprop->price=$request->price;
         $addprop->main_category=$request->category; 
         $addprop->country=$request->country; 
+        $addprop->area=$request->area; 
         $addprop->city=$request->city;
         $addprop->feature_image_id=$request->feature_image;
         $addprop->image_ids=$request->multiple_images;
@@ -196,6 +222,7 @@ class PropertyController extends Controller
         $update->price=$request->price;
         $update->main_category=$request->category; 
         $update->city=$request->city;
+        $update->area=$request->area; 
         $update->country=$request->country;
         $update->feature_image_id=$request->feature_image;
         $update->image_ids=$request->multiple_images;

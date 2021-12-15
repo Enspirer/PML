@@ -10,10 +10,10 @@
           <a class="nav-link fw-bold p-0 {{ Request::segment(1) == '' ? 'active' : null }}" aria-current="page" href="{{ route('frontend.index') }}">Home</a>
         </li>
         <li class="nav-item px-4 border-end">
-          <a class="nav-link fw-bold p-0 {{ Request::segment(1) == 'for-sale' ? 'active' : null }}" href="{{ route('frontend.for_sale') }}">For Sale</a>
+          <a class="nav-link fw-bold p-0 {{ Request::segment(1) == 'for-sale' ? 'active' : null }}" href="{{ route('frontend.for_sale', ['key_name', 'min_price', 'max_price', 'sale', 'property_type', 'beds', 'baths', 'land_size', 'listed_since', 'building_type', 'open_house', 'zoning_type', 'units', 'building_size', 'farm_type', 'parking_type', 'city'] )}}">For Sale</a>
         </li>
         <li class="nav-item px-4 border-end">
-          <a class="nav-link fw-bold p-0 {{ Request::segment(1) == 'for-rent' ? 'active' : null }}" href="">For Rent</a>
+          <a class="nav-link fw-bold p-0 {{ Request::segment(1) == 'for-rent' ? 'active' : null }}" href="{{ route('frontend.for_sale', ['key_name', 'min_price', 'max_price', 'rent', 'property_type', 'beds', 'baths', 'land_size', 'listed_since', 'building_type', 'open_house', 'zoning_type', 'units', 'building_size', 'farm_type', 'parking_type', 'city'] )}}">For Rent</a>
         </li>
         <li class="nav-item px-4 border-end">
           <a class="nav-link fw-bold p-0 {{ Request::segment(1) == 'lands' ? 'active' : null }}" href="{{ route('frontend.lands') }}">Lands</a>

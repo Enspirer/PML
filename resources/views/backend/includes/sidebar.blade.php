@@ -29,6 +29,20 @@
 
             <li class="nav-item nav-dropdown ">
                 <a class="nav-link nav-dropdown-toggle " href="#">
+                    <i class="nav-icon fas fa-map-marker-alt"></i>
+                        Area
+                </a>
+                <ul class="nav-dropdown-items">
+                    <li class="nav-item">
+                        <a class="nav-link {{active_class(Route::is('admin/location'))}}" href="{{ route('admin.location.index') }}">
+                            Locations Area
+                        </a>
+                    </li> 
+                </ul>
+            </li>
+
+            <li class="nav-item nav-dropdown ">
+                <a class="nav-link nav-dropdown-toggle " href="#">
                     <i class="nav-icon fas fa-building"></i>
                     Properties
                 </a>
