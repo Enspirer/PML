@@ -1,10 +1,10 @@
 <div style="background-color: #E8EEEF">
 
-    <div class="nav flex-column profile-settings align-items-start justify-content-start py-3" id="nav-tab" role="tablist">
+    <div class="nav flex-column profile-settings align-items-start justify-content-start py-3" id="nav-tab" role="tablist" style="position: fixed;width: 400px;">
 
         <h5 class="px-5 pb-2 mb-0 fw-bolder" style="font-size: 1.3rem; margin-top: 2.5rem">My Account</h5>
 
-        <a class="nav-link border-0 ps-5 mt-3 w-100 {{ Request::segment(1) == 'dashboard' ? 'active' : null }}" id="nav-account-tab" href="" type="button" role="tab" aria-controls="nav-account" aria-selected="false">
+        <a class="nav-link border-0 ps-5 mt-3 w-100 {{ Request::segment(1) == 'dashboard' ? 'active' : null }}" id="nav-account-tab" href="{{route('frontend.user.dashboard')}}" type="button" role="tab" aria-controls="nav-account" aria-selected="false">
             <div class="row align-items-center justify-content-between">
                 <div class="col-1">
                     <img src="{{ url('img/frontend/profile/account_information.png') }}" alt="">
@@ -15,7 +15,7 @@
             </div>
         </a>
 
-        <a class="nav-link text-dark fw-bold ps-5 w-100 {{ Request::segment(1) == 'account-dashboard' ? 'active' : null }}" id="nav-accountDashboard-tab" href="" type="button" role="tab" aria-controls="nav-accountDashboard" aria-selected="false"> 
+        <a class="nav-link text-dark fw-bold ps-5 w-100 {{ Request::segment(1) == 'accounts-dashboard' ? 'active' : null }}" id="nav-accountDashboard-tab" href="{{route('frontend.user.account_dashboard')}}" type="button" role="tab" aria-controls="nav-accountDashboard" aria-selected="false">
             <div class="row align-items-center justify-content-between">
                 <div class="col-1">
                     <img src="{{ url('img/frontend/profile/account_dashboard.png') }}" alt="">
