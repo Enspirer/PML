@@ -2,7 +2,8 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-9">
-                <form>
+                <form action="{{route('frontend.property.search')}}" method="post">
+                    {{csrf_field()}}
                     <div class="input-group">
                         <input type="text" name="search_keyword" class="form-control p-4 rounded-0" aria-label="search" data-bs-toggle="modal" data-bs-target="#exampleModal" placeholder="Search">
 

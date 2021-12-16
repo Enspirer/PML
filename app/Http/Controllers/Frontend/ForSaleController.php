@@ -41,6 +41,11 @@ class ForSaleController extends Controller
             'properties_premium' => $properties_premium
         ]);
     }
+
+    public function search(Request $request)
+    {
+        dd($request);
+    }
    
 
 

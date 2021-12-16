@@ -45,6 +45,7 @@ Route::post('contact_agent', [ForSaleController::class, 'contact_agent'])->name(
 Route::post('prop_favourite',[ForSaleController::class,'propertyFavourite'])->name('propertyFavourite');
 Route::post('prop_favourite/unsave/{id}',[ForSaleController::class,'propertyFavouriteDelete'])->name('propertyFavouriteDelete');
 
+Route::post('property-search', [ForSaleController::class, 'search'])->name('property.search');
 
 
 
