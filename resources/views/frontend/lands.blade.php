@@ -130,7 +130,7 @@
 
                     <div class="col-4">
                         <div class="card custom-shadow position-relative">
-                            <a href="{{ route('frontend.for_sale_single') }}" class="text-decoration-none text-dark">
+                            <a href="{{ route('frontend.for_sale_single','prop') }}" class="text-decoration-none text-dark">
                                 <img src="{{ url('img/frontend/new_development/2.png') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
                                 <div class="card-body mt-3">
                                     <div class="row mb-2">
@@ -169,7 +169,7 @@
 
                     <div class="col-4">
                         <div class="card custom-shadow position-relative">
-                            <a href="{{ route('frontend.for_sale_single') }}" class="text-decoration-none text-dark">
+                            <a href="{{ route('frontend.for_sale_single','prop') }}" class="text-decoration-none text-dark">
                                 <img src="{{ url('img/frontend/new_development/3.png') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
                                 <div class="card-body mt-3">
                                     <div class="row mb-2">

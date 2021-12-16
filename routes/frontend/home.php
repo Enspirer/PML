@@ -66,5 +66,18 @@ Route::group(['middleware' => ['auth', 'password_expires']], function () {
 
         // User Profile Specific
         Route::patch('profile/update', [ProfileController::class, 'update'])->name('profile.update');
+
+
+
+        Route::get('favourites', [DashboardController::class, 'favourites'])->name('favourites');
+        Route::get('favourites/delete/{id}', [DashboardController::class, 'favouritesDelete'])->name('favourites-delete');
+
+        Route::get('my-bookings', [DashboardController::class, 'myBookings'])->name('my-bookings');
+
+        
     });
 });
+
+
+
+
