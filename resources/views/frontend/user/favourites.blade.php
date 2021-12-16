@@ -48,7 +48,7 @@
                                     @if(is_favorite($prop->id, auth()->user()->id))
                                         <div class="row align-items-center justify-content-between mb-4 border py-3">
                                             <div class="col-6">
-                                                <a href="{{ route('frontend.for_sale_single', $prop->id) }}"><img src="{{url( uploaded_asset($prop->feature_image_id)) }}" style="width:350px; object-fit:cover;" height="210px" class="card-img-top" alt="..."></a>
+                                                <a href="{{ route('frontend.for_sale_single', $prop->id) }}"><img src="{{ uploaded_asset($prop->feature_image_id) }}" style="width:350px; object-fit:cover;" height="210px" class="card-img-top" alt="..."></a>
                                             </div>
                                             <div class="col-5">
                                                 <h5 class="card-title">{{ $prop->name }}</h5>
