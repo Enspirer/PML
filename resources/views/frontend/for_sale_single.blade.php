@@ -8,23 +8,48 @@
 
 @section('content')
 
-@if ( session()->has('message'))
 
 
-    <div class="container" style="background-color: #c6e4ee; margin-bottom:50px; padding:30px; border-radius: 50px 50px; text-align:center;">
 
-        <h1 style="margin-top:150px;" class="display-6">Thanks for Booking!</h1><br>
-        <p class="lead"><h4>One of our member will get back in touch with you soon!<br><br> Have a great day!</h4></p>
-        <hr><br>    
-        <p class="lead">
-            <a class="btn btn-info btn-md mb-5" href="{{ url('for-sale/single-property',$property->id) }}" role="button">Go Back to View Property</a>
-        </p>
-    </div>
-  
-
-@else
 
     @include('frontend.includes.search')
+
+
+
+    @if ( session()->has('message'))
+        <div class="" style="background-color: rgb(22 32 44);text-align: center;color: white;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3">
+
+                        <div style="background-image: url('{{url('img/booking.png')}}');height: 140px;background-repeat: no-repeat;background-position: center;background-size: contain;margin-top: 25px;filter: invert(1);"></div>
+
+                    </div>
+                    <div class="col-md-9">
+                        <h1 class="display-6" style="padding-top: 21px;font-size: 22px;text-align: left">Thanks for Booking!</h1><br>
+                        <p class="lead"></p>
+
+                        <h4 style="font-size: 13px;text-align: left">
+                            One of our member will get back in touch with you soon.Lorem ipsum dolor sit amet, consectetur
+                            adipiscing elit. Proin dignissim diam in pulvinar porta. Interdum et malesuada fames
+                            ac ante ipsum primis in faucibus.  One of our member will get back in touch with you soon.
+                            Lorem ipsum dolor sit amet, consectetur
+                            adipiscing elit.
+                        </h4> <br>
+
+                        <a href="" class="btn btn-primary" style="float: left;background: #16202c;border-color: white;margin-bottom: 20px;">
+                            View My Booking
+                        </a>
+
+                        <br>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    @endif
+
 
 
     <div class="container index" style="margin-top: 2rem;">
@@ -274,14 +299,14 @@
                                     <div class="col-12">
                                         <div class="custom-shadow pt-4 pb-3 px-3 text-center">
                                             <img src="{{ uploaded_asset($agent->photo) }}" alt="" class="img-fluid mb-3" style="object-fit: cover; height: 7rem;">
-                                            <h4 class="fw-bold">
+                                            <p class="fw-bold">
                                                 @if($agent->agent_type == 'Individual')
                                                     {{ $agent->name }}
                                                 @else
                                                     {{ $agent->company_name }}
                                                 @endif
-                                            </h4>
-                                            <h5>{{ $agent->agent_type }} Agents</h5>
+                                            </p>
+                                            <p>{{ $agent->agent_type }} Agents</p>
 
                                             <div class="row justify-content-center mt-3">
                                                 <div class="col-12 text-center mb-2">
@@ -826,4 +851,3 @@
 
 @endpush
 
-@endif

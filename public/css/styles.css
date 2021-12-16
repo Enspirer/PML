@@ -75,6 +75,9 @@ p {
     -webkit-box-shadow: 0px 0px 42px -31px rgb(0 0 0 / 75%);
     -moz-box-shadow: 0px 0px 42px -31px rgb(0 0 0 / 75%);
     box-shadow: 0px 0px 42px -31px rgb(0 0 0 / 75%);
+    border-style: solid;
+    border-width: 1px;
+    border-color: #dfdfdf;
 }
 .log-reg {
     top: -3.5rem;
@@ -93,7 +96,7 @@ p {
 }
 
 ::placeholder { /* Chrome/Opera/Safari */
-   font-size: 0.8rem;
+    font-size: 0.8rem;
 }
 .input-group-text {
     display: flex;

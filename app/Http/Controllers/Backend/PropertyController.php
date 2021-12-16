@@ -173,8 +173,18 @@ class PropertyController extends Controller
         }else{}
         if($request->baths){
             $addprop->baths=$request->baths;       
-        }else{}
+        }else{
 
+        }
+
+        $meta_tags = $request->name.' '.$request->propertyType.' '.$request->description.' '.$request->price.' '
+            .$request->country.' '.$request->area.' '.$request->city.' '.$request->feature_image.' '.$request->multiple_images.' '.
+            $request->meta_description.' '.$request->meta_description.' '.$request->slug.' '.$request->transaction_type.' '
+            .$request->admin_approval.' '.$request->promoted.' '.$request->premium.' '.$request->agent_user_id.' '. 'land_size'
+            .$request->land_size.' zoning_type '.$request->zoning_type.' number of units '.$request->number_of_unit.' building size '
+            .$request->building_size.' bed  '.$request->beds.' bath '.$request->building_type;
+
+        $addprop->meta_keywords = $meta_tags;
         $addprop->save();
 
         return redirect()->route('admin.property.index')->withFlashSuccess('Property Created Successfully');                     
