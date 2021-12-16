@@ -270,7 +270,7 @@
 
                             <div class="col-4">
                                 <div class="card custom-shadow position-relative">
-                                    <a href="{{ route('frontend.for_sale_single') }}" class="text-decoration-none text-dark">
+                                    <a href="{{ route('frontend.for_sale_single','prop') }}" class="text-decoration-none text-dark">
                                         <img src="{{ url('img/frontend/new_development/2.png') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
                                         <div class="card-body mt-3">
                                             <div class="row mb-2">
@@ -309,7 +309,7 @@
 
                             <div class="col-4">
                                 <div class="card custom-shadow position-relative">
-                                    <a href="{{ route('frontend.for_sale_single') }}" class="text-decoration-none text-dark">
+                                    <a href="{{ route('frontend.for_sale_single','prop') }}" class="text-decoration-none text-dark">
                                         <img src="{{ url('img/frontend/new_development/3.png') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
                                         <div class="card-body mt-3">
                                             <div class="row mb-2">
@@ -351,7 +351,7 @@
 
                 <div class="row justify-content-end mt-3">
                     <div class="col-6 text-end">
-                        <a href="{{ route('frontend.for_sale') }}" class="text-decoration-underline text-dark">See all residential properties to sell</a>
+                        <a href="" class="text-decoration-underline text-dark">See all residential properties to sell</a>
                     </div>
                 </div>
             </div>

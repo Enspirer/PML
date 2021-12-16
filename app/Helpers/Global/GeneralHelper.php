@@ -1,6 +1,8 @@
 <?php
 
 use App\Models\Settings; 
+use App\Models\Favorite; 
+use Illuminate\Http\Request;
 
 if (! function_exists('app_name')) {
     /**
@@ -115,6 +117,27 @@ if (! function_exists('get_settings')) {
             return $settings->value;
         }
 
+    }
+}
+
+if (! function_exists('is_favorite')) {
+    /**
+     * Return the route to the "home" page depending on authentication/authorization status.
+     *
+     * @return string
+     */
+    function is_favorite($property_id, $user_id)
+    {
+
+        $favorite = Favorite::where('user_id', $user_id )
+            ->where('property_id',$property_id)
+            ->first();
+        if($favorite)
+        {
+            return $favorite;
+        }else{
+            return null;
+        }
     }
 }
 
