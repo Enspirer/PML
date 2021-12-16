@@ -11,7 +11,7 @@
 <div style="background: #e8eeef;">
     <div class="container user-settings" style="margin-top:6rem;">
         <div class="row justify-content-between">
-            <div class="col-4 left" style="background-color: #E8EEEF">
+            <div class="col-4 left" style="background-color: #E8EEEF;position:sticky;overflow:hidden;top:15%;height:100%;">
                 <div class="row">
                     <div class="col-12">
                         @include('frontend.includes.profile-settings-links')

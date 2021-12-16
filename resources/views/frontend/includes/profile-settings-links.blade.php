@@ -1,6 +1,6 @@
 <div style="background-color: #E8EEEF">
 
-    <div class="nav flex-column profile-settings align-items-start justify-content-start py-3" id="nav-tab" role="tablist" style="position: fixed;width: 400px;">
+    <div class="nav flex-column profile-settings align-items-start justify-content-start py-3" id="nav-tab" role="tablist" style="position:sticky;top:7%;height:100%;min-height:100%;overflow:hidden; padding-bottom:60px !important;">
 
         <h5 class="px-5 pb-2 mb-0 fw-bolder" style="font-size: 1.3rem; margin-top: 2.5rem">My Account</h5>
 
@@ -65,7 +65,7 @@
 
 
 
-        <a class="nav-link text-dark fw-bold ps-5 w-100 {{ Request::segment(1) == 'feedback' ? 'active' : null }}" id="nav-favorite-tab" href="" type="button" role="tab" aria-controls="nav-favorite" aria-selected="false" style="margin-top: 10rem;">
+        <a class="nav-link text-dark fw-bold ps-5 w-100 {{ Request::segment(1) == 'feedback' ? 'active' : null }}" id="nav-favorite-tab" href="" type="button" role="tab" aria-controls="nav-favorite" aria-selected="false">
             <div class="row align-items-center justify-content-between">
                 <div class="col-1">
                     <img src="{{ url('img/frontend/profile/settings.png') }}" alt="">
