@@ -5,6 +5,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Properties;
 use App\Models\PropertyType;
 use App\Models\Country;
+use App\Models\Auth\User;
+use App\Models\AgentRequest;
 
 /**
  * Class ForSaleController.
@@ -37,9 +39,23 @@ class ForSaleController extends Controller
         ]);
     }
 
-    public function singleProperty()
+    public function singleProperty($id)
     {
-        return view('frontend.for_sale_single');
+        $property = Properties::where('id',$id)->first();
+        $users = User::where('id',$property->user_id)->first();
+        // dd($users);
+        
+        $agent = AgentRequest::where('user_id',$property->user_id)->first();
+        // dd($property);
+
+        $random = Properties::where('admin_approval', 'Approved')->inRandomOrder()->limit(3)->get();
+                
+        return view('frontend.for_sale_single',[
+            'property' => $property,
+            'users' => $users,
+            'agent' => $agent,
+            'random' => $random
+        ]);
     }
 
 
@@ -142,48 +158,19 @@ class ForSaleController extends Controller
             $properties->where('city', $city);
         }
 
-        // dd($properties->get());
+        
+        $count_for_sale = count($properties->get());
 
-        $fe_properties = $properties->paginate(2);
+        $fe_properties = $properties->paginate(3);
 
-        // dd($fe_properties);
+        $properties_promoted = Properties::where('promoted','Enabled')->where('admin_approval','Approved')->take(3)->latest()->get();
 
-
-        $properties_promoted = $properties->where('promoted','Enabled')->take(3)->latest()->get();
-
-        $properties_premium = $properties->where('premium','Enabled')->get();
-
-        // $properties = $properties->where('premium','!=','Enabled')->paginate(2);
-
-        $all_properties = Properties::where('main_category','For Sale')->where('admin_approval','Approved')->get();
-        $count_for_sale = count($all_properties);
-
-
-
-
-
-
-
-
-        // $properties_promoted = Properties::where('promoted','Enabled')->where('main_category','For Sale')->where('admin_approval','Approved')->take(3)->latest()->get();
         // dd($properties_promoted);
-
-        // $properties_premium = Properties::where('premium','Enabled')->where('main_category','For Sale')->where('admin_approval','Approved')->get();
-        // dd($properties_premium);
-
-        // $properties = Properties::where('premium','!=','Enabled')->where('main_category','For Sale')->where('admin_approval','Approved')->paginate(2);
-
-        // $all_properties = Properties::where('main_category','For Sale')->where('admin_approval','Approved')->get();
-        // $count_for_sale = count($all_properties);
-        // dd($count_for_sale);
-
      
         return view('frontend.for_sale',[
-            // 'filteredProperty' => $filteredProperty, 
             'properties_promoted' => $properties_promoted,
             'count_for_sale' => $count_for_sale,
-            'properties' => $fe_properties,
-            'properties_premium' => $properties_premium
+            'properties' => $fe_properties
         ]);
     }
 

@@ -26,10 +26,15 @@
                     <div class="col-9">
                         <div class="swiper mySwiper2">
                             <div class="swiper-wrapper">
-                                <div class="swiper-slide">
-                                    <img src="{{ url('img/frontend/for_sale/1.png') }}"/>
-                                </div>
-                                <div class="swiper-slide">
+                                @php
+                                    $str_arr2 = preg_split ("/\,/", $property->image_ids);
+                                @endphp
+                                @foreach($str_arr2 as $key=> $pre)
+                                    <div class="swiper-slide">
+                                        <img src="{{ uploaded_asset($pre) }}"/>
+                                    </div>
+                                @endforeach
+                                <!-- <div class="swiper-slide">
                                     <img src="{{ url('img/frontend/for_sale/2.png') }}" />
                                 </div>
                                 <div class="swiper-slide">
@@ -40,7 +45,7 @@
                                 </div>
                                 <div class="swiper-slide">
                                     <img src="{{ url('img/frontend/for_sale/5.png') }}" />
-                                </div>
+                                </div> -->
                             </div>
                             <div class="swiper-button-next"></div>
                             <div class="swiper-button-prev"></div>
@@ -55,10 +60,12 @@
                     <div class="col-3">
                         <div thumbsSlider="" class="swiper mySwiper">
                             <div class="swiper-wrapper">
-                                <div class="swiper-slide">
-                                    <img src="{{ url('img/frontend/for_sale/1.png') }}"/>
-                                </div>
-                                <div class="swiper-slide">
+                                @foreach($str_arr2 as $key=> $pre)
+                                    <div class="swiper-slide">
+                                        <img src="{{ uploaded_asset($pre) }}"/>
+                                    </div>
+                                @endforeach
+                                <!-- <div class="swiper-slide">
                                     <img src="{{ url('img/frontend/for_sale/2.png') }}" />
                                 </div>
                                 <div class="swiper-slide">
@@ -69,7 +76,7 @@
                                 </div>
                                 <div class="swiper-slide">
                                     <img src="{{ url('img/frontend/for_sale/5.png') }}" />
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>
@@ -77,21 +84,30 @@
 
                 <div class="row">
                     <div class="col-9">
-                        <h3 class="fw-bold mt-4 mb-1">$450, 000</h3>
+                        <h3 class="fw-bold mt-4 mb-1">${{$property->price}}</h3>
 
-                        <p class="fw-bold" style="font-size: 1.2rem; color: black">3 Bed flat for sale</p>
+                        <p class="fw-bold" style="font-size: 1.2rem; color: black">
+                            @if($property->beds != null)
+                                {{$property->beds}} Bed flat for sale
+                            @endif
+                        </p>
 
-                        <p class="mb-1" style="font-size: 1rem;">541, Rosewood place, Colombo, Sri Lanka</p>
+                        <p class="mb-1" style="font-size: 1rem;">{{$property->city}}, {{App\Models\Country::where('id',$property->country)->first()->country_name }}
+                        </p>
                         
                     </div>
 
                     <div class="col-3">
                         <div class="row align-items-center justify-content-center">
-                            <div class="col-5">
-                                <p class="mt-4" style="font-size: 1.3rem;"><i class="fas fa-bed me-3" style="color: rgb(57, 181, 74, 0.7)"></i>3</p>
+                            <div class="col-6">
+                                @if($property->beds != null)
+                                    <p class="mt-4" style="font-size: 1.3rem;"><i class="fas fa-bed me-3" style="color: rgb(57, 181, 74, 0.7)"></i>{{$property->beds}}</p>
+                                @endif
                             </div>
-                            <div class="col-5 text-end">
-                                <p class="mt-4" style="font-size: 1.3rem;"><i class="fas fa-bath me-3" style="color: rgb(57, 181, 74, 0.7)"></i>5</p>
+                            <div class="col-6">
+                                @if($property->baths != null)
+                                    <p class="mt-4" style="font-size: 1.3rem;"><i class="fas fa-bath me-3" style="color: rgb(57, 181, 74, 0.7)"></i>{{$property->baths}}</p>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -119,7 +135,79 @@
                                         <div class="col-12">
                                             <ul>
                                                 <div class="row">
+
+
+                                                @if($property->baths == null)
+                                                @else
                                                     <div class="col-6 p-0">
+                                                        <li>Baths : {{ $property->baths }}</li>
+                                                    </div>
+                                                @endif 
+
+                                                @if($property->beds == null)
+                                                @else
+                                                    <div class="col-6 p-0">
+                                                        <li>Beds : {{ $property->beds }}</li>
+                                                    </div>
+                                                @endif  
+                                                                            
+                                                @if($property->parking_type == null)
+                                                @else
+                                                    <div class="col-6 p-0">
+                                                        <li>Parking Type : {{ $property->parking_type }}</li>
+                                                    </div>
+                                                @endif 
+
+                                                @if($property->building_type == null)
+                                                @else
+                                                    <div class="col-6 p-0">
+                                                        <li>Building Type : {{ $property->building_type }}</li>
+                                                    </div>
+                                                @endif 
+
+                                                @if($property->farm_type == null)
+                                                @else
+                                                    <div class="col-6 p-0">
+                                                        <li>Farm Type : {{ $property->farm_type }}</li>
+                                                    </div>
+                                                @endif 
+
+                                                @if($property->open_house_only == null)
+                                                @else
+                                                    <div class="col-6 p-0">
+                                                        <li>Open House Only : {{ $property->open_house_only }}</li>
+                                                    </div>
+                                                @endif 
+
+                                                @if($property->number_of_units == null)
+                                                @else
+                                                    <div class="col-6 p-0">
+                                                        <li>Number of Units : {{ $property->number_of_units }}</li>
+                                                    </div>
+                                                @endif 
+
+                                                @if($property->land_size == null)
+                                                @else
+                                                    <div class="col-6 p-0">
+                                                        <li>Land Size : {{ $property->land_size }}</li>
+                                                    </div>
+                                                @endif 
+
+                                                @if($property->zoning_type == null)
+                                                @else
+                                                    <div class="col-6 p-0">
+                                                        <li>Zoning Type : {{ $property->zoning_type }}</li>
+                                                    </div>                                
+                                                @endif 
+
+                                                @if($property->building_size == null)
+                                                @else
+                                                    <div class="col-6 p-0">
+                                                        <li>Building Size : {{ $property->building_size }}</li>
+                                                    </div>
+                                                @endif 
+
+                                                    <!-- <div class="col-6 p-0">
                                                         <li>Leasehold</li>
                                                     </div>
                                                     <div class="col-6 p-0">
@@ -142,7 +230,7 @@
                                                     </div>
                                                     <div class="col-6 p-0">
                                                         <li>Prices Starting from $450, 000</li>
-                                                    </div>
+                                                    </div> -->
                                                 </div>
                                             </ul>
                                         </div>
@@ -150,11 +238,8 @@
 
                                     <div class="row mt-3 paragraph collapse" id="collapseExample">
                                         <div class="col-12">
-                                            <h5 class="fw-bold mb-2">B1 Investment Apartments</h5>
-
-                                            <p>For Investment Purposes or Owner Occupiers – Minimum 35% Deposit Required</p>
-
-                                            <p>Nestled in the heart of the Jewellery Quarter, a major retail hotspot in Central Birmingham, B1 Investment Apartments offer a limited number of gorgeous studio, 1,2 and 3-bedroom apartments. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam illo molestiae, dignissimos eum doloribus voluptates nihil repellendus! Et doloremque quaerat fuga totam ullam suscipit, tempore ea impedit eaque quasi voluptates delectus vero architecto dignissimos quis numquam sequi quidem maiores, reiciendis minus earum commodi aperiam exercitationem incidunt? Repudiandae doloribus at voluptates autem eius porro cumque possimus laboriosam, amet enim ipsam cupiditate laborum sequi vitae in maiores rem iure quasi a placeat repellendus fugiat! Vero dolores voluptates, enim distinctio repellat cumque, praesentium porro quas ipsam ratione provident aut eum ex eaque est magnam nobis ea eius earum tempore eos excepturi rerum quibusdam?</p>
+                                            <h5 class="fw-bold mb-2">Description</h5>
+                                            <p>{{ $property->description }}</p>
                                         </div>
                                     </div>
 
@@ -172,19 +257,25 @@
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="custom-shadow pt-4 pb-3 px-3 text-center">
-                                            <img src="{{ url('img/frontend/for_sale/almond.png') }}" alt="" class="img-fluid mb-3" style="object-fit: cover; height: 7rem;">
-                                            <h4 class="fw-bold">Almond Property</h4>
-                                            <h5>Estate Agents</h5>
+                                            <img src="{{ uploaded_asset($agent->photo) }}" alt="" class="img-fluid mb-3" style="object-fit: cover; height: 7rem;">
+                                            <h4 class="fw-bold">
+                                                @if($agent->agent_type == 'Individual')
+                                                    {{ $agent->name }}
+                                                @else
+                                                    {{ $agent->company_name }}
+                                                @endif
+                                            </h4>
+                                            <h5>{{ $agent->agent_type }} Agents</h5>
 
                                             <div class="row justify-content-center mt-3">
                                                 <div class="col-12 text-center mb-2">
-                                                    <a href="#" class="btn py-2 fw-bold text-white w-100 rounded-pill" style="border: 1.5px solid #707070; background-color: #35495E">
+                                                    <a href="tel:{{ $agent->telephone }}" class="btn py-2 fw-bold text-white w-100 rounded-pill" style="border: 1.5px solid #707070; background-color: #35495E">
                                                         <div class="row justify-content-center">
                                                             <div class="col-3 p-0">
                                                                 <i class="fas fa-phone-alt"></i>
                                                             </div>
                                                             <div class="col-7 p-0 text-start" style="font-size: 0.9rem;">
-                                                                +94 77 125 1542
+                                                                {{ $agent->telephone }}
                                                             </div>
                                                         </div>
                                                     </a>
@@ -227,45 +318,65 @@
                         <h5 class="fw-bold">You may also like</h5>
 
                         <div class="row mt-3">
-                            <div class="col-4">
-                                <div class="card custom-shadow position-relative">
-                                    <img src="{{ url('img/frontend/for_sale/1.png') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
-                                    <div class="card-body mt-3">
-                                        <div class="row mb-2">
-                                            <div class="col-10">
-                                                <h5 class="fw-bold">$450, 000</h5>
+                            @foreach($random as $ran)
+                                <div class="col-4">
+                                    <div class="card custom-shadow position-relative" style="min-height: 320px; max-height: 320px;">
+                                        <a href="{{ route('frontend.for_sale_single',$ran->id) }}" class="text-decoration-none">
+                                            <img src="{{ uploaded_asset($ran->feature_image_id) }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
+                                        </a>
+                                        <div class="card-body mt-3">
+                                            <div class="row mb-2">
+                                                <div class="col-10">
+                                                    <h5 class="fw-bold">${{$ran->price}}</h5>
+                                                </div>
+                                                <div class="col-1">
+                                                    <button class="fas fa-heart border-0" style="color: #F60331; background-color: white;"></button>
+                                                </div>
                                             </div>
-                                            <div class="col-1">
-                                                <button class="fas fa-heart border-0" style="color: #F60331; background-color: white;"></button>
-                                            </div>
+                                            
+                                            <h6 class="fw-bold mb-2">
+                                                @if($ran->beds != null)
+                                                    {{$ran->beds}} Bed Semidetached house
+                                                @endif
+                                            </h6>
+                                            <!-- <p>541, Rosewood place,</p> -->
+                                            <p class="mb-1"> {{$ran->city}}, {{App\Models\Country::where('id',$ran->country)->first()->country_name }}</p>
+                                            <p>
+                                                @if($ran->beds == null)
+                                                @else
+                                                    {{ $ran->beds }}<i class="fas fa-bed ms-2 me-3"></i>
+                                                @endif
+                                                @if($ran->baths == null)
+                                                @else
+                                                    {{ $ran->baths }}<i class="fas fa-bath ms-2"></i>
+                                                @endif
+                                            </p>
                                         </div>
-                                        
-                                        <h6 class="fw-bold mb-2">4 Bed Semidetached house</h6>
-                                        <p>541, Rosewood place,</p>
-                                        <p class="mb-1">Colombo, Sri Lanka</p>
-                                        <p>3<i class="fas fa-bed ms-2 me-3"></i> 5<i class="fas fa-bath ms-2"></i></p>
-                                    </div>
 
-                                    <div class="position-absolute apart-avail">
-                                        <button class="btn fw-bold me-3">APARTMENT</button>
-                                        <button class="btn fw-bold" style="color: #39B54A">AVAILABLE</button>
-                                    </div>
-
-
-                                    <div class="row align-items-center prom-logo position-absolute">
-                                        <div class="col-6">
-                                            <div class="py-1 ps-3" style="background-color: #FF0000;">
-                                                <p class="text-white" style="font-size: 0.7rem;"><img src="{{ url('img/frontend/for_sale/promoted.png') }}" alt="">PROMOTED</p>
-                                            </div>
+                                        <div class="position-absolute apart-avail">
+                                            <button class="btn fw-bold me-3">APARTMENT</button>
+                                            <button class="btn fw-bold" style="color: #39B54A">AVAILABLE</button>
                                         </div>
-                                        <div class="col-6 text-end">
-                                            <img src="{{ url('img/frontend/for_sale/almond.png') }}" alt="">
+
+                                        <div class="row align-items-center prom-logo position-absolute">
+                                            <div class="col-6">
+                                                @if($ran->promoted == 'Enabled')
+                                                    <div class="py-1 ps-3" style="background-color: #FF0000;">
+                                                        <p class="text-white" style="font-size: 0.7rem;"><img src="{{ url('img/frontend/for_sale/promoted.png') }}" alt="">PROMOTED</p>
+                                                    </div>
+                                                @endif                                                
+                                            </div>
+                                            <div class="col-6 text-end">
+                                                @if(App\Models\AgentRequest::where('user_id',$ran->user_id)->first() != null)
+                                                    <img src="{{ uploaded_asset(App\Models\AgentRequest::where('user_id',$ran->user_id)->first()->logo) }}" width="50%" style="object-fit:cover">
+                                                @endif
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            @endforeach
 
-                            <div class="col-4">
+                            <!-- <div class="col-4">
                                 <div class="card custom-shadow position-relative">
                                     <img src="{{ url('img/frontend/for_sale/2.png') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
                                     <div class="card-body mt-3">
@@ -339,14 +450,14 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>
 
                 <div class="row justify-content-end mt-3">
                     <div class="col-6 text-end">
-                        <a href="{{ route('frontend.for_sale') }}" class="text-decoration-underline text-dark">See all residential properties to sell</a>
+                        <a href="" class="text-decoration-underline text-dark">See all residential properties to sell</a>
                     </div>
                 </div>
             </div>
@@ -357,17 +468,17 @@
                 <div class="row">
                     <div class="col-12 p-0 mb-4 custom-shadow">
                         <div class="card">
-                            <img src="{{ url('img/frontend/for_sale/ad_2.png') }}" class="img-fluid" alt="..." style="object-fit: cover; height: 15rem;">
+                            <img src="{{ uploaded_asset(get_settings('sidebar_advertiment_1')) }}" class="img-fluid" alt="..." style="object-fit: cover; height: 15rem;">
                             <div class="card-body text-end">
-                                <a href="#" class="btn find-out">Find Out More</a>
+                                <a href="{{ get_settings('sidebar_advertiment_link_1') }}" target="_blank" class="btn find-out">Find Out More</a>
                             </div>
                         </div>
                     </div>
                     <div class="col-12 p-0 mb-4 custom-shadow">
                         <div class="card">
-                            <img src="{{ url('img/frontend/for_sale/ad_1.png') }}" class="img-fluid" alt="..." style="object-fit: cover; height: 15rem;">
+                            <img src="{{ uploaded_asset(get_settings('sidebar_advertiment_2')) }}" class="img-fluid" alt="..." style="object-fit: cover; height: 15rem;">
                             <div class="card-body text-end">
-                                <a href="#" class="btn find-out">Find Out More</a>
+                                <a href="{{ get_settings('sidebar_advertiment_link_2') }}" target="_blank" class="btn find-out">Find Out More</a>
                             </div>
                         </div>
                     </div>
