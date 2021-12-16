@@ -34,9 +34,7 @@
 
 /* scroll */
 .right {
-    height: 688px;
-    overflow-y: scroll;
-    overflow-x: hidden;
+
 }
 .right::-webkit-scrollbar {
     width: 8px;

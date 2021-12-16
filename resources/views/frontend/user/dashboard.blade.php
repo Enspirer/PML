@@ -19,7 +19,7 @@
                 </div>
             </div>
 
-            <div class="col-8 ps-4 right pb-5" style="padding-top: 3rem; background-color: #F5F9FA">
+            <div id="spanel" class="col-8 ps-4 right pb-5" style="padding-top: 3rem; background-color: #F5F9FA">
 
                 <div class="row">
                     <div class="col-12">
@@ -298,6 +298,29 @@
         </div>
     </div>
 </div>
+
+    <script>
+        let mainNavLinks = document.querySelectorAll(".nav");
+        let mainSections = document.querySelectorAll("#spanel");
+        let lastId;
+        let cur = [];
+        window.addEventListener("scroll", event => {
+            let fromTop = window.scrollY;
+
+            mainNavLinks.forEach(link => {
+                let section = document.querySelector(link.hash);
+
+                if (
+                    section.offsetTop <= fromTop &&
+                    section.offsetTop + section.offsetHeight > fromTop
+                ) {
+                    link.classList.add("current");
+                } else {
+                    link.classList.remove("current");
+                }
+            });
+        });
+    </script>
 
 
 @endsection

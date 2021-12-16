@@ -65,7 +65,7 @@
 
 
 
-        <a class="nav-link text-dark fw-bold ps-5 w-100 {{ Request::segment(1) == 'feedback' ? 'active' : null }}" id="nav-favorite-tab" href="" type="button" role="tab" aria-controls="nav-favorite" aria-selected="false" style="margin-top: 12rem;"> 
+        <a class="nav-link text-dark fw-bold ps-5 w-100 {{ Request::segment(1) == 'feedback' ? 'active' : null }}" id="nav-favorite-tab" href="" type="button" role="tab" aria-controls="nav-favorite" aria-selected="false" style="margin-top: 10rem;">
             <div class="row align-items-center justify-content-between">
                 <div class="col-1">
                     <img src="{{ url('img/frontend/profile/settings.png') }}" alt="">
