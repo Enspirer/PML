@@ -14,7 +14,11 @@
     <div class="container index" style="margin-top: 2rem;">
         <div class="row">
             <div class="col-12">
-                <p><a href="" class="text-decoration-none text-dark fw-bold">Property Market Live</a> > <a href="" class="text-decoration-none text-dark fw-bold">For Sale</a> > <a href="" class="text-decoration-none text-dark fw-bold">Sri Lanka Rent</a></p>
+                <p><a href="" class="text-decoration-none text-dark fw-bold">Property Market Live</a>
+                    >
+                    <a href="" class="text-decoration-none text-dark fw-bold">{{ucfirst($transaction_type)}}</a>
+
+                    > <a href="" class="text-decoration-none text-dark fw-bold">Result</a></p>
             </div>
         </div>
     </div>
@@ -23,7 +27,7 @@
         <div class="row" style="margin-bottom: 3rem;">
             <div class="col-9">
                 
-                <h4>Property for sale in <span class="fw-bold">Sri Lanka</span></h4>
+                <h4>Property for {{ucfirst($transaction_type)}} in <span class="fw-bold">Sri Lanka</span></h4>
                     
                 <div class="row align-items-center">
                     <div class="col-6">

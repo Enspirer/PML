@@ -155,7 +155,8 @@ class ForSaleController extends Controller
         return view('frontend.for_sale',[
             'properties_promoted' => $properties_promoted,
             'count_for_sale' => $count_for_sale,
-            'properties' => $fe_properties
+            'properties' => $fe_properties,
+            'transaction_type' => $transaction_type
         ]);
     }
 
