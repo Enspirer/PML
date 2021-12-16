@@ -44,7 +44,99 @@ class ForSaleController extends Controller
 
     public function search(Request $request)
     {
-        dd($request);
+        if($request->search_keyword == null){
+            $search = 'key_name';
+        }else{
+            $search = $request->search_keyword;
+        }
+
+        if($request->min_price == null){
+            $min_price = 'min_price';
+        }else{
+            $min_price = $request->min_price;
+        }
+        if($request->max_price == null){
+            $max_price = 'max_price';
+        }else{
+            $max_price = $request->max_price;
+        }
+        if($request->transaction_type == null){
+            $transaction_type = 'transaction_type';
+        }else{
+            $transaction_type = $request->transaction_type;
+        }
+        if($request->property_type == null){
+            $property_type = 'property_type';
+        }else{
+            $property_type = $request->property_type;
+        }
+        if($request->beds == null){
+            $beds = 'beds';
+        }else{
+            $beds = $request->beds;
+        }
+        if($request->baths == null){
+            $baths = 'baths';
+        }else{
+            $baths = $request->baths;
+        }
+        if($request->land_size == null){
+            $land_size = 'land_size';
+        }else{
+            $land_size = $request->land_size;
+        }
+        if($request->land_size == null){
+            $land_size = 'land_size';
+        }else{
+            $land_size = $request->land_size;
+        }
+        if($request->listed_since == null){
+            $listed_since = 'listed_since';
+        }else{
+            $listed_since = $request->listed_since;
+        }
+        if($request->building_type == null){
+            $building_type = 'building_type';
+        }else{
+            $building_type = $request->building_type;
+        }
+        if($request->open_house == null){
+            $open_house = 'open_house';
+        }else{
+            $open_house = $request->open_house;
+        }
+        if($request->zoning_type == null){
+            $zoning_type = 'zoning_type';
+        }else{
+            $zoning_type = $request->zoning_type;
+        }
+        if($request->units == null){
+            $units = 'units';
+        }else{
+            $units = $request->units;
+        }
+        if($request->building_size == null){
+            $building_size = 'building_size';
+        }else{
+            $building_size = $request->building_size;
+        }
+        if($request->farm_type == null){
+            $farm_type = 'farm_type';
+        }else{
+            $farm_type = $request->farm_type;
+        }
+        if($request->parking_type == null){
+            $parking_type = 'parking_type';
+        }else{
+            $parking_type = $request->parking_type;
+        }
+
+        if($request->city == null){
+            $city = 'city';
+        }else{
+            $city = $request->city;
+        }
+        return redirect()->route('frontend.for_sale',[$search,$min_price,$max_price,$transaction_type,$property_type,$beds,$baths,$land_size,$listed_since,$building_type,$open_house,$zoning_type,$units,$building_size,$farm_type,$parking_type,$city]);
     }
    
 
