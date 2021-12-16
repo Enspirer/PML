@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use App\Models\Properties;
 use App\Models\PropertyType;
 use App\Models\Country;
 use App\Models\Auth\User;
 use App\Models\AgentRequest;
+use App\Models\Booking;
+use App\Models\Favorite;
 
 /**
  * Class ForSaleController.
@@ -38,25 +41,7 @@ class ForSaleController extends Controller
             'properties_premium' => $properties_premium
         ]);
     }
-
-    public function singleProperty($id)
-    {
-        $property = Properties::where('id',$id)->first();
-        $users = User::where('id',$property->user_id)->first();
-        // dd($users);
-        
-        $agent = AgentRequest::where('user_id',$property->user_id)->first();
-        // dd($property);
-
-        $random = Properties::where('admin_approval', 'Approved')->inRandomOrder()->limit(3)->get();
-                
-        return view('frontend.for_sale_single',[
-            'property' => $property,
-            'users' => $users,
-            'agent' => $agent,
-            'random' => $random
-        ]);
-    }
+   
 
 
     public function for_sale($key_name,$min_price,$max_price,$transaction_type,$property_type,$beds,$baths,$land_size,$listed_since,$building_type,$open_house,$zoning_type,$units,$building_size,$farm_type,$parking_type,$city)
@@ -175,7 +160,84 @@ class ForSaleController extends Controller
     }
 
 
+    public function singleProperty($id)
+    {
+        $property = Properties::where('id',$id)->first();
+        $users = User::where('id',$property->user_id)->first();
+        // dd($users);
+        
+        $agent = AgentRequest::where('user_id',$property->user_id)->first();
+        // dd($property);
 
+        $random = Properties::where('admin_approval', 'Approved')->inRandomOrder()->limit(3)->get();
+
+        if(auth()->user())
+        {
+            $favourite = Favorite::where('property_id',$id)->where('user_id',auth()->user()->id)->first();
+        }else{
+            $favourite = null;
+        }
+                
+        return view('frontend.for_sale_single',[
+            'property' => $property,
+            'users' => $users,
+            'agent' => $agent,
+            'random' => $random,
+            'favourite' => $favourite
+        ]);
+    }
+    
+
+    public function contact_agent(Request $request)
+    {
+        // dd($request);
+
+        $booking = new Booking;
+        $booking->first_name = $request->first_name;
+        $booking->last_name = $request->last_name;
+        $booking->method_of_contact = $request->contact_method;
+        $booking->email = $request->email;
+        $booking->phone_number = $request->phone_number;
+        $booking->message = $request->message;
+        $booking->im_resident = $request->im_resident;
+        $booking->respond_check = 'Pending';
+        $booking->user_id = auth()->user()->id;
+        $booking->property_id = $request->property_id;
+        $booking->agent_id = $request->agent_id;
+        $booking->booking_time = $request->time;
+        $booking->status = 'Pending';
+        $booking->save();
+
+        session()->flash('message','Thanks!');
+        
+        return back();
+
+    }
+
+
+    public function propertyFavourite(Request $request)
+    { 
+        // dd($request);
+        $addfav = new Favorite;
+
+        $user_id = auth()->user()->id;
+
+        $addfav->property_id=$request->prop_hidden_id; 
+        $addfav->user_id=$user_id;
+
+        $addfav->save();
+
+        return back();
+
+    }
+
+    public function propertyFavouriteDelete($id)
+    {        
+        $data = Favorite::findOrFail($id);
+        $data->delete();   
+
+        return back();
+    }
 
 
 

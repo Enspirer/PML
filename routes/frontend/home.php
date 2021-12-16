@@ -41,6 +41,12 @@ Route::get('agents', [AgentsController::class, 'index'])->name('agents');
 Route::get('search_result_filter/{key_name}/{min_price}/{max_price}/{transaction_type}/{property_type}/{listed_since}/{building_type}/{beds}/{baths}/{land_size}/{open_house}/{zoning_type}/{units}/{building_size}/{farm_type}/{parking_type}/{city}',[ForSaleController::class,'for_sale'])->name('for_sale');
 
 Route::get('for-sale/single-property/{id}', [ForSaleController::class, 'singleProperty'])->name('for_sale_single');
+Route::post('contact_agent', [ForSaleController::class, 'contact_agent'])->name('contact_agent');
+Route::post('prop_favourite',[ForSaleController::class,'propertyFavourite'])->name('propertyFavourite');
+Route::post('prop_favourite/unsave/{id}',[ForSaleController::class,'propertyFavouriteDelete'])->name('propertyFavouriteDelete');
+
+
+
 
 
 /*

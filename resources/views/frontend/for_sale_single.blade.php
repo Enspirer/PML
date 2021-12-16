@@ -8,6 +8,22 @@
 
 @section('content')
 
+@if ( session()->has('message'))
+
+
+    <div class="container" style="background-color: #c6e4ee; margin-bottom:50px; padding:30px; border-radius: 50px 50px; text-align:center;">
+
+        <h1 style="margin-top:150px;" class="display-6">Thanks for Booking!</h1><br>
+        <p class="lead"><h4>One of our member will get back in touch with you soon!<br><br> Have a great day!</h4></p>
+        <hr><br>    
+        <p class="lead">
+            <a class="btn btn-info btn-md mb-5" href="{{ url('for-sale/single-property',$property->id) }}" role="button">Go Back to View Property</a>
+        </p>
+    </div>
+  
+
+@else
+
     @include('frontend.includes.search')
 
 
@@ -281,28 +297,77 @@
                                                     </a>
                                                 </div>
                                                 <div class="col-12 text-center mb-2">
-                                                    <a href="" class="btn py-2 fw-bold w-100 rounded-pill" style="border: 1.5px solid #707070">
-                                                        <div class="row justify-content-center">
-                                                            <div class="col-3 p-0">
-                                                                <i class="fas fa-envelope"></i>
+                                                    @auth
+                                                        <a href="" data-bs-toggle="modal" data-bs-target="#emailModal" class="btn py-2 fw-bold w-100 rounded-pill" style="border: 1.5px solid #707070">
+                                                            <div class="row justify-content-center">
+                                                                <div class="col-3 p-0">
+                                                                    <i class="fas fa-envelope"></i>
+                                                                </div>
+                                                                <div class="col-7 p-0 text-start" style="font-size: 0.9rem;">
+                                                                    Send email to agent
+                                                                </div>
                                                             </div>
-                                                            <div class="col-7 p-0 text-start" style="font-size: 0.9rem;">
-                                                                Send email to agent
+                                                        </a>
+                                                    @else
+                                                        <a href="" data-bs-toggle="modal" data-bs-target="#loginModal" class="btn py-2 fw-bold w-100 rounded-pill" style="border: 1.5px solid #707070">
+                                                            <div class="row justify-content-center">
+                                                                <div class="col-3 p-0">
+                                                                    <i class="fas fa-envelope"></i>
+                                                                </div>
+                                                                <div class="col-7 p-0 text-start" style="font-size: 0.9rem;">
+                                                                    Send email to agent
+                                                                </div>
                                                             </div>
-                                                        </div>
-                                                    </a>
+                                                        </a>
+                                                    @endauth
                                                 </div>
+
                                                 <div class="col-12 text-center mb-2">
-                                                    <a href="" class="btn py-2 fw-bold w-100 rounded-pill" style="border: 1.5px solid #707070">
-                                                        <div class="row justify-content-center">
-                                                            <div class="col-3 p-0">
-                                                                <i class="far fa-heart"></i>
+                                                    @auth
+                                                        @if($favourite == null)
+                                                            <form action="{{route('frontend.propertyFavourite')}}" method="post" enctype="multipart/form-data">
+                                                            {{csrf_field()}}
+                                                                <button type="submit" class="btn py-2 fw-bold w-100 rounded-pill" style="border: 1.5px solid #707070">
+                                                                    <div class="row justify-content-center">
+                                                                        <div class="col-3 p-0">
+                                                                            <i class="far fa-heart"></i>
+                                                                        </div>
+                                                                        <div class="col-7 p-0 text-start" style="font-size: 0.9rem;">
+                                                                            Save this Property
+                                                                        </div>
+                                                                    </div>
+                                                                    <input type="hidden" name="prop_hidden_id" value="{{ $property->id }}" />
+                                                                </button>
+                                                            </form>
+                                                        @else
+                                                            <form action="{{route('frontend.propertyFavouriteDelete',$favourite->id)}}" method="post" enctype="multipart/form-data">
+                                                            {{csrf_field()}}
+                                                                <button type="submit" class="btn py-2 fw-bold w-100 rounded-pill" style="border: 1.5px solid #707070; background-color:#F33A6A;">
+                                                                    <div class="row justify-content-center">
+                                                                        <div class="col-3 p-0">
+                                                                            <i class="far fa-heart"></i>
+                                                                        </div>
+                                                                        <div class="col-7 p-0 text-start text-light" style="font-size: 0.9rem;">
+                                                                            Unsave this Property
+                                                                        </div>
+                                                                    </div>
+                                                                </button>
+                                                                <input type="hidden" name="prop_hidden_id" value="{{ $favourite->id }}" />
+                                                            </form>
+                                                        @endif
+                                                    @else
+                                                        <a href="{{route('frontend.auth.login')}}" class="btn py-2 fw-bold w-100 rounded-pill" style="border: 1.5px solid #707070">
+                                                            <div class="row justify-content-center">
+                                                                <div class="col-3 p-0">
+                                                                    <i class="far fa-heart"></i>
+                                                                </div>
+                                                                <div class="col-7 p-0 text-start" style="font-size: 0.9rem;">
+                                                                    Save this Property
+                                                                </div>
                                                             </div>
-                                                            <div class="col-7 p-0 text-start" style="font-size: 0.9rem;">
-                                                                Save this Property
-                                                            </div>
-                                                        </div>
-                                                    </a>
+                                                        </a>
+                                                    @endauth
+                                                    
                                                 </div>
                                             </div>
                                         </div>
@@ -487,6 +552,205 @@
         </div>
     </div>
 
+    <!-- email modal -->
+    
+        <div class="modal fade bd-example-modal-lg" id="emailModal" tabindex="-1" aria-labelledby="emailModalLabel" aria-hidden="true">
+            <div class="modal-dialog" style="width: 910px;max-width: 1040px;">
+                <div class="modal-content">
+                    <form action="{{route('frontend.contact_agent')}}" method="post">
+                        {{csrf_field()}}
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Contact Agent</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row mb-3">
+                                <div class="col-md-8">
+                                    <h4>To:</h4>
+                                    <div class="row">
+                                        <div class="col-4">
+                                            
+                                            @if($agent->photo != null)
+                                                <div class="" >
+                                                    <img src="{{ uploaded_asset($agent->photo) }}" width="100%" style="object-fit:cover">
+                                                </div>                                               
+                                            @endif
+                                        </div>
+                                        <div class="col-8 align-middle">
+                                            <label><b>Name:</b></label> {{$agent->name}} <br>
+                                            <label><b>Phone Number:</b></label> {{$agent->telephone}} <br>
+                                            <label><b>Address:</b></label> {{$agent->address}} <br>
+                                            <label><b>Country:</b></label> {{$agent->country}} <br>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+
+
+                                </div>
+                                <div class="col-md-6">
+
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>First Name  <span style="color: red">*</span></label>
+                                        <input type="text" class="form-control" name="first_name" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Last Name  <span style="color: red">*</span></label>
+                                        <input type="text" class="form-control" name="last_name" required>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Im a <span style="color: red">*</span></label>
+                                        <select class="form-control" name="im_resident" required>
+                                            <option selected disabled value="">Choose...</option>
+                                            <option value="First Time Buyer">First Time Buyer</option>
+                                            <option value="No Preference">No Preference</option>
+                                            <option value="Repeat Buyer">Repeat Buyer</option>
+                                            <option value="Seller">Seller</option>
+                                            <option value="Residential Investor">Residential Investor</option>
+                                            <option value="Commercial Investor">Commercial Investor</option>
+                                            <option value="Commercial buyer or leaser">Commercial buyer or leaser</option>
+                                            <option value="Land for development">Land for development</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Date and Time  <span style="color: red">*</span></label>
+                                        <input type="datetime-local" class="form-control" name="time" required>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <br>
+
+                            <input type="hidden" name="agent_id" value="{{$agent->id}}">
+                            <input type="hidden" name="property_id" value="{{$property->id}}">
+
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Preferred method of contact  <span style="color: red">*</span></label>
+                                        <select class="form-control" name="contact_method" required>
+                                            <option selected disabled value="">Choose...</option>
+                                            <option value="Email">Email</option>
+                                            <option value="Phone">Phone</option>
+                                            <option value="Text">Text</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Email  <span style="color: red">*</span></label>
+                                        <input type="email" class="form-control" name="email" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Phone Number  <span style="color: red">*</span></label>
+                                        <input type="number" class="form-control" name="phone_number" required>
+                                    </div>
+                                </div>
+                            </div><br>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Message  <span style="color: red">*</span></label>
+                                        <textarea type="text" rows="3" class="form-control" name="message" required></textarea>
+                                    </div>
+                                </div>
+
+                            </div>
+                            
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Send</button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+
+
+    
+
+
+    <!-- Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">Login</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form method="post" action="{{route('frontend.auth.login.post')}}" class="needs-validation">
+                        {{csrf_field()}}
+                        <div class="input-group has-validation mb-3">
+                            <input type="email" name="email" class="form-control form-control-lg sign-in-box shadow-sm" id="exampleInputEmail1" placeholder="Email" aria-describedby="emailHelp" required>
+                            <span class="input-group-text shadow-sm" style="background-color: white; border: none; color: #C7C7C7;"><i class="fas fa-envelope fs-5"></i></span>
+                            <div class="invalid-feedback">
+                                This is a mandatory field and enter email address correctly to continue.
+                            </div>
+                        </div>
+
+                        <div class="input-group has-validation mb-4">
+                            <input type="password" name="password" class="form-control form-control-lg sign-in-box shadow-sm" id="exampleInputPassword1" placeholder="Password" required>
+                            <span class="input-group-text shadow-sm" style="background-color: white; border: none; color: #C7C7C7;"><i class="fas fa-lock fs-5" style="padding:1px"></i></span>
+                            <div class="invalid-feedback">
+                                This is a mandatory field and must be entered to continue.
+                            </div>
+                        </div>
+
+                        <div class="row mt-1">
+                            <div class="clearfix">
+                                <div class="float-start">
+                                    <div class="mb-1 form-check">
+                                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                        <label class="form-check-label" for="exampleCheck1" style="font-size: 0.9rem;">Remember me</label>
+                                    </div>
+                                </div>
+                                <div class="float-end">
+                                    <a href="{{ route('frontend.auth.password.reset') }}" class="text-decoration-none" style="font-size: 0.9rem; color: #77CEEC;">Forgot Password</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <input type="hidden" name="individual" value="true">
+
+                        <button type="submit" class="btn btn-primary w-100 mt-3 py-2" style="background-color: #77CEEC; border: 0; border-radius: 0;">Sign In</button>
+                    </form>
+
+
+                    <p class="text-end mt-3">Don't have an account? <a href="{{route('frontend.auth.register')}}" class="text-decoration-none" style="color: #77CEEC;">Sign Up</a></p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 @endsection
 
 @push('after-scripts')
@@ -561,3 +825,5 @@
 
 
 @endpush
+
+@endif
