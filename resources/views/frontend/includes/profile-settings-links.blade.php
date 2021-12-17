@@ -63,6 +63,23 @@
             <a class="nav-link border-0 w-100 px-5 mt-4 text-center" id="nav-agent-tab" href="{{ route('frontend.user.agent') }}" type="button" role="tab" aria-controls="nav-agent" aria-selected="false"><button class="btn py-2 w-75 text-dark fw-bold rounded-0" style="border: 1px solid black;">Become an Agent</button></a>
         @endif
 
+        @if(is_agent(auth()->user()->id))
+            <h5 class="px-5 pb-2 mb-0 fw-bolder" style="font-size: 1.3rem; margin-top: 1.5rem">Agent</h5>
+
+            <a class="nav-link text-dark fw-bold ps-5 w-100 {{ Request::segment(1) == 'properties' ? 'active' : null }}" id="nav-favorite-tab" href="{{ route('frontend.user.properties') }}" type="button" role="tab" aria-controls="nav-favorite" aria-selected="false"> 
+                <div class="row align-items-center justify-content-between">
+                    <div class="col-1">
+                        <img src="{{ url('img/frontend/profile/feedback.png') }}" alt="">
+                    </div>
+                    <div class="col-10 ps-0">
+                        <p class="text-dark fw-bold">Properties</p>
+                    </div>
+                </div>
+            </a>
+
+        @endif
+
+        <h5 class="px-5 pb-2 mb-0 fw-bolder" style="font-size: 1.3rem; margin-top: 1.5rem">Settings</h5>
 
         <a class="nav-link text-dark fw-bold ps-5 w-100 {{ Request::segment(1) == 'settings' ? 'active' : null }}" id="nav-favorite-tab" href="" type="button" role="tab" aria-controls="nav-favorite" aria-selected="false">
             <div class="row align-items-center justify-content-between">

@@ -24,7 +24,17 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('frontend.user.dashboard');
+        $agent_edit = AgentRequest::where('user_id',auth()->user()->id)->first();
+        $user_edit = User::where('id',auth()->user()->id)->first();
+        $countries = Country::where('status',1)->get();
+
+        // dd($agent_edit);
+
+        return view('frontend.user.dashboard',[
+            'agent_edit' => $agent_edit,
+            'user_edit' => $user_edit,
+            'countries' => $countries
+        ]);
     }
 
     public function account_dashboard()

@@ -152,8 +152,8 @@
                                     </div>
                                         
 
-                                        <h4 class="mt-5 mb-3">More About Agent</h4>
-                                        <!-- <h6 style="color: #5e6871">Tell us more about the agent</h6> -->
+                                        <h4 class="mt-5">More About Agent</h4>
+                                        <h6 class="mb-3" style="color: #5e6871">Tell us more about the agent</h6>
 
                                         <div class="row">
                                             <div class="col-6">

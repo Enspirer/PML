@@ -143,7 +143,7 @@ class AgentRequestController extends Controller
     public function agent_update(Request $request)
     {        
 
-        // dd($request);
+        dd($request);
 
         if($request->photo == null){
             return back()->withErrors('Please Add Agent Photo');
@@ -179,6 +179,7 @@ class AgentRequestController extends Controller
         $update->company_registration_number=$request->company_reg_no;
         $update->photo=$request->photo; 
         $update->logo=$request->logo; 
+        $update->cover_photo=$request->cover_photo; 
         $update->request=$request->request_field;        
         $update->tax_number=$request->tax;        
         $update->address=$request->address;

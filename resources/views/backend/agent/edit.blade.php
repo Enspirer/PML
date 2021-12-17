@@ -235,6 +235,23 @@
                              </div>
                          </div>
 
+                         <div class="col-6 mt-2">
+                            <div class="form-group">
+                                <label class="mb-2 mt-4">Cover Photo
+                                    <span class="text-danger">*</span>
+                                </label>
+                                <div class="input-group" data-toggle="aizuploader" data-type="image">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text bg-soft-secondary font-weight-medium">Browse</div>
+                                    </div>
+                                    <div class="form-control file-amount">Choose File</div>
+                                    <input type="hidden" name="cover_photo" value="{{$agent_request->cover_photo}}" class="selected-files" >
+                                </div>
+                                <div class="file-preview box sm">
+                                </div>
+                            </div>
+                        </div>
+
                         
                     </div>
                 </div>

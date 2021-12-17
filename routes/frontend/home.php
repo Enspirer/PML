@@ -80,10 +80,16 @@ Route::group(['middleware' => ['auth', 'password_expires']], function () {
 
         Route::get('agent', [AgentController::class, 'index'])->name('agent');
         Route::post('agent/store', [AgentController::class, 'store'])->name('agent.store');
-        Route::get('agent/edit', [AgentController::class, 'agent_edit'])->name('agent.edit');
         Route::post('agent/update', [AgentController::class, 'update_agent'])->name('agent.update_agent');
 
-
+        Route::get('properties', [AgentController::class, 'properties'])->name('properties');
+        Route::get('properties/create', [AgentController::class, 'createProperty'])->name('create-property');
+        Route::post('properties/store', [AgentController::class, 'createPropertyStore'])->name('create-property.createPropertyStore');
+        Route::get('properties/edit/{id}', [AgentController::class, 'editProperty'])->name('property-edit');
+        Route::post('properties/edit', [AgentController::class, 'updateProperty'])->name('property-update');
+        Route::get('properties/delete/{id}', [AgentController::class, 'deleteProperty'])->name('property-delete');
+        Route::get('properties/sold_status/{id}', [AgentController::class, 'sold_status'])->name('sold_status');
+        Route::get('properties/pending_status/{id}', [AgentController::class, 'pending_status'])->name('pending_status');
 
 
 
