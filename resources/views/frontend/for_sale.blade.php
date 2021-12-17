@@ -203,7 +203,9 @@
                                             <div class="col-8">
                                                 <div class="row mb-3">
                                                     <div class="col-10">
-                                                        <h4 class="fw-bold">${{$normal->price}}</h4>
+                                                        <a href="{{ route('frontend.for_sale_single',$normal->id) }}" class="text-decoration-none text-dark">
+                                                            <h4 class="fw-bold">${{$normal->price}}</h4>
+                                                        </a>
                                                     </div>
                                                     <!-- <div class="col-1">
                                                         <button class="fas fa-heart border-0" style="color: #F60331; background-color: white;"></button>
@@ -294,7 +296,9 @@
                                             <div class="col-8">
                                                 <div class="row mb-3">
                                                     <div class="col-10">
-                                                        <h4 class="fw-bold">${{$normal->price}}</h4>
+                                                        <a href="{{ route('frontend.for_sale_single',$normal->id) }}" class="text-decoration-none text-dark">
+                                                            <h4 class="fw-bold">${{$normal->price}}</h4>
+                                                        </a>
                                                     </div>
                                                     <!-- <div class="col-1">
                                                         <button class="fas fa-heart border-0" style="color: #F60331; background-color: white;"></button>
