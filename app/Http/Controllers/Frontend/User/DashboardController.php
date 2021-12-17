@@ -11,6 +11,7 @@ use App\Models\Properties;
 use App\Models\Favorite; 
 use App\Models\Country;
 use App\Models\Booking;
+use App\Models\Feedback;
 
 
 /**
@@ -53,7 +54,6 @@ class DashboardController extends Controller
         return back();
     }
 
-
     public function myBookings()
     {
         $bookings = Booking::where('user_id',auth()->user()->id)->orderBy('id','DESC')->get();
@@ -62,4 +62,42 @@ class DashboardController extends Controller
             'bookings' => $bookings
         ]);
     }
+
+    public function feedback()
+    {
+        $countries = Country::where('status',1)->get();
+
+        $user_id = auth()->user()->id;
+        $user_details = User::where('id',$user_id)->first();
+
+        return view('frontend.user.feedback',[
+            'countries' => $countries,
+            'user_details' => $user_details
+        ]);
+    }
+
+    public function feedbackStore(request $request)
+    {
+        // dd($request);
+
+        $addfeedback = new Feedback;
+
+        $addfeedback->name = $request->name;
+        $addfeedback->country = $request->country;
+        $addfeedback->title = $request->title;
+        $addfeedback->message = $request->message;
+        $addfeedback->status = 'Pending';
+        $addfeedback->user_id = auth()->user()->id;
+
+        $addfeedback->save();
+
+        session()->flash('message','Thanks!');
+
+        return back(); 
+        
+    }
+
+
+
+
 }

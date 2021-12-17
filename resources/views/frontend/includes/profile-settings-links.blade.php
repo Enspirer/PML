@@ -48,7 +48,7 @@
             </div>
         </a>
 
-        <a class="nav-link text-dark fw-bold ps-5 w-100 {{ Request::segment(1) == 'feedback' ? 'active' : null }}" id="nav-favorite-tab" href="" type="button" role="tab" aria-controls="nav-favorite" aria-selected="false"> 
+        <a class="nav-link text-dark fw-bold ps-5 w-100 {{ Request::segment(1) == 'feedback' ? 'active' : null }}" id="nav-favorite-tab" href="{{ route('frontend.user.feedback') }}" type="button" role="tab" aria-controls="nav-favorite" aria-selected="false"> 
             <div class="row align-items-center justify-content-between">
                 <div class="col-1">
                     <img src="{{ url('img/frontend/profile/feedback.png') }}" alt="">
@@ -59,13 +59,12 @@
             </div>
         </a>
 
+        @if(App\Models\AgentRequest::where('user_id',auth()->user()->id)->first() == null)
+            <a class="nav-link border-0 w-100 px-5 mt-4 text-center" id="nav-agent-tab" href="{{ route('frontend.user.agent') }}" type="button" role="tab" aria-controls="nav-agent" aria-selected="false"><button class="btn py-2 w-75 text-dark fw-bold rounded-0" style="border: 1px solid black;">Become an Agent</button></a>
+        @endif
 
-        <a class="nav-link border-0 w-100 px-5 mt-4 text-center" id="nav-agent-tab" href="" type="button" role="tab" aria-controls="nav-agent" aria-selected="false"><button class="btn py-2 w-75 text-dark fw-bold rounded-0" style="border: 1px solid black;">Become an Agent</button></a>
 
-
-
-
-        <a class="nav-link text-dark fw-bold ps-5 w-100 {{ Request::segment(1) == 'feedback' ? 'active' : null }}" id="nav-favorite-tab" href="" type="button" role="tab" aria-controls="nav-favorite" aria-selected="false">
+        <a class="nav-link text-dark fw-bold ps-5 w-100 {{ Request::segment(1) == 'settings' ? 'active' : null }}" id="nav-favorite-tab" href="" type="button" role="tab" aria-controls="nav-favorite" aria-selected="false">
             <div class="row align-items-center justify-content-between">
                 <div class="col-1">
                     <img src="{{ url('img/frontend/profile/settings.png') }}" alt="">
@@ -76,7 +75,7 @@
             </div>
         </a>
 
-        <a class="nav-link text-dark fw-bold ps-5 w-100 {{ Request::segment(1) == 'feedback' ? 'active' : null }}" id="nav-favorite-tab" href="" type="button" role="tab" aria-controls="nav-favorite" aria-selected="false"> 
+        <a class="nav-link text-dark fw-bold ps-5 w-100 {{ Request::segment(1) == 'signout' ? 'active' : null }}" id="nav-favorite-tab" href="" type="button" role="tab" aria-controls="nav-favorite" aria-selected="false"> 
             <div class="row align-items-center justify-content-between">
                 <div class="col-1">
                     <img src="{{ url('img/frontend/profile/sign_out.png') }}" alt="">

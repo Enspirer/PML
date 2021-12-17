@@ -8,10 +8,11 @@ use App\Http\Controllers\Frontend\NewDevelopmentController;
 use App\Http\Controllers\Frontend\LandsController;
 use App\Http\Controllers\Frontend\AgentsController;
 
-
 use App\Http\Controllers\Frontend\User\AccountController;
 use App\Http\Controllers\Frontend\User\DashboardController;
 use App\Http\Controllers\Frontend\User\ProfileController;
+use App\Http\Controllers\Frontend\User\AgentController;
+
 
 /*
  * Frontend Controllers
@@ -73,6 +74,27 @@ Route::group(['middleware' => ['auth', 'password_expires']], function () {
         Route::get('favourites/delete/{id}', [DashboardController::class, 'favouritesDelete'])->name('favourites-delete');
 
         Route::get('my-bookings', [DashboardController::class, 'myBookings'])->name('my-bookings');
+
+        Route::get('feedback', [DashboardController::class, 'feedback'])->name('feedback');
+        Route::post('feedback/store', [DashboardController::class, 'feedbackStore'])->name('feedback.store');
+
+        Route::get('agent', [AgentController::class, 'index'])->name('agent');
+        Route::post('agent/store', [AgentController::class, 'store'])->name('agent.store');
+        Route::get('agent/edit', [AgentController::class, 'agent_edit'])->name('agent.edit');
+        Route::post('agent/update', [AgentController::class, 'update_agent'])->name('agent.update_agent');
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         
     });
