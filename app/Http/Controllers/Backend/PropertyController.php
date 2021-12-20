@@ -11,6 +11,7 @@ use App\Models\Country;
 use App\Models\PropertyType;
 use App\Models\AgentRequest;
 use App\Models\Location;
+use App\Models\Auth\User;
 
 class PropertyController extends Controller
 {
@@ -62,7 +63,7 @@ class PropertyController extends Controller
     {
         if($request->ajax())
         {
-            $data = Properties::get();
+            $data = Properties::where('area_manager_approval','=','Approved')->get();
             return DataTables::of($data)
             
                     ->addColumn('action', function($data){
@@ -199,7 +200,7 @@ class PropertyController extends Controller
 
         $agents = AgentRequest::where('status','Approved')->get();
         
-        // dd($property_type);              
+        // dd($agents);              
 
         return view('backend.property.edit', [
             'property' => $property,
@@ -224,6 +225,9 @@ class PropertyController extends Controller
             ]
         );        
 
+        $agent_request = AgentRequest::where('id',$request->agent_user_id)->first();
+        $user_id = User::where('id',$agent_request->user_id)->first();
+
         $update = new Properties;
 
         $update->name=$request->name; 
@@ -242,7 +246,7 @@ class PropertyController extends Controller
         $update->admin_approval=$request->admin_approval;
         $update->promoted=$request->promoted;
         $update->premium=$request->premium;
-        $update->user_id = $request->agent_user_id;
+        $update->user_id = $user_id->id;
 
 
         if($request->land_size){

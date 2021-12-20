@@ -1,235 +1,323 @@
-@extends('backend.layouts.app')
+@extends('frontend.layouts.app')
 
-@section('title', __('Edit'))
+@section('title', 'Edit Property')
 
 @section('content')
 
-<form action="{{route('admin.property.update')}}" method="post" enctype="multipart/form-data">
-{{csrf_field()}}
-    <div class="row">
-        <div class="col-7">  
-                <div class="card">
-                    <div class="card-body">
-                        
-                        <div class="row">
-                            <div class="col-6">
-                                <div>
-                                    <label for="name" class="form-label mb-2 required">Name <span class="text-danger">*</span></label>
-                                    <input type="text" class="form-control" name="name" id="name" value="{{ $property->name }}" aria-describedby="name" required>
-                                </div> 
-                            </div>
-                            <div class="col-6">
-                                <div>
-                                    <label for="agent_user_id" class="form-label mb-2 required">Agent User <span class="text-danger">*</span></label>
-                                    
-                                    <datalist class="form-group w-100" name="agent_user_id" id="agent_user_id" >
-                                    @foreach($agents as $agent)
-                                        <option value="{{ $agent->id }}">{{ $agent->name }} - {{ $agent->email }}</option>
-                                    @endforeach
-                                    </datalist>   
-                            
-                                    <input class="form-control w-100" autoComplete="on" value="{{ App\Models\AgentRequest::where('user_id',$property->user_id)->first()->id }}" name="agent_user_id" list="agent_user_id" required/> 
+@push('after-styles')
+    <link rel="stylesheet" href="{{ url('css/profile-settings.css') }}">
+@endpush
 
-                                </div>  
-                            </div>
-                        </div>
-                        <div class="row mt-3">
-                            <div class="col-12">
-                                <div>
-                                    <label for="propertyType" class="form-label mb-2 required">Property Type <span class="text-danger">*</span></label>
-                                    <select class="form-control custom-select" aria-label="propertyType" name="propertyType" id="propertyType" onChange="renderFields()" required>
-                                        <option selected disabled value="">Select...</option>                                        
-                                        @foreach($property_type as $type)
-                                                <option value="{{$type->id}}" {{ $property->property_type == $type->id ? "selected" : "" }}> {{$type->property_type_name}} </option>
-                                        @endforeach
-                                    </select>
-                                </div>  
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12">
-                                <label class="form-label mb-2 mt-3 required">Description <span class="text-danger">*</span></label>
-                                <textarea class="form-control" rows="4" name="description" required>{{ $property->description }}</textarea>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-6">
-                                <div class="form-group">
-                                    <label class="form-label mb-2 mt-3">Country <span class="text-danger">*</span></label>
-                                    <select class="form-control custom-select" id="country" name="country" required>
-                                        <option value="" selected disabled>Select...</option>
-                                        @foreach($countries as $country)
-                                            <option value="{{$country->id}}" {{ $country->id == $property->country ? "selected" : "" }}>{{$country->country_name}}</option>  
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-6">
-                                <input type="hidden" class="form-control" value="{{ $property->area }}" id="location_received" >
-                                
-                                <div class="form-group mb-2 mt-3">
-                                    <label>Area/location <span class="text-danger">*</span></label>
-                                    <select name="area" class="form-control custom-select" id="area" required>
-        
-                                    </select>
-                                </div>    
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-6">
-                                <div>
-                                    <label for="price" class="form-label mb-2 mt-3">Price <span class="text-danger">*</span></label>
-                                    <input type="number" class="form-control" name="price" id="price" aria-describedby="price" value="{{ $property->price }}" required placeholder="$">
-                                    <div id="passwordHelpBlock" class="form-text text-info fw-bolder">
-                                        Please enter property price in US currency
-                                    </div>
-                                </div>  
-                            </div>
-                        </div>
-                        <div class="row">
-                            <!-- <div class="col-6">
-                                <div>
-                                    <label for="category" class="form-label mb-2 mt-3">Category <span class="text-danger">*</span></label>
-                                    <select class="form-control custom-select" aria-label="category" id="category" name="category" required>
-                                        <option selected disabled value="">Choose...</option>
-                                        <option value="For Sale" {{ $property->main_category == 'For Sale' ? "selected" : "" }}>For Sale</option>
-                                        <option value="For Rent" {{ $property->main_category == 'For Rent' ? "selected" : "" }}>For Rent</option>
-                                    </select>
-                                </div>  
-                            </div> -->
-                            <div class="col-6">
-                                <div>
-                                    <label for="city" class="form-label mb-2 mt-3">City <span class="text-danger">*</span></label>
-                                    <input type="text" class="form-control" name="city" id="city" aria-describedby="city" value="{{ $property->city }}" required>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="form-group">
-                                    <label class="mb-2 mt-4">Feature Image
-                                        <span class="text-danger">*</span>
-                                    </label>
-                                    <div class="input-group" data-toggle="aizuploader" data-type="image">
-                                        <div class="input-group-prepend">
-                                            <div class="input-group-text bg-soft-secondary font-weight-medium">Browse</div>
-                                        </div>
-                                        <div class="form-control file-amount">Choose File</div>
-                                        <input type="hidden" name="feature_image" class="selected-files" value="{{ $property->feature_image_id }}">
-                                    </div>
-                                    <div class="file-preview box sm">
-                                    </div>
-                                </div> 
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="form-group">
-                                    <label class="mb-2 mt-2">Multiple Images
-                                        <span class="text-danger">*</span>
-                                    </label>
-                                    <div class="input-group" data-toggle="aizuploader" data-type="image" data-multiple="true">
-                                        <div class="input-group-prepend">
-                                            <div class="input-group-text bg-soft-secondary font-weight-medium">Browse</div>
-                                        </div>
-                                        <div class="form-control file-amount">Choose File</div>
-                                        <input type="hidden" name="multiple_images" class="selected-files" value="{{ $property->image_ids }}">
-                                    </div>
-                                    <div class="file-preview box sm">
-                                    </div>
-                                </div> 
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-6">
-                                <div>
-                                    <label for="meta-description" class="form-label mb-2 mt-3">Meta Description <span class="text-danger">*</span></label>
-                                    <input type="text" class="form-control" name="meta_description" id="meta-description" value="{{ $property->meta_description }}" aria-describedby="meta-description" required>
-                                </div>
-                            </div>
-                            <div class="col-6">
-                                <div>
-                                    <label for="slug" class="form-label mb-2 mt-3">Slug <span class="text-danger">*</span></label>
-                                    <input type="text" class="form-control" name="slug" id="slug" aria-describedby="slug" value="{{ $property->slug }}" required>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-6">
-                                <div>
-                                    <label for="transaction-type" class="form-label mb-2 mt-3">Transaction Type <span class="text-danger">*</span></label>
-                                    <select class="form-select" aria-label="transaction_type" name="transaction_type" id="transaction_type" required>
-                                        <option selected disabled value="">Choose...</option>
-                                        <option value="sale">For sale</option>
-                                        <option value="rent">For rent</option>
-                                    </select>
-                                </div>
-                            </div>
 
-                            <div class="col-6 first-incoming-field">                                        
-                            </div>
-                        </div>
-                        <div class="row" id="incoming_fields">
-                        </div>
+@if ( session()->has('message') )
 
-                        
+    <div style="background: #e8eeef;">
+        <div class="container user-settings" style="margin-top:6rem;">
+            <div class="row justify-content-between">
+                <div class="col-4 left" style="background-color: #E8EEEF">
+                    <div class="row">
+                        <div class="col-12">
+                            @include('frontend.includes.profile-settings-links')
+                        </div>
                     </div>
                 </div>
-                <br>
-            
-        </div>
-        <div class="col-md-5 p-1">                
-            <div class="card">
-                <div class="card-body">
-                    <div class="" style="border-style: ridge;border-width: 3px;padding: 20px;">
-                        <div class="row">
-                            <div class="col-6">
-                                <div>
-                                    <label for="promoted" class="form-label mb-2">Promoted <span class="text-danger">*</span></label>
-                                    <select class="form-control custom-select" aria-label="promoted" id="promoted" name="promoted" required>
-                                        <option value="Enabled" {{ $property->promoted == 'Enabled' ? "selected" : "" }}>Enabled</option>
-                                        <option value="Disabled" {{ $property->promoted == 'Disabled' ? "selected" : "" }}>Disabled</option>
-                                    </select>
-                                </div>  
-                            </div>
-                            <div class="col-6">
-                                <div>
-                                    <label for="premium" class="form-label mb-2">Premium Listing <span class="text-danger">*</span></label>
-                                    <select class="form-control custom-select" aria-label="premium" id="premium" name="premium" required>
-                                        <option value="Enabled" {{ $property->premium == 'Enabled' ? "selected" : "" }}>Enabled</option>
-                                        <option value="Disabled" {{ $property->premium == 'Disabled' ? "selected" : "" }}>Disabled</option>
-                                    </select>
-                                </div>  
-                            </div>
-                        </div>
-                        <div class="form-group mt-4">
-                            <label>Admin Approval <span class="text-danger">*</span></label>
-                            <select class="form-control" name="admin_approval" required>
-                                <option value="Approved" {{ $property->admin_approval == 'Approved' ? "selected" : "" }}>Approve</option>   
-                                <option value="Disapproved" {{ $property->admin_approval == 'Disapproved' ? "selected" : "" }}>Disapprove</option> 
-                                <option value="Pending" {{ $property->admin_approval == 'Pending' ? "selected" : "" }}>Pending</option>                              
-                            </select>
+
+                <div class="col-8 ps-4 right pb-5" style="padding-top: 3rem; background-color: #F5F9FA">
+                    <div class="row justify-content-between mt-4">
+
+                        <div class="container-fluid jumbotron text-center" style="background-color: #c6e4ee; border-radius: 15px 50px;">
+                        <h1 style="margin-top:60px;" class="display-5">Successfully Created!</h1><br>
+                            <!-- <p class="lead"><h3>Your request is sent. One of our member will get back in touch with you soon!<br><br> Have a great day!</h3></p> -->
+                            <hr><br>    
+                            <p class="lead">
+                                <a class="btn btn-success btn-md" href="{{url('properties')}}" role="button">Go Back to Properties Page</a>
+                            </p>
+                            <br>
                         </div>
 
-                        <div class="mt-5 text-center">
-                            <input type="hidden" name="hidden_id" value="{{ $property->id }}"/>
-                            <a href="{{route('admin.property.index')}}" type="button" class="btn rounded-pill text-light px-4 py-2 me-2 btn-primary">Back</a>
-                            <button type="submit" class="btn rounded-pill text-light px-4 py-2 ms-2 btn-success">Update</button>
+                    </div>                
+                </div>                
+            </div>
+        </div>
+    </div>
+
+
+@else
+
+    <div style="background: #e8eeef;">
+        <div class="container user-settings" style="margin-top:6rem;">
+            <div class="row justify-content-between">
+                <div class="col-4 left" style="background-color: #E8EEEF">
+                    <div class="row">
+                        <div class="col-12">
+                            @include('frontend.includes.profile-settings-links')
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-8 ps-4 right pb-5" style="padding-top: 3rem; background-color: #F5F9FA">                    
+
+                    <div class="row justify-content-center mb-2">
+                        <div class="col-11 p-0">
+                            <div class="form-group">
+                                <div class="row">
+                                    @if(session()->has('error'))
+                                        <div class="alert alert-danger">
+                                            {{ session()->get('error') }}
+                                        </div>
+                                    @endif                                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row justify-content-between mb-4">
+                        <div class="col-12 p-0">
+                            <div class="row align-items-center">
+                                <div class="col-6 ps-4">
+                                    <h4 class="fs-4 fw-bolder user-settings-head">Edit Property</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="px-2" id="nav-properties" role="tabpanel" aria-labelledby="nav-properties-tab">
+                                <div class="row align-items-center justify-content-between mb-4 border py-3">
+                                
+                                    <h4 class="mb-4">About Property</h4>
+
+                                    <form action="{{route('frontend.user.property-update')}}" method="post" enctype="multipart/form-data" >
+                                        {{csrf_field()}}
+
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <div>
+                                                    <label for="name" class="form-label mb-0 required">Name</label>
+                                                    <input type="text" class="form-control" name="name" id="name" value="{{ $property->name }}" aria-describedby="name" required>
+                                                </div> 
+                                            </div>
+                                            <div class="col-6">
+                                                <div>
+                                                    <label for="propertyType" class="form-label mb-0 required">Property Type</label>
+                                                    <select class="form-select" aria-label="propertyType" name="propertyType" id="propertyType" onChange="renderFields()"  required>
+                                                        <option selected disabled value="">Choose...</option>
+                                                    @foreach($property_type as $type)
+                                                        <option value="{{$type->id}}" {{ $property->property_type == $type->id ? "selected" : "" }}> {{$type->property_type_name}} </option>
+                                                    @endforeach
+
+                                                    </select>
+                                                </div>  
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <label class="form-label mb-0 mt-4 required">Description</label>
+                                                <textarea class="form-control" rows="4" name="description" required>{{ $property->description }}</textarea>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <div class="form-group">
+                                                    <label class="form-label mb-2 mt-3">Country <span class="text-danger">*</span></label>
+                                                    <select class="form-control custom-select" id="country" name="country" required>
+                                                        <option value="" selected disabled>Select...</option>
+                                                        @foreach($countries as $country)
+                                                            <option value="{{$country->id}}" {{ $country->id == $property->country ? "selected" : "" }}>{{$country->country_name}}</option>  
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <input type="hidden" class="form-control" value="{{ $property->area }}" id="location_received" >
+                                                
+                                                <div class="form-group mb-2 mt-3">
+                                                    <label>Area/location</label>
+                                                    <select name="area" class="form-control custom-select" id="area" required>
+                        
+                                                    </select>
+                                                </div>    
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <div>
+                                                    <label for="price" class="form-label mb-2 mt-3">Price <span class="text-danger">*</span></label>
+                                                    <input type="number" class="form-control" name="price" id="price" aria-describedby="price" value="{{ $property->price }}" required placeholder="$">
+                                                    <div id="passwordHelpBlock" class="form-text text-info fw-bolder">
+                                                        Please enter property price in US currency
+                                                    </div>
+                                                </div>  
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <!-- <div class="col-6">
+                                                <div>
+                                                    <label for="category" class="form-label mb-2 mt-3">Category <span class="text-danger">*</span></label>
+                                                    <select class="form-control custom-select" aria-label="category" id="category" name="category" required>
+                                                        <option selected disabled value="">Choose...</option>
+                                                        <option value="For Sale" {{ $property->main_category == 'For Sale' ? "selected" : "" }}>For Sale</option>
+                                                        <option value="For Rent" {{ $property->main_category == 'For Rent' ? "selected" : "" }}>For Rent</option>
+                                                    </select>
+                                                </div>  
+                                            </div> -->
+                                            <div class="col-6">
+                                                <div>
+                                                    <label for="city" class="form-label mb-2 mt-3">City <span class="text-danger">*</span></label>
+                                                    <input type="text" class="form-control" name="city" id="city" aria-describedby="city" value="{{ $property->city }}" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    
+
+                                        <h4 class="mt-4">More About Property</h4>
+                                        <h6 class="mb-3" style="color: #5e6871">Tell us more about the agent</h6>
+
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="form-group">
+                                                    <label class="mb-2 mt-4">Feature Image
+                                                        <span class="text-danger">*</span>
+                                                    </label>
+                                                    <div class="input-group" data-toggle="aizuploader" data-type="image">
+                                                        <div class="input-group-prepend">
+                                                            <div class="input-group-text bg-soft-secondary font-weight-medium">Browse</div>
+                                                        </div>
+                                                        <div class="form-control file-amount">Choose File</div>
+                                                        <input type="hidden" name="feature_image" class="selected-files" value="{{ $property->feature_image_id }}">
+                                                    </div>
+                                                    <div class="file-preview box sm">
+                                                    </div>
+                                                </div> 
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="form-group">
+                                                    <label class="mb-2 mt-2">Multiple Images
+                                                        <span class="text-danger">*</span>
+                                                    </label>
+                                                    <div class="input-group" data-toggle="aizuploader" data-type="image" data-multiple="true">
+                                                        <div class="input-group-prepend">
+                                                            <div class="input-group-text bg-soft-secondary font-weight-medium">Browse</div>
+                                                        </div>
+                                                        <div class="form-control file-amount">Choose File</div>
+                                                        <input type="hidden" name="multiple_images" class="selected-files" value="{{ $property->image_ids }}">
+                                                    </div>
+                                                    <div class="file-preview box sm">
+                                                    </div>
+                                                </div> 
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <div>
+                                                    <label for="meta-description" class="form-label mb-2 mt-3">Meta Description <span class="text-danger">*</span></label>
+                                                    <input type="text" class="form-control" name="meta_description" id="meta-description" value="{{ $property->meta_description }}" aria-describedby="meta-description" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <div>
+                                                    <label for="slug" class="form-label mb-2 mt-3">Slug <span class="text-danger">*</span></label>
+                                                    <input type="text" class="form-control" name="slug" id="slug" aria-describedby="slug" value="{{ $property->slug }}" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <div>
+                                                    <label for="transaction-type" class="form-label mb-2 mt-3">Transaction Type <span class="text-danger">*</span></label>
+                                                    <select class="form-select" aria-label="transaction_type" name="transaction_type" id="transaction_type" required>
+                                                        <option selected disabled value="">Choose...</option>
+                                                        <option value="sale">For sale</option>
+                                                        <option value="rent">For rent</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-6 first-incoming-field">                                        
+                                            </div>
+                                        </div>
+                                        <div class="row" id="incoming_fields">
+                                        </div>
+                                        
+
+                                        <div class="mt-5 text-center">
+                                            <input type="hidden" name="hidden_id" value="{{ $property->id }}"/>
+                                            <input id="submit_data" type="submit" value="Update" class="btn rounded-pill text-light px-4 py-2" style="background-color: #94ca60;" >
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</form>
-
-    
 
 
 
-<br><br>
+<!-- -----------------------------Model ----------------------------------------------->
 
-    <script>
+
+<div class="modal fade" id="overlay" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+      <h4 class="modal-title" style="color:red">Warning!</h4>
+        <!-- <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">&times;</button> -->
+        
+      </div>
+      <div class="modal-body">
+
+        <h5 class="mb-3">You can change the property details. But you should have to wait until admin approval.</h5>
+
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" data-bs-dismiss="modal">Understood</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+@endsection
+
+@push('after-scripts')
+
+
+<script type="text/javascript">
+
+    $(window).on('load', function() {
+            $('#overlay').modal('show');
+        });
+    $("#close-btn").click(function () {
+        $('#overlay').modal('hide');
+    });
+
+</script> 
+
+
+
+
+<script>
 
         // dropdown box changing field
         const renderFields = async (value = <?php echo json_encode ($property->property_type ) ?>) => {
@@ -564,7 +652,7 @@
 
                         $.ajax({
                             
-                            url: "{{url('/')}}/admin/findLocWithCountryID/" + CountryID,
+                            url: "{{url('/')}}/api/findLocationWithCountryID/" + CountryID,
                             method: "GET",
                             dataType: "json",
                             success:function(data) {
@@ -605,7 +693,7 @@
 
                         $.ajax({
                             
-                            url: "{{url('/')}}/admin/findLocWithCountryID/" + CountryID,
+                            url: "{{url('/')}}/api/findLocationWithCountryID/" + CountryID,
                             method: "GET",
                             dataType: "json",
                             success:function(data) {
@@ -639,4 +727,7 @@
         </script>
 
 
-@endsection
+@endpush
+
+
+@endif

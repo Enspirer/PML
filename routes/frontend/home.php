@@ -7,11 +7,11 @@ use App\Http\Controllers\Frontend\ForSaleController;
 use App\Http\Controllers\Frontend\NewDevelopmentController;
 use App\Http\Controllers\Frontend\LandsController;
 use App\Http\Controllers\Frontend\AgentsController;
-
 use App\Http\Controllers\Frontend\User\AccountController;
 use App\Http\Controllers\Frontend\User\DashboardController;
 use App\Http\Controllers\Frontend\User\ProfileController;
 use App\Http\Controllers\Frontend\User\AgentController;
+use App\Http\Controllers\Frontend\User\AreaManagementController;
 
 
 /*
@@ -80,16 +80,30 @@ Route::group(['middleware' => ['auth', 'password_expires']], function () {
 
         Route::get('agent', [AgentController::class, 'index'])->name('agent');
         Route::post('agent/store', [AgentController::class, 'store'])->name('agent.store');
-        Route::get('agent/edit', [AgentController::class, 'agent_edit'])->name('agent.edit');
         Route::post('agent/update', [AgentController::class, 'update_agent'])->name('agent.update_agent');
 
+        Route::get('properties', [AgentController::class, 'properties'])->name('properties');
+        Route::get('properties/create', [AgentController::class, 'createProperty'])->name('create-property');
+        Route::post('properties/store', [AgentController::class, 'createPropertyStore'])->name('create-property.createPropertyStore');
+        Route::get('properties/edit/{id}', [AgentController::class, 'editProperty'])->name('property-edit');
+        Route::post('properties/edit', [AgentController::class, 'updateProperty'])->name('property-update');
+        Route::get('properties/delete/{id}', [AgentController::class, 'deleteProperty'])->name('property-delete');
+        Route::get('properties/sold_status/{id}', [AgentController::class, 'sold_status'])->name('sold_status');
+        Route::get('properties/pending_status/{id}', [AgentController::class, 'pending_status'])->name('pending_status');
 
 
+        Route::get('area-management-property-approval', [AreaManagementController::class, 'propertyApproval'])->name('area-management-property-approval');
+        Route::get('area-management/get-property-approval', [AreaManagementController::class, 'getPropertyApproval'])->name('get-property-approval');
+        Route::get('area-management/single-property-approval/{id}', [AreaManagementController::class, 'singlePropertyApproval'])->name('single-property-approval');
+        Route::post('area-management/single-property-approval/update', [AreaManagementController::class, 'singlePropertyApproved'])->name('single-property-approved');
 
 
-
-
-
+        Route::get('area-management-agent-approval', [AreaManagementController::class, 'agentApproval'])->name('area-management-agent-approval');
+        Route::get('area-management/get-agent-approval', [AreaManagementController::class, 'getAgentApproval'])->name('get-agent-approval');
+        Route::post('area-management/get-agent-approval/update', [AreaManagementController::class, 'getAgentApprovalUpdate'])->name('get-agent-approval-update');        
+        Route::get('area-management/agent-approval-delete/{id}', [AreaManagementController::class, 'agentApprovalDelete'])->name('agentApprovalDelete');
+        Route::get('area-management/single-agent-approval/{id}', [AreaManagementController::class, 'singleAgentApproval'])->name('single-agent-approval');
+        Route::post('area-management/single-agent-approval/update', [AreaManagementController::class, 'singleAgentApprovalUpdate'])->name('singleAgentApprovalUpdate');
 
 
 

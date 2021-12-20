@@ -2,6 +2,8 @@
 
 use App\Models\Settings; 
 use App\Models\Favorite; 
+use App\Models\AgentRequest; 
+use App\Models\Location; 
 use Illuminate\Http\Request;
 
 if (! function_exists('app_name')) {
@@ -141,7 +143,44 @@ if (! function_exists('is_favorite')) {
     }
 }
 
+if (! function_exists('is_agent')) {
+    /**
+     * Return the route to the "home" page depending on authentication/authorization status.
+     *
+     * @return string
+     */
+    function is_agent($user_id)
+    {
+        $agent = AgentRequest::where('status','Approved')
+            ->where('user_id',$user_id)
+            ->first();
+        if($agent)
+        {
+            return $agent;
+        }else{
+            return null;
+        }
+    }
+}
 
+if (! function_exists('is_country_manager')) {
+    /**
+     * Return the route to the "home" page depending on authentication/authorization status.
+     *
+     * @return string
+     */
+    function is_country_manager($user_id)
+    {
+        $area_manager = Location::where('area_manager',$user_id)->first();
+
+        if($area_manager)
+        {
+            return $area_manager;
+        }else{
+            return null;
+        }
+    }
+}
 
 
 

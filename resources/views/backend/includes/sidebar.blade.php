@@ -58,7 +58,11 @@
                             Property Type
                         </a>
                     </li>
-                        
+                    <li class="nav-item">
+                        <a class="nav-link {{active_class(Route::is('admin/sold_properties'))}}" href="{{ route('admin.sold_properties.index') }}">
+                            Sold Properties Request
+                        </a>
+                    </li>                        
                 </ul>
             </li>
             

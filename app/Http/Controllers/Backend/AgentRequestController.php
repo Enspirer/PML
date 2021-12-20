@@ -56,6 +56,7 @@ class AgentRequestController extends Controller
         $addagent = new AgentRequest;
 
         $addagent->country=$request->country; 
+        $addagent->area=$request->area; 
         $addagent->city=$request->city; 
         $addagent->name=$request->name;   
         $addagent->email=$request->email;     
@@ -170,7 +171,8 @@ class AgentRequestController extends Controller
 
         $update = new AgentRequest;
 
-        $update->country=$request->country; 
+        $update->country=$request->country;
+        $update->area=$request->area; 
         $update->city=$request->city; 
         $update->name=$request->name;   
         $update->email=$request->email;     
@@ -179,6 +181,7 @@ class AgentRequestController extends Controller
         $update->company_registration_number=$request->company_reg_no;
         $update->photo=$request->photo; 
         $update->logo=$request->logo; 
+        $update->cover_photo=$request->cover_photo; 
         $update->request=$request->request_field;        
         $update->tax_number=$request->tax;        
         $update->address=$request->address;
@@ -229,7 +232,7 @@ class AgentRequestController extends Controller
     {
         if($request->ajax())
         {
-            $data = AgentRequest::where('status','=','Pending')->get();
+            $data = AgentRequest::where('area_manager_approval','Approved')->where('status','Pending')->get();
             return DataTables::of($data)
             
                     ->addColumn('action', function($data){

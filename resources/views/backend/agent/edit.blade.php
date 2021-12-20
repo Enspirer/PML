@@ -12,11 +12,22 @@
                     <div class="card-body">
                         
                         <div class="row">
-                            <div class="col-12">
+                            <div class="col-6">
                                 <div>
                                     <label for="name" class="form-label mb-2">Name <span class="text-danger">*</span></label>
                                     <input type="text" class="form-control" name="name" value="{{$agent_request->name}}" required>
                                 </div> 
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label class="form-label mb-2">Country <span class="text-danger">*</span></label>
+                                    <select class="form-control custom-select" id="country" name="country" required>
+                                        <option value="" selected disabled>Select...</option>
+                                        @foreach($countries as $country)
+                                            <option value="{{$country->id}}" {{ $country->id == $agent_request->country ? "selected" : "" }}>{{$country->country_name}}</option>  
+                                        @endforeach
+                                    </select>
+                                </div>
                             </div>
                         </div>
                         <div class="row">
@@ -27,15 +38,14 @@
                                 </div>  
                             </div>
                             <div class="col-6">
-                                <div class="form-group">
-                                    <label class="form-label mb-2 mt-4">Country <span class="text-danger">*</span></label>
-                                    <select class="form-control custom-select" name="country" required>
-                                        <option value="" selected disabled>Select...</option>
-                                        @foreach($countries as $country)
-                                            <option value="{{$country->country_name}}" {{ $country->country_name == $agent_request->country ? "selected" : "" }}>{{$country->country_name}}</option>  
-                                        @endforeach
+                                <input type="hidden" class="form-control" value="{{ $agent_request->area }}" id="location_received" >
+                                
+                                <div class="form-group mb-2 mt-4">
+                                    <label>Area/location <span class="text-danger">*</span></label>
+                                    <select name="area" class="form-control custom-select" id="area" required>
+        
                                     </select>
-                                </div>
+                                </div>    
                             </div>
                         </div>
                         <div class="row">
@@ -235,6 +245,23 @@
                              </div>
                          </div>
 
+                         <div class="col-6 mt-2">
+                            <div class="form-group">
+                                <label class="mb-2 mt-4">Cover Photo
+                                    <span class="text-danger">*</span>
+                                </label>
+                                <div class="input-group" data-toggle="aizuploader" data-type="image">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text bg-soft-secondary font-weight-medium">Browse</div>
+                                    </div>
+                                    <div class="form-control file-amount">Choose File</div>
+                                    <input type="hidden" name="cover_photo" value="{{$agent_request->cover_photo}}" class="selected-files" >
+                                </div>
+                                <div class="file-preview box sm">
+                                </div>
+                            </div>
+                        </div>
+
                         
                     </div>
                 </div>
@@ -358,6 +385,84 @@ $(function() {
         }
     })
 </script>
+
+    <script>
+         
+            $(document).ready(function() {
+                $('#country').on('change', function() {
+                    var CountryID = $(this).val();
+                    // console.log(CountryID);
+
+                        $.ajax({
+                            
+                            url: "{{url('/')}}/admin/findLocWithCountryID/" + CountryID,
+                            method: "GET",
+                            dataType: "json",
+                            success:function(data) {
+                                // console.log(data);
+                            if(data){
+                                $('#area').empty();
+                                $('#area').focus;
+                                $('#area').append('<option value="" selected disabled>-- Select Here --</option>'); 
+                                $.each(data, function(key, value){
+                                    // console.log(value);
+                                $('select[name="area"]').append('<option value="'+ value.location_id +'">' + value.location_district+ '</option>');
+                                
+                            });
+
+                            }else{
+                                $('#area').empty();
+                            }
+                        }
+                        });
+                    
+                });
+            });
+
+    </script>
+
+        <script>
+
+            $(document).ready(function() {
+                // $('#category').on('change', function() {
+
+                    var CountryID = $('#country').val();
+                    // console.log(CountryID);
+                    var LocID = $('#location_received').val();
+                    // console.log(LocID);                    
+
+                        $.ajax({
+                            
+                            url: "{{url('/')}}/admin/findLocWithCountryID/" + CountryID,
+                            method: "GET",
+                            dataType: "json",
+                            success:function(data) {
+                                // console.log(data);
+                            if(data){
+                                $('#area').empty();
+                                $('#area').focus;
+                                // $('#area').append('<option value="" selected disabled>-- Select Sub Category --</option>'); 
+                                $.each(data, function(key, value){
+                                    // console.log(value);
+                                    if(LocID == value.location_id){                                       
+                                        $('#area').append('<option value="'+ value.location_id +'">' + value.location_district+ '</option>');
+                                    }
+                                    
+                                    // $('select[name="area"]').append('<option value="'+ value.location_id +'">' + value.location_district+ '</option>');
+                                                                       
+                                
+                                });
+
+                            }else{
+                                $('#area').empty();
+                            }
+                        }
+                        });
+                    
+                // });
+            });
+
+        </script>
 
 
 @endsection

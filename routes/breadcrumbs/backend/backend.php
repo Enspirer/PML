@@ -123,4 +123,11 @@ Breadcrumbs::for('admin.location.edit', function ($trail) {
     $trail->push('Edit Location Area', route('admin.location.edit',1));
 });
 
+Breadcrumbs::for('admin.sold_properties.index', function ($trail) {
+    $trail->push('Sold Properties Request', route('admin.sold_properties.index'));
+});
+Breadcrumbs::for('admin.sold_properties.edit', function ($trail) {
+    $trail->push('Approval', route('admin.sold_properties.edit',1));
+});
+
 

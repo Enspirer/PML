@@ -10,6 +10,7 @@
     <div class="container-fluid p-0 banner login">
         <div class="container">
             <div class="row justify-content-center" style="padding-top: 9rem;">
+            @include('includes.partials.messages')
                 <div class="col-10">
                     <div class="row align-items-center">
                         <div class="col-6">
