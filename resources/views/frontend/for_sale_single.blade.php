@@ -56,6 +56,8 @@
         <div class="row">
             <div class="col-12">
                 <p><a href="" class="text-decoration-none text-dark fw-bold">Back to Search Results</a></p>
+               <br>
+                <h4>{{$property->name}}</h4>
             </div>
         </div>
     </div>
@@ -125,7 +127,7 @@
 
                 <div class="row">
                     <div class="col-9">
-                        <h3 class="fw-bold mt-4 mb-1">${{$property->price}}</h3>
+                        <h3 class="fw-bold mt-4 mb-1">LKR {{number_format($property->price,2)}}</h3>
 
                         <p class="fw-bold" style="font-size: 1.2rem; color: black">
                             @if($property->beds != null)
@@ -170,7 +172,7 @@
                     <div class="col-12">
                         <div class="row">
                             <div class="features col-8">
-                                <div class="custom-shadow pt-4 pb-3 px-3">
+                                <div class="custom-shadow pt-4 pb-3 px-3" style="padding: 25px !important;">
                                     <h4 class="fw-bold">Features and Description</h4>
                                     <div class="row mt-2 ms-2" aria-expanded="false">
                                         <div class="col-12">
@@ -298,7 +300,7 @@
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="custom-shadow pt-4 pb-3 px-3 text-center">
-                                            <img src="{{ uploaded_asset($agent->photo) }}" alt="" class="img-fluid mb-3" style="object-fit: cover; height: 7rem;">
+                                            <img src="{{ uploaded_asset($agent->photo) }}" alt="" class="img-fluid mb-3" style="object-fit: cover;height: 7rem;border-radius: 50%;margin-top: 30px;">
                                             <p class="fw-bold">
                                                 @if($agent->agent_type == 'Individual')
                                                     {{ $agent->name }}
@@ -310,7 +312,7 @@
 
                                             <div class="row justify-content-center mt-3">
                                                 <div class="col-12 text-center mb-2">
-                                                    <a href="tel:{{ $agent->telephone }}" class="btn py-2 fw-bold text-white w-100 rounded-pill" style="border: 1.5px solid #707070; background-color: #35495E">
+                                                    <a href="tel:{{ $agent->telephone }}" class="btn py-2 fw-bold text-white w-100 rounded-pill" style="border: 1.5px solid rgb(112, 112, 112);background-color: rgb(53, 73, 94);font-size: 14px;">
                                                         <div class="row justify-content-center">
                                                             <div class="col-3 p-0">
                                                                 <i class="fas fa-phone-alt"></i>
@@ -417,7 +419,7 @@
                                         <div class="card-body mt-3">
                                             <div class="row mb-2">
                                                 <div class="col-10">
-                                                    <h5 class="fw-bold">${{$ran->price}}</h5>
+                                                    <h5 class="fw-bold">LKR {{number_format($ran->price,2)}}</h5>
                                                 </div>
                                                 <div class="col-1">
                                                     <button class="fas fa-heart border-0" style="color: #F60331; background-color: white;"></button>

@@ -16,7 +16,7 @@
             <div class="col-12">
                 <p><a href="" class="text-decoration-none text-dark fw-bold">Property Market Live</a>
                     >
-                    <a href="" class="text-decoration-none text-dark fw-bold">{{ucfirst($transaction_type)}}</a>
+                        <a href="" class="text-decoration-none text-dark fw-bold">{{ucfirst($transaction_type)}}</a>
 
                     > <a href="" class="text-decoration-none text-dark fw-bold">Result</a></p>
             </div>
@@ -85,22 +85,21 @@
                     <div class="row mt-5 featured_properties">
                         @foreach($properties_promoted as $key => $property_pro)
                         <div class="col-4">
-                            <div class="card custom-shadow position-relative" style="min-height:300px; max-height:300px;">
+                            <div class="card custom-shadow position-relative" style="min-height: 370px;max-height: 300px;">
                                 <a href="{{ route('frontend.for_sale_single',$property_pro->id) }}" class="text-decoration-none text-dark">
                                     <img src="{{ uploaded_asset($property_pro->feature_image_id) }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
                                     <div class="card-body mt-2">
                                         <div class="row mb-2">
                                             <div class="col-10">
-                                                <h5 class="fw-bold">${{$property_pro->price}}</h5>
+                                                <h5 class="fw-bold">LKR {{$property_pro->price}}</h5>
                                             </div>
                                             <div class="col-1">
                                                 <button class="fas fa-heart border-0" style="color: #F60331; background-color: white;"></button>
                                             </div>
                                         </div>
                                         
-                                        @if($property_pro->beds != null)
-                                        <h6 class="fw-bold mb-2">{{$property_pro->beds}} Bed Semidetached house</h6>
-                                        @endif
+                                        <h6 class="fw-bold mb-2">{{$property_pro->name}}</h6>
+                                        <p style="font-size: 11px;overflow: hidden;text-overflow: ellipsis;height: 70px;">{{$property_pro->description}}</p>
                                         <!-- <p>541, Rosewood place,</p> -->
                                         <p class="mb-1">{{$property_pro->city}}, {{$property_pro->country}}</p>
                                         <p>
@@ -200,10 +199,11 @@
                                         </div>
 
                                         <div class="row mb-4 pt-4">
-                                            <div class="col-8">
+                                            <div class="col-12">
                                                 <div class="row mb-3">
                                                     <div class="col-10">
                                                         <a href="{{ route('frontend.for_sale_single',$normal->id) }}" class="text-decoration-none text-dark">
+                                                            <h4>{{$normal->name}}</h4>
                                                             <h4 class="fw-bold">${{$normal->price}}</h4>
                                                         </a>
                                                     </div>
@@ -212,19 +212,9 @@
                                                     </div> -->
                                                 </div>
 
-                                                <p class="mb-3" style="font-size: 1rem;">
-                                                    @if($normal->beds != null)
-                                                        {{$normal->beds}}<i class="fas fa-bed ms-2 me-3"></i> 
-                                                    @endif
-                                                    @if($normal->beds != null)
-                                                        {{$normal->baths}}<i class="fas fa-bath ms-2"></i>
-                                                    @endif
-                                                </p>
 
-                                                @if($normal->beds != null)
-                                                <p class="fw-bold mb-2" style="font-size: 1.1rem; color: black">{{$normal->beds}} Bed flat for sale</p>
-                                                @endif
-                                                <p style="font-size: 1rem;">{{$normal->city}}, {{$normal->country}}</p>
+                                                <p style="font-size: 11px;overflow: hidden;text-overflow: ellipsis;height: 53px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam placerat justo lectus, ac molestie nibh luctus a. Mauris sollicitudin, eros at volutpat dictum, nulla est tincidunt purus, vel interdum tortor nisi et massa. Suspendisse placerat neque vel hendrerit lobortis. In quis consectetur mauris,</p>                                                <p style="font-size: 1rem;">{{$normal->city}}, {{$normal->country}}</p>
+
 
                                                 <div class="mt-4">
 
@@ -292,6 +282,7 @@
                                             </div>
                                         </div> -->
 
+
                                         <div class="row mb-4 pt-4">
                                             <div class="col-8">
                                                 <div class="row mb-3">
@@ -356,7 +347,7 @@
             <div class="col-3">
                 <div class="row justify-content-center custom-shadow p-3 mb-4">
                     <div class="col-12 text-center">
-                        <a href="#" class="btn py-2 fw-bold text-white w-100 rounded-pill" style="border: 1.5px solid #707070; background-color: #35495E">
+                        <a href="#" class="btn py-2 fw-bold text-white w-100 rounded-pill" style="border: 0.5px solid rgb(112, 112, 112);background-color: rgb(53, 73, 94);font-size: 12px;width: 230px !important;">
                             <div class="row justify-content-center">
                                 <div class="col-2 p-0">
                                     <i class="fas fa-envelope"></i>
@@ -367,8 +358,8 @@
                             </div>
                         </a>
                     </div>
-                    <div class="col-12 text-center mt-4">
-                        <a href="" class="btn py-2 fw-bold w-100 rounded-pill" style="border: 1.5px solid #707070">
+                    <div class="col-12 text-center " style="margin-top: 10px;">
+                        <a href="" class="btn py-2 fw-bold w-100 rounded-pill" style="border: 1.5px solid rgb(112, 112, 112);font-size: 12px;width: 230px !important;">
                             <div class="row justify-content-center">
                                 <div class="col-2 p-0">
                                     <i class="far fa-heart"></i>
