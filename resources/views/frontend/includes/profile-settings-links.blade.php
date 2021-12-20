@@ -79,9 +79,37 @@
 
         @endif
 
+        @if(is_country_manager(auth()->user()->id))
+
+            <h5 class="px-5 pb-2 mb-0 fw-bolder" style="font-size: 1.3rem; margin-top: 1.5rem">Area Manager</h5>
+            
+            <a class="nav-link text-dark fw-bold ps-5 w-100 {{ Request::segment(1) == 'area-management-property-approval' ? 'active' : null }}" id="nav-favorite-tab" href="{{ route('frontend.user.area-management-property-approval') }}" type="button" role="tab" aria-controls="nav-favorite" aria-selected="false"> 
+                <div class="row align-items-center justify-content-between">
+                    <div class="col-1">
+                        <img src="{{ url('img/frontend/profile/feedback.png') }}" alt="">
+                    </div>
+                    <div class="col-10 ps-0">
+                        <p class="text-dark fw-bold">Property Approval</p>
+                    </div>
+                </div>
+            </a>
+
+            <a class="nav-link text-dark fw-bold ps-5 w-100 {{ Request::segment(1) == 'area-management-agent-approval' ? 'active' : null }}" id="nav-favorite-tab" href="{{ route('frontend.user.area-management-agent-approval') }}" type="button" role="tab" aria-controls="nav-favorite" aria-selected="false"> 
+                <div class="row align-items-center justify-content-between">
+                    <div class="col-1">
+                        <img src="{{ url('img/frontend/profile/bookings.png') }}" alt="">
+                    </div>
+                    <div class="col-10 ps-0">
+                        <p class="text-dark fw-bold">Agent Approval</p>
+                    </div>
+                </div>
+            </a>
+
+        @endif
+
         <h5 class="px-5 pb-2 mb-0 fw-bolder" style="font-size: 1.3rem; margin-top: 1.5rem">Settings</h5>
 
-        <a class="nav-link text-dark fw-bold ps-5 w-100 {{ Request::segment(1) == 'settings' ? 'active' : null }}" id="nav-favorite-tab" href="" type="button" role="tab" aria-controls="nav-favorite" aria-selected="false">
+        <!-- <a class="nav-link text-dark fw-bold ps-5 w-100 {{ Request::segment(1) == 'settings' ? 'active' : null }}" id="nav-favorite-tab" href="" type="button" role="tab" aria-controls="nav-favorite" aria-selected="false">
             <div class="row align-items-center justify-content-between">
                 <div class="col-1">
                     <img src="{{ url('img/frontend/profile/settings.png') }}" alt="">
@@ -90,9 +118,9 @@
                     <p class="text-dark fw-bold">Settings</p>
                 </div>
             </div>
-        </a>
+        </a> -->
 
-        <a class="nav-link text-dark fw-bold ps-5 w-100 {{ Request::segment(1) == 'signout' ? 'active' : null }}" id="nav-favorite-tab" href="" type="button" role="tab" aria-controls="nav-favorite" aria-selected="false"> 
+        <a class="nav-link text-dark fw-bold ps-5 w-100 {{ Request::segment(1) == 'logout' ? 'active' : null }}" id="nav-favorite-tab" href="{{url('logout')}}" type="button" role="tab" aria-controls="nav-favorite" aria-selected="false"> 
             <div class="row align-items-center justify-content-between">
                 <div class="col-1">
                     <img src="{{ url('img/frontend/profile/sign_out.png') }}" alt="">

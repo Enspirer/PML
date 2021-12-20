@@ -29,7 +29,7 @@
                                                 </div>
                                                 <div class="col-6">
                                                     <div class="text-end">
-                                                        <h5 class="d-inline-block mb-0 py-2 px-4 text-light" style="background-color: #94ca60;">{{ $agent_request->country }}</h5>
+                                                        <h5 class="d-inline-block mb-0 py-2 px-4 text-light" style="background-color: #94ca60;">{{ App\Models\Country::where('id', $agent_request->country)->first()->country_name }}</h5>
                                                     </div>
                                                 </div>
                                             </div>

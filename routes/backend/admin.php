@@ -13,6 +13,7 @@ use App\Http\Controllers\Backend\CountryController;
 use App\Http\Controllers\Backend\ContactUsController;
 use App\Http\Controllers\Backend\SearchController;
 use App\Http\Controllers\Backend\LocationController;
+use App\Http\Controllers\Backend\PropertyHistoryController;
 
 
 // All route names are prefixed with 'admin.'.
@@ -121,3 +122,11 @@ Route::get('location/getdetails', [LocationController::class, 'getdetails'])->na
 Route::get('location/edit/{id}', [LocationController::class, 'edit'])->name('location.edit');
 Route::post('location/update', [LocationController::class, 'update'])->name('location.update');
 Route::get('location/delete/{id}', [LocationController::class, 'destroy'])->name('location.destroy');
+
+
+Route::get('sold_properties', [PropertyHistoryController::class, 'index'])->name('sold_properties.index');
+Route::get('sold_properties/getdetails', [PropertyHistoryController::class, 'getdetails'])->name('sold_properties.getdetails');
+Route::get('sold_properties/edit/{id}', [PropertyHistoryController::class, 'edit'])->name('sold_properties.edit');
+Route::post('sold_properties/update', [PropertyHistoryController::class, 'update'])->name('sold_properties.update');
+Route::get('sold_properties/delete/{id}', [PropertyHistoryController::class, 'destroy'])->name('sold_properties.destroy');
+

@@ -63,7 +63,7 @@ class PropertyController extends Controller
     {
         if($request->ajax())
         {
-            $data = Properties::get();
+            $data = Properties::where('area_manager_approval','=','Approved')->get();
             return DataTables::of($data)
             
                     ->addColumn('action', function($data){

@@ -1,6 +1,6 @@
 @extends('backend.layouts.app')
 
-@section('title', __('Agent'))
+@section('title', __('Sold Properties Request'))
 
 @section('content')
 
@@ -10,10 +10,8 @@
 
             <div class="card">
                 <div class="card-header">
-                    <strong>Agents (Area Manager Approved)</strong>
+                    <strong>Sold Properties Request</strong>
 
-                    <a href="{{route('admin.agent.create')}}" class="btn btn-primary pull-right ml-4">Create New</a>
-                   
                 </div><!--card-header-->
 
                 <div class="card-body">
@@ -22,8 +20,8 @@
                             <tr>
                                 <th scope="col">#ID</th>
                                 <th scope="col">Name</th>
-                                <th scope="col">Agent Type</th>
-                                <th scope="col">Admin Approval</th>
+                                <th scope="col">Price</th>
+                                <th scope="col">Sold Status</th>
                                 <th scope="col">Option</th>
                             </tr>
                         </thead>
@@ -45,7 +43,7 @@
                     {{csrf_field()}}
                     <div class="modal-header">
                         <h3 class="modal-title" id="ModalDeleteLabel">Delete</h3>
-                        <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                             <!-- <span aria-hidden="true">&times;</span> -->
                         </button>
                     </div>
@@ -56,7 +54,7 @@
 
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                         <button type="button" class="btn btn-danger" name="ok_button" id="ok_button">Delete</button>
                        
                     </div>
@@ -71,14 +69,14 @@
         $(function () {
             var table = $('#villadatatable').DataTable({
                 processing: true,
-                ajax: "{{route('admin.agent.getdetails')}}",
+                ajax: "{{route('admin.sold_properties.getdetails')}}",
                 serverSide: true,
                 order: [[0, "desc"]],
                 columns: [
                     {data: 'id', name: 'id'},
                     {data: 'name', name: 'name'},
-                    {data: 'agent_type', name: 'agent_type'},
-                    {data: 'status', name: 'status'},
+                    {data: 'price', name: 'price'},
+                    {data: 'sold_request', name: 'sold_request'},
                     {data: 'action', name: 'action', orderable: false, searchable: false},
                 ]
             });
@@ -93,7 +91,7 @@
 
             $('#ok_button').click(function(){
             $.ajax({
-            url:"agent/delete/"+user_id,
+            url:"sold_properties/delete/"+user_id,
             
             success:function(data)
             {

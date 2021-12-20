@@ -10,7 +10,7 @@
 
             <div class="card">
                 <div class="card-header">
-                    <strong>Property List</strong>
+                    <strong>Property List (Area Manager Approved)</strong>
 
                     <a href="{{route('admin.property.create')}}" class="btn btn-primary pull-right ml-4">Create New</a>
                    

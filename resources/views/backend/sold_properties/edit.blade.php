@@ -1,10 +1,59 @@
 @extends('backend.layouts.app')
 
-@section('title', __('Edit'))
+@section('title', __('Approval'))
 
 @section('content')
     
-<form action="{{route('admin.property.update')}}" method="post" enctype="multipart/form-data">
+<style>
+      html,
+      body {
+        position: relative;
+        height: 100%;
+      }
+
+      body {
+        background: #eee;
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        color: #000;
+        margin: 0;
+        padding: 0;
+      }
+
+      .swiper {
+        width: 100%;
+        height: 100%;
+      }
+
+      .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+
+        /* Center slide text vertically */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+      }
+
+      .swiper-slide img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    </style>
+
+<form action="{{route('admin.sold_properties.update')}}" method="post" enctype="multipart/form-data">
         {{csrf_field()}}
         <div class="row">
             <div class="col-md-7 p-1">
@@ -12,36 +61,25 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-12">
-                                <div class="carousel">
-                                    <div id="carouselControls" class="carousel slide" data-bs-ride="carousel">
-                                        <div class="carousel-inner">
-                                        @if($images != NULL)
-                                            @foreach($images as $index => $image)
-                                                
-                                                @if($index == 0)
-                                                    <div class="carousel-item active">
-                                                        <img src="{{url('images', App\Models\FileManager::where('id', $image)->first()->file_name)}}" class="d-block w-100" style="height:370px; object-fit:cover;" alt="...">
-                                                    </div>
-                                                @else
-                                                    <div class="carousel-item">
-                                                        <img src="{{url('images', App\Models\FileManager::where('id', $image)->first()->file_name)}}" class="d-block w-100" style="height:370px; object-fit:cover;" alt="...">
-                                                    </div>
-                                                @endif
+                                                                                              
+                                <div class="swiper mySwiper" style="height:370px;">
+                                    <div class="swiper-wrapper">
+                                        @php
+                                            $str_arr2 = preg_split ("/\,/", $property->image_ids);
+                                        @endphp
 
-                                            @endforeach
-                                        @endif
-                                        </div>
-
-                                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselControls" data-bs-slide="prev">
-                                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                            <span class="visually-hidden">Previous</span>
-                                        </button>
-                                        <button class="carousel-control-next" type="button" data-bs-target="#carouselControls" data-bs-slide="next">
-                                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                            <span class="visually-hidden">Next</span>
-                                        </button>
+                                        @foreach($str_arr2 as $key=> $pre)
+                                            <div class="swiper-slide">
+                                                <img src="{{ uploaded_asset($pre) }}" class="d-block w-100" style="height:370px; object-fit:cover;"/>
+                                            </div>
+                                        @endforeach
                                     </div>
+
+                                    <div class="swiper-button-next"></div>
+                                    <div class="swiper-button-prev"></div>
+                                    <div class="swiper-pagination"></div>
                                 </div>
+
                             </div>
                         </div>
                             
@@ -61,12 +99,12 @@
                             </div>
 
                             <div class="row mt-4 pe-0 align-items-center">
-                                <div class="col-6">
+                                <div class="col-12">
                                     <table class="table table-hover table-borderless">
                                         <tbody>
                                             <tr>
-                                                <td style="font-weight: 600;">Location</td>
-                                                <td>{{ $property->city}}, {{ $property->country}}</td>
+                                                <td style="font-weight: 600; width:25%">Location</td>
+                                                <td>{{ $property->city}}, {{ App\Models\Country::where('id',$property->country)->first()->country_name }}</td>
                                             </tr>
                                             <tr>
                                                 <td style="font-weight: 600;">Price</td>
@@ -88,15 +126,9 @@
                                     </table>
                                 </div>
                                 
-                                <div class="col-6 pe-0">
-                                    <div id="map" style="height: 300px; width: 100%;"></div>
-                                    <input type="hidden" name="lat" id="lat" class="mt-3" value="{{ $property->lat }}">
-                                    <input type="hidden" name="lng" id="lng" class="mt-3" value="{{ $property->long }}">
-                                    <input type="hidden" name="country" id="country" class="mt-3" value="{{ $property->country }}">
-                                </div>
                             </div>
 
-                            <div class="row mt-5 pe-0 align-items-center">
+                            <div class="row mt-3 pe-0 align-items-center">
                                 <div class="col-6">
                                     <table class="table table-hover table-borderless">
                                         <tbody>
@@ -188,7 +220,7 @@
                                         <div class="col-10">
                                             <div class="card">
                                                 <div class="text-center mt-2">
-                                                    <img src="{{ url('files/agent_request',$agent_details->photo) }}" class="rounded-circle card-img-top border border-2" alt="..." style="height: 120px; width: 50%">
+                                                    <img src="{{ uploaded_asset($agent_details->photo) }}" class="rounded-circle card-img-top border border-2" alt="..." style="height: 120px; width: 50%; object-fit:cover">
                                                 </div>
 
                                                 <div class="card-body">
@@ -217,27 +249,32 @@
                                         <tr>
                                             <td>{{ $property->description}}</td>
                                         </tr>
+                                            <tr>
+                                                <td style="font-weight: 600;">Property Sold Status :</td>
+                                                <td>{{ $property->sold_request}}</td>
+                                            </tr>
                                     </tbody>
                                 </table>
                             </div>
                         </div>
                     </div>
                 </div>
+                
+
                 <div class="card">
                     <div class="card-body">
                         <div class="" style="border-style: ridge;border-width: 3px;padding: 20px;">
                             <div class="form-group">
                                 <label>Admin Approval</label>
-                                <select class="form-control" name="admin_approval" required>
-                                    <option value="Approved" {{ $property->admin_approval == 'Approved' ? "selected" : "" }}>Approve</option>   
-                                    <option value="Disapproved" {{ $property->admin_approval == 'Disapproved' ? "selected" : "" }}>Disapprove</option> 
-                                    <option value="Pending" {{ $property->admin_approval == 'Pending' ? "selected" : "" }}>Pending</option>                               
+                                <select class="form-control" name="sold_request" required>
+                                    <option value="Sold" {{ $property->sold_request == 'Sold' ? "selected" : "" }}>Sold</option>   
+                                    <option value="Pending" {{ $property->sold_request == 'Pending' ? "selected" : "" }}>Pending</option>                               
                                 </select>
                             </div>
 
                             <div class="mt-5 text-center">
                                 <input type="hidden" name="hidden_id" value="{{ $property->id }}"/>
-                                <a href="{{route('admin.property.index')}}" type="button" class="btn rounded-pill text-light px-4 py-2 me-2 btn-primary">Back</a>
+                                <a href="{{route('admin.sold_properties.index')}}" type="button" class="btn rounded-pill text-light px-4 py-2 me-2 btn-primary">Back</a>
                                 <button type="submit" class="btn rounded-pill text-light px-4 py-2 ms-2 btn-success">Update</button>
                             </div>
                         </div>
@@ -245,6 +282,7 @@
                 </div>
             </div>
         </div>
+        
     </form>
 
 @endsection
@@ -253,29 +291,18 @@
 @push('after-scripts')
 
 <script>
-
-    let lat = $('#lat').val();  
-    let lng = $('#lng').val();
-
-    function initMap() {
-
-        const myLatLng = { lat: parseFloat(lat), lng: parseFloat(lng) };
-        const map = new google.maps.Map(document.getElementById("map"), {
-            zoom: 6,
-            center: myLatLng,
-        });
-        new google.maps.Marker({
-            position: myLatLng,
-            map,
-            title: "Hello World!",
-        });
-
-        //   console.log(myLatLng)
-}
+      var swiper = new Swiper(".mySwiper", {
+        pagination: {
+          el: ".swiper-pagination",
+          type: "fraction",
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      });
 </script>
 
-
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEBj8LhHUJaf2MXpqIQ_MOXs7HkeUXnac&callback=initMap"
-type="text/javascript"></script>
+    
 
 @endpush

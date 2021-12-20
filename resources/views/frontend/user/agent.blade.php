@@ -92,11 +92,22 @@
                                     <form action="{{route('frontend.user.agent.store')}}" method="post" enctype="multipart/form-data" >
                                     {{csrf_field()}}
                                     <div class="row">
-                                        <div class="col-12">
+                                        <div class="col-6">
                                             <div>
                                                 <label for="name" class="form-label mb-2">Name <span class="text-danger">*</span></label>
                                                 <input type="text" class="form-control" name="name" required>
                                             </div> 
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="form-group">
+                                                <label class="form-label mb-2">Country <span class="text-danger">*</span></label>
+                                                <select class="form-control custom-select" id="country" name="country" required>
+                                                    <option value="" selected disabled>Select...</option>
+                                                    @foreach($countries as $country)
+                                                        <option value="{{$country->id}}">{{$country->country_name}}</option>  
+                                                    @endforeach
+                                                </select>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -107,15 +118,12 @@
                                             </div>  
                                         </div>
                                         <div class="col-6">
-                                            <div class="form-group">
-                                                <label class="form-label mb-2 mt-3">Country <span class="text-danger">*</span></label>
-                                                <select class="form-control custom-select" name="country" required>
-                                                    <option value="" selected disabled>Select...</option>
-                                                    @foreach($countries as $country)
-                                                        <option value="{{$country->country_name}}">{{$country->country_name}}</option>  
-                                                    @endforeach
+                                            <div>
+                                                <label class="form-group mb-2 mt-3">Area/location <span class="text-danger">*</span></label>
+                                                <select name="area" class="form-control custom-select" id="area" required>
+
                                                 </select>
-                                            </div>
+                                            </div> 
                                         </div>
                                     </div>
                                     <div class="row">
@@ -423,4 +431,39 @@
         
         
     </script>
+
+    <script>
+        $(document).ready(function() {
+            $('#country').on('change', function() {
+                var CountryID = $(this).val();
+                // console.log(CountryID);
+
+                    $.ajax({
+                        
+                        url: "{{url('/')}}/api/findLocationWithCountryID/" + CountryID,
+
+                        method: "GET",
+                        dataType: "json",
+                        success:function(data) {
+                            console.log(data);
+                        if(data){
+                            $('#area').empty();
+                            $('#area').focus;
+                            $('#area').append('<option value="" selected disabled>-- Select Here --</option>'); 
+                            $.each(data, function(key, value){
+                                // console.log(value);
+                            $('select[name="area"]').append('<option value="'+ value.location_id +'">' + value.location_district+ '</option>');
+                            
+                        });
+
+                        }else{
+                            $('#area').empty();
+                        }
+                    }
+                    });
+                
+            });
+        });
+    </script>
+
 @endpush

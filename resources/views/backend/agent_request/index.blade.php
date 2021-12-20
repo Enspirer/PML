@@ -10,7 +10,7 @@
 
             <div class="card">
                 <div class="card-header">
-                    <strong>Agent Request</strong>
+                    <strong>Agent Request (Area Manager Approved)</strong>
 
                 </div><!--card-header-->
 

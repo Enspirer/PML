@@ -68,7 +68,7 @@
                                 <input type="hidden" class="form-control" value="{{ $property->area }}" id="location_received" >
                                 
                                 <div class="form-group mb-2 mt-3">
-                                    <label>Area/location</label>
+                                    <label>Area/location <span class="text-danger">*</span></label>
                                     <select name="area" class="form-control custom-select" id="area" required>
         
                                     </select>

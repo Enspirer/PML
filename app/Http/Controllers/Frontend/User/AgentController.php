@@ -62,6 +62,7 @@ class AgentController extends Controller
         $addagent = new AgentRequest;
 
         $addagent->country=$request->country; 
+        $addagent->area=$request->area; 
         $addagent->city=$request->city; 
         $addagent->name=$request->name;   
         $addagent->email=$request->email;     
@@ -78,6 +79,7 @@ class AgentController extends Controller
         $addagent->status=$request->admin_approval;
         $addagent->user_id = auth()->user()->id;
         $addagent->status='Pending';
+        $addagent->area_manager_approval='Pending';
 
         $addagent->validation_type=$request->validate;
 
@@ -141,6 +143,7 @@ class AgentController extends Controller
         $update = new AgentRequest;
 
         $update->country=$request->country; 
+        $update->area=$request->area; 
         $update->city=$request->city; 
         $update->name=$request->name;   
         $update->email=$request->email;     
@@ -293,6 +296,7 @@ class AgentController extends Controller
         $addprop->transaction_type=$request->transaction_type;
         $addprop->user_id = auth()->user()->id;
         $addprop->admin_approval='Pending';
+        $addprop->area_manager_approval='Pending';
 
         if($request->land_size){
             $addprop->land_size=$request->land_size;
@@ -374,6 +378,7 @@ class AgentController extends Controller
         $update->transaction_type=$request->transaction_type;
         $update->user_id = auth()->user()->id;
         $update->admin_approval='Pending';
+        $update->area_manager_approval='Pending';
 
         if($request->land_size){
             $update->land_size=$request->land_size;
