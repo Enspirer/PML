@@ -63,7 +63,7 @@ class PropertyController extends Controller
     {
         if($request->ajax())
         {
-            $data = Properties::where('area_manager_approval','=','Approved')->get();
+            $data = Properties::get();
             return DataTables::of($data)
             
                     ->addColumn('action', function($data){
@@ -73,7 +73,7 @@ class PropertyController extends Controller
                         return $button;
                     })
                     ->addColumn('feature_image', function($data){
-                        $img = '<img src="'.uploaded_asset($data->feature_image_id).'" style="width: 60%">';
+                        $img = '<img src="'.uploaded_asset($data->feature_image_id).'" style="width: 100%">';
                      
                         return $img;
                     })   
@@ -92,6 +92,14 @@ class PropertyController extends Controller
                             $status = '<span class="badge badge-warning">Disabled</span>';
                         }   
                         return $status;
+                    })  
+                    ->addColumn('featured', function($data){
+                        if($data->featured == 'Enabled'){
+                            $status = '<span class="badge badge-success">Featured</span>';
+                        }else{
+                            $status = '<span class="badge badge-warning">Disabled</span>';
+                        }   
+                        return $status;
                     })                 
                     ->addColumn('admin_approval', function($data){
                         if($data->admin_approval == 'Approved'){
@@ -104,7 +112,7 @@ class PropertyController extends Controller
                         return $status;
                     })
                     
-                    ->rawColumns(['action','admin_approval','feature_image','promoted','premium'])
+                    ->rawColumns(['action','admin_approval','feature_image','promoted','premium','featured'])
                     ->make(true);
         }
         return back();
@@ -130,7 +138,7 @@ class PropertyController extends Controller
         $addprop->name=$request->name; 
         $addprop->property_type=$request->propertyType; 
         $addprop->description=$request->description;  
-        $addprop->price=$request->price;
+        // $addprop->price=$request->price;
         // $addprop->main_category=$request->category; 
         $addprop->country=$request->country; 
         $addprop->area=$request->area; 
@@ -143,7 +151,33 @@ class PropertyController extends Controller
         $addprop->admin_approval=$request->admin_approval;
         $addprop->promoted=$request->promoted;
         $addprop->premium=$request->premium;
+        $addprop->featured=$request->featured;
         $addprop->user_id = $request->agent_user_id;
+
+        $addprop->price_options=$request->validate;
+
+        if($request->validate == 'Full'){
+            $addprop->capacity=$request->full_property;
+        }elseif($request->validate == 'Perches'){
+            $addprop->capacity=$request->perches;
+        }
+        elseif($request->validate == 'Acres'){
+            $addprop->capacity=$request->acres;
+        }else{
+            $addprop->capacity=$request->hectares;
+        }
+
+        if($request->validate == 'Full'){
+            $addprop->price=$request->price_full_property;
+        }elseif($request->validate == 'Perches'){
+            $addprop->price=$request->price_perches;
+        }
+        elseif($request->validate == 'Acres'){
+            $addprop->price=$request->price_acres;
+        }else{
+            $addprop->price=$request->price_hectares;
+        }
+
 
         if($request->land_size){
             $addprop->land_size=$request->land_size;
@@ -233,7 +267,7 @@ class PropertyController extends Controller
         $update->name=$request->name; 
         $update->property_type=$request->propertyType; 
         $update->description=$request->description;  
-        $update->price=$request->price;
+        // $update->price=$request->price;
         // $update->main_category=$request->category; 
         $update->city=$request->city;
         $update->area=$request->area; 
@@ -246,7 +280,33 @@ class PropertyController extends Controller
         $update->admin_approval=$request->admin_approval;
         $update->promoted=$request->promoted;
         $update->premium=$request->premium;
+        $update->featured=$request->featured;
         $update->user_id = $user_id->id;
+
+
+        $update->price_options=$request->validate;
+
+        if($request->validate == 'Full'){
+            $update->capacity=$request->full_property;
+        }elseif($request->validate == 'Perches'){
+            $update->capacity=$request->perches;
+        }
+        elseif($request->validate == 'Acres'){
+            $update->capacity=$request->acres;
+        }else{
+            $update->capacity=$request->hectares;
+        }
+
+        if($request->validate == 'Full'){
+            $update->price=$request->price_full_property;
+        }elseif($request->validate == 'Perches'){
+            $update->price=$request->price_perches;
+        }
+        elseif($request->validate == 'Acres'){
+            $update->price=$request->price_acres;
+        }else{
+            $update->price=$request->price_hectares;
+        }
 
 
         if($request->land_size){

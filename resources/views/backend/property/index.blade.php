@@ -26,6 +26,7 @@
                                 <th scope="col">Price</th>
                                 <th scope="col">Promoted</th>
                                 <th scope="col">Premium</th>
+                                <th scope="col">Featured</th>
                                 <th scope="col">Admin Approval</th>
                                 <th scope="col">Option</th>
                             </tr>
@@ -84,6 +85,7 @@
                     {data: 'price', name: 'price'},
                     {data: 'promoted', name: 'promoted'},
                     {data: 'premium', name: 'premium'},
+                    {data: 'featured', name: 'featured'},
                     {data: 'admin_approval', name: 'admin_approval'},
                     {data: 'action', name: 'action', orderable: false, searchable: false},
                 ]

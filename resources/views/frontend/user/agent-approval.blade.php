@@ -39,8 +39,8 @@
                                     <table class="table table-responsive" id="villadatatable" style="width:100%">
                                         <thead class="table-head">
                                             <tr>
-                                                <th scope="col">Property Name</th>
-                                                <th scope="col">Property Type</th>
+                                                <th scope="col">Name</th>
+                                                <th scope="col">Email</th>
                                                 <th scope="col">Date</th>
                                                 <th scope="col">Admin Approval</th>
                                                 <th scope="col">Area Manager Approval</th>

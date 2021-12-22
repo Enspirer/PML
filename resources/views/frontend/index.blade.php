@@ -11,6 +11,7 @@
 
     @include('frontend.includes.search')
 
+  
     <div class="container index" style="margin-top: 2rem;">
         <div class="row">
 
@@ -105,9 +106,10 @@
     </div>
 
 
-    <div class="properties" style="margin-top: 3rem;">
+    <!-- <div class="properties" style="margin-top: 3rem;">
         <div class="container">
             <div class="row mt-5 mb-4">
+                
                 <div class="col-3">
                     <div class="card custom-shadow">
                         <img src="{{ url('img/frontend/index/1.png') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
@@ -205,77 +207,111 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
+    <div class="properties" style="margin-top: 3rem;">
+        <div class="container">
+            <div class="row mt-5 mb-4">
 
-    <div class="container" style="margin-top: 4rem;">
-        <div class="swiper mySwiper">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                <div class="card custom-shadow">
-                        <img src="{{ url('img/frontend/index/5.png') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
-                        <div class="card-body text-center">
-                            <h5 class="fw-bold">$450, 000</h5>
-                            <p>4 Bed Semidetached house</p>
-                            <p>541, Rosewood place,</p>
-                            <p>Colombo, Sri Lanka</p>
-                            <p>3<i class="fas fa-bed ms-2 me-3"></i> 5<i class="fas fa-bath ms-2"></i></p>
-                        </div>
-                    </div>
+                <div class="col-9">                    
+                    <div class="row">
+                        @if(count($featured_properties) != 0)
+                            @foreach($featured_properties as $key => $featured_prop)
+                                <div class="col-4">
+                                    <div class="card custom-shadow" style="min-height:307px;  max-height:307px">
+                                        <a href="{{route('frontend.for_sale_single',$featured_prop->id)}}" style="text-decoration:none">
+                                        <img src="{{ uploaded_asset($featured_prop->feature_image_id) }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
+                                            <div class="card-body text-center">
+                                                <h5 class="fw-bold">${{$featured_prop->price}}</h5>
+                                                @if($featured_prop->beds == null)
+                                                @else
+                                                    <p>{{$featured_prop->beds}} Bed Semidetached house</p>
+                                                @endif
+                                                <p>${{$featured_prop->name}}</p>
+                                                <p>{{$featured_prop->city}}, {{App\Models\Country::where('id',$featured_prop->country)->first()->country_name}}</p>
+                                                <p>
+                                                @if($featured_prop->beds != null)
+                                                    {{$featured_prop->beds}}<i class="fas fa-bed ms-2 me-3"></i> 
+                                                @endif
+                                                @if($featured_prop->baths != null)
+                                                    {{$featured_prop->baths}}<i class="fas fa-bath ms-2"></i>
+                                                @endif
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            @endforeach 
+                        @else      
+                            @include('frontend.includes.not_found',[
+                                'not_found_title' => 'Featured properties not found',
+                                'not_found_button_caption' => null
+                            ])
+                        @endif                 
+                    </div>                  
                 </div>
-                <div class="swiper-slide">
-                <div class="card custom-shadow">
-                        <img src="{{ url('img/frontend/index/4.png') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
-                        <div class="card-body text-center">
-                            <h5 class="fw-bold">$450, 000</h5>
-                            <p>4 Bed Semidetached house</p>
-                            <p>541, Rosewood place,</p>
-                            <p>Colombo, Sri Lanka</p>
-                            <p>3<i class="fas fa-bed ms-2 me-3"></i> 5<i class="fas fa-bath ms-2"></i></p>
+
+                <div class="col-3">                    
+                    <div class="row">
+                        <div class="col-12">
+                            <a href="{{ get_settings('sidebar_advertiment_link_1') }}" target="_blank">
+                                <div class="card custom-shadow">
+                                    <img src="{{ uploaded_asset(get_settings('sidebar_advertiment_1')) }}" alt="" class="img-fluid w-100" style="height: 19.2rem; object-fit: cover;">
+                                </div>
+                            </a>
                         </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                <div class="card custom-shadow">
-                        <img src="{{ url('img/frontend/index/3.png') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
-                        <div class="card-body text-center">
-                            <h5 class="fw-bold">$450, 000</h5>
-                            <p>4 Bed Semidetached house</p>
-                            <p>541, Rosewood place,</p>
-                            <p>Colombo, Sri Lanka</p>
-                            <p>3<i class="fas fa-bed ms-2 me-3"></i> 5<i class="fas fa-bath ms-2"></i></p>
+                        <div class="col-12">
+                            <a href="{{ get_settings('sidebar_advertiment_link_2') }}" target="_blank">
+                                <div class="card custom-shadow">
+                                    <img src="{{ uploaded_asset(get_settings('sidebar_advertiment_2')) }}" alt="" class="img-fluid w-100" style="height: 19.2rem; object-fit: cover;">
+                                </div>
+                            </a>
                         </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                <div class="card custom-shadow">
-                        <img src="{{ url('img/frontend/index/2.png') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
-                        <div class="card-body text-center">
-                            <h5 class="fw-bold">$450, 000</h5>
-                            <p>4 Bed Semidetached house</p>
-                            <p>541, Rosewood place,</p>
-                            <p>Colombo, Sri Lanka</p>
-                            <p>3<i class="fas fa-bed ms-2 me-3"></i> 5<i class="fas fa-bath ms-2"></i></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                <div class="card custom-shadow">
-                        <img src="{{ url('img/frontend/index/1.png') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
-                        <div class="card-body text-center">
-                            <h5 class="fw-bold">$450, 000</h5>
-                            <p>4 Bed Semidetached house</p>
-                            <p>541, Rosewood place,</p>
-                            <p>Colombo, Sri Lanka</p>
-                            <p>3<i class="fas fa-bed ms-2 me-3"></i> 5<i class="fas fa-bath ms-2"></i></p>
-                        </div>
-                    </div>
-                </div>
+                    </div>                  
+                </div>    
+                                          
+
             </div>
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
         </div>
     </div>
+
+    @if(count($latest_properties) != 0)
+        <div class="container" style="margin-top: 4rem;">
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+
+                    @foreach($latest_properties as $key => $latest_prop)
+                            <div class="swiper-slide">
+                                <div class="card custom-shadow" style="min-height:307px;  max-height:307px">
+                                    <a href="{{route('frontend.for_sale_single',$latest_prop->id)}}" style="text-decoration:none">
+                                        <img src="{{ uploaded_asset($latest_prop->feature_image_id) }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
+                                        <div class="card-body text-center">
+                                            <h5 class="fw-bold">${{$latest_prop->price}}</h5>
+                                            @if($latest_prop->beds == null)
+                                            @else
+                                                <p>{{$latest_prop->beds}} Bed Semidetached house</p>
+                                            @endif
+                                                <p>${{$latest_prop->name}}</p>
+                                                <p>{{$latest_prop->city}}, {{App\Models\Country::where('id',$latest_prop->country)->first()->country_name}}</p>
+                                                <p>
+                                            @if($latest_prop->beds != null)
+                                                {{$latest_prop->beds}}<i class="fas fa-bed ms-2 me-3"></i> 
+                                            @endif
+                                            @if($latest_prop->baths != null)
+                                                {{$latest_prop->baths}}<i class="fas fa-bath ms-2"></i>
+                                            @endif
+                                            </p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                    @endforeach                    
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </div>
+    @endif
 
 
     <div class="container social" style="margin-top: 5rem; margin-bottom: 3rem;">
@@ -375,6 +411,10 @@
     </div>
 </div>
 
+<!-- Filter Modal -->
+@include('frontend.includes.search_filter_modal')
+
+
 @endsection
 
 @push('after-scripts')
@@ -443,5 +483,380 @@
             });
       });
     </script>
+
+
+<script>
+    // dropdown box changing field
+        const renderFields = async () => {
+            let value = $('#propertyType').val();
+
+            if(value == '') {
+                
+
+            } 
+            else {
+                let url = '{{url('/')}}/api/get_property_type_details/' + value;
+
+                const res = await fetch(url);
+                const data = await res.json();
+                const fields = (data[0]['activated_fields']);
+                let template = '';
+                let first = '';
+                let second = '';
+
+                for(let i = 0; i < fields.length; i++) {
+                    if(i == 0) {
+                        let name = fields[i].split(' ').join('_').toLowerCase();
+                        if(name == 'beds' || name == 'baths' || name == 'building_type' || name == 'parking_type' || name == 'zoning_type' || name == 'farm_type') {
+                            if(name == 'beds' || name == 'baths') {
+                                first = `<div>
+                                            <label for="${name}" class="form-label mb-0">${fields[i]}</label>
+                                            <select class="form-select" aria-label="${name}" name="${name}" id="${name}">
+                                                <option value="">Any</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="greater-than-5">5+</option>
+                                            </select>
+                                        </div> `
+                            }
+                            else if (name == 'building_type') {
+                                            first = `<div>
+                                                        <label for="${name}" class="form-label mb-0">${fields[i]}</label>
+                                                        <select class="form-select" aria-label="${name}" id="${name}" name="${name}">
+                                                            <option value="">Any</option>
+                                                            <option value="house">House</option>
+                                                            <option value="row/townhouse">Row / Townhouse</option>
+                                                            <option value="apartment">Apartment</option>
+                                                            <option value="duplex">Duplex</option>
+                                                            <option value="triplex">Triplex</option>
+                                                            <option value="fourplex">Fourplex</option>
+                                                            <option value="garden-home">Garden Home</option>
+                                                            <option value="mobile-home">Mobile Home</option>
+                                                            <option value="manufactured-home">Manufactured Home/Mobile</option>
+                                                            <option value="special-purpose">Special Purpose</option>
+                                                            <option value="residential-commercial-mix">Residential Commercial Mix</option>
+                                                            <option value="manufactured-home">Manufactured Home</option>
+                                                            <option value="commercial-apartment">Commercial Apartment</option>
+                                                            <option value="two-apartment-house">Two Apartment House</option>
+                                                            <option value="park-model-mobile-home">Park Model Mobile Home</option>
+                                                        </select>
+                                                    </div>`
+                            }
+                            else if (name == 'parking_type') {
+                                        first = `<div>
+                                                    <label for="${name}" class="form-label mb-0">${fields[i]}</label>
+                                                    <select class="form-select" name="${name}" aria-label="${name}" id="${name}">
+                                                        <option value="">Any</option>
+                                                        <option value="boat-house">Boat House</option>
+                                                        <option value="concrete">Concrete</option>
+                                                        <option value="heated-garage">Heated Garage</option>
+                                                        <option value="attached-garage">Attached Garage</option>
+                                                        <option value="integrated-garage">Integrated Garage</option>
+                                                        <option value="detached-garage">Detached Garage</option>
+                                                        <option value="garage">Garage</option>
+                                                        <option value="carport">Carport</option>
+                                                        <option value="underground">Underground</option>
+                                                        <option value="indoor">Indoor</option>
+                                                        <option value="open">Open</option>
+                                                        <option value="covered">Covered</option>
+                                                        <option value="parking-pad">Parking Pad</option>
+                                                        <option value="paved-yard">Paved Yard</option>
+                                                    </select>
+                                                </div>`
+                            }
+                            else if (name == 'zoning_type') {
+                                        first = `<div>
+                                                    <label for="${name}" class="form-label mb-0">${fields[i]}</label>
+                                                    <select class="form-select" name="${name}" aria-label="${name}" id="${name}">
+                                                        <option value="">Any</option>
+                                                        <option value="commercial-retail">Commercial Retail</option>
+                                                        <option value="commercial-office">Commercial Office</option>
+                                                        <option value="commercial-mixed">Commercial Mixed</option>
+                                                        <option value="industrial">Industrial</option>
+                                                        <option value="industrial-light">Industrial-Light</option>
+                                                        <option value="industrial-medium">Industrial-Medium</option>
+                                                        <option value="industrial-heavy">Industrial-Heavy</option>
+                                                        <option value="residential-low-density">Residential-Low Density</option>
+                                                        <option value="residential-medium-density">Residential - Medium Density</option>
+                                                        <option value="residential-high-density">Residential-High Density</option>
+                                                        <option value="institutional">Institutional</option>
+                                                        <option value="agricultural">Agricultural</option>
+                                                        <option value="recreational">Recreational</option>
+                                                        <option value="other">Other</option>
+                                                    </select>
+                                                </div>`
+                            }
+                            else if (name == 'farm_type') {
+                                        first = `<div>
+                                                    <label for="${name}" class="form-label mb-0">${fields[i]}</label>
+                                                    <select class="form-select" name="${name}" aria-label="${name}" id="${name}">
+                                                        <option value="">Any</option>
+                                                        <option value="animal">Animal</option>
+                                                        <option value="cash-crop">Cash Crop</option>
+                                                        <option value="hobby-farm">Hobby Farm</option>
+                                                        <option value="market-gardening">Market Gardening</option>
+                                                        <option value="nursery">Nursery</option>
+                                                        <option value="greenhouse">Greenhouse</option>
+                                                        <option value="orchard">Orchard</option>
+                                                        <option value="vineyard">Vineyard</option>
+                                                        <option value="feed-lot">Feed Lot</option>
+                                                        <option value="boarding">Boarding</option>
+                                                        <option value="mixed">Mixed</option>
+                                                    </select>
+                                                </div>`
+                            }
+                        }
+                            else {
+                                first = `<div>
+                                    <label for="${name}" class="form-label mb-0">${fields[i]}</label>
+                                    <input type="text" class="form-control" name="${name}" id="${name}" aria-describedby="${name}">
+                                </div>`
+                            }
+                    } 
+
+                    else if(i == 1) {
+                        let name = fields[i].split(' ').join('_').toLowerCase();
+                        if(name == 'beds' || name == 'baths' || name == 'building_type' || name == 'parking_type' || name == 'zoning_type' || name == 'farm_type') {
+                            if(name == 'beds' || name == 'baths') {
+                                second = `<div>
+                                            <label for="${name}" class="form-label mb-0">${fields[i]}</label>
+                                            <select class="form-select" aria-label="${name}" name="${name}" id="${name}">
+                                                <option value="">Any</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="greater-than-5">5+</option>
+                                            </select>
+                                        </div> `
+                            }
+                            else if (name == 'building_type') {
+                                        second = `<div>
+                                                        <label for="${name}" class="form-label mb-0">${fields[i]}</label>
+                                                        <select class="form-select" name="${name}" aria-label="${name}" id="${name}">
+                                                            <option value="">Any</option>
+                                                            <option value="house">House</option>
+                                                            <option value="row/townhouse">Row / Townhouse</option>
+                                                            <option value="apartment">Apartment</option>
+                                                            <option value="duplex">Duplex</option>
+                                                            <option value="triplex">Triplex</option>
+                                                            <option value="fourplex">Fourplex</option>
+                                                            <option value="garden-home">Garden Home</option>
+                                                            <option value="mobile-home">Mobile Home</option>
+                                                            <option value="manufactured-home">Manufactured Home/Mobile</option>
+                                                            <option value="special-purpose">Special Purpose</option>
+                                                            <option value="residential-commercial-mix">Residential Commercial Mix</option>
+                                                            <option value="manufactured-home">Manufactured Home</option>
+                                                            <option value="commercial-apartment">Commercial Apartment</option>
+                                                            <option value="two-apartment-house">Two Apartment House</option>
+                                                            <option value="park-model-mobile-home">Park Model Mobile Home</option>
+                                                        </select>
+                                                    </div>`
+                            }
+                            else if (name == 'parking_type') {
+                                        second = `<div>
+                                                    <label for="${name}" class="form-label mb-0">${fields[i]}</label>
+                                                    <select class="form-select" name="${name}" aria-label="${name}" id="${name}">
+                                                        <option value="">Any</option>
+                                                        <option value="boat-house">Boat House</option>
+                                                        <option value="concrete">Concrete</option>
+                                                        <option value="heated-garage">Heated Garage</option>
+                                                        <option value="attached-garage">Attached Garage</option>
+                                                        <option value="integrated-garage">Integrated Garage</option>
+                                                        <option value="detached-garage">Detached Garage</option>
+                                                        <option value="garage">Garage</option>
+                                                        <option value="carport">Carport</option>
+                                                        <option value="underground">Underground</option>
+                                                        <option value="indoor">Indoor</option>
+                                                        <option value="open">Open</option>
+                                                        <option value="covered">Covered</option>
+                                                        <option value="parking-pad">Parking Pad</option>
+                                                        <option value="paved-yard">Paved Yard</option>
+                                                    </select>
+                                                </div>`
+                            }
+                            else if (name == 'zoning_type') {
+                                        second = `<div>
+                                                    <label for="${name}" class="form-label mb-0">${fields[i]}</label>
+                                                    <select class="form-select" name="${name}" aria-label="${name}" id="${name}">
+                                                        <option value="">Any</option>
+                                                        <option value="commercial-retail">Commercial Retail</option>
+                                                        <option value="commercial-office">Commercial Office</option>
+                                                        <option value="commercial-mixed">Commercial Mixed</option>
+                                                        <option value="industrial">Industrial</option>
+                                                        <option value="industrial-light">Industrial-Light</option>
+                                                        <option value="industrial-medium">Industrial-Medium</option>
+                                                        <option value="industrial-heavy">Industrial-Heavy</option>
+                                                        <option value="residential-low-density">Residential-Low Density</option>
+                                                        <option value="residential-medium-density">Residential - Medium Density</option>
+                                                        <option value="residential-high-density">Residential-High Density</option>
+                                                        <option value="institutional">Institutional</option>
+                                                        <option value="agricultural">Agricultural</option>
+                                                        <option value="recreational">Recreational</option>
+                                                        <option value="other">Other</option>
+                                                    </select>
+                                                </div>`
+                            }
+                            else if (name == 'farm_type') {
+                                        second = `<div>
+                                                    <label for="${name}" class="form-label mb-0">${fields[i]}</label>
+                                                    <select class="form-select" name="${name}" aria-label="${name}" id="${name}">
+                                                        <option value="">Any</option>
+                                                        <option value="animal">Animal</option>
+                                                        <option value="cash-crop">Cash Crop</option>
+                                                        <option value="hobby-farm">Hobby Farm</option>
+                                                        <option value="market-gardening">Market Gardening</option>
+                                                        <option value="nursery">Nursery</option>
+                                                        <option value="greenhouse">Greenhouse</option>
+                                                        <option value="orchard">Orchard</option>
+                                                        <option value="vineyard">Vineyard</option>
+                                                        <option value="feed-lot">Feed Lot</option>
+                                                        <option value="boarding">Boarding</option>
+                                                        <option value="mixed">Mixed</option>
+                                                    </select>
+                                                </div>`
+                            }
+                        }
+                            else {
+                                second = `<div>
+                                    <label for="${name}" class="form-label mb-0">${fields[i]}</label>
+                                    <input type="text" class="form-control" name="${name}" id="${name}" aria-describedby="${name}">
+                                </div>`
+                            }
+                    }
+                    else {
+                        let name = fields[i].split(' ').join('_').toLowerCase();
+                        if(name == 'beds' || name == 'baths' || name == 'building_type' || name == 'parking_type' || name == 'zoning_type' || name == 'farm_type') {
+                            if(name == 'beds' || name == 'baths') {
+                                template += `<div class="col-3">
+                                            <label for="${name}" class="form-label mb-0 mt-3">${fields[i]}</label>
+                                            <select class="form-select" name="${name}" aria-label="${name}" name="${name}" id="${name}">
+                                                <option value="">Any</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="greater-than-5">5+</option>
+                                            </select>
+                                        </div> `
+                            }
+                            else if (name == 'building_type') {
+                                        template += `<div class="col-3">
+                                                        <label for="${name}" class="form-label mb-0 mt-3">${fields[i]}</label>
+                                                        <select class="form-select" name="${name}" aria-label="${name}" id="${name}">
+                                                            <option value="">Any</option>
+                                                            <option value="house">House</option>
+                                                            <option value="row/townhouse">Row / Townhouse</option>
+                                                            <option value="apartment">Apartment</option>
+                                                            <option value="duplex">Duplex</option>
+                                                            <option value="triplex">Triplex</option>
+                                                            <option value="fourplex">Fourplex</option>
+                                                            <option value="garden-home">Garden Home</option>
+                                                            <option value="mobile-home">Mobile Home</option>
+                                                            <option value="manufactured-home">Manufactured Home/Mobile</option>
+                                                            <option value="special-purpose">Special Purpose</option>
+                                                            <option value="residential-commercial-mix">Residential Commercial Mix</option>
+                                                            <option value="manufactured-home">Manufactured Home</option>
+                                                            <option value="commercial-apartment">Commercial Apartment</option>
+                                                            <option value="two-apartment-house">Two Apartment House</option>
+                                                            <option value="park-model-mobile-home">Park Model Mobile Home</option>
+                                                        </select>
+                                                    </div>`
+                            }
+                            else if (name == 'parking_type') {
+                                        template += `<div class="col-3">
+                                                    <label for="${name}" class="form-label mb-0 mt-3">${fields[i]}</label>
+                                                    <select class="form-select" name="${name}" aria-label="${name}" id="${name}">
+                                                        <option value="">Any</option>
+                                                        <option value="boat-house">Boat House</option>
+                                                        <option value="concrete">Concrete</option>
+                                                        <option value="heated-garage">Heated Garage</option>
+                                                        <option value="attached-garage">Attached Garage</option>
+                                                        <option value="integrated-garage">Integrated Garage</option>
+                                                        <option value="detached-garage">Detached Garage</option>
+                                                        <option value="garage">Garage</option>
+                                                        <option value="carport">Carport</option>
+                                                        <option value="underground">Underground</option>
+                                                        <option value="indoor">Indoor</option>
+                                                        <option value="open">Open</option>
+                                                        <option value="covered">Covered</option>
+                                                        <option value="parking-pad">Parking Pad</option>
+                                                        <option value="paved-yard">Paved Yard</option>
+                                                    </select>
+                                                </div>`
+                            }
+                            else if (name == 'zoning_type') {
+                                        template += `<div class="col-3">
+                                                    <label for="${name}" class="form-label mb-0 mt-3">${fields[i]}</label>
+                                                    <select class="form-select" name="${name}" aria-label="${name}" id="${name}">
+                                                        <option value="">Any</option>
+                                                        <option value="commercial-retail">Commercial Retail</option>
+                                                        <option value="commercial-office">Commercial Office</option>
+                                                        <option value="commercial-mixed">Commercial Mixed</option>
+                                                        <option value="industrial">Industrial</option>
+                                                        <option value="industrial-light">Industrial-Light</option>
+                                                        <option value="industrial-medium">Industrial-Medium</option>
+                                                        <option value="industrial-heavy">Industrial-Heavy</option>
+                                                        <option value="residential-low-density">Residential-Low Density</option>
+                                                        <option value="residential-medium-density">Residential - Medium Density</option>
+                                                        <option value="residential-high-density">Residential-High Density</option>
+                                                        <option value="institutional">Institutional</option>
+                                                        <option value="agricultural">Agricultural</option>
+                                                        <option value="recreational">Recreational</option>
+                                                        <option value="other">Other</option>
+                                                    </select>
+                                                </div>`
+                            }
+                            else if (name == 'farm_type') {
+                                        template += `<div class="col-3">
+                                                    <label for="${name}" class="form-label mb-0 mt-3">${fields[i]}</label>
+                                                    <select class="form-select" name="${name}" aria-label="${name}" id="${name}">
+                                                        <option value="">Any</option>
+                                                        <option value="animal">Animal</option>
+                                                        <option value="cash-crop">Cash Crop</option>
+                                                        <option value="hobby-farm">Hobby Farm</option>
+                                                        <option value="market-gardening">Market Gardening</option>
+                                                        <option value="nursery">Nursery</option>
+                                                        <option value="greenhouse">Greenhouse</option>
+                                                        <option value="orchard">Orchard</option>
+                                                        <option value="vineyard">Vineyard</option>
+                                                        <option value="feed-lot">Feed Lot</option>
+                                                        <option value="boarding">Boarding</option>
+                                                        <option value="mixed">Mixed</option>
+                                                    </select>
+                                                </div>`
+                            }
+                        }
+                        else {
+                            template += `<div class="col-3">
+                                <div>
+                                    <label for="${name}" class="form-label mb-0 mt-3">${fields[i]}</label>
+                                    <input type="text" class="form-control" name="${name}" id="${name}" aria-describedby="${name}">
+                                </div>
+                            </div>`
+                        }
+                    }
+                }
+                $('.first-incoming-field').html(first);
+                $('.second-incoming-field').html(second);
+                $('#incoming_fields').html(template);
+            }
+        }
+
+        // window.addEventListener('DOMContentLoaded', () => renderFields());
+
+    $('.filter-button').on('click', function(){
+            renderFields();
+    })
+
+    $('.filter-reset').click(function(){
+        $('#filter-form')[0].reset();
+    });
+</script>
 
 @endpush

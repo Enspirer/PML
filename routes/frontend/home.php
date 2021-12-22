@@ -48,7 +48,7 @@ Route::post('prop_favourite/unsave/{id}',[ForSaleController::class,'propertyFavo
 
 Route::post('property-search', [ForSaleController::class, 'search'])->name('property.search');
 
-
+Route::post('search_result',[HomeController::class,'get_search_result'])->name('search_result_function');
 
 
 /*

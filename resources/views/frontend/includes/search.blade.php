@@ -15,7 +15,7 @@
 
                         <button type="submit" class="btn text-white rounded-0 px-4" style="background-color : #35495E;"><i class="fas fa-search"></i></button>
 
-                        <button type="button" class="btn text-white rounded-0 border-start" style="background-color : #35495E;">Filter<img src="{{ url('img/frontend/index/filter.png') }}" alt="" class="ms-3" style="height: 1rem;"></button>
+                        <button type="button" class="btn text-white rounded-0 border-start" style="background-color : #35495E;" data-bs-toggle="modal" data-bs-target="#exampleModal">Filter<img src="{{ url('img/frontend/index/filter.png') }}" alt="" class="ms-3" style="height: 1rem;"></button>
                     </div>
                 </form>
             </div>

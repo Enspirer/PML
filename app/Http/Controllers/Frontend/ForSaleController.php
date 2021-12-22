@@ -147,6 +147,8 @@ class ForSaleController extends Controller
         // $property_types = PropertyType::where('status','=','1')->get();
         // $countries = Country::where('status',1)->get();
 
+        // dd($max_price);
+
         $properties = Properties::where('admin_approval', 'Approved');
         // ->where('sold_request',null)
         // ->where('country',get_country_cookie(request())->country_name)
@@ -157,19 +159,24 @@ class ForSaleController extends Controller
             $properties->where('name', 'like', '%' .  $key_name . '%')->orWhere('city', 'like', '%' .  $key_name . '%');
 
         }
+        // dd($properties->get());
 
+
+// dd($max_price);
         if($max_price != 'max_price' && $min_price != 'min_price'){
             $properties->where('price', '<=', $max_price)->where('price', '>=', $min_price);
         }
         elseif($max_price != 'max_price' && $min_price == 'min_price'){
+            // dd($max_price);
             $properties->where('price', '<=', $max_price);
+
         }
         elseif($max_price == 'max_price' && $min_price != 'min_price'){
             $properties->where('price', '>=', $min_price);
         }
+        // dd($properties->get());
 
-
-
+        
         if($transaction_type != 'transaction_type'){
             $properties->where('transaction_type', $transaction_type);
         }

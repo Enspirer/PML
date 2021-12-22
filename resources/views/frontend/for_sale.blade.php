@@ -203,7 +203,7 @@
                                                 <div class="row mb-3">
                                                     <div class="col-10">
                                                         <a href="{{ route('frontend.for_sale_single',$normal->id) }}" class="text-decoration-none text-dark">
-                                                            <h4>{{$normal->name}}</h4>
+                                                            <h4 class="mb-3">{{$normal->name}}</h4>
                                                             <h4 class="fw-bold">${{$normal->price}}</h4>
                                                         </a>
                                                     </div>
@@ -288,6 +288,7 @@
                                                 <div class="row mb-3">
                                                     <div class="col-10">
                                                         <a href="{{ route('frontend.for_sale_single',$normal->id) }}" class="text-decoration-none text-dark">
+                                                            <h4 class="mb-3">{{$normal->name}}</h4>
                                                             <h4 class="fw-bold">${{$normal->price}}</h4>
                                                         </a>
                                                     </div>
