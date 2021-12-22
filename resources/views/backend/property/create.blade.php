@@ -24,7 +24,7 @@
                                     
                                     <datalist class="form-group w-100" name="agent_user_id" id="agent_user_id" >
                                     @foreach($agents as $agent)
-                                        <option value="{{ $agent->id }}">{{ $agent->name }} - {{ $agent->email }}</option>
+                                        <option value="{{ $agent->user_id }}">{{ $agent->name }} - {{ $agent->email }}</option>
                                     @endforeach
                                     </datalist>   
                             

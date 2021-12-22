@@ -259,7 +259,8 @@ class PropertyController extends Controller
             ]
         );        
 
-        $agent_request = AgentRequest::where('id',$request->agent_user_id)->first();
+        $agent_request = AgentRequest::where('user_id',$request->agent_user_id)->first();
+        // dd($agent_request);
         $user_id = User::where('id',$agent_request->user_id)->first();
 
         $update = new Properties;
