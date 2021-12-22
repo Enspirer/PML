@@ -300,6 +300,30 @@ class SettingsSeeder extends Seeder
             'user_id' => 1,
             ]
         ); 
-        
+        DB::table('settings')
+        ->insert(
+            [             
+            'key' => 'menu_type_1',
+            'value' => null, 
+            'user_id' => 1,
+            ]
+        ); 
+        DB::table('settings')
+        ->insert(
+            [             
+            'key' => 'menu_type_2',
+            'value' => null, 
+            'user_id' => 1,
+            ]
+        ); 
+        DB::table('settings')
+        ->insert(
+            [             
+            'key' => 'menu_type_3',
+            'value' => null, 
+            'user_id' => 1,
+            ]
+        ); 
+
     }
 }

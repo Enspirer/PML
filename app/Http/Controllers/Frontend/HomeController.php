@@ -83,9 +83,7 @@ class HomeController extends Controller
         else {
             $city = 'city';
         }
-
-
-        
+    
 
 
         if(request('transaction_type') != null) {
@@ -94,7 +92,6 @@ class HomeController extends Controller
         else {
             $transaction_type = 'transaction_type';
         }
-
 
         if(request('propertyType') != null) {
             $property_type = request('propertyType');

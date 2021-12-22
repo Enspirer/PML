@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use DataTables;
 use App\Models\Settings;
+use App\Models\PropertyType;
 
 class SettingsController extends Controller
 {
@@ -23,6 +24,11 @@ class SettingsController extends Controller
         $youtube = Settings::where('key','=','youtube')->first();
         $twitter = Settings::where('key','=','twitter')->first();
         $email = Settings::where('key','=','email')->first();
+        $menu_type_1 = Settings::where('key','=','menu_type_1')->first();
+        $menu_type_2 = Settings::where('key','=','menu_type_2')->first();
+        $menu_type_3 = Settings::where('key','=','menu_type_3')->first();
+
+        $property_types = PropertyType::where('status',1)->get();
 
         return view('backend.settings.index',[
             'app_title' => $app_title,
@@ -37,6 +43,10 @@ class SettingsController extends Controller
             'youtube' => $youtube,
             'twitter' => $twitter,
             'email' => $email,
+            'menu_type_1' => $menu_type_1,
+            'menu_type_2' => $menu_type_2,
+            'menu_type_3' => $menu_type_3,
+            'property_types' => $property_types
         ]);
     }
 
@@ -94,6 +104,15 @@ class SettingsController extends Controller
 
         $update->value=$request->slider_active;
         Settings::where('key','=','slider_active')->update($update->toArray());
+
+        $update->value=$request->menu_type_3;
+        Settings::where('key','=','menu_type_3')->update($update->toArray());
+
+        $update->value=$request->menu_type_2;
+        Settings::where('key','=','menu_type_2')->update($update->toArray());
+
+        $update->value=$request->menu_type_1;
+        Settings::where('key','=','menu_type_1')->update($update->toArray());
        
         return back()->withFlashSuccess('Updated Successfully');                
 

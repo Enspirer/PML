@@ -50,6 +50,9 @@ Route::post('property-search', [ForSaleController::class, 'search'])->name('prop
 
 Route::post('search_result',[HomeController::class,'get_search_result'])->name('search_result_function');
 
+Route::get('find-agent/{country}/{area}/{agent_type}/{agent_name}', [AgentsController::class, 'index'])->name('find-agent');
+Route::post('find-agent/store', [AgentsController::class, 'store'])->name('find-agent.store');
+
 
 /*
  * These frontend controllers require the user to be logged in

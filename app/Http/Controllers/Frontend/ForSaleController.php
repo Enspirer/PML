@@ -180,13 +180,12 @@ class ForSaleController extends Controller
         if($transaction_type != 'transaction_type'){
             $properties->where('transaction_type', $transaction_type);
         }
-
+    
         
-        
-
         if($property_type != 'property_type'){
             $properties->where('property_type', $property_type);
         }
+
 
         if($beds != 'beds'){
             if($beds == 'greater-than-5') {
@@ -255,6 +254,7 @@ class ForSaleController extends Controller
         $properties_promoted = Properties::where('promoted','Enabled')->where('admin_approval','Approved')->take(3)->latest()->get();
 
         // dd($properties_promoted);
+        
      
         return view('frontend.for_sale',[
             'properties_promoted' => $properties_promoted,

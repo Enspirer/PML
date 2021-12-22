@@ -90,6 +90,51 @@
                     </div>
                 </div>
             </div>
+
+            <div class="row">
+                <div class="col-4">
+                    <div class="card">
+                        <div class="card-body">                            
+                            <div class="form-group mt-2">
+                                <label>Menu Space 1</label>
+                                <select class="form-control" name="menu_type_1">       
+                                    @foreach($property_types as $key => $property_type) 
+                                        <option value="{{$property_type->id}}" {{ $menu_type_1->value == $property_type->id ? "selected" : "" }}> {{$property_type->property_type_name}} </option>  
+                                    @endforeach                          
+                                </select>  
+                            </div>      
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="card">
+                        <div class="card-body">                            
+                            <div class="form-group mt-2">
+                                <label>Menu Space 2</label>
+                                <select class="form-control" name="menu_type_2">       
+                                    @foreach($property_types as $key => $property_type) 
+                                        <option value="{{$property_type->id}}" {{ $menu_type_2->value == $property_type->id ? "selected" : "" }}> {{$property_type->property_type_name}} </option>  
+                                    @endforeach                          
+                                </select>  
+                            </div>      
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="card">
+                        <div class="card-body">                            
+                            <div class="form-group mt-2">
+                                <label>Menu Space 3</label>
+                                <select class="form-control" name="menu_type_3">       
+                                    @foreach($property_types as $key => $property_type) 
+                                        <option value="{{$property_type->id}}" {{ $menu_type_3->value == $property_type->id ? "selected" : "" }}> {{$property_type->property_type_name}} </option>  
+                                    @endforeach                          
+                                </select>  
+                            </div>      
+                        </div>
+                    </div>
+                </div>
+            </div>
             
         
             <div align="center">

@@ -16,7 +16,24 @@
         <li class="nav-item px-4 border-end">
           <a class="nav-link fw-bold p-0 {{ Request::segment(1) == 'for-rent' ? 'active' : null }}" href="{{ route('frontend.for_sale', ['key_name', 'min_price', 'max_price', 'rent', 'property_type', 'beds', 'baths', 'land_size', 'listed_since', 'building_type', 'open_house', 'zoning_type', 'units', 'building_size', 'farm_type', 'parking_type', 'city'] )}}">For Rent</a>
         </li>
-        <li class="nav-item px-4 border-end">
+
+        @if(App\Models\PropertyType::where('id',get_settings('menu_type_1'))->first() != null)
+          <li class="nav-item px-4 border-end">
+            <a class="nav-link fw-bold p-0 {{ Request::segment(1) == 'new-development' ? 'active' : null }}" href="{{ route('frontend.for_sale', ['key_name', 'min_price', 'max_price', 'transaction_type', App\Models\PropertyType::where('id',get_settings('menu_type_1'))->first()->id, 'beds', 'baths', 'land_size', 'listed_since', 'building_type', 'open_house', 'zoning_type', 'units', 'building_size', 'farm_type', 'parking_type', 'city'] )}}">{{App\Models\PropertyType::where('id',get_settings('menu_type_1'))->first()->property_type_name}}</a>
+          </li>
+        @endif
+        @if(App\Models\PropertyType::where('id',get_settings('menu_type_2'))->first() != null)
+          <li class="nav-item px-4 border-end">
+            <a class="nav-link fw-bold p-0 {{ Request::segment(1) == 'new-development' ? 'active' : null }}" href="{{ route('frontend.for_sale', ['key_name', 'min_price', 'max_price', 'transaction_type', App\Models\PropertyType::where('id',get_settings('menu_type_2'))->first()->id, 'beds', 'baths', 'land_size', 'listed_since', 'building_type', 'open_house', 'zoning_type', 'units', 'building_size', 'farm_type', 'parking_type', 'city'] )}}">{{App\Models\PropertyType::where('id',get_settings('menu_type_2'))->first()->property_type_name}}</a>
+          </li>
+        @endif
+        @if(App\Models\PropertyType::where('id',get_settings('menu_type_3'))->first() != null)
+          <li class="nav-item px-4 border-end">
+            <a class="nav-link fw-bold p-0 {{ Request::segment(1) == 'new-development' ? 'active' : null }}" href="{{ route('frontend.for_sale', ['key_name', 'min_price', 'max_price', 'transaction_type', App\Models\PropertyType::where('id',get_settings('menu_type_3'))->first()->id, 'beds', 'baths', 'land_size', 'listed_since', 'building_type', 'open_house', 'zoning_type', 'units', 'building_size', 'farm_type', 'parking_type', 'city'] )}}">{{App\Models\PropertyType::where('id',get_settings('menu_type_3'))->first()->property_type_name}}</a>
+          </li>
+        @endif
+
+        <!-- <li class="nav-item px-4 border-end">
           <a class="nav-link fw-bold p-0 {{ Request::segment(1) == 'lands' ? 'active' : null }}" href="{{ route('frontend.lands') }}">Lands</a>
         </li>
         <li class="nav-item px-4 border-end">
@@ -24,10 +41,12 @@
         </li>
         <li class="nav-item px-4 border-end">
           <a class="nav-link fw-bold p-0 {{ Request::segment(1) == 'finance' ? 'active' : null }}" href="#">Finance</a>
-        </li>
+        </li> -->
+        
         <li class="nav-item px-4 border-end">
-          <a class="nav-link fw-bold p-0 {{ Request::segment(1) == 'agents' ? 'active' : null }}" href="{{ route('frontend.agents') }}">Agents</a>
+          <a class="nav-link fw-bold p-0 {{ Request::segment(1) == 'find-agent' ? 'active' : null }}" href="{{ route('frontend.find-agent', ['country','area', 'agent_type', 'agent_name'] )}}">Agents</a>
         </li>
+        
         <li class="nav-item ps-4 pe-0">
           <a class="nav-link fw-bold p-0 {{ Request::segment(1) == 'contact-us' ? 'active' : null }}" href="{{ route('frontend.contact_us') }}">Contact Us</a>
         </li>
