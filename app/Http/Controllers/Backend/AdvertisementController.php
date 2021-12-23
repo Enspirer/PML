@@ -18,6 +18,11 @@ class AdvertisementController extends Controller
         return view('backend.property_page_ad.index');
     }
 
+    public function agents_index()
+    {
+        return view('backend.agent_page_ad.index');
+    }
+
     public function update1(Request $request)
     {        
         $update = new Settings;
@@ -94,6 +99,58 @@ class AdvertisementController extends Controller
 
         $update->value=$request->image;
         Settings::where('key','=','property_page_advertiment_3')->update($update->toArray());
+
+        return back()->withFlashSuccess('Updated Advertisement 3 Successfully'); 
+    }
+
+
+
+
+
+    public function agents_update1(Request $request)
+    {        
+        $update = new Settings;
+
+        $update->value=$request->link;
+        Settings::where('key','=','agents_page_link_1')->update($update->toArray()); 
+        
+        $update->value=$request->description;
+        Settings::where('key','=','agents_page_description_1')->update($update->toArray());
+
+        $update->value=$request->image;
+        Settings::where('key','=','agents_page_advertiment_1')->update($update->toArray());
+
+        return back()->withFlashSuccess('Updated Advertisement 1 Successfully'); 
+    }
+
+    public function agents_update2(Request $request)
+    {        
+        $update = new Settings;
+
+        $update->value=$request->link;
+        Settings::where('key','=','agents_page_link_2')->update($update->toArray()); 
+        
+        $update->value=$request->description;
+        Settings::where('key','=','agents_page_description_2')->update($update->toArray());
+
+        $update->value=$request->image;
+        Settings::where('key','=','agents_page_advertiment_2')->update($update->toArray());
+
+        return back()->withFlashSuccess('Updated Advertisement 2 Successfully'); 
+    }
+
+    public function agents_update3(Request $request)
+    {        
+        $update = new Settings;
+
+        $update->value=$request->link;
+        Settings::where('key','=','agents_page_link_3')->update($update->toArray()); 
+        
+        $update->value=$request->description;
+        Settings::where('key','=','agents_page_description_3')->update($update->toArray());
+
+        $update->value=$request->image;
+        Settings::where('key','=','agents_page_advertiment_3')->update($update->toArray());
 
         return back()->withFlashSuccess('Updated Advertisement 3 Successfully'); 
     }

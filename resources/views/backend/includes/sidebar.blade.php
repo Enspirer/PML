@@ -121,7 +121,12 @@
                         <a class="nav-link {{active_class(Route::is('admin/property_page_ad'))}}" href="{{ route('admin.property_page_ad.index') }}">
                             Property Page Ad
                         </a>
-                    </li> 
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{active_class(Route::is('admin/agents_page_ad'))}}" href="{{ route('admin.agents_page_ad.index') }}">
+                            Agents Page Ad
+                        </a>
+                    </li>  
                 </ul>
             </li>
             

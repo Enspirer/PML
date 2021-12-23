@@ -84,6 +84,11 @@ Route::post('property_page_ad/update1', [AdvertisementController::class, 'proper
 Route::post('property_page_ad/update2', [AdvertisementController::class, 'property_update2'])->name('property_page_ad.update2');
 Route::post('property_page_ad/update3', [AdvertisementController::class, 'property_update3'])->name('property_page_ad.update3');
 
+Route::get('agents_page_ad', [AdvertisementController::class, 'agents_index'])->name('agents_page_ad.index');
+Route::post('agents_page_ad/update1', [AdvertisementController::class, 'agents_update1'])->name('agents_page_ad.update1');
+Route::post('agents_page_ad/update2', [AdvertisementController::class, 'agents_update2'])->name('agents_page_ad.update2');
+Route::post('agents_page_ad/update3', [AdvertisementController::class, 'agents_update3'])->name('agents_page_ad.update3');
+
 Route::get('file_manager', [FileManagerController::class, 'index'])->name('file_manager.index');
 Route::get('file_manager/getdetails', [FileManagerController::class, 'getdetails'])->name('file_manager.getdetails');
 Route::get('file_manager/delete/{id}', [FileManagerController::class, 'destroy'])->name('file_manager.destroy');

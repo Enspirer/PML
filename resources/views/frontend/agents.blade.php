@@ -118,7 +118,7 @@
                             <div class="col-4 text-center mb-4">
                                 <div class="card custom-shadow position-relative" style="max-height:550px; min-height:550px;">
                                     <div class="card-body">
-                                        <img src="{{ uploaded_asset($agent->logo) }}" width="70%" alt="" class="img-fluid logo mb-3">
+                                        <img src="{{ uploaded_asset($agent->logo) }}" width="40%" style="border-radius: 50%;" alt="" class="img-fluid logo mb-3">
 
                                         <h5 class="fw-bold">{{ $agent->name }}</h5>
                                         
@@ -132,17 +132,17 @@
 
                                         <div class="row">
                                             <div class="col-4">
-                                                <h5 class="fw-bold">17</h5>
+                                                <h5 class="fw-bold">{{ App\Models\Properties::where('user_id',$agent->user_id)->where('transaction_type','sale')->get()->count() }}</h5>
                                                 <p style="font-size: 0.8rem;">For Sale</p>
                                             </div>
 
                                             <div class="col-4">
-                                                <h5 class="fw-bold">08</h5>
+                                                <h5 class="fw-bold">{{ App\Models\Properties::where('user_id',$agent->user_id)->where('transaction_type','rent')->get()->count() }}</h5>
                                                 <p style="font-size: 0.8rem;">For Rent</p>
                                             </div>
 
                                             <div class="col-4">
-                                                <h5 class="fw-bold">00</h5>
+                                                <h5 class="fw-bold">{{ App\Models\Properties::where('user_id',$agent->user_id)->where('price_options','!=','Full')->get()->count() }}</h5>
                                                 <p style="font-size: 0.8rem;">Lands</p>
                                             </div>
                                         </div>
@@ -203,24 +203,27 @@
                 <div class="row">
                     <div class="col-12 p-0 mb-4 custom-shadow">
                         <div class="card">
-                            <img src="{{ url('img/frontend/for_sale/ad_2.png') }}" class="img-fluid" alt="..." style="object-fit: cover; height: 15rem;">
+                            <img src="{{ uploaded_asset(get_settings('agents_page_advertiment_1')) }}" class="img-fluid" alt="..." style="object-fit: cover; height: 15rem;">
                             <div class="card-body text-end">
-                                <a href="#" class="btn find-out">Find Out More</a>
+                                <a href="{{ get_settings('agents_page_link_1') }}" target="_blank" class="btn find-out">Find Out More</a>
                             </div>
                         </div>
                     </div>
                     <div class="col-12 p-0 mb-4 custom-shadow">
                         <div class="card">
-                            <img src="{{ url('img/frontend/for_sale/ad_1.png') }}" class="img-fluid" alt="..." style="object-fit: cover; height: 15rem;">
+                            <img src="{{ uploaded_asset(get_settings('agents_page_advertiment_2')) }}" class="img-fluid" alt="..." style="object-fit: cover; height: 15rem;">
                             <div class="card-body text-end">
-                                <a href="#" class="btn find-out">Find Out More</a>
+                                <a href="{{ get_settings('agents_page_link_2') }}" target="_blank" class="btn find-out">Find Out More</a>
                             </div>
                         </div>
                     </div>
 
                     <div class="col-12 p-0 custom-shadow">
                         <div class="card">
-                            <img src="{{ url('img/frontend/for_sale/ad_3.png') }}" class="img-fluid" alt="..." style="object-fit: cover; height: 20rem;">
+                            <img src="{{ uploaded_asset(get_settings('agents_page_advertiment_3')) }}" class="img-fluid" alt="..." style="object-fit: cover; height: 20rem;">
+                            <div class="card-body text-end">
+                                <a href="{{ get_settings('agents_page_link_3') }}" target="_blank" class="btn find-out">Find Out More</a>
+                            </div>
                         </div>
                     </div>
                 </div>

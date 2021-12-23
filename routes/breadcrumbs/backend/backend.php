@@ -77,6 +77,9 @@ Breadcrumbs::for('admin.sidebar_ad.index', function ($trail) {
 Breadcrumbs::for('admin.property_page_ad.index', function ($trail) {
     $trail->push('Property Page Advertisement', route('admin.property_page_ad.index'));
 });
+Breadcrumbs::for('admin.agents_page_ad.index', function ($trail) {
+    $trail->push('Agents Page Advertisement', route('admin.agents_page_ad.index'));
+});
 
 Breadcrumbs::for('admin.file_manager.index', function ($trail) {
     $trail->push('File Manager', route('admin.file_manager.index'));
