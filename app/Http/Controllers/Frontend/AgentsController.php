@@ -60,35 +60,15 @@ class AgentsController extends Controller
 
         // dd($age);                
 
-        // $final_out = [];
-        // foreach($age as $ag){
-        //     array_push($final_out,$ag->user_id);
-        // }   
-        // // dd($final_out);
+        $property_types = PropertyType::where('status','=','1')->get();
         
-        // if(count($final_out) == 0 ){
-        //     $final_out2 = null;
-        // }
-        // else{
-
-        //     $prop = Properties::where('user_id',$final_out)->where('sold_request',null)->get();
-
-        //     $final_out2 = [];
-        //     foreach($prop as $pro){
-        //         array_push($final_out2,$pro->main_category);
-        //     }
-
-        // }
-        // dd($final_out2);
-
-      
-        // $area_agents = AgentRequest::where('area', $area);
 
         return view('frontend.agents', [
             'agents' => $age,
             'countries' => $countries,
             'count_for_sale' => $count_for_sale,
-            'selected_country' => $country
+            'selected_country' => $country,
+            'property_types' => $property_types
         ]);
     }
 

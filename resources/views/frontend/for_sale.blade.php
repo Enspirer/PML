@@ -498,6 +498,8 @@
         </div>
     </div>
 
+    @include('frontend.includes.search_filter_modal')
+    
 @endsection
 
 @push('after-scripts')
