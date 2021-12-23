@@ -12,6 +12,7 @@ use App\Http\Controllers\Frontend\User\DashboardController;
 use App\Http\Controllers\Frontend\User\ProfileController;
 use App\Http\Controllers\Frontend\User\AgentController;
 use App\Http\Controllers\Frontend\User\AreaManagementController;
+use App\Http\Controllers\Frontend\IndividualAgentController;
 
 
 /*
@@ -36,6 +37,7 @@ Route::get('lands/single-property', [LandsController::class, 'singleProperty'])-
 Route::get('new-development', [NewDevelopmentController::class, 'index'])->name('new_development');
 
 Route::get('agents', [AgentsController::class, 'index'])->name('agents');
+Route::get('individual-agent', [IndividualAgentController::class, 'index'])->name('individual-agent');
 
 // Route::get('for-sale', [ForSaleController::class, 'index'])->name('for_sale');
 

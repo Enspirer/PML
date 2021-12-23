@@ -29,6 +29,7 @@
         <script>
             var AIZ = AIZ || {};
             AIZ.local = {
+                
             nothing_selected: 'Nothing selected',
             nothing_found: 'Nothing found',
             choose_file: 'Choose file',

@@ -1,0 +1,183 @@
+.agent-container {
+    display: flex;
+}
+
+.agent-main-area {
+    flex: 4;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.agent-side-area {
+    flex: 1;
+    margin-top: 60px;
+}
+
+.profile-pic {
+    position: relative;
+    width: 250px;
+    height: 200px;
+    flex: 1;
+}
+
+#agent-prof {
+    position: absolute;
+    top: -50%;
+    width: 100%;
+}
+
+.agent-flex-row {
+    display: flex;
+}
+
+.agent-txt-main {
+    flex: 4;
+    display: flex;
+    align-items: baseline;
+    flex-direction: column;
+    padding-top: 15px;
+    padding-left: 60px;
+}
+
+.inner-row-wrapper {
+    display: flex;
+}
+
+.property-count-wrapper {
+    flex: 2;
+}
+
+.agent-contact-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    top: -30px;
+}
+
+.agent-contact-btn {
+    width: 200px;
+    border: 1px solid #000;
+    border-radius: 30px;
+    padding: 10px 20px;
+    font-size: 0.7rem;
+    margin-bottom: 10px;
+}
+
+.count-box-wrapper {
+    display: flex;
+    width: max-content;
+    gap: 85px;
+    margin-bottom: 15px;
+}
+
+.count-box {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+span.count-txt {
+    white-space: nowrap;
+    font-size: 0.7rem;
+    color: #CBCBCB;
+}
+
+span.icon {
+    display: inline-block;
+    padding-right: 15px;
+    color: #35495E;
+}
+
+span.number {
+    font-size: 2rem;
+}
+
+.agent-profile-area {
+    padding-bottom: 60px;
+}
+
+/*agent cards*/
+.agent-card {
+    display: flex;
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);
+    margin-bottom: 45px;
+    position: relative;
+}
+
+.agent-card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+img.property-img {
+    width: 50%;
+}
+
+.agent-card-txt-wrapper {
+    padding: 25px;
+}
+
+.agent-card-txt-wrapper h4 {
+    font-weight: bold;
+    font-size: 1rem;
+    margin-top: 15px;
+    margin-bottom: 15px !important;
+}
+
+.agent-card-txt-wrapper h5 {
+    font-size: 0.9rem;
+    margin-bottom: 15px !important;
+}
+
+.heart-icon-wrapper {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.heart-icon-wrapper {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 2rem;
+}
+
+/*sidebar*/
+.ad-card {
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);
+    margin-bottom: 60px;
+}
+
+.ad-btn-wrapper {
+    height: 100%;
+    display: block;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+a.ad-btn {
+    font-size: 0.8rem;
+    border: 1px solid green;
+    border-radius: 30px;
+    padding: 5px 10px;
+    display: block;
+    width: max-content;
+    margin-left: auto;
+    margin-right: 15px;
+}
+
+.agent-list-wrapper {
+    margin-right: 45px;
+}
+
+.agent-list-wrapper {
+    padding-top: 45px;
+}
+
+.individual-agent-banner img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    padding-top: 103px;
+}
