@@ -10,13 +10,13 @@
 
                 <div class="btn-group btn-group-toggle left-toggle-btn-group" data-toggle="buttons">
                     <label class="btn btn-secondary left-menu-btn active">
-                        <input type="radio" name="options" id="option1" autocomplete="off" checked> Active
+                        <input type="radio" name="options" id="option1" autocomplete="off" checked> Sale
                     </label>
                     <label class="btn btn-secondary left-menu-btn">
-                        <input type="radio" name="options" id="option2" autocomplete="off"> Radio
+                        <input type="radio" name="options" id="option2" autocomplete="off"> Rent
                     </label>
                     <label class="btn btn-secondary left-menu-btn">
-                        <input type="radio" name="options" id="option3" autocomplete="off"> Radio
+                        <input type="radio" name="options" id="option3" autocomplete="off"> Land
                     </label>
                 </div>
 
