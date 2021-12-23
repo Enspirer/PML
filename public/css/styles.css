@@ -127,3 +127,38 @@ p {
         max-width: 1250px!important;
     }
 }
+
+/*search bar*/
+.left-toggle, .my-menu {
+    width: max-content;
+}
+
+label.btn.btn-secondary.toggle-label {
+    border-radius: 0;
+    height: 50px;
+    background-color: rgb(53, 73, 94);
+}
+
+label.btn.btn-secondary.toggle-label.active {
+    background-color: transparent;
+}
+
+.left-toggle-btn-group {
+    background: transparent;
+    box-shadow: -5px -5px 15px 0px #ffffff, inset 3px 3px 5px 0px #c4c4c4, inset -3px -3px 5px 0px #ffffff, 3px 3px 15px 0px #c4c4c4;
+    padding: 5px;
+    height: 50px;
+}
+
+.left-menu-btn {
+    background: transparent !important;
+    border: 0 !important;
+    height: 40px;
+    border-radius: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
+.left-menu-btn.active  {
+    background-color: rgb(53, 73, 94) !important;
+}
