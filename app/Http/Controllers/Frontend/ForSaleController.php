@@ -254,13 +254,16 @@ class ForSaleController extends Controller
         $properties_promoted = Properties::where('promoted','Enabled')->where('admin_approval','Approved')->take(3)->latest()->get();
 
         // dd($properties_promoted);
+
+        $property_types = PropertyType::where('status','=','1')->get();
         
      
         return view('frontend.for_sale',[
             'properties_promoted' => $properties_promoted,
             'count_for_sale' => $count_for_sale,
             'properties' => $fe_properties,
-            'transaction_type' => $transaction_type
+            'transaction_type' => $transaction_type,
+            'property_types' => $property_types
         ]);
     }
 
@@ -282,13 +285,16 @@ class ForSaleController extends Controller
         }else{
             $favourite = null;
         }
+
+        $property_types = PropertyType::where('status','=','1')->get();
                 
         return view('frontend.for_sale_single',[
             'property' => $property,
             'users' => $users,
             'agent' => $agent,
             'random' => $random,
-            'favourite' => $favourite
+            'favourite' => $favourite,
+            'property_types' => $property_types
         ]);
     }
     

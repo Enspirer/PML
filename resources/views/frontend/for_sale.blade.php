@@ -27,7 +27,13 @@
         <div class="row" style="margin-bottom: 3rem;">
             <div class="col-9">
                 
-                <h4>Property for {{ucfirst($transaction_type)}} in <span class="fw-bold">Sri Lanka</span></h4>
+                <h4>Property for 
+                    @if(ucfirst($transaction_type) == 'Transaction_type')
+                        All
+                    @else
+                        {{ucfirst($transaction_type)}}
+                    @endif
+                     in <span class="fw-bold">Sri Lanka</span></h4>
                     
                 <div class="row align-items-center">
                     <div class="col-6">
@@ -498,6 +504,8 @@
         </div>
     </div>
 
+    @include('frontend.includes.search_filter_modal')
+    
 @endsection
 
 @push('after-scripts')

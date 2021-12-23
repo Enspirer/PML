@@ -518,7 +518,7 @@
     </div>
 </div>
 
-<!-- Filter Modal -->
+
 @include('frontend.includes.search_filter_modal')
 
 
