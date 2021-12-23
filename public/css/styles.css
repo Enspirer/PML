@@ -157,8 +157,10 @@ label.btn.btn-secondary.toggle-label.active {
     border-radius: 0 !important;
     display: flex !important;
     align-items: center !important;
+    color: #35495e !important;
 }
 
 .left-menu-btn.active  {
     background-color: rgb(53, 73, 94) !important;
+    color: #fff !important;
 }
