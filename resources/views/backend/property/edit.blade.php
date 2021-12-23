@@ -53,6 +53,28 @@
                             </div>
                         </div>
                         <div class="row">
+                            <div class="col-12">
+                                <label for="map" class="form-label mb-2 mt-4 required">Location</label>
+                                <div id="map" style="width: 100%; height: 400px;"></div>
+                                <input type="hidden" name="lat" id="lat" class="mt-3" value="{{ $property->lat }}">
+                                <input type="hidden" name="lng" id="lng" class="mt-3" value="{{ $property->long }}">
+                                <input type="hidden" name="map_country" id="map_country" class="mt-3" value="Indonesia">
+
+                                @error('lat')
+                                    <div class="alert alert-danger">
+                                        <span>{{ $message }}</span>
+                                    </div>
+                                @enderror
+                                        
+                                <div class="row mt-3">
+                                    <div class="col-6">
+                                        <input id="search" class="form-control" type="text" placeholder="Search" />
+                                    </div>
+                                </div>
+                                        
+                            </div>
+                        </div>
+                        <div class="row">
                             <div class="col-6">
                                 <div class="form-group">
                                     <label class="form-label mb-2 mt-3">Country <span class="text-danger">*</span></label>
@@ -764,6 +786,157 @@
         }
     })
 </script>
+
+
+<script>
+
+        var marker = false;
+
+        let lat = $('#lat').val();
+        let lng = $('#lng').val();
+        // console.log(lat, lng)
+                
+        function initMap() {
+
+            const map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 5,
+                center: { lat: parseFloat(lat), lng: parseFloat(lng) },
+            });
+
+            const geocoder = new google.maps.Geocoder();
+            const infowindow = new google.maps.InfoWindow();
+
+
+            google.maps.event.addDomListener(map, 'click', function(event) {                
+                
+                var clickedLocation = event.latLng;
+                
+
+                if(marker === false){
+                    //Create the marker.
+                    marker = new google.maps.Marker({
+                        position: { lat: parseFloat(lat), lng: parseFloat(lng) },
+                        map: map,
+                        draggable: true 
+                    });
+   
+                    google.maps.event.addListener(marker, 'dragend', function(event){
+                    
+                        geocodeLatLng(geocoder, map, infowindow);
+                    });
+                    
+                } else{
+
+                    marker.setPosition(clickedLocation);
+                }
+
+                geocodeLatLng(geocoder, map, infowindow);
+            });
+
+
+            const input = document.getElementById("search");
+            const search = new google.maps.places.SearchBox(input);
+            // map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+            // Bias the SearchBox results towards current map's viewport.
+            // map.addListener("bounds_changed", () => {
+            //     input.setBounds(map.getBounds());
+            // });
+            let markers = [];
+            // Listen for the event fired when the user selects a prediction and retrieve
+            // more details for that place.
+            search.addListener("places_changed", () => {
+                const places = input.getPlaces();
+
+                if (places.length == 0) {
+                return;
+                }
+                // Clear out the old markers.
+                markers.forEach((marker) => {
+                marker.setMap(null);
+                });
+                markers = [];
+                // For each place, get the icon, name and location.
+                const bounds = new google.maps.LatLngBounds();
+                places.forEach((place) => {
+                if (!place.geometry || !place.geometry.location) {
+                    console.log("Returned place contains no geometry");
+                    return;
+                }
+                const icon = {
+                    url: place.icon,
+                    size: new google.maps.Size(71, 71),
+                    origin: new google.maps.Point(0, 0),
+                    anchor: new google.maps.Point(17, 34),
+                    scaledSize: new google.maps.Size(25, 25),
+                };
+                // Create a marker for each place.
+                markers.push(
+                    new google.maps.Marker({
+                    map,
+                    icon,
+                    title: place.name,
+                    position: place.geometry.location,
+                    })
+                );
+
+                if (place.geometry.viewport) {
+                    // Only geocodes have viewport.
+                    bounds.union(place.geometry.viewport);
+                } else {
+                    bounds.extend(place.geometry.location);
+                }
+                });
+                map.fitBounds(bounds);
+            });
+            
+        }        
+
+        function markerLocation(){
+
+            var currentLocation = marker.getPosition();
+
+            document.getElementById('lat').value = currentLocation.lat(); //latitude
+            document.getElementById('lng').value = currentLocation.lng(); //longitude 
+        }
+
+
+        function geocodeLatLng(geocoder, map, infowindow) {
+            var clickedLocation = event.latLng;
+
+            var currentLocation = marker.getPosition();
+
+            geocoder
+                .geocode({ location: currentLocation })
+                .then((response) => {
+                if (response.results[0]) {
+                    // map.setZoom(5);
+                    let marker = new google.maps.Marker({
+                    position: clickedLocation,
+                    map: map,
+                    draggable: true,
+                    add : response.results[0].formatted_address
+                    });
+                    infowindow.setContent(response.results[0].formatted_address);
+                    infowindow.open(map, marker);
+
+                    var output = marker.add.split(/[,]+/).pop();
+                    $('#map_country').val(output);
+
+                    markerLocation();
+
+                } else {
+                    window.alert("No results found");
+                }
+                })
+                .catch((e) => window.alert("Geocoder failed due to: " + e));
+            }
+            
+
+</script>
+
+
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEBj8LhHUJaf2MXpqIQ_MOXs7HkeUXnac&callback=initMap&libraries=places&v=weekly&channel=2"
+type="text/javascript"></script>
 
 
 @endsection
