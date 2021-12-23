@@ -279,11 +279,17 @@ class AgentController extends Controller
             return back()->with('error', 'Please add atleast one image in multiple images section');
         }
 
+        if($request->lat == null){
+            return back()->with('error', 'Property map location must need to point in the map');
+        }
+
         $addprop = new Properties;
 
         $addprop->name=$request->name; 
         $addprop->property_type=$request->propertyType; 
         $addprop->description=$request->description;  
+        $addprop->lat=$request->lat;
+        $addprop->long=$request->lng;
         $addprop->price=$request->price;
         // $addprop->main_category=$request->category; 
         $addprop->country=$request->country; 
@@ -359,7 +365,11 @@ class AgentController extends Controller
 
         if($request->multiple_images == null){
             return back()->with('error', 'Please add atleast one image in multiple images section');
-        }      
+        }    
+        
+        if($request->lat == null){
+            return back()->with('error', 'Property map location must need to point in the map');
+        }
 
         $update = new Properties;
 
@@ -367,6 +377,8 @@ class AgentController extends Controller
         $update->property_type=$request->propertyType; 
         $update->description=$request->description;  
         $update->price=$request->price;
+        $update->lat=$request->lat;
+        $update->long=$request->lng;
         // $update->main_category=$request->category; 
         $update->city=$request->city;
         $update->area=$request->area; 

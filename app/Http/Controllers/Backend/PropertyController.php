@@ -125,11 +125,13 @@ class PropertyController extends Controller
         $request->validate(
             [
                 'feature_image' => 'required',
-                'multiple_images' => 'required'
+                'multiple_images' => 'required',
+                'lat' => 'required'
             ],
             [
                 'feature_image.required' => 'Please add feature image',
-                'multiple_images.required' => 'Please add atleast one image in multiple image section'
+                'multiple_images.required' => 'Please add atleast one image in multiple image section',
+                'lat.required' => 'Property map location must need to point in the map'
             ]
         );        
 
@@ -138,6 +140,8 @@ class PropertyController extends Controller
         $addprop->name=$request->name; 
         $addprop->property_type=$request->propertyType; 
         $addprop->description=$request->description;  
+        $addprop->lat=$request->lat;
+        $addprop->long=$request->lng;
         // $addprop->price=$request->price;
         // $addprop->main_category=$request->category; 
         $addprop->country=$request->country; 
@@ -251,11 +255,13 @@ class PropertyController extends Controller
         $request->validate(
             [
                 'feature_image' => 'required',
-                'multiple_images' => 'required'
+                'multiple_images' => 'required',
+                'lat' => 'required'
             ],
             [
                 'feature_image.required' => 'Please add feature image',
-                'multiple_images.required' => 'Please add atleast one image in multiple image section'
+                'multiple_images.required' => 'Please add atleast one image in multiple image section',
+                'lat.required' => 'Property map location must need to point in the map'
             ]
         );        
 
@@ -268,6 +274,8 @@ class PropertyController extends Controller
         $update->name=$request->name; 
         $update->property_type=$request->propertyType; 
         $update->description=$request->description;  
+        $update->lat=$request->lat;
+        $update->long=$request->lng;
         // $update->price=$request->price;
         // $update->main_category=$request->category; 
         $update->city=$request->city;
