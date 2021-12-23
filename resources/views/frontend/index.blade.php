@@ -4,12 +4,119 @@
 
 @push('after-styles')
     <link href="{{ url('css/index.css') }}" rel="stylesheet">
+
+    <!-- map links -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script src="https://unpkg.com/@googlemaps/markerclusterer/dist/index.min.js"></script>
+    <script>
+        function initMap() {
+
+            const map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 3,
+                center: { lat: -28.024, lng: 140.887 },
+                styles: [{
+                    stylers: [{
+                        saturation: -100
+                    }]
+                }]
+            });
+
+
+            const contentString = ` <div class="card custom-shadow">
+                        <img src="{{ url('img/frontend/index/1.png') }}" alt="" class="img-fluid w-100" style="height: 5rem; object-fit: cover;">
+                        <div class="card-body text-center">
+                            <h5 class="fw-bold">$450, 000</h5>
+                            <p>4 Bed Semidetached house</p>
+                            <p>541, Rosewood place,</p>
+                            <p>Colombo, Sri Lanka</p>
+                            <p>3<i class="fas fa-bed ms-2 me-3"></i> 5<i class="fas fa-bath ms-2"></i></p>
+                        </div>
+                    </div>`;
+
+            const infoWindow = new google.maps.InfoWindow({
+                content: contentString,
+                disableAutoPan: true,
+            });
+
+    
+
+            // Create an array of alphabetical characters used to label the markers.
+            const labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            // Add some markers to the map.
+            const markers = locations.map((position, i) => {
+                const label = labels[i % labels.length];
+                const marker = new google.maps.Marker({
+                position,
+                label,
+                });
+
+                // markers can only be keyboard focusable when they have click listeners
+                // open info window when marker is clicked
+                marker.addListener("click", () => {
+                infoWindow.open({
+                    anchor: marker,
+                    map,
+                    shouldFocus: false,
+                });
+                });
+                return marker;
+            });
+
+            // Add a marker clusterer to manage the markers.
+            const markerCluster = new markerClusterer.MarkerClusterer({ map, markers });
+
+        }
+
+            const locations = [
+            { lat: -31.56391, lng: 147.154312 },
+            { lat: -33.718234, lng: 150.363181 },
+            { lat: -33.727111, lng: 150.371124 },
+            { lat: -33.848588, lng: 151.209834 },
+            { lat: -33.851702, lng: 151.216968 },
+            { lat: -34.671264, lng: 150.863657 },
+            { lat: -35.304724, lng: 148.662905 },
+            { lat: -36.817685, lng: 175.699196 },
+            { lat: -36.828611, lng: 175.790222 },
+            { lat: -37.75, lng: 145.116667 },
+            { lat: -37.759859, lng: 145.128708 },
+            { lat: -37.765015, lng: 145.133858 },
+            { lat: -37.770104, lng: 145.143299 },
+            { lat: -37.7737, lng: 145.145187 },
+            { lat: -37.774785, lng: 145.137978 },
+            { lat: -37.819616, lng: 144.968119 },
+            { lat: -38.330766, lng: 144.695692 },
+            { lat: -39.927193, lng: 175.053218 },
+            { lat: -41.330162, lng: 174.865694 },
+            { lat: -42.734358, lng: 147.439506 },
+            { lat: -42.734358, lng: 147.501315 },
+            { lat: -42.735258, lng: 147.438 },
+            { lat: -43.999792, lng: 170.463352 },
+            ];
+
+
+            //Geolocation finder -(Your Location)
+            const locationButton = document.createElement("button");
+            locationButton.textContent = "Pan to Current Location";
+            locationButton.classList.add("custom-map-control-button");
+
+
+
+
+    </script>
+
+ <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+ <script async="" defer="" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEBj8LhHUJaf2MXpqIQ_MOXs7HkeUXnac&amp;callback=initMap" type="text/javascript"></script>
+
 @endpush
 
 @section('content')
 
 
     @include('frontend.includes.search')
+
+    <div id="map"></div>
+
+   
 
   
     <div class="container index" style="margin-top: 2rem;">
@@ -418,6 +525,7 @@
 @endsection
 
 @push('after-scripts')
+
 
     <script>
       var swiper = new Swiper(".mySwiper", {
