@@ -36,8 +36,7 @@ Route::get('lands', [LandsController::class, 'index'])->name('lands');
 Route::get('lands/single-property', [LandsController::class, 'singleProperty'])->name('lands_single');
 Route::get('new-development', [NewDevelopmentController::class, 'index'])->name('new_development');
 
-Route::get('agents', [AgentsController::class, 'index'])->name('agents');
-Route::get('individual-agent', [IndividualAgentController::class, 'index'])->name('individual-agent');
+// Route::get('agents', [AgentsController::class, 'index'])->name('agents');
 
 // Route::get('for-sale', [ForSaleController::class, 'index'])->name('for_sale');
 
@@ -54,6 +53,7 @@ Route::post('search_result',[HomeController::class,'get_search_result'])->name('
 
 Route::get('find-agent/{country}/{area}/{agent_type}/{agent_name}', [AgentsController::class, 'index'])->name('find-agent');
 Route::post('find-agent/store', [AgentsController::class, 'store'])->name('find-agent.store');
+Route::get('find-agent/individual_agent/{id}', [IndividualAgentController::class, 'index'])->name('individual_agent');
 
 
 /*

@@ -186,16 +186,20 @@ class ForSaleController extends Controller
             $properties->where('property_type', $property_type);
         }
 
-
+// dd($beds);
         if($beds != 'beds'){
             if($beds == 'greater-than-5') {
                 $properties->where('beds', '>', 5);
+            }
+            elseif($beds == 'all_beds'){
+                $properties->where('beds','!=',null);
             }
             else {
                 $properties->where('beds', $beds);
             }
         }
         
+        // dd($properties->get());
 
         if($baths != 'baths'){
             if($baths == 'greater-than-5') {

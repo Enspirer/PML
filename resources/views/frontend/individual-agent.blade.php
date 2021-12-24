@@ -9,7 +9,7 @@
 @section('content')
 
 <div class="individual-agent-banner">
-    <img src="{{ url('img/frontend/individual-agent/agent-banner.png') }}" alt="agent-banner">
+    <img src="{{ uploaded_asset($agent_details->cover_photo) }}" alt="agent-banner" style="height:550px; object-fit:cover">
 </div>
 <div class="container agent-container">
     <!-- agent main area -->
@@ -18,12 +18,17 @@
         <div class="agent-profile-area">
             <div class="row agent-flex-row">
                 <div class="profile-pic">
-                    <img id="agent-prof" src="{{ url('img/frontend/individual-agent/agent-profile.png') }}"
+                    <img id="agent-prof" src="{{ uploaded_asset($agent_details->photo) }}"
                         alt="profile pic">
                 </div>
                 <div class="agent-txt-main">
-                    <h1>Almond Property</h1>
-                    <p>541, Rosewood place, Colombo, Sri Lanka</p>
+                    <h1>@if($agent_details->company_name == null)
+                            {{ $agent_details->name }}
+                        @else
+                            {{ $agent_details->company_name }}
+                        @endif
+                    </h1>
+                    <p>{{ $agent_details->address }}, {{ App\Models\Country::where('id',$agent_details->country)->first()->country_name }}</p>
                 </div>
             </div>
             <div class="row">
@@ -32,25 +37,25 @@
                     <div class="property-count-wrapper">
                         <div class="count-box-wrapper">
                             <div class="count-box">
-                                <span class="number">17</span>
+                                <span class="number">{{ App\Models\Properties::where('user_id',$agent_details->user_id)->where('transaction_type','sale')->get()->count() }}</span>
                                 <span class="count-txt">For Sale</span>
                             </div>
                             <div class="count-box">
-                                <span class="number">08</span>
+                                <span class="number">{{ App\Models\Properties::where('user_id',$agent_details->user_id)->where('transaction_type','rent')->get()->count() }}</span>
                                 <span class="count-txt">For Rent</span>
                             </div>
                             <div class="count-box">
-                                <span class="number">0</span>
+                                <span class="number">{{ App\Models\Properties::where('user_id',$agent_details->user_id)->where('price_options','!=','Full')->get()->count() }}</span>
                                 <span class="count-txt">Lands</span>
                             </div>
                         </div>
                     </div>
                     <div class="agent-contact-wrapper">
-                        <a href="" class="agent-contact-btn">
+                        <a href="tel:{{ $agent_details->telephone }}" class="agent-contact-btn">
                             <span class="icon"><i class="fas fa-phone-alt"></i></span>
-                            +94 77 125 1542
+                            {{ $agent_details->telephone }}
                         </a>
-                        <a href="" class="agent-contact-btn">
+                        <a href="mailto:{{ $agent_details->email }}" class="agent-contact-btn">
                             <span class="icon">
                                 <i class="fas fa-envelope"></i>
                             </span>
@@ -60,92 +65,230 @@
 
             </div>
             <div class="row">
-                <p>You should take this opportunity to show your communication skills by speaking clearly and concisely
-                    in an organized manner. Because there is no right or wrong answer for this question, it is important
-                    to appear friendly.</p>
+                <p>{{$agent_details->description_message}}</p>
             </div>
         </div>
 
+        @if(count($all_properties) == 0)
+            @include('frontend.includes.not_found',[
+                'not_found_title' => 'Properties not found',
+                'not_found_description' => 'Please add properties',
+                'not_found_button_caption' => null
+            ])
+        @else
 
-        <!-- Agent Selling list area -->
-        <ul class="nav nav-tabs agent-selling-list-area" id="myTab" role="tablist">
-            <li class="nav-item" role="presentation">
-                <button class="nav-link active" id="all-tab" data-bs-toggle="tab" data-bs-target="#all" type="button"
-                    role="tab" aria-controls="all" aria-selected="true">All</button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="nav-link" id="commercial-tab" data-bs-toggle="tab" data-bs-target="#commercial"
-                    type="button" role="tab" aria-controls="commercial" aria-selected="false">Commercial</button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="nav-link" id="residential-tab" data-bs-toggle="tab" data-bs-target="#residential"
-                    type="button" role="tab" aria-controls="residential" aria-selected="false">Residential</button>
-            </li>
-        </ul>
+            <!-- Agent Selling list area -->
+            <ul class="nav nav-tabs agent-selling-list-area" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="all-tab" data-bs-toggle="tab" data-bs-target="#all" type="button"
+                        role="tab" aria-controls="all" aria-selected="true">All</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="sale-tab" data-bs-toggle="tab" data-bs-target="#sale"
+                        type="button" role="tab" aria-controls="sale" aria-selected="false">Sale</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="rent-tab" data-bs-toggle="tab" data-bs-target="#rent"
+                        type="button" role="tab" aria-controls="rent" aria-selected="false">Rent</button>
+                </li>
+            </ul>
 
-        <div class="tab-content" id="myTabContent">
-            <div class="tab-pane fade show active" id="all" role="tabpanel" aria-labelledby="all-tab">
-            <div class="agent-list-wrapper">
-            <div class="agent-card">
-                <div class="heart-icon-wrapper">
-                    <!-- <i class="fas fa-heart"></i> -->
-                    <i class="far fa-heart"></i>
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="all" role="tabpanel" aria-labelledby="all-tab">
+                    <div class="agent-list-wrapper">
+
+                        @foreach($all_properties as $key=> $prop)
+
+                            <a href="{{ route('frontend.for_sale_single',$prop->id) }}" class="text-decoration-none text-dark">
+                                <div class="agent-card">
+                                    <div class="heart-icon-wrapper">
+
+                                        @php
+                                            if(auth()->user())
+                                            {
+                                                $favourite = App\Models\Favorite::where('property_id',$prop->id)->where('user_id',auth()->user()->id)->first();
+                                            }else{
+                                                $favourite = null;
+                                            }
+                                        @endphp
+
+                                        @auth                                                  
+                                            @if($favourite == null)
+                                                <form action="{{route('frontend.propertyFavourite')}}" method="post" enctype="multipart/form-data">
+                                                {{csrf_field()}}
+                                                    <button type="submit" class="far fa-heart border-0" style="background-color: white"></button>
+                                                    <input type="hidden" name="prop_hidden_id" value="{{ $prop->id }}" />
+                                                </form>
+                                            @else
+                                                <form action="{{route('frontend.propertyFavouriteDelete',$favourite->id)}}" method="post" enctype="multipart/form-data">
+                                                {{csrf_field()}}
+                                                    <button class="fas fa-heart border-0" style="color: #F60331; background-color: white;"></button>  
+                                                    <input type="hidden" name="prop_hidden_id" value="{{ $favourite->id }}" />
+                                                </form>
+                                            @endif
+                                        @else
+                                            <form action="{{route('frontend.auth.login')}}" method="get" enctype="multipart/form-data">
+                                            {{csrf_field()}}
+                                                <button type="submit" class="far fa-heart border-0" style="background-color: white"></button>
+                                            </form>                                                   
+                                        @endauth
+
+                                    </div>
+                                    <img class="property-img" src="{{ uploaded_asset($prop->feature_image_id) }}" alt="property" style="object-fit:cover">
+                                    <div class="agent-card-txt-wrapper">
+                                            <h3>{{$prop->name}}</h3>
+
+                                        @if($prop->price_options == 'Full')
+                                            <h4>${{$prop->price}}</h4>
+                                        @else
+                                            <h4>${{$prop->price}} <span class="fw-normal" style="font-size: 0.9rem; color: rgb(0, 0, 0, 0.45)">Per Perch</span></h4>
+                                        @endif
+
+                                        <h5>{{App\Models\Location::where('id',$prop->area)->first()->district }}, {{App\Models\Country::where('id',$prop->country)->first()->country_name }}</h5>
+                                        
+                                        <p style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 6; -webkit-box-orient: vertical;">{{$prop->description}} 
+                                        </p>
+                                    </div>
+                                </div>
+                            </a>
+                        @endforeach 
+                        
+                    </div>
                 </div>
-                <img class="property-img" src="{{ url('img/frontend/individual-agent/property-one.png') }}" alt="property">
-                <div class="agent-card-txt-wrapper">
-                    <h3>Altezza Residencies</h3>
-                    <h4>24M upwards</h4>
-                    <h5>541, Rosewood place, Colombo, Sri Lanka</h5>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
-                        the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
-                        of type and scrambled it to make a type specimen book. It has survived not only five centuries.
-                    </p>
+
+
+                <div class="tab-pane fade" id="sale" role="tabpanel" aria-labelledby="sale-tab">
+                    
+                    <div class="agent-list-wrapper">
+
+                        @foreach($sale_properties as $key=> $prop)
+
+                            <a href="{{ route('frontend.for_sale_single',$prop->id) }}" class="text-decoration-none text-dark">
+                                <div class="agent-card">
+                                    <div class="heart-icon-wrapper">
+
+                                        @php
+                                            if(auth()->user())
+                                            {
+                                                $favourite = App\Models\Favorite::where('property_id',$prop->id)->where('user_id',auth()->user()->id)->first();
+                                            }else{
+                                                $favourite = null;
+                                            }
+                                        @endphp
+
+                                        @auth                                                  
+                                            @if($favourite == null)
+                                                <form action="{{route('frontend.propertyFavourite')}}" method="post" enctype="multipart/form-data">
+                                                {{csrf_field()}}
+                                                    <button type="submit" class="far fa-heart border-0" style="background-color: white"></button>
+                                                    <input type="hidden" name="prop_hidden_id" value="{{ $prop->id }}" />
+                                                </form>
+                                            @else
+                                                <form action="{{route('frontend.propertyFavouriteDelete',$favourite->id)}}" method="post" enctype="multipart/form-data">
+                                                {{csrf_field()}}
+                                                    <button class="fas fa-heart border-0" style="color: #F60331; background-color: white;"></button>  
+                                                    <input type="hidden" name="prop_hidden_id" value="{{ $favourite->id }}" />
+                                                </form>
+                                            @endif
+                                        @else
+                                            <form action="{{route('frontend.auth.login')}}" method="get" enctype="multipart/form-data">
+                                            {{csrf_field()}}
+                                                <button type="submit" class="far fa-heart border-0" style="background-color: white"></button>
+                                            </form>                                                   
+                                        @endauth
+
+                                    </div>
+                                    <img class="property-img" src="{{ uploaded_asset($prop->feature_image_id) }}" alt="property" style="object-fit:cover">
+                                    <div class="agent-card-txt-wrapper">
+                                            <h3>{{$prop->name}}</h3>
+
+                                        @if($prop->price_options == 'Full')
+                                            <h4>${{$prop->price}}</h4>
+                                        @else
+                                            <h4>${{$prop->price}} <span class="fw-normal" style="font-size: 0.9rem; color: rgb(0, 0, 0, 0.45)">Per Perch</span></h4>
+                                        @endif
+
+                                        <h5>{{App\Models\Location::where('id',$prop->area)->first()->district }}, {{App\Models\Country::where('id',$prop->country)->first()->country_name }}</h5>
+                                        
+                                        <p style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 6; -webkit-box-orient: vertical;">{{$prop->description}} 
+                                        </p>
+                                    </div>
+                                </div>
+                            </a>
+                        @endforeach 
+
+                    </div>
+
+
+                </div>
+
+
+
+
+                <div class="tab-pane fade" id="rent" role="tabpanel" aria-labelledby="rent-tab">
+                    
+                    <div class="agent-list-wrapper">
+                        @foreach($rent_properties as $key=> $prop)
+
+                            <a href="{{ route('frontend.for_sale_single',$prop->id) }}" class="text-decoration-none text-dark">
+                                <div class="agent-card">
+                                    <div class="heart-icon-wrapper">
+
+                                        @php
+                                            if(auth()->user())
+                                            {
+                                                $favourite = App\Models\Favorite::where('property_id',$prop->id)->where('user_id',auth()->user()->id)->first();
+                                            }else{
+                                                $favourite = null;
+                                            }
+                                        @endphp
+
+                                        @auth                                                  
+                                            @if($favourite == null)
+                                                <form action="{{route('frontend.propertyFavourite')}}" method="post" enctype="multipart/form-data">
+                                                {{csrf_field()}}
+                                                    <button type="submit" class="far fa-heart border-0" style="background-color: white"></button>
+                                                    <input type="hidden" name="prop_hidden_id" value="{{ $prop->id }}" />
+                                                </form>
+                                            @else
+                                                <form action="{{route('frontend.propertyFavouriteDelete',$favourite->id)}}" method="post" enctype="multipart/form-data">
+                                                {{csrf_field()}}
+                                                    <button class="fas fa-heart border-0" style="color: #F60331; background-color: white;"></button>  
+                                                    <input type="hidden" name="prop_hidden_id" value="{{ $favourite->id }}" />
+                                                </form>
+                                            @endif
+                                        @else
+                                            <form action="{{route('frontend.auth.login')}}" method="get" enctype="multipart/form-data">
+                                            {{csrf_field()}}
+                                                <button type="submit" class="far fa-heart border-0" style="background-color: white"></button>
+                                            </form>                                                   
+                                        @endauth
+
+                                    </div>
+                                    <img class="property-img" src="{{ uploaded_asset($prop->feature_image_id) }}" alt="property" style="object-fit:cover">
+                                    <div class="agent-card-txt-wrapper">
+                                            <h3>{{$prop->name}}</h3>
+
+                                        @if($prop->price_options == 'Full')
+                                            <h4>${{$prop->price}}</h4>
+                                        @else
+                                            <h4>${{$prop->price}} <span class="fw-normal" style="font-size: 0.9rem; color: rgb(0, 0, 0, 0.45)">Per Perch</span></h4>
+                                        @endif
+
+                                        <h5>{{App\Models\Location::where('id',$prop->area)->first()->district }}, {{App\Models\Country::where('id',$prop->country)->first()->country_name }}</h5>
+                                        
+                                        <p style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 6; -webkit-box-orient: vertical;">{{$prop->description}} 
+                                        </p>
+                                    </div>
+                                </div>
+                            </a>
+                        @endforeach 
+                    </div>
+
                 </div>
             </div>
 
-            <div class="agent-card">
-                <div class="heart-icon-wrapper">
-                    <!-- <i class="fas fa-heart"></i> -->
-                    <i class="far fa-heart"></i>
-                </div>
-                <img class="property-img" src="{{ url('img/frontend/individual-agent/property-two.png') }}" alt="property">
-                <div class="agent-card-txt-wrapper">
-                    <h3>Altezza Residencies</h3>
-                    <h4>24M upwards</h4>
-                    <h5>541, Rosewood place, Colombo, Sri Lanka</h5>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
-                        the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
-                        of type and scrambled it to make a type specimen book. It has survived not only five centuries.
-                    </p>
-                </div>
-            </div>
-
-
-            <div class="agent-card">
-                <div class="heart-icon-wrapper">
-                    <!-- <i class="fas fa-heart"></i> -->
-                    <i class="far fa-heart"></i>
-                </div>
-                <img class="property-img"  src="{{ url('img/frontend/individual-agent/property-three.png') }}" alt="property">
-                <div class="agent-card-txt-wrapper">
-                    <h3>Altezza Residencies</h3>
-                    <h4>24M upwards</h4>
-                    <h5>541, Rosewood place, Colombo, Sri Lanka</h5>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
-                        the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
-                        of type and scrambled it to make a type specimen book. It has survived not only five centuries.
-                    </p>
-                </div>
-            </div>
-        </div>
-            </div>
-            <div class="tab-pane fade" id="commercial" role="tabpanel" aria-labelledby="commercial-tab">
-                Commercial
-            </div>
-            <div class="tab-pane fade" id="residential" role="tabpanel" aria-labelledby="residential-tab">
-                Residential
-            </div>
-        </div>
+            @endif
 
 
         
