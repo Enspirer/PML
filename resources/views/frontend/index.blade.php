@@ -9,7 +9,6 @@
 <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
 <script src="https://unpkg.com/@googlemaps/markerclusterer/dist/index.min.js"></script>
 <script>
-    
 function initMap() {
 
     const map = new google.maps.Map(document.getElementById("map"), {
@@ -434,15 +433,18 @@ locationButton.classList.add("custom-map-control-button");
 
             <div class="col-3">
                 <div class="row">
+                    <div class="col-12"><a href="">
+                            <div class="sidebar-card"><img width="100%"
+                                    src="http://127.0.0.1:8000/img/frontend/index/sidebar-img.jpg" alt="banner"></div>
+                        </a></div>
 
-
-                    <div class="col-12">
+                    <!-- <div class="col-12">
                         <a href="{{ get_settings('sidebar_advertiment_link_1') }}" target="_blank">
                             <div class="sidebar-card">
                                 <img width="100%" src="{{ uploaded_asset(get_settings('sidebar_advertiment_1')) }}" alt="banner">
                             </div>
                         </a>
-                    </div>
+                    </div> -->
 
                     <!-- <div class="col-12">
 
