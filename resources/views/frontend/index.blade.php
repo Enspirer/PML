@@ -406,7 +406,7 @@ locationButton.classList.add("custom-map-control-button");
                                     @else
                                     <p>{{$featured_prop->beds}} Bed Semidetached house</p>
                                     @endif
-                                    <p>${{$featured_prop->name}}</p>
+                                    <p>{{$featured_prop->name}}</p>
                                     <p>{{$featured_prop->city}},
                                         {{App\Models\Country::where('id',$featured_prop->country)->first()->country_name}}
                                     </p>
@@ -437,16 +437,16 @@ locationButton.classList.add("custom-map-control-button");
 
 
                     <div class="col-12">
-                        <a href="">
+                        <a href="{{ get_settings('sidebar_advertiment_link_1') }}" target="_blank">
                             <div class="sidebar-card">
-                                <img width="100%" src="{{ url('img/frontend/index/sidebar-img.jpg') }}" alt="banner">
+                                <img width="100%" src="{{ uploaded_asset(get_settings('sidebar_advertiment_1')) }}" alt="banner">
                             </div>
                         </a>
                     </div>
 
                     <!-- <div class="col-12">
 
-                        <!-- <div class="col-12">
+                        <div class="col-12">
                             <a href="{{ get_settings('sidebar_advertiment_link_1') }}" target="_blank">
                                 <div class="card custom-shadow">
                                     <img src="{{ uploaded_asset(get_settings('sidebar_advertiment_1')) }}" alt="" class="img-fluid w-100" style="height: 19.2rem; object-fit: cover;">
@@ -485,7 +485,7 @@ locationButton.classList.add("custom-map-control-button");
                             @else
                             <p>{{$latest_prop->beds}} Bed Semidetached house</p>
                             @endif
-                            <p>${{$latest_prop->name}}</p>
+                            <p>{{$latest_prop->name}}</p>
                             <p>{{$latest_prop->city}},
                                 {{App\Models\Country::where('id',$latest_prop->country)->first()->country_name}}</p>
                             <p>
