@@ -392,7 +392,7 @@
     </div>
 
     @if(count($latest_properties) != 0)
-        <div class="container" style="margin-top: 4rem;">
+        <div class="container swiper-container" style="margin-top: 4rem;">
             <div class="swiper mySwiper">
                 <div class="swiper-wrapper">
 
@@ -538,15 +538,21 @@
 <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
 <script async="" defer="" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEBj8LhHUJaf2MXpqIQ_MOXs7HkeUXnac&amp;callback=initMap" type="text/javascript"></script>
 
+
+
+
     <script>
       var swiper = new Swiper(".mySwiper", {
         slidesPerView: 4,
+        slidePerGroup: 1,
         spaceBetween: 20,
-        loop: true,
+        // spaceBetween: 20,
+       
         navigation: {
           nextEl: ".swiper-button-next",
           prevEl: ".swiper-button-prev",
         },
+        loop: true,
         autoplay: {
           delay: 4000,
           disableOnInteraction: false,
