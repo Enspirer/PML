@@ -99,7 +99,7 @@
         <div class="col-md-3 mt-3 pt-0">
           <div class="list-group list-group-flush account-settings-links">
             <a class="list-group-item list-group-item-action active" data-toggle="list" href="#ad1">Advertisement 1</a>
-            <a class="list-group-item list-group-item-action" data-toggle="list" href="#ad2">Advertisement 2</a>
+            <!-- <a class="list-group-item list-group-item-action" data-toggle="list" href="#ad2">Advertisement 2</a> -->
         </div>
         </div>
         <div class="col-md-9">
@@ -137,7 +137,7 @@
                     
                 </div>
             </div>
-            <div class="tab-pane fade" id="ad2">
+            <!-- <div class="tab-pane fade" id="ad2">
                 <div class="card-body">
                 <form action="{{route('admin.sidebar_ad.update2')}}" method="post" enctype="multipart/form-data">                    
                         {{csrf_field()}}
@@ -167,7 +167,7 @@
                             </div>
                     </form>
                 </div>
-            </div>
+            </div> -->
             
           </div>
         </div>
