@@ -185,7 +185,7 @@
                                         <div class="paragraph" style="color: #666666;">{!! $post->article !!}</div>
                                     </div>
                                     <!-- <p style="font-size: 0.7rem;">1.1 M views  2 months ago</p> -->
-                                </div>
+                                <!-- </div>
                             </div>
                         @else
 
@@ -210,7 +210,7 @@
                 @endif
             </div>
         </div>
-    </div> -->
+    </div>  -->
 
 
     <!-- <div class="properties" style="margin-top: 3rem;">
