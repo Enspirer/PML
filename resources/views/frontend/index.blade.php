@@ -14,8 +14,8 @@ function initMap() {
     const map = new google.maps.Map(document.getElementById("map"), {
         zoom: 3,
         center: {
-            lat: -28.024,
-            lng: 140.887
+            lat: -31.56391,
+            lng: 147.154312
         },
         styles: [{
             stylers: [{
@@ -174,10 +174,7 @@ locationButton.textContent = "Pan to Current Location";
 locationButton.classList.add("custom-map-control-button");
 </script>
 
-<!-- Async script executes immediately and must be after any DOM elements used in callback. -->
-<script async="" defer=""
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEBj8LhHUJaf2MXpqIQ_MOXs7HkeUXnac&amp;callback=initMap"
-    type="text/javascript"></script>
+
 
 @endpush
 
@@ -633,7 +630,10 @@ locationButton.classList.add("custom-map-control-button");
 @push('after-scripts')
 
 
-
+<!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+<script async="" defer=""
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEBj8LhHUJaf2MXpqIQ_MOXs7HkeUXnac&amp;callback=initMap"
+    type="text/javascript"></script>
 
 
 <script>
