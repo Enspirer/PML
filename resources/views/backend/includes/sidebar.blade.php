@@ -109,24 +109,34 @@
             <li class="nav-item nav-dropdown ">
                 <a class="nav-link nav-dropdown-toggle " href="#">
                     <i class="nav-icon fas fa-scroll"></i>
-                    Advertisement
+                    Advertisements
                 </a>
                 <ul class="nav-dropdown-items">
                     <li class="nav-item">
                         <a class="nav-link {{active_class(Route::is('admin/sidebar_ad'))}}" href="{{ route('admin.sidebar_ad.index') }}">
-                            Home Page Ad
+                            Home Page
                         </a>
                     </li> 
                     <li class="nav-item">
                         <a class="nav-link {{active_class(Route::is('admin/property_page_ad'))}}" href="{{ route('admin.property_page_ad.index') }}">
-                            Property Page Ad
+                            Property Page
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{active_class(Route::is('admin/solo_property_ad'))}}" href="{{ route('admin.solo_property_ad.index') }}">
+                            Individual Property Page
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link {{active_class(Route::is('admin/agents_page_ad'))}}" href="{{ route('admin.agents_page_ad.index') }}">
-                            Agents Page Ad
+                            Agents Page
                         </a>
                     </li>  
+                    <li class="nav-item">
+                        <a class="nav-link {{active_class(Route::is('admin/solo_agent_ad'))}}" href="{{ route('admin.solo_agent_ad.index') }}">
+                            Individual Agent Page
+                        </a>
+                    </li>
                 </ul>
             </li>
             

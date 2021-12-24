@@ -560,17 +560,17 @@
                 <div class="row">
                     <div class="col-12 p-0 mb-4 custom-shadow">
                         <div class="card">
-                            <img src="{{ uploaded_asset(get_settings('sidebar_advertiment_1')) }}" class="img-fluid" alt="..." style="object-fit: cover; height: 15rem;">
+                            <img src="{{ uploaded_asset(get_settings('solo_property_advertiment_1')) }}" class="img-fluid" alt="..." style="object-fit: cover; height: 15rem;">
                             <div class="card-body text-end">
-                                <a href="{{ get_settings('sidebar_advertiment_link_1') }}" target="_blank" class="btn find-out">Find Out More</a>
+                                <a href="{{ get_settings('solo_property_advertiment_link_1') }}" target="_blank" class="btn find-out">Find Out More</a>
                             </div>
                         </div>
                     </div>
                     <div class="col-12 p-0 mb-4 custom-shadow">
                         <div class="card">
-                            <img src="{{ uploaded_asset(get_settings('sidebar_advertiment_2')) }}" class="img-fluid" alt="..." style="object-fit: cover; height: 15rem;">
+                            <img src="{{ uploaded_asset(get_settings('solo_property_advertiment_2')) }}" class="img-fluid" alt="..." style="object-fit: cover; height: 15rem;">
                             <div class="card-body text-end">
-                                <a href="{{ get_settings('sidebar_advertiment_link_2') }}" target="_blank" class="btn find-out">Find Out More</a>
+                                <a href="{{ get_settings('solo_property_advertiment_link_2') }}" target="_blank" class="btn find-out">Find Out More</a>
                             </div>
                         </div>
                     </div>

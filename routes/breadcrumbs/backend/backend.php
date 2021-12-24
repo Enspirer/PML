@@ -80,6 +80,12 @@ Breadcrumbs::for('admin.property_page_ad.index', function ($trail) {
 Breadcrumbs::for('admin.agents_page_ad.index', function ($trail) {
     $trail->push('Agents Page Advertisement', route('admin.agents_page_ad.index'));
 });
+Breadcrumbs::for('admin.solo_property_ad.index', function ($trail) {
+    $trail->push('Individual Property Page Advertisement', route('admin.solo_property_ad.index'));
+});
+Breadcrumbs::for('admin.solo_agent_ad.index', function ($trail) {
+    $trail->push('Individual Agent Page Advertisement', route('admin.solo_agent_ad.index'));
+});
 
 Breadcrumbs::for('admin.file_manager.index', function ($trail) {
     $trail->push('File Manager', route('admin.file_manager.index'));

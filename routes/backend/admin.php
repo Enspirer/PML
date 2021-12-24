@@ -89,6 +89,15 @@ Route::post('agents_page_ad/update1', [AdvertisementController::class, 'agents_u
 Route::post('agents_page_ad/update2', [AdvertisementController::class, 'agents_update2'])->name('agents_page_ad.update2');
 Route::post('agents_page_ad/update3', [AdvertisementController::class, 'agents_update3'])->name('agents_page_ad.update3');
 
+Route::get('solo_property_ad', [AdvertisementController::class, 'solo_property_index'])->name('solo_property_ad.index');
+Route::post('solo_property_ad/update1', [AdvertisementController::class, 'solo_property_update1'])->name('solo_property_ad.update1');
+Route::post('solo_property_ad/update2', [AdvertisementController::class, 'solo_property_update2'])->name('solo_property_ad.update2');
+
+Route::get('solo_agent_ad', [AdvertisementController::class, 'solo_agent_index'])->name('solo_agent_ad.index');
+Route::post('solo_agent_ad/update1', [AdvertisementController::class, 'solo_agent_update1'])->name('solo_agent_ad.update1');
+Route::post('solo_agent_ad/update2', [AdvertisementController::class, 'solo_agent_update2'])->name('solo_agent_ad.update2');
+
+
 Route::get('file_manager', [FileManagerController::class, 'index'])->name('file_manager.index');
 Route::get('file_manager/getdetails', [FileManagerController::class, 'getdetails'])->name('file_manager.getdetails');
 Route::get('file_manager/delete/{id}', [FileManagerController::class, 'destroy'])->name('file_manager.destroy');

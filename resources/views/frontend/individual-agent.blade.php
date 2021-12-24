@@ -296,16 +296,16 @@
     <!-- agent sidebar -->
     <div class="agent-side-area">
         <div class="ad-card">
-            <img width="100%" src="{{ url('img/frontend/individual-agent/ad-one.png') }}" alt="Ad">
+            <img width="100%" src="{{ uploaded_asset(get_settings('solo_agent_advertiment_1')) }}" >
             <div class="ad-btn-wrapper">
-                <a href="" class="ad-btn">Find Out More</a>
+                <a href="{{ get_settings('solo_agent_advertiment_link_1') }}" target="_blank" class="ad-btn">Find Out More</a>
             </div>
         </div>
 
         <div class="ad-card">
-            <img width="100%" src="{{ url('img/frontend/individual-agent/ad-two.png') }}" alt="Ad">
+            <img width="100%" src="{{ uploaded_asset(get_settings('solo_agent_advertiment_2')) }}" >
             <div class="ad-btn-wrapper">
-                <a href="" class="ad-btn">Find Out More</a>
+                <a href="{{ get_settings('solo_agent_advertiment_link_2') }}" target="_blank" class="ad-btn">Find Out More</a>
             </div>
         </div>
     </div>

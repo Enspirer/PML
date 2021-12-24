@@ -396,6 +396,101 @@ class SettingsSeeder extends Seeder
             'user_id' => 1,
             ]
         ); 
-
+        DB::table('settings')
+        ->insert(
+            [             
+            'key' => 'solo_property_advertiment_1',
+            'value' => null, 
+            'user_id' => 1,
+            ]
+        ); 
+        DB::table('settings')
+        ->insert(
+            [             
+            'key' => 'solo_property_advertiment_description_1',
+            'value' => null, 
+            'user_id' => 1,
+            ]
+        ); 
+        DB::table('settings')
+        ->insert(
+            [             
+            'key' => 'solo_property_advertiment_link_1',
+            'value' => null, 
+            'user_id' => 1,
+            ]
+        ); 
+        DB::table('settings')
+        ->insert(
+            [             
+            'key' => 'solo_property_advertiment_2',
+            'value' => null, 
+            'user_id' => 1,
+            ]
+        ); 
+        DB::table('settings')
+        ->insert(
+            [             
+            'key' => 'solo_property_advertiment_description_2',
+            'value' => null, 
+            'user_id' => 1,
+            ]
+        ); 
+        DB::table('settings')
+        ->insert(
+            [             
+            'key' => 'solo_property_advertiment_link_2',
+            'value' => null, 
+            'user_id' => 1,
+            ]
+        );   
+        DB::table('settings')
+        ->insert(
+            [             
+            'key' => 'solo_agent_advertiment_1',
+            'value' => null, 
+            'user_id' => 1,
+            ]
+        ); 
+        DB::table('settings')
+        ->insert(
+            [             
+            'key' => 'solo_agent_advertiment_description_1',
+            'value' => null, 
+            'user_id' => 1,
+            ]
+        ); 
+        DB::table('settings')
+        ->insert(
+            [             
+            'key' => 'solo_agent_advertiment_link_1',
+            'value' => null, 
+            'user_id' => 1,
+            ]
+        ); 
+        DB::table('settings')
+        ->insert(
+            [             
+            'key' => 'solo_agent_advertiment_2',
+            'value' => null, 
+            'user_id' => 1,
+            ]
+        ); 
+        DB::table('settings')
+        ->insert(
+            [             
+            'key' => 'solo_agent_advertiment_description_2',
+            'value' => null, 
+            'user_id' => 1,
+            ]
+        ); 
+        DB::table('settings')
+        ->insert(
+            [             
+            'key' => 'solo_agent_advertiment_link_2',
+            'value' => null, 
+            'user_id' => 1,
+            ]
+        );  
     }
 }

@@ -23,6 +23,16 @@ class AdvertisementController extends Controller
         return view('backend.agent_page_ad.index');
     }
 
+    public function solo_property_index()
+    {
+        return view('backend.individual_property_ad.index');
+    }
+
+    public function solo_agent_index()
+    {
+        return view('backend.individual_agent_ad.index');
+    }
+
     public function update1(Request $request)
     {        
         $update = new Settings;
@@ -153,6 +163,70 @@ class AdvertisementController extends Controller
         Settings::where('key','=','agents_page_advertiment_3')->update($update->toArray());
 
         return back()->withFlashSuccess('Updated Advertisement 3 Successfully'); 
+    }
+
+    public function solo_property_update1(Request $request)
+    {        
+        $update = new Settings;
+
+        $update->value=$request->link;
+        Settings::where('key','=','solo_property_advertiment_link_1')->update($update->toArray()); 
+        
+        $update->value=$request->description;
+        Settings::where('key','=','solo_property_advertiment_description_1')->update($update->toArray());
+
+        $update->value=$request->image;
+        Settings::where('key','=','solo_property_advertiment_1')->update($update->toArray());
+
+        return back()->withFlashSuccess('Updated Advertisement 1 Successfully'); 
+    }
+
+    public function solo_property_update2(Request $request)
+    {        
+        $update = new Settings;
+
+        $update->value=$request->link;
+        Settings::where('key','=','solo_property_advertiment_link_2')->update($update->toArray()); 
+        
+        $update->value=$request->description;
+        Settings::where('key','=','solo_property_advertiment_description_2')->update($update->toArray());
+
+        $update->value=$request->image;
+        Settings::where('key','=','solo_property_advertiment_2')->update($update->toArray());
+
+        return back()->withFlashSuccess('Updated Advertisement 2 Successfully'); 
+    }
+
+    public function solo_agent_update1(Request $request)
+    {        
+        $update = new Settings;
+
+        $update->value=$request->link;
+        Settings::where('key','=','solo_agent_advertiment_link_1')->update($update->toArray()); 
+        
+        $update->value=$request->description;
+        Settings::where('key','=','solo_agent_advertiment_description_1')->update($update->toArray());
+
+        $update->value=$request->image;
+        Settings::where('key','=','solo_agent_advertiment_1')->update($update->toArray());
+
+        return back()->withFlashSuccess('Updated Advertisement 1 Successfully'); 
+    }
+
+    public function solo_agent_update2(Request $request)
+    {        
+        $update = new Settings;
+
+        $update->value=$request->link;
+        Settings::where('key','=','solo_agent_advertiment_link_2')->update($update->toArray()); 
+        
+        $update->value=$request->description;
+        Settings::where('key','=','solo_agent_advertiment_description_2')->update($update->toArray());
+
+        $update->value=$request->image;
+        Settings::where('key','=','solo_agent_advertiment_2')->update($update->toArray());
+
+        return back()->withFlashSuccess('Updated Advertisement 2 Successfully'); 
     }
     
 }
