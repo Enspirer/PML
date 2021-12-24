@@ -6,8 +6,8 @@
     <link href="{{ url('css/index.css') }}" rel="stylesheet">
 
     <!-- map links -->
-
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script src="https://unpkg.com/@googlemaps/markerclusterer/dist/index.min.js"></script>
     <script>
         function initMap() {
 
@@ -94,15 +94,18 @@
             ];
 
 
+            //Geolocation finder -(Your Location)
+            const locationButton = document.createElement("button");
+            locationButton.textContent = "Pan to Current Location";
+            locationButton.classList.add("custom-map-control-button");
+
+
+
 
     </script>
 
-
-    <script src="https://unpkg.com/@googlemaps/markerclusterer/dist/index.min.js"></script>
-   
-
-
- 
+ <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+ <script async="" defer="" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEBj8LhHUJaf2MXpqIQ_MOXs7HkeUXnac&amp;callback=initMap" type="text/javascript"></script>
 
 @endpush
 
@@ -116,7 +119,7 @@
    
 
   
-    <!-- <div class="container index" style="margin-top: 2rem;">
+    <div class="container index" style="margin-top: 2rem;">
         <div class="row">
 
             <div class="col-3 left">
@@ -181,8 +184,8 @@
                                     <div style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;">
                                         <div class="paragraph" style="color: #666666;">{!! $post->article !!}</div>
                                     </div>
-                                    <p style="font-size: 0.7rem;">1.1 M views  2 months ago</p> -->
-                                <!-- </div>
+                                    <!-- <p style="font-size: 0.7rem;">1.1 M views  2 months ago</p> -->
+                                </div>
                             </div>
                         @else
 
@@ -207,7 +210,7 @@
                 @endif
             </div>
         </div>
-    </div> -->
+    </div>
 
 
     <!-- <div class="properties" style="margin-top: 3rem;">
@@ -357,16 +360,7 @@
 
                 <div class="col-3">                    
                     <div class="row">
-
-                            <div class="col-12">
-                                <a href="">
-                                    <div class="sidebar-card">
-                                        <img width="100%" src="{{ url('img/frontend/index/sidebar-img.jpg') }}" alt="banner">
-                                    </div>
-                                </a>
-                            </div>
-
-                        <!-- <div class="col-12">
+                        <div class="col-12">
                             <a href="{{ get_settings('sidebar_advertiment_link_1') }}" target="_blank">
                                 <div class="card custom-shadow">
                                     <img src="{{ uploaded_asset(get_settings('sidebar_advertiment_1')) }}" alt="" class="img-fluid w-100" style="height: 19.2rem; object-fit: cover;">
@@ -379,10 +373,7 @@
                                     <img src="{{ uploaded_asset(get_settings('sidebar_advertiment_2')) }}" alt="" class="img-fluid w-100" style="height: 19.2rem; object-fit: cover;">
                                 </div>
                             </a>
-                        </div> -->
-
-
-
+                        </div>
                     </div>                  
                 </div>    
                                           
@@ -535,8 +526,6 @@
 
 @push('after-scripts')
 
-<!-- Async script executes immediately and must be after any DOM elements used in callback. -->
-<script async="" defer="" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEBj8LhHUJaf2MXpqIQ_MOXs7HkeUXnac&amp;callback=initMap" type="text/javascript"></script>
 
     <script>
       var swiper = new Swiper(".mySwiper", {
@@ -558,7 +547,13 @@
     <script>
       $(document).ready(function(){
 
-            let post_type = '<?php echo $latest_post->type; ?>';
+            let post_type = '<?php 
+
+            if($latest_post != null){   
+                echo $latest_post->type; 
+            }
+            ?>';
+
 
             if(post_type != 'youtube') {
                 $('.article').removeClass('d-none');
