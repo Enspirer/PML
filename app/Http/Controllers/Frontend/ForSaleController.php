@@ -44,6 +44,7 @@ class ForSaleController extends Controller
 
     public function search(Request $request)
     {
+        // dd($request);
         if($request->search_keyword == null){
             $search = 'key_name';
         }else{
@@ -60,11 +61,20 @@ class ForSaleController extends Controller
         }else{
             $max_price = $request->max_price;
         }
+
         if($request->transaction_type == null){
             $transaction_type = 'transaction_type';
-        }else{
+        }
+        elseif($request->sale == 'on'){
+            $transaction_type = 'sale';
+        }
+        elseif($request->rent == 'on'){
+            $transaction_type = 'rent';     
+        }
+        else{
             $transaction_type = $request->transaction_type;
         }
+        
         if($request->property_type == null){
             $property_type = 'property_type';
         }else{
