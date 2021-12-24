@@ -119,7 +119,7 @@
    
 
   
-    <div class="container index" style="margin-top: 2rem;">
+    <!-- <div class="container index" style="margin-top: 2rem;">
         <div class="row">
 
             <div class="col-3 left">
@@ -210,7 +210,7 @@
                 @endif
             </div>
         </div>
-    </div>
+    </div> -->
 
 
     <!-- <div class="properties" style="margin-top: 3rem;">
