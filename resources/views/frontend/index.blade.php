@@ -7,7 +7,7 @@
 
     <!-- map links -->
 
-    
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <script>
         function initMap() {
 
@@ -97,10 +97,9 @@
 
     </script>
 
-<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
     <script src="https://unpkg.com/@googlemaps/markerclusterer/dist/index.min.js"></script>
-   <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
-<script async="" defer="" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEBj8LhHUJaf2MXpqIQ_MOXs7HkeUXnac&amp;callback=initMap" type="text/javascript"></script>
+   
 
 
  
@@ -524,6 +523,8 @@
 
 @push('after-scripts')
 
+<!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+<script async="" defer="" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEBj8LhHUJaf2MXpqIQ_MOXs7HkeUXnac&amp;callback=initMap" type="text/javascript"></script>
 
     <script>
       var swiper = new Swiper(".mySwiper", {
