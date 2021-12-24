@@ -78,12 +78,45 @@
                 <a class="login fw-bold d-inline-block px-4 text-decoration-none" href="{{ route('frontend.auth.login') }}">Login</a>
 
                 <a class="register fw-bold d-inline-block border px-4 text-decoration-none" href="{{ route('frontend.auth.register') }}">Register</a>
-            </div>
-
-            <select name="" id="" class="position-absolute me-3">
-                <option value="">Select Your Country</option>
-            </select>
+            </div>        
+              
         @endauth
+
+
+        @if(isset(get_country_cookie(request())->country_id))
+            
+              <form action="{{route('frontend.home_page')}}" method="post" >
+              {{csrf_field()}}
+
+                <select name="countries_list" class="position-absolute me-3" onchange="this.form.submit()">
+                    <option value="" selected disabled>Select Your Country</option>
+
+                    @foreach($tpr_countries as $tpr_country)
+                      <option value="{{ $tpr_country->country_id }}" {{ get_country_cookie(request())->country_id == $tpr_country->country_id ? "selected" : "" }}>{{ $tpr_country->country_name }}</option>
+                    @endforeach
+
+                </select>
+
+              </form>
+            @else
+
+              <form action="{{route('frontend.country_change')}}" method="post" class="filter-form">
+              {{csrf_field()}}
+
+                <select name="countries_list" class="position-absolute me-3" onchange="this.form.submit()">
+                    <option value="" selected disabled>Select Your Country</option>
+
+                    @foreach($tpr_countries as $tpr_country)
+                      <option value="{{ $tpr_country->country_id }}">{{ $tpr_country->country_name }}</option>
+                    @endforeach
+
+                </select>
+
+              </form>
+            @endif
+
+
+            
     </div>
   </div>
 </nav>

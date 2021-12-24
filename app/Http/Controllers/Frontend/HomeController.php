@@ -12,7 +12,8 @@ use App\Models\Location;
 use App\Models\Auth\User;
 use App\Models\AgentRequest;
 use App\Models\Favorite;
-
+use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Cookie;
 
 /**
  * Class HomeController.
@@ -40,6 +41,34 @@ class HomeController extends Controller
             'latest_properties' => $latest_properties,
             'property_types' => $property_types
         ]);
+    }
+
+    public function home_page(Request $request)
+    {
+        $self = self::setCookie($request->countries_list);
+
+        // dd($self);
+        // dd($request);
+
+        return redirect()->route('frontend.index');
+    }
+
+    public function countryChange(Request $request) {
+
+        $country_code = $request->countries_list;
+        // dd($country_code);
+
+        Cookie::queue("country_code", $country_code ,1000);
+        return back();
+   
+    }
+
+    public static function setCookie($param)
+    {
+        // dd($param);
+        $response = new Response('Set Cookie');
+        $response->withCookie(cookie('country', $param,60));
+        return $response;
     }
 
     public function get_search_result(Request $request)

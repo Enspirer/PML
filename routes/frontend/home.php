@@ -20,6 +20,12 @@ use App\Http\Controllers\Frontend\IndividualAgentController;
  * All route names are prefixed with 'frontend.'.
  */
 Route::get('/', [HomeController::class, 'index'])->name('index');
+
+Route::post('home_page', [HomeController::class, 'home_page'])->name('home_page');
+Route::post('country-change', [HomeController::class, 'countryChange'])->name('country_change');
+
+
+
 Route::get('contact-us', [ContactController::class, 'index'])->name('contact_us');
 Route::post('contact/send', [ContactController::class, 'send'])->name('contact.send');
 

@@ -4,6 +4,7 @@ use App\Models\Settings;
 use App\Models\Favorite; 
 use App\Models\AgentRequest; 
 use App\Models\Location; 
+use App\Models\Country; 
 use Illuminate\Http\Request;
 
 if (! function_exists('app_name')) {
@@ -176,6 +177,31 @@ if (! function_exists('is_country_manager')) {
         if($area_manager)
         {
             return $area_manager;
+        }else{
+            return null;
+        }
+    }
+}
+
+
+if (! function_exists('get_country_cookie')) {
+    /**
+     * Return the route to the "home" page depending on authentication/authorization status.
+     *
+     * @return string
+     */
+    function get_country_cookie($request)
+    {
+        
+        $value = $request->cookie('country_code');
+
+        $country_details = Country::where('country_id',$value)->first();
+
+        // dd($country_details);
+
+        if($country_details)
+        {
+            return $country_details;
         }else{
             return null;
         }
