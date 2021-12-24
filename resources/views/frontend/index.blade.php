@@ -9,6 +9,7 @@
 <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
 <script src="https://unpkg.com/@googlemaps/markerclusterer/dist/index.min.js"></script>
 <script>
+    
 function initMap() {
 
     const map = new google.maps.Map(document.getElementById("map"), {

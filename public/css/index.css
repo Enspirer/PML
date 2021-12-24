@@ -90,3 +90,7 @@ body {
 .swiper {
     position: unset;
 }
+
+.sidebar-card {
+    height: 634px;
+}
