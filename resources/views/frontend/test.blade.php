@@ -57,22 +57,47 @@
             // console.log(fromLng);
             // console.log(toLng);
 
-         
-         
-                    $.ajax({
-                        url: "{{ url('api/map_api') }}/"+ fromLat + "/" + toLat + "/" + fromLng + "/" + toLng,
-                        success: function(result) {
-                            console.log(result);
-                        }
-                    });
-      
-      
 
-        
+            //Get markers data from the backend
+            $.ajax({
+                url: "{{ url('api/map_api') }}/"+ fromLat + "/" + toLat + "/" + fromLng + "/" + toLng,
+                success: function(result) {
+                   var locationData = result;
 
+
+                    //Decode Longnitude
+                    var longnitude;
+              
+
+                    //Decode Longnitude
+                    var latitude; 
+                
+
+
+                    //get Lognitude and latitude of all markers
+                    for (i = 0; i < locationData.length; i++) {
+                        //store all longnitudes as an array
+                        longnitude = locationData[i].long;
+                        //store all latitudes as an array
+                        latitude = locationData[i].lat;
+                    }
+
+                }
+            });
+
+
+            
+
+
+
+
+
+      
         });
 
 
+
+     
 
 
     }
