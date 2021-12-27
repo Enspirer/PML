@@ -126,11 +126,13 @@ class PropertyController extends Controller
             [
                 'feature_image' => 'required',
                 'multiple_images' => 'required',
+                'panaromal_images' => 'required',
                 'lat' => 'required'
             ],
             [
                 'feature_image.required' => 'Please add feature image',
-                'multiple_images.required' => 'Please add atleast one image in multiple image section',
+                'multiple_images.required' => 'Please add atleast one image in multiple images section',
+                'panaromal_images.required' => 'Please add atleast one image in Panaromal images section',
                 'lat.required' => 'Property map location must need to point in the map'
             ]
         );        
@@ -149,6 +151,7 @@ class PropertyController extends Controller
         $addprop->city=$request->city;
         $addprop->feature_image_id=$request->feature_image;
         $addprop->image_ids=$request->multiple_images;
+        $addprop->panaromal_images=$request->panaromal_images;
         $addprop->meta_description=$request->meta_description;        
         $addprop->slug=$request->slug;        
         $addprop->transaction_type=$request->transaction_type;
@@ -256,11 +259,13 @@ class PropertyController extends Controller
             [
                 'feature_image' => 'required',
                 'multiple_images' => 'required',
+                'panaromal_images' => 'required',
                 'lat' => 'required'
             ],
             [
                 'feature_image.required' => 'Please add feature image',
-                'multiple_images.required' => 'Please add atleast one image in multiple image section',
+                'multiple_images.required' => 'Please add atleast one image in multiple images section',
+                'panaromal_images.required' => 'Please add atleast one image in Panaromal images section',
                 'lat.required' => 'Property map location must need to point in the map'
             ]
         );        
@@ -283,6 +288,7 @@ class PropertyController extends Controller
         $update->country=$request->country;
         $update->feature_image_id=$request->feature_image;
         $update->image_ids=$request->multiple_images;
+        $update->panaromal_images=$request->panaromal_images;
         $update->meta_description=$request->meta_description;        
         $update->slug=$request->slug;        
         $update->transaction_type=$request->transaction_type;

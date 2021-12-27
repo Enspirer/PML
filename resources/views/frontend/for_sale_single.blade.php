@@ -162,11 +162,21 @@
                     </div>
                 </div>
 
-                <div class="row">
+                <!-- <div class="row">
                     <div class="col-12">
                         <div id="map" style="height: 350px; width: 100%"></div>
                     </div>
+                </div> -->
+
+                
+                <div class="row">
+                    <div class="col-12">
+                        <div id="map" style="height: 400px; width: 100%"></div>
+                        <input type="text" name="lat" id="lat" value="{{$property->lat}}" class="mt-3 d-none">
+                        <input type="text" name="lng" id="lng" value="{{$property->long}}" class="mt-3 d-none">
+                    </div>
                 </div>
+
 
                 <div class="row mt-4">
                     <div class="col-12">
@@ -815,7 +825,7 @@
     </script>
 
 
-    <script>
+    <!-- <script>
         function initMap() {
             let options = {
                 zoom: 12,
@@ -849,7 +859,7 @@
         }
     </script>
 
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEBj8LhHUJaf2MXpqIQ_MOXs7HkeUXnac&callback=initMap" type="text/javascript"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEBj8LhHUJaf2MXpqIQ_MOXs7HkeUXnac&callback=initMap" type="text/javascript"></script> -->
 
     <script>
     // dropdown box changing field
@@ -1225,6 +1235,30 @@
     });
 </script>
 
+<script>
+    function initMap() {
+        let lat = $('#lat').val();
+        let lng = $('#lng').val();
+
+        const myLatLng = { lat: parseFloat(lat), lng: parseFloat(lng) };
+
+            let options = {
+            zoom: 8,
+            center: myLatLng
+            };
+
+        const map = new google.maps.Map(document.getElementById("map"), options);
+
+        let marker = new google.maps.Marker({
+            position: myLatLng,
+            map:map
+        });
+
+    }
+</script>
+
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEBj8LhHUJaf2MXpqIQ_MOXs7HkeUXnac&callback=initMap"
+type="text/javascript"></script>
 
 @endpush
 

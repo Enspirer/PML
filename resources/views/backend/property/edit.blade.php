@@ -217,6 +217,24 @@
                             </div>
                         </div>
                         <div class="row">
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label class="mb-2 mt-2">Panaromal Images
+                                        <span class="text-danger">*</span>
+                                    </label>
+                                    <div class="input-group" data-toggle="aizuploader" data-type="image" data-multiple="true">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text bg-soft-secondary font-weight-medium">Browse</div>
+                                        </div>
+                                        <div class="form-control file-amount">Choose File</div>
+                                        <input type="hidden" name="panaromal_images" class="selected-files" value="{{ $property->panaromal_images }}">
+                                    </div>
+                                    <div class="file-preview box sm">
+                                    </div>
+                                </div> 
+                            </div>
+                        </div>   
+                        <div class="row">
                             <div class="col-6">
                                 <div>
                                     <label for="meta-description" class="form-label mb-2 mt-3">Meta Description <span class="text-danger">*</span></label>
