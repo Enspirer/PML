@@ -559,7 +559,7 @@
 
                 <div class="row justify-content-end mt-3">
                     <div class="col-6 text-end">
-                        <a href="" class="text-decoration-underline text-dark">See all residential properties to sell</a>
+                        <a href="{{ route('frontend.for_sale', ['key_name', 'min_price', 'max_price', 'sale', 'property_type', 'beds', 'baths', 'land_size', 'listed_since', 'building_type', 'open_house', 'zoning_type', 'units', 'building_size', 'farm_type', 'parking_type', 'city'] )}}" class="text-decoration-underline text-dark">See all for sale properties.</a>
                     </div>
                 </div>
             </div>
