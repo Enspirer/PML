@@ -126,13 +126,11 @@ class PropertyController extends Controller
             [
                 'feature_image' => 'required',
                 'multiple_images' => 'required',
-                'panaromal_images' => 'required',
                 'lat' => 'required'
             ],
             [
                 'feature_image.required' => 'Please add feature image',
                 'multiple_images.required' => 'Please add atleast one image in multiple images section',
-                'panaromal_images.required' => 'Please add atleast one image in Panaromal images section',
                 'lat.required' => 'Property map location must need to point in the map'
             ]
         );        
@@ -259,13 +257,11 @@ class PropertyController extends Controller
             [
                 'feature_image' => 'required',
                 'multiple_images' => 'required',
-                'panaromal_images' => 'required',
                 'lat' => 'required'
             ],
             [
                 'feature_image.required' => 'Please add feature image',
                 'multiple_images.required' => 'Please add atleast one image in multiple images section',
-                'panaromal_images.required' => 'Please add atleast one image in Panaromal images section',
                 'lat.required' => 'Property map location must need to point in the map'
             ]
         );        

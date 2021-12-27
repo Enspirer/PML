@@ -296,6 +296,7 @@ class AgentController extends Controller
         $addprop->area=$request->area; 
         $addprop->city=$request->city;
         $addprop->feature_image_id=$request->feature_image;
+        $addprop->panaromal_images=$request->panaromal_images;
         $addprop->image_ids=$request->multiple_images;
         $addprop->meta_description=$request->meta_description;        
         $addprop->slug=$request->slug;        
@@ -384,6 +385,7 @@ class AgentController extends Controller
         $update->area=$request->area; 
         $update->country=$request->country;
         $update->feature_image_id=$request->feature_image;
+        $update->panaromal_images=$request->panaromal_images;
         $update->image_ids=$request->multiple_images;
         $update->meta_description=$request->meta_description;        
         $update->slug=$request->slug;        
