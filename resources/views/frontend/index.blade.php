@@ -433,9 +433,9 @@ locationButton.classList.add("custom-map-control-button");
 
             <div class="col-3">
                 <div class="row">
-                    <div class="col-12"><a href="">
+                    <div class="col-12"><a href="{{ get_settings('sidebar_advertiment_link_1') }}" target="_blank">
                             <div class="sidebar-card"><img width="100%"
-                                    src="{{ url('img/frontend/index/sidebar-img.jpg') }}" alt="banner"></div>
+                                    src="{{ uploaded_asset(get_settings('sidebar_advertiment_1')) }}" alt="banner"></div>
                         </a></div>
 
                     <!-- <div class="col-12">
