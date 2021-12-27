@@ -52,10 +52,10 @@
             toLng = northEast.lng
 
 
-            console.log(fromLat);
-            console.log(toLat);
-            console.log(fromLng);
-            console.log(toLng);
+            // console.log(fromLat);
+            // console.log(toLat);
+            // console.log(fromLng);
+            // console.log(toLng);
 
          
          
