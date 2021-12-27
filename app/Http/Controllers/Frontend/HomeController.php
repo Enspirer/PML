@@ -14,6 +14,7 @@ use App\Models\AgentRequest;
 use App\Models\Favorite;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Cookie;
+use DB;
 
 /**
  * Class HomeController.
@@ -252,6 +253,18 @@ class HomeController extends Controller
             $parking_type,
             $city
         ]);
+    }
+
+    public function map_api($fromLat,$toLat,$fromLng,$toLng){
+
+         $data = DB::table('properties')
+            ->where('lat', '>', $fromLat)
+            ->where('lat', '<', $toLat)
+            ->where('long', '>', $fromLng)
+            ->where('long', '<', $toLng)
+            ->get();
+        $response = response()->json($data);
+        return $response;
     }
 
 
