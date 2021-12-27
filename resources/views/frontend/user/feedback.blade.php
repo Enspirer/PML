@@ -85,7 +85,7 @@
                                             <div class="col-6">
                                                 <div>
                                                     <label class="form-label mb-0 required">Country</label>
-                                                    <select class="form-control" name="country" required>
+                                                    <select class="form-control" name="country" id="country" required>
                                                         <option selected disabled value="">Choose...</option>
                                                         @foreach($countries as $country)
                                                             <option value="{{$country->id}}">{{$country->country_name}}</option>
@@ -96,11 +96,19 @@
                                         </div>
 
                                         <div class="row">  
-                                            <div class="col-12">
+                                            <div class="col-6">
                                                 <div>
                                                     <label for="name" class="form-label mb-0 required">Title</label>
                                                     <input type="text" class="form-control" name="title" required>
                                                 </div>  
+                                            </div>
+                                            <div class="col-6">
+                                                <div>
+                                                    <label class="form-label mb-0 required">Area/location</label>
+                                                    <select name="area" class="form-control custom-select" id="area" required>
+
+                                                    </select>
+                                                </div> 
                                             </div>
                                         </div>
                                         <div class="row">
@@ -128,4 +136,43 @@
 
 @endif
 @endsection
+
+
+@push('after-scripts')
+
+<script>
+    $(document).ready(function() {
+        $('#country').on('change', function() {
+            var CountryID = $(this).val();
+            // console.log(CountryID);
+
+                $.ajax({
+                    
+                    url: "{{url('/')}}/api/findLocationWithCountryID/" + CountryID,
+
+                    method: "GET",
+                    dataType: "json",
+                    success:function(data) {
+                        console.log(data);
+                    if(data){
+                        $('#area').empty();
+                        $('#area').focus;
+                        $('#area').append('<option value="" selected disabled>-- Select Here --</option>'); 
+                        $.each(data, function(key, value){
+                            // console.log(value);
+                        $('select[name="area"]').append('<option value="'+ value.location_id +'">' + value.location_district+ '</option>');
+                        
+                    });
+
+                    }else{
+                        $('#area').empty();
+                    }
+                }
+                });
+            
+        });
+    });
+</script>
+
+@endpush
 

@@ -25,3 +25,6 @@ Route::get('findLocationWithCountryID/{id}', [AgentController::class, 'findLocat
 Route::get('map_api/{fromLat}/{toLat}/{fromLng}/{toLng}', [HomeController::class, 'map_api'])->name('map_api');
 
 
+Route::get('facebook_news', [HomeController::class, 'facebook_news'])->name('facebook_news');
+Route::get('twitter_news', [HomeController::class, 'twitter_news'])->name('twitter_news');
+

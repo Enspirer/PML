@@ -310,7 +310,7 @@
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="custom-shadow pt-4 pb-3 px-3 text-center">
-                                            <img src="{{ uploaded_asset($agent->photo) }}" alt="" class="img-fluid mb-3" style="object-fit: cover;height: 7rem;border-radius: 50%;margin-top: 30px;">
+                                            <img src="{{ uploaded_asset($agent->photo) }}" alt="" class="img-fluid mb-3" style="object-fit: cover;height: 7rem; width:7rem; border-radius: 50%;margin-top: 30px;">
                                             <p class="fw-bold">
                                                 @if($agent->agent_type == 'Individual')
                                                     {{ $agent->name }}
@@ -432,7 +432,36 @@
                                                     <h5 class="fw-bold">LKR {{number_format($ran->price,2)}}</h5>
                                                 </div>
                                                 <div class="col-1">
-                                                    <button class="fas fa-heart border-0" style="color: #F60331; background-color: white;"></button>
+
+                                                    @php
+                                                        if(auth()->user())
+                                                        {
+                                                            $favourite = App\Models\Favorite::where('property_id',$ran->id)->where('user_id',auth()->user()->id)->first();
+                                                        }else{
+                                                            $favourite = null;
+                                                        }
+                                                    @endphp
+
+                                                    @auth                                                  
+                                                        @if($favourite == null)
+                                                            <form action="{{route('frontend.propertyFavourite')}}" method="post" enctype="multipart/form-data">
+                                                            {{csrf_field()}}
+                                                                <button type="submit" class="fas fa-heart border-0" style="background-color: white"></button>
+                                                                <input type="hidden" name="prop_hidden_id" value="{{ $ran->id }}" />
+                                                            </form>
+                                                        @else
+                                                            <form action="{{route('frontend.propertyFavouriteDelete',$favourite->id)}}" method="post" enctype="multipart/form-data">
+                                                            {{csrf_field()}}
+                                                                <button class="fas fa-heart border-0" style="color: #F60331; background-color: white;"></button>  
+                                                                <input type="hidden" name="prop_hidden_id" value="{{ $favourite->id }}" />
+                                                            </form>
+                                                        @endif
+                                                    @else
+                                                        <form action="{{route('frontend.auth.login')}}" method="get" enctype="multipart/form-data">
+                                                        {{csrf_field()}}
+                                                            <button type="submit" class="fas fa-heart border-0" style="background-color: white"></button>
+                                                        </form>                                                   
+                                                    @endauth
                                                 </div>
                                             </div>
                                             
@@ -470,7 +499,9 @@
                                             </div>
                                             <div class="col-6 text-end">
                                                 @if(App\Models\AgentRequest::where('user_id',$ran->user_id)->first() != null)
-                                                    <img src="{{ uploaded_asset(App\Models\AgentRequest::where('user_id',$ran->user_id)->first()->logo) }}" width="50%" style="object-fit:cover">
+                                                    <a href="{{route('frontend.individual_agent',App\Models\AgentRequest::where('user_id',$ran->user_id)->first()->id)}}">
+                                                        <img src="{{ uploaded_asset(App\Models\AgentRequest::where('user_id',$ran->user_id)->first()->logo) }}" width="50%" style="object-fit:cover">
+                                                    </a>
                                                 @endif
                                             </div>
                                         </div>

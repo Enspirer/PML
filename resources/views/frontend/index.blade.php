@@ -531,7 +531,7 @@ locationButton.classList.add("custom-map-control-button");
     </div>
 
     <div class="row">
-        <div class="col-3 fb">
+        <!-- <div class="col-3 fb">
             <div class="card" style="height: 25rem;">
                 <img src="{{ url('img/frontend/index/social_1.png') }}" class="img-fluid w-100" alt="..."
                     style="object-fit: cover; height: 13rem;">
@@ -572,54 +572,76 @@ locationButton.classList.add("custom-map-control-button");
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
 
-
-        <div class="col-3">
-            <div class="card" style="height: 25rem;">
-                <img src="{{ url('img/frontend/index/social_3.png') }}" class="card-img-top" alt="..."
-                    style="object-fit: cover; height: 13rem;">
-                <div class="card-body p-2">
-                    <p class="card-text mb-1"
-                        style="overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 5; /* number of lines to show */-webkit-box-orient: vertical;height: 115px; font-size: 0.8rem;">
-                        We're giving away 100,000,000 $Shib to 5 random people (20,000,000 each)Money bag RocketFollow
-                        Me! Gem stoneRetweet and Like. Open handsComment #SHIBARMY ⚠followers only giveaway⚠ #BTC #ETH
-                        #Giveaway #ADA</p>
-
-                    <div class="row justify-content-between mt-3 align-items-center">
-                        <div class="col-7">
-                            <p style="color: #55ACEE; font-size: 0.8rem">7 minutes ago</p>
-                        </div>
-                        <div class="col-5 text-end">
-                            <a href="#" style="color: #0F9D58; font-size: 1.1rem;">Blogs</a>
+        <div class="col-3 fb">
+                <a href="https://www.facebook.com/tallentor" style="color:black" target="_blank" id="stack_panel">
+                    <div class="card" style="height: 25rem;">
+                        <img id="facebook_src" src="" class="card-img-top" alt="..." style="object-fit: cover; height: 13rem;">
+                        <div class="card-body">
+                            <p class="card-text mb-1" id="description_fb"></p>
+                            
+                            <div class="text-right">
+                                <img src="{{ url('img/fb_color.png') }}" alt="" class="img-fluid">
+                            </div>
                         </div>
                     </div>
-                </div>
+                </a>
             </div>
-        </div>
 
-        <div class="col-3">
-            <div class="card" style="height: 25rem;">
-                <img src="{{ url('img/frontend/index/social_4.png') }}" class="card-img-top" alt="..."
-                    style="object-fit: cover; height: 13rem;">
-                <div class="card-body p-2">
-                    <p class="card-text mb-1"
-                        style="overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 5; /* number of lines to show */-webkit-box-orient: vertical;height: 115px; font-size: 0.8rem;">
-                        We're giving away 100,000,000 $Shib to 5 random people (20,000,000 each)Money bag RocketFollow
-                        Me! Gem stoneRetweet and Like. Open handsComment #SHIBARMY ⚠followers only giveaway⚠ #BTC #ETH
-                        #Giveaway #ADA</p>
-
-                    <div class="row justify-content-between mt-3 align-items-center">
-                        <div class="col-7">
-                            <p style="color: #55ACEE; font-size: 0.8rem">7 minutes ago</p>
-                        </div>
-                        <div class="col-5 text-end">
-                            <a href="#" style="color: #FF0000; font-size: 1.1rem;">News</a>
+         
+            <div class="col-3 twitter">
+                <a href="" style="color:black" target="_blank" class="twitter-link">
+                    <div class="card" style="height: 25rem;">
+                        <img src="{{ url('img/twitter_large.png') }}" class="card-img-top" alt="..." style="object-fit: cover; height: 13rem;">
+                        <div class="card-body">
+                            <p class="card-text mb-1" id="description_twitter"></p>
+                            
+                            <div class="text-right">
+                                <img src="{{ url('theme_light/assets/footer/twitter_color.png') }}" alt="" class="img-fluid">
+                            </div>
                         </div>
                     </div>
-                </div>
+                </a>
             </div>
-        </div>
+
+
+            @if(count(App\Models\Posts::get()) != 0)
+                @foreach(App\Models\Posts::latest()->take(2)->get() as $key => $blog_posts)  
+                    <div class="col-3">
+                        <div class="card" style="height: 25rem;">
+                            <a href="{{url('individual_post',$blog_posts->id)}}" style="color:black; text-decoration:none">
+                                <img src="{{ uploaded_asset($blog_posts->feature_image) }}" class="card-img-top" alt="..." style="object-fit: cover; height: 13rem;">
+                            </a>
+                            
+                            <div class="card-body p-2">
+                                <p class="card-text mb-1"
+                                    style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 6; -webkit-box-orient: vertical;">
+                                    {{$blog_posts->description}}</p>
+
+                                <div class="row justify-content-between mt-3 align-items-center">
+                                    <div class="col-7">
+                                        <!-- <p style="color: #55ACEE; font-size: 0.8rem">7 minutes ago</p> -->
+                                    </div>
+                                    <div class="col-5 text-end">                                       
+
+                                        @if(App\Models\Category::where('id',$blog_posts->category)->first() != null)
+                                            <a style="color: #0F9D58; font-size: 1.1rem;">{{App\Models\Category::where('id',$blog_posts->category)->first()->name}}</a>
+                                        @else
+                                            <p style="color: Red; font-size: 0.8rem;">Category Deleted</p>   
+                                        @endif
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            @endif
+        
+
+            
+
+
     </div>
 </div>
 </div>
@@ -1070,6 +1092,27 @@ $('.filter-button').on('click', function() {
 $('.filter-reset').click(function() {
     $('#filter-form')[0].reset();
 });
+</script>
+
+
+<script>
+    $.get("{{route('facebook_news')}}", function(data, status){
+        var backimage_f = JSON.parse(data);
+        $("#facebook_src").attr("src",backimage_f.image);
+        $("#description_fb").html(backimage_f.title);
+        // $("#stack_panel").attr("href",backimage_f.link);
+    }).
+    fail(function(jqXHR, textStatus, errorThrown) {
+        $('.fb').addClass('d-none');
+    });
+    $.get("{{route('twitter_news')}}", function(data, status){
+        var data = JSON.parse(data);
+        $(".twitter-link").attr("href", data.link);
+        $("#description_twitter").text(data.title);
+    }).
+    fail(function(jqXHR, textStatus, errorThrown) {
+        $('.twitter').addClass('d-none');
+    });
 </script>
 
 @endpush

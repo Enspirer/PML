@@ -94,6 +94,7 @@ class DashboardController extends Controller
 
         $addfeedback->name = $request->name;
         $addfeedback->country = $request->country;
+        $addfeedback->area = $request->area;
         $addfeedback->title = $request->title;
         $addfeedback->message = $request->message;
         $addfeedback->status = 'Pending';

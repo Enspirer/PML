@@ -53,6 +53,9 @@ Route::post('contact_agent', [ForSaleController::class, 'contact_agent'])->name(
 Route::post('prop_favourite',[ForSaleController::class,'propertyFavourite'])->name('propertyFavourite');
 Route::post('prop_favourite/unsave/{id}',[ForSaleController::class,'propertyFavouriteDelete'])->name('propertyFavouriteDelete');
 
+Route::post('save_search',[ForSaleController::class,'save_search'])->name('save_search');
+Route::post('save_search/unsave/{id}',[ForSaleController::class,'save_search_Delete'])->name('save_search_Delete');
+
 Route::post('property-search', [ForSaleController::class, 'search'])->name('property.search');
 
 Route::post('search_result',[HomeController::class,'get_search_result'])->name('search_result_function');
@@ -61,6 +64,7 @@ Route::get('find-agent/{country}/{area}/{agent_type}/{agent_name}', [AgentsContr
 Route::post('find-agent/store', [AgentsController::class, 'store'])->name('find-agent.store');
 Route::get('find-agent/individual_agent/{id}', [IndividualAgentController::class, 'index'])->name('individual_agent');
 
+Route::get('individual_post/{id}', [HomeController::class, 'individual_post'])->name('individual_post');
 
 /*
  * These frontend controllers require the user to be logged in
@@ -117,8 +121,11 @@ Route::group(['middleware' => ['auth', 'password_expires']], function () {
         Route::post('area-management/single-agent-approval/update', [AreaManagementController::class, 'singleAgentApprovalUpdate'])->name('singleAgentApprovalUpdate');
 
 
-
-
+        Route::get('area-management-supports', [AreaManagementController::class, 'supports'])->name('supports');        
+        Route::get('area-management/get-supports', [AreaManagementController::class, 'getSupports'])->name('get-supports');        
+        Route::get('area-management/supports/edit/{id}', [AreaManagementController::class, 'supportsEdit'])->name('supports.edit');
+        Route::post('area-management/supports/update', [AreaManagementController::class, 'supportsUpdate'])->name('supports.update');
+        Route::get('area-management/supports/delete/{id}', [AreaManagementController::class, 'supportsDelete'])->name('supports.delete');
 
 
         

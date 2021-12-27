@@ -158,6 +158,84 @@ class AreaManagementController extends Controller
 
         return redirect('/area-management-agent-approval');
     }
+
+
+
+
+
+
+
+
+
+    public function supports() 
+    {
+        return view('frontend.user.supports');
+    }
+
+    public function getSupports(Request $request) 
+    {
+
+        $user_id = auth()->user()->id;
+
+        $area_manager = Location::where('area_manager',$user_id)->where('status','Enabled')->first();
+
+        $feedback = Feedback::where('country', $area_manager->country)->where('area',$area_manager->id)->orderBy('id', 'DESC')->get();
+
+        if($request->ajax())
+        {
+            return DataTables::of($feedback)
+                    ->addColumn('action', function($data){                       
+                       
+                        $button = '<a href="'.route('frontend.user.supports.edit', $data->id).'" name="edit" id="'.$data->id.'" class="btn text-light table-btn me-4" style="background-color: #4195E1"> View </a>';
+                        $button .= '<button type="button" name="delete" id="'.$data->id.'" class="delete btn btn-danger btn-sm">Delete</button>';
+
+                        return $button;
+                    })
+                    
+                    ->rawColumns(['action'])
+                    ->make(true);
+        }
+        return back();
+
+
+    }
+
+    public function supportsEdit($id)
+    {
+        $supports = Feedback::where('id',$id)->first();        
+        // dd($supports);              
+
+        $user_details = User::where('id',$supports->user_id)->first();
+        // dd($user_details);
+
+        return view('frontend.user.supports-edit',[
+            'supports' => $supports,
+            'user_details' => $user_details        
+        ]);  
+    }
+
+    public function supportsUpdate(Request $request)
+    {        
+        // dd($request);
+       
+        $update = new Feedback;
+
+        $update->status=$request->action;       
+        
+        Feedback::whereId($request->hid_id)->update($update->toArray());
+
+        return redirect()->route('frontend.user.supports'); 
+    }
+
+
+    public function supportsDelete($id)
+    {        
+        // dd($id);
+        $data = Feedback::findOrFail($id);
+        $data->delete();   
+
+        return back();
+    }
    
 
 

@@ -10,6 +10,7 @@ use App\Models\Auth\User;
 use App\Models\AgentRequest;
 use App\Models\Booking;
 use App\Models\Favorite;
+use App\Models\UserSearch;
 
 /**
  * Class ForSaleController.
@@ -364,7 +365,29 @@ class ForSaleController extends Controller
         return back();
     }
 
+    public function save_search(Request $request)
+    { 
+        // dd($request);
+        $add = new UserSearch;
 
+        $user_id = auth()->user()->id;
+
+        $add->url=$request->save_url; 
+        $add->user_id=$user_id;
+
+        $add->save();
+
+        return back();
+
+    }
+
+    public function save_search_Delete($id)
+    {        
+        $data = UserSearch::findOrFail($id);
+        $data->delete();   
+
+        return back();
+    }
 
 
 

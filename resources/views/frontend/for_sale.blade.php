@@ -234,7 +234,9 @@
                                             </div>
                                             <div class="col-6 text-end">
                                                 @if(App\Models\AgentRequest::where('user_id',$normal->user_id)->first() != null)
-                                                <img src="{{ uploaded_asset(App\Models\AgentRequest::where('user_id',$normal->user_id)->first()->logo) }}" width="50%">
+                                                    <a href="{{route('frontend.individual_agent',App\Models\AgentRequest::where('user_id',$normal->user_id)->first()->id)}}" style="text-decoration: none">
+                                                        <img src="{{ uploaded_asset(App\Models\AgentRequest::where('user_id',$normal->user_id)->first()->logo) }}" width="50%">
+                                                    </a>                  
                                                 @endif
                                             </div>
                                     </div>
@@ -356,7 +358,9 @@
                                             </div>
                                             <div class="col-6 text-end">
                                                 @if(App\Models\AgentRequest::where('user_id',$normal->user_id)->first() != null)
-                                                <img src="{{ uploaded_asset(App\Models\AgentRequest::where('user_id',$normal->user_id)->first()->logo) }}" width="50%">
+                                                    <a href="{{route('frontend.individual_agent',App\Models\AgentRequest::where('user_id',$normal->user_id)->first()->id)}}" style="text-decoration: none">
+                                                        <img src="{{ uploaded_asset(App\Models\AgentRequest::where('user_id',$normal->user_id)->first()->logo) }}" width="50%">
+                                                    </a>
                                                 @endif
                                             </div>
                                     </div>
@@ -466,16 +470,54 @@
                         </a>
                     </div>
                     <div class="col-12 text-center " style="margin-top: 10px;">
-                        <a href="" class="btn py-2 fw-bold w-100 rounded-pill" style="border: 1.5px solid rgb(112, 112, 112);font-size: 12px;width: 230px !important;">
-                            <div class="row justify-content-center">
-                                <div class="col-2 p-0">
-                                    <i class="far fa-heart"></i>
+
+
+                        @auth
+                            @if(App\Models\UserSearch::where('user_id',auth()->user()->id)->where('url',url()->current())->first() == null)
+                                <form action="{{route('frontend.save_search')}}" method="post" enctype="multipart/form-data">
+                                {{csrf_field()}}
+                                    <button type="submit" class="btn py-2 fw-bold w-100 rounded-pill" style="border: 1.5px solid rgb(112, 112, 112);font-size: 12px;width: 230px !important;">
+                                        <div class="row justify-content-center">
+                                            <div class="col-2 p-0">
+                                                <i class="far fa-heart"></i>
+                                            </div>
+                                            <div class="col-7 p-0 text-start">
+                                                Save this Search
+                                            </div>
+                                        </div>
+                                    </button>
+                                    <input type="hidden" name="save_url" value="{{ url()->current() }}" />
+                                </form>
+                            @else
+                                <form action="{{route('frontend.save_search_Delete',App\Models\UserSearch::where('user_id',auth()->user()->id)->where('url',url()->current())->first()->id)}}" method="post" enctype="multipart/form-data">
+                                {{csrf_field()}}
+                                    <button type="submit" class="btn py-2 fw-bold w-100 rounded-pill" style="border: 1.5px solid rgb(112, 112, 112);font-size: 12px;width: 230px !important; background-color:#F33A6A;">
+                                        <div class="row justify-content-center">
+                                            <div class="col-2 p-0">
+                                                <i class="fas fa-heart"></i>
+                                            </div>
+                                            <div class="col-7 p-0 text-start">
+                                                Unsave this Search
+                                            </div>
+                                        </div>
+                                    </button>
+                                    <input type="hidden" name="prop_hidden_id" value="{{ App\Models\UserSearch::where('user_id',auth()->user()->id)->where('url',url()->current())->first()->id }}" />
+                                </form>
+                            @endif
+                        @else
+                            
+                            <a href="{{route('frontend.auth.login')}}" class="btn py-2 fw-bold w-100 rounded-pill" style="border: 1.5px solid rgb(112, 112, 112);font-size: 12px;width: 230px !important;">
+                                <div class="row justify-content-center">
+                                    <div class="col-2 p-0">
+                                        <i class="far fa-heart"></i>
+                                    </div>
+                                    <div class="col-7 p-0 text-start">
+                                        Save this Search
+                                    </div>
                                 </div>
-                                <div class="col-7 p-0 text-start">
-                                    Save this Search
-                                </div>
-                            </div>
-                        </a>
+                            </a>
+                        @endauth
+
                     </div>
                 </div>
 
