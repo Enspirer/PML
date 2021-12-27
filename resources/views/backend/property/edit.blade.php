@@ -219,9 +219,7 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="form-group">
-                                    <label class="mb-2 mt-2">Panaromal Images
-                                        <span class="text-danger">*</span>
-                                    </label>
+                                    <label class="mb-2 mt-2">Panaromal Images</label>
                                     <div class="input-group" data-toggle="aizuploader" data-type="image" data-multiple="true">
                                         <div class="input-group-prepend">
                                             <div class="input-group-text bg-soft-secondary font-weight-medium">Browse</div>
