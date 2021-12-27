@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use App\Http\Controllers\backend\PropertyController;
 use App\Http\Controllers\Frontend\User\AgentController;
+use App\Http\Controllers\Frontend\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,3 +22,6 @@ use App\Http\Controllers\Frontend\User\AgentController;
 
 Route::get('get_property_type_details/{id}', [PropertyController::class, 'property_type'])->name('property_type');
 Route::get('findLocationWithCountryID/{id}', [AgentController::class, 'findLocationWithCountryID'])->name('findLocationWithCountryID');
+Route::get('map_api', [HomeController::class, 'map_api'])->name('map_api');
+
+
