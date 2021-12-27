@@ -131,7 +131,7 @@
 
                         <p class="fw-bold" style="font-size: 1.2rem; color: black">
                             @if($property->beds != null)
-                                {{$property->beds}} Bed flat for sale
+                                {{$property->beds}} Bed flat for {{$property->transaction_type}}
                             @endif
                         </p>
 
