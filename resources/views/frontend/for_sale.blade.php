@@ -499,7 +499,7 @@
                                 <form action="{{route('frontend.save_search_Delete',App\Models\UserSearch::where('user_id',auth()->user()->id)->where('url',url()->current())->first()->id)}}" method="post" enctype="multipart/form-data">
                                 {{csrf_field()}}
                                     <button type="submit" class="btn py-2 fw-bold w-100 rounded-pill" style="border: 1.5px solid rgb(112, 112, 112);font-size: 12px;width: 230px !important; background-color:#F33A6A;">
-                                        <div class="row justify-content-center">
+                                        <div class="row justify-content-center text-light">
                                             <div class="col-2 p-0">
                                                 <i class="fas fa-heart"></i>
                                             </div>
