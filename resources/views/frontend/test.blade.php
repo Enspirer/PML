@@ -32,7 +32,17 @@
             .custom-map-control-button:hover {
             background: #ebebeb;
         }
+
+
+        /*card styles*/
+
+
     </style>
+
+
+
+
+
     <script>
 
         let map;
@@ -87,7 +97,7 @@
 
                  
            
-                        
+                            var subArray = [];
                
 
 
@@ -98,7 +108,7 @@
                             
                             function myFunction(item, index) {
                             
-                                var subArray = [
+                                subArray = [
                                     {lat: JSON.parse(item.lat), lng: JSON.parse(item.lng)}
                                 ];
 
