@@ -21,7 +21,9 @@
 
         const panoImage = document.querySelector('.pano-image');
         const myPano = `${ImgUrl}`;
-        
+
+
+        const panaroma = new PANOLES.ImagePanoroma
         
     </script>
 
