@@ -6,26 +6,22 @@
     <link href="{{ url('css/for_sale_single.css') }}" rel="stylesheet">
     <script src="{{ url('js/panolens.min.js') }}"></script>
     <script src="{{ url('js/three.min.js') }}"></script>
+   
     <style>
-        .pano-image {
-            width: 100%;
-            height: 600px;
-        }
+          html, body {
+        width: 100%;
+        height: 100%;
+      }
+
+      canvas.panolens-canvas {
+          height: 500px;
+      }
     </style>
 
-    <script>
 
-        const ImgUrl = "{{ url('img/pano.jpg') }}";
-
+ 
 
 
-        const panoImage = document.querySelector('.pano-image');
-        const myPano = `${ImgUrl}`;
-
-
-        const panaroma = new PANOLES.ImagePanoroma
-        
-    </script>
 
 @endpush
 
@@ -37,25 +33,9 @@
 
     @include('frontend.includes.search')
 
+    
+    
 
-    <script>
-
-    const panoramaUrl = {{ url('img/panaroma.jpg') }}
-
-    console.log(panoramaUrl);
-
-    function panaroma() {
-        const panorama = new PANOLENS.ImagePanorama( `${panramaUrl}` );
-        const viewer = new PANOLENS.Viewer();
-        viewer.add( panorama );
-
-    }
-       
-    </script>
-
-    <button onclick="panaroma()">panaroma image</button>
-
-    <div class="pano-image"></div>
 
     @if ( session()->has('message'))
         <div class="" style="background-color: rgb(22 32 44);text-align: center;color: white;">
@@ -864,6 +844,16 @@
 @endsection
 
 @push('after-scripts')
+
+
+<script>
+
+    
+const panorama = new PANOLENS.ImagePanorama( 'https://images.unsplash.com/photo-1592322481650-2f602e3493a5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cGFuYXJvbWF8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60' );
+        const viewer = new PANOLENS.Viewer( { output: 'console' } );
+        viewer.add( panorama );
+
+    </script>
 
     <script>
       var swiper = new Swiper(".mySwiper", {
