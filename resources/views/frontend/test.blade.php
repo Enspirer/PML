@@ -37,18 +37,19 @@
 
         let map;
         let marker;
-        let locationData = [];
 
         function initMap() {
 
             const map = new google.maps.Map(document.getElementById("map"), {
                 zoom: 6,
-                center: { lat: 20.5937, lng: 78.9629 },
+                center: { lat: -28.024, lng: 140.887 },
             });
 
 
-          
+                            //change the center of map
+            // map.setCenter({ lat: 7.8731, lng: 80.7718 });
 
+           
           
             // //center change event
              // //center change event
@@ -84,25 +85,27 @@
                     url: "{{ url('api/map_api') }}/"+ fromLat + "/" + toLat + "/" + fromLng + "/" + toLng,
                     success: function(result) {
 
-          
-                    
-               
+                 
            
-                   locationData = result;
-
-                   locationData = [
-                   {lat: '6.928351456700409', lng: '79.85454164303229', name: 'Hitlor', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing… qui officia deserunt mollit anim id est laborum.'},
-                       {lat: '6.698717247859398', lng: '80.38935484617542', name: 'Wije', description: 'Ratnapura Aparments'}
-                   ];
                         
+               
 
-                   
-                   
 
-                                      //change the center of map
-            // map.setCenter({ lat: 7.8731, lng: 80.7718 });
+                
+                        
+                            result.forEach(myFunction);
 
-            const contentString = ` <div id="content">
+                            
+                            function myFunction(item, index) {
+                            
+                                var subArray = [
+                                    {lat: JSON.parse(item.lat), lng: JSON.parse(item.lng)}
+                                ];
+
+                                console.log(subArray);
+
+                               
+                                const contentString = ` <div id="content">
                 <h2>This is popup content</h2>
             </div>`;
 
@@ -117,38 +120,34 @@
             // ----------------------locally add Marks to the map---------------------------
             locationData = [
                 {lat: 20.5937, lng: 78.9629},
-                {lat: 22.5937, lng: 78.9629}
+                {lat: 2.5937, lng: 78.9629}
             ];
 
+   
+            // console.log(locationData);
+            
+             // Add some markers to the map.
+             const markers = subArray.map((position, i) => {
+            const label = labels[i % labels.length];
+            const marker = new google.maps.Marker({
+                                position,
+                                label,
+                                });
+                                console.log(position);
 
-         
-         
-       
-          
-                // Add some markers to the map.
-                const markers = locationData.map((position, i) => {
-                const label = labels[i % labels.length];
-                const marker = new google.maps.Marker({
-                position,
-                label,
-                });
-
-  
-        
-
-                
-                // markers can only be keyboard focusable when they have click listeners
-                // open info window when marker is clicked
-                marker.addListener("click", () => {
-                infoWindow.open({
-                    anchor: marker,
-                    map,
-                    shouldFocus: false,
-                });
-                });
-                return marker;
-            });
-                       
+                                
+                                // markers can only be keyboard focusable when they have click listeners
+                                // open info window when marker is clicked
+                                marker.addListener("click", () => {
+                                infoWindow.open({
+                                    anchor: marker,
+                                    map,
+                                    shouldFocus: false,
+                                });
+                                });
+                                return marker;
+                            });
+                  
           
            
             // Add a marker clusterer to manage the markers.
@@ -186,6 +185,14 @@
             });
 
 
+                               
+                   
+
+                            }
+                        
+                // console.log("after change");
+                // console.log(obj);
+
 
 
            
@@ -197,6 +204,8 @@
 
 
      
+     
+
 
 
 
