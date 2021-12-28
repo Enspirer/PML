@@ -4,6 +4,27 @@
 
 @push('after-styles')
     <link href="{{ url('css/for_sale_single.css') }}" rel="stylesheet">
+    <script src="{{ url('js/panolens.min.js') }}"></script>
+    <script src="{{ url('js/three.min.js') }}"></script>
+    <style>
+        .pano-image {
+            width: 100%;
+            height: 600px;
+        }
+    </style>
+
+    <script>
+
+        const ImgUrl = "{{ url('img/pano.jpg') }}";
+
+
+
+        const panoImage = document.querySelector('.pano-image');
+        const myPano = `${ImgUrl}`;
+        
+        
+    </script>
+
 @endpush
 
 @section('content')
@@ -15,6 +36,24 @@
     @include('frontend.includes.search')
 
 
+    <script>
+
+    const panoramaUrl = {{ url('img/panaroma.jpg') }}
+
+    console.log(panoramaUrl);
+
+    function panaroma() {
+        const panorama = new PANOLENS.ImagePanorama( `${panramaUrl}` );
+        const viewer = new PANOLENS.Viewer();
+        viewer.add( panorama );
+
+    }
+       
+    </script>
+
+    <button onclick="panaroma()">panaroma image</button>
+
+    <div class="pano-image"></div>
 
     @if ( session()->has('message'))
         <div class="" style="background-color: rgb(22 32 44);text-align: center;color: white;">
