@@ -1,125 +1,251 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-    #map {
-        height: 500px;
-        width: 100%;
-    }
-    </style>
-
-<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-
-    <!-- map links -->
+<html>
+  <head>
+    <title>Map API</title>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-    <script src="https://unpkg.com/@googlemaps/markerclusterer/dist/index.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <style>
+        #map {
+            height: 80%;
+        }
 
+        /* Optional: Makes the sample page fill the window. */
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
 
-
+        .custom-map-control-button {
+            background-color: #fff;
+            border: 0;
+            border-radius: 2px;
+            box-shadow: 0 1px 4px -1px rgba(0, 0, 0, 0.3);
+            margin: 10px;
+            padding: 0 0.5em;
+            font: 400 18px Roboto, Arial, sans-serif;
+            overflow: hidden;
+            height: 40px;
+            cursor: pointer;
+            }
+            .custom-map-control-button:hover {
+            background: #ebebeb;
+        }
+    </style>
     <script>
-    function initMap() {
-        const map = new google.maps.Map(document.getElementById("map"), {
-            zoom: 6,
-            center: {
-                lat: -28.024,
-                lng: 140.887
-            },
-        });
+        function initMap() {
+
+            const map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 6,
+                center: { lat: -28.024, lng: 140.887 },
+            });
 
 
-        // //center change event
-        map.addListener("dragend", () => {
+            //change the center of map
+            // map.setCenter({ lat: 7.8731, lng: 80.7718 });
 
-            // console.log(map.getCenter().toJSON());
-            var bound;
-            bound = map.getBounds();
+            const contentString = ` <div id="content">
+                <h2>This is popup content</h2>
+            </div>`;
 
-            var southWest = bound.getSouthWest().toJSON();
-            var northEast = bound.getNorthEast().toJSON();
+            const infoWindow = new google.maps.InfoWindow({
+                content: contentString,
+                disableAutoPan: true,
+            });
 
+    
 
+            // Create an array of alphabetical characters used to label the markers.
+            const labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-            //decode area
-            fromLat = southWest.lat;
-            toLat = northEast.lat;
+            // ----------------------locally add Marks to the map---------------------------
 
-            fromLng = southWest.lng;
-            toLng = northEast.lng
+            
 
+                        
+            const place = [
+                { lat: -61.56391, lng: 47.154312 },
+                { lat: -63.727111, lng: 50.371124 },
+            ]
+            
 
-            // console.log(fromLat);
-            // console.log(toLat);
-            // console.log(fromLng);
-            // console.log(toLng);
-
-
-            //Get markers data from the backend
-            $.ajax({
-                url: "{{ url('api/map_api') }}/"+ fromLat + "/" + toLat + "/" + fromLng + "/" + toLng,
-                success: function(result) {
-                   var locationData = result;
+  
 
 
-                    //Decode Longnitude
-                    var longnitude;
-              
 
-                    //Decode Longnitude
-                    var latitude; 
-                
+            // Add some markers to the map.
+            const markers = place.map((position, i) => {
+                const label = labels[i % labels.length];
+                const marker = new google.maps.Marker({
+                position,
+                label,
+                });
 
 
-                    //get Lognitude and latitude of all markers
-                    for (i = 0; i < locationData.length; i++) {
-                        //store all longnitudes as an array
-                        longnitude = locationData[i].long;
-                        //store all latitudes as an array
-                        latitude = locationData[i].lat;
+                // markers can only be keyboard focusable when they have click listeners
+                // open info window when marker is clicked
+                marker.addListener("click", () => {
+                infoWindow.open({
+                    anchor: marker,
+                    map,
+                    shouldFocus: false,
+                });
+                });
+                return marker;
+            });
+
+ 
+           
+           
+
+            
+
+            // Add a marker clusterer to manage the markers.
+            const markerCluster = new markerClusterer.MarkerClusterer({ map, markers });
+
+
+             //Geolocation finder -(Your Location)
+             const locationButton = document.createElement("button");
+
+             locationButton.textContent = "Pan to Current Location";
+             locationButton.classList.add("custom-map-control-button");
+             map.controls[google.maps.ControlPosition.TOP_CENTER].push(locationButton);
+             locationButton.addEventListener("click", () => {
+            // Try HTML5 geolocation.
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    (position) => {
+                    const pos = {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude,
+                    };
+
+                    infoWindow.setPosition(pos);
+                    infoWindow.setContent("Location found.");
+                    infoWindow.open(map);
+                    map.setCenter(pos);
+                    },
+                    () => {
+                    handleLocationError(true, infoWindow, map.getCenter());
                     }
-
+                );
+                } else {
+                // Browser doesn't support Geolocation
+                handleLocationError(false, infoWindow, map.getCenter());
                 }
             });
 
 
+            // //center change event
+             // //center change event
+        map.addListener("dragend", () => {
+
+        // console.log(map.getCenter().toJSON());
+        var bound;
+        bound = map.getBounds();
+
+        var southWest = bound.getSouthWest().toJSON();
+        var northEast = bound.getNorthEast().toJSON();
+
+
+
+        //decode area
+        fromLat = southWest.lat;
+        toLat = northEast.lat;
+
+        fromLng = southWest.lng;
+        toLng = northEast.lng
+
+
+        // console.log(fromLat);
+        // console.log(toLat);
+        // console.log(fromLng);
+        // console.log(toLng);
+
+
+
+        //Get markers data from the backend
+        $.ajax({
+            url: "{{ url('api/map_api') }}/"+ fromLat + "/" + toLat + "/" + fromLng + "/" + toLng,
+            success: function(result) {
+            
+            
+            var locationData = result;
+
+
+            locationData = [
+                {id: 1, lat: -61.56391, lng: 47.154312, bed: "5", bathrrom: "3"},
+                {id:2, lat: -63.727111, lng: 50.371124, bed: "4", bathrrom: "2" },
+            ];
+
+
+            // Add some markers to the map.
+            const markers = place.map((position, i) => {
+            const label = labels[i % labels.length];
+            const marker = new google.maps.Marker({
+                position,
+                label,
+                });
+
+
+                // markers can only be keyboard focusable when they have click listeners
+                // open info window when marker is clicked
+                marker.addListener("click", () => {
+                infoWindow.open({
+                    anchor: marker,
+                    map,
+                    shouldFocus: false,
+                });
+                });
+                return marker;
+            });
+
+            
+
+            }
+        });
+
+
+
+
+        // const place = [
+        //         { lat: -61.56391, lng: 47.154312 },
+        //         { lat: -63.727111, lng: 50.371124 },
+        //     ]
             
 
 
 
 
-
-      
         });
 
+        }
 
 
-     
+        function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+            infoWindow.setPosition(pos);
+            infoWindow.setContent(
+                browserHasGeolocation
+                ? "Error: The Geolocation service failed."
+                : "Error: Your browser doesn't support geolocation."
+            );
+        }
 
 
-    }
+         
+
+           
     </script>
+    <script src="https://unpkg.com/@googlemaps/markerclusterer/dist/index.min.js"></script>
 
-
-    <!--  -->
-
-
-
-
-
-
-</head>
-
-<body>
+  </head>
+  <body>
     <div id="map"></div>
 
-    <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
-    <script async="" defer=""
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEBj8LhHUJaf2MXpqIQ_MOXs7HkeUXnac&amp;callback=initMap"
-        type="text/javascript"></script>
-</body>
+  
 
+     <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+     <script async="" defer="" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEBj8LhHUJaf2MXpqIQ_MOXs7HkeUXnac&amp;callback=initMap" type="text/javascript"></script>
+  </body>
 </html>
