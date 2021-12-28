@@ -67,9 +67,9 @@
                 </div>
             </div>
 
-            <select name="" id="" class="position-absolute me-3" style="top: -2.9rem; right: 20rem;">
+            <!-- <select name="" id="" class="position-absolute me-3" style="top: -2.9rem; right: 20rem;">
                 <option value="">Select Your Country</option>
-            </select>
+            </select> -->
         @else
 
             <div class="log-reg position-absolute">

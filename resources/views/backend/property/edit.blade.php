@@ -270,7 +270,38 @@
                 <br>
             
         </div>
-        <div class="col-md-5 p-1">                
+        <div class="col-md-5 p-1">  
+            <div class="card">
+                <div class="card-body">
+                    <div class="" style="border-style: ridge;border-width: 3px;padding: 20px;">
+                        <div class="row">
+                            <div class="col-12">
+                                <div>
+                                    <label for="google_panaroma" class="form-label mb-2">Google Panaroma</label>
+                                    <textarea class="form-control" rows="4" name="google_panaroma">{{$property->google_panaroma}}</textarea>                                    
+                                </div>  
+                            </div>                            
+                        </div>
+                        <div class="row mt-4">
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label class="mb-2 mt-2">Panaromal Images</label>
+                                    <div class="input-group" data-toggle="aizuploader" data-type="image" data-multiple="true">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text bg-soft-secondary font-weight-medium">Browse</div>
+                                        </div>
+                                        <div class="form-control file-amount">Choose File</div>
+                                        <input type="hidden" name="panaromal_images" value="{{$property->panaromal_images}}" class="selected-files" >
+                                    </div>
+                                    <div class="file-preview box sm">
+                                    </div>
+                                </div> 
+                            </div>
+                        </div>   
+                        
+                    </div>
+                </div>
+            </div>              
             <div class="card">
                 <div class="card-body">
                     <div class="" style="border-style: ridge;border-width: 3px;padding: 20px;">
