@@ -150,6 +150,7 @@ class PropertyController extends Controller
         $addprop->feature_image_id=$request->feature_image;
         $addprop->image_ids=$request->multiple_images;
         $addprop->panaromal_images=$request->panaromal_images;
+        $addprop->google_panaroma=$request->google_panaroma;
         $addprop->meta_description=$request->meta_description;        
         $addprop->slug=$request->slug;        
         $addprop->transaction_type=$request->transaction_type;
@@ -285,6 +286,7 @@ class PropertyController extends Controller
         $update->feature_image_id=$request->feature_image;
         $update->image_ids=$request->multiple_images;
         $update->panaromal_images=$request->panaromal_images;
+        $update->google_panaroma=$request->google_panaroma;
         $update->meta_description=$request->meta_description;        
         $update->slug=$request->slug;        
         $update->transaction_type=$request->transaction_type;
