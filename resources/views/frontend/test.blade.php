@@ -34,15 +34,72 @@
         }
     </style>
     <script>
+
+        let map;
+        let marker;
+        let locationData = [];
+
         function initMap() {
 
             const map = new google.maps.Map(document.getElementById("map"), {
                 zoom: 6,
-                center: { lat: -28.024, lng: 140.887 },
+                center: { lat: 20.5937, lng: 78.9629 },
             });
 
 
-            //change the center of map
+          
+
+          
+            // //center change event
+             // //center change event
+            map.addListener("dragend", () => {
+
+                // console.log(map.getCenter().toJSON());
+                var bound;
+                bound = map.getBounds();
+
+                var southWest = bound.getSouthWest().toJSON();
+                var northEast = bound.getNorthEast().toJSON();
+
+
+
+                //decode area
+                fromLat = southWest.lat;
+                toLat = northEast.lat;
+
+                fromLng = southWest.lng;
+                toLng = northEast.lng
+
+
+                // console.log(fromLat);
+                // console.log(toLat);
+                // console.log(fromLng);
+                // console.log(toLng);
+
+
+
+                //Get markers data from the backend
+                $.ajax({
+                    
+                    url: "{{ url('api/map_api') }}/"+ fromLat + "/" + toLat + "/" + fromLng + "/" + toLng,
+                    success: function(result) {
+
+          
+                    
+               
+           
+                   locationData = result;
+
+                   locationData = [
+                   {lat: '6.928351456700409', lng: '79.85454164303229', name: 'Hitlor', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing… qui officia deserunt mollit anim id est laborum.'},
+                       {lat: '6.698717247859398', lng: '80.38935484617542', name: 'Wije', description: 'Ratnapura Aparments'}
+                   ];
+                        
+
+                   
+                   
+
+                                      //change the center of map
             // map.setCenter({ lat: 7.8731, lng: 80.7718 });
 
             const contentString = ` <div id="content">
@@ -54,35 +111,32 @@
                 disableAutoPan: true,
             });
 
-    
-
             // Create an array of alphabetical characters used to label the markers.
             const labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
             // ----------------------locally add Marks to the map---------------------------
-
-            
-
-                        
-            const place = [
-                { lat: -61.56391, lng: 47.154312 },
-                { lat: -63.727111, lng: 50.371124 },
-            ]
-            
-
-  
+            locationData = [
+                {lat: 20.5937, lng: 78.9629},
+                {lat: 22.5937, lng: 78.9629}
+            ];
 
 
-
-            // Add some markers to the map.
-            const markers = place.map((position, i) => {
+         
+         
+       
+          
+                // Add some markers to the map.
+                const markers = locationData.map((position, i) => {
                 const label = labels[i % labels.length];
                 const marker = new google.maps.Marker({
                 position,
                 label,
                 });
 
+  
+        
 
+                
                 // markers can only be keyboard focusable when they have click listeners
                 // open info window when marker is clicked
                 marker.addListener("click", () => {
@@ -94,16 +148,11 @@
                 });
                 return marker;
             });
-
- 
+                       
+          
            
-           
-
-            
-
             // Add a marker clusterer to manage the markers.
             const markerCluster = new markerClusterer.MarkerClusterer({ map, markers });
-
 
              //Geolocation finder -(Your Location)
              const locationButton = document.createElement("button");
@@ -137,90 +186,33 @@
             });
 
 
-            // //center change event
-             // //center change event
-        map.addListener("dragend", () => {
-
-        // console.log(map.getCenter().toJSON());
-        var bound;
-        bound = map.getBounds();
-
-        var southWest = bound.getSouthWest().toJSON();
-        var northEast = bound.getNorthEast().toJSON();
 
 
-
-        //decode area
-        fromLat = southWest.lat;
-        toLat = northEast.lat;
-
-        fromLng = southWest.lng;
-        toLng = northEast.lng
-
-
-        // console.log(fromLat);
-        // console.log(toLat);
-        // console.log(fromLng);
-        // console.log(toLng);
-
-
-
-        //Get markers data from the backend
-        $.ajax({
-            url: "{{ url('api/map_api') }}/"+ fromLat + "/" + toLat + "/" + fromLng + "/" + toLng,
-            success: function(result) {
-            
-            
-            var locationData = result;
-
-
-            locationData = [
-                {id: 1, lat: -61.56391, lng: 47.154312, bed: "5", bathrrom: "3"},
-                {id:2, lat: -63.727111, lng: 50.371124, bed: "4", bathrrom: "2" },
-            ];
-
-
-            // Add some markers to the map.
-            const markers = place.map((position, i) => {
-            const label = labels[i % labels.length];
-            const marker = new google.maps.Marker({
-                position,
-                label,
-                });
-
-
-                // markers can only be keyboard focusable when they have click listeners
-                // open info window when marker is clicked
-                marker.addListener("click", () => {
-                infoWindow.open({
-                    anchor: marker,
-                    map,
-                    shouldFocus: false,
-                });
-                });
-                return marker;
-            });
-
-            
+           
+                    
 
             }
-        });
-
-
-
-
-        // const place = [
-        //         { lat: -61.56391, lng: 47.154312 },
-        //         { lat: -63.727111, lng: 50.371124 },
-        //     ]
-            
-
-
-
 
         });
+
+
+     
+
+
+
+        
+
+
+    });
+
+
+    
+           
+
+
 
         }
+
 
 
         function handleLocationError(browserHasGeolocation, infoWindow, pos) {
@@ -233,8 +225,7 @@
         }
 
 
-         
-
+           
            
     </script>
     <script src="https://unpkg.com/@googlemaps/markerclusterer/dist/index.min.js"></script>
