@@ -257,15 +257,30 @@ class HomeController extends Controller
     }
 
     public function map_api($fromLat,$toLat,$fromLng,$toLng){
-
          $data = DB::table('properties')
             ->where('lat', '>', $fromLat)
             ->where('lat', '<', $toLat)
             ->where('long', '>', $fromLng)
             ->where('long', '<', $toLng)
             ->get();
-        $response = response()->json($data);
-        return $response;
+         if(count($data) == 0){
+
+         }else{
+             $outArray = [];
+              foreach ($data as $datafunc){
+                $subOut = [
+                  'lat' => $datafunc->lat,
+                  'lng' => $datafunc->long,
+                  'name' => $datafunc->name,
+                  'description' => $datafunc->description,
+                ];
+                
+                array_push($outArray,$subOut);
+
+              }
+             $response = response()->json($outArray);
+             return $response;
+         }
     }
 
 
