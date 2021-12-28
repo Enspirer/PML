@@ -106,7 +106,7 @@
                 // console.log(locations);
             
              // Add some markers to the map.
-             const markers = locations.map((position, i) => {
+             const markers = subArray.map((position, i) => {
 
                 const label = labels[i % labels.length];
 
