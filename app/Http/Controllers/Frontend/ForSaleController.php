@@ -160,7 +160,11 @@ class ForSaleController extends Controller
 
         // dd($max_price);
 
-        $properties = Properties::where('admin_approval', 'Approved');
+        if(get_country_cookie(request()) == null ){
+            $properties = Properties::where('admin_approval', 'Approved')->where('sold_request',null);
+        }else{
+            $properties = Properties::where('admin_approval', 'Approved')->where('sold_request',null)->where('country',get_country_cookie(request())->id);
+        }
         // ->where('sold_request',null)
         // ->where('country',get_country_cookie(request())->country_name)
         
@@ -292,7 +296,13 @@ class ForSaleController extends Controller
         $agent = AgentRequest::where('user_id',$property->user_id)->first();
         // dd($property);
 
-        $random = Properties::where('admin_approval', 'Approved')->inRandomOrder()->limit(3)->get();
+        if(get_country_cookie(request()) == null ){
+            $random = Properties::where('admin_approval', 'Approved')->where('sold_request',null)->inRandomOrder()->limit(3)->get();
+        }else{
+            $random = Properties::where('admin_approval', 'Approved')->where('sold_request',null)->where('country',get_country_cookie(request())->id)->inRandomOrder()->limit(3)->get();
+        }
+
+        
 
         if(auth()->user())
         {

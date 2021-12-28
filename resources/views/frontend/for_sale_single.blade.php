@@ -127,7 +127,7 @@
 
                 <div class="row">
                     <div class="col-9">
-                        <h3 class="fw-bold mt-4 mb-1">LKR {{number_format($property->price,2)}}</h3>
+                        <h3 class="fw-bold mt-4 mb-1">{{ get_currency(request() ,$property->price)}}</h3>
 
                         <p class="fw-bold" style="font-size: 1.2rem; color: black">
                             @if($property->beds != null)
@@ -429,7 +429,7 @@
                                         <div class="card-body mt-3">
                                             <div class="row mb-2">
                                                 <div class="col-10">
-                                                    <h5 class="fw-bold">LKR {{number_format($ran->price,2)}}</h5>
+                                                    <h5 class="fw-bold">{{ get_currency(request() ,$ran->price)}}</h5>
                                                 </div>
                                                 <div class="col-1">
 

@@ -62,6 +62,8 @@ class HomeController extends Controller
 
         Cookie::queue("country_code", $country_code ,1000);
         return back();
+
+        // return redirect()->route('frontend.for_sale');
    
     }
 

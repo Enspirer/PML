@@ -85,7 +85,7 @@
 
         @if(isset(get_country_cookie(request())->country_id))
             
-              <form action="{{route('frontend.home_page')}}" method="post" >
+              <form action="{{route('frontend.country_change')}}" method="post" >
               {{csrf_field()}}
 
                 <select name="countries_list" class="position-absolute me-3" onchange="this.form.submit()">
@@ -114,9 +114,8 @@
 
               </form>
             @endif
+           
 
-
-            
     </div>
   </div>
 </nav>

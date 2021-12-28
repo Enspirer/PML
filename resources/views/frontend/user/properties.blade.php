@@ -65,7 +65,7 @@
                                                         @endif                                            
                                                     <p class="card-text mb-2">Property Type : {{ App\Models\PropertyType::where('id', $property->property_type)->first()->property_type_name }}</p>
                                                     
-                                                    <p class="mb-0 d-inline-block px-2 py-1 text-light mb-3" style="font-size: 0.8rem; background: #4195e1; border-radius: 7px;">${{ $property->price }}</p>
+                                                    <p class="mb-0 d-inline-block px-2 py-1 text-light mb-3" style="font-size: 0.8rem; background: #4195e1; border-radius: 7px;">{{ get_currency(request() ,$property->price)}}</p>
                                                     
 
                                                     <div class="row mt-4">
