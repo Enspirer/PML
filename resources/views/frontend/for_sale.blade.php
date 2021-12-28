@@ -103,8 +103,9 @@
                         @foreach($properties_promoted as $key => $property_pro)
                         <div class="col-4">
                             <div class="card custom-shadow position-relative" style="min-height: 370px;max-height: 300px;">
-                                <a href="{{ route('frontend.for_sale_single',$property_pro->id) }}" class="text-decoration-none text-dark">
-                                    <img src="{{ uploaded_asset($property_pro->feature_image_id) }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
+                                    <a href="{{ route('frontend.for_sale_single',$property_pro->id) }}" class="text-decoration-none text-dark">
+                                        <img src="{{ uploaded_asset($property_pro->feature_image_id) }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
+                                    </a>
                                     <div class="card-body mt-2">
                                         <div class="row mb-2">
                                             <div class="col-10">
@@ -171,11 +172,12 @@
                                         </div>                                        
                                         <div class="col-6 text-end">
                                             @if(App\Models\AgentRequest::where('user_id',$property_pro->user_id)->first() != null)
-                                                <img src="{{ uploaded_asset(App\Models\AgentRequest::where('user_id',$property_pro->user_id)->first()->logo) }}" width="50%" style="object-fit:cover">
+                                                <a href="{{route('frontend.individual_agent',App\Models\AgentRequest::where('user_id',$property_pro->user_id)->first()->id)}}" style="">
+                                                    <img src="{{ uploaded_asset(App\Models\AgentRequest::where('user_id',$property_pro->user_id)->first()->logo) }}" width="50%" style="object-fit:cover">
+                                                </a>
                                             @endif
                                         </div>
-                                    </div>
-                                </a>
+                                    </div>                                
                             </div>
                         </div>
                         @endforeach                    
