@@ -59,6 +59,17 @@
             </div>
         </a>
 
+        <a class="nav-link text-dark fw-bold ps-5 w-100 {{ Request::segment(1) == 'search_history' ? 'active' : null }}" id="nav-favorite-tab" href="{{ route('frontend.user.search_history') }}" type="button" role="tab" aria-controls="nav-favorite" aria-selected="false"> 
+            <div class="row align-items-center justify-content-between">
+                <div class="col-1">
+                    <img src="{{ url('img/frontend/profile/documents.png') }}" alt="">
+                </div>
+                <div class="col-10 ps-0">
+                    <p class="text-dark fw-bold">Saved Search History</p>
+                </div>
+            </div>
+        </a>
+
         @if(App\Models\AgentRequest::where('user_id',auth()->user()->id)->first() == null)
             <a class="nav-link border-0 w-100 px-5 mt-4 text-center" id="nav-agent-tab" href="{{ route('frontend.user.agent') }}" type="button" role="tab" aria-controls="nav-agent" aria-selected="false"><button class="btn py-2 w-75 text-dark fw-bold rounded-0" style="border: 1px solid black;">Become an Agent</button></a>
         @endif
@@ -69,7 +80,7 @@
             <a class="nav-link text-dark fw-bold ps-5 w-100 {{ Request::segment(1) == 'properties' ? 'active' : null }}" id="nav-favorite-tab" href="{{ route('frontend.user.properties') }}" type="button" role="tab" aria-controls="nav-favorite" aria-selected="false"> 
                 <div class="row align-items-center justify-content-between">
                     <div class="col-1">
-                        <img src="{{ url('img/frontend/profile/feedback.png') }}" alt="">
+                        <img src="{{ url('img/frontend/profile/flats.png') }}" alt="">
                     </div>
                     <div class="col-10 ps-0">
                         <p class="text-dark fw-bold">Properties</p>
@@ -86,7 +97,7 @@
             <a class="nav-link text-dark fw-bold ps-5 w-100 {{ Request::segment(1) == 'area-management-property-approval' ? 'active' : null }}" id="nav-favorite-tab" href="{{ route('frontend.user.area-management-property-approval') }}" type="button" role="tab" aria-controls="nav-favorite" aria-selected="false"> 
                 <div class="row align-items-center justify-content-between">
                     <div class="col-1">
-                        <img src="{{ url('img/frontend/profile/feedback.png') }}" alt="">
+                        <img src="{{ url('img/frontend/profile/medical-records.png') }}" alt="">
                     </div>
                     <div class="col-10 ps-0">
                         <p class="text-dark fw-bold">Property Approval</p>
@@ -97,7 +108,7 @@
             <a class="nav-link text-dark fw-bold ps-5 w-100 {{ Request::segment(1) == 'area-management-agent-approval' ? 'active' : null }}" id="nav-favorite-tab" href="{{ route('frontend.user.area-management-agent-approval') }}" type="button" role="tab" aria-controls="nav-favorite" aria-selected="false"> 
                 <div class="row align-items-center justify-content-between">
                     <div class="col-1">
-                        <img src="{{ url('img/frontend/profile/bookings.png') }}" alt="">
+                        <img src="{{ url('img/frontend/profile/approve.png') }}" alt="">
                     </div>
                     <div class="col-10 ps-0">
                         <p class="text-dark fw-bold">Agent Approval</p>
@@ -108,7 +119,7 @@
             <a class="nav-link text-dark fw-bold ps-5 w-100 {{ Request::segment(1) == 'area-management-supports' ? 'active' : null }}" id="nav-favorite-tab" href="{{ route('frontend.user.supports') }}" type="button" role="tab" aria-controls="nav-favorite" aria-selected="false"> 
                 <div class="row align-items-center justify-content-between">
                     <div class="col-1">
-                        <img src="{{ url('img/frontend/profile/bookings.png') }}" alt="">
+                        <img src="{{ url('img/frontend/profile/help.png') }}" alt="">
                     </div>
                     <div class="col-10 ps-0">
                         <p class="text-dark fw-bold">Help and Supports</p>

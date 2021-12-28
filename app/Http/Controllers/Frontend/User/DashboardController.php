@@ -12,7 +12,8 @@ use App\Models\Favorite;
 use App\Models\Country;
 use App\Models\Booking;
 use App\Models\Feedback;
-
+use App\Models\UserSearch;
+use DataTables;
 
 /**
  * Class DashboardController.
@@ -107,6 +108,34 @@ class DashboardController extends Controller
         return back(); 
         
     }
+
+    public function search_history()
+    {
+        return view('frontend.user.search_history');
+    }
+
+
+    public function search_history_get_details(Request $request)
+    {
+        $user_search = UserSearch::where('user_id',auth()->user()->id)->get();
+
+        if($request->ajax())
+        {
+            return DataTables::of($user_search)
+                    ->addColumn('action', function($data){
+                                              
+                        $button = '<form target="_blank"><button formaction="'.url($data->url).'" class="btn text-light table-btn me-4" style="background-color: #4195E1"> Click Here to Visit the Saved Page </button></form>';
+                        $button .= '<input type="hidden" name="hid_id" value="'.$data->id.'">';
+                        // $button .= '<button name="delete" id="'.$data->id.'" class="btn text-light table-btn disapprove" style="background-color: #FF2C4B;" data-bs-toggle="modal" data-bs-target="#exampleModal"> Disapprove</button>';
+
+                        return $button;
+                    })
+                    
+                    ->rawColumns(['action'])
+                    ->make(true);
+        }
+        return back();
+    }   
 
 
 

@@ -129,8 +129,10 @@ Route::group(['middleware' => ['auth', 'password_expires']], function () {
         Route::post('area-management/supports/update', [AreaManagementController::class, 'supportsUpdate'])->name('supports.update');
         Route::get('area-management/supports/delete/{id}', [AreaManagementController::class, 'supportsDelete'])->name('supports.delete');
 
-
-        
+        Route::get('search_history', [DashboardController::class, 'search_history'])->name('search_history');
+        Route::get('search_history_get_details', [DashboardController::class, 'search_history_get_details'])->name('search_history_get_details');
+    
+    
     });
 });
 
