@@ -400,7 +400,7 @@ locationButton.classList.add("custom-map-control-button");
                                 <img src="{{ uploaded_asset($featured_prop->feature_image_id) }}" alt=""
                                     class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
                                 <div class="card-body text-center">
-                                    <h5 class="fw-bold">${{$featured_prop->price}}</h5>
+                                    <h5 class="fw-bold">{{ get_currency(request() ,$featured_prop->price)}}</h5>
                                     @if($featured_prop->beds == null)
                                     @else
                                     <p>{{$featured_prop->beds}} Bed Semidetached house</p>
@@ -482,7 +482,7 @@ locationButton.classList.add("custom-map-control-button");
                         <img src="{{ uploaded_asset($latest_prop->feature_image_id) }}" alt="" class="img-fluid w-100"
                             style="height: 10rem; object-fit: cover;">
                         <div class="card-body text-center">
-                            <h5 class="fw-bold">${{$latest_prop->price}}</h5>
+                            <h5 class="fw-bold">{{ get_currency(request() ,$latest_prop->price)}}</h5>
                             @if($latest_prop->beds == null)
                             @else
                             <p>{{$latest_prop->beds}} Bed Semidetached house</p>

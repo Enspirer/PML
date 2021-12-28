@@ -208,6 +208,46 @@ if (! function_exists('get_country_cookie')) {
     }
 }
 
+if (! function_exists('get_currency')) {
+    /**
+     * Return the route to the "home" page depending on authentication/authorization status.
+     *
+     * @return string
+     */
+    function get_currency($request,$price)
+    {
+        $value = $request->cookie('country_code');
+
+        $country_details = Country::where('country_id',$value)->first();
+
+
+        if($country_details)
+        {
+            return $country_details->currency.' '.number_format($country_details->currency_rate * $price,2);
+        }else{
+            return 'USD '. number_format($price,2);
+        }
+    }
+}
+
+
+if (! function_exists('current_price')) {
+    /**
+     * Return the route to the "home" page depending on authentication/authorization status.
+     *
+     * @return string
+     */
+    function current_price($country_id,$price)
+    {
+        $country_details = Country::where('country_id',$country_id)->first();
+        if($country_details)
+        {
+            return $country_details->currency.' '.number_format($country_details->currency_rate * $price,2);
+        }else{
+            return 'USD '. number_format($price,2);
+        }
+    }
+}
 
 
 

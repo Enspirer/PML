@@ -33,13 +33,18 @@
         <div class="row" style="margin-bottom: 3rem;">
             <div class="col-9">
                 
-                <h4>Property for 
+                <h4>Properties for 
                     @if(ucfirst($transaction_type) == 'Transaction_type')
                         All
                     @else
                         {{ucfirst($transaction_type)}}
                     @endif
-                     in <span class="fw-bold">Sri Lanka</span></h4>
+
+                    @if(get_country_cookie(request()) != null)
+                        in                      
+                        <span class="fw-bold">{{get_country_cookie(request())->country_name}}</span>
+                     @endif
+                    </h4>
                     
                 <div class="row align-items-center">
                     <div class="col-6">
@@ -98,12 +103,13 @@
                         @foreach($properties_promoted as $key => $property_pro)
                         <div class="col-4">
                             <div class="card custom-shadow position-relative" style="min-height: 370px;max-height: 300px;">
-                                <a href="{{ route('frontend.for_sale_single',$property_pro->id) }}" class="text-decoration-none text-dark">
-                                    <img src="{{ uploaded_asset($property_pro->feature_image_id) }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
+                                    <a href="{{ route('frontend.for_sale_single',$property_pro->id) }}" class="text-decoration-none text-dark">
+                                        <img src="{{ uploaded_asset($property_pro->feature_image_id) }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
+                                    </a>
                                     <div class="card-body mt-2">
                                         <div class="row mb-2">
                                             <div class="col-10">
-                                                <h5 class="fw-bold">${{$property_pro->price}}</h5>
+                                                <h5 class="fw-bold">{{ get_currency(request() ,$property_pro->price)}}</h5>
                                             </div>
                                             <div class="col-1">
 
@@ -166,11 +172,12 @@
                                         </div>                                        
                                         <div class="col-6 text-end">
                                             @if(App\Models\AgentRequest::where('user_id',$property_pro->user_id)->first() != null)
-                                                <img src="{{ uploaded_asset(App\Models\AgentRequest::where('user_id',$property_pro->user_id)->first()->logo) }}" width="50%" style="object-fit:cover">
+                                                <a href="{{route('frontend.individual_agent',App\Models\AgentRequest::where('user_id',$property_pro->user_id)->first()->id)}}" style="">
+                                                    <img src="{{ uploaded_asset(App\Models\AgentRequest::where('user_id',$property_pro->user_id)->first()->logo) }}" width="50%" style="object-fit:cover">
+                                                </a>
                                             @endif
                                         </div>
-                                    </div>
-                                </a>
+                                    </div>                                
                             </div>
                         </div>
                         @endforeach                    
@@ -247,11 +254,11 @@
                                                 <div class="col-10">
                                                     @if($normal->price_options == 'Full')
                                                         <a href="{{ route('frontend.for_sale_single',$normal->id) }}" class="text-decoration-none text-dark">
-                                                            <h3 class="fw-bold">${{$normal->price}}</h3>
+                                                            <h3 class="fw-bold">{{ get_currency(request() ,$normal->price)}}</h3>
                                                         </a>
                                                     @else
                                                         <a href="{{ route('frontend.for_sale_single',$normal->id) }}" class="text-decoration-none text-dark">
-                                                            <h3 class="fw-bold">${{$normal->price}} <span class="fw-normal" style="font-size: 1rem; color: rgb(0, 0, 0, 0.45)">Per Perch</span></h3>
+                                                            <h3 class="fw-bold">{{ get_currency(request() ,$normal->price)}} <span class="fw-normal" style="font-size: 1rem; color: rgb(0, 0, 0, 0.45)">Per Perch</span></h3>
                                                         </a>
                                                     @endif
                                                 </div>                                                
@@ -371,11 +378,11 @@
                                                 <div class="col-10">
                                                     @if($normal->price_options == 'Full')
                                                         <a href="{{ route('frontend.for_sale_single',$normal->id) }}" class="text-decoration-none text-dark">
-                                                            <h3 class="fw-bold">${{$normal->price}}</h3>
+                                                            <h3 class="fw-bold">{{ get_currency(request() ,$normal->price)}}</h3>
                                                         </a>
                                                     @else
                                                         <a href="{{ route('frontend.for_sale_single',$normal->id) }}" class="text-decoration-none text-dark">
-                                                            <h3 class="fw-bold">${{$normal->price}} <span class="fw-normal" style="font-size: 1rem; color: rgb(0, 0, 0, 0.45)">Per Perch</span></h3>
+                                                            <h3 class="fw-bold">{{ get_currency(request() ,$normal->price)}} <span class="fw-normal" style="font-size: 1rem; color: rgb(0, 0, 0, 0.45)">Per Perch</span></h3>
                                                         </a>
                                                     @endif
                                                 </div>                                                

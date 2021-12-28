@@ -62,7 +62,7 @@
                                                 @endif
 
                                                 <!-- <p class="card-text">Lancaster, claited Kingdom</p> -->
-                                                <p class="mt-1 text-info">$ {{ $prop->price }}</p>
+                                                <p class="mt-1 text-info">{{ get_currency(request() ,$prop->price)}}</p>
 
                                                 <div class="row mt-3">
                                                     <div class="col-4">

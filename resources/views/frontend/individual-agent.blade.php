@@ -139,9 +139,9 @@
                                             <h3>{{$prop->name}}</h3>
 
                                         @if($prop->price_options == 'Full')
-                                            <h4>${{$prop->price}}</h4>
+                                            <h4>{{ get_currency(request() ,$prop->price)}}</h4>
                                         @else
-                                            <h4>${{$prop->price}} <span class="fw-normal" style="font-size: 0.9rem; color: rgb(0, 0, 0, 0.45)">Per Perch</span></h4>
+                                            <h4>{{ get_currency(request() ,$prop->price)}} <span class="fw-normal" style="font-size: 0.9rem; color: rgb(0, 0, 0, 0.45)">Per Perch</span></h4>
                                         @endif
 
                                         <h5>{{App\Models\Location::where('id',$prop->area)->first()->district }}, {{App\Models\Country::where('id',$prop->country)->first()->country_name }}</h5>
@@ -203,9 +203,9 @@
                                             <h3>{{$prop->name}}</h3>
 
                                         @if($prop->price_options == 'Full')
-                                            <h4>${{$prop->price}}</h4>
+                                            <h4>{{ get_currency(request() ,$prop->price)}}</h4>
                                         @else
-                                            <h4>${{$prop->price}} <span class="fw-normal" style="font-size: 0.9rem; color: rgb(0, 0, 0, 0.45)">Per Perch</span></h4>
+                                            <h4>{{ get_currency(request() ,$prop->price)}} <span class="fw-normal" style="font-size: 0.9rem; color: rgb(0, 0, 0, 0.45)">Per Perch</span></h4>
                                         @endif
 
                                         <h5>{{App\Models\Location::where('id',$prop->area)->first()->district }}, {{App\Models\Country::where('id',$prop->country)->first()->country_name }}</h5>
@@ -270,9 +270,9 @@
                                             <h3>{{$prop->name}}</h3>
 
                                         @if($prop->price_options == 'Full')
-                                            <h4>${{$prop->price}}</h4>
+                                            <h4>{{ get_currency(request() ,$prop->price)}}</h4>
                                         @else
-                                            <h4>${{$prop->price}} <span class="fw-normal" style="font-size: 0.9rem; color: rgb(0, 0, 0, 0.45)">Per Perch</span></h4>
+                                            <h4>{{ get_currency(request() ,$prop->price)}} <span class="fw-normal" style="font-size: 0.9rem; color: rgb(0, 0, 0, 0.45)">Per Perch</span></h4>
                                         @endif
 
                                         <h5>{{App\Models\Location::where('id',$prop->area)->first()->district }}, {{App\Models\Country::where('id',$prop->country)->first()->country_name }}</h5>
