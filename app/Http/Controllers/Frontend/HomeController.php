@@ -350,6 +350,22 @@ class HomeController extends Controller
 
         $outArray = [];
 
+        $countMaker = [
+            [
+            "I" =>"8482",
+            "T" => 2,
+            "X" => "79.910000",
+            "Y" => "6.905000",
+            "C" => 1
+            ],[
+                "I" =>"8482",
+                "T" => 2,
+                "X" => "79.881972",
+                "Y" => "6.967464",
+                "C" => 1
+            ]
+        ];
+
         if(count($data) == 0){
 
 
@@ -380,7 +396,7 @@ class HomeController extends Controller
             'Polylines' => [
 
             ],
-            'Markers' => $outArray
+            'Markers' => $countMaker
         ];
 
 
