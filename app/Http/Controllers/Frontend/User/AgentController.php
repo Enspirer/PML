@@ -304,6 +304,7 @@ class AgentController extends Controller
         $addprop->user_id = auth()->user()->id;
         $addprop->admin_approval='Pending';
         $addprop->area_manager_approval='Pending';
+        $addprop->listning_type='agent_listning';
 
         if($request->land_size){
             $addprop->land_size=$request->land_size;
@@ -393,6 +394,7 @@ class AgentController extends Controller
         $update->user_id = auth()->user()->id;
         $update->admin_approval='Pending';
         $update->area_manager_approval='Pending';
+        $update->listning_type='agent_listning';
 
         if($request->land_size){
             $update->land_size=$request->land_size;

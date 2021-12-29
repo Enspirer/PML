@@ -27,6 +27,13 @@ Breadcrumbs::for('admin.property.edit', function ($trail) {
     $trail->push('Edit', route('admin.property.edit',1));
 });
 
+Breadcrumbs::for('admin.free_listning.index', function ($trail) {
+    $trail->push('Free Listning', route('admin.free_listning.index'));
+});
+Breadcrumbs::for('admin.free_listning.edit', function ($trail) {
+    $trail->push('Edit', route('admin.free_listning.edit',1));
+});
+
 Breadcrumbs::for('admin.property_type.index', function ($trail) {
     $trail->push('Property Type', route('admin.property_type.index'));
 });

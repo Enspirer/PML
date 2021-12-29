@@ -14,6 +14,7 @@ use App\Http\Controllers\Backend\ContactUsController;
 use App\Http\Controllers\Backend\SearchController;
 use App\Http\Controllers\Backend\LocationController;
 use App\Http\Controllers\Backend\PropertyHistoryController;
+use App\Http\Controllers\Backend\FreeListningController;
 
 
 // All route names are prefixed with 'admin.'.
@@ -37,6 +38,11 @@ Route::post('property/update', [PropertyController::class, 'update'])->name('pro
 Route::get('property/delete/{id}', [PropertyController::class, 'destroy'])->name('property.destroy');
 Route::get('findLocWithCountryID/{id}', [PropertyController::class, 'findLocWithCountryID'])->name('findLocWithCountryID');
 
+Route::get('free_listning', [FreeListningController::class, 'index'])->name('free_listning.index');
+Route::get('free_listning/getdetails', [FreeListningController::class, 'getDetails'])->name('free_listning.getDetails');
+Route::get('free_listning/edit/{id}', [FreeListningController::class, 'edit'])->name('free_listning.edit');
+Route::post('free_listning/update', [FreeListningController::class, 'update'])->name('free_listning.update');
+Route::get('free_listning/delete/{id}', [FreeListningController::class, 'destroy'])->name('free_listning.destroy');
 
 Route::get('property_type', [PropertyTypeController::class, 'index'])->name('property_type.index');
 Route::get('property_type/create', [PropertyTypeController::class, 'create'])->name('property_type.create');

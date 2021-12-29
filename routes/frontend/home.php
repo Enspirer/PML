@@ -14,6 +14,7 @@ use App\Http\Controllers\Frontend\User\ProfileController;
 use App\Http\Controllers\Frontend\User\AgentController;
 use App\Http\Controllers\Frontend\User\AreaManagementController;
 use App\Http\Controllers\Frontend\IndividualAgentController;
+use App\Http\Controllers\Frontend\PreListningController;
 
 
 /*
@@ -67,6 +68,9 @@ Route::post('find-agent/store', [AgentsController::class, 'store'])->name('find-
 Route::get('find-agent/individual_agent/{id}', [IndividualAgentController::class, 'index'])->name('individual_agent');
 
 Route::get('individual_post/{id}', [HomeController::class, 'individual_post'])->name('individual_post');
+
+Route::get('pre_listing', [PreListningController::class, 'index'])->name('pre_listing');
+Route::post('pre_listing/store', [PreListningController::class, 'store'])->name('pre_listing.store');
 
 /*
  * These frontend controllers require the user to be logged in

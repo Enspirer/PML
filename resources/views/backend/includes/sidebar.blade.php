@@ -54,6 +54,11 @@
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link {{active_class(Route::is('admin/free_listning'))}}" href="{{ route('admin.free_listning.index') }}">
+                            Free Listning
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link {{active_class(Route::is('admin/property_type'))}}" href="{{ route('admin.property_type.index') }}">
                             Property Type
                         </a>
