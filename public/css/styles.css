@@ -8,6 +8,10 @@ h1, h2, h3, h4, h5, h6, p {
     margin-bottom: 0!important;
 }
 
+a:hover {
+    text-decoration: none !important;
+}
+
 p {
     font-size: 0.9rem;
     color: #666666;

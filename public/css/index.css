@@ -94,3 +94,9 @@ body {
 .sidebar-card {
     height: 634px;
 }
+
+p.card-text.mb-1 {
+    padding: 10px;
+    text-align: justify;
+    padding-bottom: 0;
+}
