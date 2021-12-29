@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\backend\PropertyController;
+use App\Http\Controllers\Backend\PropertyController;
 use App\Http\Controllers\Frontend\User\AgentController;
 use App\Http\Controllers\Frontend\HomeController;
 
