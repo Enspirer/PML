@@ -28,3 +28,4 @@ Route::get('map_api/{fromLat}/{toLat}/{fromLng}/{toLng}', [HomeController::class
 Route::get('facebook_news', [HomeController::class, 'facebook_news'])->name('facebook_news');
 Route::get('twitter_news', [HomeController::class, 'twitter_news'])->name('twitter_news');
 
+Route::get('test-markers',[HomeController::class, 'fake_makers'])->name('fake_makers');
