@@ -396,7 +396,7 @@ class HomeController extends Controller
             'Polylines' => [
 
             ],
-            'Markers' => $countMaker
+            'Markers' => json_encode($outArray)
         ];
 
 
