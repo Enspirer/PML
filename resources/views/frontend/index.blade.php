@@ -576,7 +576,7 @@ locationButton.classList.add("custom-map-control-button");
 
         <div class="col-3 fb">
                 <a href="https://www.facebook.com/tallentor" style="color:black" target="_blank" id="stack_panel">
-                    <div class="card" style="height: 25rem;">
+                    <div class="card" style="height: 26rem;">
                         <img id="facebook_src" src="" class="card-img-top" alt="..." style="object-fit: cover; height: 13rem;">
                         <div class="card-body">
                             <p class="card-text mb-1" id="description_fb"></p>
@@ -592,7 +592,7 @@ locationButton.classList.add("custom-map-control-button");
          
             <div class="col-3 twitter">
                 <a href="" style="color:black" target="_blank" class="twitter-link">
-                    <div class="card" style="height: 25rem;">
+                    <div class="card" style="height: 26rem;">
                         <img src="{{ url('img/twitter_large.png') }}" class="card-img-top" alt="..." style="object-fit: cover; height: 13rem;">
                         <div class="card-body">
                             <p class="card-text mb-1" id="description_twitter"></p>
@@ -609,7 +609,7 @@ locationButton.classList.add("custom-map-control-button");
             @if(count(App\Models\Posts::get()) != 0)
                 @foreach(App\Models\Posts::latest()->take(2)->get() as $key => $blog_posts)  
                     <div class="col-3">
-                        <div class="card" style="height: 25rem;">
+                        <div class="card" style="height: 26rem;">
                             <a href="{{url('individual_post',$blog_posts->id)}}" style="color:black; text-decoration:none">
                                 <img src="{{ uploaded_asset($blog_posts->feature_image) }}" class="card-img-top" alt="..." style="object-fit: cover; height: 13rem;">
                             </a>
@@ -620,10 +620,10 @@ locationButton.classList.add("custom-map-control-button");
                                     {{$blog_posts->description}}</p>
 
                                 <div class="row justify-content-between mt-3 align-items-center">
-                                    <div class="col-7">
+                                    <div class="col-6">
                                         <!-- <p style="color: #55ACEE; font-size: 0.8rem">7 minutes ago</p> -->
                                     </div>
-                                    <div class="col-5 text-end">                                       
+                                    <div class="col-6 text-end">                                       
 
                                         @if(App\Models\Category::where('id',$blog_posts->category)->first() != null)
                                             <a style="color: #0F9D58; font-size: 1.1rem;">{{App\Models\Category::where('id',$blog_posts->category)->first()->name}}</a>

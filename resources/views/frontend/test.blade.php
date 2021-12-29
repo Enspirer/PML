@@ -175,8 +175,8 @@
     </div>
 </div>
 <script lang="javascript">
-    var SITE_DOMAIN = '{{url('')}}';
-    var HTTP_APP_PATH = '{{url('')}}';
+    var SITE_DOMAIN = '{{url('')}}/';
+    var HTTP_APP_PATH = '{{url('')}}/';
     var ZOOM = 5;
     var MAP_CENTER_LAT = 40.45;
     var MAP_CENTER_LNG = -98.52;

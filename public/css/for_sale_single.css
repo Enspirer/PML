@@ -1,5 +1,5 @@
 .apart-avail {
-    left: 1.5rem;
+    left: 1rem;
     top: 1rem;
     z-index: 1;
 }
@@ -87,13 +87,35 @@ background-color: #35495E;
     padding: 0.9rem!important;
 }
 
-.features ::marker {
-    font-size: 1.8rem!important;
-}
-.features li {
-    font-size: 0.9rem;
+.card {
+    height: 100%;
 }
 
+.sidebar-card-area {
+    gap: 15px;
+}
+
+.sidebar-card-area .card-body.text-end {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+
+/* .features ::marker {
+    font-size: 1.8rem!important;
+} */
+
+
+.features li {
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+}
+
+.features li i {
+    font-size: 0.6rem;
+    padding-right: 15px;
+}
 
 .paragraph.collapse:not(.show) {
     display: flex;

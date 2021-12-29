@@ -35,14 +35,14 @@
                
             </div>
             <div class="col-3 ps-5">
-                <h5 class="fw-bolder mt-2 mb-4">Top Products</h5>
+                <h5 class="fw-bolder mt-2" style="margin-bottom:30px !important;">Top Products</h5>
                 <a href="" class="mb-3 d-block text-decoration-none no-result-list text-white">Tips for buyers</a>
                 <a href="" class="mb-3 d-block text-decoration-none no-result-list text-white">Tips for sellers</a>
                 <a href="" class="mb-3 d-block text-decoration-none no-result-list text-white">Commercial Resources</a>
                 <a href="" class="mb-3 d-block text-decoration-none no-result-list text-white">Marketing Service</a>
             </div>
             <div class="col-3 ps-5">
-                <h5 class="text-white fw-bolder mt-2 mb-4">Newsletter</h5>
+                <h5 class="text-white fw-bolder mt-2" style="margin-bottom:30px!important;">Newsletter</h5>
                 <p class="text-white">You can trust us. we only send promo offers, not a single spam.</p>
                 <form>
                     {{csrf_field()}}
@@ -53,7 +53,8 @@
                 </form>
             </div>
             <div class="col-3 ps-5">
-                <h5 class="fw-bolder mt-2 mb-4">About Us</h5>
+                <h5 class="fw-bolder mt-2" style="margin-bottom:30px !important;
+                ">About Us</h5>
                 <p class="text-white">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
             </div>
         </div>
