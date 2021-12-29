@@ -80,7 +80,7 @@
             <div class="log-reg position-absolute">
                 <a class="wishlist fw-bold d-inline-block px-4 text-decoration-none border-start border-end" href="{{ route('frontend.auth.login') }}"><i class="far fa-heart me-2"></i> Wish List</a>
 
-                <a class="wishlist fw-bold d-inline-block px-4 text-decoration-none border-start border-end" href="{{ route('frontend.auth.login') }}"><i class="far fa-heart me-2"></i> Second List</a>
+                <!-- <a class="wishlist fw-bold d-inline-block px-4 text-decoration-none border-start border-end" href="{{ route('frontend.auth.login') }}"><i class="far fa-heart me-2"></i> Second List</a> -->
                 
                 <a class="login fw-bold d-inline-block px-4 text-decoration-none" href="{{ route('frontend.auth.login') }}">Login</a>
 
