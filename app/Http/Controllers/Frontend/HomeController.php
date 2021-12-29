@@ -359,10 +359,10 @@ class HomeController extends Controller
             {
                 $impack_array = [
                     'I' => $cold_data->id,
-                    'T' => 2,
+                    'T' => 3,
                     'X' => $cold_data->long,
                     'Y' => $cold_data->lat,
-                    'C' => 2
+                    'C' => 1
                 ];
                 array_push($outArray,$impack_array);
             }
