@@ -44,31 +44,40 @@
                         checkboxClicked();" type="checkbox" name="check_all" id="check_all" value="-1"> Check All                        </label>
                 <div class="checkbox" style="height: 880px; overflow-y: scroll;">
                     <label style="margin-right: 9px; margin-bottom: 10px;">
-                        <input checked="checked" onclick="checkboxClicked();" type="checkbox" value="2"> <img src="https://demo.noxls.net/google-map-clustering-v3//static/img/ico/2.png" alt="unknown" title="unknown"> unknown                                </label>
+                        <input checked="checked" onclick="checkboxClicked();" type="checkbox" value="2"> 
+                        <img src="{{ url('img/frontend/map/icons/2.png') }}" alt="unknown" title="unknown"> unknown</label>
                     <br>
                     <label style="margin-right: 9px; margin-bottom: 10px;">
-                        <input checked="checked" onclick="checkboxClicked();" type="checkbox" value="3"> <img src="https://demo.noxls.net/google-map-clustering-v3//static/img/ico/3.png" alt="station" title="station"> station                                </label>
+                        <input checked="checked" onclick="checkboxClicked();" type="checkbox" value="3"> 
+                        <img src="{{ url('img/frontend/map/icons/3.png') }}" alt="station" title="station"> station                                </label>
                     <br>
                     <label style="margin-right: 9px; margin-bottom: 10px;">
-                        <input checked="checked" onclick="checkboxClicked();" type="checkbox" value="4"> <img src="https://demo.noxls.net/google-map-clustering-v3//static/img/ico/4.png" alt="port" title="port"> port                                </label>
+                        <input checked="checked" onclick="checkboxClicked();" type="checkbox" value="4"> 
+                        <img src="{{ url('img/frontend/map/icons/4.png') }}" alt="port" title="port"> port                                </label>
                     <br>
                     <label style="margin-right: 9px; margin-bottom: 10px;">
-                        <input checked="checked" onclick="checkboxClicked();" type="checkbox" value="5"> <img src="https://demo.noxls.net/google-map-clustering-v3//static/img/ico/5.png" alt="zb" title="zb"> zb                                </label>
+                        <input checked="checked" onclick="checkboxClicked();" type="checkbox" value="5"> 
+                        <img src="{{ url('img/frontend/map/icons/5.png') }}" alt="zb" title="zb"> zb                                </label>
                     <br>
                     <label style="margin-right: 9px; margin-bottom: 10px;">
-                        <input checked="checked" onclick="checkboxClicked();" type="checkbox" value="14"> <img src="https://demo.noxls.net/google-map-clustering-v3//static/img/ico/14.png" alt="Building" title="Building"> Building                                </label>
+                        <input checked="checked" onclick="checkboxClicked();" type="checkbox" value="14"> 
+                        <img src="{{ url('img/frontend/map/icons/14.png') }}" alt="Building" title="Building"> Building                                </label>
                     <br>
                     <label style="margin-right: 9px; margin-bottom: 10px;">
-                        <input checked="checked" onclick="checkboxClicked();" type="checkbox" value="15"> <img src="https://demo.noxls.net/google-map-clustering-v3//static/img/ico/15.png" alt="Gas Station" title="Gas Station"> Gas Station                                </label>
+                        <input checked="checked" onclick="checkboxClicked();" type="checkbox" value="15"> 
+                        <img src="{{ url('img/frontend/map/icons/15.png') }}" alt="Gas Station" title="Gas Station"> Gas Station                                </label>
                     <br>
                     <label style="margin-right: 9px; margin-bottom: 10px;">
-                        <input checked="checked" onclick="checkboxClicked();" type="checkbox" value="22"> <img src="https://demo.noxls.net/google-map-clustering-v3//static/img/ico/22.png" alt="banc" title="banc"> banc                                </label>
+                        <input checked="checked" onclick="checkboxClicked();" type="checkbox" value="22"> 
+                        <img src="{{ url('img/frontend/map/icons/22.png') }}" alt="banc" title="banc"> banc                                </label>
                     <br>
                     <label style="margin-right: 9px; margin-bottom: 10px;">
-                        <input checked="checked" onclick="checkboxClicked();" type="checkbox" value="23"> <img src="https://demo.noxls.net/google-map-clustering-v3//static/img/ico/23." alt="aaa" title="aaa"> aaa                                </label>
+                        <input checked="checked" onclick="checkboxClicked();" type="checkbox" value="23"> 
+                        <img src="{{ url('img/frontend/map/icons/22.png') }}" alt="aaa" title="aaa"> aaa                                </label>
                     <br>
                     <label style="margin-right: 9px; margin-bottom: 10px;">
-                        <input checked="checked" onclick="checkboxClicked();" type="checkbox" value="24"> <img src="https://demo.noxls.net/google-map-clustering-v3//static/img/ico/24." alt="aaa" title="aaa"> aaa                                </label>
+                        <input checked="checked" onclick="checkboxClicked();" type="checkbox" value="24"> 
+                        <img src="{{ url('img/frontend/map/icons/22.png') }}" alt="aaa" title="aaa"> aaa                                </label>
                     <br>
                 </div>
             </div>
@@ -180,7 +189,9 @@
     var MAP_STYLE = [{"featureType":"administrative","elementType":"all","stylers":[{"visibility":"on"},{"lightness":33}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#f2e5d4"}]},{"featureType":"poi.park","elementType":"geometry","stylers":[{"color":"#c5dac6"}]},{"featureType":"poi.park","elementType":"labels","stylers":[{"visibility":"on"},{"lightness":20}]},{"featureType":"road","elementType":"all","stylers":[{"lightness":20}]},{"featureType":"road.highway","elementType":"geometry","stylers":[{"color":"#c5c6c6"}]},{"featureType":"road.arterial","elementType":"geometry","stylers":[{"color":"#e4d7c6"}]},{"featureType":"road.local","elementType":"geometry","stylers":[{"color":"#fbfaf7"}]},{"featureType":"water","elementType":"all","stylers":[{"visibility":"on"},{"color":"#acbcc9"}]}];
 </script>
 <script src="{{url('js/index-normal.js')}}" type="text/javascript"></script>
-<script type="text/javascript" src="https://maps.google.com/maps/api/js?key=AIzaSyDpIH3JYQy5cayMmoaP1JHpp5jHUwYe0JQ&language=en"></script>
+<script type="text/javascript" src="https://maps.google.com/maps/api/js?key=AIzaSyDpIH3JYQy5cayMmoaP1JHpp5jHUwYe0JQ&language=en"></script> 
+<!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+<!-- <script async="" defer="" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEBj8LhHUJaf2MXpqIQ_MOXs7HkeUXnac&amp;callback=initMap" type="text/javascript"></script> -->
 <script type="text/javascript" src="https://demo.noxls.net/google-map-clustering-v3//static/js/mapclustering-normal.js"></script>
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
