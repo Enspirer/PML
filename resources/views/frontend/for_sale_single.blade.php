@@ -5,7 +5,81 @@
 @push('after-styles')
 <link href="{{ url('css/for_sale_single.css') }}" rel="stylesheet">
 
+<style>
+    * {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.modalDialog {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 99999;
+    opacity:0;
+    -webkit-transition: opacity 100ms ease-in;
+    -moz-transition: opacity 100ms ease-in;
+    transition: opacity 100ms ease-in;
+    pointer-events: none;
+}
+.modalDialog:target {
+    opacity:1;
+    pointer-events: auto;
+}
+.modalDialog > div {
+    width: 90%;
+    position: relative;
+    margin: 10% auto;
+    padding: 0;
+    border-radius: 3px;
+    background: #fff;
+}
+.close {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #fa3f6f;
+    color: #fff;
+    line-height: 25px;
+    position: absolute;
+    right: -12px;
+    text-align: center;
+    top: -10px;
+    width: 34px;
+    height: 34px;
+    text-decoration: none;
+    font-weight: bold;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    -moz-box-shadow: 1px 1px 3px #000;
+    -webkit-box-shadow: 1px 1px 3px #000;
+    box-shadow: 1px 1px 3px #000;
+    padding-top: 5px;
+    font-size: 1rem;
+}
+.close:hover {
+    background: #fa3f6f;
+}
 
+.btn-pano {
+    background: red;
+    color: #fff;
+    padding: 10px 20px;
+    margin-top: 20px;
+    display: block;
+    width: max-content;
+    margin-left: 60%;
+}
+
+.btn-pano:hover {
+    text-decoration: none;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    color: #fff;
+}
+
+</style>
 
 
 @endpush
@@ -19,38 +93,26 @@
 @include('frontend.includes.search')
 
 
-<script src="https://aframe.io/releases/0.6.1/aframe.min.js"></script>
 
 
 
 
 
-<!-- Button trigger modal -->
-<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
-    Launch demo modal
-</button> -->
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
 
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
-        </div>
-    </div>
-</div>
+
+
+<!--modals-->
+  <div id="openModal-about" class="modalDialog">
+      <div style="height:80vh;margin-bottom:10vh;margin-top:10vh;"> 
+         <a href="#close" title="Close" class="close">X</a>
+        <!-- iframe -->
+        <iframe src="http://127.0.0.1:8000/pano" frameborder="0" width="100%" height="100%"></iframe> 
+       </div>
+   </div>
+
+
+
 @if ( session()->has('message'))
 <div class="" style="background-color: rgb(22 32 44);text-align: center;color: white;">
     <div class="container">
@@ -113,13 +175,8 @@
                             @endphp
                             @foreach($str_arr2 as $key=> $pre)
                             <div class="swiper-slide">
-                                <!-- <img src="{{ uploaded_asset($pre) }}" /> -->
-                                <a-scene>
-                                    <a-assets>
-                                        <img id="panorama" src="https://c1.staticflickr.com/5/4302/35137573294_1287bfd0ae_k.jpg" crossorigin />
-                                    </a-assets>
-                                    <a-sky src="#panorama" rotation="0 -90 0"></a-sky>
-                                </a-scene>
+                                <img src="{{ uploaded_asset($pre) }}" />
+
                             </div>
                             @endforeach
                             <!-- <div class="swiper-slide">
@@ -169,7 +226,7 @@
                     </div>
                 </div>
             </div>
-
+            <a class="btn-pano" href="#openModal-about">360<sup>0</sup> View</a>
             <div class="row">
                 <div class="col-9">
                     <h3 class="fw-bold mt-4 mb-1">{{ get_currency(request() ,$property->price)}}</h3>

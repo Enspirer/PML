@@ -56,6 +56,8 @@
             <div class="log-reg position-absolute" style="top: -4.1rem">
                 <a class="wishlist fw-bold d-inline-block px-4 text-decoration-none border-start border-end text-white" href="{{url('favourites')}}"><i class="far fa-heart me-2"></i> Wish List</a>
 
+                <a class="wishlist fw-bold d-inline-block px-4 text-decoration-none border-start border-end" href="{{ route('frontend.auth.login') }}"><i class="far fa-heart me-2"></i> Second List</a>
+
                 <a class="nav-link dropdown-toggle d-inline-block ps-4 mb-4" href="{{route('frontend.auth.login')}}" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <img src="{{ url('img/frontend/user.jpg') }}" class="rounded-circle" style="height: 50px; width: 50px; margin-right: 1.4rem;"> <span class="text-white fw-bold user-name">{{auth()->user()->first_name}}</span>
                 </a>
@@ -74,6 +76,8 @@
 
             <div class="log-reg position-absolute">
                 <a class="wishlist fw-bold d-inline-block px-4 text-decoration-none border-start border-end" href="{{ route('frontend.auth.login') }}"><i class="far fa-heart me-2"></i> Wish List</a>
+
+                <a class="wishlist fw-bold d-inline-block px-4 text-decoration-none border-start border-end" href="{{ route('frontend.auth.login') }}"><i class="far fa-heart me-2"></i> Second List</a>
                 
                 <a class="login fw-bold d-inline-block px-4 text-decoration-none" href="{{ route('frontend.auth.login') }}">Login</a>
 

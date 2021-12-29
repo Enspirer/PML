@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Frontend\ContactController;
 use App\Http\Controllers\Frontend\TestController;
+use App\Http\Controllers\Frontend\PanoController;
 use App\Http\Controllers\Frontend\AizUploadController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\ForSaleController;
@@ -43,6 +44,7 @@ Route::get('lands', [LandsController::class, 'index'])->name('lands');
 Route::get('lands/single-property', [LandsController::class, 'singleProperty'])->name('lands_single');
 Route::get('new-development', [NewDevelopmentController::class, 'index'])->name('new_development');
 Route::get('test', [TestController::class, 'index'])->name('test');
+Route::get('pano', [PanoController::class, 'index'])->name('pano');
 
 // Route::get('agents', [AgentsController::class, 'index'])->name('agents');
 
