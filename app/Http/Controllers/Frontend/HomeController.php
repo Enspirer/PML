@@ -360,14 +360,14 @@ class HomeController extends Controller
                 $impack_array = [
                     'I' => $cold_data->id,
                     'T' => 2,
-                    'X' => $cold_data->long,
-                    'Y' => $cold_data->lat,
+                    'X' => $cold_data->lat,
+                    'Y' => $cold_data->long,
                     'C' => 2
                 ];
                 array_push($outArray,$impack_array);
             }
         }
-       
+
 
 
         $mainAarray = [
