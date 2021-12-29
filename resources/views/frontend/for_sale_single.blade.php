@@ -35,11 +35,11 @@
     margin: 10% auto;
     padding: 0;
     border-radius: 3px;
-    background: #fff;
 }
 .close {
     font-family: Arial, Helvetica, sans-serif;
     background: #fa3f6f;
+    opacity: 1;
     color: #fff;
     line-height: 25px;
     position: absolute;
@@ -61,6 +61,7 @@
 }
 .close:hover {
     background: #fa3f6f;
+    color: #fff;
 }
 
 .btn-pano {
@@ -70,7 +71,7 @@
     margin-top: 20px;
     display: block;
     width: max-content;
-    margin-left: 60%;
+    margin-left: auto;
 }
 
 .btn-pano:hover {
@@ -226,7 +227,10 @@
                     </div>
                 </div>
             </div>
-            <a class="btn-pano" href="#openModal-about">360<sup>0</sup> View</a>
+            <div class="col-9">
+                <a class="btn-pano" href="#openModal-about">360<sup>0</sup> View</a>
+            </div>
+           
             <div class="row">
                 <div class="col-9">
                     <h3 class="fw-bold mt-4 mb-1">{{ get_currency(request() ,$property->price)}}</h3>
@@ -564,7 +568,7 @@
                                         <div class="col-10">
                                             <h5 class="fw-bold">{{ get_currency(request() ,$ran->price)}}</h5>
                                         </div>
-                                        <div class="col-1">
+                                        <div style="display:flex;justify-content:center;" class="col-1">
 
                                             @php
                                             if(auth()->user())
@@ -646,7 +650,7 @@
                                         <a
                                             href="{{route('frontend.individual_agent',App\Models\AgentRequest::where('user_id',$ran->user_id)->first()->id)}}">
                                             <img src="{{ uploaded_asset(App\Models\AgentRequest::where('user_id',$ran->user_id)->first()->logo) }}"
-                                                width="50%" style="object-fit:cover">
+                                                width="50px" height="50px" style="object-fit:cover">
                                         </a>
                                         @endif
                                     </div>

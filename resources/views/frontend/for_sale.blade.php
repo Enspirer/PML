@@ -106,12 +106,12 @@
                                     <a href="{{ route('frontend.for_sale_single',$property_pro->id) }}" class="text-decoration-none text-dark">
                                         <img src="{{ uploaded_asset($property_pro->feature_image_id) }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
                                     </a>
-                                    <div class="card-body mt-2">
+                                    <div class="card-body mt-2" style="margin-top:30px !important;">
                                         <div class="row mb-2">
                                             <div class="col-10">
                                                 <h5 class="fw-bold">{{ get_currency(request() ,$property_pro->price)}}</h5>
                                             </div>
-                                            <div class="col-1">
+                                            <div class="col-1" style="display:flex; justify-content:center;">
 
                                                  @php
                                                     if(auth()->user())

@@ -31,6 +31,7 @@
 .prom-logo {
     top: 8.5rem;
     left: 1rem;
+    width: 100%;
 }
 .tooltip.show {
     opacity: 1;
