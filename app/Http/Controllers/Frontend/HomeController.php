@@ -373,8 +373,10 @@ class HomeController extends Controller
         }else{
             foreach ($data  as $cold_data)
             {
+                $strID = (string) $cold_data->id;
+
                 $impack_array = [
-                    'I' => $cold_data->id,
+                    'I' => $strID,
                     'T' => 3,
                     'X' => substr($cold_data->long, 0, 10) ,
                     'Y' => substr($cold_data->lat, 0, 10),
