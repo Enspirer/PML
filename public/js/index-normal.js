@@ -22,7 +22,7 @@ function list_markers(page, search_text) {
         "search_text": search_text,
         "filter": filter,
     }
-    $.getJSON(HTTP_APP_PATH + "api/test-markers",
+    $.getJSON(HTTP_APP_PATH + "/api/test-markers",
         params,
         function (data) {
             var items = [];
