@@ -195,12 +195,9 @@ button.close:hover {
                             @if($pano_arry)
                                 @foreach($pano_arry  as $panoarray)
                                     <div class="swiper-slide">
-                                        <h3>{{$panoarray}}</h3>
                                         <a href="#" data-toggle="modal" data-target="#panoModal" onclick="changePanaroma('{{ $panoarray }}')">
                                         <img src="{{ uploaded_asset($panoarray) }}" />
                                         </a>
-                                        
-
                                     </div>
                                 @endforeach
                             @endif
@@ -211,18 +208,6 @@ button.close:hover {
 
                             </div>
                             @endforeach
-                            <!-- <div class="swiper-slide">
-                                    <img src="{{ url('img/frontend/for_sale/2.png') }}" />
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="{{ url('img/frontend/for_sale/3.png') }}" />
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="{{ url('img/frontend/for_sale/4.png') }}" />
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="{{ url('img/frontend/for_sale/5.png') }}" />
-                                </div> -->
                         </div>
                         <div class="swiper-button-next"></div>
                         <div class="swiper-button-prev"></div>
@@ -237,23 +222,21 @@ button.close:hover {
                 <div class="col-3">
                     <div thumbsSlider="" class="swiper mySwiper">
                         <div class="swiper-wrapper">
+                            @if($pano_arry)
+                                @foreach($pano_arry  as $panoarray)
+                                    <div class="swiper-slide">
+                                        <img src="{{ uploaded_asset($panoarray) }}" />
+                                    </div>
+                                @endforeach
+                            @endif
+
                             @foreach($str_arr2 as $key=> $pre)
                             <div class="swiper-slide">
                                 <img src="{{ uploaded_asset($pre) }}" />
+
                             </div>
                             @endforeach
-                            <!-- <div class="swiper-slide">
-                                    <img src="{{ url('img/frontend/for_sale/2.png') }}" />
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="{{ url('img/frontend/for_sale/3.png') }}" />
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="{{ url('img/frontend/for_sale/4.png') }}" />
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="{{ url('img/frontend/for_sale/5.png') }}" />
-                                </div> -->
+                         
                         </div>
                     </div>
                 </div>
@@ -1027,13 +1010,12 @@ button.close:hover {
 
 
 function changePanaroma(panaromalId) {
-
-    var panoURL = "http://127.0.0.1:8000/pano/" +  panaromalId;
+    
+    let panoURL = "{{url('/')}}/pano/" + panaromalId;
 
     document.getElementById("panoFrame").src = panoURL;
 
     // $("#panoFrame")
-
 
 }                                        
 
