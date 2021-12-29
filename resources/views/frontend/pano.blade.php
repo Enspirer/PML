@@ -22,10 +22,12 @@ html, body {
 <script src="//cdn.jsdelivr.net/npm/panolens@0.11.0/build/panolens.min.js"></script>
 </head>
 <body>
+
+
 <script>
       var panorama, viewer;
   
-      var panoImg = "{{url('img/pano.jpg')}}";
+      var panoImg = "{{uploaded_asset($image_id)}}";
   
       panorama = new PANOLENS.ImagePanorama(panoImg);
 

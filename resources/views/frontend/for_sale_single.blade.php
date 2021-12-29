@@ -108,7 +108,7 @@
       <div style="height:80vh;margin-bottom:10vh;margin-top:10vh;"> 
          <a href="#close" title="Close" class="close">X</a>
         <!-- iframe -->
-        <iframe src="http://127.0.0.1:8000/pano" frameborder="0" width="100%" height="100%"></iframe> 
+        <iframe src="http://127.0.0.1:8000/pano/1" frameborder="0" width="100%" height="100%"></iframe>
        </div>
    </div>
 
@@ -173,7 +173,29 @@
                         <div class="swiper-wrapper">
                             @php
                             $str_arr2 = preg_split ("/\,/", $property->image_ids);
+
                             @endphp
+
+                            @if($property->panaromal_images)
+                                @php
+                                    $pano_arry = preg_split ("/\,/", $property->panaromal_images);
+                                @endphp
+                            @else
+                                @php
+                                    $pano_arry = null;
+                                @endphp
+                            @endif
+
+                            @if($pano_arry)
+                                @foreach($pano_arry  as $panoarray)
+                                    <div class="swiper-slide">
+                                        <h3>Panoromal</h3>
+                                        <img src="{{ uploaded_asset($panoarray) }}" />
+
+                                    </div>
+                                @endforeach
+                            @endif
+
                             @foreach($str_arr2 as $key=> $pre)
                             <div class="swiper-slide">
                                 <img src="{{ uploaded_asset($pre) }}" />

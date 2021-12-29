@@ -10,8 +10,11 @@ class PanoController extends Controller
     /**
      * @return \Illuminate\View\View
      */
-    public function index()
+    public function index($image_id)
     {
-        return view('frontend.pano');
+        return view('frontend.pano',
+            [
+                'image_id' => $image_id
+            ]);
     }
 }
