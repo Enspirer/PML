@@ -367,7 +367,7 @@ class HomeController extends Controller
         ];
 
         if(count($data) == 0){
-
+            $data = DB::table('properties')->get();
 
 
         }else{
