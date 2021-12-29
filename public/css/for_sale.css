@@ -79,3 +79,15 @@ background-color: #35495E;
 .featured_properties .card:hover {
     border: 1px solid black;;
 }
+
+.single-filter-btn {
+    width: max-content;
+}
+
+.card {
+    height: 100%;
+}
+
+.sidebar-card-area {
+    gap: 15px;
+}

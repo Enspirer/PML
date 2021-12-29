@@ -42,3 +42,16 @@
 .card-body {
     padding: 0.9rem!important;
 }
+
+.card {
+    height: 100%;
+}
+
+.sidebar-card-area {
+    gap: 15px;
+}
+
+.agent-show-more-btn {
+    color: #212529;
+    font-size: 0.9rem;
+}

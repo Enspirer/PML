@@ -177,7 +177,7 @@
                                             </div>
 
                                             <div class="col-12">
-                                                <a href="{{route('frontend.individual_agent',$agent->id)}}" class="fw-bold text-decoration-underline" style="color: #35495E; font-size: 0.8rem">Show More</a>
+                                                <a href="{{route('frontend.individual_agent',$agent->id)}}" class="fw-bold agent-show-more-btn rounded-pill"><i style="padding-right:5px;" class="fas fa-chevron-circle-right"></i>Show More</a>
                                             </div>
                                         </div>
                                     </div>
@@ -200,7 +200,7 @@
             
 
             <div class="col-3">
-                <div class="row">
+                <div class="row sidebar-card-area">
                     <div class="col-12 p-0 mb-4 custom-shadow">
                         <div class="card">
                             <img src="{{ uploaded_asset(get_settings('agents_page_advertiment_1')) }}" class="img-fluid" alt="..." style="object-fit: cover; height: 15rem;">
