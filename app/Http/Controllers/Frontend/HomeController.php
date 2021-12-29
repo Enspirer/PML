@@ -341,8 +341,50 @@ class HomeController extends Controller
 
     public function fake_makers(Request $request)
     {
-        dd($request);
-        return 'sss';
+        $data = DB::table('properties')
+            ->where('lat', '>', str_replace("_",".",$request->swlat) )
+            ->where('lat', '<',  str_replace("_",".", $request->nelat) )
+            ->where('long', '>',  str_replace("_",".",$request->swlon) )
+            ->where('long', '<',  str_replace("_",".",$request->nelon) )
+            ->get();
+
+        $outArray = [];
+
+        if(count($data) == 0){
+
+
+
+        }else{
+            foreach ($data  as $cold_data)
+            {
+                $impack_array = [
+                    'I' => $cold_data->id,
+                    'T' => 2,
+                    'X' => $cold_data->lat,
+                    'Y' => $cold_data->long,
+                    'C' => 2
+                ];
+                array_push($outArray,$impack_array);
+            }
+        }
+
+
+
+        $mainAarray = [
+            'EMsg' => "",
+            'Msec' => 185,
+            'Ok' => 1,
+            'Rid' => 24,
+            'Count'=> count($data),
+            'Mia' => 0,
+            'Polylines' => [
+
+            ],
+            'Markers' => $outArray
+        ];
+
+
+        return response()->json($mainAarray);
     }
 
 
