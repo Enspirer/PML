@@ -29,3 +29,7 @@ Route::get('facebook_news', [HomeController::class, 'facebook_news'])->name('fac
 Route::get('twitter_news', [HomeController::class, 'twitter_news'])->name('twitter_news');
 
 Route::get('test-markers',[HomeController::class, 'fake_makers'])->name('fake_makers');
+
+
+
+Route::get('test_api', [HomeController::class, 'test_api'])->name('test_api');
