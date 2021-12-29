@@ -189,7 +189,7 @@
     var MAP_STYLE = [{"featureType":"administrative","elementType":"all","stylers":[{"visibility":"on"},{"lightness":33}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#f2e5d4"}]},{"featureType":"poi.park","elementType":"geometry","stylers":[{"color":"#c5dac6"}]},{"featureType":"poi.park","elementType":"labels","stylers":[{"visibility":"on"},{"lightness":20}]},{"featureType":"road","elementType":"all","stylers":[{"lightness":20}]},{"featureType":"road.highway","elementType":"geometry","stylers":[{"color":"#c5c6c6"}]},{"featureType":"road.arterial","elementType":"geometry","stylers":[{"color":"#e4d7c6"}]},{"featureType":"road.local","elementType":"geometry","stylers":[{"color":"#fbfaf7"}]},{"featureType":"water","elementType":"all","stylers":[{"visibility":"on"},{"color":"#acbcc9"}]}];
 </script>
 <script src="{{url('js/index-normal.js')}}" type="text/javascript"></script>
-<script type="text/javascript" src="https://maps.google.com/maps/api/js?key=AIzaSyDpIH3JYQy5cayMmoaP1JHpp5jHUwYe0JQ&language=en"></script> 
+<script type="text/javascript" src="https://maps.google.com/maps/api/js?key=AIzaSyAEBj8LhHUJaf2MXpqIQ_MOXs7HkeUXnac&language=en"></script>
 <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
 <!-- <script async="" defer="" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEBj8LhHUJaf2MXpqIQ_MOXs7HkeUXnac&amp;callback=initMap" type="text/javascript"></script> -->
 <script type="text/javascript" src="https://demo.noxls.net/google-map-clustering-v3//static/js/mapclustering-normal.js"></script>
