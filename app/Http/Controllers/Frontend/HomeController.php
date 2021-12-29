@@ -346,4 +346,19 @@ class HomeController extends Controller
     }
 
 
+
+
+    public function test_api(Request $request)
+    {       
+
+      
+        if($booking){
+            return json_encode($booking);
+        }else{
+            return json_encode('no_data');
+        }              
+
+    }
+
+
 }
