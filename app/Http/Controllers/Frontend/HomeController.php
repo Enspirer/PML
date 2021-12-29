@@ -377,7 +377,7 @@ class HomeController extends Controller
                     'T' => 2,
                     'X' => substr($cold_data->long, 0, 10) ,
                     'Y' => substr($cold_data->lat, 0, 10),
-                    'C' => 1
+                    'C' => 3
                 ];
                 array_push($outArray,$impack_array);
             }
