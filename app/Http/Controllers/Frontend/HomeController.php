@@ -342,10 +342,10 @@ class HomeController extends Controller
     public function fake_makers(Request $request)
     {
         $data = DB::table('properties')
-            ->where('lat', '>', str_replace("_",".",$request->nelat) )
-            ->where('lat', '<',  str_replace("_",".",$request->swlat) )
-            ->where('long', '>',  str_replace("_",".",$request->nelon) )
-            ->where('long', '<',  str_replace("_",".",$request->swlon) )
+            ->where('lat', '>', str_replace("_",".",$request->swlat) )
+            ->where('lat', '<',  str_replace("_",".", $request->nelat) )
+            ->where('long', '>',  str_replace("_",".",$request->swlon) )
+            ->where('long', '<',  str_replace("_",".",$request->nelon) )
             ->get();
         dd($data);
 
