@@ -6,63 +6,7 @@
 <link href="{{ url('css/for_sale_single.css') }}" rel="stylesheet">
 
 <style>
-    * {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-}
-.modalDialog {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background: rgba(0, 0, 0, 0.8);
-    z-index: 99999;
-    opacity:0;
-    -webkit-transition: opacity 100ms ease-in;
-    -moz-transition: opacity 100ms ease-in;
-    transition: opacity 100ms ease-in;
-    pointer-events: none;
-}
-.modalDialog:target {
-    opacity:1;
-    pointer-events: auto;
-}
-.modalDialog > div {
-    width: 90%;
-    position: relative;
-    margin: 10% auto;
-    padding: 0;
-    border-radius: 3px;
-}
-.close {
-    font-family: Arial, Helvetica, sans-serif;
-    background: #fa3f6f;
-    opacity: 1;
-    color: #fff;
-    line-height: 25px;
-    position: absolute;
-    right: -12px;
-    text-align: center;
-    top: -10px;
-    width: 34px;
-    height: 34px;
-    text-decoration: none;
-    font-weight: bold;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    border-radius: 50%;
-    -moz-box-shadow: 1px 1px 3px #000;
-    -webkit-box-shadow: 1px 1px 3px #000;
-    box-shadow: 1px 1px 3px #000;
-    padding-top: 5px;
-    font-size: 1rem;
-}
-.close:hover {
-    background: #fa3f6f;
-    color: #fff;
-}
+
 
 .btn-pano {
     background: red;
@@ -77,6 +21,48 @@
 .btn-pano:hover {
     text-decoration: none;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    color: #fff;
+}
+
+.modal-dialog {
+    max-width: 90%;
+}
+
+.modal-content .modal-body {
+    padding: 0 !important;
+    position: relative;
+}
+
+
+button.close {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    background: #000;
+    color: #fff;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+}
+
+.modal-content {
+    height: 90vh;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+} 
+
+#panoFrame {
+    height: 90vh;
+    background: #000;
+}
+
+.modal-body {
+    height: 90vh;
+    max-height: unset !important;
+    overflow: hidden !important;
+}
+
+button.close:hover {
     color: #fff;
 }
 
@@ -104,15 +90,35 @@
 
 
 <!--modals-->
-  <div id="openModal-about" class="modalDialog">
+  <!-- <div id="openModal-about" class="modalDialog">
       <div style="height:80vh;margin-bottom:10vh;margin-top:10vh;"> 
-         <a href="#close" title="Close" class="close">X</a>
+         <a href="" title="Close" class="close">X</a> -->
         <!-- iframe -->
-        <iframe src="http://127.0.0.1:8000/pano/1" frameborder="0" width="100%" height="100%"></iframe>
-       </div>
-   </div>
+        <!-- <iframe id="panoFrame" src="" frameborder="0" width="100%" height="100%"></iframe>  -->
+       <!-- </div>
+   </div> -->
+<!-- 
 
-
+<!-- Modal -->
+<div class="modal fade" id="panoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <!-- <div class="modal-header">
+        
+      </div> -->
+      <div class="modal-body">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+           <!-- iframe -->
+           <iframe id="panoFrame" src="" frameborder="0" width="100%" height="100%"></iframe>
+      </div>
+      <!-- <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div> -->
+    </div>
+  </div>
+</div> 
 
 @if ( session()->has('message'))
 <div class="" style="background-color: rgb(22 32 44);text-align: center;color: white;">
@@ -189,8 +195,11 @@
                             @if($pano_arry)
                                 @foreach($pano_arry  as $panoarray)
                                     <div class="swiper-slide">
-                                        <h3>Panoromal</h3>
+                                        <h3>{{$panoarray}}</h3>
+                                        <a href="#" data-toggle="modal" data-target="#panoModal" onclick="changePanaroma('{{ $panoarray }}')">
                                         <img src="{{ uploaded_asset($panoarray) }}" />
+                                        </a>
+                                        
 
                                     </div>
                                 @endforeach
@@ -249,9 +258,9 @@
                     </div>
                 </div>
             </div>
-            <div class="col-9">
+            <!-- <div class="col-9">
                 <a class="btn-pano" href="#openModal-about">360<sup>0</sup> View</a>
-            </div>
+            </div> -->
            
             <div class="row">
                 <div class="col-9">
@@ -1014,7 +1023,24 @@
 
 @push('after-scripts')
 
+<script>
 
+
+function changePanaroma(panaromalId) {
+
+    var panoURL = "http://127.0.0.1:8000/pano/" +  panaromalId;
+
+    document.getElementById("panoFrame").src = panoURL;
+
+    // $("#panoFrame")
+
+
+}                                        
+
+
+
+
+</script>
 
 
 <script>
