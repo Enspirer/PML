@@ -375,7 +375,7 @@ class HomeController extends Controller
             'Msec' => 185,
             'Ok' => 1,
             'Rid' => 24,
-            'Count'=> 12,
+            'Count'=> count($data),
             'Mia' => 0,
             'Polylines' => [
 
