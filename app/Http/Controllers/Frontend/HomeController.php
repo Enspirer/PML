@@ -392,7 +392,7 @@ class HomeController extends Controller
             'EMsg' => "",
             'Msec' => 185,
             'Ok' => 1,
-            'Rid' => 24,
+            'Rid' => $request->sid,
             'Count'=> count($data),
             'Mia' => 0,
             'Polylines' => [
