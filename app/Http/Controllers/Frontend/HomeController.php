@@ -343,8 +343,8 @@ class HomeController extends Controller
     {
         $data = DB::table('properties')
             ->where('lat', '>', str_replace("_",".",$request->nelat) )
-            ->where('lat', '<',  str_replace("_",".",$request->nelon) )
-            ->where('long', '>',  str_replace("_",".",$request->swlat) )
+            ->where('lat', '<',  str_replace("_",".",$request->swlat) )
+            ->where('long', '>',  str_replace("_",".",$request->nelon) )
             ->where('long', '<',  str_replace("_",".",$request->swlon) )
             ->get();
         dd($data);
