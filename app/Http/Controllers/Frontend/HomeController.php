@@ -25,6 +25,9 @@ class HomeController extends Controller
     /**
      * @return \Illuminate\View\View
      */
+
+
+
     public function index()
     {
         $latest_post = Posts::where('status','=','Enabled')->take(1)->latest()->first();
@@ -336,7 +339,11 @@ class HomeController extends Controller
         ]);
     }
 
-
+    public function fake_makers(Request $request)
+    {
+        dd($request);
+        return 'sss';
+    }
 
 
 }

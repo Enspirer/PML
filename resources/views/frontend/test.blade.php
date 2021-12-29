@@ -12,7 +12,7 @@
     <link type="text/css" rel="stylesheet" href="https://demo.noxls.net/google-map-clustering-v3//static/css/style.css" />
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://demo.noxls.net/google-map-clustering-v3//static/plugins/leaflet-sidebar/js/jquery-sidebar.js"></script>
     <script src="https://demo.noxls.net/google-map-clustering-v3//static/js/jquery.form.js" type="text/javascript"></script>
     <!-- Google Tag Manager -->
@@ -44,31 +44,40 @@
                         checkboxClicked();" type="checkbox" name="check_all" id="check_all" value="-1"> Check All                        </label>
                 <div class="checkbox" style="height: 880px; overflow-y: scroll;">
                     <label style="margin-right: 9px; margin-bottom: 10px;">
-                        <input checked="checked" onclick="checkboxClicked();" type="checkbox" value="2"> <img src="https://demo.noxls.net/google-map-clustering-v3//static/img/ico/2.png" alt="unknown" title="unknown"> unknown                                </label>
+                        <input checked="checked" onclick="checkboxClicked();" type="checkbox" value="2"> 
+                        <img src="{{ url('img/frontend/map/icons/2.png') }}" alt="unknown" title="unknown"> unknown</label>
                     <br>
                     <label style="margin-right: 9px; margin-bottom: 10px;">
-                        <input checked="checked" onclick="checkboxClicked();" type="checkbox" value="3"> <img src="https://demo.noxls.net/google-map-clustering-v3//static/img/ico/3.png" alt="station" title="station"> station                                </label>
+                        <input checked="checked" onclick="checkboxClicked();" type="checkbox" value="3"> 
+                        <img src="{{ url('img/frontend/map/icons/3.png') }}" alt="station" title="station"> station                                </label>
                     <br>
                     <label style="margin-right: 9px; margin-bottom: 10px;">
-                        <input checked="checked" onclick="checkboxClicked();" type="checkbox" value="4"> <img src="https://demo.noxls.net/google-map-clustering-v3//static/img/ico/4.png" alt="port" title="port"> port                                </label>
+                        <input checked="checked" onclick="checkboxClicked();" type="checkbox" value="4"> 
+                        <img src="{{ url('img/frontend/map/icons/4.png') }}" alt="port" title="port"> port                                </label>
                     <br>
                     <label style="margin-right: 9px; margin-bottom: 10px;">
-                        <input checked="checked" onclick="checkboxClicked();" type="checkbox" value="5"> <img src="https://demo.noxls.net/google-map-clustering-v3//static/img/ico/5.png" alt="zb" title="zb"> zb                                </label>
+                        <input checked="checked" onclick="checkboxClicked();" type="checkbox" value="5"> 
+                        <img src="{{ url('img/frontend/map/icons/5.png') }}" alt="zb" title="zb"> zb                                </label>
                     <br>
                     <label style="margin-right: 9px; margin-bottom: 10px;">
-                        <input checked="checked" onclick="checkboxClicked();" type="checkbox" value="14"> <img src="https://demo.noxls.net/google-map-clustering-v3//static/img/ico/14.png" alt="Building" title="Building"> Building                                </label>
+                        <input checked="checked" onclick="checkboxClicked();" type="checkbox" value="14"> 
+                        <img src="{{ url('img/frontend/map/icons/14.png') }}" alt="Building" title="Building"> Building                                </label>
                     <br>
                     <label style="margin-right: 9px; margin-bottom: 10px;">
-                        <input checked="checked" onclick="checkboxClicked();" type="checkbox" value="15"> <img src="https://demo.noxls.net/google-map-clustering-v3//static/img/ico/15.png" alt="Gas Station" title="Gas Station"> Gas Station                                </label>
+                        <input checked="checked" onclick="checkboxClicked();" type="checkbox" value="15"> 
+                        <img src="{{ url('img/frontend/map/icons/15.png') }}" alt="Gas Station" title="Gas Station"> Gas Station                                </label>
                     <br>
                     <label style="margin-right: 9px; margin-bottom: 10px;">
-                        <input checked="checked" onclick="checkboxClicked();" type="checkbox" value="22"> <img src="https://demo.noxls.net/google-map-clustering-v3//static/img/ico/22.png" alt="banc" title="banc"> banc                                </label>
+                        <input checked="checked" onclick="checkboxClicked();" type="checkbox" value="22"> 
+                        <img src="{{ url('img/frontend/map/icons/22.png') }}" alt="banc" title="banc"> banc                                </label>
                     <br>
                     <label style="margin-right: 9px; margin-bottom: 10px;">
-                        <input checked="checked" onclick="checkboxClicked();" type="checkbox" value="23"> <img src="https://demo.noxls.net/google-map-clustering-v3//static/img/ico/23." alt="aaa" title="aaa"> aaa                                </label>
+                        <input checked="checked" onclick="checkboxClicked();" type="checkbox" value="23"> 
+                        <img src="{{ url('img/frontend/map/icons/22.png') }}" alt="aaa" title="aaa"> aaa                                </label>
                     <br>
                     <label style="margin-right: 9px; margin-bottom: 10px;">
-                        <input checked="checked" onclick="checkboxClicked();" type="checkbox" value="24"> <img src="https://demo.noxls.net/google-map-clustering-v3//static/img/ico/24." alt="aaa" title="aaa"> aaa                                </label>
+                        <input checked="checked" onclick="checkboxClicked();" type="checkbox" value="24"> 
+                        <img src="{{ url('img/frontend/map/icons/22.png') }}" alt="aaa" title="aaa"> aaa                                </label>
                     <br>
                 </div>
             </div>
@@ -166,8 +175,8 @@
     </div>
 </div>
 <script lang="javascript">
-    var SITE_DOMAIN = 'https://demo.noxls.net/';
-    var HTTP_APP_PATH = 'https://demo.noxls.net/google-map-clustering-v3/';
+    var SITE_DOMAIN = 'http://localhost:8000/';
+    var HTTP_APP_PATH = 'http://localhost:8000/';
     var ZOOM = 5;
     var MAP_CENTER_LAT = 40.45;
     var MAP_CENTER_LNG = -98.52;
@@ -175,12 +184,14 @@
     var MARKERS_CLUSTERIZE_3 = 50;
     var MARKERS_CLUSTERIZE_4 = 100;
     var MARKERS_CLUSTERIZE_5 = 300;
-    var MAP_SETTINGS = {"jsonGetMarkerUrl":"https:\/\/demo.noxls.net\/google-map-clustering-v3\/\/exec.php","jsonMarkerUrl":"https:\/\/demo.noxls.net\/google-map-clustering-v3\/\/exec.php","jsonGetMarkerInfoUrl":"https:\/\/demo.noxls.net\/google-map-clustering-v3\/\/exec.php","jsonMarkerInfoUrl":"https:\/\/demo.noxls.net\/google-map-clustering-v3\/\/exec.php","clusterImage":{"src":"https:\/\/demo.noxls.net\/google-map-clustering-v3\/\/static\/img\/cluster2.png","height":60,"width":60,"offsetH":30,"offsetW":30},"pinImage":{"2":{"type_name":"unknown","src":"https:\/\/demo.noxls.net\/google-map-clustering-v3\/\/static\/img\/ico\/2.png","height":37,"width":32,"offsetH":0,"offsetW":0},"3":{"type_name":"station","src":"https:\/\/demo.noxls.net\/google-map-clustering-v3\/\/static\/img\/ico\/3.png","height":37,"width":32,"offsetH":0,"offsetW":0},"4":{"type_name":"port","src":"https:\/\/demo.noxls.net\/google-map-clustering-v3\/\/static\/img\/ico\/4.png","height":37,"width":32,"offsetH":0,"offsetW":0},"5":{"type_name":"zb","src":"https:\/\/demo.noxls.net\/google-map-clustering-v3\/\/static\/img\/ico\/5.png","height":32,"width":32,"offsetH":0,"offsetW":0},"14":{"type_name":"Building","src":"https:\/\/demo.noxls.net\/google-map-clustering-v3\/\/static\/img\/ico\/14.png","height":37,"width":32,"offsetH":0,"offsetW":0},"15":{"type_name":"Gas Station","src":"https:\/\/demo.noxls.net\/google-map-clustering-v3\/\/static\/img\/ico\/15.png","height":37,"width":32,"offsetH":0,"offsetW":0},"22":{"type_name":"banc","src":"https:\/\/demo.noxls.net\/google-map-clustering-v3\/\/static\/img\/ico\/22.png","height":37,"width":32,"offsetH":0,"offsetW":0},"23":{"type_name":"aaa","src":"https:\/\/demo.noxls.net\/google-map-clustering-v3\/\/static\/img\/ico\/23.","height":0,"width":0,"offsetH":0,"offsetW":0},"24":{"type_name":"aaa","src":"https:\/\/demo.noxls.net\/google-map-clustering-v3\/\/static\/img\/ico\/24.","height":0,"width":0,"offsetH":0,"offsetW":0}},"textErrorMessage":"An error has occured","mapCenterLat":40.45,"mapCenterLon":-98.52,"zoomLevel":5,"min_zoomLevel":1,"max_zoomLevel":21,"alwaysClusteringEnabledWhenZoomLevelLess":2,"map_type_id":"ROADMAP"};
+    var MAP_SETTINGS = {"jsonGetMarkerUrl":"http:\/\/localhost:8000\/api\/test-markers","jsonMarkerUrl":"http:\/\/localhost:8000\/api\/test-markers","jsonGetMarkerInfoUrl":"http:\/\/localhost:8000\/api\/test-markers","jsonMarkerInfoUrl":"http:\/\/localhost:8000\/api\/test-markers","clusterImage":{"src":"http:\/\/demo.noxls.net\/google-map-clustering-v3\/\/static\/img\/cluster2.png","height":60,"width":60,"offsetH":30,"offsetW":30},"pinImage":{"2":{"type_name":"unknown","src":"http:\/\/demo.noxls.net\/google-map-clustering-v3\/\/static\/img\/ico\/2.png","height":37,"width":32,"offsetH":0,"offsetW":0},"3":{"type_name":"station","src":"https:\/\/demo.noxls.net\/google-map-clustering-v3\/\/static\/img\/ico\/3.png","height":37,"width":32,"offsetH":0,"offsetW":0},"4":{"type_name":"port","src":"https:\/\/demo.noxls.net\/google-map-clustering-v3\/\/static\/img\/ico\/4.png","height":37,"width":32,"offsetH":0,"offsetW":0},"5":{"type_name":"zb","src":"https:\/\/demo.noxls.net\/google-map-clustering-v3\/\/static\/img\/ico\/5.png","height":32,"width":32,"offsetH":0,"offsetW":0},"14":{"type_name":"Building","src":"https:\/\/demo.noxls.net\/google-map-clustering-v3\/\/static\/img\/ico\/14.png","height":37,"width":32,"offsetH":0,"offsetW":0},"15":{"type_name":"Gas Station","src":"https:\/\/demo.noxls.net\/google-map-clustering-v3\/\/static\/img\/ico\/15.png","height":37,"width":32,"offsetH":0,"offsetW":0},"22":{"type_name":"banc","src":"https:\/\/demo.noxls.net\/google-map-clustering-v3\/\/static\/img\/ico\/22.png","height":37,"width":32,"offsetH":0,"offsetW":0},"23":{"type_name":"aaa","src":"https:\/\/demo.noxls.net\/google-map-clustering-v3\/\/static\/img\/ico\/23.","height":0,"width":0,"offsetH":0,"offsetW":0},"24":{"type_name":"aaa","src":"https:\/\/demo.noxls.net\/google-map-clustering-v3\/\/static\/img\/ico\/24.","height":0,"width":0,"offsetH":0,"offsetW":0}},"textErrorMessage":"An error has occured","mapCenterLat":40.45,"mapCenterLon":-98.52,"zoomLevel":5,"min_zoomLevel":1,"max_zoomLevel":21,"alwaysClusteringEnabledWhenZoomLevelLess":2,"map_type_id":"ROADMAP"};
     var LIST_MARKERS_PER_PAGE = 15;
     var MAP_STYLE = [{"featureType":"administrative","elementType":"all","stylers":[{"visibility":"on"},{"lightness":33}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#f2e5d4"}]},{"featureType":"poi.park","elementType":"geometry","stylers":[{"color":"#c5dac6"}]},{"featureType":"poi.park","elementType":"labels","stylers":[{"visibility":"on"},{"lightness":20}]},{"featureType":"road","elementType":"all","stylers":[{"lightness":20}]},{"featureType":"road.highway","elementType":"geometry","stylers":[{"color":"#c5c6c6"}]},{"featureType":"road.arterial","elementType":"geometry","stylers":[{"color":"#e4d7c6"}]},{"featureType":"road.local","elementType":"geometry","stylers":[{"color":"#fbfaf7"}]},{"featureType":"water","elementType":"all","stylers":[{"visibility":"on"},{"color":"#acbcc9"}]}];
 </script>
-<script src="https://demo.noxls.net/google-map-clustering-v3//static/js/index-normal.js" type="text/javascript"></script>
-<script type="text/javascript" src="//maps.google.com/maps/api/js?key=AIzaSyDpIH3JYQy5cayMmoaP1JHpp5jHUwYe0JQ&language=en"></script>
+<script src="{{url('js/index-normal.js')}}" type="text/javascript"></script>
+<script type="text/javascript" src="https://maps.google.com/maps/api/js?key=AIzaSyDpIH3JYQy5cayMmoaP1JHpp5jHUwYe0JQ&language=en"></script> 
+<!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+<!-- <script async="" defer="" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEBj8LhHUJaf2MXpqIQ_MOXs7HkeUXnac&amp;callback=initMap" type="text/javascript"></script> -->
 <script type="text/javascript" src="https://demo.noxls.net/google-map-clustering-v3//static/js/mapclustering-normal.js"></script>
 <div id="fb-root"></div>
 <script>(function(d, s, id) {

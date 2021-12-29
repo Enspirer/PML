@@ -5,7 +5,68 @@
 @push('after-styles')
 <link href="{{ url('css/for_sale_single.css') }}" rel="stylesheet">
 
+<style>
 
+
+.btn-pano {
+    background: red;
+    color: #fff;
+    padding: 10px 20px;
+    margin-top: 20px;
+    display: block;
+    width: max-content;
+    margin-left: auto;
+}
+
+.btn-pano:hover {
+    text-decoration: none;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    color: #fff;
+}
+
+.modal-dialog {
+    max-width: 90%;
+}
+
+.modal-content .modal-body {
+    padding: 0 !important;
+    position: relative;
+}
+
+
+button.close {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    background: #000;
+    color: #fff;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+}
+
+.modal-content {
+    height: 90vh;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+} 
+
+#panoFrame {
+    height: 90vh;
+    background: #000;
+}
+
+.modal-body {
+    height: 90vh;
+    max-height: unset !important;
+    overflow: hidden !important;
+}
+
+button.close:hover {
+    color: #fff;
+}
+
+</style>
 
 
 @endpush
@@ -19,38 +80,46 @@
 @include('frontend.includes.search')
 
 
-<script src="https://aframe.io/releases/0.6.1/aframe.min.js"></script>
 
 
 
 
 
-<!-- Button trigger modal -->
-<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
-    Launch demo modal
-</button> -->
+
+
+
+
+<!--modals-->
+  <!-- <div id="openModal-about" class="modalDialog">
+      <div style="height:80vh;margin-bottom:10vh;margin-top:10vh;"> 
+         <a href="" title="Close" class="close">X</a> -->
+        <!-- iframe -->
+        <!-- <iframe id="panoFrame" src="" frameborder="0" width="100%" height="100%"></iframe>  -->
+       <!-- </div>
+   </div> -->
+<!-- 
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
-        </div>
+<div class="modal fade" id="panoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <!-- <div class="modal-header">
+        
+      </div> -->
+      <div class="modal-body">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+           <!-- iframe -->
+           <iframe id="panoFrame" src="" frameborder="0" width="100%" height="100%"></iframe>
+      </div>
+      <!-- <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div> -->
     </div>
-</div>
+  </div>
+</div> 
+
 @if ( session()->has('message'))
 <div class="" style="background-color: rgb(22 32 44);text-align: center;color: white;">
     <div class="container">
@@ -110,16 +179,36 @@
                         <div class="swiper-wrapper">
                             @php
                             $str_arr2 = preg_split ("/\,/", $property->image_ids);
+
                             @endphp
+
+                            @if($property->panaromal_images)
+                                @php
+                                    $pano_arry = preg_split ("/\,/", $property->panaromal_images);
+                                @endphp
+                            @else
+                                @php
+                                    $pano_arry = null;
+                                @endphp
+                            @endif
+
+                            @if($pano_arry)
+                                @foreach($pano_arry  as $panoarray)
+                                    <div class="swiper-slide">
+                                        <h3>{{$panoarray}}</h3>
+                                        <a href="#" data-toggle="modal" data-target="#panoModal" onclick="changePanaroma('{{ $panoarray }}')">
+                                        <img src="{{ uploaded_asset($panoarray) }}" />
+                                        </a>
+                                        
+
+                                    </div>
+                                @endforeach
+                            @endif
+
                             @foreach($str_arr2 as $key=> $pre)
                             <div class="swiper-slide">
-                                <!-- <img src="{{ uploaded_asset($pre) }}" /> -->
-                                <a-scene>
-                                    <a-assets>
-                                        <img id="panorama" src="https://c1.staticflickr.com/5/4302/35137573294_1287bfd0ae_k.jpg" crossorigin />
-                                    </a-assets>
-                                    <a-sky src="#panorama" rotation="0 -90 0"></a-sky>
-                                </a-scene>
+                                <img src="{{ uploaded_asset($pre) }}" />
+
                             </div>
                             @endforeach
                             <!-- <div class="swiper-slide">
@@ -169,7 +258,10 @@
                     </div>
                 </div>
             </div>
-
+            <!-- <div class="col-9">
+                <a class="btn-pano" href="#openModal-about">360<sup>0</sup> View</a>
+            </div> -->
+           
             <div class="row">
                 <div class="col-9">
                     <h3 class="fw-bold mt-4 mb-1">{{ get_currency(request() ,$property->price)}}</h3>
@@ -507,7 +599,7 @@
                                         <div class="col-10">
                                             <h5 class="fw-bold">{{ get_currency(request() ,$ran->price)}}</h5>
                                         </div>
-                                        <div class="col-1">
+                                        <div style="display:flex;justify-content:center;" class="col-1">
 
                                             @php
                                             if(auth()->user())
@@ -589,7 +681,7 @@
                                         <a
                                             href="{{route('frontend.individual_agent',App\Models\AgentRequest::where('user_id',$ran->user_id)->first()->id)}}">
                                             <img src="{{ uploaded_asset(App\Models\AgentRequest::where('user_id',$ran->user_id)->first()->logo) }}"
-                                                width="50%" style="object-fit:cover">
+                                                width="50px" height="50px" style="object-fit:cover">
                                         </a>
                                         @endif
                                     </div>
@@ -931,7 +1023,24 @@
 
 @push('after-scripts')
 
+<script>
 
+
+function changePanaroma(panaromalId) {
+
+    var panoURL = "http://127.0.0.1:8000/pano/" +  panaromalId;
+
+    document.getElementById("panoFrame").src = panoURL;
+
+    // $("#panoFrame")
+
+
+}                                        
+
+
+
+
+</script>
 
 
 <script>
