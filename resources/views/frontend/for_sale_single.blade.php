@@ -6,8 +6,6 @@
 <link href="{{ url('css/for_sale_single.css') }}" rel="stylesheet">
 
 <style>
-
-
 .btn-pano {
     background: red;
     color: #fff;
@@ -20,7 +18,7 @@
 
 .btn-pano:hover {
     text-decoration: none;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     color: #fff;
 }
 
@@ -49,7 +47,7 @@ button.close {
     height: 90vh;
     margin-top: 5vh;
     margin-bottom: 5vh;
-} 
+}
 
 #panoFrame {
     height: 90vh;
@@ -70,8 +68,10 @@ button.close:hover {
     top: 0;
     left: 0;
 }
-
 </style>
+
+<link rel="stylesheet" href="https://cdn.rawgit.com/sachinchoolur/lightgallery.js/master/dist/css/lightgallery.css">
+
 
 
 @endpush
@@ -86,35 +86,36 @@ button.close:hover {
 
 
 <!--modals-->
-  <!-- <div id="openModal-about" class="modalDialog">
+<!-- <div id="openModal-about" class="modalDialog">
       <div style="height:80vh;margin-bottom:10vh;margin-top:10vh;"> 
          <a href="" title="Close" class="close">X</a> -->
-        <!-- iframe -->
-        <!-- <iframe id="panoFrame" src="" frameborder="0" width="100%" height="100%"></iframe>  -->
-       <!-- </div>
+<!-- iframe -->
+<!-- <iframe id="panoFrame" src="" frameborder="0" width="100%" height="100%"></iframe>  -->
+<!-- </div>
    </div> -->
 <!-- 
 
 <!-- Modal -->
-<div class="modal fade" id="panoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <!-- <div class="modal-header">
+<div class="modal fade" id="panoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <!-- <div class="modal-header">
         
       </div> -->
-      <div class="modal-body">
-      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-           <!-- iframe -->
-           <iframe id="panoFrame" src="" frameborder="0" width="100%" height="100%"></iframe>
-      </div>
-      <!-- <div class="modal-footer">
+            <div class="modal-body">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <!-- iframe -->
+                <iframe id="panoFrame" src="" frameborder="0" width="100%" height="100%"></iframe>
+            </div>
+            <!-- <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       </div> -->
+        </div>
     </div>
-  </div>
-</div> 
+</div>
 
 @if ( session()->has('message'))
 <div class="" style="background-color: rgb(22 32 44);text-align: center;color: white;">
@@ -179,28 +180,29 @@ button.close:hover {
                             @endphp
 
                             @if($property->panaromal_images)
-                                @php
-                                    $pano_arry = preg_split ("/\,/", $property->panaromal_images);
-                                @endphp
+                            @php
+                            $pano_arry = preg_split ("/\,/", $property->panaromal_images);
+                            @endphp
                             @else
-                                @php
-                                    $pano_arry = null;
-                                @endphp
+                            @php
+                            $pano_arry = null;
+                            @endphp
                             @endif
 
                             @if($pano_arry)
-                                @foreach($pano_arry  as $panoarray)
-                                    <div class="swiper-slide">
-                                        <a href="#" data-toggle="modal" data-target="#panoModal" onclick="changePanaroma('{{ $panoarray }}')">
-                                        <div class="pano-wrapper">
-                                            <img src="{{ uploaded_asset($panoarray) }}" />
-                                            <img class="pano-symbol" src="{{ url('img/360.png') }}" alt="360 logo">
-                                        </div>
-                                        
-                                        
-                                        </a>
+                            @foreach($pano_arry as $panoarray)
+                            <div class="swiper-slide">
+                                <a href="#" data-toggle="modal" data-target="#panoModal"
+                                    onclick="changePanaroma('{{ $panoarray }}')">
+                                    <div class="pano-wrapper">
+                                        <img src="{{ uploaded_asset($panoarray) }}" />
+                                        <img class="pano-symbol" src="{{ url('img/360.png') }}" alt="360 logo">
                                     </div>
-                                @endforeach
+
+
+                                </a>
+                            </div>
+                            @endforeach
                             @endif
 
                             @foreach($str_arr2 as $key=> $pre)
@@ -210,7 +212,7 @@ button.close:hover {
                             </div>
                             @endforeach
 
-                       
+
                         </div>
                         <div class="swiper-button-next"></div>
                         <div class="swiper-button-prev"></div>
@@ -219,12 +221,13 @@ button.close:hover {
                             <button class="btn fw-bold me-3">APARTMENT</button>
                             <button class="btn fw-bold" style="color: #39B54A">AVAILABLE</button>
                         </div>
-                     
+
                     </div>
                     <div class="option-bar">
                         <div class="option-list-wrapper">
                             <ul class="option-list">
-                                <li>360<sup>0</sup></li>
+                                <li><a href="#" data-toggle="modal" data-target="#panoModal"
+                                    onclick="changePanaroma('{{ $panoarray }}')">360<sup>0</sup></a></li>
                                 <li>
                                     <a href="#" data-toggle="modal" data-target="#photoModal">Photo</a>
                                 </li>
@@ -238,156 +241,29 @@ button.close:hover {
 
 
                 <!-- Image gallery popup -->
-                <div class="modal fade" id="photoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                    <!-- <div class="modal-header">
+                <div class="modal fade" id="photoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content" style="background-color: #262424;">
+                            <!-- <div class="modal-header">
                         
                     </div> -->
-                    <div class="modal-body">
-                    <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                        </button> -->
-                        <!-- image slider -->
-                        <div class="container">
-  
-  <h1>Simple Image Gallery with magnific-popup.js</h1>
-  
-		<p><section class="img-gallery-magnific">
-			<div class="magnific-img">
-				<a class="image-popup-vertical-fit" href="https://unsplash.it/974/?random" title="9.jpg">
-					<img src="https://unsplash.it/974/?random" alt="9.jpg" />
-					<i class="fa fa-search-plus" aria-hidden="true"></i>
-				</a>
-			</div>
-			<div class="magnific-img">
-				<a class="image-popup-vertical-fit" href="https://unsplash.it/900/?random" title="10.jpg">
-					<img src="https://unsplash.it/900/?random" alt="10.jpg" />
-					<i class="fa fa-search-plus" aria-hidden="true"></i>
-				</a>
-			</div>
-			<div class="magnific-img">
-				<a class="image-popup-vertical-fit" href="https://unsplash.it/902" title="3.jpg">
-					<img src="https://unsplash.it/902/" alt="3.jpg" />
-					<i class="fa fa-search-plus" aria-hidden="true"></i>
-				</a>
-			</div>
-			<div class="magnific-img">
-				<a class="image-popup-vertical-fit" href="https://unsplash.it/901" title="4.jpg">
-					<img src="https://unsplash.it/901" alt="4.jpg" />
-					<i class="fa fa-search-plus" aria-hidden="true"></i>
-				</a>
-			</div>
-			<div class="magnific-img">
-				<a class="image-popup-vertical-fit" href="https://unsplash.it/888/?random" title="1.jpg">
-					<img src="https://unsplash.it/888/?random" alt="1.jpg" />
-					<i class="fa fa-search-plus" aria-hidden="true"></i>
-				</a>
-			</div>
-			<div class="magnific-img">
-				<a class="image-popup-vertical-fit" href="https://unsplash.it/931/?random" title="2.jpg">
-					<img src="https://unsplash.it/931/?random" alt="2.jpg" />
-					<i class="fa fa-search-plus" aria-hidden="true"></i>
-				</a>
-			</div>
-			<div class="magnific-img">
-				<a class="image-popup-vertical-fit" href="https://unsplash.it/908/?random" title="5.jpg">
-					<img src="https://unsplash.it/908/?random" alt="5.jpg" />
-					<i class="fa fa-search-plus" aria-hidden="true"></i>
-				</a>
-			</div>
-			<div class="magnific-img">
-				<a class="image-popup-vertical-fit" href="https://unsplash.it/978/?random" title="6.jpg">
-					<img src="https://unsplash.it/978/?random" alt="6.jpg" />
-					<i class="fa fa-search-plus" aria-hidden="true"></i>
-				</a>
-			</div>
-			<div class="magnific-img">
-				<a class="image-popup-vertical-fit" href="https://unsplash.it/857/?random" title="7.jpg">
-					<img src="https://unsplash.it/857/?random" alt="7.jpg" />
-					<i class="fa fa-search-plus" aria-hidden="true"></i>
-				</a>
-			</div>
-			<div class="magnific-img">
-				<a class="image-popup-vertical-fit" href="https://unsplash.it/905/?random" title="8.jpg">
-					<img src="https://unsplash.it/905/?random" alt="8.jpg" />
-					<i class="fa fa-search-plus" aria-hidden="true"></i>
-				</a>
-			</div>
-			<div class="magnific-img">
-				<a class="image-popup-vertical-fit" href="https://unsplash.it/1230/?random" title="12.jpg">
-					<img src="https://unsplash.it/1230/?random" alt="12.jpg" />
-					<i class="fa fa-search-plus" aria-hidden="true"></i>
-				</a>
-			</div>
-			<div class="magnific-img">
-				<a class="image-popup-vertical-fit" href="https://unsplash.it/800/?random" title="13.jpg">
-					<img src="https://unsplash.it/800/?random" alt="13.jpg" />
-					<i class="fa fa-search-plus" aria-hidden="true"></i>
-				</a>
-			</div>
-			<div class="magnific-img">
-				<a class="image-popup-vertical-fit" href="https://unsplash.it/930/?random" title="14.jpg">
-					<img src="https://unsplash.it/930/?random" alt="14.jpg" />
-					<i class="fa fa-search-plus" aria-hidden="true"></i>
-				</a>
-			</div>
-			<div class="magnific-img">
-				<a class="image-popup-vertical-fit" href="https://unsplash.it/999/?random" title="15.jpg">
-					<img src="https://unsplash.it/999/?random" alt="15.jpg" />
-					<i class="fa fa-search-plus" aria-hidden="true"></i>
-				</a>
-			</div>
-			<div class="magnific-img">
-				<a class="image-popup-vertical-fit" href="https://unsplash.it/897/?random" title="16.jpg">
-					<img src="https://unsplash.it/897/?random" alt="16.jpg" />
-					<i class="fa fa-search-plus" aria-hidden="true"></i>
-				</a>
-			</div>
-		</section>
-		<div class="clear"></div>
-	</p>
-
-</div>
+                            <div class="modal-body">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <!-- image slider -->
+                                <div class="cont">
 
 
 
 
-                    <!-- <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    </div> -->
-                    </div>
-                </div>
-                </div> 
-                <!-- video popup -->
-                <div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                    <!-- <div class="modal-header">
-                        
-                    </div> -->
-                    <div class="modal-body">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                        </button>
-                        <h2>Video gallery</h2>
-                    </div>
-                    <!-- <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    </div> -->
-                    </div>
-                </div>
-                </div> 
-
-                <div class="col-3">
-                    <div thumbsSlider="" class="swiper mySwiper">
-                        <div class="swiper-wrapper">
-                            @if($pano_arry)
-                                @foreach($pano_arry  as $panoarray)
-                                    <div class="swiper-slide">
-                                        <img src="{{ uploaded_asset($panoarray) }}" />
-                                    </div>
-                                @endforeach
+                                @if($pano_arry)
+                            @foreach($pano_arry as $panoarray)
+                            <div class="swiper-slide">
+                                <img src="{{ uploaded_asset($panoarray) }}" />
+                            </div>
+                            @endforeach
                             @endif
 
                             @foreach($str_arr2 as $key=> $pre)
@@ -396,7 +272,113 @@ button.close:hover {
 
                             </div>
                             @endforeach
-                         
+
+                                    <div class="demo-gallery">
+                                        <ul id="lightgallery">
+                                            <li data-responsive="https://sachinchoolur.github.io/lightgallery.js/static/img/1-375.jpg 375, https://sachinchoolur.github.io/lightgallery.js/static/img/1-480.jpg 480, https://sachinchoolur.github.io/lightgallery.js/static/img/1.jpg 800"
+                                                data-src="https://sachinchoolur.github.io/lightgallery.js/static/img/1-1600.jpg"
+                                                data-sub-html="<h4>Fading Light</h4><p>Classic view from Rigwood Jetty on Coniston Water an old archive shot similar to an old post but a little later on.</p>">
+                                                <a href="">
+                                                    <img class="img-responsive"
+                                                        src="https://sachinchoolur.github.io/lightgallery.js/static/img/thumb-1.jpg">
+                                                    <div class="demo-gallery-poster">
+                                                        <img
+                                                            src="https://sachinchoolur.github.io/lightgallery.js/static/img/zoom.png">
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            <li data-responsive="https://sachinchoolur.github.io/lightgallery.js/static/img/2-375.jpg 375, https://sachinchoolur.github.io/lightgallery.js/static/img/2-480.jpg 480, https://sachinchoolur.github.io/lightgallery.js/static/img/2.jpg 800"
+                                                data-src="https://sachinchoolur.github.io/lightgallery.js/static/img/2-1600.jpg"
+                                                data-sub-html="<h4>Bowness Bay</h4><p>A beautiful Sunrise this morning taken En-route to Keswick not one as planned but I'm extremely happy I was passing the right place at the right time....</p>">
+                                                <a href="">
+                                                    <img class="img-responsive"
+                                                        src="https://sachinchoolur.github.io/lightgallery.js/static/img/thumb-2.jpg">
+                                                    <div class="demo-gallery-poster">
+                                                        <img
+                                                            src="https://sachinchoolur.github.io/lightgallery.js/static/img/zoom.png">
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            <li data-responsive="https://sachinchoolur.github.io/lightgallery.js/static/img/13-375.jpg 375, https://sachinchoolur.github.io/lightgallery.js/static/img/13-480.jpg 480, https://sachinchoolur.github.io/lightgallery.js/static/img/13.jpg 800"
+                                                data-src="https://sachinchoolur.github.io/lightgallery.js/static/img/13-1600.jpg"
+                                                data-sub-html="<h4>Sunset Serenity</h4><p>A gorgeous Sunset tonight captured at Coniston Water....</p>">
+                                                <a href="">
+                                                    <img class="img-responsive"
+                                                        src="https://sachinchoolur.github.io/lightgallery.js/static/img/thumb-13.jpg">
+                                                    <div class="demo-gallery-poster">
+                                                        <img
+                                                            src="https://sachinchoolur.github.io/lightgallery.js/static/img/zoom.png">
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            <li data-responsive="https://sachinchoolur.github.io/lightgallery.js/static/img/4-375.jpg 375, https://sachinchoolur.github.io/lightgallery.js/static/img/4-480.jpg 480, https://sachinchoolur.github.io/lightgallery.js/static/img/4.jpg 800"
+                                                data-src="https://sachinchoolur.github.io/lightgallery.js/static/img/4-1600.jpg"
+                                                data-sub-html="<h4>Coniston Calmness</h4><p>Beautiful morning</p>">
+                                                <a href="">
+                                                    <img class="img-responsive"
+                                                        src="https://sachinchoolur.github.io/lightgallery.js/static/img/thumb-4.jpg">
+                                                    <div class="demo-gallery-poster">
+                                                        <img
+                                                            src="https://sachinchoolur.github.io/lightgallery.js/static/img/zoom.png">
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        <span class="small">Click on any of the images to see lightGallery</span>
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+
+
+
+                            <!-- <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div> -->
+                        </div>
+                    </div>
+                </div>
+                <!-- video popup -->
+                <div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <!-- <div class="modal-header">
+                        
+                    </div> -->
+                            <div class="modal-body">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <h2>Video gallery</h2>
+                            </div>
+                            <!-- <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div> -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-3">
+                    <div thumbsSlider="" class="swiper mySwiper">
+                        <div class="swiper-wrapper">
+                            @if($pano_arry)
+                            @foreach($pano_arry as $panoarray)
+                            <div class="swiper-slide">
+                                <img src="{{ uploaded_asset($panoarray) }}" />
+                            </div>
+                            @endforeach
+                            @endif
+
+                            @foreach($str_arr2 as $key=> $pre)
+                            <div class="swiper-slide">
+                                <img src="{{ uploaded_asset($pre) }}" />
+
+                            </div>
+                            @endforeach
+
                         </div>
                     </div>
                 </div>
@@ -404,7 +386,7 @@ button.close:hover {
             <!-- <div class="col-9">
                 <a class="btn-pano" href="#openModal-about">360<sup>0</sup> View</a>
             </div> -->
-           
+
             <div class="row">
                 <div class="col-9">
                     <h3 class="fw-bold mt-4 mb-1">{{ get_currency(request() ,$property->price)}}</h3>
@@ -420,7 +402,7 @@ button.close:hover {
                     </p>
 
                     @if($property->listning_type == 'free_listning')
-                        <div class="badge badge-warning p-2 mt-3">Free Listning</div>
+                    <div class="badge badge-warning p-2 mt-3">Free Listning</div>
                     @endif
 
                 </div>
@@ -494,56 +476,64 @@ button.close:hover {
                                                 @if($property->parking_type == null)
                                                 @else
                                                 <div class="col-6 p-0">
-                                                    <li><i class="fas fa-circle"></i>Parking Type : {{ $property->parking_type }}</li>
+                                                    <li><i class="fas fa-circle"></i>Parking Type :
+                                                        {{ $property->parking_type }}</li>
                                                 </div>
                                                 @endif
 
                                                 @if($property->building_type == null)
                                                 @else
                                                 <div class="col-6 p-0">
-                                                    <li><i class="fas fa-circle"></i>Building Type : {{ $property->building_type }}</li>
+                                                    <li><i class="fas fa-circle"></i>Building Type :
+                                                        {{ $property->building_type }}</li>
                                                 </div>
                                                 @endif
 
                                                 @if($property->farm_type == null)
                                                 @else
                                                 <div class="col-6 p-0">
-                                                    <li><i class="fas fa-circle"></i>Farm Type : {{ $property->farm_type }}</li>
+                                                    <li><i class="fas fa-circle"></i>Farm Type :
+                                                        {{ $property->farm_type }}</li>
                                                 </div>
                                                 @endif
 
                                                 @if($property->open_house_only == null)
                                                 @else
                                                 <div class="col-6 p-0">
-                                                    <li><i class="fas fa-circle"></i>Open House Only : {{ $property->open_house_only }}</li>
+                                                    <li><i class="fas fa-circle"></i>Open House Only :
+                                                        {{ $property->open_house_only }}</li>
                                                 </div>
                                                 @endif
 
                                                 @if($property->number_of_units == null)
                                                 @else
                                                 <div class="col-6 p-0">
-                                                    <li><i class="fas fa-circle"></i>Number of Units : {{ $property->number_of_units }}</li>
+                                                    <li><i class="fas fa-circle"></i>Number of Units :
+                                                        {{ $property->number_of_units }}</li>
                                                 </div>
                                                 @endif
 
                                                 @if($property->land_size == null)
                                                 @else
                                                 <div class="col-6 p-0">
-                                                    <li><i class="fas fa-circle"></i>Land Size : {{ $property->land_size }}</li>
+                                                    <li><i class="fas fa-circle"></i>Land Size :
+                                                        {{ $property->land_size }}</li>
                                                 </div>
                                                 @endif
 
                                                 @if($property->zoning_type == null)
                                                 @else
                                                 <div class="col-6 p-0">
-                                                    <li><i class="fas fa-circle"></i>Zoning Type : {{ $property->zoning_type }}</li>
+                                                    <li><i class="fas fa-circle"></i>Zoning Type :
+                                                        {{ $property->zoning_type }}</li>
                                                 </div>
                                                 @endif
 
                                                 @if($property->building_size == null)
                                                 @else
                                                 <div class="col-6 p-0">
-                                                    <li><i class="fas fa-circle"></i>Building Size : {{ $property->building_size }}</li>
+                                                    <li><i class="fas fa-circle"></i>Building Size :
+                                                        {{ $property->building_size }}</li>
                                                 </div>
                                                 @endif
 
@@ -740,9 +730,10 @@ button.close:hover {
                                 <a href="{{ route('frontend.for_sale_single',$ran->id) }}" class="text-decoration-none">
                                     <img src="{{ uploaded_asset($ran->feature_image_id) }}" alt=""
                                         class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
-                                        @if($ran->listning_type == 'free_listning')
-                                            <div class="free_listning position-absolute badge badge-warning p-2 m-2">Free Listning</div>
-                                        @endif
+                                    @if($ran->listning_type == 'free_listning')
+                                    <div class="free_listning position-absolute badge badge-warning p-2 m-2">Free
+                                        Listning</div>
+                                    @endif
                                 </a>
                                 <div class="card-body mt-3">
                                     <div class="row mb-2">
@@ -1172,49 +1163,37 @@ button.close:hover {
 @endsection
 
 @push('after-scripts')
-<script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+script>
 <!-- image popup script -->
+
+
+<script src="https://cdn.rawgit.com/sachinchoolur/lightgallery.js/master/dist/js/lightgallery.js"></script>
+<script src="https://cdn.rawgit.com/sachinchoolur/lg-pager.js/master/dist/lg-pager.js"></script>
+<script src="https://cdn.rawgit.com/sachinchoolur/lg-autoplay.js/master/dist/lg-autoplay.js"></script>
+<script src="https://cdn.rawgit.com/sachinchoolur/lg-share.js/master/dist/lg-share.js"></script>
+<script src="https://cdn.rawgit.com/sachinchoolur/lg-fullscreen.js/master/dist/lg-fullscreen.js"></script>
+<script src="https://cdn.rawgit.com/sachinchoolur/lg-zoom.js/master/dist/lg-zoom.js"></script>
+<script src="https://cdn.rawgit.com/sachinchoolur/lg-hash.js/master/dist/lg-hash.js"></script>
+<script src="https://cdn.jsdelivr.net/picturefill/2.3.1/picturefill.min.js"></script>
+
 <script>
-    $(document).ready(function(){
-$('.image-popup-vertical-fit').magnificPopup({
-	type: 'image',
-  mainClass: 'mfp-with-zoom', 
-  gallery:{
-			enabled:true
-		},
-
-  zoom: {
-    enabled: true, 
-
-    duration: 300, // duration of the effect, in milliseconds
-    easing: 'ease-in-out', // CSS transition easing function
-
-    opener: function(openerElement) {
-
-      return openerElement.is('img') ? openerElement : openerElement.find('img');
-  }
-}
-
-});
-
-});
+lightGallery(document.getElementById('lightgallery'))
 </script>
 
 
 
+
+
 <script>
-
-
 function changePanaroma(panaromalId) {
-    
+
     let panoURL = "{{url('/')}}/pano/" + panaromalId;
 
     document.getElementById("panoFrame").src = panoURL;
 
     // $("#panoFrame")
 
-}                                        
-
+}
 </script>
 
 
