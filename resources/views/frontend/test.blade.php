@@ -29,45 +29,14 @@
             styles: [{"featureType":"landscape","stylers":[{"saturation":-100},{"lightness":65},{"visibility":"on"}]},{"featureType":"poi","stylers":[{"visibility":"off"}]},{"featureType":"road.highway","stylers":[{"saturation":-100},{"visibility":"simplified"}]},{"featureType":"road.arterial","stylers":[{"saturation":-100},{"lightness":30},{"visibility":"on"}]},{"featureType":"road.local","stylers":[{"saturation":-100},{"lightness":40},{"visibility":"on"}]},{"featureType":"transit","stylers":[{"saturation":-100},{"visibility":"simplified"}]},{"featureType":"administrative.province","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"labels","stylers":[{"visibility":"on"},{"lightness":-25},{"saturation":-100}]},{"featureType":"water","elementType":"geometry","stylers":[{"hue":"#ffff00"},{"lightness":-25},{"saturation":-97}]}] // "Subtle Grayscale" style found on snazzymaps.com
 
         });
-
-
-        const contentString = ` <div id="content">
-                <h2>This is popup content</h2>
-                <img src="hill.jpg" alt="">
-            </div>`;
-
-            const infoWindow = new google.maps.InfoWindow({
-                content: contentString,
-                disableAutoPan: true,
-            });
-
-
-
-
         var marker = [];
-
-
         $.ajax({
             type: "GET",
             url: "{{ url('api/map_api')  }}",
             success: function(data) {
-           
-        
-           
-
-            
-            
-
                 /*map marker and clustering start here*/
                 const labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"; 
-
-                const place = [
-                        {id: 1, lat: -61.56391, lng: 47.154312, bed: "5", bathrrom: "3"},
-                        {id:2, lat: -63.727111, lng: 50.371124, bed: "4", bathrrom: "2" },
-                        {id:2, lat: -53.727111, lng: 50.371124, bed: "4", bathrrom: "2" },
-                    ]
-
-
+                const place = data;
                     // Add some markers to the map.
                     const markers = place.map((position, i) => {
                             const label = labels[i % labels.length];
@@ -76,10 +45,25 @@
                             label,
                             });
 
+                           console.log(data[i].id);
+
 
                             // markers can only be keyboard focusable when they have click listeners
                             // open info window when marker is clicked
                             marker.addListener("click", () => {
+                                alert(data[i].id);
+
+                                const infoWindow = new google.maps.InfoWindow({
+                                    content: '<div class="card custom-shadow">' +
+                                    '<img src="http://propertymarketlive.com/img/frontend/index/1.png" alt="" class="img-fluid w-100" style="height: 5rem; object-fit: cover;">' +
+                                        '<div class="card-body text-center">' +
+                                        '<h5 class="fw-bold">'+  +'</h5>' +
+                                            '<p>'+ data[i].description + '</p>' +
+                                        '<p>3<i class="fas fa-bed ms-2 me-3" aria-hidden="true"></i> 5<i class="fas fa-bath ms-2" aria-hidden="true"></i></p>' +
+                                           + '</div>' + '</div>',
+                                    disableAutoPan: true,
+                                });
+
                             infoWindow.open({
                                 anchor: marker,
                                 map,
