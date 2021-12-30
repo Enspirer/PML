@@ -356,15 +356,15 @@ ul.option-list li a:hover {
 }
 
 #profile-description {
-  max-width: 400px; 
-  margin-top: 50px; 
+  max-width: 100%; 
+  margin-top: 15px; 
   position:relative;
 }
 #profile-description .text {
 /*   width: 660px;  */
   margin-bottom: 5px; 
   color: #777; 
-  padding: 0 15px; 
+  padding: 0; 
   position:relative; 
   font-family: Arial; 
   font-size: 14px; 
@@ -372,11 +372,11 @@ ul.option-list li a:hover {
 }
 #profile-description .show-more {
 /*   width: 690px;  */
-  color: #777; 
+  color: #000; 
   position:relative; 
   font-size: 12px; 
   padding-top: 5px; 
-  height: 20px; 
+  height: 30px; 
   text-align: center; 
   background: #f1f1f1; 
   cursor: pointer;
@@ -387,4 +387,5 @@ ul.option-list li a:hover {
 #profile-description .show-more-height { 
   height: 65px; 
   overflow:hidden; 
+  padding: 0;
 }

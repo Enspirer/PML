@@ -432,7 +432,7 @@ button.close:hover {
                                                 @if($property->baths == null)
                                                 @else
                                                 <div class="col-6 p-0">
-                                                    <li>Baths : {{ $property->baths }}</li>
+                                                    <li><i class="fas fa-circle"></i>Baths : {{ $property->baths }}</li>
                                                 </div>
                                                 @endif
 
@@ -446,56 +446,56 @@ button.close:hover {
                                                 @if($property->parking_type == null)
                                                 @else
                                                 <div class="col-6 p-0">
-                                                    <li>Parking Type : {{ $property->parking_type }}</li>
+                                                    <li><i class="fas fa-circle"></i>Parking Type : {{ $property->parking_type }}</li>
                                                 </div>
                                                 @endif
 
                                                 @if($property->building_type == null)
                                                 @else
                                                 <div class="col-6 p-0">
-                                                    <li>Building Type : {{ $property->building_type }}</li>
+                                                    <li><i class="fas fa-circle"></i>Building Type : {{ $property->building_type }}</li>
                                                 </div>
                                                 @endif
 
                                                 @if($property->farm_type == null)
                                                 @else
                                                 <div class="col-6 p-0">
-                                                    <li>Farm Type : {{ $property->farm_type }}</li>
+                                                    <li><i class="fas fa-circle"></i>Farm Type : {{ $property->farm_type }}</li>
                                                 </div>
                                                 @endif
 
                                                 @if($property->open_house_only == null)
                                                 @else
                                                 <div class="col-6 p-0">
-                                                    <li>Open House Only : {{ $property->open_house_only }}</li>
+                                                    <li><i class="fas fa-circle"></i>Open House Only : {{ $property->open_house_only }}</li>
                                                 </div>
                                                 @endif
 
                                                 @if($property->number_of_units == null)
                                                 @else
                                                 <div class="col-6 p-0">
-                                                    <li>Number of Units : {{ $property->number_of_units }}</li>
+                                                    <li><i class="fas fa-circle"></i>Number of Units : {{ $property->number_of_units }}</li>
                                                 </div>
                                                 @endif
 
                                                 @if($property->land_size == null)
                                                 @else
                                                 <div class="col-6 p-0">
-                                                    <li>Land Size : {{ $property->land_size }}</li>
+                                                    <li><i class="fas fa-circle"></i>Land Size : {{ $property->land_size }}</li>
                                                 </div>
                                                 @endif
 
                                                 @if($property->zoning_type == null)
                                                 @else
                                                 <div class="col-6 p-0">
-                                                    <li>Zoning Type : {{ $property->zoning_type }}</li>
+                                                    <li><i class="fas fa-circle"></i>Zoning Type : {{ $property->zoning_type }}</li>
                                                 </div>
                                                 @endif
 
                                                 @if($property->building_size == null)
                                                 @else
                                                 <div class="col-6 p-0">
-                                                    <li>Building Size : {{ $property->building_size }}</li>
+                                                    <li><i class="fas fa-circle"></i>Building Size : {{ $property->building_size }}</li>
                                                 </div>
                                                 @endif
 
@@ -528,10 +528,20 @@ button.close:hover {
                                     </div>
                                 </div>
 
-                                <div class="row mt-3 paragraph collapse" id="collapseExample">
+                                <div class="row mt-3" id="collapseExample">
                                     <div class="col-12">
                                         <h5 class="fw-bold mb-2">Description</h5>
-                                        <p id="target">{{ $property->description }}</p>
+                                        <div id="profile-description">
+                                                <div class="text show-more-height">
+                                                <p>{{ $property->description }}</p>
+                                                </div>
+                                                <div class="show-more">(Show More)</div>
+                                    </div>
+
+                                        <!-- <div id="profile-description">
+                                            <p class="text show-more-height">{{ $property->description }}</p>
+                                            <div class="show-more">(Show More)</div>
+                                        </div> -->
                                     </div>
                                 </div>
 
@@ -552,13 +562,12 @@ button.close:hover {
                                         <a role="button" class="collapsed text-decoration-none collapse-button fw-bold"
                                             data-bs-toggle="collapse" href="#collapseExample" aria-expanded="false"
                                             aria-controls="collapseExample" style="font-size: 1rem; color: #666666"></a> -->
-                                            <button class="Show">Show</button>
-                                            <button class="Hide">Hide</button>
+                                            <!-- <div class="show-more">(Show More)</div> -->
                                     </div>
                                 </div>
                             </div>
                         </div>
-
+<!-- 
                         <div id="profile-description">
             <div class="text show-more-height">
                 Some random text 
@@ -567,7 +576,7 @@ button.close:hover {
                 We make this simple mission come to life every day through our passion to create technologies <br><br>and develop products that touch just about every kind of customer.
             </div>
             <div class="show-more">(Show More)</div>
-</div><!-
+</div>  -->
 
                         <div class="col-4">
                             <div class="row">
