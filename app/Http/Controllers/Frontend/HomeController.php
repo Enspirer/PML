@@ -442,4 +442,31 @@ class HomeController extends Controller
     }
 
 
+    //search suggestions ajax
+    function fetch(Request $request) 
+
+    {
+
+
+        if($request->get('query')) {
+            $query = $request->get('query');
+            $data = DB::table('properties')
+                    ->where('city', 'like', '%' .  $query . '%')
+                    ->get();
+                    // dd($data);
+            $output = '<ul class="dropdown-menu" style="display:block;position:relative;">';
+            foreach($data as $row) 
+            {
+                $output .= '<li><a href="#">'.$row->city.'</a></li>';
+            }
+            $output .= '</ul>';
+            echo $output;
+        }
+
+       
+    }
+
+
+
 }
+
