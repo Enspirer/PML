@@ -66,6 +66,11 @@ button.close:hover {
     color: #fff;
 }
 
+.free_listning {
+    top: 0;
+    left: 0;
+}
+
 </style>
 
 
@@ -354,6 +359,10 @@ button.close:hover {
                     <p class="mb-1" style="font-size: 1rem;">{{$property->city}},
                         {{App\Models\Country::where('id',$property->country)->first()->country_name }}
                     </p>
+
+                    @if($property->listning_type == 'free_listning')
+                        <div class="badge badge-warning p-2 mt-3">Free Listning</div>
+                    @endif
 
                 </div>
 
@@ -672,6 +681,9 @@ button.close:hover {
                                 <a href="{{ route('frontend.for_sale_single',$ran->id) }}" class="text-decoration-none">
                                     <img src="{{ uploaded_asset($ran->feature_image_id) }}" alt=""
                                         class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
+                                        @if($ran->listning_type == 'free_listning')
+                                            <div class="free_listning position-absolute badge badge-warning p-2 m-2">Free Listning</div>
+                                        @endif
                                 </a>
                                 <div class="card-body mt-3">
                                     <div class="row mb-2">
@@ -740,10 +752,10 @@ button.close:hover {
                                     </p>
                                 </div>
 
-                                <div class="position-absolute apart-avail">
+                                <!-- <div class="position-absolute apart-avail">
                                     <button class="btn fw-bold me-3">APARTMENT</button>
                                     <button class="btn fw-bold" style="color: #39B54A">AVAILABLE</button>
-                                </div>
+                                </div> -->
 
                                 <div class="row align-items-center prom-logo position-absolute">
                                     <div class="col-6">

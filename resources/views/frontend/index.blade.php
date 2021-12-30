@@ -5,6 +5,13 @@
 @push('after-styles')
 <link href="{{ url('css/index.css') }}" rel="stylesheet">
 
+<style>
+.free_listning {
+    top: 0;
+    left: 0;
+}
+</style>
+
 <!-- map links -->
 <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
 <script src="https://unpkg.com/@googlemaps/markerclusterer/dist/index.min.js"></script>
@@ -394,11 +401,14 @@ locationButton.classList.add("custom-map-control-button");
                     @if(count($featured_properties) != 0)
                     @foreach($featured_properties as $key => $featured_prop)
                     <div class="col-4">
-                        <div class="card custom-shadow" style="min-height:307px;  max-height:307px">
+                        <div class="card custom-shadow position-relative" style="min-height:307px;  max-height:307px">
                             <a href="{{route('frontend.for_sale_single',$featured_prop->id)}}"
                                 style="text-decoration:none">
                                 <img src="{{ uploaded_asset($featured_prop->feature_image_id) }}" alt=""
                                     class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
+                                    @if($featured_prop->listning_type == 'free_listning')
+                                        <div class="free_listning position-absolute badge badge-warning p-2 m-2">Free Listning</div>
+                                    @endif
                                 <div class="card-body text-center">
                                     <h5 class="fw-bold">{{ get_currency(request() ,$featured_prop->price)}}</h5>
                                     @if($featured_prop->beds == null)
@@ -477,11 +487,14 @@ locationButton.classList.add("custom-map-control-button");
 
             @foreach($latest_properties as $key => $latest_prop)
             <div class="swiper-slide">
-                <div class="card custom-shadow" style="min-height:307px;  max-height:307px">
+                <div class="card custom-shadow position-relative" style="min-height:307px;  max-height:307px">
                     <a href="{{route('frontend.for_sale_single',$latest_prop->id)}}" style="text-decoration:none">
                         <img src="{{ uploaded_asset($latest_prop->feature_image_id) }}" alt="" class="img-fluid w-100"
                             style="height: 10rem; object-fit: cover;">
-                        <div class="card-body text-center">
+                            @if($latest_prop->listning_type == 'free_listning')
+                                <div class="free_listning position-absolute badge badge-warning p-2 m-2">Free Listning</div>
+                            @endif
+                            <div class="card-body text-center">
                             <h5 class="fw-bold">{{ get_currency(request() ,$latest_prop->price)}}</h5>
                             @if($latest_prop->beds == null)
                             @else

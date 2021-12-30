@@ -4,6 +4,12 @@
 
 @push('after-styles')
 <link href="{{ url('css/individual-agent.css') }}" rel="stylesheet">
+<style>
+.free_listning {
+    top: 0;
+    left: 0;
+}
+</style>
 @endpush
 
 @section('content')
@@ -100,7 +106,7 @@
                         @foreach($all_properties as $key=> $prop)
 
                             <a href="{{ route('frontend.for_sale_single',$prop->id) }}" class="text-decoration-none text-dark">
-                                <div class="agent-card">
+                                <div class="agent-card position-relative">
                                     <div class="heart-icon-wrapper">
 
                                         @php
@@ -135,6 +141,9 @@
 
                                     </div>
                                     <img class="property-img" src="{{ uploaded_asset($prop->feature_image_id) }}" alt="property" style="object-fit:cover">
+                                    @if($prop->listning_type == 'free_listning')
+                                        <div class="free_listning position-absolute badge badge-warning p-2 m-2">Free Listning</div>
+                                    @endif
                                     <div class="agent-card-txt-wrapper">
                                             <h3>{{$prop->name}}</h3>
 
@@ -164,7 +173,7 @@
                         @foreach($sale_properties as $key=> $prop)
 
                             <a href="{{ route('frontend.for_sale_single',$prop->id) }}" class="text-decoration-none text-dark">
-                                <div class="agent-card">
+                                <div class="agent-card position-relative">
                                     <div class="heart-icon-wrapper">
 
                                         @php
@@ -199,6 +208,9 @@
 
                                     </div>
                                     <img class="property-img" src="{{ uploaded_asset($prop->feature_image_id) }}" alt="property" style="object-fit:cover">
+                                    @if($prop->listning_type == 'free_listning')
+                                        <div class="free_listning position-absolute badge badge-warning p-2 m-2">Free Listning</div>
+                                    @endif
                                     <div class="agent-card-txt-wrapper">
                                             <h3>{{$prop->name}}</h3>
 
@@ -231,7 +243,7 @@
                         @foreach($rent_properties as $key=> $prop)
 
                             <a href="{{ route('frontend.for_sale_single',$prop->id) }}" class="text-decoration-none text-dark">
-                                <div class="agent-card">
+                                <div class="agent-card position-relative">
                                     <div class="heart-icon-wrapper">
 
                                         @php
@@ -266,6 +278,9 @@
 
                                     </div>
                                     <img class="property-img" src="{{ uploaded_asset($prop->feature_image_id) }}" alt="property" style="object-fit:cover">
+                                    @if($prop->listning_type == 'free_listning')
+                                        <div class="free_listning position-absolute badge badge-warning p-2 m-2">Free Listning</div>
+                                    @endif
                                     <div class="agent-card-txt-wrapper">
                                             <h3>{{$prop->name}}</h3>
 
