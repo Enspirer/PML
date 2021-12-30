@@ -379,13 +379,25 @@ class HomeController extends Controller
             {
                 $strID = (string) $cold_data->id;
 
-                $impack_array = [
-                    'I' => $strID,
-                    'T' => 2,
-                    'X' => round( $cold_data->long) ,
-                    'Y' => round($cold_data->lat),
-                    'C' => 3
-                ];
+                if($request->zoom > 10){
+                    $impack_array = [
+                        'I' => $strID,
+                        'T' => 2,
+                        'X' => round( $cold_data->long) ,
+                        'Y' => round($cold_data->lat),
+                        'C' => 1
+                    ];
+                }else{
+                    $impack_array = [
+                        'I' => $strID,
+                        'T' => 2,
+                        'X' => round( $cold_data->long) ,
+                        'Y' => round($cold_data->lat),
+                        'C' => 3
+                    ];
+                }
+
+
                 array_push($outArray,$impack_array);
             }
 
@@ -425,6 +437,26 @@ class HomeController extends Controller
     }
 
 
+    public static function cluser_get(){
+
+    }
+
+    function haversineGreatCircleDistance(
+        $latitudeFrom, $longitudeFrom, $latitudeTo, $longitudeTo,    $earthRadius = 6371000)
+    {
+        // convert from degrees to radians
+        $latFrom = deg2rad($latitudeFrom);
+        $lonFrom = deg2rad($longitudeFrom);
+        $latTo = deg2rad($latitudeTo);
+        $lonTo = deg2rad($longitudeTo);
+
+        $latDelta = $latTo - $latFrom;
+        $lonDelta = $lonTo - $lonFrom;
+
+        $angle = 2 * asin(sqrt(pow(sin($latDelta / 2), 2) +
+                cos($latFrom) * cos($latTo) * pow(sin($lonDelta / 2), 2)));
+        return $angle * $earthRadius;
+    }
 
 
     public function test_api(Request $request)
