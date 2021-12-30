@@ -17,8 +17,6 @@ use App\Models\Favorite;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Cookie;
 use DB;
-use League\Geotools\Coordinate\Coordinate;
-use EmilKlindt\MarkerClusterer\Interfaces\Clusterable;
 
 /**
  * Class HomeController.
@@ -384,8 +382,8 @@ class HomeController extends Controller
                 $impack_array = [
                     'I' => $strID,
                     'T' => 2,
-                    'X' => round( $cold_data->long) ,
-                    'Y' => round($cold_data->lat),
+                    'lng' => $cold_data->long ,
+                    'lat' => $cold_data->lat,
                     'C' => 3
                 ];
                 array_push($outArray,$impack_array);
@@ -399,8 +397,8 @@ class HomeController extends Controller
                 $impack_array = [
                     'I' => $strID,
                     'T' => 3,
-                    'X' => substr($cold_data->long, 0, 10) ,
-                    'Y' => substr($cold_data->lat, 0, 10),
+                    'lng' => $cold_data->long,
+                    'lat' => $cold_data->lat,
                     'C' => 1
                 ];
                 array_push($outArray,$impack_array);
