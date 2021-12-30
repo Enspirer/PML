@@ -110,19 +110,19 @@
                             <div class="col-6">
                                 <div class="form-group mb-2 mt-3">
                                     <div class="form-group form-validate-div divFrmFull" style="display:none">
-                                        <label class="form-label mb-2 mt-2 required">Full Property Count <span class="text-danger">*</span></label>
+                                        <label class="form-label mb-2 mt-2">Full Property Count <span class="text-danger">*</span></label>
                                         <input type="number" step="any" class="form-control" id="full_property" name="full_property" placeholder="Full Property Count" > 
                                     </div>
                                     <div class="form-group form-validate-div divFrmPerches" style="display:none">
-                                        <label class="form-label mb-2 mt-2 required">Perches Count <span class="text-danger">*</span></label>
+                                        <label class="form-label mb-2 mt-2">Perches Count <span class="text-danger">*</span></label>
                                         <input type="number" step="any" class="form-control" id="perches" name="perches" placeholder="Perches Count" > 
                                     </div>
                                     <div class="form-group form-validate-div divFrmAcres" style="display:none">
-                                        <label class="form-label mb-2 mt-2 required">Acres Count <span class="text-danger">*</span></label>
+                                        <label class="form-label mb-2 mt-2">Acres Count <span class="text-danger">*</span></label>
                                         <input type="number" step="any" class="form-control" id="acres" name="acres" placeholder="Acres Count" > 
                                     </div>
                                     <div  class="form-group form-validate-div divFrmHectares" style="display:none">
-                                        <label class="form-label mb-2 mt-2 required">Hectares Count <span class="text-danger">*</span></label>
+                                        <label class="form-label mb-2 mt-2">Hectares Count <span class="text-danger">*</span></label>
                                         <input type="number" step="any" class="form-control" id="hectares" name="hectares" placeholder="Hectares Count" > 
                                     </div>
                                 </div> 
@@ -131,28 +131,28 @@
                         <div class="row">
                             <div class="col-6">
                                 <div class="form-group form-validate-div divFrmFull" style="display:none">
-                                    <label for="price" class="form-label mb-2 mt-3 required">Price of Full Property<span class="text-danger">*</span></label>
+                                    <label for="price" class="form-label mb-2 mt-3">Price of Full Property<span class="text-danger">*</span></label>
                                     <input type="number" class="form-control" name="price_full_property" id="price_full_property" aria-describedby="price_full_property" placeholder="$">
                                     <div id="passwordHelpBlock" class="form-text text-info fw-bolder">
                                         Please enter property price in US currency
                                     </div>
                                 </div> 
                                 <div class="form-group form-validate-div divFrmPerches" style="display:none">
-                                    <label for="price" class="form-label mb-2 mt-3 required">Price Per Perches<span class="text-danger">*</span></label>
+                                    <label for="price" class="form-label mb-2 mt-3">Price Per Perches<span class="text-danger">*</span></label>
                                     <input type="number" class="form-control" name="price_perches" id="price_perches" aria-describedby="price_perches" placeholder="$">
                                     <div id="passwordHelpBlock" class="form-text text-info fw-bolder">
                                         Please enter property price in US currency
                                     </div>
                                 </div> 
                                 <div class="form-group form-validate-div divFrmAcres" style="display:none">
-                                    <label for="price" class="form-label mb-2 mt-3 required">Price Per Acres<span class="text-danger">*</span></label>
+                                    <label for="price" class="form-label mb-2 mt-3">Price Per Acres<span class="text-danger">*</span></label>
                                     <input type="number" class="form-control" name="price_acres" id="price_acres" aria-describedby="price_acres" placeholder="$">
                                     <div id="passwordHelpBlock" class="form-text text-info fw-bolder">
                                         Please enter property price in US currency
                                     </div>
                                 </div> 
                                 <div class="form-group form-validate-div divFrmHectares" style="display:none">
-                                    <label for="price" class="form-label mb-2 mt-3 required">Price Per Hectares<span class="text-danger">*</span></label>
+                                    <label for="price" class="form-label mb-2 mt-3">Price Per Hectares<span class="text-danger">*</span></label>
                                     <input type="number" class="form-control" name="price_hectares" id="price_hectares" aria-describedby="price_hectares" placeholder="$">
                                     <div id="passwordHelpBlock" class="form-text text-info fw-bolder">
                                         Please enter property price in US currency
@@ -649,44 +649,67 @@
             $('#full_property').prop('required', true);
             $('#price_full_property').prop('required', true);
             
-            $('#perches').prop('required', false);
+            document.querySelector('#perches').required = false;
+            document.querySelector('#price_perches').required = false;
+            document.querySelector('#acres').required = false;
+            document.querySelector('#price_acres').required = false;
+            document.querySelector('#hectares').required = false;
+            document.querySelector('#price_hectares').required = false;
 
-            $('#acres').prop('required', false);
-
-            $('#hectares').prop('required', false);
         }
-
+       
         if($(this).val() == 'Perches') {
             $('#perches').prop('required', true);
             $('#price_perches').prop('required', true);
 
-            $('#full_property').prop('required', false);
+            document.querySelector('#full_property').required = false;
+            document.querySelector('#price_full_property').required = false;
+            document.querySelector('#acres').required = false;
+            document.querySelector('#price_acres').required = false;
+            document.querySelector('#hectares').required = false;
+            document.querySelector('#price_hectares').required = false;
 
-            $('#acres').prop('required', false);
+            // $('#full_property').removeAttr('required');
 
-            $('#hectares').prop('required', false);
+            // $('#acres').removeAttr('required');
+
+            // $('#hectares').removeAttr('required');
         }
 
         if($(this).val() == 'Acres') {
             $('#acres').prop('required', true);
             $('#price_acres').prop('required', true);
 
-            $('#full_property').prop('required', false);
+            document.querySelector('#full_property').required = false;
+            document.querySelector('#price_full_property').required = false;
+            document.querySelector('#perches').required = false;
+            document.querySelector('#price_perches').required = false;
+            document.querySelector('#hectares').required = false;
+            document.querySelector('#price_hectares').required = false;
 
-            $('#perches').prop('required', false);
+            // $('#full_property').removeAttr('required');
 
-            $('#hectares').prop('required', false);
+            // $('#perches').removeAttr('required');
+
+            // $('#hectares').removeAttr('required');
         }
 
         if($(this).val() == 'Hectares') {
             $('#hectares').prop('required', true);
             $('#price_hectares').prop('required', true);
 
-            $('#acres').prop('required', false);
+            document.querySelector('#acres').required = false;
+            document.querySelector('#price_acres').required = false;
+            document.querySelector('#full_property').required = false;
+            document.querySelector('#price_full_property').required = false;
+            document.querySelector('#perches').required = false;
+            document.querySelector('#price_perches').required = false;
 
-            $('#full_property').prop('required', false);
+            // $('#acres').removeAttr('required');
 
-            $('#perches').prop('required', false);
+            // $('#full_property').removeAttr('required');
+
+            // $('#perches').removeAttr('required');
         }
     })
 </script>

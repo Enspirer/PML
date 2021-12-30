@@ -350,19 +350,49 @@ class HomeController extends Controller
 
         $outArray = [];
 
+        $countMaker = [
+            [
+            "I" =>"8482",
+            "T" => 2,
+            "X" => "79.910000",
+            "Y" => "6.905000",
+            "C" => 1
+            ],[
+                "I" =>"8482",
+                "T" => 2,
+                "X" => "79.881972",
+                "Y" => "6.967464",
+                "C" => 1
+            ]
+        ];
+
         if(count($data) == 0){
+            $data = DB::table('properties')->get();
+            foreach ($data  as $cold_data)
+            {
+                $strID = (string) $cold_data->id;
 
-
+                $impack_array = [
+                    'I' => $strID,
+                    'T' => 2,
+                    'X' => substr($cold_data->long, 0, 10) ,
+                    'Y' => substr($cold_data->lat, 0, 10),
+                    'C' => 3
+                ];
+                array_push($outArray,$impack_array);
+            }
 
         }else{
             foreach ($data  as $cold_data)
             {
+                $strID = (string) $cold_data->id;
+
                 $impack_array = [
-                    'I' => $cold_data->id,
-                    'T' => 2,
-                    'X' => $cold_data->long,
-                    'Y' => $cold_data->lat,
-                    'C' => 2
+                    'I' => $strID,
+                    'T' => 3,
+                    'X' => substr($cold_data->long, 0, 10) ,
+                    'Y' => substr($cold_data->lat, 0, 10),
+                    'C' => 1
                 ];
                 array_push($outArray,$impack_array);
             }
@@ -374,7 +404,7 @@ class HomeController extends Controller
             'EMsg' => "",
             'Msec' => 185,
             'Ok' => 1,
-            'Rid' => 24,
+            'Rid' => $request->sid,
             'Count'=> count($data),
             'Mia' => 0,
             'Polylines' => [

@@ -791,47 +791,70 @@
         if($(this).val() == 'Full') {
             $('#full_property').prop('required', true);
             $('#price_full_property').prop('required', true);
+            
+            document.querySelector('#perches').required = false;
+            document.querySelector('#price_perches').required = false;
+            document.querySelector('#acres').required = false;
+            document.querySelector('#price_acres').required = false;
+            document.querySelector('#hectares').required = false;
+            document.querySelector('#price_hectares').required = false;
 
-            $('#perches').prop('required', false);
-
-            $('#acres').prop('required', false);
-
-            $('#hectares').prop('required', false);
         }
 
         if($(this).val() == 'Perches') {
             $('#perches').prop('required', true);
             $('#price_perches').prop('required', true);
 
-            $('#full_property').prop('required', false);
+            document.querySelector('#full_property').required = false;
+            document.querySelector('#price_full_property').required = false;
+            document.querySelector('#acres').required = false;
+            document.querySelector('#price_acres').required = false;
+            document.querySelector('#hectares').required = false;
+            document.querySelector('#price_hectares').required = false;
 
-            $('#acres').prop('required', false);
+            // $('#full_property').removeAttr('required');
 
-            $('#hectares').prop('required', false);
+            // $('#acres').removeAttr('required');
+
+            // $('#hectares').removeAttr('required');
         }
 
         if($(this).val() == 'Acres') {
             $('#acres').prop('required', true);
             $('#price_acres').prop('required', true);
 
-            $('#full_property').prop('required', false);
+            document.querySelector('#full_property').required = false;
+            document.querySelector('#price_full_property').required = false;
+            document.querySelector('#perches').required = false;
+            document.querySelector('#price_perches').required = false;
+            document.querySelector('#hectares').required = false;
+            document.querySelector('#price_hectares').required = false;
 
-            $('#perches').prop('required', false);
+            // $('#full_property').removeAttr('required');
 
-            $('#hectares').prop('required', false);
+            // $('#perches').removeAttr('required');
+
+            // $('#hectares').removeAttr('required');
         }
 
         if($(this).val() == 'Hectares') {
             $('#hectares').prop('required', true);
             $('#price_hectares').prop('required', true);
 
-            $('#acres').prop('required', false);
+            document.querySelector('#acres').required = false;
+            document.querySelector('#price_acres').required = false;
+            document.querySelector('#full_property').required = false;
+            document.querySelector('#price_full_property').required = false;
+            document.querySelector('#perches').required = false;
+            document.querySelector('#price_perches').required = false;
 
-            $('#full_property').prop('required', false);
+            // $('#acres').removeAttr('required');
 
-            $('#perches').prop('required', false);
+            // $('#full_property').removeAttr('required');
+
+            // $('#perches').removeAttr('required');
         }
-    })
+        })
 </script>
 
 
