@@ -100,3 +100,10 @@ p.card-text.mb-1 {
     text-align: justify;
     padding-bottom: 0;
 }
+
+
+ /*map*/
+ .card.custom-shadow.info-card {
+    width: 250px;
+    height: 200px;
+}
