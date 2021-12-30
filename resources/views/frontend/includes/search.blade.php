@@ -27,10 +27,13 @@
                 <div class="col-8">
                     
                         <div class="input-group">
-                            <input type="text" id="search-word" name="search_keyword" class="form-control p-4 rounded-0" aria-label="search"
+                            <div class="search-wrapper">
+                                <input type="text" id="search-word" name="search_keyword" class="form-control p-4 rounded-0" aria-label="search"
                                  placeholder="Search">
 
-                            <div id="search-result"></div>
+                                <div id="search-result"></div>
+                            </div>
+                            
 
                             @if(Request::segment(1) == 'search_result_filter')
                             <input type="hidden" name="transaction_type" value="{{$transaction_type}}">

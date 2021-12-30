@@ -115,13 +115,18 @@
                             success:function(data)
                             {
                                 $('#search-result').fadeIn();
-                                $('#search-result').html("test result");
+                                $('#search-result').html(data);
                             }
                         })
                     }               
                 });
+                $('body').click( function() {
+                    $('#search-result').hide();
+                });
             });
 
+
+          
 
          
 

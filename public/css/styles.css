@@ -168,3 +168,28 @@ label.btn.btn-secondary.toggle-label.active {
     background-color: rgb(53, 73, 94) !important;
     color: #fff !important;
 }
+
+.search-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex: 4;
+    position: relative;
+}
+
+div#search-result {
+    background: #fff;
+    margin-top: 5px;
+    position: absolute;
+    top: 50px;
+    z-index: 2;
+    width: 100%;
+    display: none;
+}
+
+ul.dropdown-menu {
+    width: 100%;
+    display: block;
+    position: relative;
+    border: 0;
+    padding-left: 15px;
+}
