@@ -272,8 +272,8 @@ class HomeController extends Controller
          foreach ($property as $prty)
          {
              $outfin = [
-                'lat' => $prty->lat,
-                'lng' => $prty->long,
+                'lat' => (float)$prty->lat,
+                'lng' => (float)$prty->long,
                 'id' => $prty->id,
                 'description' => $prty->description,
                 'price' => $prty->price,
