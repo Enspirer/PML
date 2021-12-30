@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Posts;
+use EmilKlindt\MarkerClusterer\Facades\DefaultClusterer;
 use Illuminate\Http\Request;
 use App\Models\Properties;
 use App\Models\PropertyType;
@@ -367,7 +368,13 @@ class HomeController extends Controller
         ];
 
         if(count($data) == 0){
+
+
+
             $data = DB::table('properties')->get();
+
+
+
             foreach ($data  as $cold_data)
             {
                 $strID = (string) $cold_data->id;
@@ -375,8 +382,8 @@ class HomeController extends Controller
                 $impack_array = [
                     'I' => $strID,
                     'T' => 2,
-                    'X' => substr($cold_data->long, 0, 10) ,
-                    'Y' => substr($cold_data->lat, 0, 10),
+                    'lng' => $cold_data->long ,
+                    'lat' => $cold_data->lat,
                     'C' => 3
                 ];
                 array_push($outArray,$impack_array);
@@ -390,8 +397,8 @@ class HomeController extends Controller
                 $impack_array = [
                     'I' => $strID,
                     'T' => 3,
-                    'X' => substr($cold_data->long, 0, 10) ,
-                    'Y' => substr($cold_data->lat, 0, 10),
+                    'lng' => $cold_data->long,
+                    'lat' => $cold_data->lat,
                     'C' => 1
                 ];
                 array_push($outArray,$impack_array);
