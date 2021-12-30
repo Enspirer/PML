@@ -52,7 +52,7 @@
                                             <div class="col-5">
                                                 <h5 class="card-title">{{\App\Models\Properties::where('id',$booking->property_id)->first()->name}}</h5>
                                                 <p class="card-text mt-1 mb-1">Country: {{\App\Models\Country::where('id',App\Models\Properties::where('id',$booking->property_id)->first()->country)->first()->country_name }}</p>
-                                                <p class="card-text mb-1">Category: {{\App\Models\Properties::where('id',$booking->property_id)->first()->transaction_type}}</p>
+                                                <p class="card-text mb-1">Transaction Type: {{\App\Models\Properties::where('id',$booking->property_id)->first()->transaction_type}}</p>
                                                 
                                                     <p class="mb-0 d-inline-block px-2 py-1 mt-2 text-light mb-1" style="font-size: 0.8rem; background: #4195e1; border-radius: 7px;">{{ get_currency(request() ,App\Models\Properties::where('id',$booking->property_id)->first()->price)}}</p>
                                               

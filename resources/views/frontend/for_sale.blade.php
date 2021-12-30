@@ -4,6 +4,12 @@
 
 @push('after-styles')
     <link href="{{ url('css/for_sale.css') }}" rel="stylesheet">
+    <style>
+        .free_listning {
+            top: 0;
+            left: 0;
+        }
+    </style>
 @endpush
 
 @section('content')
@@ -105,7 +111,11 @@
                             <div class="card custom-shadow position-relative" style="min-height: 370px;max-height: 300px;">
                                     <a href="{{ route('frontend.for_sale_single',$property_pro->id) }}" class="text-decoration-none text-dark">
                                         <img src="{{ uploaded_asset($property_pro->feature_image_id) }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
+                                        
                                     </a>
+                                    @if($property_pro->listning_type == 'free_listning')
+                                        <div class="free_listning position-absolute badge badge-warning p-2 m-2">Free Listning</div>
+                                    @endif
                                     <div class="card-body mt-2" style="margin-top:30px !important;">
                                         <div class="row mb-2">
                                             <div class="col-10">
@@ -235,9 +245,19 @@
                                 <div class="col-6 p-3">
                                     <div class="row align-items-center mb-4 pt-4">
                                             <div class="col-6">
-                                                <div class="py-1 w-75 text-center" style="background-color: #FF0000;">
-                                                    <p class="text-white">Premium Listing</p>
+                                                <div class="row">
+                                                    <div class="col-9">
+                                                        <div class="py-1 text-center" style="background-color: #FF0000;">
+                                                            <p class="text-white">Premium Listing</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-3">
+                                                        @if($normal->listning_type == 'free_listning')
+                                                            <div class="badge badge-warning p-2">Free Listning</div>
+                                                        @endif
+                                                    </div>
                                                 </div>
+                                                
                                             </div>
                                             <div class="col-6 text-end">
                                                 @if(App\Models\AgentRequest::where('user_id',$normal->user_id)->first() != null)
@@ -314,8 +334,7 @@
                                                     <a href="{{route('frontend.auth.login')}}">
                                                         <button type="submit" style="margin-left:-13px;" class="mb-3 fw-bold btn"><i class="fas fa-heart me-3"></i>Save Property</button>
                                                     </a>
-                                                @endauth                                             
-                                                360 here
+                                                @endauth
                                             </div>
                                         </div>
                                     </div>
@@ -359,9 +378,9 @@
                                 <div class="col-6 p-3">
                                     <div class="row align-items-center mb-4 pt-4">
                                             <div class="col-6">
-                                                <!-- <div class="py-1 w-75 text-center" style="background-color: #FF0000;">
-                                                    <p class="text-white">Premium Listing</p>
-                                                </div> -->
+                                                @if($normal->listning_type == 'free_listning')
+                                                    <div class="badge badge-warning p-2">Free Listning</div>
+                                                @endif
                                             </div>
                                             <div class="col-6 text-end">
                                                 @if(App\Models\AgentRequest::where('user_id',$normal->user_id)->first() != null)
