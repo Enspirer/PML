@@ -531,14 +531,14 @@ button.close:hover {
                                 <div class="row mt-3 paragraph collapse" id="collapseExample">
                                     <div class="col-12">
                                         <h5 class="fw-bold mb-2">Description</h5>
-                                        <p>{{ $property->description }}</p>
+                                        <p id="target">{{ $property->description }}</p>
                                     </div>
                                 </div>
 
                                 <div class="row justify-content-center text-center mt-3">
                                     <div class="col-6 p-0">
 
-                                        <i class="fas fa-chevron-down ms-1 collapsed" data-bs-toggle="collapse"
+                                        <!-- <i class="fas fa-chevron-down ms-1 collapsed" data-bs-toggle="collapse"
                                             href="#collapseExample" aria-expanded="false"
                                             aria-controls="collapseExample"
                                             style="font-size: 1rem; cursor: pointer; color: #666666"></i>
@@ -551,11 +551,23 @@ button.close:hover {
                                             
                                         <a role="button" class="collapsed text-decoration-none collapse-button fw-bold"
                                             data-bs-toggle="collapse" href="#collapseExample" aria-expanded="false"
-                                            aria-controls="collapseExample" style="font-size: 1rem; color: #666666"></a>
+                                            aria-controls="collapseExample" style="font-size: 1rem; color: #666666"></a> -->
+                                            <button class="Show">Show</button>
+                                            <button class="Hide">Hide</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
+
+                        <div id="profile-description">
+            <div class="text show-more-height">
+                Some random text 
+                <br /><br />
+                At Cobalt we help people and businesses throughout the world realize their full potential. <br />
+                We make this simple mission come to life every day through our passion to create technologies <br><br>and develop products that touch just about every kind of customer.
+            </div>
+            <div class="show-more">(Show More)</div>
+</div><!-
 
                         <div class="col-4">
                             <div class="row">
@@ -1183,14 +1195,15 @@ var swiper2 = new Swiper(".mySwiper2", {
 
 
 <script>
-$('.collapse-button').on('click', function() {
-    // $(".fas fa-chevron-down").hide();
-    // $(".fas fa-chevron-up").show();
+    $(".show-more").click(function () {
+        if($(".text").hasClass("show-more-height")) {
+            $(this).text("(Show Less)");
+        } else {
+            $(this).text("(Show More)");
+        }
 
-    // $(".features ").toggle();
-
-    alert("Hi");
-});
+        $(".text").toggleClass("show-more-height");
+    });
 </script>
 
 
