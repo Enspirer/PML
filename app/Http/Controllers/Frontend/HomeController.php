@@ -49,6 +49,8 @@ class HomeController extends Controller
         ]);
     }
 
+
+
     public function home_page(Request $request)
     {
         $self = self::setCookie($request->countries_list);
@@ -262,31 +264,21 @@ class HomeController extends Controller
         ]);
     }
 
-    public function map_api($fromLat,$toLat,$fromLng,$toLng){
-         $data = DB::table('properties')
-            ->where('lat', '>', $fromLat)
-            ->where('lat', '<', $toLat)
-            ->where('long', '>', $fromLng)
-            ->where('long', '<', $toLng)
-            ->get();
-         if(count($data) == 0){
+    public function map_api(){
+         $property = Properties::all();
 
-         }else{
-             $outArray = [];
-              foreach ($data as $datafunc){
-                $subOut = [
-                  'lat' => $datafunc->lat,
-                  'lng' => $datafunc->long,
-                  'name' => $datafunc->name,
-                  'description' => $datafunc->description,
-                ];
-                
-                array_push($outArray,$subOut);
+         $enOutArray = [];
 
-              }
-             $response = response()->json($outArray);
-             return $response;
+         foreach ($property as $prty)
+         {
+             $outfin = [
+                 $prty->lat,$prty->long
+             ];
+             array_push($enOutArray,$outfin);
          }
+
+         return response()->json($enOutArray);
+
     }
 
 
@@ -459,17 +451,6 @@ class HomeController extends Controller
     }
 
 
-    public function test_api(Request $request)
-    {       
-
-      
-        if($booking){
-            return json_encode($booking);
-        }else{
-            return json_encode('no_data');
-        }              
-
-    }
 
 
     //search suggestions ajax
