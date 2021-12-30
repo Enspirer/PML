@@ -54,52 +54,54 @@
            
         
            
-const myArr = JSON.parse(data);
-              
+
             
             
+
+                /*map marker and clustering start here*/
                 const labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"; 
 
-const place = [
-        {id: 1, lat: -61.56391, lng: 47.154312, bed: "5", bathrrom: "3"},
-        {id:2, lat: -63.727111, lng: 50.371124, bed: "4", bathrrom: "2" },
-        {id:2, lat: -53.727111, lng: 50.371124, bed: "4", bathrrom: "2" },
-    ]
+                const place = [
+                        {id: 1, lat: -61.56391, lng: 47.154312, bed: "5", bathrrom: "3"},
+                        {id:2, lat: -63.727111, lng: 50.371124, bed: "4", bathrrom: "2" },
+                        {id:2, lat: -53.727111, lng: 50.371124, bed: "4", bathrrom: "2" },
+                    ]
+
+
+                    // Add some markers to the map.
+                    const markers = place.map((position, i) => {
+                            const label = labels[i % labels.length];
+                            const marker = new google.maps.Marker({
+                            position,
+                            label,
+                            });
+
+
+                            // markers can only be keyboard focusable when they have click listeners
+                            // open info window when marker is clicked
+                            marker.addListener("click", () => {
+                            infoWindow.open({
+                                anchor: marker,
+                                map,
+                                shouldFocus: false,
+                            });
+                            });
+                            return marker;
+                        });
 
 
 
-    console.log(myArr);
+                        // Add a marker clusterer to manage the markers.
+                        const markerCluster = new markerClusterer.MarkerClusterer({ map, markers });
 
- // Add some markers to the map.
- const markers = data.map((position, i) => {
-        const label = labels[i % labels.length];
-        const marker = new google.maps.Marker({
-        position,
-        label,
-        });
-
-
-        // markers can only be keyboard focusable when they have click listeners
-        // open info window when marker is clicked
-        marker.addListener("click", () => {
-        infoWindow.open({
-            anchor: marker,
-            map,
-            shouldFocus: false,
-        });
-        });
-        return marker;
-    });
-
-
-
-    // Add a marker clusterer to manage the markers.
-    const markerCluster = new markerClusterer.MarkerClusterer({ map, markers });
+                        /*map marker and clustering ends here*/
 
 
                 // var markerCluster = new MarkerClusterer(map, markers,{imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
             }
         });
+
+        /*ajax end here*/
 
         // Create an array of alphabetical characters used to label the markers.
      

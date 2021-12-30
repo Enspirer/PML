@@ -537,14 +537,18 @@ button.close:hover {
 
                                 <div class="row justify-content-center text-center mt-3">
                                     <div class="col-6 p-0">
+
                                         <i class="fas fa-chevron-down ms-1 collapsed" data-bs-toggle="collapse"
                                             href="#collapseExample" aria-expanded="false"
                                             aria-controls="collapseExample"
                                             style="font-size: 1rem; cursor: pointer; color: #666666"></i>
+
                                         <i class="fas fa-chevron-up ms-1 collapsed" data-bs-toggle="collapse"
                                             href="#collapseExample" aria-expanded="false"
                                             aria-controls="collapseExample"
                                             style="display: none; font-size: 1rem; cursor: pointer; color: #666666"></i>
+
+                                            
                                         <a role="button" class="collapsed text-decoration-none collapse-button fw-bold"
                                             data-bs-toggle="collapse" href="#collapseExample" aria-expanded="false"
                                             aria-controls="collapseExample" style="font-size: 1rem; color: #666666"></a>
@@ -1153,9 +1157,6 @@ function changePanaroma(panaromalId) {
 
 }                                        
 
-
-
-
 </script>
 
 
@@ -1183,10 +1184,12 @@ var swiper2 = new Swiper(".mySwiper2", {
 
 <script>
 $('.collapse-button').on('click', function() {
-    $(".fas fa-chevron-down").hide();
-    $(".fas fa-chevron-up").show();
+    // $(".fas fa-chevron-down").hide();
+    // $(".fas fa-chevron-up").show();
 
-    $(".features i").toggle();
+    // $(".features ").toggle();
+
+    alert("Hi");
 });
 </script>
 
