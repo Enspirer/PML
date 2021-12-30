@@ -102,16 +102,14 @@ p.card-text.mb-1 {
 }
 
 
- /*map*/
- .card.custom-shadow.info-card {
+/*map*/
+.card.custom-shadow.info-card {
     width: 250px;
     height: 200px;
     margin-bottom: 0;
 }
 
-.card.custom-shadow.info-card .card-body {
-    overflow-y: scroll;
-}
+
 
 .card.custom-shadow.info-card .card-body p {
     margin-bottom: 15px !important;
