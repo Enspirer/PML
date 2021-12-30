@@ -272,7 +272,7 @@ class HomeController extends Controller
          foreach ($property as $prty)
          {
              $outfin = [
-                 $prty->lat,$prty->long
+                 $prty->lat,$prty->long,$prty->id
              ];
              array_push($enOutArray,$outfin);
          }
