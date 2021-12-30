@@ -4,7 +4,6 @@
 
 @push('after-styles')
 <link href="{{ url('css/for_sale_single.css') }}" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.rawgit.com/sachinchoolur/lightgallery.js/master/dist/css/lightgallery.css">
 
 <style>
 
@@ -241,7 +240,7 @@ button.close:hover {
                 <!-- Image gallery popup -->
                 <div class="modal fade" id="photoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
-                    <div class="modal-content lightgallery-content">
+                    <div class="modal-content">
                     <!-- <div class="modal-header">
                         
                     </div> -->
@@ -257,52 +256,42 @@ button.close:hover {
                         Labels with thumbnails to detect click event
                         Main Image
                         -->
-                        <div class="cont">
-                 
-                    
-                        <div class="demo-gallery">
-                        <ul id="lightgallery">
-                            <li data-responsive="https://sachinchoolur.github.io/lightgallery.js/static/img/1-375.jpg 375, https://sachinchoolur.github.io/lightgallery.js/static/img/1-480.jpg 480, https://sachinchoolur.github.io/lightgallery.js/static/img/1.jpg 800" data-src="https://sachinchoolur.github.io/lightgallery.js/static/img/1-1600.jpg"
-                            data-sub-html="<h4>Fading Light</h4><p>Classic view from Rigwood Jetty on Coniston Water an old archive shot similar to an old post but a little later on.</p>">
-                            <a href="">
-                                <img class="img-responsive" src="https://sachinchoolur.github.io/lightgallery.js/static/img/thumb-1.jpg">
-                                <div class="demo-gallery-poster">
-                                <img src="https://sachinchoolur.github.io/lightgallery.js/static/img/zoom.png">
-                                </div>
-                            </a>
-                            </li>
-                            <li data-responsive="https://sachinchoolur.github.io/lightgallery.js/static/img/2-375.jpg 375, https://sachinchoolur.github.io/lightgallery.js/static/img/2-480.jpg 480, https://sachinchoolur.github.io/lightgallery.js/static/img/2.jpg 800" data-src="https://sachinchoolur.github.io/lightgallery.js/static/img/2-1600.jpg"
-                            data-sub-html="<h4>Bowness Bay</h4><p>A beautiful Sunrise this morning taken En-route to Keswick not one as planned but I'm extremely happy I was passing the right place at the right time....</p>">
-                            <a href="">
-                                <img class="img-responsive" src="https://sachinchoolur.github.io/lightgallery.js/static/img/thumb-2.jpg">
-                                <div class="demo-gallery-poster">
-                                <img src="https://sachinchoolur.github.io/lightgallery.js/static/img/zoom.png">
-                                </div>
-                            </a>
-                            </li>
-                            <li data-responsive="https://sachinchoolur.github.io/lightgallery.js/static/img/13-375.jpg 375, https://sachinchoolur.github.io/lightgallery.js/static/img/13-480.jpg 480, https://sachinchoolur.github.io/lightgallery.js/static/img/13.jpg 800" data-src="https://sachinchoolur.github.io/lightgallery.js/static/img/13-1600.jpg"
-                            data-sub-html="<h4>Sunset Serenity</h4><p>A gorgeous Sunset tonight captured at Coniston Water....</p>">
-                            <a href="">
-                                <img class="img-responsive" src="https://sachinchoolur.github.io/lightgallery.js/static/img/thumb-13.jpg">
-                                <div class="demo-gallery-poster">
-                                <img src="https://sachinchoolur.github.io/lightgallery.js/static/img/zoom.png">
-                                </div>
-                            </a>
-                            </li>
-                            <li data-responsive="https://sachinchoolur.github.io/lightgallery.js/static/img/4-375.jpg 375, https://sachinchoolur.github.io/lightgallery.js/static/img/4-480.jpg 480, https://sachinchoolur.github.io/lightgallery.js/static/img/4.jpg 800" data-src="https://sachinchoolur.github.io/lightgallery.js/static/img/4-1600.jpg"
-                            data-sub-html="<h4>Coniston Calmness</h4><p>Beautiful morning</p>">
-                            <a href="">
-                                <img class="img-responsive" src="https://sachinchoolur.github.io/lightgallery.js/static/img/thumb-4.jpg">
-                                <div class="demo-gallery-poster">
-                                <img src="https://sachinchoolur.github.io/lightgallery.js/static/img/zoom.png">
-                                </div>
-                            </a>
-                            </li>
-                        </ul>
-                        <span class="small">Click on any of the images to see lightGallery</span>
+                        <div class="slider">
+                            <input type="radio" name="slide_switch" id="id1"/>
+                            <label for="id1">
+                                <img src="http://thecodeplayer.com/uploads/media/3yiC6Yq.jpg" width="100"/>
+                            </label>
+                            <img src="http://thecodeplayer.com/uploads/media/3yiC6Yq.jpg"/>
+                            
+                            <!--Lets show the second image by default on page load-->
+                            <input type="radio" name="slide_switch" id="id2" checked="checked"/>
+                            <label for="id2">
+                                <img src="http://thecodeplayer.com/uploads/media/40Ly3VB.jpg" width="100"/>
+                            </label>
+                            <img src="http://thecodeplayer.com/uploads/media/40Ly3VB.jpg"/>
+                            
+                            <input type="radio" name="slide_switch" id="id3"/>
+                            <label for="id3">
+                                <img src="http://thecodeplayer.com/uploads/media/00kih8g.jpg" width="100"/>
+                            </label>
+                            <img src="http://thecodeplayer.com/uploads/media/00kih8g.jpg"/>
+                            
+                            <input type="radio" name="slide_switch" id="id4"/>
+                            <label for="id4">
+                                <img src="http://thecodeplayer.com/uploads/media/2rT2vdx.jpg" width="100"/>
+                            </label>
+                            <img src="http://thecodeplayer.com/uploads/media/2rT2vdx.jpg"/>
+                            
+                            <input type="radio" name="slide_switch" id="id5"/>
+                            <label for="id5">
+                                <img src="http://thecodeplayer.com/uploads/media/8k3N3EL.jpg" width="100"/>
+                            </label>
+                            <img src="http://thecodeplayer.com/uploads/media/8k3N3EL.jpg"/>
                         </div>
-                    </div>
 
+                        <!-- We will use PrefixFree - a script that takes care of CSS3 vendor prefixes
+                        You can download it from https://leaverou.github.com/prefixfree/ -->
+                        <script src="http://thecodeplayer.com/uploads/js/prefixfree.js" type="text/javascript"></script>
 
                     </div>
                     <!-- <div class="modal-footer">
@@ -432,7 +421,7 @@ button.close:hover {
                                                 @if($property->baths == null)
                                                 @else
                                                 <div class="col-6 p-0">
-                                                    <li>Baths : {{ $property->baths }}</li>
+                                                    <li><i class="fas fa-circle"></i>Baths : {{ $property->baths }}</li>
                                                 </div>
                                                 @endif
 
@@ -446,56 +435,56 @@ button.close:hover {
                                                 @if($property->parking_type == null)
                                                 @else
                                                 <div class="col-6 p-0">
-                                                    <li>Parking Type : {{ $property->parking_type }}</li>
+                                                    <li><i class="fas fa-circle"></i>Parking Type : {{ $property->parking_type }}</li>
                                                 </div>
                                                 @endif
 
                                                 @if($property->building_type == null)
                                                 @else
                                                 <div class="col-6 p-0">
-                                                    <li>Building Type : {{ $property->building_type }}</li>
+                                                    <li><i class="fas fa-circle"></i>Building Type : {{ $property->building_type }}</li>
                                                 </div>
                                                 @endif
 
                                                 @if($property->farm_type == null)
                                                 @else
                                                 <div class="col-6 p-0">
-                                                    <li>Farm Type : {{ $property->farm_type }}</li>
+                                                    <li><i class="fas fa-circle"></i>Farm Type : {{ $property->farm_type }}</li>
                                                 </div>
                                                 @endif
 
                                                 @if($property->open_house_only == null)
                                                 @else
                                                 <div class="col-6 p-0">
-                                                    <li>Open House Only : {{ $property->open_house_only }}</li>
+                                                    <li><i class="fas fa-circle"></i>Open House Only : {{ $property->open_house_only }}</li>
                                                 </div>
                                                 @endif
 
                                                 @if($property->number_of_units == null)
                                                 @else
                                                 <div class="col-6 p-0">
-                                                    <li>Number of Units : {{ $property->number_of_units }}</li>
+                                                    <li><i class="fas fa-circle"></i>Number of Units : {{ $property->number_of_units }}</li>
                                                 </div>
                                                 @endif
 
                                                 @if($property->land_size == null)
                                                 @else
                                                 <div class="col-6 p-0">
-                                                    <li>Land Size : {{ $property->land_size }}</li>
+                                                    <li><i class="fas fa-circle"></i>Land Size : {{ $property->land_size }}</li>
                                                 </div>
                                                 @endif
 
                                                 @if($property->zoning_type == null)
                                                 @else
                                                 <div class="col-6 p-0">
-                                                    <li>Zoning Type : {{ $property->zoning_type }}</li>
+                                                    <li><i class="fas fa-circle"></i>Zoning Type : {{ $property->zoning_type }}</li>
                                                 </div>
                                                 @endif
 
                                                 @if($property->building_size == null)
                                                 @else
                                                 <div class="col-6 p-0">
-                                                    <li>Building Size : {{ $property->building_size }}</li>
+                                                    <li><i class="fas fa-circle"></i>Building Size : {{ $property->building_size }}</li>
                                                 </div>
                                                 @endif
 
@@ -531,43 +520,27 @@ button.close:hover {
                                 <div class="row mt-3 paragraph collapse" id="collapseExample">
                                     <div class="col-12">
                                         <h5 class="fw-bold mb-2">Description</h5>
-                                        <p id="target">{{ $property->description }}</p>
+                                        <p>{{ $property->description }}</p>
                                     </div>
                                 </div>
 
                                 <div class="row justify-content-center text-center mt-3">
                                     <div class="col-6 p-0">
-
-                                        <!-- <i class="fas fa-chevron-down ms-1 collapsed" data-bs-toggle="collapse"
+                                        <i class="fas fa-chevron-down ms-1 collapsed" data-bs-toggle="collapse"
                                             href="#collapseExample" aria-expanded="false"
                                             aria-controls="collapseExample"
                                             style="font-size: 1rem; cursor: pointer; color: #666666"></i>
-
                                         <i class="fas fa-chevron-up ms-1 collapsed" data-bs-toggle="collapse"
                                             href="#collapseExample" aria-expanded="false"
                                             aria-controls="collapseExample"
                                             style="display: none; font-size: 1rem; cursor: pointer; color: #666666"></i>
-
-                                            
                                         <a role="button" class="collapsed text-decoration-none collapse-button fw-bold"
                                             data-bs-toggle="collapse" href="#collapseExample" aria-expanded="false"
-                                            aria-controls="collapseExample" style="font-size: 1rem; color: #666666"></a> -->
-                                            <button class="Show">Show</button>
-                                            <button class="Hide">Hide</button>
+                                            aria-controls="collapseExample" style="font-size: 1rem; color: #666666"></a>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
-                        <div id="profile-description">
-            <div class="text show-more-height">
-                Some random text 
-                <br /><br />
-                At Cobalt we help people and businesses throughout the world realize their full potential. <br />
-                We make this simple mission come to life every day through our passion to create technologies <br><br>and develop products that touch just about every kind of customer.
-            </div>
-            <div class="show-more">(Show More)</div>
-</div><!-
 
                         <div class="col-4">
                             <div class="row">
@@ -1141,21 +1114,6 @@ button.close:hover {
 
 @push('after-scripts')
 
-
-
- <!-- external scripts -->
- <script src="https://cdn.rawgit.com/sachinchoolur/lightgallery.js/master/dist/js/lightgallery.js"></script>
-    <script src="https://cdn.rawgit.com/sachinchoolur/lg-pager.js/master/dist/lg-pager.js"></script>
-    <script src="https://cdn.rawgit.com/sachinchoolur/lg-autoplay.js/master/dist/lg-autoplay.js"></script>
-    <script src="https://cdn.rawgit.com/sachinchoolur/lg-share.js/master/dist/lg-share.js"></script>
-    <script src="https://cdn.rawgit.com/sachinchoolur/lg-fullscreen.js/master/dist/lg-fullscreen.js"></script>
-    <script src="https://cdn.rawgit.com/sachinchoolur/lg-zoom.js/master/dist/lg-zoom.js"></script>
-    <script src="https://cdn.rawgit.com/sachinchoolur/lg-hash.js/master/dist/lg-hash.js"></script>
-    <script src="https://cdn.jsdelivr.net/picturefill/2.3.1/picturefill.min.js"></script>
-    <script>
-        lightGallery(document.getElementById('lightgallery'))
-    </script>
-
 <script>
 
 
@@ -1168,6 +1126,9 @@ function changePanaroma(panaromalId) {
     // $("#panoFrame")
 
 }                                        
+
+
+
 
 </script>
 
@@ -1195,15 +1156,12 @@ var swiper2 = new Swiper(".mySwiper2", {
 
 
 <script>
-    $(".show-more").click(function () {
-        if($(".text").hasClass("show-more-height")) {
-            $(this).text("(Show Less)");
-        } else {
-            $(this).text("(Show More)");
-        }
+$('.collapse-button').on('click', function() {
+    $(".fas fa-chevron-down").hide();
+    $(".fas fa-chevron-up").show();
 
-        $(".text").toggleClass("show-more-height");
-    });
+    $(".features i").toggle();
+});
 </script>
 
 
