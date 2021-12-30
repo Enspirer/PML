@@ -110,5 +110,13 @@ p.card-text.mb-1 {
 }
 
 .card.custom-shadow.info-card .card-body {
-    overflow: hidden;
+    overflow-y: scroll;
+}
+
+.card.custom-shadow.info-card .card-body p {
+    margin-bottom: 15px !important;
+}
+
+.info-price {
+    color: green;
 }

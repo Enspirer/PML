@@ -57,9 +57,11 @@
                                 const infoWindow = new google.maps.InfoWindow({
                                     content: '<div class="card custom-shadow info-card">' +
                                     '<img src="http://propertymarketlive.com/img/frontend/index/1.png" alt="" class="img-fluid w-100" style="height: 5rem; object-fit: cover;">' +
-                                        '<div class="card-body text-center">' +
-                                        '<h5 class="fw-bold">'+  +'</h5>' +
+                                        '<div class="card-body">' +
+                                        '<h5 class="fw-bold">'+ Title Here +'</h5>' +
+                                        '<p class="info-price"> Rs.'+ data[i].price + '</p>' +
                                             '<p>'+ data[i].description + '</p>' +
+                                           
                                         '<p>3<i class="fas fa-bed ms-2 me-3" aria-hidden="true"></i> 5<i class="fas fa-bath ms-2" aria-hidden="true"></i></p>' +
                                            + '</div>' + '</div>',
                                     disableAutoPan: true,
