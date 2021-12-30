@@ -432,7 +432,7 @@ button.close:hover {
                                                 @if($property->baths == null)
                                                 @else
                                                 <div class="col-6 p-0">
-                                                    <li><i class="fas fa-circle"></i>Baths : {{ $property->baths }}</li>
+                                                    <li>Baths : {{ $property->baths }}</li>
                                                 </div>
                                                 @endif
 
@@ -446,56 +446,56 @@ button.close:hover {
                                                 @if($property->parking_type == null)
                                                 @else
                                                 <div class="col-6 p-0">
-                                                    <li><i class="fas fa-circle"></i>Parking Type : {{ $property->parking_type }}</li>
+                                                    <li>Parking Type : {{ $property->parking_type }}</li>
                                                 </div>
                                                 @endif
 
                                                 @if($property->building_type == null)
                                                 @else
                                                 <div class="col-6 p-0">
-                                                    <li><i class="fas fa-circle"></i>Building Type : {{ $property->building_type }}</li>
+                                                    <li>Building Type : {{ $property->building_type }}</li>
                                                 </div>
                                                 @endif
 
                                                 @if($property->farm_type == null)
                                                 @else
                                                 <div class="col-6 p-0">
-                                                    <li><i class="fas fa-circle"></i>Farm Type : {{ $property->farm_type }}</li>
+                                                    <li>Farm Type : {{ $property->farm_type }}</li>
                                                 </div>
                                                 @endif
 
                                                 @if($property->open_house_only == null)
                                                 @else
                                                 <div class="col-6 p-0">
-                                                    <li><i class="fas fa-circle"></i>Open House Only : {{ $property->open_house_only }}</li>
+                                                    <li>Open House Only : {{ $property->open_house_only }}</li>
                                                 </div>
                                                 @endif
 
                                                 @if($property->number_of_units == null)
                                                 @else
                                                 <div class="col-6 p-0">
-                                                    <li><i class="fas fa-circle"></i>Number of Units : {{ $property->number_of_units }}</li>
+                                                    <li>Number of Units : {{ $property->number_of_units }}</li>
                                                 </div>
                                                 @endif
 
                                                 @if($property->land_size == null)
                                                 @else
                                                 <div class="col-6 p-0">
-                                                    <li><i class="fas fa-circle"></i>Land Size : {{ $property->land_size }}</li>
+                                                    <li>Land Size : {{ $property->land_size }}</li>
                                                 </div>
                                                 @endif
 
                                                 @if($property->zoning_type == null)
                                                 @else
                                                 <div class="col-6 p-0">
-                                                    <li><i class="fas fa-circle"></i>Zoning Type : {{ $property->zoning_type }}</li>
+                                                    <li>Zoning Type : {{ $property->zoning_type }}</li>
                                                 </div>
                                                 @endif
 
                                                 @if($property->building_size == null)
                                                 @else
                                                 <div class="col-6 p-0">
-                                                    <li><i class="fas fa-circle"></i>Building Size : {{ $property->building_size }}</li>
+                                                    <li>Building Size : {{ $property->building_size }}</li>
                                                 </div>
                                                 @endif
 
