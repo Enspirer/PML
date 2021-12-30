@@ -14,13 +14,15 @@
 
 <div id="map-canvas"></div>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-<script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js">
-</script>
+
+
+<script src="https://unpkg.com/@googlemaps/markerclusterer/dist/index.min.js"></script>
+
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEBj8LhHUJaf2MXpqIQ_MOXs7HkeUXnac&callback=initMap">
 </script>
 
 <script>
-    var mapDiv;
+
 
     function initMap() {
         mapDiv = document.getElementById('map-canvas');
@@ -34,6 +36,19 @@
         });
 
 
+        const contentString = ` <div id="content">
+                <h2>This is popup content</h2>
+                <img src="hill.jpg" alt="">
+            </div>`;
+
+            const infoWindow = new google.maps.InfoWindow({
+                content: contentString,
+                disableAutoPan: true,
+            });
+
+   // Create an array of alphabetical characters used to label the markers.
+   const labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
 
         var marker = [];
 
@@ -42,18 +57,56 @@
             type: "GET",
             url: "{{ url('api/map_api')  }}",
             success: function(data) {
-                var markerCoords = data;
-                var markers = [];
-                var marker;
-                for (var i = 0, len = markerCoords.length; i < len; i++){
-                    marker = new google.maps.Marker({position: new google.maps.LatLng(markerCoords[i][0], markerCoords[i][1])});
-                    markers.push(marker);
-                }
-                var markerCluster = new MarkerClusterer(map, markers,{imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
-
+             
+                   
             }
-        });
+                 
+               
+            
+          
 
+
+        //         var markerCluster = new MarkerClusterer(map, markers,{imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
+        //     }
+        // });
+
+        const place = [
+                {id: 1, lat: -61.56391, lng: 47.154312, bed: "5", bathrrom: "3"},
+                {id:2, lat: -63.727111, lng: 50.371124, bed: "4", bathrrom: "2" },
+                {id:2, lat: -53.727111, lng: 50.371124, bed: "4", bathrrom: "2" },
+            ]
+    
+
+
+
+
+         // Add some markers to the map.
+         const markers = place.map((position, i) => {
+                const label = labels[i % labels.length];
+                const marker = new google.maps.Marker({
+                position,
+                label,
+                });
+
+
+                // markers can only be keyboard focusable when they have click listeners
+                // open info window when marker is clicked
+                marker.addListener("click", () => {
+                infoWindow.open({
+                    anchor: marker,
+                    map,
+                    shouldFocus: false,
+                });
+                });
+                return marker;
+            });
+
+
+
+            // Add a marker clusterer to manage the markers.
+            const markerCluster = new markerClusterer.MarkerClusterer({ map, markers });
+
+        
     }
 
 

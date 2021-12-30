@@ -258,21 +258,6 @@ button.close:hover {
 
 
 
-                                @if($pano_arry)
-                            @foreach($pano_arry as $panoarray)
-                            <div class="swiper-slide">
-                                <img src="{{ uploaded_asset($panoarray) }}" />
-                            </div>
-                            @endforeach
-                            @endif
-
-                            @foreach($str_arr2 as $key=> $pre)
-                            <div class="swiper-slide">
-                                <img src="{{ uploaded_asset($pre) }}" />
-
-                            </div>
-                            @endforeach
-
                                     <div class="demo-gallery">
                                         <ul id="lightgallery">
                                             <li data-responsive="https://sachinchoolur.github.io/lightgallery.js/static/img/1-375.jpg 375, https://sachinchoolur.github.io/lightgallery.js/static/img/1-480.jpg 480, https://sachinchoolur.github.io/lightgallery.js/static/img/1.jpg 800"
