@@ -115,6 +115,7 @@ background-color: #35495E;
 .features li i {
     font-size: 0.6rem;
     padding-right: 15px;
+    display:block !important;
 }
 
 .paragraph.collapse:not(.show) {
@@ -222,7 +223,7 @@ ul.option-list li a:hover {
   
   .demo-gallery > ul > li {
     margin-bottom: 15px;
-    width: 350px;
+    width: 280px;
     display: inline-block;
     margin-right: 15px;
     list-style: outside none none;
@@ -349,4 +350,8 @@ ul.option-list li a:hover {
     position: relative;
     top: 15px;
     right: 15px;
+}
+
+.lightgallery-content {
+  background-color: #363434;
 }
