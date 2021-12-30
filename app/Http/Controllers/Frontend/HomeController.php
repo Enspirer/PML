@@ -49,6 +49,8 @@ class HomeController extends Controller
         ]);
     }
 
+
+
     public function home_page(Request $request)
     {
         $self = self::setCookie($request->countries_list);
@@ -262,31 +264,21 @@ class HomeController extends Controller
         ]);
     }
 
-    public function map_api($fromLat,$toLat,$fromLng,$toLng){
-         $data = DB::table('properties')
-            ->where('lat', '>', $fromLat)
-            ->where('lat', '<', $toLat)
-            ->where('long', '>', $fromLng)
-            ->where('long', '<', $toLng)
-            ->get();
-         if(count($data) == 0){
+    public function map_api(){
+         $property = Properties::all();
 
-         }else{
-             $outArray = [];
-              foreach ($data as $datafunc){
-                $subOut = [
-                  'lat' => $datafunc->lat,
-                  'lng' => $datafunc->long,
-                  'name' => $datafunc->name,
-                  'description' => $datafunc->description,
-                ];
-                
-                array_push($outArray,$subOut);
+         $enOutArray = [];
 
-              }
-             $response = response()->json($outArray);
-             return $response;
+         foreach ($property as $prty)
+         {
+             $outfin = [
+                 $prty->lat,$prty->long
+             ];
+             array_push($enOutArray,$outfin);
          }
+
+         return response()->json($enOutArray);
+
     }
 
 
@@ -379,13 +371,25 @@ class HomeController extends Controller
             {
                 $strID = (string) $cold_data->id;
 
-                $impack_array = [
-                    'I' => $strID,
-                    'T' => 2,
-                    'lng' => $cold_data->long ,
-                    'lat' => $cold_data->lat,
-                    'C' => 3
-                ];
+                if($request->zoom > 10){
+                    $impack_array = [
+                        'I' => $strID,
+                        'T' => 2,
+                        'X' => round( $cold_data->long) ,
+                        'Y' => round($cold_data->lat),
+                        'C' => 1
+                    ];
+                }else{
+                    $impack_array = [
+                        'I' => $strID,
+                        'T' => 2,
+                        'X' => round( $cold_data->long) ,
+                        'Y' => round($cold_data->lat),
+                        'C' => 3
+                    ];
+                }
+
+
                 array_push($outArray,$impack_array);
             }
 
@@ -397,8 +401,8 @@ class HomeController extends Controller
                 $impack_array = [
                     'I' => $strID,
                     'T' => 3,
-                    'lng' => $cold_data->long,
-                    'lat' => $cold_data->lat,
+                    'X' => substr($cold_data->long, 0, 10) ,
+                    'Y' => substr($cold_data->lat, 0, 10),
                     'C' => 1
                 ];
                 array_push($outArray,$impack_array);
@@ -425,19 +429,28 @@ class HomeController extends Controller
     }
 
 
-
-
-    public function test_api(Request $request)
-    {       
-
-      
-        if($booking){
-            return json_encode($booking);
-        }else{
-            return json_encode('no_data');
-        }              
+    public static function cluser_get(){
 
     }
+
+    function haversineGreatCircleDistance(
+        $latitudeFrom, $longitudeFrom, $latitudeTo, $longitudeTo,    $earthRadius = 6371000)
+    {
+        // convert from degrees to radians
+        $latFrom = deg2rad($latitudeFrom);
+        $lonFrom = deg2rad($longitudeFrom);
+        $latTo = deg2rad($latitudeTo);
+        $lonTo = deg2rad($longitudeTo);
+
+        $latDelta = $latTo - $latFrom;
+        $lonDelta = $lonTo - $lonFrom;
+
+        $angle = 2 * asin(sqrt(pow(sin($latDelta / 2), 2) +
+                cos($latFrom) * cos($latTo) * pow(sin($lonDelta / 2), 2)));
+        return $angle * $earthRadius;
+    }
+
+
 
 
     //search suggestions ajax

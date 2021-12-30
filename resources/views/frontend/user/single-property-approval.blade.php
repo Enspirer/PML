@@ -63,10 +63,15 @@
                             <div class="row mt-5">
                                 <div class="col-12">
                                     <div class="row align-items-center">
-                                        <div class="col-6">
+                                        <div class="col-5">
                                             <h4 class="mb-0">{{ $single_approval->name }}</h4>
                                         </div>
-                                        <div class="col-6">
+                                        <div class="col-2">
+                                            @if($single_approval->listning_type == 'free_listning')
+                                                <div class="badge badge-warning p-2 m-2">Free Listning</div>
+                                            @endif
+                                        </div>                                        
+                                        <div class="col-5">
                                             <div class="text-end">
                                                 <h5 class="d-inline-block mb-0 py-2 px-4 text-light" style="background-color: #4195E1;">{{ $property_type->property_type_name }}</h5>
                                             </div>
