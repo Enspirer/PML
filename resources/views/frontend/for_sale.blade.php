@@ -108,7 +108,7 @@
                     <div class="row mt-5 featured_properties">
                         @foreach($properties_promoted as $key => $property_pro)
                         <div class="col-4">
-                            <div class="card custom-shadow position-relative" style="min-height: 370px;max-height: 300px;">
+                            <div class="card custom-shadow position-relative" style="min-height: 370px;max-height: 450px;">
                                     <a href="{{ route('frontend.for_sale_single',$property_pro->id) }}" class="text-decoration-none text-dark">
                                         <img src="{{ uploaded_asset($property_pro->feature_image_id) }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
                                         
