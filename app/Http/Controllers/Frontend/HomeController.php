@@ -382,8 +382,8 @@ class HomeController extends Controller
                 $impack_array = [
                     'I' => $strID,
                     'T' => 2,
-                    'lng' => $cold_data->long ,
-                    'lat' => $cold_data->lat,
+                    'X' => round( $cold_data->long) ,
+                    'Y' => round($cold_data->lat),
                     'C' => 3
                 ];
                 array_push($outArray,$impack_array);
@@ -397,8 +397,8 @@ class HomeController extends Controller
                 $impack_array = [
                     'I' => $strID,
                     'T' => 3,
-                    'lng' => $cold_data->long,
-                    'lat' => $cold_data->lat,
+                    'X' => substr($cold_data->long, 0, 10) ,
+                    'Y' => substr($cold_data->lat, 0, 10),
                     'C' => 1
                 ];
                 array_push($outArray,$impack_array);
