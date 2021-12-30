@@ -183,7 +183,6 @@ div#search-result {
     top: 50px;
     z-index: 2;
     width: 100%;
-    display: none;
 }
 
 ul.dropdown-menu {
@@ -193,3 +192,8 @@ ul.dropdown-menu {
     border: 0;
     padding-left: 15px;
 }
+
+.result-item {
+    cursor: pointer;
+}
+

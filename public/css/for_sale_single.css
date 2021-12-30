@@ -135,9 +135,6 @@ background-color: #35495E;
     content: 'Hide description';
 }
 
-
-
-
 /* maps */
 .gm-style-iw-d {
     overflow: hidden!important;
@@ -151,4 +148,49 @@ background-color: #35495E;
 }
 .gm-style .gm-style-iw-c {
     padding: 8px!important;
+}
+
+.pano-wrapper {
+    position: relative;
+}
+
+.pano-symbol {
+    position: absolute;
+    top: 35%;
+    left: 40%;
+    width: 20% !important;
+    height: auto !important;
+}
+
+.option-list-wrapper {
+    width: max-content;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    top: -15px;
+    z-index: 2;
+}
+
+ul.option-list {
+    list-style: none;
+    display: flex;
+    padding-left: 0;
+    background: #fff;
+    padding: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+ul.option-list li {
+    margin: 5px;
+    border-right: 1px solid #000;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.last-item {
+    border-right: 0 !important;
+}
+
+ul.option-list li a:hover {
+    color: #000;
 }

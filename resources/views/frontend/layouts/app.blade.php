@@ -120,9 +120,13 @@
                         })
                     }               
                 });
-                $('body').click( function() {
-                    $('#search-result').hide();
-                });
+
+                $(document).on('click', 'li', function() {
+                    $('#search-word').val($(this).text());
+                    $('#search-result').fadeOut();
+
+                })
+
             });
 
 

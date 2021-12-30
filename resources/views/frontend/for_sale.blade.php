@@ -315,7 +315,7 @@
                                                         <button type="submit" style="margin-left:-13px;" class="mb-3 fw-bold btn"><i class="fas fa-heart me-3"></i>Save Property</button>
                                                     </a>
                                                 @endauth                                             
-                                                
+                                                360 here
                                             </div>
                                         </div>
                                     </div>

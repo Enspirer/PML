@@ -91,3 +91,7 @@ background-color: #35495E;
 .sidebar-card-area {
     gap: 15px;
 }
+
+.row.custom-shadow.mb-4.mx-1 {
+    margin-bottom: 15px !important;
+}

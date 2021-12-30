@@ -80,15 +80,6 @@ button.close:hover {
 @include('frontend.includes.search')
 
 
-
-
-
-
-
-
-
-
-
 <!--modals-->
   <!-- <div id="openModal-about" class="modalDialog">
       <div style="height:80vh;margin-bottom:10vh;margin-top:10vh;"> 
@@ -196,7 +187,12 @@ button.close:hover {
                                 @foreach($pano_arry  as $panoarray)
                                     <div class="swiper-slide">
                                         <a href="#" data-toggle="modal" data-target="#panoModal" onclick="changePanaroma('{{ $panoarray }}')">
-                                        <img src="{{ uploaded_asset($panoarray) }}" />
+                                        <div class="pano-wrapper">
+                                            <img src="{{ uploaded_asset($panoarray) }}" />
+                                            <img class="pano-symbol" src="{{ url('img/360.png') }}" alt="360 logo">
+                                        </div>
+                                        
+                                        
                                         </a>
                                     </div>
                                 @endforeach
@@ -208,6 +204,8 @@ button.close:hover {
 
                             </div>
                             @endforeach
+
+                       
                         </div>
                         <div class="swiper-button-next"></div>
                         <div class="swiper-button-prev"></div>
@@ -216,8 +214,62 @@ button.close:hover {
                             <button class="btn fw-bold me-3">APARTMENT</button>
                             <button class="btn fw-bold" style="color: #39B54A">AVAILABLE</button>
                         </div>
+                     
+                    </div>
+                    <div class="option-bar">
+                        <div class="option-list-wrapper">
+                            <ul class="option-list">
+                                <li>360<sup>0</sup></li>
+                                <li>
+                                    <a href="#" data-toggle="modal" data-target="#photoModal">Photo</a>
+                                </li>
+                                <li class="last-item">
+                                    <a href="#" data-toggle="modal" data-target="#videoModal">Video</a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
+
+
+                <!-- Image gallery popup -->
+                <div class="modal fade" id="photoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                    <!-- <div class="modal-header">
+                        
+                    </div> -->
+                    <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h2>Image gallery</h2>
+                    </div>
+                    <!-- <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div> -->
+                    </div>
+                </div>
+                </div> 
+                <!-- video popup -->
+                <div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                    <!-- <div class="modal-header">
+                        
+                    </div> -->
+                    <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h2>Video gallery</h2>
+                    </div>
+                    <!-- <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div> -->
+                    </div>
+                </div>
+                </div> 
 
                 <div class="col-3">
                     <div thumbsSlider="" class="swiper mySwiper">
@@ -442,7 +494,7 @@ button.close:hover {
                                 <div class="col-12">
                                     <div class="custom-shadow pt-4 pb-3 px-3 text-center">
                                         <img src="{{ uploaded_asset($agent->photo) }}" alt="" class="img-fluid mb-3"
-                                            style="object-fit: contain;height: 7rem; width:7rem; border-radius: 50%;margin-top: 30px;">
+                                            style="object-fit: cover;height: 7rem; width:7rem; border-radius: 50%;margin-top: 30px;">
                                         <p class="fw-bold">
                                             @if($agent->agent_type == 'Individual')
                                             {{ $agent->name }}
