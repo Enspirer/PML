@@ -23,6 +23,9 @@ use App\Http\Controllers\Frontend\HomeController;
 Route::get('get_property_type_details/{id}', [PropertyController::class, 'property_type'])->name('property_type');
 Route::get('findLocationWithCountryID/{id}', [AgentController::class, 'findLocationWithCountryID'])->name('findLocationWithCountryID');
 Route::get('map_api/{fromLat}/{toLat}/{fromLng}/{toLng}', [HomeController::class, 'map_api'])->name('map_api');
+Route::post('fetch', [HomeController::class, 'fetch'])->name('fetch');
+
+
 
 
 Route::get('facebook_news', [HomeController::class, 'facebook_news'])->name('facebook_news');
