@@ -52,8 +52,6 @@
                             // markers can only be keyboard focusable when they have click listeners
                             // open info window when marker is clicked
                             marker.addListener("click", () => {
-                                alert(data[i].id);
-
                                 const infoWindow = new google.maps.InfoWindow({
                                     content: '<div class="card custom-shadow info-card" style="height: 320px;">' +
                                     '<img src="'+ data[i].feature_image +'" alt="" class="img-fluid w-100" style="object-fit: contain;height: 130px;">' +
