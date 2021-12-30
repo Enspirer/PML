@@ -16,6 +16,7 @@
         "arcanedev/log-viewer": "^5.0",
         "creativeorange/gravatar": "~1.0",
         "davejamesmiller/laravel-breadcrumbs": "^5.0",
+        "emilklindt/laravel-marker-clusterer": "^0.2.0",
         "facade/ignition": "^1.11",
         "fideloper/proxy": "^4.0",
         "intervention/image": "^2.7",
