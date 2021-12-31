@@ -7,8 +7,6 @@
 <link rel="stylesheet" href="https://cdn.rawgit.com/sachinchoolur/lightgallery.js/master/dist/css/lightgallery.css">
 
 <style>
-
-
 .btn-pano {
     background: red;
     color: #fff;
@@ -21,7 +19,7 @@
 
 .btn-pano:hover {
     text-decoration: none;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     color: #fff;
 }
 
@@ -50,7 +48,7 @@ button.close {
     height: 90vh;
     margin-top: 5vh;
     margin-bottom: 5vh;
-} 
+}
 
 #panoFrame {
     height: 90vh;
@@ -71,7 +69,6 @@ button.close:hover {
     top: 0;
     left: 0;
 }
-
 </style>
 
 
@@ -87,35 +84,36 @@ button.close:hover {
 
 
 <!--modals-->
-  <!-- <div id="openModal-about" class="modalDialog">
+<!-- <div id="openModal-about" class="modalDialog">
       <div style="height:80vh;margin-bottom:10vh;margin-top:10vh;"> 
          <a href="" title="Close" class="close">X</a> -->
-        <!-- iframe -->
-        <!-- <iframe id="panoFrame" src="" frameborder="0" width="100%" height="100%"></iframe>  -->
-       <!-- </div>
+<!-- iframe -->
+<!-- <iframe id="panoFrame" src="" frameborder="0" width="100%" height="100%"></iframe>  -->
+<!-- </div>
    </div> -->
 <!-- 
 
 <!-- Modal -->
-<div class="modal fade" id="panoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <!-- <div class="modal-header">
+<div class="modal fade" id="panoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <!-- <div class="modal-header">
         
       </div> -->
-      <div class="modal-body">
-      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-           <!-- iframe -->
-           <iframe id="panoFrame" src="" frameborder="0" width="100%" height="100%"></iframe>
-      </div>
-      <!-- <div class="modal-footer">
+            <div class="modal-body">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <!-- iframe -->
+                <iframe id="panoFrame" src="" frameborder="0" width="100%" height="100%"></iframe>
+            </div>
+            <!-- <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       </div> -->
+        </div>
     </div>
-  </div>
-</div> 
+</div>
 
 @if ( session()->has('message'))
 <div class="" style="background-color: rgb(22 32 44);text-align: center;color: white;">
@@ -180,28 +178,29 @@ button.close:hover {
                             @endphp
 
                             @if($property->panaromal_images)
-                                @php
-                                    $pano_arry = preg_split ("/\,/", $property->panaromal_images);
-                                @endphp
+                            @php
+                            $pano_arry = preg_split ("/\,/", $property->panaromal_images);
+                            @endphp
                             @else
-                                @php
-                                    $pano_arry = null;
-                                @endphp
+                            @php
+                            $pano_arry = null;
+                            @endphp
                             @endif
 
                             @if($pano_arry)
-                                @foreach($pano_arry  as $panoarray)
-                                    <div class="swiper-slide">
-                                        <a href="#" data-toggle="modal" data-target="#panoModal" onclick="changePanaroma('{{ $panoarray }}')">
-                                        <div class="pano-wrapper">
-                                            <img src="{{ uploaded_asset($panoarray) }}" />
-                                            <img class="pano-symbol" src="{{ url('img/360.png') }}" alt="360 logo">
-                                        </div>
-                                        
-                                        
-                                        </a>
+                            @foreach($pano_arry as $panoarray)
+                            <div class="swiper-slide">
+                                <a href="#" data-toggle="modal" data-target="#panoModal"
+                                    onclick="changePanaroma('{{ $panoarray }}')">
+                                    <div class="pano-wrapper">
+                                        <img src="{{ uploaded_asset($panoarray) }}" />
+                                        <img class="pano-symbol" src="{{ url('img/360.png') }}" alt="360 logo">
                                     </div>
-                                @endforeach
+
+
+                                </a>
+                            </div>
+                            @endforeach
                             @endif
 
                             @foreach($str_arr2 as $key=> $pre)
@@ -211,7 +210,7 @@ button.close:hover {
                             </div>
                             @endforeach
 
-                       
+
                         </div>
                         <div class="swiper-button-next"></div>
                         <div class="swiper-button-prev"></div>
@@ -220,7 +219,7 @@ button.close:hover {
                             <button class="btn fw-bold me-3">APARTMENT</button>
                             <button class="btn fw-bold" style="color: #39B54A">AVAILABLE</button>
                         </div>
-                     
+
                     </div>
                     <div class="option-bar">
                         <div class="option-list-wrapper">
@@ -239,82 +238,86 @@ button.close:hover {
 
 
                 <!-- Image gallery popup -->
-                <div class="modal fade" id="photoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content lightgallery-content">
-                    <!-- <div class="modal-header">
+                <div class="modal fade" id="photoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content lightgallery-content">
+                            <!-- <div class="modal-header">
                         
                     </div> -->
-                    <div class="modal-body">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                        </button>
-                        <!-- image slider -->
-                        <!--
+                            <div class="modal-body">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <!-- image slider -->
+                                <!--
                         We will make a slider with stylized thumbnails using CSS3
                         The markup is very simple:
                         Radio Inputs
                         Labels with thumbnails to detect click event
                         Main Image
                         -->
-                        <div class="cont">
-                 
-                    
-                        <div class="demo-gallery">
-                        <ul id="lightgallery">
-                        @foreach($str_arr2 as $key=> $pre)
-                            <li data-responsive="{{ uploaded_asset($pre) }}" data-src="{{ uploaded_asset($pre) }}"
-                            data-sub-html="<h4>Fading Light</h4><p>Classic view from Rigwood Jetty on Coniston Water an old archive shot similar to an old post but a little later on.</p>">
-                            <a href="">
-                                <img class="img-responsive" src="{{ uploaded_asset($pre) }}">
-                                <div class="demo-gallery-poster">
-                                <img src="https://sachinchoolur.github.io/lightgallery.js/static/img/zoom.png">
+                                <div class="cont">
+
+
+                                    <div class="demo-gallery">
+                                        <ul id="lightgallery">
+                                            @foreach($str_arr2 as $key=> $pre)
+                                            <li data-responsive="{{ uploaded_asset($pre) }}"
+                                                data-src="{{ uploaded_asset($pre) }}"
+                                                data-sub-html="<h4>Fading Light</h4><p>Classic view from Rigwood Jetty on Coniston Water an old archive shot similar to an old post but a little later on.</p>">
+                                                <a href="">
+                                                    <img class="img-responsive" src="{{ uploaded_asset($pre) }}">
+                                                    <div class="demo-gallery-poster">
+                                                        <img
+                                                            src="https://sachinchoolur.github.io/lightgallery.js/static/img/zoom.png">
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            @endforeach
+                                        </ul>
+                                        <span class="small">Click on any of the images to see lightGallery</span>
+                                    </div>
                                 </div>
-                            </a>
-                            </li>
-                        @endforeach
-                        </ul>
-                        <span class="small">Click on any of the images to see lightGallery</span>
+
+
+                            </div>
+                            <!-- <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div> -->
                         </div>
                     </div>
-
-
-                    </div>
-                    <!-- <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    </div> -->
-                    </div>
                 </div>
-                </div> 
                 <!-- video popup -->
-                <div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                    <!-- <div class="modal-header">
+                <div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <!-- <div class="modal-header">
                         
                     </div> -->
-                    <div class="modal-body">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                        </button>
-                        <h2>Video gallery</h2>
-                    </div>
-                    <!-- <div class="modal-footer">
+                            <div class="modal-body">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <h2>Video gallery</h2>
+                            </div>
+                            <!-- <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     </div> -->
+                        </div>
                     </div>
                 </div>
-                </div> 
 
                 <div class="col-3">
                     <div thumbsSlider="" class="swiper mySwiper">
                         <div class="swiper-wrapper">
                             @if($pano_arry)
-                                @foreach($pano_arry  as $panoarray)
-                                    <div class="swiper-slide">
-                                        <img src="{{ uploaded_asset($panoarray) }}" />
-                                    </div>
-                                @endforeach
+                            @foreach($pano_arry as $panoarray)
+                            <div class="swiper-slide">
+                                <img src="{{ uploaded_asset($panoarray) }}" />
+                            </div>
+                            @endforeach
                             @endif
 
                             @foreach($str_arr2 as $key=> $pre)
@@ -323,7 +326,7 @@ button.close:hover {
 
                             </div>
                             @endforeach
-                         
+
                         </div>
                     </div>
                 </div>
@@ -331,7 +334,7 @@ button.close:hover {
             <!-- <div class="col-9">
                 <a class="btn-pano" href="#openModal-about">360<sup>0</sup> View</a>
             </div> -->
-           
+
             <div class="row">
                 <div class="col-9">
                     <h3 class="fw-bold mt-4 mb-1">{{ get_currency(request() ,$property->price)}}</h3>
@@ -347,7 +350,7 @@ button.close:hover {
                     </p>
 
                     @if($property->listning_type == 'free_listning')
-                        <div class="badge badge-warning p-2 mt-3">Free Listning</div>
+                    <div class="badge badge-warning p-2 mt-3">Free Listning</div>
                     @endif
 
                 </div>
@@ -421,56 +424,64 @@ button.close:hover {
                                                 @if($property->parking_type == null)
                                                 @else
                                                 <div class="col-6 p-0">
-                                                    <li><i class="fas fa-circle"></i>Parking Type : {{ $property->parking_type }}</li>
+                                                    <li><i class="fas fa-circle"></i>Parking Type :
+                                                        {{ $property->parking_type }}</li>
                                                 </div>
                                                 @endif
 
                                                 @if($property->building_type == null)
                                                 @else
                                                 <div class="col-6 p-0">
-                                                    <li><i class="fas fa-circle"></i>Building Type : {{ $property->building_type }}</li>
+                                                    <li><i class="fas fa-circle"></i>Building Type :
+                                                        {{ $property->building_type }}</li>
                                                 </div>
                                                 @endif
 
                                                 @if($property->farm_type == null)
                                                 @else
                                                 <div class="col-6 p-0">
-                                                    <li><i class="fas fa-circle"></i>Farm Type : {{ $property->farm_type }}</li>
+                                                    <li><i class="fas fa-circle"></i>Farm Type :
+                                                        {{ $property->farm_type }}</li>
                                                 </div>
                                                 @endif
 
                                                 @if($property->open_house_only == null)
                                                 @else
                                                 <div class="col-6 p-0">
-                                                    <li><i class="fas fa-circle"></i>Open House Only : {{ $property->open_house_only }}</li>
+                                                    <li><i class="fas fa-circle"></i>Open House Only :
+                                                        {{ $property->open_house_only }}</li>
                                                 </div>
                                                 @endif
 
                                                 @if($property->number_of_units == null)
                                                 @else
                                                 <div class="col-6 p-0">
-                                                    <li><i class="fas fa-circle"></i>Number of Units : {{ $property->number_of_units }}</li>
+                                                    <li><i class="fas fa-circle"></i>Number of Units :
+                                                        {{ $property->number_of_units }}</li>
                                                 </div>
                                                 @endif
 
                                                 @if($property->land_size == null)
                                                 @else
                                                 <div class="col-6 p-0">
-                                                    <li><i class="fas fa-circle"></i>Land Size : {{ $property->land_size }}</li>
+                                                    <li><i class="fas fa-circle"></i>Land Size :
+                                                        {{ $property->land_size }}</li>
                                                 </div>
                                                 @endif
 
                                                 @if($property->zoning_type == null)
                                                 @else
                                                 <div class="col-6 p-0">
-                                                    <li><i class="fas fa-circle"></i>Zoning Type : {{ $property->zoning_type }}</li>
+                                                    <li><i class="fas fa-circle"></i>Zoning Type :
+                                                        {{ $property->zoning_type }}</li>
                                                 </div>
                                                 @endif
 
                                                 @if($property->building_size == null)
                                                 @else
                                                 <div class="col-6 p-0">
-                                                    <li><i class="fas fa-circle"></i>Building Size : {{ $property->building_size }}</li>
+                                                    <li><i class="fas fa-circle"></i>Building Size :
+                                                        {{ $property->building_size }}</li>
                                                 </div>
                                                 @endif
 
@@ -507,11 +518,11 @@ button.close:hover {
                                     <div class="col-12">
                                         <h5 class="fw-bold mb-2">Description</h5>
                                         <div id="profile-description">
-                                                <div class="text show-more-height">
+                                            <div class="text show-more-height">
                                                 <p>{{ $property->description }}</p>
-                                                </div>
-                                                <div class="show-more">(Show More)</div>
-                                    </div>
+                                            </div>
+                                            <div class="show-more">(Show More)</div>
+                                        </div>
 
                                         <!-- <div id="profile-description">
                                             <p class="text show-more-height">{{ $property->description }}</p>
@@ -537,12 +548,12 @@ button.close:hover {
                                         <a role="button" class="collapsed text-decoration-none collapse-button fw-bold"
                                             data-bs-toggle="collapse" href="#collapseExample" aria-expanded="false"
                                             aria-controls="collapseExample" style="font-size: 1rem; color: #666666"></a> -->
-                                            <!-- <div class="show-more">(Show More)</div> -->
+                                        <!-- <div class="show-more">(Show More)</div> -->
                                     </div>
                                 </div>
                             </div>
                         </div>
-<!-- 
+                        <!-- 
                         <div id="profile-description">
             <div class="text show-more-height">
                 Some random text 
@@ -574,12 +585,16 @@ button.close:hover {
                                                     class="btn py-2 fw-bold text-white w-100 rounded-pill"
                                                     style="border: 1.5px solid rgb(112, 112, 112);background-color: rgb(53, 73, 94);font-size: 14px;">
                                                     <div class="row justify-content-center">
-                                                        <div class="col-3 p-0">
+                                                        <!-- <div class="col-3 p-0">
                                                             <i class="fas fa-phone-alt"></i>
                                                         </div>
                                                         <div class="col-7 p-0 text-start" style="font-size: 0.9rem;">
                                                             {{ $agent->telephone }}
-                                                        </div>
+                                                        </div> -->
+                                                        <div class="btn-wrapper">
+                                                            <i class="fas fa-phone-alt"></i>
+                                                            <span style="font-size: 0.9rem;">{{ $agent->telephone }}</span>
+                                                            </div>
                                                     </div>
                                                 </a>
                                             </div>
@@ -589,11 +604,15 @@ button.close:hover {
                                                     class="btn py-2 fw-bold w-100 rounded-pill"
                                                     style="border: 1.5px solid #707070">
                                                     <div class="row justify-content-center">
-                                                        <div class="col-3 p-0">
-                                                            <i class="fas fa-envelope"></i>
+                                                        <!-- <div class="col-3 p-0">
+                                                         
                                                         </div>
-                                                        <div class="col-7 p-0 text-start" style="font-size: 0.9rem;">
-                                                            Send email to agent
+                                                        <div class="col-7 p-0 text-start" >
+                                                          
+                                                        </div> -->
+                                                        <div class="btn-wrapper">
+                                                            <i class="fas fa-envelope"></i><span
+                                                                style="font-size: 0.9rem;">Send email to agent</span>
                                                         </div>
                                                     </div>
                                                 </a>
@@ -602,11 +621,15 @@ button.close:hover {
                                                     class="btn py-2 fw-bold w-100 rounded-pill"
                                                     style="border: 1.5px solid #707070">
                                                     <div class="row justify-content-center">
-                                                        <div class="col-3 p-0">
+                                                        <!-- <div class="col-3 p-0">
                                                             <i class="fas fa-envelope"></i>
                                                         </div>
                                                         <div class="col-7 p-0 text-start" style="font-size: 0.9rem;">
                                                             Send email to agent
+                                                        </div> -->
+                                                        <div class="btn-wrapper">
+                                                            <i class="fas fa-envelope"></i><span
+                                                                style="font-size: 0.9rem;">Send email to agent</span>
                                                         </div>
                                                     </div>
                                                 </a>
@@ -622,13 +645,18 @@ button.close:hover {
                                                     <button type="submit" class="btn py-2 fw-bold w-100 rounded-pill"
                                                         style="border: 1.5px solid #707070">
                                                         <div class="row justify-content-center">
-                                                            <div class="col-3 p-0">
+                                                            <!-- <div class="col-3 p-0">
                                                                 <i class="far fa-heart"></i>
                                                             </div>
                                                             <div class="col-7 p-0 text-start"
                                                                 style="font-size: 0.9rem;">
                                                                 Save this Property
+                                                            </div> -->
+                                                            <div class="btn-wrapper">
+                                                            <i class="far fa-heart"></i><span
+                                                                    style="font-size: 0.9rem;">Save this Property</span>
                                                             </div>
+
                                                         </div>
                                                         <input type="hidden" name="prop_hidden_id"
                                                             value="{{ $property->id }}" />
@@ -642,12 +670,16 @@ button.close:hover {
                                                     <button type="submit" class="btn py-2 fw-bold w-100 rounded-pill"
                                                         style="border: 1.5px solid #707070; background-color:#F33A6A;">
                                                         <div class="row justify-content-center">
-                                                            <div class="col-3 p-0">
+                                                            <!-- <div class="col-3 p-0">
                                                                 <i class="far fa-heart"></i>
                                                             </div>
                                                             <div class="col-7 p-0 text-start text-light"
                                                                 style="font-size: 0.9rem;">
                                                                 Unsave this Property
+                                                            </div> -->
+                                                            <div class="btn-wrapper">
+                                                            <i class="far fa-heart"></i><span
+                                                                    style="font-size: 0.9rem;">Save this Property</span>
                                                             </div>
                                                         </div>
                                                     </button>
@@ -660,12 +692,16 @@ button.close:hover {
                                                     class="btn py-2 fw-bold w-100 rounded-pill"
                                                     style="border: 1.5px solid #707070">
                                                     <div class="row justify-content-center">
-                                                        <div class="col-3 p-0">
+                                                        <!-- <div class="col-3 p-0">
                                                             <i class="far fa-heart"></i>
                                                         </div>
                                                         <div class="col-7 p-0 text-start" style="font-size: 0.9rem;">
                                                             Save this Property
-                                                        </div>
+                                                        </div> -->
+                                                        <div class="btn-wrapper">
+                                                            <i class="far fa-heart"></i><span
+                                                                    style="font-size: 0.9rem;">Save this Property</span>
+                                                            </div>
                                                     </div>
                                                 </a>
                                                 @endauth
@@ -692,9 +728,10 @@ button.close:hover {
                                 <a href="{{ route('frontend.for_sale_single',$ran->id) }}" class="text-decoration-none">
                                     <img src="{{ uploaded_asset($ran->feature_image_id) }}" alt=""
                                         class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
-                                        @if($ran->listning_type == 'free_listning')
-                                            <div class="free_listning position-absolute badge badge-warning p-2 m-2">Free Listning</div>
-                                        @endif
+                                    @if($ran->listning_type == 'free_listning')
+                                    <div class="free_listning position-absolute badge badge-warning p-2 m-2">Free
+                                        Listning</div>
+                                    @endif
                                 </a>
                                 <div class="card-body mt-3">
                                     <div class="row mb-2">
@@ -1063,7 +1100,7 @@ button.close:hover {
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form method="post" action="{{route('frontend.auth.login.post')}}" class="needs-validation">
+                <form method="post" action="{{route('frontend.auth.login.post')}}" class="needs-validation send-to-agent-form">
                     {{csrf_field()}}
                     <div class="input-group has-validation mb-3">
                         <input type="email" name="email" class="form-control form-control-lg sign-in-box shadow-sm"
@@ -1088,7 +1125,7 @@ button.close:hover {
                         </div>
                     </div>
 
-                    <div class="row mt-1">
+                    <div class="row mt-1" style="padding-left:10px;">
                         <div class="clearfix">
                             <div class="float-start">
                                 <div class="mb-1 form-check">
@@ -1111,7 +1148,7 @@ button.close:hover {
                 </form>
 
 
-                <p class="text-end mt-3">Don't have an account? <a href="{{route('frontend.auth.register')}}"
+                <p class="text-end mt-3 bottom-p">Don't have an account? <a href="{{route('frontend.auth.register')}}"
                         class="text-decoration-none" style="color: #77CEEC;">Sign Up</a></p>
 
             </div>
@@ -1127,32 +1164,29 @@ button.close:hover {
 
 
 
- <!-- external scripts -->
- <script src="https://cdn.rawgit.com/sachinchoolur/lightgallery.js/master/dist/js/lightgallery.js"></script>
-    <script src="https://cdn.rawgit.com/sachinchoolur/lg-pager.js/master/dist/lg-pager.js"></script>
-    <script src="https://cdn.rawgit.com/sachinchoolur/lg-autoplay.js/master/dist/lg-autoplay.js"></script>
-    <script src="https://cdn.rawgit.com/sachinchoolur/lg-share.js/master/dist/lg-share.js"></script>
-    <script src="https://cdn.rawgit.com/sachinchoolur/lg-fullscreen.js/master/dist/lg-fullscreen.js"></script>
-    <script src="https://cdn.rawgit.com/sachinchoolur/lg-zoom.js/master/dist/lg-zoom.js"></script>
-    <script src="https://cdn.rawgit.com/sachinchoolur/lg-hash.js/master/dist/lg-hash.js"></script>
-    <script src="https://cdn.jsdelivr.net/picturefill/2.3.1/picturefill.min.js"></script>
-    <script>
-        lightGallery(document.getElementById('lightgallery'))
-    </script>
+<!-- external scripts -->
+<script src="https://cdn.rawgit.com/sachinchoolur/lightgallery.js/master/dist/js/lightgallery.js"></script>
+<script src="https://cdn.rawgit.com/sachinchoolur/lg-pager.js/master/dist/lg-pager.js"></script>
+<script src="https://cdn.rawgit.com/sachinchoolur/lg-autoplay.js/master/dist/lg-autoplay.js"></script>
+<script src="https://cdn.rawgit.com/sachinchoolur/lg-share.js/master/dist/lg-share.js"></script>
+<script src="https://cdn.rawgit.com/sachinchoolur/lg-fullscreen.js/master/dist/lg-fullscreen.js"></script>
+<script src="https://cdn.rawgit.com/sachinchoolur/lg-zoom.js/master/dist/lg-zoom.js"></script>
+<script src="https://cdn.rawgit.com/sachinchoolur/lg-hash.js/master/dist/lg-hash.js"></script>
+<script src="https://cdn.jsdelivr.net/picturefill/2.3.1/picturefill.min.js"></script>
+<script>
+lightGallery(document.getElementById('lightgallery'))
+</script>
 
 <script>
-
-
 function changePanaroma(panaromalId) {
-    
+
     let panoURL = "{{url('/')}}/pano/" + panaromalId;
 
     document.getElementById("panoFrame").src = panoURL;
 
     // $("#panoFrame")
 
-}                                        
-
+}
 </script>
 
 
@@ -1179,15 +1213,15 @@ var swiper2 = new Swiper(".mySwiper2", {
 
 
 <script>
-    $(".show-more").click(function () {
-        if($(".text").hasClass("show-more-height")) {
-            $(this).text("(Show Less)");
-        } else {
-            $(this).text("(Show More)");
-        }
+$(".show-more").click(function() {
+    if ($(".text").hasClass("show-more-height")) {
+        $(this).text("(Show Less)");
+    } else {
+        $(this).text("(Show More)");
+    }
 
-        $(".text").toggleClass("show-more-height");
-    });
+    $(".text").toggleClass("show-more-height");
+});
 </script>
 
 

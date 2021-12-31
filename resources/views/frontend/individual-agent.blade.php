@@ -57,10 +57,15 @@
                         </div>
                     </div>
                     <div class="agent-contact-wrapper">
-                        <a href="tel:{{ $agent_details->telephone }}" class="agent-contact-btn">
+                        <a href="tel:{{ $agent_details->telephone }}" class="agent-contact-btn" >
                             <span class="icon"><i class="fas fa-phone-alt"></i></span>
                             {{ $agent_details->telephone }}
                         </a>
+
+
+                        <a href="tel:0767113935" class="btn py-2 fw-bold text-white w-100 rounded-pill" style="border: 1.5px solid rgb(112, 112, 112); background-color: rgb(53, 73, 94); font-size: 14px;"><div class="row justify-content-center"><div class="btn-wrapper"><i aria-hidden="true" class="fas fa-phone-alt"></i> <span style="font-size: 0.9rem;">0767113935</span></div></div></a>
+
+
                         <a href="mailto:{{ $agent_details->email }}" class="agent-contact-btn">
                             <span class="icon">
                                 <i class="fas fa-envelope"></i>

@@ -111,6 +111,7 @@ p.card-text.mb-1 {
 
 .card.custom-shadow.info-card .card-body {
     overflow-y: scroll;
+    padding: 20px 10px;
 }
 
 .card.custom-shadow.info-card .card-body p {
@@ -119,4 +120,6 @@ p.card-text.mb-1 {
 
 .info-price {
     color: green;
+    font-weight: bold;
+    font-size: 1.2rem;
 }
