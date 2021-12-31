@@ -163,6 +163,32 @@ class DashboardController extends Controller
         return back();
     }   
 
+    public function account_details(Request $request)
+    {        
+        // dd($request);   
+   
+
+        DB::table('users')->where('id',$request->shadow_id)->update([
+            'first_name' => $request->first_name,
+            'last_name' => $request->last_name,
+            'email' => $request->email,
+            'display_name' => $request->display_name,
+            'preference' => $request->user_type,
+            'birth_date' => $request->dob,
+            'gender' => $request->gender,
+            'marital_status' => $request->marital,
+            'city' => $request->city,
+            'province' => $request->province,
+            'country' => $request->user_countries,
+            'postal_code' => $request->postal_code,
+            'home_phone' => $request->home_phone,
+            'mobile_phone' => $request->mobile_phone
+        ]);
+
+              
+        return back();    
+    }
+
 
 
 

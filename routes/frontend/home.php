@@ -91,6 +91,8 @@ Route::group(['middleware' => ['auth', 'password_expires']], function () {
         // User Dashboard Specific
         Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
         Route::get('accounts-dashboard', [DashboardController::class, 'account_dashboard'])->name('account_dashboard');
+        
+        Route::post('account_details', [DashboardController::class, 'account_details'])->name('account_details');
 
         // User Account Specific
         Route::get('account', [AccountController::class, 'index'])->name('account');

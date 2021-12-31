@@ -24,8 +24,8 @@
                         <div class="col-md-4">
                             <div class="card">
                                 <div class="card-body">
-                                    <h5>Wishlist <i class="fa fa-heart" style="float: right;font-size: 52px;color: #2b3c50;"></i></h5>
-                                    <h4>00</h4>
+                                    <h5>Favourite List <i class="fa fa-heart" style="float: right;font-size: 52px;color: #2b3c50;"></i></h5>
+                                    <h4>{{ sprintf("%02d",App\Models\Favorite::where('user_id',auth()->user()->id)->get()->count()) }}</h4>
                                 </div>
                             </div>
                         </div>
@@ -33,7 +33,7 @@
                             <div class="card">
                                 <div class="card-body">
                                     <h5>My Bookings <i class="fa fa-bookmark" style="float: right;font-size: 52px;color: #2b3c50;"></i></h5>
-                                    <h4>00</h4>
+                                    <h4>{{ sprintf("%02d",App\Models\Booking::where('user_id',auth()->user()->id)->get()->count()) }}</h4>
                                 </div>
                             </div>
                         </div>
@@ -41,12 +41,12 @@
                             <div class="card">
                                 <div class="card-body">
                                     <h5>Feedback <i class="fa fa-box" style="float: right;font-size: 52px;color: #2b3c50;"></i></h5>
-                                    <h4>00</h4>
+                                    <h4>{{ sprintf("%02d",App\Models\Feedback::where('user_id',auth()->user()->id)->get()->count()) }}</h4>
                                 </div>
                             </div>
                         </div>
                     </div> <br>
-                    <div class="row">
+                    <!-- <div class="row">
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="card-body">
@@ -54,7 +54,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
 
 
