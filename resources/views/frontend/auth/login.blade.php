@@ -74,7 +74,7 @@
                                     <a href="" class="text-decoration-none text-dark">
                                         <div class="row align-items-center bg-white p-2">
                                             <div class="col-5 p-0">
-                                                <img src="{{ url('img/frontend/login/fb.png') }}" alt="" class="img-fluid" style="height: 2rem;">
+                                                <img src="{{ url('img/frontend/login/fb.png') }}" alt="" class="img-fluid">
                                             </div>
                                             <div class="col-7 p-0">
                                                 <p style="font-size: 0.9rem">Facebook</p>
@@ -89,7 +89,7 @@
                                     <a href="" class="text-decoration-none text-dark">
                                         <div class="row align-items-center bg-white p-2">
                                             <div class="col-5 p-0">
-                                                <img src="{{ url('img/frontend/login/google.png') }}" alt="" class="img-fluid" style="height: 2rem;">
+                                                <img src="{{ url('img/frontend/login/google.png') }}" alt="" class="img-fluid">
                                             </div>
                                             <div class="col-7 p-0">
                                                 <p style="font-size: 0.9rem">Google</p>
@@ -113,24 +113,34 @@
         @captchaScripts
     @endif
 
+<script>
+    $('#email').focus(function() {
+        $(this).siblings('label').addClass('click-input');
+    });
+    $('#email').focusout(function() {
+    if($(this).val() == '' ) {
+        $(this).siblings('label').removeClass('click-input');
+        }
+    });
 
-    <script>
-        $('#email').focus(function() {
-            $(this).siblings('label').addClass('click-input');
-        });
-        $('#email').focusout(function() {
-            if($(this).val() == '' ) {
+    $('#password').focus(function() {
+        $(this).siblings('label').addClass('click-input');
+    });
+
+    $('#password').focusout(function() {
+    if ($(this).val() == '') {
+            $(this).siblings('label').removeClass('click-input');
+    }
+    });
+
+
+    $('#email, #password')
+        .each(function(element, i) {
+            if ((element.value !== undefined && element.value.length > 0) || $(this).attr('placeholder') !== null) {
+                $(this).siblings('label').addClass('click-input');
+            } else {
                 $(this).siblings('label').removeClass('click-input');
             }
         });
-
-        $('#password').focus(function() {
-            $(this).siblings('label').addClass('click-input');
-        });
-        $('#password').focusout(function() {
-            if($(this).val() == '' ) {
-                $(this).siblings('label').removeClass('click-input');
-            }
-        });
-    </script>
+</script>
 @endpush

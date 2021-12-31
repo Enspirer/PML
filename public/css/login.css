@@ -23,6 +23,7 @@
     border-radius: 0;
     border: none;
     border-bottom: 2px solid #FFFFFF;
+    font-size: 1rem;
 }
 
 .login .form-control::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
@@ -74,9 +75,12 @@ input:-webkit-autofill:active {
 
 input:-webkit-autofill
 {
-    -webkit-text-fill-color: white !important;
+    -webkit-text-fill-color: #fff !important;
 }
 
+input::placeholder {
+    color: red !important;
+}
 
 .vertical {
     border-left: 1px solid white;
@@ -88,3 +92,4 @@ input:-webkit-autofill
     position: relative;
     left: 1.5rem;
 }
+

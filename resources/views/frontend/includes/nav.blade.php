@@ -68,7 +68,7 @@
                   <a class="dropdown-item" href="{{ route('frontend.auth.logout') }}" style="border-bottom: none">Log Out</a>
                 </div>
 
-                <a class="register fw-bold d-inline-block border px-4 text-decoration-none" href="{{ route('frontend.pre_listing') }}">Free Listning</a>
+                <a class="register fw-bold d-inline-block border px-4 text-decoration-none" href="{{ route('frontend.pre_listing') }}">Add Property</a>
 
             </div>
 
@@ -78,15 +78,15 @@
         @else
 
             <div class="log-reg position-absolute">
-                <a class="wishlist fw-bold d-inline-block px-4 text-decoration-none border-start border-end" href="{{ route('frontend.auth.login') }}"><i class="far fa-heart me-2"></i> Wish List</a>
+                <a class="wishlist fw-bold d-inline-block px-4 text-decoration-none border-start border-end" style="border-right:0px!important;" href="{{ route('frontend.auth.login') }}"><i class="far fa-heart me-2"></i> Wish List</a>
 
                 <!-- <a class="wishlist fw-bold d-inline-block px-4 text-decoration-none border-start border-end" href="{{ route('frontend.auth.login') }}"><i class="far fa-heart me-2"></i> Second List</a> -->
                 
-                <a class="login fw-bold d-inline-block px-4 text-decoration-none" href="{{ route('frontend.auth.login') }}">Login</a>
+                <a class="register fw-bold d-inline-block border px-4 text-decoration-none" href="{{ route('frontend.auth.login') }}">Login</a>
 
                 <a class="register fw-bold d-inline-block border px-4 text-decoration-none" href="{{ route('frontend.auth.register') }}">Register</a>
            
-                <a class="register fw-bold d-inline-block border px-4 text-decoration-none" href="{{ route('frontend.auth.login') }}">Free Listning</a>
+                <a class="add-property-btn fw-bold d-inline-block border px-4 text-decoration-none" href="{{ route('frontend.auth.login') }}">Add Property</a>
 
               </div>        
               
