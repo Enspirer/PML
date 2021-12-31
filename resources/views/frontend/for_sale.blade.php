@@ -484,16 +484,37 @@
             <div class="col-3">
                 <div class="row justify-content-center custom-shadow p-3 mb-4">
                     <div class="col-12 text-center">
-                        <a href="#" class="btn py-2 fw-bold text-white w-100 rounded-pill" style="border: 0.5px solid rgb(112, 112, 112);background-color: rgb(53, 73, 94);font-size: 12px;width: 230px !important;">
-                            <div class="row justify-content-center">
-                                <div class="col-2 p-0">
-                                    <i class="fas fa-envelope"></i>
+
+                        @auth
+                            <a data-toggle="modal" data-target="#email_alert_Modal" class="btn py-2 fw-bold text-white w-100 rounded-pill" style="border: 0.5px solid rgb(112, 112, 112);background-color: rgb(53, 73, 94);font-size: 12px;width: 230px !important;">
+                                <div class="row justify-content-center">
+                                    <div class="col-2 p-0">
+                                        <i class="fas fa-envelope"></i>
+                                    </div>
+                                    <div class="col-7 p-0 text-start">
+                                        Create email alert
+                                    </div>
                                 </div>
-                                <div class="col-7 p-0 text-start">
-                                    Create email alert
+                            </a>
+                            
+                        @else                            
+                            <a href="{{route('frontend.auth.login')}}" class="btn py-2 fw-bold text-white w-100 rounded-pill" style="border: 0.5px solid rgb(112, 112, 112);background-color: rgb(53, 73, 94);font-size: 12px;width: 230px !important;">
+                                <div class="row justify-content-center">
+                                    <div class="col-2 p-0">
+                                        <i class="fas fa-envelope"></i>
+                                    </div>
+                                    <div class="col-7 p-0 text-start">
+                                        Create email alert
+                                    </div>
                                 </div>
-                            </div>
-                        </a>
+                            </a>
+                        @endauth
+
+
+                        
+
+
+
                     </div>
                     <div class="col-12 text-center " style="margin-top: 10px;">
 
@@ -578,6 +599,57 @@
         </div>
     </div>
 
+    @if(\Session::has('success') )
+
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary invisible" id="modal-btn" data-toggle="modal" data-target="#voteModal"></button>
+
+        <div class="modal fade" id="voteModal" tabindex="-1" aria-labelledby="voteModal" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+
+                    <div class="modal-body" style="padding: 3rem">
+                        <h4 class="text-center">Email Alert Sent Successfully</h4>
+                        <!-- <h5>Email Alert Sent</h5> -->
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endif
+
+        <!-- Create Mail Alert Modal -->
+        <div class="modal fade" id="email_alert_Modal" tabindex="-1" role="dialog" aria-labelledby="shareModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <form action="{{route('frontend.email_alert')}}" method="post" enctype="multipart/form-data">
+                    {{csrf_field()}}
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="shareModalLabel">Create Email Alert</h5>
+                            <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                        
+                        <div class="row justify-content-between">
+                            <div>
+                                <label for="email" class="form-label mb-2 required">Email <span class="text-danger">*</span></label>
+                                <input type="email" class="form-control" name="email" id="email" aria-describedby="email" required>
+                            </div>                    
+                        </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-success">Sumbit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
     @include('frontend.includes.search_filter_modal')
     
 @endsection
@@ -585,6 +657,12 @@
 @push('after-scripts')
 
 
+
+<script>
+    if(document.getElementById("modal-btn")){
+        $('#modal-btn').click();
+    }
+</script>
 
 <script>
     // dropdown box changing field

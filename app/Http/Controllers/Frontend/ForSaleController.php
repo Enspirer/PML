@@ -12,6 +12,7 @@ use App\Models\Booking;
 use App\Models\Favorite;
 use App\Models\UserSearch;
 use App\Models\Search;
+use App\Models\EmailAlert;
 
 /**
  * Class ForSaleController.
@@ -407,6 +408,24 @@ class ForSaleController extends Controller
         $data->delete();   
 
         return back();
+    }
+
+    public function email_alert(Request $request)
+    { 
+        // dd($request);
+        $add = new EmailAlert;
+
+        $user_id = auth()->user()->id;
+
+        $add->email=$request->email; 
+        $add->user_id=$user_id;
+
+        $add->save();
+
+        return back()->with([
+            'success' => 'success'
+        ]);   
+
     }
 
 

@@ -77,6 +77,7 @@ Route::get('individual_post/{id}', [HomeController::class, 'individual_post'])->
 Route::get('pre_listing', [PreListningController::class, 'index'])->name('pre_listing');
 Route::post('pre_listing/store', [PreListningController::class, 'store'])->name('pre_listing.store');
 
+Route::post('email_alert',[ForSaleController::class,'email_alert'])->name('email_alert');
 
 Route::get('save_keyword/{city}', [HomeController::class, 'save_keyword'])->name('save_keyword');
 
