@@ -229,7 +229,7 @@ button.close:hover {
                                     <a href="#" data-toggle="modal" data-target="#photoModal">Photo</a>
                                 </li>
                                 <li class="last-item">
-                                    <a href="#" data-toggle="modal" data-target="#videoModal">Video</a>
+                                    <a href="#" data-toggle="modal" data-target="#videoModal" >Video</a>
                                 </li>
                             </ul>
                         </div>
