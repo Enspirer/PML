@@ -67,7 +67,7 @@
                   <a class="dropdown-item" href="{{ route('frontend.auth.logout') }}" style="border-bottom: none">Log Out</a>
                 </div>
 
-                <a class="register fw-bold d-inline-block border px-4 text-decoration-none" href="{{ route('frontend.pre_listing') }}">Add Property</a>
+                <a class="add-property-btn fw-bold d-inline-block border px-4 text-decoration-none" href="{{ route('frontend.pre_listing') }}">Add Property</a>
 
             </div>
 
@@ -85,7 +85,7 @@
 
                 <a class="register fw-bold d-inline-block border px-4 text-decoration-none" href="{{ route('frontend.auth.register') }}">Register</a>
            
-                <a class="add-property-btn fw-bold d-inline-block border px-4 text-decoration-none" href="{{ route('frontend.auth.login') }}">Add Property</a>
+                <a class="add-property-btn fw-bold d-inline-block border px-4 text-decoration-none" href="{{ route('frontend.pre_listing') }}">Add Property</a>
 
               </div>        
               
