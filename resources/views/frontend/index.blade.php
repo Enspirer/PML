@@ -123,7 +123,17 @@
                 };
 
                 infoWindow.setPosition(pos);
-                infoWindow.setContent("Location found.");
+                infoWindow.setContent(`<div class="tooltipContainer">
+                        <span class="tooltip" data-tooltip = "Share your Location!" data-tooltip-location = "bottom">
+                            <i class="geo-i fas fa-map-marker-alt"></i>
+                        </span>
+                        <!-- Added for Pulsing Circle -->
+                        <div class="circle" style="animation-delay: 0s"></div>
+                        <div class="circle" style="animation-delay: 1s"></div>
+                        <div class="circle" style="animation-delay: 2s"></div>
+                        <div class="circle" style="animation-delay: 3s"></div>
+                        <!-- End of Add for Pulsing Circle -->
+                    </div>`);
                 infoWindow.open(map);
                 map.setCenter(pos);
                 },
