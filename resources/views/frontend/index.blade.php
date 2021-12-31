@@ -127,6 +127,7 @@
                         <span class="tooltip" data-tooltip = "Share your Location!" data-tooltip-location = "bottom">
                             <i class="geo-i fas fa-map-marker-alt"></i>
                         </span>
+                        <h5 class="geo">Location Found!</h5>
                         <!-- Added for Pulsing Circle -->
                         <div class="circle" style="animation-delay: 0s"></div>
                         <div class="circle" style="animation-delay: 1s"></div>
