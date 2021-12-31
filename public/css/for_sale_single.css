@@ -418,3 +418,13 @@ ul.option-list li a:hover {
 #loginModal .bottom-p {
   padding-right: 25px;  
 }
+
+.modal-content .modal-body.contact-agent {
+  padding: 25px !important;
+  height: 100%;
+  background: #fff;
+}
+
+.modal-footer.contact-agent {
+  background: #fff;
+}

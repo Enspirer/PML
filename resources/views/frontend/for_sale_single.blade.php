@@ -957,7 +957,7 @@ button.close:hover {
                     <h5 class="modal-title" id="exampleModalLabel">Contact Agent</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body contact-agent">
                     <div class="row mb-3">
                         <div class="col-md-8">
                             <h4>To:</h4>
@@ -1077,7 +1077,7 @@ button.close:hover {
 
 
                 </div>
-                <div class="modal-footer">
+                <div class="modal-footer contact-agent">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     <button type="submit" class="btn btn-primary">Send</button>
                 </div>

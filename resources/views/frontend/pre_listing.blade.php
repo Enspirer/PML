@@ -128,7 +128,7 @@
 
 <div class="light-style flex-grow-1 container-p-y" style="margin:150px 50px 0pc 50px">
 
-    <div class="card overflow-hidden">
+    <div class="card overflow-hidden" style="min-height:440px;">
       <div class="row no-gutters row-bordered row-border-light">
         <div class="col-md-3 mt-3 pt-0">
           <div class="list-group list-group-flush account-settings-links">
