@@ -7,10 +7,27 @@
 @endpush
 
 @section('content')
+@if ( session()->has('message') )
+
+
+    <div class="container" style="background-color: #c6e4ee; padding-top:5px; border-radius: 50px 50px; text-align:center;">
+
+        <h1 style="margin-top:150px;" class="display-4">Thank You!</h1><br>
+        <p class="lead"><h4>We appreciate you contacting us. One of our member will get back in touch with you soon!<br><br> Have a great day!</h4></p>
+        <hr><br>    
+        <p class="lead">
+            <a class="btn btn-success btn-md mb-5" href="{{url('/')}}" role="button">Go to Home Page</a>
+        </p>
+    </div>
+  
+
+@else
+
     <div class="container-fluid banner" style="margin-top: 6rem;">
         <div class="row justify-content-center" style="padding-top: 3rem; padding-left: 10rem;">
             <div class="col-5 contact-form">
-                <form action="">
+                <form action="{{route('frontend.contact_us.store')}}" method="post" enctype="multipart/form-data">
+                {{csrf_field()}}
                     <h5 class="fw-bold">Let Us Call You!</h5>
                     <h6 class="mb-4">To help you choose your property</h6>
 
@@ -59,7 +76,7 @@
                         </div>
 
                         <div class="col-6 text-end">
-                            <button type="submit" class="btn submit-btn w-75">Submit</button>
+                            <button type="submit" class="submit_btn btn submit-btn w-75" disabled>Submit</button>
                         </div>
                     </div>
                 </form>
@@ -70,6 +87,9 @@
     <div class="container-fluid p-0">
         <div id="map" style="height: 500px; width: 100%"></div>
     </div>
+
+@endif
+
 @endsection
 
 @push('after-scripts')
@@ -81,7 +101,7 @@
 
     <script>
         function checked() {
-            $('#submit_btn').removeAttr('disabled');
+            $('.submit_btn').removeAttr('disabled');
         };
     </script>
 
@@ -153,3 +173,4 @@
 
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEBj8LhHUJaf2MXpqIQ_MOXs7HkeUXnac&callback=initMap" type="text/javascript"></script>
 @endpush
+

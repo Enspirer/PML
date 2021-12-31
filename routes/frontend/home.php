@@ -31,7 +31,8 @@ Route::post('country-change', [HomeController::class, 'countryChange'])->name('c
 
 
 Route::get('contact-us', [ContactController::class, 'index'])->name('contact_us');
-Route::post('contact/send', [ContactController::class, 'send'])->name('contact.send');
+Route::post('contact_us.store', [ContactController::class, 'store'])->name('contact_us.store');
+// Route::post('contact/send', [ContactController::class, 'send'])->name('contact.send');
 
 Route::post('/aiz-uploader', [AizUploadController::class, 'show_uploader']);
 Route::post('/aiz-uploader/upload', [AizUploadController::class, 'upload']);
@@ -75,6 +76,9 @@ Route::get('individual_post/{id}', [HomeController::class, 'individual_post'])->
 
 Route::get('pre_listing', [PreListningController::class, 'index'])->name('pre_listing');
 Route::post('pre_listing/store', [PreListningController::class, 'store'])->name('pre_listing.store');
+
+
+Route::get('save_keyword/{city}', [HomeController::class, 'save_keyword'])->name('save_keyword');
 
 /*
  * These frontend controllers require the user to be logged in
