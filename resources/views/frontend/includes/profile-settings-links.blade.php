@@ -87,6 +87,16 @@
                     </div>
                 </div>
             </a>
+            <a class="nav-link text-dark fw-bold ps-5 w-100 {{ Request::segment(1) == 'agent-bookings' ? 'active' : null }}" id="nav-favorite-tab" href="{{ route('frontend.user.agent-bookings') }}" type="button" role="tab" aria-controls="nav-favorite" aria-selected="false"> 
+                <div class="row align-items-center justify-content-between">
+                    <div class="col-1">
+                        <img src="{{ url('img/frontend/profile/agent_booking.png') }}" alt="">
+                    </div>
+                    <div class="col-10 ps-0">
+                        <p class="text-dark fw-bold">Agent Booking</p>
+                    </div>
+                </div>
+            </a>
 
         @endif
 

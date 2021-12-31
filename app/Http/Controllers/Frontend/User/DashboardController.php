@@ -74,6 +74,32 @@ class DashboardController extends Controller
         ]);
     }
 
+    public function agentBookings()
+    {
+        $agent = AgentRequest::where('user_id', auth()->user()->id)->first();
+
+        // dd($agent->id);
+
+        $bookings = Booking::where('agent_id', $agent->id)->orderBy('id','DESC')->get();
+
+        // dd($bookings);
+
+        return view('frontend.user.agent-bookings',[
+            'bookings' => $bookings
+        ]);
+    }
+
+    public function agentBookingsRespond()
+    {
+        $booking = DB::table('bookings') ->where('id', '=', request('hid_id'))->update(
+            [
+                'status' => 'Responded'
+            ]
+        );
+
+        return back();
+    }
+
     public function feedback()
     {
         $countries = Country::where('status',1)->get();
