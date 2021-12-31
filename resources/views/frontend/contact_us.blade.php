@@ -131,14 +131,14 @@
                                 <div class="col-12">
                                     <a href="{{ route('frontend.index') }}"><img src="{{ url('img/frontend/logo.png') }}" class="img-fluid" alt="" style="height: 3rem;"></a>
 
-                                    <p class="text-white mt-2 mb-3" style="font-size: 0.8rem;">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                              
 
-                                    <div class="row">
+                                    <div class="row" style="margin-top:25px;">
                                         <div class="col-2 pe-0">
                                             <i class="fas fa-phone-alt text-white"></i>
                                         </div>
                                         <div class="col-10 ps-0">
-                                            <p class="text-white mb-3">+94 777000000</p>
+                                            <p class="text-white mb-3">+94 778669990</p>
                                         </div>
                                     </div>
 
@@ -147,18 +147,10 @@
                                             <i class="fas fa-envelope text-white"></i>
                                         </div>
                                         <div class="col-10 ps-0">
-                                            <p class="text-white mb-3">info@propertymarketlive.com</p>
+                                            <p class="text-white mb-3">hello@propertymarketlive.com</p>
                                         </div>
                                     </div>
 
-                                    <div class="row">
-                                        <div class="col-2 pe-0">
-                                            <i class="fas fa-map-marker-alt text-white"></i>
-                                        </div>
-                                        <div class="col-10 ps-0">
-                                            <p class="text-white mb-3">123/A, Colombo 05, Sri Lanka.</p>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>`
             });

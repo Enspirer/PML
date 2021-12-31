@@ -41,13 +41,16 @@ p {
 }
 .navbar select {
     width: 15%;
-    top: -3.1rem;
-    right: 30rem;
+    top: -3.2rem;
+    right: 32rem;
     border-radius: 0!important;
     background-color: #16202C;
-    color:white;
-    border: none;
+    color: white;
+    border: 1px solid #524c4c;
     font-size: 0.9rem;
+    padding: 5px;
+    padding: 3px 5px;
+    font-size: 0.8rem;
 }
 .navbar-brand {
     bottom: 0rem;
@@ -224,7 +227,7 @@ a.add-property-btn {
 	margin: auto;
 	background: transparent;
 	border-radius: 5px;
-	height: 120px;
+	height: 130px;
 	width: 150px;
 	
 	/* To Display the tooltip 'span' in the center of the container */
@@ -344,11 +347,21 @@ h5.geo {
 }
 
 .gm-style-iw.gm-style-iw-c {
-    background-color: transparent;
     padding: 0;
+}
 
+/* .gm-style .gm-style-iw-d {
+    overflow: auto !important;
+} */
+
+h2.sub-topics {
+    margin-top: 60px;
+}
+
+h2.sub-topic.center-topic  {
+    text-align: center;
 }
 
 .gm-style .gm-style-iw-d {
-    overflow: auto !important;
+    overflow-y: auto !important;
 }
