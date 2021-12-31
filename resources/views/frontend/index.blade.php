@@ -688,7 +688,7 @@
             <div class="col-4">
                 <a href="https://www.facebook.com/tallentor" style="color:black" target="_blank" id="stack_panel">
                     <div class="card" style="height: 27rem;">
-                        <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Ftallentor%2F&amp;tabs=timeline&amp;width=340&amp;height=500&amp;small_header=true&amp;adapt_container_width=false&amp;hide_cover=false&amp;show_facepile=false&amp;appId=4531192260303691" width="100%" height="500" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+                        <iframe src="https://www.google.com/url?q=https://www.facebook.com/propertymarketlive&sa=D&source=hangouts&ust=1641045944646000&usg=AOvVaw13ix4oTwTA2MpAGGHCb9cr" width="100%" height="500" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
                     </div>
                 </a>
             </div>
@@ -701,16 +701,13 @@
                                 
                                     <div class="px-4 py-2" style="-webkit-box-shadow: inset 0.5px 14px -8px rgba(0,0,0,0.75); -moz-box-shadow: inset 0.5px 14px -8px rgba(0,0,0,0.75); box-shadow: inset 0px 0.5px 14px -8px rgba(0,0,0,0.75);">
                                         <div class="row align-items-center">
-                                            <div class="col-3 text-center">
-                                                <img src="https://tallentor.com/theme_light/assets/footer/club.png" alt="" class="img-fluid">
-                                            </div>
-                                            <div class="col-9">
-                                                <p class="mb-0" style="color: #065A31; font-size: 1.6rem;">PML Club</p>
+                                            <div class="col-12 text-center">
+                                                <img src="{{ url('img/frontend/index/talk-property.png') }}" alt="" class="img-fluid" style="height:60px;">
                                             </div>
                                         </div>
                                     </div>
                                 
-                                <img src="https://tallentor.com/upload/blog/files/20211112131039.png" class="card-img-top" alt="..." style="object-fit: cover; height: 13rem;">
+                                <img src="{{ url('img/frontend/index/PML-talk.png') }}" class="card-img-top" alt="..." style="object-fit: cover; height: 13rem;">
                                 </a><div class="card-body"><a href="https://tallentor.com/blog/Club" style="color:black">
                                     <p class="card-text mb-1" style="overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 4; -webkit-box-orient: vertical;">When you use an application on your mobile phone or smart devices the application connects to the Internet and sends data to a server. The server then retrieves that data, interprets it, performs the necessary actions and sends it back to your phone. The application then interprets that data and presents you with the information you wanted in a readable way. This is what an API is - all of this happens via API.</p>
                                     
@@ -730,17 +727,14 @@
                             </a><div class="card position-relative" style="height: 27rem;"><a href="https://tallentor.com/blog/News" style="color:black">
                                                                     <div class="px-4 py-2" style="-webkit-box-shadow: inset 0.5px 14px -8px rgba(0,0,0,0.75); -moz-box-shadow: inset 0.5px 14px -8px rgba(0,0,0,0.75); box-shadow: inset 0px 0.5px 14px -8px rgba(0,0,0,0.75);">
                                         <div class="row align-items-center">
-                                            <div class="col-3 text-center">
-                                                <img src="https://tallentor.com/theme_light/assets/footer/news.png" alt="" class="img-fluid">
-                                            </div>
-                                            <div class="col-9">
-                                                <p class="mb-0" style="color: #065A31; font-size: 1.6rem;">Latest at PML</p>
+                                            <div class="col-12 text-center" style="height:60px;">
+                                                <img src="{{ url('img/frontend/index/property-news.png') }}" alt="" class="img-fluid" style="height:40px;margin-top:15px;">
                                             </div>
                                         </div>
                                     </div>
 
                                 
-                                <img src="https://tallentor.com/upload/blog/files/20211112150914.jpg" class="card-img-top" alt="..." style="object-fit: cover; height: 13rem;">
+                                <img src="{{ url('img/frontend/index/PML-news.png') }}" class="card-img-top" alt="..." style="object-fit: cover; height: 13rem;">
                                 </a><div class="card-body"><a href="https://tallentor.com/blog/News" style="color:black">
                                     <p class="card-text mb-1" style="overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 4; -webkit-box-orient: vertical;">Our team brought years of analytical and development experience together to bring Tallentor LMS to life. 
 Expandability and connectivity with third party systems are the key features of our LMS, and our team is working on further enhancements and will release new versions latest features.</p>
