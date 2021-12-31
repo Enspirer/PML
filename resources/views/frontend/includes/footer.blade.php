@@ -20,7 +20,7 @@
                         <i class="fas fa-envelope text-white"></i>
                     </div>
                     <div class="col-10 ps-0">
-                        <p class="text-white mb-3">info@propertymarketlive.com</p>
+                        <p class="text-white mb-3">hello@propertymarketlive.com</p>
                     </div>
                 </div>
 

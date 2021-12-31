@@ -41,13 +41,16 @@ p {
 }
 .navbar select {
     width: 15%;
-    top: -3.1rem;
-    right: 30rem;
+    top: -3.2rem;
+    right: 32rem;
     border-radius: 0!important;
     background-color: #16202C;
-    color:white;
-    border: none;
+    color: white;
+    border: 1px solid #524c4c;
     font-size: 0.9rem;
+    padding: 5px;
+    padding: 3px 5px;
+    font-size: 0.8rem;
 }
 .navbar-brand {
     bottom: 0rem;
@@ -347,9 +350,9 @@ h5.geo {
     padding: 0;
 }
 
-.gm-style .gm-style-iw-d {
+/* .gm-style .gm-style-iw-d {
     overflow: auto !important;
-}
+} */
 
 h2.sub-topics {
     margin-top: 60px;
@@ -359,3 +362,6 @@ h2.sub-topic.center-topic  {
     text-align: center;
 }
 
+.gm-style .gm-style-iw-d {
+    overflow-y: auto !important;
+}

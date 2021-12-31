@@ -65,7 +65,7 @@
 }
 .gm-style .gm-style-iw-c {
     top: 133px!important;
-    left: -260px!important;
+    left: -200px!important;
     background-color: #35495E;
     border-radius: 0!important;
     padding-right: 25px!important;
@@ -85,4 +85,8 @@
     width: 35px;
     color: #35495E!important;
     background-color: #35495E!important;
+}
+
+.gm-style .gm-style-iw-d {
+    width: 260px;
 }

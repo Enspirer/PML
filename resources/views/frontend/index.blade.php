@@ -70,7 +70,7 @@
                             marker.addListener("click", () => {
                                 const infoWindow = new google.maps.InfoWindow({
                                     content: '<div class="card custom-shadow info-card" style="height: 320px;">' +
-                                    '<img src="'+ data[i].feature_image +'" alt="" class="img-fluid w-100" style="object-fit: contain;height: 130px;">' +
+                                    '<img src="'+ data[i].feature_image +'" alt="" class="img-fluid w-100" style="object-fit: cover;height: 130px;">' +
                                         '<div class="card-body">' +
                                         '<h5 class="fw-bold">'+ data[i].name +'</h5>' +
                                         '<p class="info-price"> Rs.'+ data[i].price + '</p>' +
