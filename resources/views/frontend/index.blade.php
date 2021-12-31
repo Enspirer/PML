@@ -68,8 +68,10 @@
                             // markers can only be keyboard focusable when they have click listeners
                             // open info window when marker is clicked
                             marker.addListener("click", () => {
+
                                 const infoWindow = new google.maps.InfoWindow({
-                                    content: '<div class="card custom-shadow info-card" style="height: 320px;">' +
+
+                                    content:  '<div class="card custom-shadow info-card" style="height: 320px;">' + '<a href="http://propertymarketlive.com/for-sale/single-property/' +  data[i].id + '">' +
                                     '<img src="'+ data[i].feature_image +'" alt="" class="img-fluid w-100" style="object-fit: cover;height: 130px;">' +
                                         '<div class="card-body">' +
                                         '<h5 class="fw-bold">'+ data[i].name +'</h5>' +
@@ -77,9 +79,15 @@
                                             '<p style="font-size: 12px;overflow: hidden;display: -webkit-box;-webkit-line-clamp: 3;-webkit-box-orient: vertical;">'+ data[i].description + '</p>' +
                                            
                                         '<p>3<i class="fas fa-bed ms-2 me-3" aria-hidden="true"></i> 5<i class="fas fa-bath ms-2" aria-hidden="true"></i></p>' +
-                                           + '</div>' + '</div>',
+                                           + '</div>' + '</a>'+  '</div>',
                                     disableAutoPan: true,
                                 });
+
+
+
+                                
+
+
 
                             infoWindow.open({
                                 anchor: marker,
