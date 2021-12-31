@@ -491,7 +491,13 @@ class HomeController extends Controller
         
         $add = new Search;
 
-        $add->keyword=$city;
+        if($city == null){
+            $keywords = 'key_name';
+        }else{
+            $keywords = $city;
+        }
+
+        $add->keyword=$keywords;
         $add->user_id=auth()->user()->id;
 
         $add->save();
