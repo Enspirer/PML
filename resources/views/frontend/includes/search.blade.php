@@ -18,9 +18,9 @@
                         <label class="btn btn-secondary left-menu-btn">
                             <input type="radio" name="rent" id="trans_rent"> Rent
                         </label>
-                        <label class="btn btn-secondary left-menu-btn">
+                        <!-- <label class="btn btn-secondary left-menu-btn">
                             <input type="radio" name="trans_type"> Land
-                        </label>
+                        </label> -->
                     </div>
 
                 </div>
