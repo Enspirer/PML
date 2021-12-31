@@ -670,7 +670,7 @@
         <div class="row">
             <div class="col-4">
                 <a href="https://www.facebook.com/tallentor" style="color:black" target="_blank" id="stack_panel">
-                    <div class="card" style="height: 25rem;">
+                    <div class="card" style="height: 27rem;">
                         <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Ftallentor%2F&amp;tabs=timeline&amp;width=340&amp;height=500&amp;small_header=true&amp;adapt_container_width=false&amp;hide_cover=false&amp;show_facepile=false&amp;appId=4531192260303691" width="340" height="500" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
                     </div>
                 </a>
@@ -680,7 +680,7 @@
                                         
                     <div class="col-4">
                         <a href="https://tallentor.com/blog/Club" style="color:black">
-                            </a><div class="card position-relative" style="height: 25rem;"><a href="https://tallentor.com/blog/Club" style="color:black">
+                            </a><div class="card position-relative" style="height: 27rem;"><a href="https://tallentor.com/blog/Club" style="color:black">
                                 
                                     <div class="px-4 py-2" style="-webkit-box-shadow: inset 0.5px 14px -8px rgba(0,0,0,0.75); -moz-box-shadow: inset 0.5px 14px -8px rgba(0,0,0,0.75); box-shadow: inset 0px 0.5px 14px -8px rgba(0,0,0,0.75);">
                                         <div class="row align-items-center">
@@ -710,7 +710,7 @@
                             
                     <div class="col-4">
                         <a href="https://tallentor.com/blog/News" style="color:black">
-                            </a><div class="card position-relative" style="height: 25rem;"><a href="https://tallentor.com/blog/News" style="color:black">
+                            </a><div class="card position-relative" style="height: 27rem;"><a href="https://tallentor.com/blog/News" style="color:black">
                                                                     <div class="px-4 py-2" style="-webkit-box-shadow: inset 0.5px 14px -8px rgba(0,0,0,0.75); -moz-box-shadow: inset 0.5px 14px -8px rgba(0,0,0,0.75); box-shadow: inset 0px 0.5px 14px -8px rgba(0,0,0,0.75);">
                                         <div class="row align-items-center">
                                             <div class="col-3 text-center">
@@ -739,18 +739,7 @@ Expandability and connectivity with third party systems are the key features of 
                         
                     </div>
                             
-            <!-- <div class="col-3">
-                <div class="card" style="height: 25rem;">
-                    <img src="https://tallentor.com/theme_light/assets/footer/4.png" class="card-img-top" alt="..." style="object-fit: cover; height: 13rem;">
-                    <div class="card-body">
-                        <p class="card-text mb-1">We're giving away 100,000,000 $Shib to 5 random people (20,000,000 each)Money bag RocketFollow Me! Gem stoneRetweet and Like. Open handsComment #SHIBARMY  ⚠followers only giveaway⚠ #BTC  #ETH #Giveaway #ADA</p>
-                        
-                        <div class="text-right">
-                            <a href="#" style="color: #FF0000; font-size: 1.1rem;">News</a>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
+     
         </div>
     </div>
 </div>
