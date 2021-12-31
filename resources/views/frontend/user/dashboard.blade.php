@@ -122,7 +122,7 @@
                                                 </div>
                                                 <div class="col-6">
                                                     <label for="dob" class="form-label mb-0">Year of birth</label>
-                                                    <input value="" type="date" class="form-control" id="dob" aria-describedby="dob" name="dob" required>
+                                                    <input type="date" class="form-control" id="dob" aria-describedby="dob" name="dob" value="{{$user_edit->birth_date}}" required>
                                                 </div>
                                             </div>
 
@@ -636,7 +636,45 @@
 
 <script>
 
-    
+let user_countries = <?php echo json_encode ($user_edit->country ) ?>
+
+$('#user_countries option').each(function(i){
+    if($(this).val() == user_countries) {
+        $(this).attr('selected', 'selected');
+    }
+});
+
+let gender = <?php echo json_encode ($user_edit->gender ) ?>
+
+$('#gender option').each(function(i){
+    if($(this).val() == gender) {
+        $(this).attr('selected', 'selected');
+    }
+});
+
+let dob = <?php echo json_encode ($user_edit->dob ) ?>
+
+$('#dob option').each(function(i){
+    if($(this).val() == dob) {
+        $(this).attr('selected', 'selected');
+    }
+});
+
+let marital = <?php echo json_encode ($user_edit->marital_status) ?>
+
+$('#marital option').each(function(i){
+    if($(this).val() == marital) {
+        $(this).attr('selected', 'selected');
+    }
+});
+
+let user_type = <?php echo json_encode ($user_edit->preference) ?>
+
+$('#user_type option').each(function(i){
+    if($(this).val() == user_type) {
+        $(this).attr('selected', 'selected');
+    }
+});
 
 </script>
 
