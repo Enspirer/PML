@@ -144,7 +144,7 @@
                 //     }
                 //     return false;
                 // }
-                var x = document.getElementById(".dropdown-menu");
+                var x = document.getElementById("drop-menu");
                 if (x.style.display === "none") {
                     x.style.display = "block";
                 } else {
