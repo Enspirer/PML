@@ -59,7 +59,9 @@ class ForSaleController extends Controller
 
         
         $add->keyword=$keywords;
-        $add->user_id=auth()->user()->id;
+        if(!empty( auth()->user()->id) === true ){
+            $add->user_id=auth()->user()->id;
+        } 
 
         $add->save();
 
