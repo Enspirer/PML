@@ -727,8 +727,8 @@
                             </a><div class="card position-relative" style="height: 27rem;"><a href="https://tallentor.com/blog/News" style="color:black">
                                                                     <div class="px-4 py-2" style="-webkit-box-shadow: inset 0.5px 14px -8px rgba(0,0,0,0.75); -moz-box-shadow: inset 0.5px 14px -8px rgba(0,0,0,0.75); box-shadow: inset 0px 0.5px 14px -8px rgba(0,0,0,0.75);">
                                         <div class="row align-items-center">
-                                            <div class="col-12 text-center">
-                                                <img src="{{ url('img/frontend/index/property-news.png') }}" alt="" class="img-fluid" style="height:60px;">
+                                            <div class="col-12 text-center" style="height:60px;">
+                                                <img src="{{ url('img/frontend/index/property-news.png') }}" alt="" class="img-fluid" style="height:40px;margin-top:15px;">
                                             </div>
                                         </div>
                                     </div>
