@@ -51,7 +51,14 @@ class ForSaleController extends Controller
 
         $add = new Search;
 
-        $add->keyword=$request->search_keyword;
+        if($request->search_keyword == null){
+            $keywords = 'key_name';
+        }else{
+            $keywords = $request->search_keyword;
+        }
+
+        
+        $add->keyword=$keywords;
         $add->user_id=auth()->user()->id;
 
         $add->save();
