@@ -3,7 +3,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
-    height: 470px;
+    height: 530px;
 }
 .banner .form-control, .banner .form-select {
     background-color: transparent;
@@ -14,7 +14,8 @@
 .banner select {
     color: white!important;
     background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='white' class='fas fa-chevron-down' viewBox='0 0 16 16'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>");
-    
+    opacity: 0.6;
+    font-size: 0.8rem; 
 }
 .banner select option {
     background-color: rgb(255, 255, 255, 0.2)!important;
@@ -54,4 +55,8 @@
 .agent-show-more-btn {
     color: #212529;
     font-size: 0.9rem;
+}
+
+.form-mb {
+    margin-bottom: 2rem;
 }

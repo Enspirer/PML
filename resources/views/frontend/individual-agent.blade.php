@@ -63,11 +63,11 @@
                         </a>
 
 
-                        <a href="tel:0767113935" class="btn py-2 fw-bold text-white w-100 rounded-pill" style="border: 1.5px solid rgb(112, 112, 112); background-color: rgb(53, 73, 94); font-size: 14px;"><div class="row justify-content-center"><div class="btn-wrapper"><i aria-hidden="true" class="fas fa-phone-alt"></i> <span style="font-size: 0.9rem;">0767113935</span></div></div></a>
+               
 
 
-                        <a href="mailto:{{ $agent_details->email }}" class="agent-contact-btn">
-                            <span class="icon">
+                        <a href="mailto:{{ $agent_details->email }}" class="agent-contact-btn" style="background-color: #fff;color: #000;">
+                            <span class="icon" style="color:#000;">
                                 <i class="fas fa-envelope"></i>
                             </span>
                             Send email to agent</a>

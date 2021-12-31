@@ -10,21 +10,6 @@
     top: 0;
     left: 0;
 }
-.custom-map-control-button {
-        background-color: #fff;
-        border: 0;
-        border-radius: 2px;
-        box-shadow: 0 1px 4px -1px rgba(0, 0, 0, 0.3);
-        margin: 10px;
-        padding: 0 0.5em;
-        font: 400 18px Roboto, Arial, sans-serif;
-        overflow: hidden;
-        height: 40px;
-        cursor: pointer;
-        }
-        .custom-map-control-button:hover {
-        background: #ebebeb;
-        }
 
 </style>
 
@@ -67,15 +52,13 @@
                             // markers can only be keyboard focusable when they have click listeners
                             // open info window when marker is clicked
                             marker.addListener("click", () => {
-                                alert(data[i].id);
-
                                 const infoWindow = new google.maps.InfoWindow({
-                                    content: '<div class="card custom-shadow info-card">' +
-                                    '<img src="http://propertymarketlive.com/img/frontend/index/1.png" alt="" class="img-fluid w-100" style="height: 5rem; object-fit: cover;">' +
+                                    content: '<div class="card custom-shadow info-card" style="height: 320px;">' +
+                                    '<img src="'+ data[i].feature_image +'" alt="" class="img-fluid w-100" style="object-fit: contain;height: 130px;">' +
                                         '<div class="card-body">' +
-                                        '<h5 class="fw-bold">' +'</h5>' +
+                                        '<h5 class="fw-bold">'+ data[i].name +'</h5>' +
                                         '<p class="info-price"> Rs.'+ data[i].price + '</p>' +
-                                            '<p>'+ data[i].description + '</p>' +
+                                            '<p style="font-size: 12px;overflow: hidden;display: -webkit-box;-webkit-line-clamp: 3;-webkit-box-orient: vertical;">'+ data[i].description + '</p>' +
                                            
                                         '<p>3<i class="fas fa-bed ms-2 me-3" aria-hidden="true"></i> 5<i class="fas fa-bath ms-2" aria-hidden="true"></i></p>' +
                                            + '</div>' + '</div>',
@@ -105,56 +88,7 @@
 
         /*ajax end here*/
 
-
-        /*geolocation code start here*/
-                    infoWindow = new google.maps.InfoWindow();
-
-            const locationButton = document.createElement("button");
-
-            locationButton.textContent = "Pan to Current Location";
-            locationButton.classList.add("custom-map-control-button");
-            map.controls[google.maps.ControlPosition.TOP_CENTER].push(locationButton);
-            locationButton.addEventListener("click", () => {
-                // Try HTML5 geolocation.
-                if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(
-                    (position) => {
-                    const pos = {
-                        lat: position.coords.latitude,
-                        lng: position.coords.longitude,
-                    };
-
-                    infoWindow.setPosition(pos);
-                    infoWindow.setContent("Location found.");
-                    infoWindow.open(map);
-                    map.setCenter(pos);
-                    },
-                    () => {
-                    handleLocationError(true, infoWindow, map.getCenter());
-                    }
-                );
-                } else {
-                // Browser doesn't support Geolocation
-                handleLocationError(false, infoWindow, map.getCenter());
-                }
-            });
-            
-
-            function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-            infoWindow.setPosition(pos);
-            infoWindow.setContent(
-                browserHasGeolocation
-                ? "Error: The Geolocation service failed."
-                : "Error: Your browser doesn't support geolocation."
-            );
-            infoWindow.open(map);
-            }
-
-
-
-        /*geolocation code ends here*/
-
-
+        // Create an array of alphabetical characters used to label the markers.
      
 
         
