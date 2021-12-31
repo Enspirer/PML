@@ -3,7 +3,7 @@
 }
 
 .agent-main-area {
-    flex: 4;
+    flex: 3;
     padding-left: 15px;
     padding-right: 15px;
 }
@@ -58,12 +58,14 @@
 }
 
 .agent-contact-btn {
-    width: 200px;
-    border: 1px solid #000;
+    width: 250px;
     border-radius: 30px;
     padding: 10px 20px;
-    font-size: 0.7rem;
+    font-size: 0.9rem;
     margin-bottom: 10px;
+    border: 1.5px solid rgb(112, 112, 112);
+    background-color: rgb(53, 73, 94);
+    color: #fff;
 }
 
 .count-box-wrapper {
@@ -89,7 +91,7 @@ span.count-txt {
 span.icon {
     display: inline-block;
     padding-right: 15px;
-    color: #35495E;
+    color: #fff;
 }
 
 span.number {
@@ -106,6 +108,7 @@ span.number {
     box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);
     margin-bottom: 45px;
     position: relative;
+    height: 400px;
 }
 
 .agent-card:hover {

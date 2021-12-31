@@ -110,6 +110,7 @@ background-color: #35495E;
     font-size: 0.9rem;
     display: flex;
     align-items: center;
+    align-items: baseline;
 }
 
 .features li i {
@@ -388,4 +389,32 @@ ul.option-list li a:hover {
   height: 65px; 
   overflow:hidden; 
   padding: 0;
+}
+
+.btn-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-wrapper i {
+  width: 35px;
+}
+
+.send-to-agent-form {
+  padding: 25px;
+  padding-bottom: 0;
+}
+
+#loginModal .modal-content {
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  height: 400px;
+  margin-top: 20vh;
+}
+
+#loginModal .bottom-p {
+  padding-right: 25px;  
 }

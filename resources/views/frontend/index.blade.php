@@ -11,6 +11,22 @@
     left: 0;
 }
 
+.custom-map-control-button {
+    background-color: #fff;
+    border: 0;
+    border-radius: 2px;
+    box-shadow: 0 1px 4px -1px rgba(0, 0, 0, 0.3);
+    margin: 10px;
+    padding: 0 0.5em;
+    font: 400 18px Roboto, Arial, sans-serif;
+    overflow: hidden;
+    height: 40px;
+    cursor: pointer;
+}
+.custom-map-control-button:hover {
+    background: #ebebeb;
+}
+
 </style>
 
 <!-- map links -->
@@ -52,14 +68,14 @@
                             // markers can only be keyboard focusable when they have click listeners
                             // open info window when marker is clicked
                             marker.addListener("click", () => {
-                                alert(data[i].id);
-
                                 const infoWindow = new google.maps.InfoWindow({
-                                    content: '<div class="card custom-shadow info-card">' +
-                                    '<img src="http://propertymarketlive.com/img/frontend/index/1.png" alt="" class="img-fluid w-100" style="height: 5rem; object-fit: cover;">' +
-                                        '<div class="card-body text-center">' +
-                                        '<h5 class="fw-bold">'+  +'</h5>' +
-                                            '<p>'+ data[i].description + '</p>' +
+                                    content: '<div class="card custom-shadow info-card" style="height: 320px;">' +
+                                    '<img src="'+ data[i].feature_image +'" alt="" class="img-fluid w-100" style="object-fit: contain;height: 130px;">' +
+                                        '<div class="card-body">' +
+                                        '<h5 class="fw-bold">'+ data[i].name +'</h5>' +
+                                        '<p class="info-price"> Rs.'+ data[i].price + '</p>' +
+                                            '<p style="font-size: 12px;overflow: hidden;display: -webkit-box;-webkit-line-clamp: 3;-webkit-box-orient: vertical;">'+ data[i].description + '</p>' +
+                                           
                                         '<p>3<i class="fas fa-bed ms-2 me-3" aria-hidden="true"></i> 5<i class="fas fa-bath ms-2" aria-hidden="true"></i></p>' +
                                            + '</div>' + '</div>',
                                     disableAutoPan: true,
@@ -88,8 +104,56 @@
 
         /*ajax end here*/
 
-        // Create an array of alphabetical characters used to label the markers.
-     
+        /*geolocation code start here*/
+        infoWindow = new google.maps.InfoWindow();
+
+        const locationButton = document.createElement("button");
+
+        locationButton.textContent = "Pan to Current Location";
+        locationButton.classList.add("custom-map-control-button");
+        map.controls[google.maps.ControlPosition.TOP_CENTER].push(locationButton);
+        locationButton.addEventListener("click", () => {
+            // Try HTML5 geolocation.
+            if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(
+                (position) => {
+                const pos = {
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude,
+                };
+
+                infoWindow.setPosition(pos);
+                infoWindow.setContent("Location found.");
+                infoWindow.open(map);
+                map.setCenter(pos);
+                },
+                () => {
+                handleLocationError(true, infoWindow, map.getCenter());
+                }
+            );
+            } else {
+            // Browser doesn't support Geolocation
+            handleLocationError(false, infoWindow, map.getCenter());
+            }
+        });
+
+
+        function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+        infoWindow.setPosition(pos);
+        infoWindow.setContent(
+            browserHasGeolocation
+            ? "Error: The Geolocation service failed."
+            : "Error: Your browser doesn't support geolocation."
+        );
+        infoWindow.open(map);
+        }
+
+
+
+        /*geolocation code ends here*/
+            
+
+
 
         
     }
@@ -442,8 +506,9 @@
 @endif
 
 
-<div class="container social" style="margin-top: 5rem; margin-bottom: 3rem;">
-    <div class="row justify-content-center align-items-center mb-5">
+<!-- <div class="container social" style="margin-top: 5rem; margin-bottom: 3rem;">
+
+    <!-- <div class="row justify-content-center align-items-center mb-5">
         <div class="col-1 text-center">
             <a href="#" target="_blank"><i class="fab fa-facebook-square"></i></a>
         </div>
@@ -459,9 +524,9 @@
         <div class="col-1 text-center">
             <a href="#"><i class="fab fa-linkedin"></i></a>
         </div>
-    </div>
+    </div> -->
 
-    <div class="row">
+    <!-- <div class="row"> -->
         <!-- <div class="col-3 fb">
             <div class="card" style="height: 25rem;">
                 <img src="{{ url('img/frontend/index/social_1.png') }}" class="img-fluid w-100" alt="..."
@@ -505,7 +570,7 @@
             </div>
         </div> -->
 
-        <div class="col-3 fb">
+        <!-- <div class="col-3 fb">
                 <a href="https://www.facebook.com/tallentor" style="color:black" target="_blank" id="stack_panel">
                     <div class="card" style="height: 26rem;">
                         <img id="facebook_src" src="" class="card-img-top" alt="..." style="object-fit: cover; height: 13rem;">
@@ -553,7 +618,7 @@
                                 <div class="row justify-content-between mt-3 align-items-center">
                                     <div class="col-6">
                                         <!-- <p style="color: #55ACEE; font-size: 0.8rem">7 minutes ago</p> -->
-                                    </div>
+                                    <!-- </div>
                                     <div class="col-6 text-end">                                       
 
                                         @if(App\Models\Category::where('id',$blog_posts->category)->first() != null)
@@ -571,10 +636,132 @@
         
 
             
+ -->
+
+    <!-- </div> 
+
+    
+</div>  -->
 
 
+<!-- social section start here -->
+
+<div class="container-fluid social-banner">
+    <div class="container social">
+        <div class="row justify-content-center align-items-center mb-5">
+            <div class="col-1 text-center">
+                <a href="https://www.facebook.com/tallentor" target="_blank"><i class="fab fa-facebook-square"></i></a>
+            </div>
+            <div class="col-1 text-center">
+                <a href=""><i class="fab fa-twitter"></i></a>
+            </div>
+            <div class="col-1 text-center">
+                <!-- <a href=""><img src="https://tallentor.com/theme_light/assets/footer/youtube.png" alt="" class="img-fluid"></a> -->
+                <a href=""><i class="fab fa-youtube"></i></a>
+            </div>
+            <div class="col-1 text-center">
+                <a href=""><i class="fab fa-instagram"></i></a>
+            </div>
+            <div class="col-1 text-center">
+                <a href=""><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-4">
+                <a href="https://www.facebook.com/tallentor" style="color:black" target="_blank" id="stack_panel">
+                    <div class="card" style="height: 25rem;">
+                        <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Ftallentor%2F&amp;tabs=timeline&amp;width=340&amp;height=500&amp;small_header=true&amp;adapt_container_width=false&amp;hide_cover=false&amp;show_facepile=false&amp;appId=4531192260303691" width="340" height="500" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+                    </div>
+                </a>
+            </div>
+
+
+                                        
+                    <div class="col-4">
+                        <a href="https://tallentor.com/blog/Club" style="color:black">
+                            </a><div class="card position-relative" style="height: 25rem;"><a href="https://tallentor.com/blog/Club" style="color:black">
+                                
+                                    <div class="px-4 py-2" style="-webkit-box-shadow: inset 0.5px 14px -8px rgba(0,0,0,0.75); -moz-box-shadow: inset 0.5px 14px -8px rgba(0,0,0,0.75); box-shadow: inset 0px 0.5px 14px -8px rgba(0,0,0,0.75);">
+                                        <div class="row align-items-center">
+                                            <div class="col-3 text-center">
+                                                <img src="https://tallentor.com/theme_light/assets/footer/club.png" alt="" class="img-fluid">
+                                            </div>
+                                            <div class="col-9">
+                                                <p class="mb-0" style="color: #065A31; font-size: 1.6rem;">PML Club</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                
+                                <img src="https://tallentor.com/upload/blog/files/20211112131039.png" class="card-img-top" alt="..." style="object-fit: cover; height: 13rem;">
+                                </a><div class="card-body"><a href="https://tallentor.com/blog/Club" style="color:black">
+                                    <p class="card-text mb-1" style="overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 2; /* number of lines to show */-webkit-box-orient: vertical;height: 80px;">When you use an application on your mobile phone or smart devices the application connects to the Internet and sends data to a server. The server then retrieves that data, interprets it, performs the necessary actions and sends it back to your phone. The application then interprets that data and presents you with the information you wanted in a readable way. This is what an API is - all of this happens via API.</p>
+                                    
+                                    </a><div class="text-right mb-1"><a href="https://tallentor.com/blog/Club" style="color:black">
+                                                                                </a><div class="position-absolute read"><a href="https://tallentor.com/blog/Club" style="color:black">
+                                            </a><a href="https://tallentor.com/blog/Club" style="font-size: 1rem; color: #0033FF;">View More</a>
+                                        </div>
+                                                                            
+                                    </div>
+                                </div>
+                            </div>
+                        
+                    </div>
+                            
+                    <div class="col-4">
+                        <a href="https://tallentor.com/blog/News" style="color:black">
+                            </a><div class="card position-relative" style="height: 25rem;"><a href="https://tallentor.com/blog/News" style="color:black">
+                                                                    <div class="px-4 py-2" style="-webkit-box-shadow: inset 0.5px 14px -8px rgba(0,0,0,0.75); -moz-box-shadow: inset 0.5px 14px -8px rgba(0,0,0,0.75); box-shadow: inset 0px 0.5px 14px -8px rgba(0,0,0,0.75);">
+                                        <div class="row align-items-center">
+                                            <div class="col-3 text-center">
+                                                <img src="https://tallentor.com/theme_light/assets/footer/news.png" alt="" class="img-fluid">
+                                            </div>
+                                            <div class="col-9">
+                                                <p class="mb-0" style="color: #065A31; font-size: 1.6rem;">Latest at PML</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                
+                                <img src="https://tallentor.com/upload/blog/files/20211112150914.jpg" class="card-img-top" alt="..." style="object-fit: cover; height: 13rem;">
+                                </a><div class="card-body"><a href="https://tallentor.com/blog/News" style="color:black">
+                                    <p class="card-text mb-1" style="overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 2; /* number of lines to show */-webkit-box-orient: vertical;height: 80px;">Our team brought years of analytical and development experience together to bring Tallentor LMS to life. 
+Expandability and connectivity with third party systems are the key features of our LMS, and our team is working on further enhancements and will release new versions latest features.</p>
+                                    
+                                    </a><div class="text-right mb-1"><a href="https://tallentor.com/blog/News" style="color:black">
+                                                                                </a><div class="position-absolute read"><a href="https://tallentor.com/blog/News" style="color:black">
+                                            </a><a href="https://tallentor.com/blog/News" style="font-size: 1rem; color: #0033FF;">View More</a>
+                                        </div>
+                                                                            
+                                    </div>
+                                </div>
+                            </div>
+                        
+                    </div>
+                            
+            <!-- <div class="col-3">
+                <div class="card" style="height: 25rem;">
+                    <img src="https://tallentor.com/theme_light/assets/footer/4.png" class="card-img-top" alt="..." style="object-fit: cover; height: 13rem;">
+                    <div class="card-body">
+                        <p class="card-text mb-1">We're giving away 100,000,000 $Shib to 5 random people (20,000,000 each)Money bag RocketFollow Me! Gem stoneRetweet and Like. Open handsComment #SHIBARMY  ⚠followers only giveaway⚠ #BTC  #ETH #Giveaway #ADA</p>
+                        
+                        <div class="text-right">
+                            <a href="#" style="color: #FF0000; font-size: 1.1rem;">News</a>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+        </div>
     </div>
 </div>
+
+
+
+<!-- social section ends here -->
+
+
+
+
 </div>
 
 

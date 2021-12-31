@@ -275,9 +275,10 @@ class HomeController extends Controller
                 'lat' => (float)$prty->lat,
                 'lng' => (float)$prty->long,
                 'id' => $prty->id,
+                'name' => $prty->name,
                 'description' => $prty->description,
                 'price' => $prty->price,
-                'feature_image' => $prty->feature_image_id
+                'feature_image' => uploaded_asset($prty->feature_image_id)
              ];
              array_push($enOutArray,$outfin);
          }

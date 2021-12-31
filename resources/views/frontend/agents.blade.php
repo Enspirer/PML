@@ -36,7 +36,7 @@
                                     {{csrf_field()}}
                                         <h4 class="fw-bold mb-3">Find Your Agent</h4>
 
-                                        <div class="mb-4">
+                                        <div class="form-mb">
                                             <label for="country" class="form-label mb-0">Select Country</label>
                                             <select class="form-select" aria-label="country" id="country" name="country" required>
                                                 <option value="" selected disabled>Select...</option>
@@ -46,7 +46,7 @@
                                             </select>
                                         </div>
 
-                                        <div class="mb-4">
+                                        <div class="form-mb">
                                             <label for="area" class="form-label mb-0">Select Area/Location</label>
                                             <select class="form-select" aria-label="area" id="area" name="area" required>
                                             <option value="" selected disabled>Select...</option>
@@ -54,7 +54,7 @@
                                             </select>
                                         </div>
 
-                                        <div class="mb-4">
+                                        <div class="form-mb">
                                             <label for="agent_type" class="form-label mb-0">Agent Type</label>
                                             <select class="form-select" aria-label="agent_type" id="agent_type" name="agent_type" required>
                                                 <option value="" selected disabled>Select...</option>

@@ -57,12 +57,17 @@
                         </div>
                     </div>
                     <div class="agent-contact-wrapper">
-                        <a href="tel:{{ $agent_details->telephone }}" class="agent-contact-btn">
+                        <a href="tel:{{ $agent_details->telephone }}" class="agent-contact-btn" >
                             <span class="icon"><i class="fas fa-phone-alt"></i></span>
                             {{ $agent_details->telephone }}
                         </a>
-                        <a href="mailto:{{ $agent_details->email }}" class="agent-contact-btn">
-                            <span class="icon">
+
+
+               
+
+
+                        <a href="mailto:{{ $agent_details->email }}" class="agent-contact-btn" style="background-color: #fff;color: #000;">
+                            <span class="icon" style="color:#000;">
                                 <i class="fas fa-envelope"></i>
                             </span>
                             Send email to agent</a>

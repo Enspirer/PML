@@ -9,6 +9,15 @@
     background-color: rgb(255, 255, 255, 0.8);
     padding: 1.25rem 2rem 0rem 2rem;
 }
+
+.contact-form h5 {
+    margin-bottom: 15px !important;
+}
+
+.contact-form h6 {
+    margin-bottom: 10px !important;
+}
+
 .banner .form-control {
     border: 1px solid rgb(53, 74, 94, 0.5)!important;
 }
