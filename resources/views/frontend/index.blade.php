@@ -671,7 +671,7 @@
             <div class="col-4">
                 <a href="https://www.facebook.com/tallentor" style="color:black" target="_blank" id="stack_panel">
                     <div class="card" style="height: 27rem;">
-                        <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Ftallentor%2F&amp;tabs=timeline&amp;width=340&amp;height=500&amp;small_header=true&amp;adapt_container_width=false&amp;hide_cover=false&amp;show_facepile=false&amp;appId=4531192260303691" width="340" height="500" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+                        <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Ftallentor%2F&amp;tabs=timeline&amp;width=340&amp;height=500&amp;small_header=true&amp;adapt_container_width=false&amp;hide_cover=false&amp;show_facepile=false&amp;appId=4531192260303691" width="100%" height="500" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
                     </div>
                 </a>
             </div>
@@ -695,11 +695,11 @@
                                 
                                 <img src="https://tallentor.com/upload/blog/files/20211112131039.png" class="card-img-top" alt="..." style="object-fit: cover; height: 13rem;">
                                 </a><div class="card-body"><a href="https://tallentor.com/blog/Club" style="color:black">
-                                    <p class="card-text mb-1" style="overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 2; /* number of lines to show */-webkit-box-orient: vertical;height: 80px;">When you use an application on your mobile phone or smart devices the application connects to the Internet and sends data to a server. The server then retrieves that data, interprets it, performs the necessary actions and sends it back to your phone. The application then interprets that data and presents you with the information you wanted in a readable way. This is what an API is - all of this happens via API.</p>
+                                    <p class="card-text mb-1" style="overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 4; -webkit-box-orient: vertical;">When you use an application on your mobile phone or smart devices the application connects to the Internet and sends data to a server. The server then retrieves that data, interprets it, performs the necessary actions and sends it back to your phone. The application then interprets that data and presents you with the information you wanted in a readable way. This is what an API is - all of this happens via API.</p>
                                     
                                     </a><div class="text-right mb-1"><a href="https://tallentor.com/blog/Club" style="color:black">
-                                                                                </a><div class="position-absolute read"><a href="https://tallentor.com/blog/Club" style="color:black">
-                                            </a><a href="https://tallentor.com/blog/Club" style="font-size: 1rem; color: #0033FF;">View More</a>
+                                                                                </a><div class="position-absolute read" style="right:20px;"><a href="https://tallentor.com/blog/Club" style="color:black">
+                                            </a><a href="https://tallentor.com/blog/Club" style="font-size: 0.8rem; color: #0033FF;">View More</a>
                                         </div>
                                                                             
                                     </div>
@@ -725,12 +725,14 @@
                                 
                                 <img src="https://tallentor.com/upload/blog/files/20211112150914.jpg" class="card-img-top" alt="..." style="object-fit: cover; height: 13rem;">
                                 </a><div class="card-body"><a href="https://tallentor.com/blog/News" style="color:black">
-                                    <p class="card-text mb-1" style="overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 2; /* number of lines to show */-webkit-box-orient: vertical;height: 80px;">Our team brought years of analytical and development experience together to bring Tallentor LMS to life. 
+                                    <p class="card-text mb-1" style="overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 4; -webkit-box-orient: vertical;">Our team brought years of analytical and development experience together to bring Tallentor LMS to life. 
 Expandability and connectivity with third party systems are the key features of our LMS, and our team is working on further enhancements and will release new versions latest features.</p>
                                     
                                     </a><div class="text-right mb-1"><a href="https://tallentor.com/blog/News" style="color:black">
-                                                                                </a><div class="position-absolute read"><a href="https://tallentor.com/blog/News" style="color:black">
-                                            </a><a href="https://tallentor.com/blog/News" style="font-size: 1rem; color: #0033FF;">View More</a>
+                                                                                </a>
+                                                                                
+                                            <div class="position-absolute read" style="right:20px;"><a href="https://tallentor.com/blog/News" style="color:black">
+                                            </a><a href="https://tallentor.com/blog/News" style="font-size: 0.8rem; color: #0033FF;">View More</a>
                                         </div>
                                                                             
                                     </div>
