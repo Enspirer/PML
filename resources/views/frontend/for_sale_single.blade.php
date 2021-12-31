@@ -568,8 +568,10 @@ button.close:hover {
                             <div class="row">
                                 <div class="col-12">
                                     <div class="custom-shadow pt-4 pb-3 px-3 text-center">
-                                        <img src="{{ uploaded_asset($agent->photo) }}" alt="" class="img-fluid mb-3"
+                                        <a href="{{route('frontend.individual_agent',$agent->id)}}">
+                                            <img src="{{ uploaded_asset($agent->photo) }}" alt="" class="img-fluid mb-3"
                                             style="object-fit: cover;height: 7rem; width:7rem; border-radius: 50%;margin-top: 30px;">
+                                            </a>
                                         <p class="fw-bold">
                                             @if($agent->agent_type == 'Individual')
                                             {{ $agent->name }}
