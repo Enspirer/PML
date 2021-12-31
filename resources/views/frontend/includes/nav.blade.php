@@ -63,8 +63,7 @@
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                   <a class="dropdown-item" href="{{ route('frontend.user.dashboard') }}">My Account</a>
-                  <a class="dropdown-item" href="">My Settings</a>
-                  <!-- <a class="dropdown-item" href="">My Notification Settings</a> -->
+                  <!-- <a class="dropdown-item" href="">My Settings</a> -->
                   <a class="dropdown-item" href="{{ route('frontend.auth.logout') }}" style="border-bottom: none">Log Out</a>
                 </div>
 
