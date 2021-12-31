@@ -11,6 +11,7 @@ use App\Models\AgentRequest;
 use App\Models\Booking;
 use App\Models\Favorite;
 use App\Models\UserSearch;
+use App\Models\Search;
 
 /**
  * Class ForSaleController.
@@ -46,6 +47,15 @@ class ForSaleController extends Controller
     public function search(Request $request)
     {
         // dd($request);
+
+        $add = new Search;
+
+        $add->keyword=$request->search_keyword;
+        $add->user_id=auth()->user()->id;
+
+        $add->save();
+
+
         if($request->search_keyword == null){
             $search = 'key_name';
         }else{

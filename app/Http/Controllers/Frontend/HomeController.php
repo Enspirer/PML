@@ -13,6 +13,7 @@ use App\Models\Location;
 use App\Models\Auth\User;
 use App\Models\AgentRequest;
 use App\Models\Category;
+use App\Models\Search;
 use App\Models\Favorite;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Cookie;
@@ -474,13 +475,72 @@ class HomeController extends Controller
             $output = '<ul class="dropdown-menu" style="display:block;position:relative;">';
             foreach($data as $row) 
             {
-                $output .= '<li><a href="#">'.$row->city.'</a></li>';
+                $output .= '<li><a style="width: 100%; display: block;" href="'.route('frontend.save_keyword',$row->city).'">'.$row->city.'</a></li>';
             }
             $output .= '</ul>';
             echo $output;
         }
-
        
+    }
+
+    
+
+    public function save_keyword(Request $request,$city)
+    {    
+        // dd($city);      
+        
+        $add = new Search;
+
+        $add->keyword=$city;
+        $add->user_id=auth()->user()->id;
+
+        $add->save();
+
+
+        $key_name = 'key_name';
+        $min_price = 'min_price';
+        $max_price = 'max_price';
+
+        if($city == null){
+            $city = 'city';
+        }else{
+            $city = $city;
+        }
+
+        $transaction_type = 'transaction_type';
+        $property_type = 'property_type';
+        $beds = 'beds';
+        $baths = 'baths';
+        $land_size = 'land_size';
+        $listed_since = 'listed_since';
+        $building_type = 'building_type';
+        $open_house = 'open_house';
+        $zoning_type = 'zoning_type';
+        $units = 'units';
+        $building_size = 'building_size';
+        $farm_type = 'farm_type';
+        $parking_type = 'parking_type';
+        
+        return redirect()->route('frontend.for_sale', [
+            $key_name,
+            $min_price,
+            $max_price,
+            $transaction_type,
+            $property_type,
+            $beds,
+            $baths,
+            $land_size,
+            $listed_since,
+            $building_type,
+            $open_house,
+            $zoning_type,
+            $units,
+            $building_size,
+            $farm_type,
+            $parking_type,
+            $city
+        ]);                           
+
     }
 
 
