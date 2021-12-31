@@ -43,7 +43,7 @@
             center: new google.maps.LatLng(6.9271, 79.8612),
             zoom: 12,
             mapTypeId: google.maps.MapTypeId.ROADMAP,
-            styles: [{"featureType":"landscape","stylers":[{"saturation":-100},{"lightness":65},{"visibility":"on"}]},{"featureType":"poi","stylers":[{"visibility":"off"}]},{"featureType":"road.highway","stylers":[{"saturation":-100},{"visibility":"simplified"}]},{"featureType":"road.arterial","stylers":[{"saturation":-100},{"lightness":30},{"visibility":"on"}]},{"featureType":"road.local","stylers":[{"saturation":-100},{"lightness":40},{"visibility":"on"}]},{"featureType":"transit","stylers":[{"saturation":-100},{"visibility":"simplified"}]},{"featureType":"administrative.province","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"labels","stylers":[{"visibility":"on"},{"lightness":-25},{"saturation":-100}]},{"featureType":"water","elementType":"geometry","stylers":[{"hue":"#ffff00"},{"lightness":-25},{"saturation":-97}]}] // "Subtle Grayscale" style found on snazzymaps.com
+            // styles: [{"featureType":"landscape","stylers":[{"saturation":-100},{"lightness":65},{"visibility":"on"}]},{"featureType":"poi","stylers":[{"visibility":"off"}]},{"featureType":"road.highway","stylers":[{"saturation":-100},{"visibility":"simplified"}]},{"featureType":"road.arterial","stylers":[{"saturation":-100},{"lightness":30},{"visibility":"on"}]},{"featureType":"road.local","stylers":[{"saturation":-100},{"lightness":40},{"visibility":"on"}]},{"featureType":"transit","stylers":[{"saturation":-100},{"visibility":"simplified"}]},{"featureType":"administrative.province","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"labels","stylers":[{"visibility":"on"},{"lightness":-25},{"saturation":-100}]},{"featureType":"water","elementType":"geometry","stylers":[{"hue":"#ffff00"},{"lightness":-25},{"saturation":-97}]}] // "Subtle Grayscale" style found on snazzymaps.com
 
         });
         var marker = [];
@@ -387,6 +387,7 @@
 
 <div class="properties" style="margin-top: 3rem;">
     <div class="container">
+        <h1>Featured Properties</h1>
         <div class="row mt-5 mb-4">
 
             <div class="col-9">
@@ -474,6 +475,10 @@
 </div>
 
 @if(count($latest_properties) != 0)
+<div class="container">
+<h2 class="sub-topics">Latest New Developments</h2>
+</div>
+
 <div class="container swiper-container" style="margin-top: 4rem;">
     <div class="swiper mySwiper">
         <div class="swiper-wrapper">
@@ -659,7 +664,7 @@
 
 <div class="container-fluid social-banner">
     <div class="container social">
-        <div class="row justify-content-center align-items-center mb-5">
+        <!-- <div class="row justify-content-center align-items-center mb-5">
             <div class="col-1 text-center">
                 <a href="https://www.facebook.com/tallentor" target="_blank"><i class="fab fa-facebook-square"></i></a>
             </div>
@@ -668,7 +673,7 @@
             </div>
             <div class="col-1 text-center">
                 <!-- <a href=""><img src="https://tallentor.com/theme_light/assets/footer/youtube.png" alt="" class="img-fluid"></a> -->
-                <a href=""><i class="fab fa-youtube"></i></a>
+                <!-- <a href=""><i class="fab fa-youtube"></i></a>
             </div>
             <div class="col-1 text-center">
                 <a href=""><i class="fab fa-instagram"></i></a>
@@ -676,9 +681,10 @@
             <div class="col-1 text-center">
                 <a href=""><i class="fab fa-linkedin"></i></a>
             </div>
-        </div>
+        </div>  -->
+        <h2 class="sub-topic center-topic">Latest from Property Market</h2>
 
-        <div class="row">
+        <div class="row" style="margin-top:30px;">
             <div class="col-4">
                 <a href="https://www.facebook.com/tallentor" style="color:black" target="_blank" id="stack_panel">
                     <div class="card" style="height: 27rem;">
