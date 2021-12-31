@@ -58,7 +58,7 @@
 
                 <div class="my-menu">
                     <button type="button" class="btn text-white rounded-0 border-start" style="background-color : #35495E; height:50px;"
-                        data-bs-toggle="modal" data-bs-target="#exampleModal">Main Menu
+                        data-bs-toggle="modal" data-bs-target="#exampleModal" disabled>Main Menu
                         <i class="fas fa-bars"></i>
                         </button>
                 </div>
