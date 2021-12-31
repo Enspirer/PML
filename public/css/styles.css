@@ -197,3 +197,24 @@ ul.dropdown-menu {
     cursor: pointer;
 }
 
+/*footer styles*/
+.social-row {
+    display: flex;
+}
+
+.icon-wrapper {
+    flex: 1;
+}
+
+.icon-wrapper i {
+    font-size: 50px;
+    color: #fff;
+}
+
+a.add-property-btn {
+    background: #39b54a;
+    padding-top: 0.39rem;
+    padding-bottom: 0.39rem;
+    border-color: #39b54a !important;
+    margin-left: 30px;
+}

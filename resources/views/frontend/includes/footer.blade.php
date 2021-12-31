@@ -2,16 +2,16 @@
     <div class="container">
         <div class="row">
             <div class="col-3">
-                <a href="{{ route('frontend.index') }}"><img src="{{ url('img/frontend/logo.png') }}" alt="" class="logo"></a>
+                <a href="{{ route('frontend.index') }}"><img src="{{ url('img/frontend/logo.png') }}" alt="" class="logo" style="margin-bottom:30px;"></a>
 
-                <p class="text-white mt-3 mb-3">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                <!-- <p class="text-white mt-3 mb-3">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p> -->
 
                 <div class="row">
                     <div class="col-2 pe-0">
                         <i class="fas fa-phone-alt text-white"></i>
                     </div>
                     <div class="col-10 ps-0">
-                        <p class="text-white mb-3">+94 777000000</p>
+                        <p class="text-white mb-3">+94 778669990</p>
                     </div>
                 </div>
 
@@ -24,14 +24,14 @@
                     </div>
                 </div>
 
-                <div class="row">
+                <!-- <div class="row">
                     <div class="col-2 pe-0">
                         <i class="fas fa-map-marker-alt text-white"></i>
                     </div>
                     <div class="col-10 ps-0">
                         <p class="text-white mb-3">123/A, Colombo 05, Sri Lanka.</p>
                     </div>
-                </div>
+                </div> -->
                
             </div>
             <div class="col-3 ps-5">
@@ -53,9 +53,36 @@
                 </form>
             </div>
             <div class="col-3 ps-5">
-                <h5 class="fw-bolder mt-2" style="margin-bottom:30px !important;
-                ">About Us</h5>
-                <p class="text-white">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                <!-- <h5 class="fw-bolder mt-2" style="margin-bottom:30px !important;
+                ">About Us</h5> -->
+                <!-- <p class="text-white">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p> -->
+                <div class="social-wrapper">
+                    <!-- <div class="row">
+                    </div> -->
+                    <h5 class="fw-bolder mt-2" style="margin-bottom:30px !important;">Social</h5>
+                    <div class="social-row">
+                        <div class="icon-wrapper">
+                            <a href="https://www.facebook.com/tallentor" target="_blank"><i class="fab fa-facebook-square"></i></a>
+                        </div>
+                        <div class="icon-wrapper">
+                        <a href=""><i class="fab fa-twitter"></i></a>
+                        </div>
+                        <div class="icon-wrapper">
+                            <a href=""><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                    <div class="social-row">
+                        <div class="icon-wrapper">
+                        <a href=""><i class="fab fa-instagram"></i></a>
+                        </div>
+                        <div class="icon-wrapper">
+                        <a href=""><i class="fab fa-linkedin"></i></a>
+                        </div>
+                        <div class="icon-wrapper">
+                            <a href=""><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

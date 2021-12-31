@@ -40,7 +40,7 @@
         mapDiv = document.getElementById('map');
 
         var map = new google.maps.Map(mapDiv, {
-            center: new google.maps.LatLng(53.3427371467871, -6.25911712396487),
+            center: new google.maps.LatLng(6.9271, 79.8612),
             zoom: 12,
             mapTypeId: google.maps.MapTypeId.ROADMAP,
             styles: [{"featureType":"landscape","stylers":[{"saturation":-100},{"lightness":65},{"visibility":"on"}]},{"featureType":"poi","stylers":[{"visibility":"off"}]},{"featureType":"road.highway","stylers":[{"saturation":-100},{"visibility":"simplified"}]},{"featureType":"road.arterial","stylers":[{"saturation":-100},{"lightness":30},{"visibility":"on"}]},{"featureType":"road.local","stylers":[{"saturation":-100},{"lightness":40},{"visibility":"on"}]},{"featureType":"transit","stylers":[{"saturation":-100},{"visibility":"simplified"}]},{"featureType":"administrative.province","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"labels","stylers":[{"visibility":"on"},{"lightness":-25},{"saturation":-100}]},{"featureType":"water","elementType":"geometry","stylers":[{"hue":"#ffff00"},{"lightness":-25},{"saturation":-97}]}] // "Subtle Grayscale" style found on snazzymaps.com
@@ -670,8 +670,8 @@
         <div class="row">
             <div class="col-4">
                 <a href="https://www.facebook.com/tallentor" style="color:black" target="_blank" id="stack_panel">
-                    <div class="card" style="height: 25rem;">
-                        <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Ftallentor%2F&amp;tabs=timeline&amp;width=340&amp;height=500&amp;small_header=true&amp;adapt_container_width=false&amp;hide_cover=false&amp;show_facepile=false&amp;appId=4531192260303691" width="340" height="500" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+                    <div class="card" style="height: 27rem;">
+                        <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Ftallentor%2F&amp;tabs=timeline&amp;width=340&amp;height=500&amp;small_header=true&amp;adapt_container_width=false&amp;hide_cover=false&amp;show_facepile=false&amp;appId=4531192260303691" width="100%" height="500" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
                     </div>
                 </a>
             </div>
@@ -680,7 +680,7 @@
                                         
                     <div class="col-4">
                         <a href="https://tallentor.com/blog/Club" style="color:black">
-                            </a><div class="card position-relative" style="height: 25rem;"><a href="https://tallentor.com/blog/Club" style="color:black">
+                            </a><div class="card position-relative" style="height: 27rem;"><a href="https://tallentor.com/blog/Club" style="color:black">
                                 
                                     <div class="px-4 py-2" style="-webkit-box-shadow: inset 0.5px 14px -8px rgba(0,0,0,0.75); -moz-box-shadow: inset 0.5px 14px -8px rgba(0,0,0,0.75); box-shadow: inset 0px 0.5px 14px -8px rgba(0,0,0,0.75);">
                                         <div class="row align-items-center">
@@ -695,11 +695,11 @@
                                 
                                 <img src="https://tallentor.com/upload/blog/files/20211112131039.png" class="card-img-top" alt="..." style="object-fit: cover; height: 13rem;">
                                 </a><div class="card-body"><a href="https://tallentor.com/blog/Club" style="color:black">
-                                    <p class="card-text mb-1" style="overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 2; /* number of lines to show */-webkit-box-orient: vertical;height: 80px;">When you use an application on your mobile phone or smart devices the application connects to the Internet and sends data to a server. The server then retrieves that data, interprets it, performs the necessary actions and sends it back to your phone. The application then interprets that data and presents you with the information you wanted in a readable way. This is what an API is - all of this happens via API.</p>
+                                    <p class="card-text mb-1" style="overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 4; -webkit-box-orient: vertical;">When you use an application on your mobile phone or smart devices the application connects to the Internet and sends data to a server. The server then retrieves that data, interprets it, performs the necessary actions and sends it back to your phone. The application then interprets that data and presents you with the information you wanted in a readable way. This is what an API is - all of this happens via API.</p>
                                     
                                     </a><div class="text-right mb-1"><a href="https://tallentor.com/blog/Club" style="color:black">
-                                                                                </a><div class="position-absolute read"><a href="https://tallentor.com/blog/Club" style="color:black">
-                                            </a><a href="https://tallentor.com/blog/Club" style="font-size: 1rem; color: #0033FF;">View More</a>
+                                                                                </a><div class="position-absolute read" style="right:20px;"><a href="https://tallentor.com/blog/Club" style="color:black">
+                                            </a><a href="https://tallentor.com/blog/Club" style="font-size: 0.8rem; color: #0033FF;">View More</a>
                                         </div>
                                                                             
                                     </div>
@@ -710,7 +710,7 @@
                             
                     <div class="col-4">
                         <a href="https://tallentor.com/blog/News" style="color:black">
-                            </a><div class="card position-relative" style="height: 25rem;"><a href="https://tallentor.com/blog/News" style="color:black">
+                            </a><div class="card position-relative" style="height: 27rem;"><a href="https://tallentor.com/blog/News" style="color:black">
                                                                     <div class="px-4 py-2" style="-webkit-box-shadow: inset 0.5px 14px -8px rgba(0,0,0,0.75); -moz-box-shadow: inset 0.5px 14px -8px rgba(0,0,0,0.75); box-shadow: inset 0px 0.5px 14px -8px rgba(0,0,0,0.75);">
                                         <div class="row align-items-center">
                                             <div class="col-3 text-center">
@@ -725,12 +725,14 @@
                                 
                                 <img src="https://tallentor.com/upload/blog/files/20211112150914.jpg" class="card-img-top" alt="..." style="object-fit: cover; height: 13rem;">
                                 </a><div class="card-body"><a href="https://tallentor.com/blog/News" style="color:black">
-                                    <p class="card-text mb-1" style="overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 2; /* number of lines to show */-webkit-box-orient: vertical;height: 80px;">Our team brought years of analytical and development experience together to bring Tallentor LMS to life. 
+                                    <p class="card-text mb-1" style="overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 4; -webkit-box-orient: vertical;">Our team brought years of analytical and development experience together to bring Tallentor LMS to life. 
 Expandability and connectivity with third party systems are the key features of our LMS, and our team is working on further enhancements and will release new versions latest features.</p>
                                     
                                     </a><div class="text-right mb-1"><a href="https://tallentor.com/blog/News" style="color:black">
-                                                                                </a><div class="position-absolute read"><a href="https://tallentor.com/blog/News" style="color:black">
-                                            </a><a href="https://tallentor.com/blog/News" style="font-size: 1rem; color: #0033FF;">View More</a>
+                                                                                </a>
+                                                                                
+                                            <div class="position-absolute read" style="right:20px;"><a href="https://tallentor.com/blog/News" style="color:black">
+                                            </a><a href="https://tallentor.com/blog/News" style="font-size: 0.8rem; color: #0033FF;">View More</a>
                                         </div>
                                                                             
                                     </div>
@@ -739,18 +741,7 @@ Expandability and connectivity with third party systems are the key features of 
                         
                     </div>
                             
-            <!-- <div class="col-3">
-                <div class="card" style="height: 25rem;">
-                    <img src="https://tallentor.com/theme_light/assets/footer/4.png" class="card-img-top" alt="..." style="object-fit: cover; height: 13rem;">
-                    <div class="card-body">
-                        <p class="card-text mb-1">We're giving away 100,000,000 $Shib to 5 random people (20,000,000 each)Money bag RocketFollow Me! Gem stoneRetweet and Like. Open handsComment #SHIBARMY  ⚠followers only giveaway⚠ #BTC  #ETH #Giveaway #ADA</p>
-                        
-                        <div class="text-right">
-                            <a href="#" style="color: #FF0000; font-size: 1.1rem;">News</a>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
+     
         </div>
     </div>
 </div>
