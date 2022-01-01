@@ -20,7 +20,7 @@
                             <tr>
                                 <th scope="col">#ID</th>
                                 <th scope="col">Keyword</th>
-                                <th scope="col">Filters</th>
+                                <!-- <th scope="col">Filters</th> -->
                                 <th scope="col">Option</th>
                             </tr>
                         </thead>
@@ -56,7 +56,7 @@
                                             <td width="11%" style="font-weight: 600;">Keyword:</td>
                                             <td><input type="text" class="ml-2" id="keyword" style="border: none; border-color: transparent; background-color:white" disabled /></td>
                                         </tr>
-                                        <tr>
+                                        <!-- <tr>
                                             <td style="font-weight: 600;">Filters:</td>
                                             <td><input type="text" class="ml-2" id="filters" style="border: none; border-color: transparent; background-color:white" disabled /></td>
                                         </tr>
@@ -64,7 +64,7 @@
                                             <td  style="font-weight: 600;">Result:</td>
                                             <td><textarea class="form-control" id="result" style="border: none; border-color: transparent; background-color:white" rows="3" disabled></textarea></td>
                                         </tr>
-                                                        
+                                                         -->
                                     </tbody>
                                 </table>
                             </div>
@@ -121,7 +121,7 @@
                 columns: [
                     {data: 'id', name: 'id'},
                     {data: 'keyword', name: 'keyword'},
-                    {data: 'filters', name: 'filters'},
+                    // {data: 'filters', name: 'filters'},
                     {data: 'action', name: 'action', orderable: false, searchable: false},
                 ]
             });
