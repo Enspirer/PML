@@ -7,18 +7,22 @@
 @endpush
 
 @section('content')
-@if ( session()->has('message') )
+@if ( session()->has('message') ) 
 
 
-    <div class="container" style="background-color: #c6e4ee; padding-top:5px; border-radius: 50px 50px; text-align:center;">
 
-        <h1 style="margin-top:150px;" class="display-4">Thank You!</h1><br>
+    <div class="thank-wrapper" style="min-height:480px;margin-top:200px;">
+        <div class="container" style="background-color: #c6e4ee; padding-top:5px; border-radius: 50px 50px; text-align:center;">
+
+        <h1 style="margin-top:60px;" class="display-4">Thank You!</h1><br>
         <p class="lead"><h4>We appreciate you contacting us. One of our member will get back in touch with you soon!<br><br> Have a great day!</h4></p>
         <hr><br>    
         <p class="lead">
             <a class="btn btn-success btn-md mb-5" href="{{url('/')}}" role="button">Go to Home Page</a>
         </p>
+        </div>
     </div>
+    
   
 
 @else
