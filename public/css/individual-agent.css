@@ -186,3 +186,45 @@ a.ad-btn {
     object-fit: contain;
     padding-top: 103px;
 }
+
+/*mobile-view*/
+@media screen and (max-width: 767px) {
+    .individual-agent-banner img {
+        padding-top: 0;
+    }
+
+    .agent-container {
+        display: block;
+    }
+
+    .agent-list-wrapper {
+        margin-right: 0;
+    }
+
+    .agent-card {
+        flex-direction: column;
+        height: 100%;
+    }
+
+    img.property-img {
+        width: 100%;
+        height: 250px;
+    }
+
+    .inner-row-wrapper {
+        flex-direction: column;
+    }
+
+    .individual-agent-banner img {
+        height: 350px !important;
+    }
+}
+
+/*tab-portrait*/
+@media (min-width: 768px) and (max-width: 991px) {}
+
+/* Tab Landscape */
+@media (min-width: 992px) and (max-width: 1024px) {}
+
+/*4k screen*/
+@media screen and (min-width: 1441px) {}

@@ -25,13 +25,13 @@
 
     <div class="container mt-4" style="margin-bottom: 3rem;">
         <div class="row">
-            <div class="col-9">
+            <div class="col-9 col-xs-12">
 
                 <div class="row mb-4">
                     <div class="col-12">
                         <div class="banner">
-                            <div class="row" style="padding-top: 3rem; padding-left: 5rem;">
-                                <div class="col-6 text-white">
+                            <div class="row mobile-find-agent-area" style="padding-top: 3rem; padding-left: 5rem;">
+                                <div class="col-6 text-white col-xs-12">
                                 <form action="{{route('frontend.find-agent.store')}}" method="post" enctype="multipart/form-data">
                                     {{csrf_field()}}
                                         <h4 class="fw-bold mb-3">Find Your Agent</h4>
@@ -86,11 +86,11 @@
                 @endif
                     
                 <div class="row align-items-center">
-                    <div class="col-6">
+                    <div class="col-6 col-xs-12">
                         <p>{{$count_for_sale}} agents available</p>
                     </div>
 
-                    <div class="col-6">
+                    <div class="col-6 col-xs-12">
                         <div class="row align-items-center justify-content-end">
                             <div class="col-6 text-end">
                                 <p style="color: black;">
@@ -115,7 +115,7 @@
                     @else
 
                         @foreach($agents as $agent)
-                            <div class="col-4 text-center mb-4">
+                            <div class="col-4 text-center mb-4 col-xs-12">
                                 <div class="card custom-shadow position-relative" style="max-height:550px; min-height:550px;">
                                     <div class="card-body">
                                         <img src="{{ uploaded_asset($agent->logo) }}" width="40%" style="border-radius: 50%;" alt="" class="img-fluid logo mb-3">
@@ -199,7 +199,7 @@
             </div>
             
 
-            <div class="col-3">
+            <div class="col-3 col-xs-12">
                 <div class="row sidebar-card-area">
                     <div class="col-12 p-0 mb-4 custom-shadow">
                         <div class="card">

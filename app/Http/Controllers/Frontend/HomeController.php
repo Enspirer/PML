@@ -440,22 +440,7 @@ class HomeController extends Controller
 
     }
 
-    function haversineGreatCircleDistance(
-        $latitudeFrom, $longitudeFrom, $latitudeTo, $longitudeTo,    $earthRadius = 6371000)
-    {
-        // convert from degrees to radians
-        $latFrom = deg2rad($latitudeFrom);
-        $lonFrom = deg2rad($longitudeFrom);
-        $latTo = deg2rad($latitudeTo);
-        $lonTo = deg2rad($longitudeTo);
 
-        $latDelta = $latTo - $latFrom;
-        $lonDelta = $lonTo - $lonFrom;
-
-        $angle = 2 * asin(sqrt(pow(sin($latDelta / 2), 2) +
-                cos($latFrom) * cos($latTo) * pow(sin($lonDelta / 2), 2)));
-        return $angle * $earthRadius;
-    }
 
 
 
@@ -551,6 +536,50 @@ class HomeController extends Controller
             $city
         ]);                           
 
+    }
+
+    public static  function haversineGreatCircleDistance(
+        $latitudeFrom, $longitudeFrom, $latitudeTo, $longitudeTo,    $earthRadius = 6371000)
+    {
+        // convert from degrees to radians
+        $latFrom = deg2rad($latitudeFrom);
+        $lonFrom = deg2rad($longitudeFrom);
+        $latTo = deg2rad($latitudeTo);
+        $lonTo = deg2rad($longitudeTo);
+
+        $latDelta = $latTo - $latFrom;
+        $lonDelta = $lonTo - $lonFrom;
+
+        $angle = 2 * asin(sqrt(pow(sin($latDelta / 2), 2) +
+                cos($latFrom) * cos($latTo) * pow(sin($lonDelta / 2), 2)));
+        return $angle * $earthRadius;
+    }
+
+
+    public function nest_property($lng,$lat)
+    {
+        $properties =  Properties::all();
+        $finalOut =[];
+
+        foreach ($properties as $property)
+        {
+           $distance =   self::haversineGreatCircleDistance($lat,$lng,$property->lat,$property->long);
+
+          $distandPanel =  round($distance/1000,2);
+
+          $stakGroup = [
+              'propery_id' => $property->id,
+              'distance' => $distandPanel. ' KM',
+              'property' => $property->name
+          ];
+          array_push($finalOut,$stakGroup);
+
+        }
+
+        dd($finalOut);
+
+
+        return $lng.' '.$lat;
     }
 
 

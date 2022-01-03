@@ -4,6 +4,7 @@
 
 @push('after-styles')
 <link href="{{ url('css/individual-agent.css') }}" rel="stylesheet">
+<link href="{{ url('css/pre_listing.css') }}" rel="stylesheet">
 @endpush
 
 @section('content')

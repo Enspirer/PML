@@ -11,7 +11,7 @@
 <div style="background: #e8eeef;">
     <div class="container user-settings" style="margin-top:6rem;">
         <div class="row justify-content-between">
-            <div class="col-4 left" style="background-color: #E8EEEF;position:sticky;overflow:hidden;top:15%;height:100%;">
+            <div class="col-4 col-xs-12 left" style="background-color: #E8EEEF;position:sticky;overflow:hidden;top:15%;height:100%;">
                 <div class="row">
                     <div class="col-12">
                         @include('frontend.includes.profile-settings-links')
@@ -19,7 +19,7 @@
                 </div>
             </div>
 
-            <div id="spanel" class="col-8 ps-4 right pb-5" style="padding-top: 3rem; background-color: #F5F9FA">
+            <div id="spanel" class="col-8 ps-4 right pb-5 col-xs-12" style="padding-top: 3rem; background-color: #F5F9FA">
 
                 <div class="row justify-content-center mb-2">
                         <div class="col-11 p-0">
