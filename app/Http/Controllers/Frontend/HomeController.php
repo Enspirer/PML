@@ -572,10 +572,9 @@ class HomeController extends Controller
                    'distance' => $distandPanel. ' KM',
                    'property' => $property->name
                ];
-           }else{
-               $stakGroup = null;
+               array_push($finalOut,$stakGroup);
            }
-          array_push($finalOut,$stakGroup);
+
 
         }
 
