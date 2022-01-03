@@ -205,25 +205,48 @@
         <a href="{{ route('frontend.contact_us') }}">Contact Us</a> 
     </div>
 
-    
+
   <div class="tab-pane fade profile-nav mobile-nav-tab" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-            <form action="{{route('frontend.country_change')}}" method="post" class="filter-form">
-             
+
+        @if(isset(get_country_cookie(request())->country_id))
+
+            <form action="{{route('frontend.country_change')}}" method="post">
+                {{csrf_field()}}
 
                 <select name="countries_list" class="position-absolute me-3" onchange="this.form.submit()">
                     <option value="" selected disabled>Select Your Country</option>
 
-            
-                    <option value="">Country 1</option>
+                    @foreach($tpr_countries as $tpr_country)
+                    <option value="{{ $tpr_country->country_id }}"
+                        {{ get_country_cookie(request())->country_id == $tpr_country->country_id ? "selected" : "" }}>
+                        {{ $tpr_country->country_name }}</option>
+                    @endforeach
 
-                    <option value="">Country 2</option>
+                </select>
+
+            </form>
+        @else
+
+            <form action="{{route('frontend.country_change')}}" method="post" class="filter-form">
+                {{csrf_field()}}
+
+                <select name="countries_list" class="position-absolute me-3" onchange="this.form.submit()">
+                    <option value="" selected disabled>Select Your Country</option>
+
+                    @foreach($tpr_countries as $tpr_country)
+                    <option value="{{ $tpr_country->country_id }}">{{ $tpr_country->country_name }}</option>
+                    @endforeach
 
                 </select>
 
             </form>
 
+        @endif
+
+        @auth
+
             <a class="wishlist fw-bold d-inline-block px-4 text-decoration-none border-start border-end mobiile-wish-list-btn"
-                    href="#"><i class="far fa-heart me-2"></i> Wish List</a>
+                href="{{url('favourites')}}"><i class="far fa-heart me-2"></i> Wish List</a>
 
             <!-- user login styles -->
             <a onclick="showHideDivMobile()" class="nav-link dropdown-toggle d-inline-block ps-4 mb-4" href="{{route('frontend.auth.login')}}"
@@ -231,26 +254,36 @@
                     aria-expanded="false">
                     <img src="{{ url('img/frontend/user.jpg') }}" class="rounded-circle"
                         style="height: 50px; width: 50px; margin-right: 1.4rem;"> <span
-                        class="text-white fw-bold user-name"></span>
+                        class="text-white fw-bold user-name">{{auth()->user()->first_name}}</span>
             </a>
             <div id="drop-menu-mobile" class="dropdown-menu mobile-drop-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="#">My Account</a>
-                    <!-- <a class="dropdown-item" href="">My Settings</a> -->
-                    <a class="dropdown-item" href="#" style="border-bottom: none">Log
+                    <a class="dropdown-item" href="{{ route('frontend.user.dashboard') }}">My Account</a>
+                    <a class="dropdown-item" href="{{ route('frontend.auth.logout') }}" style="border-bottom: none">Log
                         Out</a>
             </div>
             <!-- end of user login styles -->
 
+            <a class="add-property-btn fw-bold d-inline-block border px-4 text-decoration-none"
+                    href="{{ route('frontend.pre_listing') }}">Add Property</a>
+
+
+        @else
+          
+            <a class="wishlist fw-bold d-inline-block px-4 text-decoration-none border-start border-end mobiile-wish-list-btn"
+                    href="{{ route('frontend.auth.login') }}"><i class="far fa-heart me-2"></i> Wish List</a>
+
 
             <a class="register fw-bold d-inline-block border px-4 text-decoration-none"
-                    href="#">Login</a>
+                    href="{{ route('frontend.auth.login') }}">Login</a>
 
             <a class="register fw-bold d-inline-block border px-4 text-decoration-none"
-                    href="#">Register</a>
+                    href="{{ route('frontend.auth.register') }}">Register</a>
 
 
             <a class="add-property-btn fw-bold d-inline-block border px-4 text-decoration-none"
-                    href="#">Add Property</a>
+                    href="{{ route('frontend.auth.login') }}">Add Property</a>
+
+        @endauth
      
     </div>
  
