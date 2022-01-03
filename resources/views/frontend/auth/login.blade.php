@@ -9,11 +9,11 @@
 @section('content')
     <div class="container-fluid p-0 banner login">
         <div class="container">
-            <div class="row justify-content-center" style="padding-top: 9rem;">
+            <div class="row justify-content-center mobile-padding-60" style="padding-top: 9rem;">
             @include('includes.partials.messages')
                 <div class="col-10">
-                    <div class="row align-items-center">
-                        <div class="col-6">
+                    <div class="row align-items-center mobile-login-area">
+                        <div class="col-6 col-xs-12">
                             <h3 class="text-white text-center mb-2">Login to your account.</h3>
                             {{ html()->form('POST', route('frontend.auth.login.post'))->open() }}
                                 <div class="mb-3">
@@ -53,14 +53,14 @@
 
                             <div class="row justify-content-center">
                                 <div class="col-12">
-                                    <p class="text-white mb-1" style="font-size: 1rem;">No account? <a href="{{ route('frontend.auth.register') }}" class="text-decoration-none" style="color: #FF7E00; font-size: 1.2rem;">Create one here.</a></p>
+                                    <p class="text-white mb-1" style="font-size: 1rem;">No account? <a href="{{ route('frontend.auth.register') }}" class="text-decoration-none" style="color: #FF7E00; font-size: 1.2rem; margin-top:15px;">Create one here.</a></p>
                                     
                                 </div>
                                 
                             </div>
                         </div>
 
-                        <div class="col-1 text-center">
+                        <div class="col-1 text-center hidden-xs">
                             <div class="vertical"></div>
                             <div class="p-2">
                                 <p class="text-center text-white fw-bold center-or" style="font-size: 1.1rem;">OR</p>
@@ -68,9 +68,15 @@
                             <div class="vertical"></div>
                         </div>
 
-                        <div class="col-5">
+                        <div class="visible-xs mobile-horizontal-line-wrapper">
+                            <div class="left-line"></div>
+                            <p>OR</p>
+                            <div class="right-line"></div>
+                        </div>
+
+                        <div class="col-5 col-xs-12">
                             <div class="row justify-content-center mb-4">
-                                <div class="col-5">
+                                <div class="col-5 social-login-btn">
                                     <a href="" class="text-decoration-none text-dark">
                                         <div class="row align-items-center bg-white p-2">
                                             <div class="col-5 p-0">
@@ -85,7 +91,7 @@
                             </div>
 
                             <div class="row justify-content-center">
-                                <div class="col-5">
+                                <div class="col-5 social-login-btn">
                                     <a href="" class="text-decoration-none text-dark">
                                         <div class="row align-items-center bg-white p-2">
                                             <div class="col-5 p-0">
