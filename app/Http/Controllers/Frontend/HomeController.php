@@ -564,15 +564,17 @@ class HomeController extends Controller
         foreach ($properties as $property)
         {
            $distance =   self::haversineGreatCircleDistance($lat,$lng,$property->lat,$property->long);
+            $distandPanel =  round($distance/1000,2);
+           if($distandPanel < 10 ){
 
-          $distandPanel =  round($distance/1000,2);
+               $stakGroup = [
+                   'propery_id' => $property->id,
+                   'distance' => $distandPanel. ' KM',
+                   'property' => $property->name
+               ];
+               array_push($finalOut,$stakGroup);
+           }
 
-          $stakGroup = [
-              'propery_id' => $property->id,
-              'distance' => $distandPanel. ' KM',
-              'property' => $property->name
-          ];
-          array_push($finalOut,$stakGroup);
 
         }
 
