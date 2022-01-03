@@ -293,5 +293,7 @@
 
 <div class="top-row-wrapper visible-xs">
     <span style="font-size:30px;cursor:pointer" class="mobile-menu-toggle" onclick="openNav()">&#9776;</span>
-    <img class="mobile-logo" src="{{ url('logo.gif') }}" alt="" >
+    <div class="mobile-logo-wrapper">
+        <img class="mobile-logo" src="{{ url('logo.gif') }}" alt="" >
+    </div>
 </div>

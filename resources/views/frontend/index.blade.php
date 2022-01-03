@@ -238,7 +238,7 @@
         <h1>Featured Properties</h1>
         <div class="row mt-5 mb-4">
 
-            <div class="col-9 col-xs-12">
+            <div class="col-9 col-xs-12 col-tab-12">
                 <div class="row">
                     @if(count($featured_properties) != 0)
                     @foreach($featured_properties as $key => $featured_prop)
@@ -283,7 +283,7 @@
                 </div>
             </div>
 
-            <div class="col-3 col-xs-12 sidebar-full-mobile">
+            <div class="col-3 col-xs-12 sidebar-full-mobile col-tab-12">
                 <div class="row">
                     <div class="col-12"><a href="{{ get_settings('sidebar_advertiment_link_1') }}" target="_blank">
                             <div class="sidebar-card"><img width="100%"

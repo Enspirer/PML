@@ -1,6 +1,6 @@
 <section class="container-fluid pt-5 pb-3 text-white" style="background-color: #16202C;">
     <div class="container">
-        <div class="row">
+        <div class="row mobile-footer-row">
             <div class="col-3 col-xs-12 col-tab-6">
                 <a href="{{ route('frontend.index') }}"><img src="{{ url('img/frontend/logo.png') }}" alt="" class="logo" style="margin-bottom:30px;"></a>
 
@@ -41,7 +41,7 @@
                 <a href="" class="mb-3 d-block text-decoration-none no-result-list text-white">Commercial Resources</a>
                 <a href="" class="mb-3 d-block text-decoration-none no-result-list text-white">Marketing Service</a>
             </div>
-            <div class="col-3 ps-5 col-xs-12 col-tab-6">
+            <div class="col-3 ps-5 col-xs-12 col-tab-6 footer-news-tab">
                 <h5 class="text-white fw-bolder mt-2" style="margin-bottom:30px!important;">Newsletter</h5>
                 <p class="text-white">You can trust us. we only send promo offers, not a single spam.</p>
                 <form>

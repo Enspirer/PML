@@ -144,6 +144,11 @@ p.card-text.mb-1 {
 
 /*tab-portrait*/
 @media (min-width: 768px) and (max-width: 991px) {
+    .col-tab-12 {
+        max-width: 100%;
+        flex: 100%;
+    }
+
     .col-tab-50 {
         max-width: 50%;
         flex: 50%;
@@ -153,6 +158,18 @@ p.card-text.mb-1 {
         max-height: 380px !important;
         min-height: 380px !important;
     }
+
+    .sidebar-card {
+        height: 634px;
+        width: 50%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 80px;
+    }
+
+    
+
 }
 
 /* Tab Landscape */

@@ -28,25 +28,29 @@
                     
                         <div class="input-group">
                             
-                            <div class="search-wrapper">
+                            <!-- search area wrapping only for mobile -->
+                            <div class="search-area-wrapper">
+                                <div class="search-wrapper">
 
-                                <input type="text" id="search-word" name="search_keyword" class="form-control p-4 rounded-0" aria-label="search"
-                                 placeholder="Search">
+                                    <input type="text" id="search-word" name="search_keyword" class="form-control p-4 rounded-0" aria-label="search"
+                                    placeholder="Search">
 
-                                <div id="search-result"></div>
+                                    <div id="search-result"></div>
 
+                                </div>
+                                
+
+                                @if(Request::segment(1) == 'search_result_filter')
+                                <input type="hidden" name="transaction_type" value="{{$transaction_type}}">
+                                @else
+                                <input type="hidden" name="transaction_type" value="transaction_type">
+                                @endif
+
+                                <button type="submit" class="btn text-white rounded-0 px-4"
+                                    style="background-color : #35495E; height:50px;border:0;"><i class="fas fa-search"></i></button>
                             </div>
+                            <!--end of search area wrapping only for mobile -->
                             
-
-                            @if(Request::segment(1) == 'search_result_filter')
-                            <input type="hidden" name="transaction_type" value="{{$transaction_type}}">
-                            @else
-                            <input type="hidden" name="transaction_type" value="transaction_type">
-                            @endif
-
-                            <button type="submit" class="btn text-white rounded-0 px-4"
-                                style="background-color : #35495E; height:50px;border:0;"><i class="fas fa-search"></i></button>
-
                             <button type="button" class="btn text-white rounded-0 border-start"
                                 style="background-color : #35495E;height:50px;border:0;" data-bs-toggle="modal"
                                 data-bs-target="#exampleModal">Filter

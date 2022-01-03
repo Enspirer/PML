@@ -382,6 +382,11 @@ p#copyright-txt {
     display: none !important;
 }
 
+.search-area-wrapper {
+    display: flex;
+    width: 80%;
+}
+
 /*mobile-view*/
 @media screen and (max-width: 767px) {
     .hidden-xs {
@@ -438,7 +443,6 @@ p#copyright-txt {
 
     .mobile-logo {
         width: 50%;
-        display: block;
         margin-left: auto;
         margin-right: auto;
     }
@@ -448,6 +452,15 @@ p#copyright-txt {
         background-color: #16202C;
         padding-top: 15px;
         padding-bottom: 15px;
+    }
+    
+    .top-row-wrapper.visible-xs {
+        display: flex !important;
+    }
+
+    .mobile-logo-wrapper {
+        display: flex;
+        justify-content: center;
     }
 
     .mobile-menu-toggle {
@@ -470,7 +483,8 @@ p#copyright-txt {
     }
 
     .mobile-search {
-        max-width: 75% !important;
+        max-width: 100% !important;
+        flex: 100% !important;
     }
 
     .profile-nav {
@@ -526,6 +540,19 @@ p#copyright-txt {
     }
     div#drop-menu-mobile {
         padding: 0;
+    }
+
+    .search-area-wrapper {
+        display: flex;
+        width: 100%;
+    }
+
+    .row.mobile-footer-row {
+        gap: 45px;
+    }
+
+    .row.mobile-footer-row .col-xs-12 {
+        padding-left: 15px !important;
     }
 }
 
@@ -674,6 +701,19 @@ p#copyright-txt {
         max-width: 50% !important;
         flex: 50% !important;
         margin-bottom: 15px;
+    }
+
+    .footer-news-tab {
+        padding-left: 15px !important;
+    }
+    
+    .search-area-wrapper{
+        width: 75%;
+    }
+
+    .top-row-wrapper.visible-xs {
+        display: flex !important;
+        flex-direction: row;
     }
 
     
