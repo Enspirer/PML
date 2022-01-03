@@ -86,7 +86,17 @@
 }
 
 /*tab-portrait*/
-@media (min-width: 768px) and (max-width: 991px) {}
+@media (min-width: 768px) and (max-width: 991px) {
+    .sidebar-card-area {
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .agents .logo {
+        width: 6rem;
+    }
+}
 
 /* Tab Landscape */
 @media (min-width: 992px) and (max-width: 1024px) {}

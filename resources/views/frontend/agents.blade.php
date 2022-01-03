@@ -25,7 +25,7 @@
 
     <div class="container mt-4" style="margin-bottom: 3rem;">
         <div class="row">
-            <div class="col-9 col-xs-12">
+            <div class="col-9 col-xs-12 col-tab-12">
 
                 <div class="row mb-4">
                     <div class="col-12">
@@ -115,7 +115,7 @@
                     @else
 
                         @foreach($agents as $agent)
-                            <div class="col-4 text-center mb-4 col-xs-12">
+                            <div class="col-4 text-center mb-4 col-xs-12 col-tab-50">
                                 <div class="card custom-shadow position-relative" style="max-height:550px; min-height:550px;">
                                     <div class="card-body">
                                         <img src="{{ uploaded_asset($agent->logo) }}" width="40%" style="border-radius: 50%;" alt="" class="img-fluid logo mb-3">
@@ -199,7 +199,7 @@
             </div>
             
 
-            <div class="col-3 col-xs-12">
+            <div class="col-3 col-xs-12 col-tab-12">
                 <div class="row sidebar-card-area">
                     <div class="col-12 p-0 mb-4 custom-shadow">
                         <div class="card">
