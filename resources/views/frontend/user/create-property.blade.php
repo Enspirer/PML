@@ -255,7 +255,7 @@
                                             <div class="col-6">
                                                 <div>
                                                     <label for="meta-description" class="form-label mb-2 mt-3">Meta Description <span class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control" name="meta_description" id="meta-description" aria-describedby="meta-description" required>
+                                                    <textarea class="form-control" name="meta_description" id="meta-description" aria-describedby="meta-description" required></textarea>
                                                 </div>
                                             </div>
                                             <div class="col-6">
