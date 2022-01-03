@@ -146,8 +146,8 @@
 
                                     </div>
                                     <img class="property-img" src="{{ uploaded_asset($prop->feature_image_id) }}" alt="property" style="object-fit:cover">
-                                    @if($prop->listning_type == 'free_listning')
-                                        <div class="free_listning position-absolute badge badge-warning p-2 m-2">Free Listning</div>
+                                    @if($prop->promoted == 'Enabled')
+                                        <div class="free_listning position-absolute badge badge-danger p-2 m-2">PROMOTED</div>
                                     @endif
                                     <div class="agent-card-txt-wrapper">
                                             <h3>{{$prop->name}}</h3>
@@ -213,8 +213,8 @@
 
                                     </div>
                                     <img class="property-img" src="{{ uploaded_asset($prop->feature_image_id) }}" alt="property" style="object-fit:cover">
-                                    @if($prop->listning_type == 'free_listning')
-                                        <div class="free_listning position-absolute badge badge-warning p-2 m-2">Free Listning</div>
+                                    @if($prop->promoted == 'Enabled')
+                                        <div class="free_listning position-absolute badge badge-danger p-2 m-2">PROMOTED</div>
                                     @endif
                                     <div class="agent-card-txt-wrapper">
                                             <h3>{{$prop->name}}</h3>
@@ -283,8 +283,8 @@
 
                                     </div>
                                     <img class="property-img" src="{{ uploaded_asset($prop->feature_image_id) }}" alt="property" style="object-fit:cover">
-                                    @if($prop->listning_type == 'free_listning')
-                                        <div class="free_listning position-absolute badge badge-warning p-2 m-2">Free Listning</div>
+                                    @if($prop->promoted == 'Enabled')
+                                        <div class="free_listning position-absolute badge badge-danger p-2 m-2">PROMOTED</div>
                                     @endif
                                     <div class="agent-card-txt-wrapper">
                                             <h3>{{$prop->name}}</h3>

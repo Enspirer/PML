@@ -113,9 +113,7 @@
                                         <img src="{{ uploaded_asset($property_pro->feature_image_id) }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
                                         
                                     </a>
-                                    @if($property_pro->listning_type == 'free_listning')
-                                        <div class="free_listning position-absolute badge badge-warning p-2 m-2">Free Listning</div>
-                                    @endif
+                                    
                                     <div class="card-body mt-2" style="margin-top:30px !important;">
                                         <div class="row mb-2">
                                             <div class="col-10">
@@ -252,9 +250,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="col-3">
-                                                        @if($normal->listning_type == 'free_listning')
-                                                            <div class="badge badge-warning p-2">Free Listning</div>
-                                                        @endif
+                                                        
                                                     </div>
                                                 </div>
                                                 
@@ -378,9 +374,7 @@
                                 <div class="col-6 p-3">
                                     <div class="row align-items-center mb-4 pt-4">
                                             <div class="col-6">
-                                                @if($normal->listning_type == 'free_listning')
-                                                    <div class="badge badge-warning p-2">Free Listning</div>
-                                                @endif
+                                                
                                             </div>
                                             <div class="col-6 text-end">
                                                 @if(App\Models\AgentRequest::where('user_id',$normal->user_id)->first() != null)

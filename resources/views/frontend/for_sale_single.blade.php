@@ -349,10 +349,7 @@ button.close:hover {
                         {{App\Models\Country::where('id',$property->country)->first()->country_name }}
                     </p>
 
-                    @if($property->listning_type == 'free_listning')
-                    <div class="badge badge-warning p-2 mt-3">Free Listning</div>
-                    @endif
-
+                    
                 </div>
 
                 <div class="col-3">
@@ -730,10 +727,7 @@ button.close:hover {
                                 <a href="{{ route('frontend.for_sale_single',$ran->id) }}" class="text-decoration-none">
                                     <img src="{{ uploaded_asset($ran->feature_image_id) }}" alt=""
                                         class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
-                                    @if($ran->listning_type == 'free_listning')
-                                    <div class="free_listning position-absolute badge badge-warning p-2 m-2">Free
-                                        Listning</div>
-                                    @endif
+                                    
                                 </a>
                                 <div class="card-body mt-3">
                                     <div class="row mb-2">
