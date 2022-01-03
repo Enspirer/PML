@@ -221,7 +221,20 @@ a.ad-btn {
 }
 
 /*tab-portrait*/
-@media (min-width: 768px) and (max-width: 991px) {}
+@media (min-width: 768px) and (max-width: 991px) {
+    .agent-container {
+        flex-direction: column;
+    }
+    .agent-side-area {
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .individual-agent-banner img {
+        padding-top: 0;
+    }
+}
 
 /* Tab Landscape */
 @media (min-width: 992px) and (max-width: 1024px) {}
