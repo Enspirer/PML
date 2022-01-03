@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light fixed-top">
+<nav class="navbar navbar-expand-lg navbar-light fixed-top hidden-xs">
     <div class="container position-relative">
         <a class="navbar-brand text-white position-absolute" href="{{ route('frontend.index') }}">
             <img src="{{ url('logo.gif') }}" alt="" class="logo"></a>
@@ -172,3 +172,68 @@
         </div>
     </div>
 </nav>
+
+
+
+<!-- mobile navigation -->
+<div id="mySidenav" class="sidenav visible-xs">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <ul class="nav nav-tabs mobile-tab-list" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active mobile-nav-link" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Home</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link mobile-nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Profile</button>
+        </li>
+    </ul>
+
+<div class="tab-content" id="myTabContent">
+  <div class="tab-pane fade show active mobile-nav-tab" id="home" role="tabpanel" aria-labelledby="home-tab">
+        <a href="#">Home</a>
+        <a href="#">For Sale</a>
+        <a href="#">For Rent</a>
+        <a href="#">Agents</a>
+        <a href="#">Contact Us</a> 
+    </div>
+  <div class="tab-pane fade profile-nav mobile-nav-tab" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+            <form action="{{route('frontend.country_change')}}" method="post" class="filter-form">
+             
+
+                <select name="countries_list" class="position-absolute me-3" onchange="this.form.submit()">
+                    <option value="" selected disabled>Select Your Country</option>
+
+            
+                    <option value="">Country 1</option>
+
+                    <option value="">Country 2</option>
+
+                </select>
+
+            </form>
+
+            <a class="wishlist fw-bold d-inline-block px-4 text-decoration-none border-start border-end mobiile-wish-list-btn"
+                    href="#"><i class="far fa-heart me-2"></i> Wish List</a>
+
+            
+
+
+            <a class="register fw-bold d-inline-block border px-4 text-decoration-none"
+                    href="#">Login</a>
+
+            <a class="register fw-bold d-inline-block border px-4 text-decoration-none"
+                    href="#">Register</a>
+
+
+            <a class="add-property-btn fw-bold d-inline-block border px-4 text-decoration-none"
+                    href="#">Add Property</a>
+     
+    </div>
+ 
+</div>
+  
+</div>
+
+<div class="top-row-wrapper visible-xs">
+    <span style="font-size:30px;cursor:pointer" class="mobile-menu-toggle" onclick="openNav()">&#9776;</span>
+    <img class="mobile-logo" src="{{ url('logo.gif') }}" alt="" >
+</div>

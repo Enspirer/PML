@@ -378,3 +378,152 @@ p#copyright-txt {
     margin-top: 15px;
 }
 
+.visible-xs {
+    display: none !important;
+}
+
+/*mobile-view*/
+@media screen and (max-width: 767px) {
+    .hidden-xs {
+        display: none !important;
+    }
+    .visible-xs {
+        display: block !important;
+    }
+    .sidenav {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 3;
+        top: 0;
+        left: 0;
+        background-color: rgb(230, 233, 235);
+        overflow-x: hidden;
+        transition: 0.5s;
+        padding-top: 15px;
+      }
+      
+      .sidenav a {
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        font-size: 15px;
+        color: #818181;
+        display: block;
+        transition: 0.3s;
+      }
+      
+      .sidenav a:hover {
+        color: #f1f1f1;
+      }
+      
+      .sidenav .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 50px;
+        padding: 1px;
+      }
+
+      .container-fluid.home-search {
+        padding-top: 30px !important;
+    }
+
+    .mobile-logo {
+        width: 50%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .top-row-wrapper {
+        display: flex;
+        background-color: #16202C;
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+
+    .mobile-menu-toggle {
+        color: #fff;
+        margin-left: 15px;
+    }
+
+    .mobile-gap {
+        gap: 15px;
+    }
+
+    .search-wrapper {
+        margin-bottom: 15px;
+    }
+    
+    button.btn.text-white.rounded-0.border-start {
+        display: block;
+        margin-left: auto !important;
+        margin-right: auto;
+    }
+
+    .mobile-search {
+        max-width: 75% !important;
+    }
+
+    .profile-nav {
+        display: flex !important;
+        flex-direction: column;
+        gap: 30px;
+        width: 90%;
+        padding-left: 15px;
+    }
+    .mobile-nav-tab {
+        margin-top: 50px;
+    }
+
+    .mobiile-wish-list-btn {
+        margin-top: 30px;
+        border: 1px solid;
+    }
+    a.add-property-btn {
+        margin-left: 0;
+        color: #fff;
+        text-align: center;
+    }
+
+    .mobile-nav-link {
+        background-color: rgb(230, 233, 235) !important;
+        color: #000;
+    }
+
+    .mobile-nav-link.active {
+        background-color: rgb(53, 73, 94) !important;
+        color: #fff !important;
+    }
+
+    .mobile-tab-list {
+        position: absolute;
+        top: 0;
+
+    }
+
+    .mobile-tab-list button {
+        height: 50px;
+        border: 0 !important;
+        border-radius: 0 !important;
+    }
+
+    .profile-nav a {
+        color: #000;
+        border: 1px solid #818181 !important;
+    }
+
+    .profile-nav a:hover {
+        color: #000;
+    }
+}
+
+/*tab-portrait*/
+@media (min-width: 768px) and (max-width: 991px) {}
+
+/* Tab Landscape */
+@media (min-width: 992px) and (max-width: 1024px) {}
+
+/*4k screen*/
+@media screen and (min-width: 1441px) {}

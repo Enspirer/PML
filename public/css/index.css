@@ -132,3 +132,25 @@ p.card-text.mb-1 {
 .social-banner .card-body p.card-text.mb-1 {
     font-size: 0.8rem;
 }
+
+/*mobile-view*/
+@media screen and (max-width: 767px) {
+    .col-xs-12 {
+        max-width: 100%;
+        flex: 100%;
+        margin-bottom: 15px;
+    }
+
+    .sidebar-full-mobile {
+        padding-top: 60px;
+    }
+}
+
+/*tab-portrait*/
+@media (min-width: 768px) and (max-width: 991px) {}
+
+/* Tab Landscape */
+@media (min-width: 992px) and (max-width: 1024px) {}
+
+/*4k screen*/
+@media screen and (min-width: 1441px) {}

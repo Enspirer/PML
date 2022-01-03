@@ -2,7 +2,7 @@
     <div class="container">
         <form action="{{route('frontend.property.search')}}" method="post" enctype="multipart/form-data">
         {{csrf_field()}}
-            <div class="row justify-content-center">
+            <div class="row justify-content-center mobile-gap">
                 
                 <div class="left-toggle">
                     <!-- <div class="btn-group left-toggle-btn-group" role="group" aria-label="Basic example">
@@ -24,7 +24,7 @@
                     </div>
 
                 </div>
-                <div class="col-8">
+                <div class="col-8 mobile-search">
                     
                         <div class="input-group">
                             
