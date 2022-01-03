@@ -206,7 +206,7 @@
                 <div class="row">
                     @if(count($featured_properties) != 0)
                     @foreach($featured_properties as $key => $featured_prop)
-                    <div class="col-4 col-xs-12">
+                    <div class="col-4 col-xs-12 col-tab-50">
                         <div class="card custom-shadow position-relative" style="min-height:307px;  max-height:307px">
                             <a href="{{route('frontend.for_sale_single',$featured_prop->id)}}"
                                 style="text-decoration:none">
@@ -442,10 +442,10 @@ var swiper = new Swiper(".mySwiper", {
         prevEl: ".swiper-button-prev",
     },
     loop: true,
-    autoplay: {
-        delay: 4000,
-        disableOnInteraction: false,
-    }, 
+    // autoplay: {
+    //     delay: 4000,
+    //     disableOnInteraction: false,
+    // }, 
     breakpoints: {
         0: {
             slidesPerView: 1,
