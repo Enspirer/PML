@@ -37,7 +37,7 @@
 
     <div class="container mt-4">
         <div class="row" style="margin-bottom: 3rem;">
-            <div class="col-9">
+            <div class="col-9 col-xs-12">
                 
                 <h4>Properties for 
                     @if(ucfirst($transaction_type) == 'Transaction_type')
@@ -53,13 +53,13 @@
                     </h4>
                     
                 <div class="row align-items-center">
-                    <div class="col-6">
+                    <div class="col-6 col-xs-12">
                         <p>{{$count_for_sale}} units available</p>
                     </div>
 
-                    <div class="col-6">
+                    <div class="col-6 col-xs-12">
                         <div class="row align-items-center">
-                            <div class="col-6">
+                            <div class="col-6 col-xs-12">
                                 <p style="color: black;">
                                     <i class="fas fa-sort-amount-down"></i>
                                     Sort By:
@@ -69,7 +69,7 @@
                                 </p>
                             </div>
 
-                            <div class="col-6 text-end">
+                            <div class="col-6 text-end col-xs-12">
                                 <div class="input-group">
                                     <input type="text" name="search_keyword" class="form-control p-3" aria-label="search" data-bs-toggle="modal" data-bs-target="#exampleModal" placeholder="Filters" style="border-top-left-radius: 35px; border-bottom-left-radius: 35px;">
         
@@ -107,7 +107,7 @@
                 @if(count($properties_promoted) != 0 )
                     <div class="row mt-5 featured_properties">
                         @foreach($properties_promoted as $key => $property_pro)
-                        <div class="col-4">
+                        <div class="col-4 col-xs-12 col-tab-50">
                             <div class="card custom-shadow position-relative" style="min-height: 370px;max-height: 450px;">
                                     <a href="{{ route('frontend.for_sale_single',$property_pro->id) }}" class="text-decoration-none text-dark">
                                         <img src="{{ uploaded_asset($property_pro->feature_image_id) }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
@@ -208,7 +208,7 @@
                         @foreach($properties as $key => $normal)
                             @if($normal->premium == 'Enabled')
                             <div class="row custom-shadow mb-4 mx-1">
-                                <div class="col-6 p-3">
+                                <div class="col-6 p-3 col-xs-12">
                                     <div class="swiper mySwiper2" id="swiper_2{{$normal->id}}">
                                             <div class="swiper-wrapper">
                                                 @php
@@ -240,7 +240,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col-6 p-3">
+                                <div class="col-6 p-3 col-xs-12">
                                     <div class="row align-items-center mb-4 pt-4">
                                             <div class="col-6">
                                                 <div class="row">
@@ -475,12 +475,12 @@
                 </div>
             </div>
 
-            <div class="col-3">
+            <div class="col-3  col-xs-12">
                 <div class="row justify-content-center custom-shadow p-3 mb-4">
                     <div class="col-12 text-center">
 
                         @auth
-                            <a data-toggle="modal" data-target="#email_alert_Modal" class="btn py-2 fw-bold text-white w-100 rounded-pill" style="border: 0.5px solid rgb(112, 112, 112);background-color: rgb(53, 73, 94);font-size: 12px;width: 230px !important;">
+                            <a data-toggle="modal" data-target="#email_alert_Modal" class="btn py-2 fw-bold text-white w-100 rounded-pill tab-full-btn" style="border: 0.5px solid rgb(112, 112, 112);background-color: rgb(53, 73, 94);font-size: 12px;width: 230px;">
                                 <div class="row justify-content-center">
                                     <div class="col-2 p-0">
                                         <i class="fas fa-envelope"></i>
@@ -492,7 +492,7 @@
                             </a>
                             
                         @else                            
-                            <a href="{{route('frontend.auth.login')}}" class="btn py-2 fw-bold text-white w-100 rounded-pill" style="border: 0.5px solid rgb(112, 112, 112);background-color: rgb(53, 73, 94);font-size: 12px;width: 230px !important;">
+                            <a href="{{route('frontend.auth.login')}}" class="btn py-2 fw-bold text-white w-100 rounded-pill tab-full-btn" style="border: 0.5px solid rgb(112, 112, 112);background-color: rgb(53, 73, 94);font-size: 12px;width: 230px;">
                                 <div class="row justify-content-center">
                                     <div class="col-2 p-0">
                                         <i class="fas fa-envelope"></i>
@@ -517,7 +517,7 @@
                             @if(App\Models\UserSearch::where('user_id',auth()->user()->id)->where('url',url()->current())->first() == null)
                                 <form action="{{route('frontend.save_search')}}" method="post" enctype="multipart/form-data">
                                 {{csrf_field()}}
-                                    <button type="submit" class="btn py-2 fw-bold w-100 rounded-pill" style="border: 1.5px solid rgb(112, 112, 112);font-size: 12px;width: 230px !important;">
+                                    <button type="submit" class="btn py-2 fw-bold w-100 rounded-pill tab-full-btn" style="border: 1.5px solid rgb(112, 112, 112);font-size: 12px;width: 230px;">
                                         <div class="row justify-content-center">
                                             <div class="col-2 p-0">
                                                 <i class="far fa-heart"></i>
@@ -532,7 +532,7 @@
                             @else
                                 <form action="{{route('frontend.save_search_Delete',App\Models\UserSearch::where('user_id',auth()->user()->id)->where('url',url()->current())->first()->id)}}" method="post" enctype="multipart/form-data">
                                 {{csrf_field()}}
-                                    <button type="submit" class="btn py-2 fw-bold w-100 rounded-pill" style="border: 1.5px solid rgb(112, 112, 112);font-size: 12px;width: 230px !important; background-color:#F33A6A;">
+                                    <button type="submit" class="btn py-2 fw-bold w-100 rounded-pill tab-full-btn" style="border: 1.5px solid rgb(112, 112, 112);font-size: 12px;width: 230px; background-color:#F33A6A;">
                                         <div class="row justify-content-center text-light">
                                             <div class="col-2 p-0">
                                                 <i class="fas fa-heart"></i>
@@ -547,7 +547,7 @@
                             @endif
                         @else
                             
-                            <a href="{{route('frontend.auth.login')}}" class="btn py-2 fw-bold w-100 rounded-pill" style="border: 1.5px solid rgb(112, 112, 112);font-size: 12px;width: 230px !important;">
+                            <a href="{{route('frontend.auth.login')}}" class="btn py-2 fw-bold w-100 rounded-pill tab-full-btn" style="border: 1.5px solid rgb(112, 112, 112);font-size: 12px;width: 230px;">
                                 <div class="row justify-content-center">
                                     <div class="col-2 p-0">
                                         <i class="far fa-heart"></i>

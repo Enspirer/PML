@@ -95,3 +95,38 @@ background-color: #35495E;
 .row.custom-shadow.mb-4.mx-1 {
     margin-bottom: 15px !important;
 }
+
+/*mobile-view*/
+@media screen and (max-width: 767px) {
+    .single-filter-btn {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        width: 100%;
+    }
+    .single-filter-btn a {
+        margin-bottom: 15px;
+    }
+
+    .sidebar-card-area {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
+/*tab-portrait*/
+@media (min-width: 768px) and (max-width: 991px) {
+    .col-tab-50 {
+        max-width: 50%;
+        flex: 50%;
+    }
+    .tab-full-btn {
+        width: 100% !important;
+    }
+}
+
+/* Tab Landscape */
+@media (min-width: 992px) and (max-width: 1024px) {}
+
+/*4k screen*/
+@media screen and (min-width: 1441px) {}

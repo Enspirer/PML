@@ -390,6 +390,13 @@ p#copyright-txt {
     .visible-xs {
         display: block !important;
     }
+
+    .col-xs-12 {
+        max-width: 100% !important;
+        flex: 100% !important;
+        margin-bottom: 15px;
+    }
+
     .sidenav {
         height: 100%;
         width: 0;

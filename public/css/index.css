@@ -135,15 +135,11 @@ p.card-text.mb-1 {
 
 /*mobile-view*/
 @media screen and (max-width: 767px) {
-    .col-xs-12 {
-        max-width: 100%;
-        flex: 100%;
-        margin-bottom: 15px;
-    }
 
     .sidebar-full-mobile {
         padding-top: 60px;
     }
+    
 }
 
 /*tab-portrait*/
