@@ -178,19 +178,33 @@
         margin-right: 15px;
         padding-right: 15px;
     }
-    .col-sm-12 {
+    .col-tab-12 {
         max-width: 100%;
         flex: 100%;
+    }
+}
+
+/* Tab Landscape */
+@media (min-width: 992px) and (max-width: 1024px) {
+    .contact-wrapper-sm {
+        padding-left: 3rem !important;
+        margin-right: 3rem;
+    }
+    .contact-form {
+        max-width: 50%;
+        flex: 50%;
     }
 }
 
 
 
 
-
-/*large screen*/
-@media screen and (min-width: 1400px) {
-   
+/*4k screen*/
+@media screen and (min-width: 1441px) {
+    .contact-form {
+        max-width: 30%;
+        flex: 30%;
+    }
 }
 
 /*windows mobile*/
