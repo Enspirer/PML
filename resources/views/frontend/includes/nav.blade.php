@@ -225,7 +225,21 @@
             <a class="wishlist fw-bold d-inline-block px-4 text-decoration-none border-start border-end mobiile-wish-list-btn"
                     href="#"><i class="far fa-heart me-2"></i> Wish List</a>
 
-            
+            <!-- user login styles -->
+            <a onclick="showHideDivMobile()" class="nav-link dropdown-toggle d-inline-block ps-4 mb-4" href="{{route('frontend.auth.login')}}"
+                    id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">
+                    <img src="{{ url('img/frontend/user.jpg') }}" class="rounded-circle"
+                        style="height: 50px; width: 50px; margin-right: 1.4rem;"> <span
+                        class="text-white fw-bold user-name"></span>
+            </a>
+            <div id="drop-menu-mobile" class="dropdown-menu mobile-drop-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="#">My Account</a>
+                    <!-- <a class="dropdown-item" href="">My Settings</a> -->
+                    <a class="dropdown-item" href="#" style="border-bottom: none">Log
+                        Out</a>
+            </div>
+            <!-- end of user login styles -->
 
 
             <a class="register fw-bold d-inline-block border px-4 text-decoration-none"

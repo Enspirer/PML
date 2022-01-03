@@ -524,6 +524,9 @@ p#copyright-txt {
     .profile-nav a:hover {
         color: #000;
     }
+    div#drop-menu-mobile {
+        padding: 0;
+    }
 }
 
 /*tab-portrait*/
@@ -673,6 +676,7 @@ p#copyright-txt {
         margin-bottom: 15px;
     }
 
+    
 }
 
 /* Tab Landscape */
