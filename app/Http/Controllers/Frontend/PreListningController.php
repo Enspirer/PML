@@ -66,7 +66,7 @@ class PreListningController extends Controller
     public function store(Request $request)
     {
         // dd($request);
-        
+
         if($request->feature_image == null){
             return back()->with('error', 'Please add Feature Image');
         }
@@ -75,10 +75,15 @@ class PreListningController extends Controller
             return back()->with('error', 'Please add atleast one image in multiple images section');
         }
 
+        $str_arr2 = preg_split ("/\,/", $request->multiple_images);
+        if(count($str_arr2) > 3){
+            return back()->with('error', 'Maximum 3 Images can add in multiple images section');
+        }
+
         if($request->lat == null){
             return back()->with('error', 'Property map location must need to point in the map');
         }
-
+        
         $addprop = new Properties;
 
         $addprop->name=$request->name; 
@@ -99,7 +104,6 @@ class PreListningController extends Controller
         $addprop->transaction_type=$request->transaction_type;
         $addprop->user_id = auth()->user()->id;
         $addprop->admin_approval='Pending';
-        $addprop->area_manager_approval='Pending';
         $addprop->listning_type='free_listning';
         $addprop->google_panaroma=$request->google_panaroma;
 

@@ -29,7 +29,7 @@ class AreaManagementController extends Controller
 
         $area_manager = Location::where('area_manager',$user_id)->where('status','Enabled')->first();
 
-        $properties = Properties::where('country', $area_manager->country)->where('area',$area_manager->id)->orderBy('id','DESC')->get();
+        $properties = Properties::where('country', $area_manager->country)->where('listning_type','=','agent_listning')->where('area',$area_manager->id)->orderBy('id','DESC')->get();
 
 
         if($request->ajax())
