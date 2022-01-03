@@ -67,8 +67,8 @@
                                             <h4 class="mb-0">{{ $single_approval->name }}</h4>
                                         </div>
                                         <div class="col-2">
-                                            @if($single_approval->listning_type == 'free_listning')
-                                                <div class="badge badge-warning p-2 m-2">Free Listning</div>
+                                            @if($single_approval->promoted == 'Enabled')
+                                                <div class="badge badge-danger p-2 m-2">PROMOTED</div>
                                             @endif
                                         </div>                                        
                                         <div class="col-5">

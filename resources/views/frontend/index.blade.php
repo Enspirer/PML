@@ -212,8 +212,8 @@
                                 style="text-decoration:none">
                                 <img src="{{ uploaded_asset($featured_prop->feature_image_id) }}" alt=""
                                     class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
-                                    @if($featured_prop->listning_type == 'free_listning')
-                                        <div class="free_listning position-absolute badge badge-warning p-2 m-2">Free Listning</div>
+                                    @if($featured_prop->promoted == 'Enabled')
+                                        <div class="free_listning position-absolute badge badge-danger p-2 m-2">PROMOTED</div>
                                     @endif
                                 <div class="card-body text-center">
                                     <h5 class="fw-bold">{{ get_currency(request() ,$featured_prop->price)}}</h5>
@@ -301,8 +301,8 @@
                     <a href="{{route('frontend.for_sale_single',$latest_prop->id)}}" style="text-decoration:none">
                         <img src="{{ uploaded_asset($latest_prop->feature_image_id) }}" alt="" class="img-fluid w-100"
                             style="height: 10rem; object-fit: cover;">
-                            @if($latest_prop->listning_type == 'free_listning')
-                                <div class="free_listning position-absolute badge badge-warning p-2 m-2">Free Listning</div>
+                            @if($latest_prop->promoted == 'Enabled')
+                                <div class="free_listning position-absolute badge badge-danger p-2 m-2">PROMOTED</div>
                             @endif
                             <div class="card-body text-center">
                             <h5 class="fw-bold">{{ get_currency(request() ,$latest_prop->price)}}</h5>

@@ -55,8 +55,8 @@
                                         <div class="row align-items-center justify-content-between mb-4 border py-3 position-relative">
                                             <div class="col-6">
                                                 <a href="{{ route('frontend.for_sale_single', $prop->id) }}"><img src="{{ uploaded_asset($prop->feature_image_id) }}" style="width:350px; object-fit:cover;" height="210px" class="card-img-top" alt="..."></a>
-                                                @if($prop->listning_type == 'free_listning')
-                                                    <div class="free_listning position-absolute badge badge-warning p-2 m-2">Free Listning</div>
+                                                @if($prop->promoted == 'Enabled')
+                                                    <div class="free_listning position-absolute badge badge-danger p-2 m-2">PROMOTED</div>
                                                 @endif
                                             </div>
                                             <div class="col-5">
