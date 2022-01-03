@@ -573,7 +573,7 @@ class HomeController extends Controller
                    'property' => $property->name
                ];
            }else{
-               $stakGroup = null
+               $stakGroup = null;
            }
           array_push($finalOut,$stakGroup);
 
