@@ -52,58 +52,58 @@
             url: "{{ url('api/map_api')  }}",
             success: function(data) {
                 /*map marker and clustering start here*/
-                const labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"; 
+                const labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
                 const place = data;
-                    // Add some markers to the map.
-                    const markers = place.map((position, i) => {
-                            const label = labels[i % labels.length];
-                            const marker = new google.maps.Marker({
-                            position,
-                            label,
-                            });
+                // Add some markers to the map.
+                const markers = place.map((position, i) => {
+                    const label = labels[i % labels.length];
+                    const marker = new google.maps.Marker({
+                        position,
+                        label,
+                    });
 
-                           console.log(data[i].id);
-
-
-                            // markers can only be keyboard focusable when they have click listeners
-                            // open info window when marker is clicked
-                            marker.addListener("click", () => {
-
-                                const infoWindow = new google.maps.InfoWindow({
-
-                                    content:  '<div class="card custom-shadow info-card" style="height: 320px;">' + '<a href="http://propertymarketlive.com/for-sale/single-property/' +  data[i].id + '">' +
-                                    '<img src="'+ data[i].feature_image +'" alt="" class="img-fluid w-100" style="object-fit: cover;height: 130px;">' +
-                                        '<div class="card-body">' +
-                                        '<h5 class="fw-bold">'+ data[i].name +'</h5>' +
-                                        '<p class="info-price"> Rs.'+ data[i].price + '</p>' +
-                                            '<p style="font-size: 12px;overflow: hidden;display: -webkit-box;-webkit-line-clamp: 3;-webkit-box-orient: vertical;">'+ data[i].description + '</p>' +
-                                           
-                                        '<p>3<i class="fas fa-bed ms-2 me-3" aria-hidden="true"></i> 5<i class="fas fa-bath ms-2" aria-hidden="true"></i></p>' +
-                                           + '</div>' + '</a>'+  '</div>',
-                                    disableAutoPan: true,
-                                });
+                    console.log(data[i].id);
 
 
+                    // markers can only be keyboard focusable when they have click listeners
+                    // open info window when marker is clicked
+                    marker.addListener("click", () => {
 
-                                
+                        const infoWindow = new google.maps.InfoWindow({
 
+                            content:  '<div class="card custom-shadow info-card" style="height: 320px;">' + '<a href="http://propertymarketlive.com/for-sale/single-property/' +  data[i].id + '">' +
+                            '<img src="'+ data[i].feature_image +'" alt="" class="img-fluid w-100" style="object-fit: cover;height: 130px;">' +
+                            '<div class="card-body">' +
+                            '<h5 class="fw-bold">'+ data[i].name +'</h5>' +
+                            '<p class="info-price"> Rs.'+ data[i].price + '</p>' +
+                            '<p style="font-size: 12px;overflow: hidden;display: -webkit-box;-webkit-line-clamp: 3;-webkit-box-orient: vertical;">'+ data[i].description + '</p>' +
 
-
-                            infoWindow.open({
-                                anchor: marker,
-                                map,
-                                shouldFocus: false,
-                            });
-                            });
-                            return marker;
+                            '<p>3<i class="fas fa-bed ms-2 me-3" aria-hidden="true"></i> 5<i class="fas fa-bath ms-2" aria-hidden="true"></i></p>' +
+                            + '</div>' + '</a>'+  '</div>',
+                            disableAutoPan: true,
                         });
 
 
 
-                        // Add a marker clusterer to manage the markers.
-                        const markerCluster = new markerClusterer.MarkerClusterer({ map, markers });
 
-                        /*map marker and clustering ends here*/
+
+
+
+                        infoWindow.open({
+                            anchor: marker,
+                            map,
+                            shouldFocus: false,
+                        });
+                    });
+                    return marker;
+                });
+
+
+
+                // Add a marker clusterer to manage the markers.
+                const markerCluster = new markerClusterer.MarkerClusterer({ map, markers });
+
+                /*map marker and clustering ends here*/
 
 
                 // var markerCluster = new MarkerClusterer(map, markers,{imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
@@ -123,58 +123,94 @@
         locationButton.addEventListener("click", () => {
             // Try HTML5 geolocation.
             if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(
-                (position) => {
-                const pos = {
-                    lat: position.coords.latitude,
-                    lng: position.coords.longitude,
-                };
+                navigator.geolocation.getCurrentPosition(
+                    (position) => {
+                        const pos = {
+                            lat: position.coords.latitude,
+                            lng: position.coords.longitude,
+                        };
 
-                infoWindow.setPosition(pos);
-                infoWindow.setContent(`<div class="tooltipContainer">
-                        <span class="tooltip" data-tooltip = "Share your Location!" data-tooltip-location = "bottom">
-                            <i class="geo-i fas fa-map-marker-alt"></i>
-                        </span>
-                        <h5 class="geo">Location Found!</h5>
-                        <!-- Added for Pulsing Circle -->
-                        <div class="circle" style="animation-delay: 0s"></div>
-                        <div class="circle" style="animation-delay: 1s"></div>
-                        <div class="circle" style="animation-delay: 2s"></div>
-                        <div class="circle" style="animation-delay: 3s"></div>
-                        <!-- End of Add for Pulsing Circle -->
-                    </div>`);
-                infoWindow.open(map);
-                map.setCenter(pos);
-                },
-                () => {
-                handleLocationError(true, infoWindow, map.getCenter());
-                }
-            );
+
+
+
+
+
+                        $.ajax({
+                            type: "GET",
+                            url: "{{ url('api/nest_property')  }}/"+position.coords.longitude + "/" + position.coords.latitude ,
+                            success: function(data) {
+                                infoWindow.setPosition(pos);
+                                infoWindow.setContent('<div class="tooltipContainer">' +
+                                    '<span class="tooltip" data-tooltip = "Share your Location!" data-tooltip-location = "bottom">' +
+                                    '<i class="geo-i fas fa-map-marker-alt"></i>' +
+                                    '</span>' +
+                                    '<h5 class="geo">Location Found!</h>');
+                            }
+                        });
+
+
+
+
+
+
+                        marker = new google.maps.Marker({
+                            shadow: null,
+                            zIndex: 999,
+                            map,
+                            position: pos,
+                            label: {
+                                fontFamily: 'Fontawesome',
+                                content: '<h2>Hello</h2>'
+                            }
+                        });
+
+                        infoWindow.open({
+                            anchor: marker,
+                            map,
+                            shouldFocus: false,
+                        });
+
+                        marker.addListener("click", () => {
+                            infoWindow.open({
+                                anchor: marker,
+                                map,
+                                shouldFocus: false,
+                            });
+                        });
+
+                        map.setCenter(pos);
+                        map.setZoom(17);
+                        map.panTo(marker.position);
+                    },
+                    () => {
+                        handleLocationError(true, infoWindow, map.getCenter());
+                    }
+                );
             } else {
-            // Browser doesn't support Geolocation
-            handleLocationError(false, infoWindow, map.getCenter());
+                // Browser doesn't support Geolocation
+                handleLocationError(false, infoWindow, map.getCenter());
             }
         });
 
 
         function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-        infoWindow.setPosition(pos);
-        infoWindow.setContent(
-            browserHasGeolocation
-            ? "Error: The Geolocation service failed."
-            : "Error: Your browser doesn't support geolocation."
-        );
-        infoWindow.open(map);
+            infoWindow.setPosition(pos);
+            infoWindow.setContent(
+                browserHasGeolocation
+                    ? "Error: The Geolocation service failed."
+                    : "Error: Your browser doesn't support geolocation."
+            );
+            infoWindow.open(map);
         }
 
 
 
         /*geolocation code ends here*/
-            
 
 
 
-        
+
+
     }
 
 
