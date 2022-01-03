@@ -565,7 +565,7 @@ class HomeController extends Controller
         {
            $distance =   self::haversineGreatCircleDistance($lat,$lng,$property->lat,$property->long);
             $distandPanel =  round($distance/1000,2);
-           if($distandPanel > 10 ){
+           if($distandPanel < 10 ){
 
                $stakGroup = [
                    'propery_id' => $property->id,
