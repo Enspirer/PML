@@ -202,11 +202,11 @@
         <h1>Featured Properties</h1>
         <div class="row mt-5 mb-4">
 
-            <div class="col-9">
+            <div class="col-9 col-xs-12">
                 <div class="row">
                     @if(count($featured_properties) != 0)
                     @foreach($featured_properties as $key => $featured_prop)
-                    <div class="col-4">
+                    <div class="col-4 col-xs-12">
                         <div class="card custom-shadow position-relative" style="min-height:307px;  max-height:307px">
                             <a href="{{route('frontend.for_sale_single',$featured_prop->id)}}"
                                 style="text-decoration:none">
@@ -247,7 +247,7 @@
                 </div>
             </div>
 
-            <div class="col-3">
+            <div class="col-3 col-xs-12 sidebar-full-mobile">
                 <div class="row">
                     <div class="col-12"><a href="{{ get_settings('sidebar_advertiment_link_1') }}" target="_blank">
                             <div class="sidebar-card"><img width="100%"
@@ -360,7 +360,7 @@
         <h2 class="sub-topic center-topic">Latest from Property Market</h2>
 
         <div class="row" style="margin-top:30px;">
-                <div class="col-4">
+                <div class="col-4 col-xs-12">
                     <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fpropertymarketlive&tabs=timeline&width=340&height=500&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="100%" height="500" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
 
                 </div>               
@@ -368,7 +368,7 @@
                                
                 @if(count(App\Models\Posts::get()) != 0)
                     @foreach(App\Models\Posts::latest()->take(2)->get() as $key => $blog_posts)  
-                        <div class="col-4">
+                        <div class="col-4 col-xs-12">
                             <a href="{{url('individual_post',$blog_posts->id)}}" style="color:black; text-decoration:none"></a>
                                 <div class="card position-relative" style="height: 27rem;"><a href="{{url('individual_post',$blog_posts->id)}}" style="color:black; text-decoration:none">
                                     
@@ -445,7 +445,20 @@ var swiper = new Swiper(".mySwiper", {
     autoplay: {
         delay: 4000,
         disableOnInteraction: false,
-    }
+    }, 
+    breakpoints: {
+        0: {
+            slidesPerView: 1,
+        },
+
+        576: {
+            slidesPerView: 3,
+        },
+        768: {
+            slidesPerView: 3,
+        }
+    },
+
 });
 </script>
 
