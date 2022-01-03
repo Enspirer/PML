@@ -125,7 +125,13 @@ Route::group(['middleware' => ['auth', 'password_expires']], function () {
         Route::get('properties/sold_status/{id}', [AgentController::class, 'sold_status'])->name('sold_status');
         Route::get('properties/pending_status/{id}', [AgentController::class, 'pending_status'])->name('pending_status');
 
-
+        Route::get('my_properties', [DashboardController::class, 'my_properties'])->name('my_properties');
+        Route::get('my_properties/edit/{id}', [DashboardController::class, 'my_editProperty'])->name('my_properties-edit');
+        Route::post('my_properties/edit', [DashboardController::class, 'my_updateProperty'])->name('my_properties-update');
+        Route::get('my_properties/delete/{id}', [DashboardController::class, 'my_deleteProperty'])->name('my_properties-delete');
+        Route::get('my_properties/sold_status/{id}', [DashboardController::class, 'my_sold_status'])->name('my_sold_status');
+        Route::get('my_properties/pending_status/{id}', [DashboardController::class, 'my_pending_status'])->name('my_pending_status');
+        
         Route::get('area-management-property-approval', [AreaManagementController::class, 'propertyApproval'])->name('area-management-property-approval');
         Route::get('area-management/get-property-approval', [AreaManagementController::class, 'getPropertyApproval'])->name('get-property-approval');
         Route::get('area-management/single-property-approval/{id}', [AreaManagementController::class, 'singlePropertyApproval'])->name('single-property-approval');

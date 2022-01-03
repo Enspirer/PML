@@ -125,10 +125,16 @@
 
 @else
 
+                                        
+                                    
 
 <div class="light-style flex-grow-1 container-p-y" style="margin:150px 50px 0pc 50px">
-
-    <div class="card overflow-hidden" style="min-height:440px;">
+        @if(session()->has('error'))
+            <div class="alert alert-danger">
+                {{ session()->get('error') }}
+            </div>
+        @endif  
+    <div class="card overflow-hidden" style="min-height:440px;">   
       <div class="row no-gutters row-bordered row-border-light">
         <div class="col-md-3 mt-3 pt-0">
           <div class="list-group list-group-flush account-settings-links">
@@ -308,7 +314,7 @@
                             <div class="row">
                                 <div class="col-12">
                                     <div class="form-group">
-                                        <label class="mb-2 mt-2">Multiple Images
+                                        <label class="mb-2 mt-2">Multiple Images (Maximum 3 Images)
                                             <span class="text-danger">*</span>
                                         </label>
                                         <div class="input-group" data-toggle="aizuploader" data-type="image" data-multiple="true">
@@ -327,7 +333,7 @@
                                 <div class="col-6">
                                     <div>
                                         <label for="meta-description" class="form-label mb-2 mt-3">Meta Description <span class="text-danger">*</span></label>
-                                        <textarea class="form-control" name="meta_description" id="meta-description" aria-describedby="meta-description" required></textarea>
+                                        <textarea class="form-control" rows="1" name="meta_description" id="meta-description" aria-describedby="meta-description" required></textarea>
                                      </div>
                                 </div>
                                 <div class="col-6">
@@ -359,9 +365,13 @@
                         </div>
                     </div>
                     <div class="tab-pane fade" id="panaromal_details">
-                        <div class="card-body">                    
+                        <div class="card-body">         
+                            
+                            <div style="border:1px solid red; text-align:center" class="mb-4 p-1">
+                                <h6 style="color:red" class="mb-2 mt-1">Alert!</h6><h6 class="mb-1" style="font-size:15px;"> If You Want To Enable Panaroma Call This Number +94 778669990.</h6>
+                            </div>
                                     
-                            <div class="row">
+                            <!-- <div class="row">
                                 <div class="col-12">
                                     <div>
                                         <label for="google_panaroma" class="form-label mb-2">Google Panaroma</label>
@@ -384,7 +394,7 @@
                                         </div>
                                     </div> 
                                 </div>
-                            </div> 
+                            </div>  -->
                                                             
                         </div>
                         
