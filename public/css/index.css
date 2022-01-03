@@ -147,7 +147,17 @@ p.card-text.mb-1 {
 }
 
 /*tab-portrait*/
-@media (min-width: 768px) and (max-width: 991px) {}
+@media (min-width: 768px) and (max-width: 991px) {
+    .col-tab-50 {
+        max-width: 50%;
+        flex: 50%;
+    }
+
+    .card.custom-shadow {
+        max-height: 380px !important;
+        min-height: 380px !important;
+    }
+}
 
 /* Tab Landscape */
 @media (min-width: 992px) and (max-width: 1024px) {}

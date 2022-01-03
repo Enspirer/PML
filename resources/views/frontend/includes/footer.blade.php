@@ -1,7 +1,7 @@
 <section class="container-fluid pt-5 pb-3 text-white" style="background-color: #16202C;">
     <div class="container">
         <div class="row">
-            <div class="col-3">
+            <div class="col-3 col-xs-12 col-tab-6">
                 <a href="{{ route('frontend.index') }}"><img src="{{ url('img/frontend/logo.png') }}" alt="" class="logo" style="margin-bottom:30px;"></a>
 
                 <!-- <p class="text-white mt-3 mb-3">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p> -->
@@ -34,14 +34,14 @@
                 </div> -->
                
             </div>
-            <div class="col-3 ps-5">
+            <div class="col-3 ps-5 col-xs-12 col-tab-6">
                 <h5 class="fw-bolder mt-2" style="margin-bottom:30px !important;">Top Products</h5>
                 <a href="" class="mb-3 d-block text-decoration-none no-result-list text-white">Tips for buyers</a>
                 <a href="" class="mb-3 d-block text-decoration-none no-result-list text-white">Tips for sellers</a>
                 <a href="" class="mb-3 d-block text-decoration-none no-result-list text-white">Commercial Resources</a>
                 <a href="" class="mb-3 d-block text-decoration-none no-result-list text-white">Marketing Service</a>
             </div>
-            <div class="col-3 ps-5">
+            <div class="col-3 ps-5 col-xs-12 col-tab-6">
                 <h5 class="text-white fw-bolder mt-2" style="margin-bottom:30px!important;">Newsletter</h5>
                 <p class="text-white">You can trust us. we only send promo offers, not a single spam.</p>
                 <form>
@@ -52,7 +52,7 @@
                     </div>
                 </form>
             </div>
-            <div class="col-3 ps-5">
+            <div class="col-3 ps-5 col-xs-12 col-tab-6">
                 <!-- <h5 class="fw-bolder mt-2" style="margin-bottom:30px !important;
                 ">About Us</h5> -->
                 <!-- <p class="text-white">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p> -->
