@@ -112,16 +112,29 @@ background-color: #35495E;
         padding-left: 15px;
         padding-right: 15px;
     }
+
+    span.text-white.fw-bold.user-name {
+        color: #000 !important;
+    }
 }
 
 /*tab-portrait*/
 @media (min-width: 768px) and (max-width: 991px) {
-    .col-tab-50 {
-        max-width: 50%;
-        flex: 50%;
-    }
+  
     .tab-full-btn {
         width: 100% !important;
+    }
+
+    .btn-filters {
+        justify-content: center;
+        gap: 15px;
+    }
+
+    span.text-white.fw-bold.user-name {
+        color: #000 !important;
+    }
+    .tab-mb-30 {
+        margin-bottom: 30px;
     }
 }
 

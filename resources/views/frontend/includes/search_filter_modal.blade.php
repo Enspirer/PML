@@ -15,7 +15,7 @@
                         </div>
                         
                         <div class="row mt-3">
-                            <div class="col-3">
+                            <div class="col-3 col-xs-12 col-tab-12">
                                 <div>
                                     <label for="propertyType" class="form-label mb-0 required">Property Type</label>
                                     <select class="form-select" aria-label="propertyType" name="propertyType" id="propertyType" onChange="renderFields()">
@@ -29,7 +29,7 @@
                                 </div>  
                             </div>
                                 
-                            <div class="col-3">
+                            <div class="col-3 col-xs-12 col-tab-12">
                                 <div>
                                     <label for="transaction_type" class="form-label mb-0 required">Transaction Type</label>
                                     <select class="form-select" aria-label="transaction_type" name="transaction_type" id="transaction_type">
@@ -40,7 +40,7 @@
                                 </div> 
                             </div>
                                 
-                            <div class="col-3">
+                            <div class="col-3 col-xs-12 col-tab-12">
                                 <div>
                                     <label for="min_price" class="form-label mb-0 required">City</label>
                                     <select class="form-select areas" aria-label="Default select example" name="city">
@@ -68,7 +68,7 @@
 
                         <div class="row mt-3">
 
-                            <div class="col-3">
+                            <div class="col-3 col-xs-12 col-tab-12">
                                 <div>
                                     <label for="min_price" class="form-label mb-0 required">Min Price</label>
                                     <select class="form-select" aria-label="min_price" name="min_price" id="min_price">
@@ -132,7 +132,7 @@
                             </div>
                             
 
-                            <div class="col-3">
+                            <div class="col-3 col-xs-12 col-tab-12">
                                 <div>
                                     <label for="max_price" class="form-label mb-0 required">Max Price</label>
                                     <select class="form-select" aria-label="max_price" name="max_price" id="max_price">
@@ -195,7 +195,7 @@
                                 </div> 
                             </div>
 
-                            <div class="col-3">
+                            <div class="col-3 col-xs-12 col-tab-12">
                                 <div>
                                     <label for="listed_since" class="form-label mb-0 required">Listed Since</label>
                                     <input type="date" name="listed_since" class="form-control" aria-label="listed_since">

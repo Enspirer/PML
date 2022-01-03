@@ -37,7 +37,7 @@
 
     <div class="container mt-4">
         <div class="row" style="margin-bottom: 3rem;">
-            <div class="col-9 col-xs-12">
+            <div class="col-9 col-xs-12 col-tab-12">
                 
                 <h4>Properties for 
                     @if(ucfirst($transaction_type) == 'Transaction_type')
@@ -475,7 +475,7 @@
                 </div>
             </div>
 
-            <div class="col-3  col-xs-12">
+            <div class="col-3 col-xs-12 col-tab-50 tab-center tab-mb-30">
                 <div class="row justify-content-center custom-shadow p-3 mb-4">
                     <div class="col-12 text-center">
 
