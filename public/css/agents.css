@@ -60,3 +60,37 @@
 .form-mb {
     margin-bottom: 2rem;
 }
+
+
+
+/*mobile-view*/
+@media screen and (max-width: 767px) {
+    .mobile-find-agent-area {
+        padding-left: 15px !important;
+        padding-right: 15px;
+    }
+    
+    .banner {
+        height: 575px;
+    }
+
+    .agents .logo {
+        height: 8rem;
+        width: 8rem;
+    }
+
+    .sidebar-card-area {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
+/*tab-portrait*/
+@media (min-width: 768px) and (max-width: 991px) {}
+
+/* Tab Landscape */
+@media (min-width: 992px) and (max-width: 1024px) {}
+
+/*4k screen*/
+@media screen and (min-width: 1441px) {}
+
