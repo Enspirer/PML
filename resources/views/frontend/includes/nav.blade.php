@@ -189,12 +189,23 @@
 
 <div class="tab-content" id="myTabContent">
   <div class="tab-pane fade show active mobile-nav-tab" id="home" role="tabpanel" aria-labelledby="home-tab">
-        <a href="#">Home</a>
-        <a href="#">For Sale</a>
-        <a href="#">For Rent</a>
-        <a href="#">Agents</a>
-        <a href="#">Contact Us</a> 
+        <a href="{{ route('frontend.index') }}">Home</a>
+        <a href="{{ route('frontend.for_sale', ['key_name', 'min_price', 'max_price', 'sale', 'property_type', 'beds', 'baths', 'land_size', 'listed_since', 'building_type', 'open_house', 'zoning_type', 'units', 'building_size', 'farm_type', 'parking_type', 'city'] )}}">For Sale</a>
+        <a href="{{ route('frontend.for_sale', ['key_name', 'min_price', 'max_price', 'rent', 'property_type', 'beds', 'baths', 'land_size', 'listed_since', 'building_type', 'open_house', 'zoning_type', 'units', 'building_size', 'farm_type', 'parking_type', 'city'] )}}">For Rent</a>
+        @if(App\Models\PropertyType::where('id',get_settings('menu_type_1'))->first() != null)               
+            <a href="{{ route('frontend.for_sale', ['key_name', 'min_price', 'max_price', 'transaction_type', App\Models\PropertyType::where('id',get_settings('menu_type_1'))->first()->id, 'beds', 'baths', 'land_size', 'listed_since', 'building_type', 'open_house', 'zoning_type', 'units', 'building_size', 'farm_type', 'parking_type', 'city'] )}}">{{App\Models\PropertyType::where('id',get_settings('menu_type_1'))->first()->property_type_name}}</a>
+        @endif
+        @if(App\Models\PropertyType::where('id',get_settings('menu_type_2'))->first() != null)              
+            <a href="{{ route('frontend.for_sale', ['key_name', 'min_price', 'max_price', 'transaction_type', App\Models\PropertyType::where('id',get_settings('menu_type_2'))->first()->id, 'beds', 'baths', 'land_size', 'listed_since', 'building_type', 'open_house', 'zoning_type', 'units', 'building_size', 'farm_type', 'parking_type', 'city'] )}}">{{App\Models\PropertyType::where('id',get_settings('menu_type_2'))->first()->property_type_name}}</a>
+        @endif
+        @if(App\Models\PropertyType::where('id',get_settings('menu_type_3'))->first() != null)
+            <a href="{{ route('frontend.for_sale', ['key_name', 'min_price', 'max_price', 'transaction_type', App\Models\PropertyType::where('id',get_settings('menu_type_3'))->first()->id, 'beds', 'baths', 'land_size', 'listed_since', 'building_type', 'open_house', 'zoning_type', 'units', 'building_size', 'farm_type', 'parking_type', 'city'] )}}">{{App\Models\PropertyType::where('id',get_settings('menu_type_3'))->first()->property_type_name}}</a>
+        @endif       
+        <a href="{{ route('frontend.find-agent', ['country','area', 'agent_type', 'agent_name'] )}}">Agents</a>
+        <a href="{{ route('frontend.contact_us') }}">Contact Us</a> 
     </div>
+
+    
   <div class="tab-pane fade profile-nav mobile-nav-tab" id="profile" role="tabpanel" aria-labelledby="profile-tab">
             <form action="{{route('frontend.country_change')}}" method="post" class="filter-form">
              
