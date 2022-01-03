@@ -92,3 +92,44 @@ input:-webkit-autofill
 .bottom {
     margin-bottom: 4rem!important;
 }
+
+/*mobile-view*/
+@media screen and (max-width: 767px) {
+    .mobile-register-area {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .mobile-padding-60 {
+        padding-top: 60px !important;
+    }
+
+    .horizontal-line {
+        height: 5px;
+        width: 100%;
+        background: #fff;
+        margin-top: 60px;
+    }
+
+    .mobile-mb-30 {
+        margin-bottom: 30px;
+    }
+
+    .mobile-register-btn {
+        width: 100%;
+    }
+
+    .mobile-register-btn button#submit_btn {
+        width: 100% !important;
+    }
+    
+}
+
+/*tab-portrait*/
+@media (min-width: 768px) and (max-width: 991px) {}
+
+/* Tab Landscape */
+@media (min-width: 992px) and (max-width: 1024px) {}
+
+/*4k screen*/
+@media screen and (min-width: 1441px) {}

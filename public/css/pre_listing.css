@@ -1,0 +1,17 @@
+/*mobile-view*/
+@media screen and (max-width: 767px) {
+    .light-style.flex-grow-1.container-p-y {
+        margin-top: 50px !important;
+        margin-left: 15px !important;
+        margin-right: 15px !important;
+    }
+}
+
+/*tab-portrait*/
+@media (min-width: 768px) and (max-width: 991px) {}
+
+/* Tab Landscape */
+@media (min-width: 992px) and (max-width: 1024px) {}
+
+/*4k screen*/
+@media screen and (min-width: 1441px) {}

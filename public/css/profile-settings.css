@@ -136,3 +136,14 @@
 .ad-hide {
     display: block!important;
 }
+
+/*mobile-view*/
+@media screen and (max-width: 767px) {
+    .container.user-settings {
+        margin-top: 0rem !important;
+    }
+    
+    ul#pills-tab {
+        gap: 20px;
+    }
+}

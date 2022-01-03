@@ -17,7 +17,7 @@
     <div style="background: #e8eeef;">
         <div class="container user-settings" style="margin-top:6rem;">
             <div class="row justify-content-between">
-                <div class="col-4 left" style="background-color: #E8EEEF">
+                <div class="col-4 left col-xs-12" style="background-color: #E8EEEF">
                     <div class="row">
                         <div class="col-12">
                             @include('frontend.includes.profile-settings-links')
@@ -25,7 +25,7 @@
                     </div>
                 </div>
 
-                <div class="col-8 ps-4 right pb-5" style="padding-top: 3rem; background-color: #F5F9FA">                    
+                <div class="col-8 ps-4 right pb-5 col-xs-12" style="padding-top: 3rem; background-color: #F5F9FA">                    
 
                     <div class="row justify-content-between mb-4">
                         <div class="col-8 p-0">
