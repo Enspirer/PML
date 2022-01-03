@@ -27,9 +27,9 @@
 
 @else
 
-    <div class="container-fluid banner" style="margin-top: 6rem;">
-        <div class="row justify-content-center" style="padding-top: 3rem; padding-left: 10rem;">
-            <div class="col-5 contact-form">
+    <div class="container-fluid banner contact-banner" style="margin-top: 6rem;">
+        <div class="row justify-content-center xs-pl-0 contact-wrapper-sm" style="padding-top: 3rem; padding-left: 10rem;">
+            <div class="col-5 contact-form col-xs-90precent col-sm-12">
                 <form action="{{route('frontend.contact_us.store')}}" method="post" enctype="multipart/form-data">
                 {{csrf_field()}}
                     <h5 class="fw-bold">Let Us Call You!</h5>
@@ -37,11 +37,11 @@
 
                     <div class="mb-3">
                         <div class="row">
-                            <div class="col-6">
+                            <div class="col-6 col-xs-12 ">
                                 <input type="text" class="form-control rounded-0" name="name" id="name" placeholder="Your Name" required>
                             </div>
 
-                            <div class="col-6 input-group">
+                            <div class="col-6 input-group col-xs-12 xs-mt-15">
                                 <div class="input-group-prepend">
                                     <select class="form-select" aria-label="country_code" id="country_code" name="agent_type" required>
                                         <option value="+94">+94</option>
@@ -75,11 +75,11 @@
 
                    
                     <div class="row align-items-center">
-                        <div class="col-6">
+                        <div class="col-6 col-xs-12">
                             <div class="g-recaptcha" data-callback="checked" data-sitekey="6Lel4Z4UAAAAAOa8LO1Q9mqKRUiMYl_00o5mXJrR" style="transform: scale(0.80); -webkit-transform: scale(0.80); transform-origin: 0 0; -webkit-transform-origin: 0 0; padding-top: 2rem"></div>
                         </div>
 
-                        <div class="col-6 text-end">
+                        <div class="col-6 text-end col-xs-12 contact-submit">
                             <button type="submit" class="submit_btn btn submit-btn w-75" disabled>Submit</button>
                         </div>
                     </div>
@@ -133,25 +133,25 @@
             let infoWindow = new google.maps.InfoWindow({
                 content:    `<div class="row align-items-center">
                                 <div class="col-12">
-                                    <a href="{{ route('frontend.index') }}"><img src="{{ url('img/frontend/logo.png') }}" class="img-fluid" alt="" style="height: 3rem;"></a>
+                                    <a href="{{ route('frontend.index') }}"><img src="{{ url('img/frontend/logo.png') }}" class="img-fluid contact-info-logo" alt="" style="height: 3rem;"></a>
 
                               
 
                                     <div class="row" style="margin-top:25px;">
                                         <div class="col-2 pe-0">
-                                            <i class="fas fa-phone-alt text-white"></i>
+                                            <i class="fas fa-phone-alt text-white infocard-i"></i>
                                         </div>
                                         <div class="col-10 ps-0">
-                                            <p class="text-white mb-3">+94 778669990</p>
+                                            <p class="text-white mb-3 infocard-p">+94 778669990</p>
                                         </div>
                                     </div>
 
                                     <div class="row">
                                         <div class="col-2 pe-0">
-                                            <i class="fas fa-envelope text-white"></i>
+                                            <i class="fas fa-envelope text-white infocard-i"></i>
                                         </div>
                                         <div class="col-10 ps-0">
-                                            <p class="text-white mb-3">hello@propertymarketlive.com</p>
+                                            <p class="text-white mb-3 infocard-p">hello@propertymarketlive.com</p>
                                         </div>
                                     </div>
 

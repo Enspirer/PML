@@ -90,3 +90,109 @@
 .gm-style .gm-style-iw-d {
     width: 260px;
 }
+
+/*mobile-view*/
+@media screen and (max-width: 767px) {
+    .col-xs-90precent {
+        width: 90%;
+        max-width: 100%;
+    }
+    .xs-pl-0 {
+        padding-left: 0 !important;
+    }
+    .contact-form {
+        margin-left: 5%;
+        margin-right: 5%;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .container-fluid.banner.contact-banner {
+        height: 800px;
+        background-size: cover;
+    }
+    .col-xs-12 {
+        width: 100%;
+        max-width: 100%;
+        flex: 100%;
+    }
+
+    .contact-submit {
+        justify-content: flex-start;
+        display: flex;
+    }
+
+    .contact-submit button.submit_btn.btn.submit-btn.w-75 {
+        width: max-content !important;
+        padding: 10px 20px;
+        margin-bottom: 20px;
+    }
+
+    .xs-mt-15 {
+        margin-top: 15px;
+    }
+
+    /*info window*/
+    .gm-style-iw.gm-style-iw-c {
+        width: 240px;
+        max-width: 240px !important;
+        height: 139px;
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+        top: 210px!important;
+        left: -20px!important;
+    }
+
+    .gm-style .gm-style-iw-d {
+        width: 100%;
+    }
+
+    .contact-info-logo {
+        height: 1.4rem !important;
+    }
+
+    .infocard-i {
+        font-size: 0.7rem;
+        margin-right: 16px;
+    }
+
+    .infocard-p {
+        font-size: 0.7rem;
+    }
+
+    .gm-style .gm-style-iw-t::after {
+        left: 0rem;
+        top: 70px;
+        width: 20px;
+        height: 20px;
+    }
+
+}
+
+
+
+/*tab-portrait*/
+@media (min-width: 768px) and (max-width: 991px) {
+    .contact-wrapper-sm {
+        padding-left: 15px !important;
+        margin-left: 15px;
+        margin-right: 15px;
+        padding-right: 15px;
+    }
+    .col-sm-12 {
+        max-width: 100%;
+        flex: 100%;
+    }
+}
+
+
+
+
+
+/*large screen*/
+@media screen and (min-width: 1400px) {
+   
+}
+
+/*windows mobile*/
+@media (max-width: 767px) and (min-width: 451px){
+}
