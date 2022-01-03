@@ -29,7 +29,7 @@
 
     <div class="container-fluid banner contact-banner" style="margin-top: 6rem;">
         <div class="row justify-content-center xs-pl-0 contact-wrapper-sm" style="padding-top: 3rem; padding-left: 10rem;">
-            <div class="col-5 contact-form col-xs-90precent col-sm-12">
+            <div class="col-5 contact-form col-xs-90precent col-tab-12">
                 <form action="{{route('frontend.contact_us.store')}}" method="post" enctype="multipart/form-data">
                 {{csrf_field()}}
                     <h5 class="fw-bold">Let Us Call You!</h5>
