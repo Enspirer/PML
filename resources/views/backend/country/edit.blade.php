@@ -15,6 +15,14 @@
                             <input type="text" name="country" id="country" class="form-control" value="{{ $country->country_name }}" required>
                         </div>
                         <div class="form-group">
+                            <label>Longitude <span class="text-danger">*</span></label>
+                            <input type="text" id="longitude" class="form-control" value="{{ $country->lng }}" name="longitude" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Latitude <span class="text-danger">*</span></label>
+                            <input type="text" id="latitude" class="form-control" value="{{ $country->lat }}" name="latitude" required>
+                        </div>
+                        <div class="form-group">
                             <label>SLUG <span class="text-danger">*</span></label>
                             <input type="text" class="form-control" id="slug" name="slug" value="{{ $country->slug }}" required>
                         </div>
