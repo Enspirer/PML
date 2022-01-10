@@ -3,7 +3,7 @@
     background-repeat: no-repeat;
     background-size: 100% 100%;
     width: 100%;
-    height: 650px;
+    height: 800px;
 }
 .contact-form {
     background-color: rgb(255, 255, 255, 0.8);
@@ -89,6 +89,61 @@
 
 .gm-style .gm-style-iw-d {
     width: 260px;
+}
+
+.contact-card h2 {
+    margin-bottom: 15px !important;
+}
+
+.contact-card p {
+    display: flex;
+    align-items: center;
+}
+
+.contact-icon-wrapper {
+    display: inline-block;
+    width: 85px;
+}
+
+.contact-card {
+    background: #eee;
+    width: max-content;
+    padding: 25px;
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);
+    position: absolute;
+    top: -6rem;
+}
+
+.details-card-area {
+    position: relative;
+}
+
+.other-card img {
+    height: 80px;
+}
+
+.other-card {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.other-contact-wrapper {
+    padding-top: 75px;
+    padding-left: 60px;
+}
+
+.other-txt {
+    margin-left: 45px;
+}
+
+.office-card img {
+    width: 100%;
+}
+
+.our-offices row {
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
 
 /*mobile-view*/
