@@ -49,23 +49,22 @@ class HomeController extends Controller
        $endetails = get_country_cookie($request);
 
        if($endetails == null){
-           $countryIso = null;
-       }else{
            $getClientIP = request()->getClientIp();
            $getcountry = self::get_country($getClientIP);
-           if($endetails == $getcountry){
-               $countryIso = null;
-
-           }else{
                if($getcountry){
                    $countryIso = Country::where('country_id',$getcountry)->first();
                    Cookie::queue("country_code", $getcountry ,1000);
 
                }else{
                    $countryIso = null;
-               }
-           }
 
+               }
+
+
+           $countryIso = null;
+       }else{
+
+           $countryIso = $endetails;
 
        }
 
@@ -633,9 +632,10 @@ class HomeController extends Controller
                                     '</div>'.
                                     '<div class="info-desc-area" style="flex:2;">'.
                                         '<p style="font-weight:bold;">'.$property->name.'</p>'.
-                                        '<p style="font-size: 9px;overflow: hidden;text-overflow: ellipsis;display: -webkit-box;height: 40px;">'.$property->meta_description.'</p>'.
+                                        '<p style="font-size: 9px;overflow: hidden;text-overflow: ellipsis;display: -webkit-box;height: 40px;">'.$property->description.'</p>'.
                                         '<div class="icon-area" style="display: block;">'.
-                                        ' <span class="icon" style="display: inline-flex;"> LKR '.number_format($property->price,2).'</span>'.
+                                            ' <span class="icon" style="display: inline-flex;"> LKR '.number_format($property->price,2).'</span>'.
+                                        '</div>'.
                                     '</div>'.
                                 '</div>'.
                             '</div>'.
