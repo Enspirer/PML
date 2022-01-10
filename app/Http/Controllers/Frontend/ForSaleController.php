@@ -182,9 +182,9 @@ class ForSaleController extends Controller
         // dd($max_price);
 
         if(get_country_cookie(request()) == null ){
-            $properties = Properties::where('admin_approval', 'Approved')->where('sold_request',null);
+            $properties = Properties::where('admin_approval', 'Approved')->where('sold_request',null)->orderBy('id','desc');
         }else{
-            $properties = Properties::where('admin_approval', 'Approved')->where('sold_request',null)->where('country',get_country_cookie(request())->id);
+            $properties = Properties::where('admin_approval', 'Approved')->where('sold_request',null)->orderBy('id','desc')->where('country',get_country_cookie(request())->id);
         }
         // ->where('sold_request',null)
         // ->where('country',get_country_cookie(request())->country_name)
