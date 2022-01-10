@@ -559,29 +559,53 @@ class HomeController extends Controller
     public function nest_property($lng,$lat)
     {
         $properties =  Properties::all();
-        $finalOut =[];
+        $finalOut = null;
 
         foreach ($properties as $property)
         {
            $distance =   self::haversineGreatCircleDistance($lat,$lng,$property->lat,$property->long);
             $distandPanel =  round($distance/1000,2);
-           if($distandPanel < 10 ){
+//           if($distandPanel < 10 ){
 
-               $stakGroup = [
-                   'propery_id' => $property->id,
-                   'distance' => $distandPanel. ' KM',
-                   'property' => $property->name
-               ];
-               array_push($finalOut,$stakGroup);
-           }
+//               $stakGroup = [
+//                   'propery_id' => $property->id,
+//                   'distance' => $distandPanel. ' KM',
+//                   'property' => $property->name
+//               ];
+
+            $rebust = '<div class="card"><div class="card-body"><div class="info-card" style="display:flex;">'.
+                            '<div class="info-img-area" style="flex:1;">'.
+                                '<img style="height:60px;" src="'.uploaded_asset($property->feature_image_id).'" alt="">'.
+                            '</div>'.
+                            '<div class="info-desc-area" style="flex:2;">'.
+                                '<p style="font-weight:bold;">Price here</p>'.
+                                '<p style="font-size: 9px;overflow: hidden;text-overflow: ellipsis;display: -webkit-box;height: 40px;">'.$property->meta_description.'</p>'.
+                                '<div class="icon-area" style="display: block;">'.
+                                '<span class="icon" style="display: inline-flex;">icon one here</span>'.
+                                ' <span class="icon" style="display: inline-flex;">icon two here</span>'.
+                            '</div>
+                        </div></div></div>';
+
+
+
+
+
+
+
+
+
+//            $rebust = '<div class="card"><div class="card-body"></div> <div class="row"><div class="col-md-4"></div><div class="col-md-8"><h4>'.$property->name.'</h4></div> </div> </div>';
+
+
+               $finalOut .= $rebust;
+//           }
 
 
         }
 
-        dd($finalOut);
 
 
-        return $lng.' '.$lat;
+        return $finalOut;
     }
 
 
