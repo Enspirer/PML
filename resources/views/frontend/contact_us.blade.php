@@ -157,26 +157,177 @@
 
 <div class="container">
     <div class="our-offices">
-        <div class="row">
-            <div class="office-card col-md-4 col-xs-12">
-                <div class="map-part-top">
-                    <img class="map" src="https://tallentor.com/theme_light/assets/contact/uk.png" alt="">
-                </div>
-                <div class="office-card-txt-wrapper">
-                    <h3>United Kingdom</h3>
-                    <div class="office-contact">
-                        <i class="fa fa-map-marker" aria-hidden="true"></i>
-                        <div class="office-contact-txt">
-                            <p>Enspirer International, 35, Melbourne Avenue, London, W13 9BX, United Kingdom</p>
+        <div class="row offices-row">
+            <div class="col-md-4 col-xs-12">
+                <div class="office-card">
+                    <div class="map-part-top">
+                        <img class="map" src="https://tallentor.com/theme_light/assets/contact/uk.png" alt="">
+                    </div>
+                    <div class="office-card-txt-wrapper">
+                        <h3>United Kingdom</h3>
+                        <div class="office-contact">
+                            <i class="fa fa-map-marker"></i>
+                            <div class="office-contact-txt">
+                                <p>Enspirer International, 35, Melbourne Avenue, London, W13 9BX, United Kingdom</p>
+                            </div>
+                        </div>
+                        <div class="office-contact">
+                        <i class="fas fa-phone-alt"></i>
+                            <div class="office-contact-txt">
+                                <p>+44 7741 025138</p>
+                            </div>
+                        </div>
+                        <div class="office-contact">
+                        <i class="fa fa-envelope"></i>
+                            <div class="office-contact-txt">
+                                <p>uk@enspirer.com</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="office-card col-md-4 col-xs-12">
-
+            <div class="col-md-4 col-xs-12">
+                <div class="office-card">
+                    <div class="map-part-top">
+                        <img class="map" src="https://tallentor.com/theme_light/assets/contact/uk.png" alt="">
+                    </div>
+                    <div class="office-card-txt-wrapper">
+                    <h3>Sri Lanka</h3>
+                        <div class="office-contact">
+                            <i class="fa fa-map-marker"></i>
+                            <div class="office-contact-txt">
+                                <p>558/ 3B Pitipana Town, Homagama, 10206 Sri lanka</p>
+                            </div>
+                        </div>
+                        <div class="office-contact">
+                        <i class="fas fa-phone-alt"></i>
+                            <div class="office-contact-txt">
+                                <p>+94 0778669990</p>
+                            </div>
+                        </div>
+                        <div class="office-contact">
+                        <i class="fa fa-envelope"></i>
+                            <div class="office-contact-txt">
+                                <p>hello@tallentor.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="office-card col-md-4 col-xs-12">
+            <div class="col-md-4 col-xs-12">
+                <div class="office-card">
+                    <div class="map-part-top">
+                        <img class="map" src="https://tallentor.com/theme_light/assets/contact/uk.png" alt="">
+                    </div>
+                    <div class="office-card-txt-wrapper">
+                        <h3>Australia</h3>
+                        <div class="office-contact">
+                            <i class="fa fa-map-marker"></i>
+                            <div class="office-contact-txt">
+                                <p>19 Koombahla Court, Rowville, Victoria 3178, Australia</p>
+                            </div>
+                        </div>
+                        <div class="office-contact">
+                        <i class="fas fa-phone-alt"></i>
+                            <div class="office-contact-txt">
+                                <p>+61 435 975 999</p>
+                            </div>
+                        </div>
+                        <div class="office-contact">
+                        <i class="fa fa-envelope"></i>
+                            <div class="office-contact-txt">
+                                <p>info@tallentor.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
+        <div class="row offices-row">
+            <div class="col-md-4 col-xs-12">
+                <div class="office-card">
+                    <div class="map-part-top">
+                        <img class="map" src="https://tallentor.com/theme_light/assets/contact/uk.png" alt="">
+                    </div>
+                    <div class="office-card-txt-wrapper">
+                        <h3>France</h3>
+                        <div class="office-contact">
+                            <i class="fa fa-map-marker"></i>
+                            <div class="office-contact-txt">
+                                <p>61 Rue Saint Blaise 75020 Paris</p>
+                            </div>
+                        </div>
+                        <div class="office-contact">
+                        <i class="fas fa-phone-alt"></i>
+                            <div class="office-contact-txt">
+                                <p>+33 6 52 30 02 55</p>
+                            </div>
+                        </div>
+                        <div class="office-contact">
+                        <i class="fa fa-envelope"></i>
+                            <div class="office-contact-txt">
+                                <p>france@tallentor.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-xs-12">
+                <div class="office-card">
+                    <div class="map-part-top">
+                        <img class="map" src="https://tallentor.com/theme_light/assets/contact/uk.png" alt="">
+                    </div>
+                    <div class="office-card-txt-wrapper">
+                    <h3>United Arab Emirates</h3>
+                        <div class="office-contact">
+                            <i class="fa fa-map-marker"></i>
+                            <div class="office-contact-txt">
+                                <p>No - 512 Al Zahra Building Al Nabaa Sharjah UAE</p>
+                            </div>
+                        </div>
+                        <div class="office-contact">
+                        <i class="fas fa-phone-alt"></i>
+                            <div class="office-contact-txt">
+                                <p>+971 568694803</p>
+                            </div>
+                        </div>
+                        <div class="office-contact">
+                        <i class="fa fa-envelope"></i>
+                            <div class="office-contact-txt">
+                                <p>uae@tallentor.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-xs-12">
+                <div class="office-card">
+                    <div class="map-part-top">
+                        <img class="map" src="https://tallentor.com/theme_light/assets/contact/uk.png" alt="">
+                    </div>
+                    <div class="office-card-txt-wrapper">
+                        <h3>Malaysia</h3>
+                        <div class="office-contact">
+                            <i class="fa fa-map-marker"></i>
+                            <div class="office-contact-txt">
+                                <p>A 15-03 Tropicana Avenue, NO.12 Persiaran Tropicana, Tropicana Golf & Country resort, PJU3 Petaling Jaya 47410, Selangor, Malaysia.</p>
+                            </div>
+                        </div>
+                        <!-- <div class="office-contact">
+                        <i class="fas fa-phone-alt"></i>
+                            <div class="office-contact-txt">
+                                <p>+61 435 975 999</p>
+                            </div>
+                        </div> -->
+                        <div class="office-contact">
+                        <i class="fa fa-envelope"></i>
+                            <div class="office-contact-txt">
+                                <p>malaysia@tallentor.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
