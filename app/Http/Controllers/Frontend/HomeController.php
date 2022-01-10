@@ -18,6 +18,7 @@ use App\Models\Favorite;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Cookie;
 use DB;
+use GuzzleHttp\Client;
 
 /**
  * Class HomeController.
@@ -28,10 +29,33 @@ class HomeController extends Controller
      * @return \Illuminate\View\View
      */
 
+    public static function get_country($ip) {
+        try{
+            $client = new Client();
+            $res = $client->request('GET', 'http://ipinfo.io/'.$ip.'/country');
+
+            return $res->getBody()->getContents();
+
+        }catch (\Exception $exception){
+            return null;
+        }
+    }
 
 
-    public function index()
+    public function index(Request $request)
     {
+        $getClientIP = request()->getClientIp();
+        $getcountry = self::get_country($getClientIP);
+        dd($getcountry);
+
+//        $self = self::setCookie($getcountry);
+
+
+
+//        $self = self::setCookie($request->countries_list);
+
+
+
         $latest_post = Posts::where('status','=','Enabled')->take(1)->latest()->first();
         $posts = Posts::where('status','=','Enabled')->take(6)->latest()->get();
 
@@ -573,18 +597,21 @@ class HomeController extends Controller
 //                   'property' => $property->name
 //               ];
 
-            $rebust = '<div class="card"><div class="card-body"><div class="info-card" style="display:flex;">'.
-                            '<div class="info-img-area" style="flex:1;">'.
-                                '<img style="height:60px;" src="'.uploaded_asset($property->feature_image_id).'" alt="">'.
+            $rebust = '<div class="card">'.
+                            '<div class="card-body">'.
+                                '<div class="info-card" style="display:flex;">'.
+                                    '<div class="info-img-area" style="flex:1;">'.
+                                        '<img style="height:60px;" src="'.uploaded_asset($property->feature_image_id).'" alt="">'.
+                                    '</div>'.
+                                    '<div class="info-desc-area" style="flex:2;">'.
+                                        '<p style="font-weight:bold;">Price here</p>'.
+                                        '<p style="font-size: 9px;overflow: hidden;text-overflow: ellipsis;display: -webkit-box;height: 40px;">'.$property->meta_description.'</p>'.
+                                        '<div class="icon-area" style="display: block;">'.
+                                        ' <span class="icon" style="display: inline-flex;">icon two here</span>'.
+                                    '</div>'.
+                                '</div>'.
                             '</div>'.
-                            '<div class="info-desc-area" style="flex:2;">'.
-                                '<p style="font-weight:bold;">Price here</p>'.
-                                '<p style="font-size: 9px;overflow: hidden;text-overflow: ellipsis;display: -webkit-box;height: 40px;">'.$property->meta_description.'</p>'.
-                                '<div class="icon-area" style="display: block;">'.
-                                '<span class="icon" style="display: inline-flex;">icon one here</span>'.
-                                ' <span class="icon" style="display: inline-flex;">icon two here</span>'.
-                            '</div>
-                        </div></div></div>';
+                        '</div>';
 
 
 
