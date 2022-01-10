@@ -57,7 +57,6 @@ class HomeController extends Controller
         }else{
             $countryIso = null;
         }
-        dd($countryIso);
 
 
 //        $self = self::setCookie($request->countries_list);
