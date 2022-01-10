@@ -53,14 +53,20 @@ class HomeController extends Controller
        }else{
            $getClientIP = request()->getClientIp();
            $getcountry = self::get_country($getClientIP);
-
-           if($getcountry){
-               $countryIso = Country::where('country_id',$getcountry)->first();
-               Cookie::queue("country_code", $getcountry ,1000);
+           if($endetails == $getcountry){
+               $countryIso = null;
 
            }else{
-               $countryIso = null;
+               if($getcountry){
+                   $countryIso = Country::where('country_id',$getcountry)->first();
+                   Cookie::queue("country_code", $getcountry ,1000);
+
+               }else{
+                   $countryIso = null;
+               }
            }
+
+
        }
 
 
