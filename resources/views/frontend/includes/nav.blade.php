@@ -65,7 +65,7 @@
 
             @auth
             <div class="log-reg position-absolute" style="top: -4.1rem">
-                <a class="wishlist fw-bold d-inline-block px-4 text-decoration-none border-start border-end text-white"
+                <a style="border-right:0px !important;" class="wishlist fw-bold d-inline-block px-4 text-decoration-none border-start border-end text-white"
                     href="{{url('favourites')}}"><i class="far fa-heart me-2"></i> Wish List</a>
 
                 <a class="wishlist fw-bold d-inline-block px-4 text-decoration-none border-start border-end text-white"
@@ -250,7 +250,7 @@
 
         @auth
 
-            <a class="wishlist fw-bold d-inline-block px-4 text-decoration-none border-start border-end mobiile-wish-list-btn"
+            <a style="border-right:0px !important" class="wishlist fw-bold d-inline-block px-4 text-decoration-none border-start border-end mobiile-wish-list-btn"
                 href="{{url('favourites')}}"><i class="far fa-heart me-2"></i> Wish List</a>
 
             <a class="wishlist fw-bold d-inline-block px-4 text-decoration-none border-start border-end text-white"
@@ -277,7 +277,7 @@
 
         @else
           
-            <a class="wishlist fw-bold d-inline-block px-4 text-decoration-none border-start border-end mobiile-wish-list-btn"
+            <a style="border-right:0px !important;" class="wishlist fw-bold d-inline-block px-4 text-decoration-none border-start border-end mobiile-wish-list-btn"
                     href="{{ route('frontend.auth.login') }}"><i class="far fa-heart me-2"></i> Wish List</a>
 
             <a class="wishlist fw-bold d-inline-block px-4 text-decoration-none border-start border-end text-white"
