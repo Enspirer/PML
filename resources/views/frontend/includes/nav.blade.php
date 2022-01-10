@@ -68,6 +68,9 @@
                 <a class="wishlist fw-bold d-inline-block px-4 text-decoration-none border-start border-end text-white"
                     href="{{url('favourites')}}"><i class="far fa-heart me-2"></i> Wish List</a>
 
+                <a class="wishlist fw-bold d-inline-block px-4 text-decoration-none border-start border-end text-white"
+                    href="{{url('favourites')}}"><i class="far fa-heart me-2"></i> Notification</a>
+
                 <!-- <a class="wishlist fw-bold d-inline-block px-4 text-decoration-none border-start border-end" href="{{ route('frontend.auth.login') }}"><i class="far fa-heart me-2"></i> Second List</a> -->
 
                 <a onclick="showHideDiv()" class="nav-link dropdown-toggle d-inline-block ps-4 mb-4" href="{{route('frontend.auth.login')}}"
@@ -117,6 +120,8 @@
                 <a class="wishlist fw-bold d-inline-block px-4 text-decoration-none border-start border-end"
                     style="border-right:0px!important;" href="{{ route('frontend.auth.login') }}"><i
                         class="far fa-heart me-2"></i> Wish List</a>
+                <a class="wishlist fw-bold d-inline-block px-4 text-decoration-none border-start border-end text-white"
+                    href="{{url('favourites')}}"><i class="far fa-heart me-2"></i> Notification</a>
 
                 <!-- <a class="wishlist fw-bold d-inline-block px-4 text-decoration-none border-start border-end" href="{{ route('frontend.auth.login') }}"><i class="far fa-heart me-2"></i> Second List</a> -->
 
@@ -248,6 +253,9 @@
             <a class="wishlist fw-bold d-inline-block px-4 text-decoration-none border-start border-end mobiile-wish-list-btn"
                 href="{{url('favourites')}}"><i class="far fa-heart me-2"></i> Wish List</a>
 
+            <a class="wishlist fw-bold d-inline-block px-4 text-decoration-none border-start border-end text-white"
+                    href="{{url('favourites')}}"><i class="far fa-heart me-2"></i> Notification</a>
+
             <!-- user login styles -->
             <a onclick="showHideDivMobile()" class="nav-link dropdown-toggle d-inline-block ps-4 mb-4" href="{{route('frontend.auth.login')}}"
                     id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-haspopup="true"
@@ -271,6 +279,9 @@
           
             <a class="wishlist fw-bold d-inline-block px-4 text-decoration-none border-start border-end mobiile-wish-list-btn"
                     href="{{ route('frontend.auth.login') }}"><i class="far fa-heart me-2"></i> Wish List</a>
+
+            <a class="wishlist fw-bold d-inline-block px-4 text-decoration-none border-start border-end text-white"
+                    href="{{url('favourites')}}"><i class="far fa-heart me-2"></i> Notification</a>
 
 
             <a class="register fw-bold d-inline-block border px-4 text-decoration-none"
