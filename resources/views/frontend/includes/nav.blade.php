@@ -69,7 +69,7 @@
                     href="{{url('favourites')}}"><i class="far fa-heart me-2"></i> Wish List</a>
 
                 <a class="wishlist fw-bold d-inline-block px-4 text-decoration-none border-start border-end text-white"
-                    href="{{url('favourites')}}"><i class="far fa-heart me-2"></i> Notification</a>
+                    href="{{url('user_notifications')}}"><i class="far fa-bell me-2"></i> Notifications ({{App\Models\Notifications::where('user_id',auth()->user()->id)->where('status','Pending')->get()->count()}})</a>
 
                 <!-- <a class="wishlist fw-bold d-inline-block px-4 text-decoration-none border-start border-end" href="{{ route('frontend.auth.login') }}"><i class="far fa-heart me-2"></i> Second List</a> -->
 
@@ -121,7 +121,7 @@
                     style="border-right:0px!important;" href="{{ route('frontend.auth.login') }}"><i
                         class="far fa-heart me-2"></i> Wish List</a>
                 <a class="wishlist fw-bold d-inline-block px-4 text-decoration-none border-start border-end text-white"
-                    href="{{url('favourites')}}"><i class="far fa-heart me-2"></i> Notification</a>
+                    href="{{url('user_notifications')}}"><i class="far fa-bell me-2"></i> Notifications</a>
 
                 <!-- <a class="wishlist fw-bold d-inline-block px-4 text-decoration-none border-start border-end" href="{{ route('frontend.auth.login') }}"><i class="far fa-heart me-2"></i> Second List</a> -->
 
@@ -253,8 +253,8 @@
             <a style="border-right:0px !important" class="wishlist fw-bold d-inline-block px-4 text-decoration-none border-start border-end mobiile-wish-list-btn"
                 href="{{url('favourites')}}"><i class="far fa-heart me-2"></i> Wish List</a>
 
-            <a class="wishlist fw-bold d-inline-block px-4 text-decoration-none border-start border-end text-white"
-                    href="{{url('favourites')}}"><i class="far fa-heart me-2"></i> Notification</a>
+            <a class="wishlist fw-bold d-inline-block px-4 text-decoration-none border-start border-end"
+                    href="{{url('user_notifications')}}"><i class="far fa-bell me-2"></i> Notifications ({{App\Models\Notifications::where('user_id',auth()->user()->id)->where('status','Pending')->get()->count()}})</a>
 
             <!-- user login styles -->
             <a onclick="showHideDivMobile()" class="nav-link dropdown-toggle d-inline-block ps-4 mb-4" href="{{route('frontend.auth.login')}}"
@@ -262,7 +262,7 @@
                     aria-expanded="false">
                     <img src="{{ url('img/frontend/user.jpg') }}" class="rounded-circle"
                         style="height: 50px; width: 50px; margin-right: 1.4rem;"> <span
-                        class="text-white fw-bold user-name">{{auth()->user()->first_name}}</span>
+                        class="fw-bold user-name">{{auth()->user()->first_name}}</span>
             </a>
             <div id="drop-menu-mobile" class="dropdown-menu mobile-drop-menu" aria-labelledby="navbarDropdownMenuLink">
                     <a class="dropdown-item" href="{{ route('frontend.user.dashboard') }}">My Account</a>
@@ -280,8 +280,8 @@
             <a style="border-right:0px !important;" class="wishlist fw-bold d-inline-block px-4 text-decoration-none border-start border-end mobiile-wish-list-btn"
                     href="{{ route('frontend.auth.login') }}"><i class="far fa-heart me-2"></i> Wish List</a>
 
-            <a class="wishlist fw-bold d-inline-block px-4 text-decoration-none border-start border-end text-white"
-                    href="{{url('favourites')}}"><i class="far fa-heart me-2"></i> Notification</a>
+            <a class="wishlist fw-bold d-inline-block px-4 text-decoration-none border-start border-end"
+                    href="{{url('user_notifications')}}"><i class="far fa-bell me-2"></i> Notifications</a>
 
 
             <a class="register fw-bold d-inline-block border px-4 text-decoration-none"
