@@ -53,7 +53,7 @@ class HomeController extends Controller
 
         if($getcountry){
             $countryIso = Country::where('country_id',$getcountry)->first();
-            self::setCookie($getcountry);
+            Cookie::queue("country_code", $getcountry ,1000);
 
         }else{
             $countryIso = null;
