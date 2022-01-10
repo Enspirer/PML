@@ -428,3 +428,59 @@ ul.option-list li a:hover {
 .modal-footer.contact-agent {
   background: #fff;
 }
+
+/*mobile-view*/
+@media screen and (max-width: 767px) {
+  .modal-dialog {
+    max-width: 90%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .modal-content {
+    padding: 25px;
+  }
+
+  .modal-body.light-gallery-body {
+    overflow: auto !important;
+  }
+
+  div#panoModal .modal-content {
+    padding: 0;
+  }
+
+  .sidebar-card-area {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
+
+/*tab-portrait*/
+@media (min-width: 768px) and (max-width: 991px) {
+  .sidebar-card-area {
+    width: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 60px;
+  }
+
+  .sidebar-card-area .card {
+    margin-bottom: 0;
+  }
+
+  .sidebar-card-area .custom-shadow {
+    margin-bottom: 30px !important;
+  }
+
+  .tab-mt-30 {
+    margin-top: 30px;
+  }
+
+  .tab-btn-width {
+    width: max-content;
+  }
+
+}
+

@@ -167,7 +167,7 @@ button.close:hover {
 
 <div class="container mt-4" style="margin-bottom: 8rem;">
     <div class="row">
-        <div class="col-9">
+        <div class="col-9 col-xs-12 col-tab-12">
             <div class="row">
                 <div class="col-9">
                     <div class="swiper mySwiper2">
@@ -245,7 +245,7 @@ button.close:hover {
                             <!-- <div class="modal-header">
                         
                     </div> -->
-                            <div class="modal-body">
+                            <div class="modal-body light-gallery-body">
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -395,7 +395,7 @@ button.close:hover {
             <div class="row mt-4">
                 <div class="col-12">
                     <div class="row">
-                        <div class="features col-8">
+                        <div class="features col-8 col-xs-12 col-tab-12">
                             <div class="custom-shadow pt-4 pb-3 px-3" style="padding: 25px !important;">
                                 <h4 class="fw-bold">Features and Description</h4>
                                 <div class="row mt-2 ms-2" aria-expanded="false">
@@ -561,7 +561,7 @@ button.close:hover {
             <div class="show-more">(Show More)</div>
 </div>  -->
 
-                        <div class="col-4">
+                        <div class="col-4 col-xs-12 col-tab-12">
                             <div class="row">
                                 <div class="col-12">
                                     <div class="custom-shadow pt-4 pb-3 px-3 text-center">
@@ -581,7 +581,7 @@ button.close:hover {
                                         <div class="row justify-content-center mt-3">
                                             <div class="col-12 text-center mb-2">
                                                 <a href="tel:{{ $agent->telephone }}"
-                                                    class="btn py-2 fw-bold text-white w-100 rounded-pill"
+                                                    class="btn py-2 fw-bold text-white w-100 rounded-pill tab-btn-width"
                                                     style="border: 1.5px solid rgb(112, 112, 112);background-color: rgb(53, 73, 94);font-size: 14px;">
                                                     <div class="row justify-content-center">
                                                         <!-- <div class="col-3 p-0">
@@ -600,7 +600,7 @@ button.close:hover {
                                             <div class="col-12 text-center mb-2">
                                                 @auth
                                                 <a href="" data-bs-toggle="modal" data-bs-target="#emailModal"
-                                                    class="btn py-2 fw-bold w-100 rounded-pill"
+                                                    class="btn py-2 fw-bold w-100 rounded-pill tab-btn-width"
                                                     style="border: 1.5px solid #707070">
                                                     <div class="row justify-content-center">
                                                         <!-- <div class="col-3 p-0">
@@ -617,7 +617,7 @@ button.close:hover {
                                                 </a>
                                                 @else
                                                 <a href="" data-bs-toggle="modal" data-bs-target="#loginModal"
-                                                    class="btn py-2 fw-bold w-100 rounded-pill"
+                                                    class="btn py-2 fw-bold w-100 rounded-pill tab-btn-width"
                                                     style="border: 1.5px solid #707070">
                                                     <div class="row justify-content-center">
                                                         <!-- <div class="col-3 p-0">
@@ -721,7 +721,7 @@ button.close:hover {
 
                     <div class="row mt-3">
                         @foreach($random as $ran)
-                        <div class="col-4">
+                        <div class="col-4 col-xs-12 col-tab-50">
                             <div class="card custom-shadow position-relative"
                                 style="min-height: 320px; max-height: 320px;">
                                 <a href="{{ route('frontend.for_sale_single',$ran->id) }}" class="text-decoration-none">
@@ -914,7 +914,7 @@ button.close:hover {
 
 
 
-        <div class="col-3">
+        <div class="col-3 col-xs-12 col-tab-12">
             <div class="row sidebar-card-area">
                 <div class="col-12 p-0 mb-4 custom-shadow">
                     <div class="card">

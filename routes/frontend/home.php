@@ -17,6 +17,7 @@ use App\Http\Controllers\Frontend\User\AgentController;
 use App\Http\Controllers\Frontend\User\AreaManagementController;
 use App\Http\Controllers\Frontend\IndividualAgentController;
 use App\Http\Controllers\Frontend\PreListningController;
+use App\Http\Controllers\Frontend\PagesController;
 
 
 /*
@@ -80,6 +81,12 @@ Route::post('pre_listing/store', [PreListningController::class, 'store'])->name(
 Route::post('email_alert',[ForSaleController::class,'email_alert'])->name('email_alert');
 
 Route::get('save_keyword/{city}', [HomeController::class, 'save_keyword'])->name('save_keyword');
+
+
+Route::get('tips_for_buyers', [PagesController::class, 'tips_for_buyers'])->name('tips_for_buyers');
+Route::get('tips_for_sellers', [PagesController::class, 'tips_for_sellers'])->name('tips_for_sellers');
+Route::get('commercial_resources', [PagesController::class, 'commercial_resources'])->name('commercial_resources');
+Route::get('marketing_services', [PagesController::class, 'marketing_services'])->name('marketing_services');
 
 /*
  * These frontend controllers require the user to be logged in

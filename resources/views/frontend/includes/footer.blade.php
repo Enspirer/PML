@@ -36,10 +36,10 @@
             </div>
             <div class="col-3 ps-5 col-xs-12 col-tab-6">
                 <h5 class="fw-bolder mt-2" style="margin-bottom:30px !important;">Top Products</h5>
-                <a href="" class="mb-3 d-block text-decoration-none no-result-list text-white">Tips for buyers</a>
-                <a href="" class="mb-3 d-block text-decoration-none no-result-list text-white">Tips for sellers</a>
-                <a href="" class="mb-3 d-block text-decoration-none no-result-list text-white">Commercial Resources</a>
-                <a href="" class="mb-3 d-block text-decoration-none no-result-list text-white">Marketing Service</a>
+                <a href="{{route('frontend.tips_for_buyers')}}" class="mb-3 d-block text-decoration-none no-result-list text-white">Tips for buyers</a>
+                <a href="{{route('frontend.tips_for_sellers')}}" class="mb-3 d-block text-decoration-none no-result-list text-white">Tips for sellers</a>
+                <a href="{{route('frontend.commercial_resources')}}" class="mb-3 d-block text-decoration-none no-result-list text-white">Commercial Resources</a>
+                <a href="{{route('frontend.marketing_services')}}" class="mb-3 d-block text-decoration-none no-result-list text-white">Marketing Service</a>
             </div>
             <div class="col-3 ps-5 col-xs-12 col-tab-6 footer-news-tab">
                 <h5 class="text-white fw-bolder mt-2" style="margin-bottom:30px!important;">Newsletter</h5>

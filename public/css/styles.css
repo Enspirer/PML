@@ -554,6 +554,10 @@ p#copyright-txt {
     .row.mobile-footer-row .col-xs-12 {
         padding-left: 15px !important;
     }
+
+    .input-group .btn {
+        z-index: 1;
+    }
 }
 
 /*tab-portrait*/
@@ -715,6 +719,24 @@ p#copyright-txt {
         display: flex !important;
         flex-direction: row;
     }
+
+    .col-tab-50 {
+        max-width: 50% !important;
+        flex: 50% !important;
+    }
+
+   .tab-center {
+       display: block;
+       margin-left: auto;
+       margin-right: auto;
+   }
+
+    .col-tab-12 {
+        max-width: 100% !important;
+        flex: 100% !important;
+    }
+    
+
 
     
 }

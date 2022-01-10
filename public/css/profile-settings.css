@@ -147,3 +147,10 @@
         gap: 20px;
     }
 }
+
+/*tab-portrait*/
+@media (min-width: 768px) and (max-width: 991px) {
+    .container.user-settings {
+        margin-top: 0px !important;
+    }
+}
