@@ -34,7 +34,7 @@ class HomeController extends Controller
             $client = new Client();
             $res = $client->request('GET', 'http://ipinfo.io/'.$ip.'/country');
 
-            $strDetails = str_replace("n/","",$res->getBody()->getContents());
+            $strDetails = str_replace("\n","",$res->getBody()->getContents());
 
             return $strDetails;
 
