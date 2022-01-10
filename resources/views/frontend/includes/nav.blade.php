@@ -121,7 +121,7 @@
                     style="border-right:0px!important;" href="{{ route('frontend.auth.login') }}"><i
                         class="far fa-heart me-2"></i> Wish List</a>
                 <a class="wishlist fw-bold d-inline-block px-4 text-decoration-none border-start border-end text-white"
-                    href="{{url('user_notifications')}}"><i class="far fa-bell me-2"></i> Notifications</a>
+                    href="{{route('frontend.auth.login')}}"><i class="far fa-bell me-2"></i> Notifications</a>
 
                 <!-- <a class="wishlist fw-bold d-inline-block px-4 text-decoration-none border-start border-end" href="{{ route('frontend.auth.login') }}"><i class="far fa-heart me-2"></i> Second List</a> -->
 
@@ -281,7 +281,7 @@
                     href="{{ route('frontend.auth.login') }}"><i class="far fa-heart me-2"></i> Wish List</a>
 
             <a class="wishlist fw-bold d-inline-block px-4 text-decoration-none border-start border-end"
-                    href="{{url('user_notifications')}}"><i class="far fa-bell me-2"></i> Notifications</a>
+                    href="{{route('frontend.auth.login')}}"><i class="far fa-bell me-2"></i> Notifications</a>
 
 
             <a class="register fw-bold d-inline-block border px-4 text-decoration-none"
