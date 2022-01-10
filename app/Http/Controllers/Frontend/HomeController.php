@@ -50,11 +50,14 @@ class HomeController extends Controller
         $getcountry = self::get_country($getClientIP);
 
 
+
         if($getcountry){
             $countryIso = Country::where('country_id',$getcountry)->first();
+
         }else{
             $countryIso = null;
         }
+        dd($countryIso);
 
 
 //        $self = self::setCookie($request->countries_list);
