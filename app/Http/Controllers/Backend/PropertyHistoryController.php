@@ -9,6 +9,7 @@ use DB;
 use App\Models\Properties;
 use App\Models\PropertyType;
 use App\Models\AgentRequest;
+use App\Models\WatchListing;
 
 
 class PropertyHistoryController extends Controller
@@ -66,6 +67,17 @@ class PropertyHistoryController extends Controller
     public function update(Request $request)
     {    
         
+        if($request->sold_request == 'Sold'){
+            $watch_listings = WatchListing::where('property_id',$request->hidden_id)->get();
+
+            foreach($watch_listings as $watch_listing){
+
+                if($watch_listing->watch_list != null){
+                    push_notification('Property Sold', 'You have received this notification because you have chosen to receive Watched Community updates. If you do not wish to receive this update you may change your preferences.', $request->hidden_id, $watch_listing->user_id);
+                }            
+            }             
+        }
+
         $updatproperty = new Properties;
         
         $updatproperty->sold_request=$request->sold_request;

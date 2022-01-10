@@ -5,6 +5,8 @@ use App\Models\Favorite;
 use App\Models\AgentRequest; 
 use App\Models\Location; 
 use App\Models\Country; 
+use App\Models\WatchListing; 
+use App\Models\Notifications; 
 use Illuminate\Http\Request;
 
 if (! function_exists('app_name')) {
@@ -249,6 +251,48 @@ if (! function_exists('current_price')) {
     }
 }
 
+if (! function_exists('is_watch_listing')) {
+    /**
+     * Return the route to the "home" page depending on authentication/authorization status.
+     *
+     * @return string
+     */
+    function is_watch_listing($property_id, $user_id)
+    {
 
+        $watch_listing = WatchListing::where('user_id', $user_id )
+            ->where('property_id',$property_id)
+            ->first();
+        if($watch_listing)
+        {
+            return $watch_listing;
+        }else{
+            return null;
+        }
+    }
+}
 
+if (! function_exists('push_notification')) {
+    /**
+     * Return the route to the "home" page depending on authentication/authorization status.
+     *
+     * @return string
+     */
+    function push_notification($title, $description, $url, $user_id)
+    {
+
+        $add = new Notifications;
+
+        $add->title=$title;
+        $add->description=$description;
+        $add->url=$url;
+        $add->user_id=$user_id;
+        $add->status='Pending';
+
+        $add->save();
+      
+        return 'done';
+       
+    }
+}
 

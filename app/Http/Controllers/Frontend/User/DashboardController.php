@@ -16,6 +16,8 @@ use App\Models\UserSearch;
 use DataTables;
 use App\Models\PropertyType;
 use App\Models\Location;
+use App\Models\WatchListing;
+use App\Models\Notifications;
 use Auth;
 
 
@@ -330,6 +332,70 @@ class DashboardController extends Controller
         return back();
     }
 
+
+    public function user_watch_listing()
+    {
+        $watch_listing = WatchListing::where('user_id',auth()->user()->id)->get();
+        // dd($watch_listing);
+
+        $property = Properties::get();
+
+        return view('frontend.user.watch_listing',[
+            'watch_listing' => $watch_listing,
+            'property' => $property
+        ]);
+    }
+
+
+    public function watch_listingDelete($id) {
+
+        $favourite = WatchListing::where('property_id', $id)->delete();
+
+        return back();
+    }
+
+    public function user_notifications()
+    {
+        $notification = Notifications::where('user_id',auth()->user()->id)->orderBy('id','desc')->get();
+        // dd($notification);
+
+        $property = Properties::get();
+
+        return view('frontend.user.notifications',[
+            'notification' => $notification,
+            'property' => $property
+        ]);
+    }
+
+
+    public function user_notifications_status(request $request, $id)
+    {
+        // dd($request);
+
+        $prop = Notifications::where('id',$id)->first()->url;
+        // dd($prop);
+
+        $update = new Notifications;
+        
+        $update->status = 'Seen';
+        $update->user_id = auth()->user()->id;
+
+        Notifications::whereId($id)->update($update->toArray());
+
+        return redirect()->route('frontend.for_sale_single',[$prop]); 
+        
+    }
+
+    public function user_notifications_status_changed(request $request, $id)
+    {
+        // dd($request);
+
+        $prop = Notifications::where('id',$id)->first()->url;
+        // dd($prop);
+
+        return redirect()->route('frontend.for_sale_single',[$prop]); 
+        
+    }
 
 
 }

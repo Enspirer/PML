@@ -37,6 +37,28 @@
             </div>
         </a>
 
+        <a class="nav-link text-dark fw-bold ps-5 w-100 {{ Request::segment(1) == 'user_watch_listing' ? 'active' : null }}" id="nav-favorite-tab" href="{{ route('frontend.user.user_watch_listing') }}" type="button" role="tab" aria-controls="nav-favorite" aria-selected="false"> 
+            <div class="row align-items-center justify-content-between">
+                <div class="col-1">
+                    <img src="{{ url('img/frontend/profile/my_properties.png') }}" alt="">
+                </div>
+                <div class="col-10 ps-0">
+                    <p class="text-dark fw-bold">Watch Listing</p>
+                </div>
+            </div>
+        </a>
+
+        <a class="nav-link text-dark fw-bold ps-5 w-100 {{ Request::segment(1) == 'user_notifications' ? 'active' : null }}" id="nav-favorite-tab" href="{{ route('frontend.user.user_notifications') }}" type="button" role="tab" aria-controls="nav-favorite" aria-selected="false"> 
+            <div class="row align-items-center justify-content-between">
+                <div class="col-1">
+                    <img src="{{ url('img/frontend/profile/my_properties.png') }}" alt="">
+                </div>
+                <div class="col-10 ps-0">
+                    <p class="text-dark fw-bold">Notifications</p>
+                </div>
+            </div>
+        </a>
+
         <a class="nav-link text-dark fw-bold ps-5 w-100 {{ Request::segment(1) == 'favourites' ? 'active' : null }}" id="nav-favorite-tab" href="{{ route('frontend.user.favourites') }}" type="button" role="tab" aria-controls="nav-favorite" aria-selected="false"> 
             <div class="row align-items-center justify-content-between">
                 <div class="col-1">

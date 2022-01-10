@@ -82,6 +82,9 @@ Route::post('email_alert',[ForSaleController::class,'email_alert'])->name('email
 
 Route::get('save_keyword/{city}', [HomeController::class, 'save_keyword'])->name('save_keyword');
 
+Route::post('watch_listing',[ForSaleController::class,'watch_listing'])->name('watch_listing');
+Route::post('change_watch_listing',[ForSaleController::class,'change_watch_listing'])->name('change_watch_listing');
+
 
 Route::get('tips_for_buyers', [PagesController::class, 'tips_for_buyers'])->name('tips_for_buyers');
 Route::get('tips_for_sellers', [PagesController::class, 'tips_for_sellers'])->name('tips_for_sellers');
@@ -162,6 +165,13 @@ Route::group(['middleware' => ['auth', 'password_expires']], function () {
         Route::get('search_history', [DashboardController::class, 'search_history'])->name('search_history');
         Route::get('search_history_get_details', [DashboardController::class, 'search_history_get_details'])->name('search_history_get_details');
     
+        Route::get('user_watch_listing', [DashboardController::class, 'user_watch_listing'])->name('user_watch_listing');
+        Route::get('watch_listing/delete/{id}', [DashboardController::class, 'watch_listingDelete'])->name('watch_listingDelete');
+
+        Route::get('user_notifications', [DashboardController::class, 'user_notifications'])->name('user_notifications');
+        Route::get('user_notifications_status/{id}', [DashboardController::class, 'user_notifications_status'])->name('user_notifications_status');
+        Route::get('user_notifications_status_changed/{id}', [DashboardController::class, 'user_notifications_status_changed'])->name('user_notifications_status_changed');
+
     
     });
 });
