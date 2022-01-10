@@ -27,6 +27,8 @@ class CreateCountriesTable extends Migration
             $table->text('address')->nullable();
             $table->text('opening_hours')->nullable();
             $table->text('phone_numbers')->nullable();
+            $table->text('lat')->nullable();
+            $table->text('lng')->nullable();
             $table->timestamps();
         });
     }

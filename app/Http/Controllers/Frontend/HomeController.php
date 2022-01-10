@@ -51,19 +51,13 @@ class HomeController extends Controller
 
 
         if($getcountry){
-            $self = self::setCookie($getcountry);
+            $countryIso = Country::where('country_id',$getcountry)->first();
         }else{
-
+            $countryIso = null;
         }
 
 
-
-
-        Cookie::queue("country_ip_code", $self ,1000);
-
 //        $self = self::setCookie($request->countries_list);
-
-
 
         $latest_post = Posts::where('status','=','Enabled')->take(1)->latest()->first();
         $posts = Posts::where('status','=','Enabled')->take(6)->latest()->get();
@@ -79,7 +73,8 @@ class HomeController extends Controller
             'latest_post' => $latest_post,
             'featured_properties' => $featured_properties,
             'latest_properties' => $latest_properties,
-            'property_types' => $property_types
+            'property_types' => $property_types,
+            'default_country' => $countryIso
         ]);
     }
 
