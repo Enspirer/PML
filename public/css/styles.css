@@ -42,7 +42,7 @@ p {
 .navbar select {
     width: 15%;
     top: -3.2rem;
-    right: 42rem;
+    right: 41rem;
     border-radius: 0!important;
     background-color: #16202C;
     color: white;
@@ -58,7 +58,7 @@ p {
 
 .navbar .dropdown-menu {
     min-width: 10rem!important;
-    left: 10.5rem;
+    left: 19.5rem;
     top: 3.5rem;
     border-top: 5px solid #39B54A;
     background-color: #FFFFFF;
