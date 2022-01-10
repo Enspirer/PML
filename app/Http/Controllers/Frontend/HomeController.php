@@ -617,7 +617,7 @@ class HomeController extends Controller
                             '<div class="card-body">'.
                                 '<div class="info-card" style="display:flex;">'.
                                     '<div class="info-img-area" style="flex:1;">'.
-                                        '<img style="height:60px;" src="'.uploaded_asset($property->feature_image_id).'" alt="">'.
+                                        '<img style="height:60px;width: 85px;" src="'.uploaded_asset($property->feature_image_id).'" alt="">'.
                                     '</div>'.
                                     '<div class="info-desc-area" style="flex:2;">'.
                                         '<p style="font-weight:bold;">Price here</p>'.
