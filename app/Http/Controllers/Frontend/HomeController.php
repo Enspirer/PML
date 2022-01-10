@@ -49,7 +49,6 @@ class HomeController extends Controller
         $getClientIP = request()->getClientIp();
         $getcountry = self::get_country($getClientIP);
 
-        dd($getcountry);
 
         if($getcountry){
             self::setIPCookie($getcountry);
