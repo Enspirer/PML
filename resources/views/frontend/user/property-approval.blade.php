@@ -40,6 +40,7 @@
                                         <thead class="table-head">
                                             <tr>
                                                 <th scope="col">Property Name</th>
+                                                <th scope="col">City</th>
                                                 <th scope="col">Date</th>
                                                 <th scope="col">Admin Approval</th>
                                                 <th scope="col">Area Manager</th>
@@ -80,6 +81,7 @@
             order: [[0, "desc"]],
             columns: [
                 {data: 'name', name: 'name'},
+                {data: 'city', name: 'city'},
                 {data: 'created_at', name: 'created_at'},
                 {data: 'admin_approval', name: 'admin_approval'},
                 {data: 'area_manager_approval', name: 'area_manager_approval'},
