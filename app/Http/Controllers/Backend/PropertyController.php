@@ -63,7 +63,7 @@ class PropertyController extends Controller
     {
         if($request->ajax())
         {
-            $data = Properties::where('listning_type','=','agent_listning')->get();
+            $data = Properties::where('listning_type','=','agent_listning')->where('sold_request',null)->get();
             return DataTables::of($data)
             
                     ->addColumn('action', function($data){

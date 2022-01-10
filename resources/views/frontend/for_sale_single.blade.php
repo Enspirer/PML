@@ -635,6 +635,42 @@ button.close:hover {
                                                 @endauth
                                             </div>
 
+                                            @auth
+                                                @if($watch_list == null)
+                                                    <div class="col-12 text-center mb-2">
+                                                        <button type="submit" data-bs-toggle="modal" data-bs-target="#watch_list" class="btn py-2 fw-bold w-100 rounded-pill"  style="border: 1.5px solid #707070">
+                                                            <div class="row justify-content-center">
+                                                                <div class="btn-wrapper">
+                                                                    <i class="fas fa-list"></i><span style="font-size: 0.9rem;">Watch Listing</span>
+                                                                </div>
+                                                            </div>
+                                                        </button>
+                                                    </div> 
+                                                @else
+                                                    <div class="col-12 text-center mb-2">
+                                                        <button type="submit" data-bs-toggle="modal" data-bs-target="#watch_list_change" class="btn py-2 fw-bold w-100 rounded-pill"  style="border: 1.5px solid #707070; background-color:#28a3b3;">
+                                                            <div class="row justify-content-center">
+                                                                <div class="btn-wrapper">
+                                                                    <i class="fas fa-list text-light"></i><span class="text-light" style="font-size: 0.9rem;">Watch Listing</span>
+                                                                </div>
+                                                            </div>
+                                                        </button>
+                                                    </div> 
+                                                @endif
+                                            @else
+                                                <div class="col-12 text-center mb-2">
+                                                    <a href="{{route('frontend.auth.login')}}" class="btn py-2 fw-bold w-100 rounded-pill"  style="border: 1.5px solid #707070">
+                                                        <div class="row justify-content-center">
+                                                            <div class="btn-wrapper">
+                                                                <i class="fas fa-list"></i><span style="font-size: 0.9rem;">Watch Listing</span>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            @endauth
+
+
+
                                             <div class="col-12 text-center mb-2">
                                                 @auth
                                                 @if($favourite == null)
@@ -677,8 +713,8 @@ button.close:hover {
                                                                 Unsave this Property
                                                             </div> -->
                                                             <div class="btn-wrapper">
-                                                            <i class="far fa-heart"></i><span
-                                                                    style="font-size: 0.9rem;">Save this Property</span>
+                                                            <i class="far fa-heart text-light"></i><span
+                                                                    style="font-size: 0.9rem;" class="text-light">Save this Property</span>
                                                             </div>
                                                         </div>
                                                     </button>
@@ -1151,6 +1187,135 @@ button.close:hover {
         </div>
     </div>
 </div>
+
+@if($watch_list == null)
+              
+    <div class="modal fade" id="watch_list" tabindex="-1" aria-labelledby="watch_listModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="watch_listModalLabel">Watch Listing</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form method="post" action="{{route('frontend.watch_listing')}}" >
+                        {{csrf_field()}}
+
+                        <p>Watch this listing. Receive notification when it is sold.</p>
+
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" name="watch_listing" type="checkbox" value="watch_listing" id="watch_listing">
+                            <label class="form-check-label" for="watch_listing">
+                                Watch Listing
+                            </label>
+                        </div>
+
+                        <p>Watch this community. Receive updates on Detached homes in {{$property->city}} - {{App\Models\Country::where('id',$property->country)->first()->country_name }}</p>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input" name="new_list" type="checkbox" value="{{$property->city}}" id="new_list">
+                            <label class="form-check-label" for="new_list">
+                                New Listing
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" name="sold_list" type="checkbox" value="{{$property->city}}" id="sold_list">
+                            <label class="form-check-label" for="sold_list">
+                                Sold Listing
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" name="de_list" type="checkbox" value="{{$property->city}}" id="de_list">
+                            <label class="form-check-label" for="de_list">
+                                Delisted Listing
+                            </label>
+                        </div>
+
+                        <input type="hidden" name="pro_hidden_id" value="{{ $property->id }}" />
+
+                        <button type="submit" class="btn btn-primary w-100 mt-3 py-2" style="background-color: #77CEEC; border: 0; border-radius: 0;">Submit</button>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+@else
+
+
+    <div class="modal fade" id="watch_list_change" tabindex="-1" aria-labelledby="watch_list_changeModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="watch_list_changeModalLabel">Watch Listing</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form method="post" action="{{route('frontend.change_watch_listing')}}" >
+                        {{csrf_field()}}
+
+                        <p>Watch this listing. Receive notification when it is sold.</p>
+
+                        <div class="form-check mb-3">
+                            @if($watch_list->watch_list == null)
+                                <input class="form-check-input" name="watch_listing" type="checkbox" value="watch_listing" id="watch_listing">
+                            @else
+                                <input class="form-check-input" name="watch_listing" type="checkbox" value="watch_listing" id="watch_listing" checked>
+                            @endif
+                            <label class="form-check-label" for="watch_listing">
+                                Watch Listing
+                            </label>
+                        </div>
+                       
+                        
+                        <p>Watch this listing. Receive notification when it is sold. Watch this community. Receive updates on Detached homes in {{$property->city}} - {{App\Models\Country::where('id',$property->country)->first()->country_name }}</p>
+
+
+                        <div class="form-check">
+                            @if($watch_list->new_list == null)
+                                <input class="form-check-input" name="new_list" type="checkbox" value="{{$property->city}}" id="new_list">
+                            @else
+                                <input class="form-check-input" name="new_list" type="checkbox" value="{{$property->city}}" id="new_list" checked>
+                            @endif
+                            <label class="form-check-label" for="new_list">
+                                New Listing
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            @if($watch_list->sold_list == null)
+                                <input class="form-check-input" name="sold_list" type="checkbox" value="{{$property->city}}" id="sold_list">
+                            @else
+                                <input class="form-check-input" name="sold_list" type="checkbox" value="{{$property->city}}" id="sold_list" checked>
+                            @endif
+                            <label class="form-check-label" for="sold_list">
+                                Sold Listing
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            @if($watch_list->de_list == null)
+                                <input class="form-check-input" name="de_list" type="checkbox" value="{{$property->city}}" id="de_list">
+                            @else
+                                <input class="form-check-input" name="de_list" type="checkbox" value="{{$property->city}}" id="de_list" checked>
+                            @endif
+                            <label class="form-check-label" for="de_list">
+                                Delisted Listing
+                            </label>
+                        </div>
+
+                        <input type="hidden" name="pro_hidden_id" value="{{ $property->id }}" />
+                        <input type="hidden" name="watch_list" value="{{ $watch_list->id }}" />
+
+                        <button type="submit" class="btn btn-primary w-100 mt-3 py-2" style="background-color: #77CEEC; border: 0; border-radius: 0;">Submit</button>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+@endif
+
 
 @include('frontend.includes.search_filter_modal')
 

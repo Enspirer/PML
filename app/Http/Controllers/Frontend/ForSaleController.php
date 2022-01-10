@@ -13,6 +13,7 @@ use App\Models\Favorite;
 use App\Models\UserSearch;
 use App\Models\Search;
 use App\Models\EmailAlert;
+use App\Models\WatchListing;
 
 /**
  * Class ForSaleController.
@@ -322,7 +323,15 @@ class ForSaleController extends Controller
             $random = Properties::where('admin_approval', 'Approved')->where('sold_request',null)->where('country',get_country_cookie(request())->id)->inRandomOrder()->limit(3)->get();
         }
 
-        
+
+        if(auth()->user())
+        {
+            $watch_list = WatchListing::where('property_id',$id)
+                ->where('user_id',auth()->user()->id)
+                ->first();
+        }else{
+            $watch_list = null;
+        }        
 
         if(auth()->user())
         {
@@ -339,8 +348,85 @@ class ForSaleController extends Controller
             'agent' => $agent,
             'random' => $random,
             'favourite' => $favourite,
-            'property_types' => $property_types
+            'property_types' => $property_types,
+            'watch_list' => $watch_list
         ]);
+    }
+
+    public function watch_listing(Request $request)
+    { 
+        // dd($request);
+
+        $user_id = auth()->user()->id;
+
+        $add = new WatchListing;
+
+        if($request->new_list != null){
+            $add->new_list=$request->new_list; 
+        }
+
+        if($request->sold_list != null){
+            $add->sold_list=$request->sold_list; 
+        }
+
+        if($request->de_list != null){
+            $add->de_list=$request->de_list; 
+        }
+
+        if($request->watch_listing != null){
+            $add->watch_list=$request->watch_listing; 
+        }
+
+        $add->property_id=$request->pro_hidden_id; 
+        $add->user_id=$user_id;
+
+        $add->save();
+
+        return back();
+
+    }
+
+    public function change_watch_listing(Request $request)
+    {        
+        // dd($request);
+        $user_id = auth()->user()->id;
+
+        $update = new WatchListing;
+
+        if($request->new_list != null){
+            $update->new_list=$request->new_list; 
+        }
+        else{
+            $update->new_list=null; 
+        }
+
+        if($request->sold_list != null){
+            $update->sold_list=$request->sold_list; 
+        }
+        else{
+            $update->sold_list=null; 
+        }
+
+        if($request->de_list != null){
+            $update->de_list=$request->de_list; 
+        }
+        else{
+            $update->de_list=null; 
+        }
+
+        if($request->watch_listing != null){
+            $update->watch_list=$request->watch_listing; 
+        }
+        else{
+            $update->watch_list=null; 
+        }
+
+        $update->property_id=$request->pro_hidden_id; 
+        $update->user_id=$user_id;
+        
+        WatchListing::whereId($request->watch_list)->update($update->toArray());
+        
+        return back();
     }
     
 

@@ -31,7 +31,7 @@
                         <div class="col-8 p-0">
                             <div class="row align-items-center">
                                 <div class="col-6 ps-4">
-                                    <h4 class="fs-4 fw-bolder user-settings-head">Favourite Properties</h4>
+                                    <h4 class="fs-4 fw-bolder user-settings-head mb-3">Favourite Properties</h4>
                                 </div>
                             </div>
                         </div>
