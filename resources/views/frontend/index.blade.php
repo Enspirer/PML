@@ -46,6 +46,9 @@
             // styles: [{"featureType":"landscape","stylers":[{"saturation":-100},{"lightness":65},{"visibility":"on"}]},{"featureType":"poi","stylers":[{"visibility":"off"}]},{"featureType":"road.highway","stylers":[{"saturation":-100},{"visibility":"simplified"}]},{"featureType":"road.arterial","stylers":[{"saturation":-100},{"lightness":30},{"visibility":"on"}]},{"featureType":"road.local","stylers":[{"saturation":-100},{"lightness":40},{"visibility":"on"}]},{"featureType":"transit","stylers":[{"saturation":-100},{"visibility":"simplified"}]},{"featureType":"administrative.province","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"labels","stylers":[{"visibility":"on"},{"lightness":-25},{"saturation":-100}]},{"featureType":"water","elementType":"geometry","stylers":[{"hue":"#ffff00"},{"lightness":-25},{"saturation":-97}]}] // "Subtle Grayscale" style found on snazzymaps.com
 
         });
+
+
+
         var marker = [];
         $.ajax({
             type: "GET",
@@ -130,29 +133,28 @@
                             lng: position.coords.longitude,
                         };
 
-
-
-
-
-
                         $.ajax({
                             type: "GET",
                             url: "{{ url('api/nest_property')  }}/"+position.coords.longitude + "/" + position.coords.latitude ,
                             success: function(data) {
                                 infoWindow.setPosition(pos);
-                                infoWindow.setContent('<div class="tooltipContainer">' +
-                                    '<span class="tooltip" data-tooltip = "Share your Location!" data-tooltip-location = "bottom">' +
-                                    '<i class="geo-i fas fa-map-marker-alt"></i>' +
-                                    '</span>' +
-                                    '<h5 class="geo">Location Found!</h>');
+
+                                var resultcontent = '' +
+                                    '<div class="" id="map_resoult" style="height: 420px;width: 340px;">' +
+
+                                    '</div>';
+                                infoWindow.setContent(resultcontent);
+
+                                setTimeout(function () {
+                                    $('#map_resoult').html( data );
+                                }, 1000);
+
+
+
+
+
                             }
                         });
-
-
-
-
-
-
                         marker = new google.maps.Marker({
                             shadow: null,
                             zIndex: 999,
@@ -212,6 +214,9 @@
 
 
     }
+
+
+
 
 
 
