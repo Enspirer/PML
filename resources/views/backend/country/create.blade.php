@@ -16,6 +16,14 @@
                             <input type="text" id="country" class="form-control" name="country" required>
                         </div>
                         <div class="form-group">
+                            <label>Longitude <span class="text-danger">*</span></label>
+                            <input type="text" id="longitude" class="form-control" name="longitude" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Latitude <span class="text-danger">*</span></label>
+                            <input type="text" id="latitude" class="form-control" name="latitude" required>
+                        </div>
+                        <div class="form-group">
                             <label>SLUG <span class="text-danger">*</span></label>
                             <input type="text" id="slug" class="form-control" name="slug" required>
                         </div>

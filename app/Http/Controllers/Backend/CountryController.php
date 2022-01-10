@@ -90,6 +90,8 @@ class CountryController extends Controller
         $addcountry->currency=$request->currency;
         $addcountry->currency_rate=$request->currency_rate;
         $addcountry->country_id=$request->country_id;
+        $addcountry->lng=$request->longitude;
+        $addcountry->lat=$request->latitude;
         $addcountry->user_id = auth()->user()->id;        
         // $addcountry->country_manager=$user->id;
         $addcountry->status=$request->status;
@@ -152,6 +154,8 @@ class CountryController extends Controller
         $updatcountry->currency=$request->currency;
         $updatcountry->currency_rate=$request->currency_rate;
         $updatcountry->country_id=$request->country_id;
+        $updatcountry->lng=$request->longitude;
+        $updatcountry->lat=$request->latitude;
         $updatcountry->user_id = auth()->user()->id;   
         // $updatcountry->country_manager=$user->id;
         $updatcountry->status=$request->status;
