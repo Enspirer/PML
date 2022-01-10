@@ -46,18 +46,24 @@ class HomeController extends Controller
 
     public function index(Request $request)
     {
-        $getClientIP = request()->getClientIp();
-        $getcountry = self::get_country($getClientIP);
+       $endetails = get_country_cookie($request);
+
+       if($endetails == null){
+           $countryIso = null;
+       }else{
+           $getClientIP = request()->getClientIp();
+           $getcountry = self::get_country($getClientIP);
+
+           if($getcountry){
+               $countryIso = Country::where('country_id',$getcountry)->first();
+               Cookie::queue("country_code", $getcountry ,1000);
+
+           }else{
+               $countryIso = null;
+           }
+       }
 
 
-
-        if($getcountry){
-            $countryIso = Country::where('country_id',$getcountry)->first();
-            Cookie::queue("country_code", $getcountry ,1000);
-
-        }else{
-            $countryIso = null;
-        }
 
 
 //        $self = self::setCookie($request->countries_list);
@@ -620,10 +626,10 @@ class HomeController extends Controller
                                         '<img style="height:60px;width: 85px;" src="'.uploaded_asset($property->feature_image_id).'" alt="">'.
                                     '</div>'.
                                     '<div class="info-desc-area" style="flex:2;">'.
-                                        '<p style="font-weight:bold;">Price here</p>'.
+                                        '<p style="font-weight:bold;">'.$property->name.'</p>'.
                                         '<p style="font-size: 9px;overflow: hidden;text-overflow: ellipsis;display: -webkit-box;height: 40px;">'.$property->meta_description.'</p>'.
                                         '<div class="icon-area" style="display: block;">'.
-                                        ' <span class="icon" style="display: inline-flex;">icon two here</span>'.
+                                        ' <span class="icon" style="display: inline-flex;"> LKR '.number_format($property->price,2).'</span>'.
                                     '</div>'.
                                 '</div>'.
                             '</div>'.
