@@ -39,8 +39,8 @@
                                     <table class="table table-responsive" id="villadatatable" style="width:100%">
                                         <thead class="table-head">
                                             <tr>
-                                                <th width="60%" scope="col">Date</th>
-                                                <th width="60%" scope="col">Action</th>
+                                                <th width="100%" scope="col">Date</th>
+                                                <th width="100%" scope="col">Action</th>
                                             </tr>
                                         </thead>
                                         <tbody class="align-middle table-data">

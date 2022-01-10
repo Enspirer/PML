@@ -156,7 +156,7 @@ class DashboardController extends Controller
             return DataTables::of($user_search)
                     ->addColumn('action', function($data){
                                               
-                        $button = '<form target="_blank"><button formaction="'.url($data->url).'" class="btn text-light table-btn me-4" style="background-color: #4195E1"> Click Here to Visit the Saved Page </button></form>';
+                        $button = '<form target="_blank"><button formaction="'.url($data->url).'" class="btn text-light table-btn me-4" style="background-color: #4195E1">View</button></form>';
                         $button .= '<input type="hidden" name="hid_id" value="'.$data->id.'">';
                         // $button .= '<button name="delete" id="'.$data->id.'" class="btn text-light table-btn disapprove" style="background-color: #FF2C4B;" data-bs-toggle="modal" data-bs-target="#exampleModal"> Disapprove</button>';
 
