@@ -34,7 +34,9 @@ class HomeController extends Controller
             $client = new Client();
             $res = $client->request('GET', 'http://ipinfo.io/'.$ip.'/country');
 
-            return $res->getBody()->getContents();
+            $strDetails = str_replace("n/","",$res->getBody()->getContents());
+
+            return $strDetails;
 
         }catch (\Exception $exception){
             return null;
@@ -46,6 +48,8 @@ class HomeController extends Controller
     {
         $getClientIP = request()->getClientIp();
         $getcountry = self::get_country($getClientIP);
+
+        dd($getcountry);
 
         if($getcountry){
             self::setIPCookie($getcountry);
