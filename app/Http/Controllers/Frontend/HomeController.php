@@ -51,7 +51,7 @@ class HomeController extends Controller
 
 
         if($getcountry){
-            self::setIPCookie($getcountry);
+            $self = self::setCookie($getcountry);
         }else{
 
         }
@@ -59,9 +59,7 @@ class HomeController extends Controller
 
 
 
-        $self = self::setCookie($getcountry);
-
-
+        Cookie::queue("country_ip_code", $self ,1000);
 
 //        $self = self::setCookie($request->countries_list);
 
@@ -121,7 +119,7 @@ class HomeController extends Controller
     public static function setIPCookie($param)
     {
         // dd($param);
-        $response = new Response('Set IP Cookie');
+        $response = new Response('Set Cookie');
         $response->withCookie(cookie('country_ip', $param,60));
         return $response;
     }
