@@ -121,7 +121,7 @@ class HomeController extends Controller
     public static function setIPCookie($param)
     {
         // dd($param);
-        $response = new Response('Set Cookie');
+        $response = new Response('Set IP Cookie');
         $response->withCookie(cookie('country_ip', $param,60));
         return $response;
     }
