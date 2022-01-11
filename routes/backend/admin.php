@@ -155,7 +155,4 @@ Route::get('sold_properties/delete/{id}', [PropertyHistoryController::class, 'de
 Route::get('home_page_features', [HomeFeaturedController::class, 'index'])->name('home_page_features.index');
 Route::get('home_page_features/create', [HomeFeaturedController::class, 'create'])->name('home_page_features.create');
 Route::post('home_page_features/store', [HomeFeaturedController::class, 'store'])->name('home_page_features.store');
-Route::get('home_page_features/getdetails', [HomeFeaturedController::class, 'getdetails'])->name('home_page_features.getdetails');
-Route::get('home_page_features/edit/{id}', [HomeFeaturedController::class, 'edit'])->name('home_page_features.edit');
-Route::post('home_page_features_update', [HomeFeaturedController::class, 'home_page_features_update'])->name('home_page_features_update');
 
