@@ -4,9 +4,6 @@
     margin-bottom: 30px;
 }
 
-/* .container-fluid.home-search {
-    background-color: #fff;
-} */
 
 .right-side {
     display: flex;
@@ -39,6 +36,7 @@
 .property-card-meta-details {
     font-size: 0.9rem;
     color: #4bace5;
+    margin-top: 15px;
 }
 
 .property-detail-card-wrapper h3 {
@@ -55,6 +53,19 @@
 
 .swiper-button-next {
     padding-left: 30px;
+}
+
+.active-menu, .main-menu-links:hover {
+    background-color: #35495e;
+    color: #fff !important; 
+}
+
+.main-menu-links  {
+    text-align: left;
+}
+
+.main-menu-links:hover img, .active-menu img {
+    filter: invert(1);
 }
 
 /*mobile-view*/

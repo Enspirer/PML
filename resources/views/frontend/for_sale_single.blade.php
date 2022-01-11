@@ -81,6 +81,19 @@ button.close:hover {
 
 
 @include('frontend.includes.search')
+<div class="container index" style="margin-top: 2rem;">
+        <div class="row">
+            <div class="col-12">
+                <p><a href="/" class="text-decoration-none text-dark fw-bold">Property Market Live</a>
+                    >
+                        <a href="#" class="text-decoration-none text-dark fw-bold">
+                            For Sale
+                        </a>
+
+                    > <a href="/home_loan" class="text-decoration-none text-dark fw-bold">Moscow Land</a></p>
+            </div>
+        </div>
+</div>
 
 
 <!--modals-->
@@ -224,13 +237,24 @@ button.close:hover {
                     <div class="option-bar">
                         <div class="option-list-wrapper">
                             <ul class="option-list">
-                                <li>360<sup>0</sup></li>
+                                <li><i class="fas fa-redo-alt"></i>360<sup>0</sup></li>
                                 <li>
-                                    <a href="#" data-toggle="modal" data-target="#photoModal">Photo</a>
+                                    <a href="#" data-toggle="modal" data-target="#photoModal"><i
+                                            class="fas fa-camera"></i>Photo</a>
+                                </li>
+                                <li>
+                                    <a href="#" data-toggle="modal" data-target="#videoModal"><i
+                                            class="fas fa-video"></i>Video</a>
+                                </li>
+                                <li>
+                                    <a href="#" data-toggle="modal" data-target="#"><i
+                                            class="fas fa-directions"></i>Direction</a>
                                 </li>
                                 <li class="last-item">
-                                    <a href="#" data-toggle="modal" data-target="#videoModal" >Video</a>
+                                    <a href="#" data-toggle="modal" data-target="#"><i class="far fa-map"></i>Flow
+                                        Plan</a>
                                 </li>
+
                             </ul>
                         </div>
                     </div>
@@ -349,7 +373,7 @@ button.close:hover {
                         {{App\Models\Country::where('id',$property->country)->first()->country_name }}
                     </p>
 
-                    
+
                 </div>
 
                 <div class="col-3">
@@ -519,7 +543,6 @@ button.close:hover {
                                                 <p>{{ $property->description }}</p>
                                             </div>
                                             <div class="show-more">(Show More)</div>
-                                            <button type="button" onclick="checkJS()">Check JS</button>
                                         </div>
 
                                         <!-- <div id="profile-description">
@@ -568,8 +591,8 @@ button.close:hover {
                                     <div class="custom-shadow pt-4 pb-3 px-3 text-center">
                                         <a href="{{route('frontend.individual_agent',$agent->id)}}">
                                             <img src="{{ uploaded_asset($agent->photo) }}" alt="" class="img-fluid mb-3"
-                                            style="object-fit: cover;height: 7rem; width:7rem; border-radius: 50%;margin-top: 30px;">
-                                            </a>
+                                                style="object-fit: cover;height: 7rem; width:7rem; border-radius: 50%;margin-top: 30px;">
+                                        </a>
                                         <p class="fw-bold">
                                             @if($agent->agent_type == 'Individual')
                                             {{ $agent->name }}
@@ -593,8 +616,9 @@ button.close:hover {
                                                         </div> -->
                                                         <div class="btn-wrapper">
                                                             <i class="fas fa-phone-alt"></i>
-                                                            <span style="font-size: 0.9rem;">{{ $agent->telephone }}</span>
-                                                            </div>
+                                                            <span
+                                                                style="font-size: 0.9rem;">{{ $agent->telephone }}</span>
+                                                        </div>
                                                     </div>
                                                 </a>
                                             </div>
@@ -637,37 +661,49 @@ button.close:hover {
                                             </div>
 
                                             @auth
-                                                @if($watch_list == null)
-                                                    <div class="col-12 text-center mb-2">
-                                                        <button type="submit" data-bs-toggle="modal" data-bs-target="#watch_list" class="btn py-2 fw-bold w-100 rounded-pill"  style="border: 1.5px solid #707070">
-                                                            <div class="row justify-content-center">
-                                                                <div class="btn-wrapper">
-                                                                    <i class="fas fa-list"></i><span style="font-size: 0.9rem;">Watch Listing</span>
-                                                                </div>
-                                                            </div>
-                                                        </button>
-                                                    </div> 
-                                                @else
-                                                    <div class="col-12 text-center mb-2">
-                                                        <button type="submit" data-bs-toggle="modal" data-bs-target="#watch_list_change" class="btn py-2 fw-bold w-100 rounded-pill"  style="border: 1.5px solid #707070; background-color:#28a3b3;">
-                                                            <div class="row justify-content-center">
-                                                                <div class="btn-wrapper">
-                                                                    <i class="fas fa-list text-light"></i><span class="text-light" style="font-size: 0.9rem;">Watch Listing</span>
-                                                                </div>
-                                                            </div>
-                                                        </button>
-                                                    </div> 
-                                                @endif
-                                            @else
-                                                <div class="col-12 text-center mb-2">
-                                                    <a href="{{route('frontend.auth.login')}}" class="btn py-2 fw-bold w-100 rounded-pill"  style="border: 1.5px solid #707070">
-                                                        <div class="row justify-content-center">
-                                                            <div class="btn-wrapper">
-                                                                <i class="fas fa-list"></i><span style="font-size: 0.9rem;">Watch Listing</span>
-                                                            </div>
+                                            @if($watch_list == null)
+                                            <div class="col-12 text-center mb-2">
+                                                <button type="submit" data-bs-toggle="modal"
+                                                    data-bs-target="#watch_list"
+                                                    class="btn py-2 fw-bold w-100 rounded-pill"
+                                                    style="border: 1.5px solid #707070">
+                                                    <div class="row justify-content-center">
+                                                        <div class="btn-wrapper">
+                                                            <i class="fas fa-list"></i><span
+                                                                style="font-size: 0.9rem;">Watch Listing</span>
                                                         </div>
-                                                    </a>
-                                                </div>
+                                                    </div>
+                                                </button>
+                                            </div>
+                                            @else
+                                            <div class="col-12 text-center mb-2">
+                                                <button type="submit" data-bs-toggle="modal"
+                                                    data-bs-target="#watch_list_change"
+                                                    class="btn py-2 fw-bold w-100 rounded-pill"
+                                                    style="border: 1.5px solid #707070; background-color:#28a3b3;">
+                                                    <div class="row justify-content-center">
+                                                        <div class="btn-wrapper">
+                                                            <i class="fas fa-list text-light"></i><span
+                                                                class="text-light" style="font-size: 0.9rem;">Watch
+                                                                Listing</span>
+                                                        </div>
+                                                    </div>
+                                                </button>
+                                            </div>
+                                            @endif
+                                            @else
+                                            <div class="col-12 text-center mb-2">
+                                                <a href="{{route('frontend.auth.login')}}"
+                                                    class="btn py-2 fw-bold w-100 rounded-pill"
+                                                    style="border: 1.5px solid #707070">
+                                                    <div class="row justify-content-center">
+                                                        <div class="btn-wrapper">
+                                                            <i class="fas fa-list"></i><span
+                                                                style="font-size: 0.9rem;">Watch Listing</span>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </div>
                                             @endauth
 
 
@@ -689,7 +725,7 @@ button.close:hover {
                                                                 Save this Property
                                                             </div> -->
                                                             <div class="btn-wrapper">
-                                                            <i class="far fa-heart"></i><span
+                                                                <i class="far fa-heart"></i><span
                                                                     style="font-size: 0.9rem;">Save this Property</span>
                                                             </div>
 
@@ -714,8 +750,9 @@ button.close:hover {
                                                                 Unsave this Property
                                                             </div> -->
                                                             <div class="btn-wrapper">
-                                                            <i class="far fa-heart text-light"></i><span
-                                                                    style="font-size: 0.9rem;" class="text-light">Save this Property</span>
+                                                                <i class="far fa-heart text-light"></i><span
+                                                                    style="font-size: 0.9rem;" class="text-light">Save
+                                                                    this Property</span>
                                                             </div>
                                                         </div>
                                                     </button>
@@ -736,8 +773,8 @@ button.close:hover {
                                                         </div> -->
                                                         <div class="btn-wrapper">
                                                             <i class="far fa-heart"></i><span
-                                                                    style="font-size: 0.9rem;">Save this Property</span>
-                                                            </div>
+                                                                style="font-size: 0.9rem;">Save this Property</span>
+                                                        </div>
                                                     </div>
                                                 </a>
                                                 @endauth
@@ -764,7 +801,7 @@ button.close:hover {
                                 <a href="{{ route('frontend.for_sale_single',$ran->id) }}" class="text-decoration-none">
                                     <img src="{{ uploaded_asset($ran->feature_image_id) }}" alt=""
                                         class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
-                                    
+
                                 </a>
                                 <div class="card-body mt-3">
                                     <div class="row mb-2">
@@ -951,7 +988,7 @@ button.close:hover {
 
 
 
-        <div class="col-3 col-xs-12 col-tab-12">
+        <div class="col-3 col-xs-12 col-tab-12 relative-sidebar">
             <div class="row sidebar-card-area">
                 <div class="col-12 p-0 mb-4 custom-shadow">
                     <div class="card">
@@ -1133,7 +1170,8 @@ button.close:hover {
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form method="post" action="{{route('frontend.auth.login.post')}}" class="needs-validation send-to-agent-form">
+                <form method="post" action="{{route('frontend.auth.login.post')}}"
+                    class="needs-validation send-to-agent-form">
                     {{csrf_field()}}
                     <div class="input-group has-validation mb-3">
                         <input type="email" name="email" class="form-control form-control-lg sign-in-box shadow-sm"
@@ -1190,129 +1228,147 @@ button.close:hover {
 </div>
 
 @if($watch_list == null)
-              
-    <div class="modal fade" id="watch_list" tabindex="-1" aria-labelledby="watch_listModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="watch_listModalLabel">Watch Listing</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form method="post" action="{{route('frontend.watch_listing')}}" >
-                        {{csrf_field()}}
 
-                        <p>Watch this listing. Receive notification when it is sold.</p>
+<div class="modal fade" id="watch_list" tabindex="-1" aria-labelledby="watch_listModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="watch_listModalLabel">Watch Listing</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form method="post" action="{{route('frontend.watch_listing')}}">
+                    {{csrf_field()}}
 
-                        <div class="form-check mb-3">
-                            <input class="form-check-input" name="watch_listing" type="checkbox" value="watch_listing" id="watch_listing">
-                            <label class="form-check-label" for="watch_listing">
-                                Watch Listing
-                            </label>
-                        </div>
+                    <p>Watch this listing. Receive notification when it is sold.</p>
 
-                        <p>Watch this community. Receive updates on Detached homes in {{$property->city}} - {{App\Models\Country::where('id',$property->country)->first()->country_name }}</p>
-                        
-                        <div class="form-check">
-                            <input class="form-check-input" name="new_list" type="checkbox" value="{{$property->city}}" id="new_list">
-                            <label class="form-check-label" for="new_list">
-                                New Listing
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" name="sold_list" type="checkbox" value="{{$property->city}}" id="sold_list">
-                            <label class="form-check-label" for="sold_list">
-                                Sold Listing
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" name="de_list" type="checkbox" value="{{$property->city}}" id="de_list">
-                            <label class="form-check-label" for="de_list">
-                                Delisted Listing
-                            </label>
-                        </div>
+                    <div class="form-check mb-3">
+                        <input class="form-check-input" name="watch_listing" type="checkbox" value="watch_listing"
+                            id="watch_listing">
+                        <label class="form-check-label" for="watch_listing">
+                            Watch Listing
+                        </label>
+                    </div>
 
-                        <input type="hidden" name="pro_hidden_id" value="{{ $property->id }}" />
+                    <p>Watch this community. Receive updates on Detached homes in {{$property->city}} -
+                        {{App\Models\Country::where('id',$property->country)->first()->country_name }}</p>
 
-                        <button type="submit" class="btn btn-primary w-100 mt-3 py-2" style="background-color: #77CEEC; border: 0; border-radius: 0;">Submit</button>
-                    </form>
+                    <div class="form-check">
+                        <input class="form-check-input" name="new_list" type="checkbox" value="{{$property->city}}"
+                            id="new_list">
+                        <label class="form-check-label" for="new_list">
+                            New Listing
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" name="sold_list" type="checkbox" value="{{$property->city}}"
+                            id="sold_list">
+                        <label class="form-check-label" for="sold_list">
+                            Sold Listing
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" name="de_list" type="checkbox" value="{{$property->city}}"
+                            id="de_list">
+                        <label class="form-check-label" for="de_list">
+                            Delisted Listing
+                        </label>
+                    </div>
 
-                </div>
+                    <input type="hidden" name="pro_hidden_id" value="{{ $property->id }}" />
+
+                    <button type="submit" class="btn btn-primary w-100 mt-3 py-2"
+                        style="background-color: #77CEEC; border: 0; border-radius: 0;">Submit</button>
+                </form>
+
             </div>
         </div>
     </div>
+</div>
 @else
 
 
-    <div class="modal fade" id="watch_list_change" tabindex="-1" aria-labelledby="watch_list_changeModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="watch_list_changeModalLabel">Watch Listing</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form method="post" action="{{route('frontend.change_watch_listing')}}" >
-                        {{csrf_field()}}
+<div class="modal fade" id="watch_list_change" tabindex="-1" aria-labelledby="watch_list_changeModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="watch_list_changeModalLabel">Watch Listing</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form method="post" action="{{route('frontend.change_watch_listing')}}">
+                    {{csrf_field()}}
 
-                        <p>Watch this listing. Receive notification when it is sold.</p>
+                    <p>Watch this listing. Receive notification when it is sold.</p>
 
-                        <div class="form-check mb-3">
-                            @if($watch_list->watch_list == null)
-                                <input class="form-check-input" name="watch_listing" type="checkbox" value="watch_listing" id="watch_listing">
-                            @else
-                                <input class="form-check-input" name="watch_listing" type="checkbox" value="watch_listing" id="watch_listing" checked>
-                            @endif
-                            <label class="form-check-label" for="watch_listing">
-                                Watch Listing
-                            </label>
-                        </div>
-                       
-                        
-                        <p>Watch this listing. Receive notification when it is sold. Watch this community. Receive updates on Detached homes in {{$property->city}} - {{App\Models\Country::where('id',$property->country)->first()->country_name }}</p>
+                    <div class="form-check mb-3">
+                        @if($watch_list->watch_list == null)
+                        <input class="form-check-input" name="watch_listing" type="checkbox" value="watch_listing"
+                            id="watch_listing">
+                        @else
+                        <input class="form-check-input" name="watch_listing" type="checkbox" value="watch_listing"
+                            id="watch_listing" checked>
+                        @endif
+                        <label class="form-check-label" for="watch_listing">
+                            Watch Listing
+                        </label>
+                    </div>
 
 
-                        <div class="form-check">
-                            @if($watch_list->new_list == null)
-                                <input class="form-check-input" name="new_list" type="checkbox" value="{{$property->city}}" id="new_list">
-                            @else
-                                <input class="form-check-input" name="new_list" type="checkbox" value="{{$property->city}}" id="new_list" checked>
-                            @endif
-                            <label class="form-check-label" for="new_list">
-                                New Listing
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            @if($watch_list->sold_list == null)
-                                <input class="form-check-input" name="sold_list" type="checkbox" value="{{$property->city}}" id="sold_list">
-                            @else
-                                <input class="form-check-input" name="sold_list" type="checkbox" value="{{$property->city}}" id="sold_list" checked>
-                            @endif
-                            <label class="form-check-label" for="sold_list">
-                                Sold Listing
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            @if($watch_list->de_list == null)
-                                <input class="form-check-input" name="de_list" type="checkbox" value="{{$property->city}}" id="de_list">
-                            @else
-                                <input class="form-check-input" name="de_list" type="checkbox" value="{{$property->city}}" id="de_list" checked>
-                            @endif
-                            <label class="form-check-label" for="de_list">
-                                Delisted Listing
-                            </label>
-                        </div>
+                    <p>Watch this listing. Receive notification when it is sold. Watch this community. Receive updates
+                        on Detached homes in {{$property->city}} -
+                        {{App\Models\Country::where('id',$property->country)->first()->country_name }}</p>
 
-                        <input type="hidden" name="pro_hidden_id" value="{{ $property->id }}" />
-                        <input type="hidden" name="watch_list" value="{{ $watch_list->id }}" />
 
-                        <button type="submit" class="btn btn-primary w-100 mt-3 py-2" style="background-color: #77CEEC; border: 0; border-radius: 0;">Submit</button>
-                    </form>
+                    <div class="form-check">
+                        @if($watch_list->new_list == null)
+                        <input class="form-check-input" name="new_list" type="checkbox" value="{{$property->city}}"
+                            id="new_list">
+                        @else
+                        <input class="form-check-input" name="new_list" type="checkbox" value="{{$property->city}}"
+                            id="new_list" checked>
+                        @endif
+                        <label class="form-check-label" for="new_list">
+                            New Listing
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        @if($watch_list->sold_list == null)
+                        <input class="form-check-input" name="sold_list" type="checkbox" value="{{$property->city}}"
+                            id="sold_list">
+                        @else
+                        <input class="form-check-input" name="sold_list" type="checkbox" value="{{$property->city}}"
+                            id="sold_list" checked>
+                        @endif
+                        <label class="form-check-label" for="sold_list">
+                            Sold Listing
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        @if($watch_list->de_list == null)
+                        <input class="form-check-input" name="de_list" type="checkbox" value="{{$property->city}}"
+                            id="de_list">
+                        @else
+                        <input class="form-check-input" name="de_list" type="checkbox" value="{{$property->city}}"
+                            id="de_list" checked>
+                        @endif
+                        <label class="form-check-label" for="de_list">
+                            Delisted Listing
+                        </label>
+                    </div>
 
-                </div>
+                    <input type="hidden" name="pro_hidden_id" value="{{ $property->id }}" />
+                    <input type="hidden" name="watch_list" value="{{ $watch_list->id }}" />
+
+                    <button type="submit" class="btn btn-primary w-100 mt-3 py-2"
+                        style="background-color: #77CEEC; border: 0; border-radius: 0;">Submit</button>
+                </form>
+
             </div>
         </div>
     </div>
+</div>
 
 
 @endif
@@ -1343,13 +1399,6 @@ button.close:hover {
 <script>
 lightGallery(document.getElementById('lightgallery'))
 </script>
-
-<script>
-    function checkJS() {
-        alert("JS Checker");
-    }
-</script>
- 
 
 <script>
 function changePanaroma(panaromalId) {

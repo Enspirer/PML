@@ -93,6 +93,14 @@ background-color: #35495E;
 
 .sidebar-card-area {
     gap: 15px;
+    position: sticky;
+    top: 0;
+    padding-top: 140px;
+}
+
+.relative-sidebar {
+  position: relative;
+  top: -140px;
 }
 
 .sidebar-card-area .card-body.text-end {
@@ -427,6 +435,10 @@ ul.option-list li a:hover {
 
 .modal-footer.contact-agent {
   background: #fff;
+}
+
+.option-list i {
+  padding-right: 10px;
 }
 
 /*mobile-view*/

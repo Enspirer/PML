@@ -13,18 +13,32 @@
 @include('frontend.includes.search')
 
 <div class="container index" style="margin-top: 2rem;">
+        <div class="row">
+            <div class="col-12">
+                <p><a href="/" class="text-decoration-none text-dark fw-bold">Property Market Live</a>
+                    >
+                        <a href="#" class="text-decoration-none text-dark fw-bold">
+                            Main Menu
+                        </a>
+
+                    > <a href="/home_loan" class="text-decoration-none text-dark fw-bold">Home Loan</a></p>
+            </div>
+        </div>
+</div>
+
+<div class="container" style="margin-top: 2rem;">
     <div class="row">
 
         <div class="col-3 left col-xs-12">
-            <a class="btn link-btn w-100 mb-3"><img src="{{ url('img/frontend/index/location-pin.png') }}" alt=""
+            <a class="btn link-btn w-100 mb-3 main-menu-links active-menu"><img src="{{ url('img/frontend/index/location-pin.png') }}" alt=""
                     class="me-3">Home Loan</a>
-            <a class="btn link-btn w-100 mb-3"><img src="{{ url('img/frontend/index/house.png') }}" alt=""
+            <a class="btn link-btn w-100 mb-3 main-menu-links"><img src="{{ url('img/frontend/index/house.png') }}" alt=""
                     class="me-3">Constructions</a>
-            <a class="btn link-btn w-100 mb-3"><img src="{{ url('img/frontend/index/livingroom.png') }}" alt=""
+            <a class="btn link-btn w-100 mb-3 main-menu-links"><img src="{{ url('img/frontend/index/livingroom.png') }}" alt=""
                     class="me-3">Interior Designs</a>
-            <a class="btn link-btn w-100 mb-3"><img src="{{ url('img/frontend/index/mortgage.png') }}" alt=""
+            <a class="btn link-btn w-100 mb-3 main-menu-links"><img src="{{ url('img/frontend/index/mortgage.png') }}" alt=""
                     class="me-3">Insurance</a>
-            <a class="btn link-btn w-100 mb-3"><img src="{{ url('img/frontend/index/compass.png') }}" alt=""
+            <a class="btn link-btn w-100 mb-3 main-menu-links"><img src="{{ url('img/frontend/index/compass.png') }}" alt=""
                     class="me-3">Vaastu</a>
         </div>
 
@@ -46,7 +60,7 @@
                     </div>
                 </div>
                 <!-- use video here -->
-                <div class="video ">
+                <div class="video">
                     <div class="col-12 mb-3" style="padding-right: 8px; height: 20rem;">
                         <iframe width="100%" height="315" src="https://www.youtube.com/embed/0kXCPo7c63I"
                             title="YouTube video player" frameborder="0"
@@ -86,7 +100,10 @@
                     <div class="col-12 description" style="padding-right: 8px;">
                         <div style="font-size: 0.9rem; color: #666666;">Lorem ipsum dolor sit amet consectetur
                             adipisicing elit. Fugit, quis neque a rerum id cupiditate tenetur omnis asperiores provident
-                            minima quibusdam vel eum quos, illum deserunt ea, dolor ab ducimus?</div </div>
+                            minima quibusdam vel eum quos, illum deserunt ea, dolor ab ducimus?
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti velit autem quos dolores provident commodi aspernatur, labore officiis vel necessitatibus quo sint dolor, facilis minus sunt ipsa laboriosam reprehenderit a.
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maiores illum deleniti accusantium fugit explicabo voluptatum assumenda molestias, quos nihil saepe, sit consequatur harum fuga? Cumque dolorum quaerat ipsam quos soluta?
+                        </div>
                     </div>
                 </div>
             </div>
@@ -113,7 +130,7 @@
             <!-- video here -->
             <div class="row mb-3 video">
                 <div class="col-6 pe-0">
-                    <img src="{{ url('img/frontend/home-loan/homeloan1.jpg') }}" alt="" class="img-fluid w-100"
+                    <img src="{{ url('img/frontend/home-loan/homeloan3.jpg') }}" alt="" class="img-fluid w-100"
                         style="height: 5rem; object-fit: cover;">
                 </div>
                 <div class="col-6">
@@ -130,7 +147,7 @@
             <!-- article here -->
             <div class="row mb-3 article">
                 <div class="col-6 pe-0">
-                    <img src="{{ url('img/frontend/home-loan/homeloan1.jpg') }}" alt="" class="img-fluid w-100"
+                    <img src="{{ url('img/frontend/home-loan/homeloan4.jpg') }}" alt="" class="img-fluid w-100"
                         style="height: 5rem; object-fit: cover;">
                 </div>
                 <div class="col-6">
@@ -148,7 +165,7 @@
             <!-- video here -->
             <div class="row mb-3 video">
                 <div class="col-6 pe-0">
-                    <img src="{{ url('img/frontend/home-loan/homeloan1.jpg') }}" alt="" class="img-fluid w-100"
+                    <img src="{{ url('img/frontend/home-loan/homeloan3.jpg') }}" alt="" class="img-fluid w-100"
                         style="height: 5rem; object-fit: cover;">
                 </div>
                 <div class="col-6">
@@ -459,6 +476,9 @@ var swiper = new Swiper(".mySwiper", {
         },
         768: {
             slidesPerView: 3,
+        },
+        1024: {
+            slidesPerView: 4,
         }
     },
 });
@@ -466,5 +486,59 @@ var swiper = new Swiper(".mySwiper", {
 
 
 <!-- youtube script -->
+<script>
+      $(document).ready(function(){
+
+            // if($latest_post->type == null) {
+            //     let post_type = null;
+            // } else {
+            //    
+            // }
+
+            //Main post showing
+            // if(post_type != 'youtube') {
+            //     $('.article').removeClass('d-none');
+            // } else {
+            //     $('.video').removeClass('d-none');
+            // }
+
+
+            //righside - article click
+            $('.right .article').on('click',function(){
+
+                $('.center .video').addClass('d-none');
+                $('.center .article').removeClass('d-none');
+                let vid = $('.center .video iframe').attr('src');
+                $('.center .video iframe').attr('src', vid);
+                let image = $(this).find('img').attr('src');
+                $(".main-image").attr("src", image);
+                let title = $(this).find('h6').text();
+                $(".title").text(title);
+                let description = $(this).find('.paragraph').text();
+                $(".description div").text(description);
+
+
+            });
+
+            // oe7eVN2azBo
+
+            //rightside - video click
+            $('.right .video').on('click',function(){
+                $('.center .video').removeClass('d-none');
+                $('.center .article').addClass('d-none');
+                let link = $(this).find('.video-value').val();
+                let video = 'https://www.youtube.com/embed/' + link;
+                $('.center .video iframe').attr('src', video);
+                let title = $(this).find('h6').text();
+                $(".title").text(title);
+                let description = $(this).find('.paragraph').text();
+                $(".description div").text(description);
+
+
+            });
+      });
+    </script>
+
+
 
 @endpush
