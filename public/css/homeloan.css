@@ -4,6 +4,10 @@
     margin-bottom: 30px;
 }
 
+/* .container-fluid.home-search {
+    background-color: #fff;
+} */
+
 .right-side {
     display: flex;
     gap: 20px;
