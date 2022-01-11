@@ -643,7 +643,7 @@ class HomeController extends Controller
     }
 
 
-    public function nest_property($lng,$lat)
+    public function nest_property($lng,$lat,Request $request)
     {
         $properties =  Properties::all();
         $finalOut = null;
