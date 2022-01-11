@@ -14,6 +14,7 @@ use App\Models\Auth\User;
 use App\Models\AgentRequest;
 use App\Models\Category;
 use App\Models\Search;
+use App\Models\Settings;
 use App\Models\Upload;
 use App\Models\Favorite;
 use Illuminate\Http\Response;
@@ -96,8 +97,23 @@ class HomeController extends Controller
 
         $property_types = PropertyType::where('status','=','1')->get();
 
-        $featured_properties = Properties::where('admin_approval','Approved')->where('featured','Enabled')->get();
-        $latest_properties = Properties::where('admin_approval','Approved')->latest()->take(8)->get();
+       
+        if(get_country_cookie(request()) == null ){
+            $featured_properties = Properties::where('admin_approval','Approved')->where('featured','Enabled')->get();
+        }else{
+            $featured_properties = Properties::where('admin_approval','Approved')->where('featured','Enabled')->where('country',get_country_cookie(request())->id)->get();
+        }
+
+        if(get_country_cookie(request()) == null ){
+            $latest_properties = Properties::where('admin_approval','Approved')->latest()->take(9)->get();
+        }else{
+            $latest_properties = Properties::where('admin_approval','Approved')->latest()->take(9)->where('country',get_country_cookie(request())->id)->get();
+        }
+
+        $settings = Settings::where('key','home_page_featured')->first();
+        $settings_latest = Settings::where('key','home_page_latest')->first();
+
+
         // dd($featured_properties);
 
         return view('frontend.index',[
@@ -106,7 +122,9 @@ class HomeController extends Controller
             'featured_properties' => $featured_properties,
             'latest_properties' => $latest_properties,
             'property_types' => $property_types,
-            'default_country' => $countryIso
+            'default_country' => $countryIso,
+            'settings' => $settings,
+            'settings_latest' => $settings_latest
         ]);
     }
 

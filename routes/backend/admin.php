@@ -152,7 +152,8 @@ Route::post('sold_properties/update', [PropertyHistoryController::class, 'update
 Route::get('sold_properties/delete/{id}', [PropertyHistoryController::class, 'destroy'])->name('sold_properties.destroy');
 
 
-Route::get('home_page_features', [HomeFeaturedController::class, 'index'])->name('home_page_features.index');
 Route::get('home_page_features/create', [HomeFeaturedController::class, 'create'])->name('home_page_features.create');
 Route::post('home_page_features/store', [HomeFeaturedController::class, 'store'])->name('home_page_features.store');
 
+Route::get('home_page_latest/create', [HomeFeaturedController::class, 'home_page_latest_create'])->name('home_page_latest.create');
+Route::post('home_page_latest/store', [HomeFeaturedController::class, 'home_page_latest_store'])->name('home_page_latest.store');

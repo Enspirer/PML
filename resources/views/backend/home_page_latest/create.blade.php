@@ -1,6 +1,6 @@
 @extends('backend.layouts.app')
 
-@section('title', __('Home Page Featured'))
+@section('title', __('Home Page Latest'))
 
 @section('content')
 
@@ -25,7 +25,7 @@
                                       
             </div>
         </div> -->
-    <form action="{{ route('admin.home_page_features.store') }}" method="POST">
+    <form action="{{ route('admin.home_page_latest.store') }}" method="POST">
     {{csrf_field()}}
         <div class="row justify-content-center">
 
@@ -35,8 +35,8 @@
 
                         <div class="row mb-5">
                             <div class="col-12">
-                                @if($count < 6)
-                                    <a href="" type="button" class="col-12 btn bg-primary" data-toggle="modal" data-target="#addProperty1">Add Featured Properties Here (Maximum 6)</a>
+                                @if($count < 9)
+                                    <a href="" type="button" class="col-12 btn bg-primary" data-toggle="modal" data-target="#addProperty1">Add Featured Properties Here (Maximum 9)</a>
                                 @else
                                     <button href="" type="button" class="col-12 btn bg-primary" disabled>Maximum Properties Count Reached</button>
                                 @endif
