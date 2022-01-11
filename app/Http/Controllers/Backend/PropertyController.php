@@ -159,6 +159,9 @@ class PropertyController extends Controller
         $addprop->premium=$request->premium;
         $addprop->featured=$request->featured;
         $addprop->user_id = $request->agent_user_id;
+        $addprop->panaromal_status = $request->panaromal_status;
+        $addprop->google_panaroma = $request->google_panaroma;
+        $addprop->panaromal_images = $request->panaromal_images;
         $addprop->listning_type='agent_listning';
 
         $addprop->price_options=$request->validate;
@@ -296,6 +299,9 @@ class PropertyController extends Controller
         $update->premium=$request->premium;
         $update->featured=$request->featured;
         $update->user_id = $user_id->id;
+        $update->panaromal_status = $request->panaromal_status;
+        $update->google_panaroma = $request->google_panaroma;
+        $update->panaromal_images = $request->panaromal_images;
         $update->listning_type='agent_listning';
 
         $update->price_options=$request->validate;

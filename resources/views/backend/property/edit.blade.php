@@ -271,37 +271,44 @@
             
         </div>
         <div class="col-md-5 p-1">  
-            <div class="card">
+        <div class="card">
                 <div class="card-body">
                     <div class="" style="border-style: ridge;border-width: 3px;padding: 20px;">
                         <div class="row">
                             <div class="col-12">
-                                <div>
-                                    <label for="google_panaroma" class="form-label mb-2">Google Panaroma</label>
-                                    <textarea class="form-control" rows="4" name="google_panaroma">{{$property->google_panaroma}}</textarea>                                    
-                                </div>  
-                            </div>                            
-                        </div>
-                        <div class="row mt-4">
-                            <div class="col-12">
                                 <div class="form-group">
-                                    <label class="mb-2 mt-2">Panaromal Images</label>
+                                    <label>Panaroma Status</label>
+                                    <select class="form-control custom-select" id="panaromal_status" name="panaromal_status" onchange="panaromas(this);">
+                                        <option value="no_any" {{ $property->panaromal_status == 'no_any' ? "selected" : "" }}>No Any</option> 
+                                        <option value="google_panaroma" {{ $property->panaromal_status == 'google_panaroma' ? "selected" : "" }}>Google Panaroma</option>   
+                                        <option value="panaromal_images" {{ $property->panaromal_status == 'panaromal_images' ? "selected" : "" }}>Panaromal Images</option>                                
+                                    </select>
+                                </div>  
+
+                                <div class="form-group mt-2" id="google_panaroma" style="display: none;">
+                                    <label for="google_panaroma" class="form-label mb-2">Google Panaroma</label>
+                                    <textarea class="form-control" rows="4" name="google_panaroma">{{ $property->google_panaroma }}</textarea>                                    
+                                </div> 
+
+                                <div class="form-group mt-2" id="panaromal_images" style="display: none;">
+                                    <label class="mb-2 mt-2">Panaroma Images</label>
                                     <div class="input-group" data-toggle="aizuploader" data-type="image" data-multiple="true">
                                         <div class="input-group-prepend">
                                             <div class="input-group-text bg-soft-secondary font-weight-medium">Browse</div>
                                         </div>
                                         <div class="form-control file-amount">Choose File</div>
-                                        <input type="hidden" name="panaromal_images" value="{{$property->panaromal_images}}" class="selected-files" >
+                                        <input type="hidden" name="panaromal_images" value="{{ $property->panaromal_images }}" class="selected-files" >
                                     </div>
                                     <div class="file-preview box sm">
                                     </div>
                                 </div> 
-                            </div>
-                        </div>   
+
+                            </div>                            
+                        </div>
                         
                     </div>
                 </div>
-            </div>              
+            </div>             
             <div class="card">
                 <div class="card-body">
                     <div class="" style="border-style: ridge;border-width: 3px;padding: 20px;">
@@ -1008,5 +1015,33 @@
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEBj8LhHUJaf2MXpqIQ_MOXs7HkeUXnac&callback=initMap&libraries=places&v=weekly&channel=2"
 type="text/javascript"></script>
 
+
+    <script>
+        function panaromas(that) {
+            if (that.value == 'google_panaroma') {
+                document.getElementById("google_panaroma").style.display = "block";
+                document.getElementById("panaromal_images").style.display = "none";
+            }else if(that.value == 'panaromal_images') {
+                document.getElementById("panaromal_images").style.display = "block";
+                document.getElementById("google_panaroma").style.display = "none";
+            } else {
+                document.getElementById("panaromal_images").style.display = "none";
+                document.getElementById("google_panaroma").style.display = "none";
+            }
+
+        }
+
+        $(document).ready(function(){
+            if($('#panaromal_status').val() == 'google_panaroma'){
+                $('#google_panaroma').css('display','block');
+            }
+            else if($('#panaromal_status').val() == 'panaromal_images'){
+                $('#panaromal_images').css('display','block');
+            }else{
+                $('#no_any').css('display','block');
+            }
+            
+        });
+    </script> 
 
 @endsection

@@ -111,7 +111,9 @@
                             <div class="card custom-shadow position-relative" style="min-height: 370px;max-height: 450px;">
                                     <a href="{{ route('frontend.for_sale_single',$property_pro->id) }}" class="text-decoration-none text-dark">
                                         <img src="{{ uploaded_asset($property_pro->feature_image_id) }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
-
+                                        @if($property_pro->panaromal_status == 'google_panaroma')
+                                            <img class="pano-symbol" src="{{ url('img/360.png') }}" alt="360 logo">
+                                        @endif
                                     </a>
 
                                     <div class="card-body mt-2" style="margin-top:30px !important;">

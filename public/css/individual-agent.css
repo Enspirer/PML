@@ -13,6 +13,14 @@
     margin-top: 60px;
 }
 
+.pano-symbol {
+    position: absolute;
+    top: 30%;
+    left: 18%;
+    width: 15% !important;
+    height: auto !important;
+}
+
 .profile-pic {
     position: relative;
     width: 250px;

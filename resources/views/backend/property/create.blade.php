@@ -261,16 +261,22 @@
                     <div class="" style="border-style: ridge;border-width: 3px;padding: 20px;">
                         <div class="row">
                             <div class="col-12">
-                                <div>
+                                <div class="form-group">
+                                    <label>Panaroma Status</label>
+                                    <select class="form-control custom-select" id="panaromal_status" name="panaromal_status" onchange="panaromas(this);">
+                                        <option value="no_any" selected>No Any</option> 
+                                        <option value="google_panaroma">Google Panaroma</option>   
+                                        <option value="panaromal_images">Panaromal Images</option>                                
+                                    </select>
+                                </div>  
+
+                                <div class="form-group mt-2" id="google_panaroma" style="display: none;">
                                     <label for="google_panaroma" class="form-label mb-2">Google Panaroma</label>
                                     <textarea class="form-control" rows="4" name="google_panaroma"></textarea>                                    
-                                </div>  
-                            </div>                            
-                        </div>
-                        <div class="row mt-4">
-                            <div class="col-12">
-                                <div class="form-group">
-                                    <label class="mb-2 mt-2">Panaromal Images</label>
+                                </div> 
+
+                                <div class="form-group mt-2" id="panaromal_images" style="display: none;">
+                                    <label class="mb-2 mt-2">Panaroma Images</label>
                                     <div class="input-group" data-toggle="aizuploader" data-type="image" data-multiple="true">
                                         <div class="input-group-prepend">
                                             <div class="input-group-text bg-soft-secondary font-weight-medium">Browse</div>
@@ -281,8 +287,9 @@
                                     <div class="file-preview box sm">
                                     </div>
                                 </div> 
-                            </div>
-                        </div>   
+
+                            </div>                            
+                        </div>
                         
                     </div>
                 </div>
@@ -860,5 +867,23 @@ function geocodeLatLng(geocoder, map, infowindow) {
 </script>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEBj8LhHUJaf2MXpqIQ_MOXs7HkeUXnac&callback=initMap&libraries=places&v=weekly&channel=2"
 type="text/javascript"></script>
+
+
+    <script>
+        function panaromas(that) {
+            if (that.value == 'google_panaroma') {
+                document.getElementById("google_panaroma").style.display = "block";
+                document.getElementById("panaromal_images").style.display = "none";
+            }else if(that.value == 'panaromal_images') {
+                document.getElementById("panaromal_images").style.display = "block";
+                document.getElementById("google_panaroma").style.display = "none";
+            } else {
+                document.getElementById("panaromal_images").style.display = "none";
+                document.getElementById("google_panaroma").style.display = "none";
+            }
+
+        }
+    </script> 
+
 
 @endsection

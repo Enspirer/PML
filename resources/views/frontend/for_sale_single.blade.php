@@ -204,29 +204,29 @@ button.close:hover {
                             @endphp
 
                             @if($property->panaromal_images)
-                            @php
-                            $pano_arry = preg_split ("/\,/", $property->panaromal_images);
-                            @endphp
+                                @php
+                                    $pano_arry = preg_split ("/\,/", $property->panaromal_images);
+                                @endphp
                             @else
-                            @php
-                            $pano_arry = null;
-                            @endphp
+                                @php
+                                    $pano_arry = null;
+                                @endphp
                             @endif
 
-                            @if($pano_arry)
-                            @foreach($pano_arry as $panoarray)
-                            <div class="swiper-slide">
-                                <a href="#" data-toggle="modal" data-target="#panoModal"
-                                    onclick="changePanaroma('{{ $panoarray }}')">
-                                    <div class="pano-wrapper">
-                                        <img src="{{ uploaded_asset($panoarray) }}" />
-                                        <img class="pano-symbol" src="{{ url('img/360.png') }}" alt="360 logo">
+                            @if($property->panaromal_status == 'panaromal_images')
+                                @if($pano_arry)
+                                    @foreach($pano_arry as $panoarray)
+                                    <div class="swiper-slide">
+                                        <a href="#" data-toggle="modal" data-target="#panoModal"
+                                            onclick="changePanaroma('{{ $panoarray }}')">
+                                            <div class="pano-wrapper">
+                                                <img src="{{ uploaded_asset($panoarray) }}" />
+                                                <img class="pano-symbol" src="{{ url('img/360.png') }}" alt="360 logo">
+                                            </div>
+                                        </a>
                                     </div>
-
-
-                                </a>
-                            </div>
-                            @endforeach
+                                    @endforeach
+                                @endif
                             @endif
 
                             @foreach($str_arr2 as $key=> $pre)
@@ -250,7 +250,13 @@ button.close:hover {
                     <div class="option-bar">
                         <div class="option-list-wrapper">
                             <ul class="option-list">
-                                <li><i class="fas fa-redo-alt"></i>360<sup>0</sup></li>
+                                @if($property->panaromal_status == 'google_panaroma')
+                                    @if($property->google_panaroma != null)
+                                        <li><a href="" data-toggle="modal" data-target="#threesixtyModal"><i class="fas fa-redo-alt"></i>360<sup>0</sup></a></li>
+                                    @endif
+                                @else
+                                    <li><i class="fas fa-redo-alt"></i>360<sup>0</sup></li>
+                                @endif
                                 <li>
                                     <a href="#" data-toggle="modal" data-target="#photoModal"><i
                                             class="fas fa-camera"></i>Photo</a>
@@ -269,6 +275,24 @@ button.close:hover {
                                 </li>
 
                             </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="threesixtyModal" tabindex="-1" aria-labelledby="three_sixtyModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="three_sixtyModalLabel">Google Panaroma</h5>
+                            <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body text-center">
+                                {!!$property->google_panaroma!!}
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                        </div>
                         </div>
                     </div>
                 </div>
@@ -349,12 +373,14 @@ button.close:hover {
                 <div class="col-3">
                     <div thumbsSlider="" class="swiper mySwiper">
                         <div class="swiper-wrapper">
-                            @if($pano_arry)
-                            @foreach($pano_arry as $panoarray)
-                            <div class="swiper-slide">
-                                <img src="{{ uploaded_asset($panoarray) }}" />
-                            </div>
-                            @endforeach
+                            @if($property->panaromal_status == 'panaromal_images')
+                                @if($pano_arry)
+                                    @foreach($pano_arry as $panoarray)
+                                    <div class="swiper-slide">
+                                        <img src="{{ uploaded_asset($panoarray) }}" />
+                                    </div>
+                                    @endforeach
+                                @endif
                             @endif
 
                             @foreach($str_arr2 as $key=> $pre)
@@ -1410,6 +1436,8 @@ button.close:hover {
         </div>
     </div>
 </div>
+
+
 
 
 @endif
