@@ -78,8 +78,11 @@
         <!-- Scripts -->
         @stack('before-scripts')
         {!! script(mix('js/manifest.js')) !!}
-        {!! script(mix('js/vendor.js')) !!}
-        {!! script(mix('js/frontend.js')) !!}
+        {!! script(mix('js/vendor.js')) !!}    
+        <!-- This JS commented because it conflicts other JS files -->
+        <!-- {!! script(mix('js/frontend.js')) !!} -->
+    
+
 
             <script>
             function openNav() {
@@ -201,11 +204,9 @@
 
         function closeMenu() {
             var x = document.getElementById("contentMenu");
-            if (x.style.display === "none") {
-                x.style.display = "block";
-            } else {
+            if (x.style.display === "block") {
                 x.style.display = "none";
-            }
+            } 
         }
     </script>
         

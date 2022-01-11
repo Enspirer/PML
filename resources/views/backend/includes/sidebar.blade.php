@@ -204,7 +204,12 @@
                             <a class="nav-link {{active_class(Route::is('admin/contactus_thanks'))}}" href="{{ route('admin.contactus_thanks') }}">
                                 Contact Us Thanks Email
                             </a>
-                        </li>                   
+                        </li>               
+                        <li class="nav-item">
+                            <a class="nav-link {{active_class(Route::is('admin/home_page_features/create'))}}" href="{{ route('admin.home_page_features.create') }}">
+                                Home Page Features
+                            </a>
+                        </li>      
                     </ul>
                 </li>
 

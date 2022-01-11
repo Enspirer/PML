@@ -15,6 +15,7 @@ use App\Http\Controllers\Backend\SearchController;
 use App\Http\Controllers\Backend\LocationController;
 use App\Http\Controllers\Backend\PropertyHistoryController;
 use App\Http\Controllers\Backend\FreeListningController;
+use App\Http\Controllers\Backend\HomeFeaturedController;
 
 
 // All route names are prefixed with 'admin.'.
@@ -149,4 +150,9 @@ Route::get('sold_properties/getdetails', [PropertyHistoryController::class, 'get
 Route::get('sold_properties/edit/{id}', [PropertyHistoryController::class, 'edit'])->name('sold_properties.edit');
 Route::post('sold_properties/update', [PropertyHistoryController::class, 'update'])->name('sold_properties.update');
 Route::get('sold_properties/delete/{id}', [PropertyHistoryController::class, 'destroy'])->name('sold_properties.destroy');
+
+
+Route::get('home_page_features', [HomeFeaturedController::class, 'index'])->name('home_page_features.index');
+Route::get('home_page_features/create', [HomeFeaturedController::class, 'create'])->name('home_page_features.create');
+Route::post('home_page_features/store', [HomeFeaturedController::class, 'store'])->name('home_page_features.store');
 
