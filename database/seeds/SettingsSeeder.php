@@ -492,5 +492,13 @@ class SettingsSeeder extends Seeder
             'user_id' => 1,
             ]
         );  
+        DB::table('settings')
+        ->insert(
+            [             
+            'key' => 'home_page_featured',
+            'value' => null, 
+            'user_id' => 1,
+            ]
+        );  
     }
 }

@@ -147,3 +147,13 @@ Breadcrumbs::for('admin.sold_properties.edit', function ($trail) {
 });
 
 
+Breadcrumbs::for('admin.home_page_features.index', function ($trail) {
+    $trail->push('Home Page Features', route('admin.home_page_features.index'));
+});
+Breadcrumbs::for('admin.home_page_features.create', function ($trail) {
+    $trail->push('Create', route('admin.home_page_features.create'));
+});
+Breadcrumbs::for('admin.home_page_features.edit', function ($trail) {
+    $trail->push('Edit', route('admin.home_page_features.edit',1));
+});
+

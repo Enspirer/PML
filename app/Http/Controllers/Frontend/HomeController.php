@@ -14,6 +14,7 @@ use App\Models\Auth\User;
 use App\Models\AgentRequest;
 use App\Models\Category;
 use App\Models\Search;
+use App\Models\Upload;
 use App\Models\Favorite;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Cookie;
@@ -43,6 +44,23 @@ class HomeController extends Controller
         }
     }
 
+    public function image_assets($id)
+    {
+        // dd($id);
+
+        $uploaded_images = Upload::where('id',$id)->first();
+
+        // return $uploaded_images;
+
+        if ($uploaded_images){
+            return response( file_get_contents($uploaded_images->file_name) )
+                ->header('Content-Type','image/png');
+        }else{
+            return response( file_get_contents('/img/no-image.jpg') )
+                ->header('Content-Type','image/png');
+        }
+    }
+    
 
     public function index(Request $request)
     {
