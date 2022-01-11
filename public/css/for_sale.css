@@ -13,6 +13,14 @@
     line-height: 15px;
 }
 
+.pano-symbol {
+    position: absolute;
+    top: 8%;
+    left: 40%;
+    width: 20% !important;
+    height: auto !important;
+}
+
 .prom-logo {
     top: 8.5rem;
     left: 1rem;

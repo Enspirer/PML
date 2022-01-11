@@ -146,6 +146,9 @@
 
                                     </div>
                                     <img class="property-img" src="{{ uploaded_asset($prop->feature_image_id) }}" alt="property" style="object-fit:cover">
+                                    @if($prop->panaromal_status == 'google_panaroma')
+                                        <img class="pano-symbol" src="{{ url('img/360.png') }}" alt="360 logo">
+                                    @endif
                                     @if($prop->promoted == 'Enabled')
                                         <div class="free_listning position-absolute badge badge-danger p-2 m-2">PROMOTED</div>
                                     @endif
@@ -213,6 +216,9 @@
 
                                     </div>
                                     <img class="property-img" src="{{ uploaded_asset($prop->feature_image_id) }}" alt="property" style="object-fit:cover">
+                                    @if($prop->panaromal_status == 'google_panaroma')
+                                        <img class="pano-symbol" src="{{ url('img/360.png') }}" alt="360 logo">
+                                    @endif
                                     @if($prop->promoted == 'Enabled')
                                         <div class="free_listning position-absolute badge badge-danger p-2 m-2">PROMOTED</div>
                                     @endif
@@ -283,6 +289,9 @@
 
                                     </div>
                                     <img class="property-img" src="{{ uploaded_asset($prop->feature_image_id) }}" alt="property" style="object-fit:cover">
+                                    @if($prop->panaromal_status == 'google_panaroma')
+                                        <img class="pano-symbol" src="{{ url('img/360.png') }}" alt="360 logo">
+                                    @endif
                                     @if($prop->promoted == 'Enabled')
                                         <div class="free_listning position-absolute badge badge-danger p-2 m-2">PROMOTED</div>
                                     @endif
