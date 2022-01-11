@@ -46,6 +46,18 @@
                     // styles: [{"featureType":"landscape","stylers":[{"saturation":-100},{"lightness":65},{"visibility":"on"}]},{"featureType":"poi","stylers":[{"visibility":"off"}]},{"featureType":"road.highway","stylers":[{"saturation":-100},{"visibility":"simplified"}]},{"featureType":"road.arterial","stylers":[{"saturation":-100},{"lightness":30},{"visibility":"on"}]},{"featureType":"road.local","stylers":[{"saturation":-100},{"lightness":40},{"visibility":"on"}]},{"featureType":"transit","stylers":[{"saturation":-100},{"visibility":"simplified"}]},{"featureType":"administrative.province","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"labels","stylers":[{"visibility":"on"},{"lightness":-25},{"saturation":-100}]},{"featureType":"water","elementType":"geometry","stylers":[{"hue":"#ffff00"},{"lightness":-25},{"saturation":-97}]}] // "Subtle Grayscale" style found on snazzymaps.com
 
                 });
+
+        // Add the circle for this city to the map.
+        const cityCircle = new google.maps.Circle({
+            strokeColor: "#201a4a",
+            strokeOpacity: 0.8,
+            strokeWeight: 2,
+            fillColor: "#201a4a",
+            fillOpacity: 0.10,
+            map,
+            center:  new google.maps.LatLng(6.9271, 79.8612),
+            radius: Math.sqrt(2714856),
+        });
         @else
 
 
