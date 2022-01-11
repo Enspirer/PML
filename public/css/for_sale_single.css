@@ -441,6 +441,32 @@ ul.option-list li a:hover {
   padding-right: 10px;
 }
 
+
+.topbar-icons i {
+  padding-left: 5px;
+}
+
+.topbar-icons {
+  display: flex;
+  gap: 15px;
+}
+
+.topbar-single-icon {
+  background: #35495e;
+  color: #fff;
+  padding: 5px 10px;
+}
+
+.share-options-wrapper {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+}
+
+.share-option i {
+  font-size: 4rem;
+}
+
 /*mobile-view*/
 @media screen and (max-width: 767px) {
   .modal-dialog {

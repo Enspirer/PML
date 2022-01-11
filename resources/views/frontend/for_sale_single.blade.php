@@ -23,17 +23,17 @@
     color: #fff;
 }
 
-.modal-dialog {
+div#panoModal  .modal-dialog {
     max-width: 90%;
 }
 
-.modal-content .modal-body {
+div#panoModal .modal-content .modal-body {
     padding: 0 !important;
     position: relative;
-}
+} 
 
 
-button.close {
+div#panoModal button.close {
     position: absolute;
     right: 5px;
     top: 5px;
@@ -44,7 +44,7 @@ button.close {
     height: 30px;
 }
 
-.modal-content {
+div#panoModal  .modal-content {
     height: 90vh;
     margin-top: 5vh;
     margin-bottom: 5vh;
@@ -55,7 +55,7 @@ button.close {
     background: #000;
 }
 
-.modal-body {
+div#panoModal  .modal-body {
     height: 90vh;
     max-height: unset !important;
     overflow: hidden !important;
@@ -83,7 +83,7 @@ button.close:hover {
 @include('frontend.includes.search')
 <div class="container index" style="margin-top: 2rem;">
         <div class="row">
-            <div class="col-12">
+            <div class="col-9">
                 <p><a href="/" class="text-decoration-none text-dark fw-bold">Property Market Live</a>
                     >
                         <a href="#" class="text-decoration-none text-dark fw-bold">
@@ -91,6 +91,19 @@ button.close:hover {
                         </a>
 
                     > <a href="/home_loan" class="text-decoration-none text-dark fw-bold">Moscow Land</a></p>
+
+            </div>
+            <div class="col-3">
+                <div class="topbar-icons">
+                    <button class="topbar-single-icon" data-bs-toggle="modal" data-bs-target="#watch_list">
+                    Watchlist<i class="far fa-eye"></i>
+</button>
+                    <button type="button" class="topbar-single-icon" data-toggle="modal" data-target="#shareModal">
+                        
+                    Share <i class="far fa-share-square"></i>
+</button>
+                </div>
+               
             </div>
         </div>
 </div>
@@ -1158,8 +1171,36 @@ button.close:hover {
 </div>
 
 
+<!-- share modal -->
+<div class="modal fade" id="shareModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Share this Listing</h5>
+        <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
+        </button>
 
-
+        <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+      </div>
+      <div class="modal-body">
+        <div class="share-options-wrapper">
+            <div class="share-option">
+            <i class="fab fa-facebook-square"></i>
+            </div>
+            <div class="share-option">
+            <i class="fab fa-twitter"></i>
+            </div>
+            <div class="share-option">
+            <i class="fab fa-instagram"></i>
+            </div>
+        </div>
+      </div>
+      <!-- <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div> -->
+    </div>
+  </div>
+</div>
 
 <!-- Login Modal -->
 <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
