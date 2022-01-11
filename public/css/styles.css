@@ -420,9 +420,7 @@ button#closeMainMenu {
     top: -30px;
 }
 
-.main-menu-content {
-    display: none;
-}
+
 
 .menu-icon-card-row {
     display: flex;
@@ -630,7 +628,7 @@ button#closeMainMenu {
     }
 
     .main-menu-content {
-        height: 800px;
+        height: 900px;
     }
 
     .menu-icon-card {
@@ -641,7 +639,7 @@ button#closeMainMenu {
 }
 
 /*tab-portrait*/
-@media (min-width: 768px) and (max-width: 991px) {
+@media (min-width: 768px) and (max-width: 1100px) {
     .hidden-xs {
         display: none !important;
     }
