@@ -33,7 +33,7 @@
 
 <div class="container-fluid banner contact-banner" style="margin-top: 6rem;">
     <div class="row justify-content-center xs-pl-0 contact-wrapper-sm" style="padding-top: 9rem;gap:30px;">
-        <div class="col-5 contact-form col-xs-90precent col-tab-12">
+        <div class="col-5 contact-form col-xs-90precent col-tab-50">
             <form action="{{route('frontend.contact_us.store')}}" method="post" enctype="multipart/form-data">
                 {{csrf_field()}}
                 <h5 class="fw-bold">Let Us Call You!</h5>
@@ -98,7 +98,7 @@
                 </div>
             </form>
         </div>
-        <div class="col-5 contact-form col-xs-90precent col-tab-12 details-card-area">
+        <div class="col-5 contact-form col-xs-90precent col-tab-50 details-card-area">
             <div class="contact-details-wrapper">
 
                 <div class="contact-card">

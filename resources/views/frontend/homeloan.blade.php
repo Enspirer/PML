@@ -349,7 +349,7 @@
 <!-- fullsize area -->
 <div class="container">
     <div class="row">
-        <div class="col-9 col-xs-12">
+        <div class="col-9 col-xs-12 col-tab-12">
 
             <!-- card only have text -->
             <div class="property-detail-card-wrapper">
@@ -418,7 +418,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-3 col-xs-12 side-area">
+        <div class="col-3 col-xs-12 col-tab-12 side-area">
             <div class="sidebar-card">
                 <img src="{{ url('img/frontend/index/ad_1.png') }}" alt="">
             </div>
@@ -445,10 +445,10 @@ var swiper = new Swiper(".mySwiper", {
         nextEl: ".swiper-button-next",
         prevEl: ".swiper-button-prev",
     },
-    // autoplay: {
-    //     delay: 4000,
-    //     disableOnInteraction: false,
-    // },
+    autoplay: {
+        delay: 4000,
+        disableOnInteraction: false,
+    },
     breakpoints: {
         0: {
             slidesPerView: 1,

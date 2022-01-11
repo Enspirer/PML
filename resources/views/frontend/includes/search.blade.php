@@ -73,7 +73,7 @@
                         <i class="fas fa-bars" disabled></i>
                     </button>
                     <!-- main menu content -->
-                    <div id="contentMenu" class="main-menu-content">
+                    <div id="contentMenu" class="main-menu-content" style="display:none;">
                         <div class="main-menu-inner">
                             <button type="button" id="closeMainMenu" onclick="closeMenu()"><i
                                     class="fas fa-times"></i></button>
