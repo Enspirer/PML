@@ -94,6 +94,9 @@ Route::get('marketing_services', [PagesController::class, 'marketing_services'])
 
 Route::get('home_loan', [MainMenuController::class, 'homeloan'])->name('homeloan');
 
+Route::get('image_assester/{id}',[HomeController::class,'image_assets'])->name('image_selected');
+Route::get('property_country/{id}',[HomeController::class,'property_country'])->name('property_country');
+
 /*
  * These frontend controllers require the user to be logged in
  * All route names are prefixed with 'frontend.'
