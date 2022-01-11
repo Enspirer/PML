@@ -120,8 +120,10 @@ p {
     border: 1px solid #ced4da;
     border-radius: .25rem;
 }
-
-
+/* 
+div#mainMenuModal .modal-backdrop {
+    background-color: transparent;
+} */
 
 @media screen and (min-width: 1300px) {
     .container, .container-lg, .container-md, .container-sm, .container-xl {
@@ -387,6 +389,68 @@ p#copyright-txt {
     width: 80%;
 }
 
+
+.container.main-menu-helper {
+    position: relative;
+    padding-bottom: 45px;
+}
+
+.main-menu-content {
+    position: absolute;
+    left: 0;
+    background: #35495e;
+    opacity: 0.8;
+    width: 89%;
+    height: 200px;
+    z-index: 1000;
+    margin-left: 5.5%;
+    margin-right: 5.5%;
+}
+
+.main-menu-inner {
+    position: relative;
+}
+
+
+button#closeMainMenu {
+    position: absolute;
+    right: 0;
+    background-color: transparent;
+    border: 0;
+    top: -30px;
+}
+
+.main-menu-content {
+    display: none;
+}
+
+.menu-icon-card-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 45px;
+    margin-right: 45px;
+    margin-top: 30px;
+}
+
+.menu-icon-card {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    background: #fff;
+    width: 100%;
+    height: 130px;
+    margin-left: 15px;
+    margin-right: 15px;
+    border-radius: 5px;
+}
+
+.menu-icon-card:hover {
+    filter: invert(1);
+}
+
 /*mobile-view*/
 @media screen and (max-width: 767px) {
     .hidden-xs {
@@ -558,6 +622,22 @@ p#copyright-txt {
     .input-group .btn {
         z-index: 1;
     }
+
+    /* main menu styles */
+    .menu-icon-card-row {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .main-menu-content {
+        height: 800px;
+    }
+
+    .menu-icon-card {
+        width: 75%;
+        padding: 20px;
+    }
+    
 }
 
 /*tab-portrait*/
@@ -736,7 +816,16 @@ p#copyright-txt {
         flex: 100% !important;
     }
     
+    .main-menu-content {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+    }
 
+    .menu-icon-card-row {
+        margin-left: 0;
+        margin-right: 0;
+    }
 
     
 }

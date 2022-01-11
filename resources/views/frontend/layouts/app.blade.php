@@ -72,12 +72,17 @@
             </div><!-- container -->
             @include('frontend.includes.footer')
         </div><!-- #app -->
+        
+
 
         <!-- Scripts -->
         @stack('before-scripts')
         {!! script(mix('js/manifest.js')) !!}
-        {!! script(mix('js/vendor.js')) !!}
-        {!! script(mix('js/frontend.js')) !!}
+        {!! script(mix('js/vendor.js')) !!}    
+        <!-- This JS commented because it conflicts other JS files -->
+        <!-- {!! script(mix('js/frontend.js')) !!} -->
+    
+
 
             <script>
             function openNav() {
@@ -186,6 +191,26 @@
             }
         </script>
     
+    <!-- Main menu function -->
+    <script>
+       function mainMenuFunction() {
+            var x = document.getElementById("contentMenu");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+        }
+
+        function closeMenu() {
+            var x = document.getElementById("contentMenu");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+        }
+    </script>
         
         @stack('after-scripts')
 

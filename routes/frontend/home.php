@@ -18,6 +18,7 @@ use App\Http\Controllers\Frontend\User\AreaManagementController;
 use App\Http\Controllers\Frontend\IndividualAgentController;
 use App\Http\Controllers\Frontend\PreListningController;
 use App\Http\Controllers\Frontend\PagesController;
+use App\Http\Controllers\Frontend\MainMenuController;
 
 
 /*
@@ -91,10 +92,7 @@ Route::get('tips_for_sellers', [PagesController::class, 'tips_for_sellers'])->na
 Route::get('commercial_resources', [PagesController::class, 'commercial_resources'])->name('commercial_resources');
 Route::get('marketing_services', [PagesController::class, 'marketing_services'])->name('marketing_services');
 
-
-Route::get('image_assester/{id}',[HomeController::class,'image_assets'])->name('image_selected');
-Route::get('property_country/{id}',[HomeController::class,'property_country'])->name('property_country');
-
+Route::get('home_loan', [MainMenuController::class, 'homeloan'])->name('homeloan');
 
 /*
  * These frontend controllers require the user to be logged in
