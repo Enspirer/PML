@@ -500,5 +500,13 @@ class SettingsSeeder extends Seeder
             'user_id' => 1,
             ]
         );  
+        DB::table('settings')
+        ->insert(
+            [             
+            'key' => 'home_page_latest',
+            'value' => null, 
+            'user_id' => 1,
+            ]
+        );
     }
 }
