@@ -291,7 +291,11 @@ class ForSaleController extends Controller
 
         $fe_properties = $properties->paginate(3);
 
-        $properties_promoted = Properties::where('promoted','Enabled')->where('admin_approval','Approved')->take(3)->latest()->get();
+        if(get_country_cookie(request()) == null ){
+            $properties_promoted = Properties::where('promoted','Enabled')->where('admin_approval','Approved')->take(3)->latest()->get();
+        }else{
+            $properties_promoted = Properties::where('promoted','Enabled')->where('admin_approval','Approved')->take(3)->latest()->where('country',get_country_cookie(request())->id)->get();
+        }
 
         // dd($properties_promoted);
 

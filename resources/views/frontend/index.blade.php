@@ -46,6 +46,18 @@
                     // styles: [{"featureType":"landscape","stylers":[{"saturation":-100},{"lightness":65},{"visibility":"on"}]},{"featureType":"poi","stylers":[{"visibility":"off"}]},{"featureType":"road.highway","stylers":[{"saturation":-100},{"visibility":"simplified"}]},{"featureType":"road.arterial","stylers":[{"saturation":-100},{"lightness":30},{"visibility":"on"}]},{"featureType":"road.local","stylers":[{"saturation":-100},{"lightness":40},{"visibility":"on"}]},{"featureType":"transit","stylers":[{"saturation":-100},{"visibility":"simplified"}]},{"featureType":"administrative.province","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"labels","stylers":[{"visibility":"on"},{"lightness":-25},{"saturation":-100}]},{"featureType":"water","elementType":"geometry","stylers":[{"hue":"#ffff00"},{"lightness":-25},{"saturation":-97}]}] // "Subtle Grayscale" style found on snazzymaps.com
 
                 });
+
+        // Add the circle for this city to the map.
+        const cityCircle = new google.maps.Circle({
+            strokeColor: "#201a4a",
+            strokeOpacity: 0.8,
+            strokeWeight: 2,
+            fillColor: "#201a4a",
+            fillOpacity: 0.10,
+            map,
+            center:  new google.maps.LatLng(6.9271, 79.8612),
+            radius: Math.sqrt(2714856),
+        });
         @else
 
 
@@ -55,6 +67,16 @@
                 mapTypeId: google.maps.MapTypeId.ROADMAP,
                 // styles: [{"featureType":"landscape","stylers":[{"saturation":-100},{"lightness":65},{"visibility":"on"}]},{"featureType":"poi","stylers":[{"visibility":"off"}]},{"featureType":"road.highway","stylers":[{"saturation":-100},{"visibility":"simplified"}]},{"featureType":"road.arterial","stylers":[{"saturation":-100},{"lightness":30},{"visibility":"on"}]},{"featureType":"road.local","stylers":[{"saturation":-100},{"lightness":40},{"visibility":"on"}]},{"featureType":"transit","stylers":[{"saturation":-100},{"visibility":"simplified"}]},{"featureType":"administrative.province","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"labels","stylers":[{"visibility":"on"},{"lightness":-25},{"saturation":-100}]},{"featureType":"water","elementType":"geometry","stylers":[{"hue":"#ffff00"},{"lightness":-25},{"saturation":-97}]}] // "Subtle Grayscale" style found on snazzymaps.com
 
+            });
+            const cityCircle = new google.maps.Circle({
+                strokeColor: "#201a4a",
+                strokeOpacity: 0.8,
+                strokeWeight: 2,
+                fillColor: "#201a4a",
+                fillOpacity: 0.10,
+                map,
+                center:  new google.maps.LatLng(6.9271, 79.8612),
+                radius: Math.sqrt(2714856),
             });
         @endif
 
@@ -257,44 +279,78 @@
             <div class="col-9 col-xs-12 col-tab-12">
                 <div class="row">
                     @if(count($featured_properties) != 0)
-                    @foreach($featured_properties as $key => $featured_prop)
-                    <div class="col-4 col-xs-12 col-tab-50">
-                        <div class="card custom-shadow position-relative" style="min-height:307px;  max-height:307px">
-                            <a href="{{route('frontend.for_sale_single',$featured_prop->id)}}"
-                                style="text-decoration:none">
-                                <img src="{{ uploaded_asset($featured_prop->feature_image_id) }}" alt=""
-                                    class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
-                                    @if($featured_prop->promoted == 'Enabled')
-                                        <div class="free_listning position-absolute badge badge-danger p-2 m-2">PROMOTED</div>
-                                    @endif
-                                <div class="card-body text-center">
-                                    <h5 class="fw-bold">{{ get_currency(request() ,$featured_prop->price)}}</h5>
-                                    @if($featured_prop->beds == null)
-                                    @else
-                                    <p>{{$featured_prop->beds}} Bed Semidetached house</p>
-                                    @endif
-                                    <p>{{$featured_prop->name}}</p>
-                                    <p>{{$featured_prop->city}},
-                                        {{App\Models\Country::where('id',$featured_prop->country)->first()->country_name}}
-                                    </p>
-                                    <p>
-                                        @if($featured_prop->beds != null)
-                                        {{$featured_prop->beds}}<i class="fas fa-bed ms-2 me-3"></i>
-                                        @endif
-                                        @if($featured_prop->baths != null)
-                                        {{$featured_prop->baths}}<i class="fas fa-bath ms-2"></i>
-                                        @endif
-                                    </p>
+                        @foreach($featured_properties as $key => $featured_prop)
+                            <div class="col-4 col-xs-12 col-tab-50">
+                                <div class="card custom-shadow position-relative" style="min-height:307px;  max-height:307px">
+                                    <a href="{{route('frontend.for_sale_single',$featured_prop->id)}}"
+                                        style="text-decoration:none">
+                                        <img src="{{ uploaded_asset($featured_prop->feature_image_id) }}" alt=""
+                                            class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
+                                            @if($featured_prop->promoted == 'Enabled')
+                                                <div class="free_listning position-absolute badge badge-danger p-2 m-2">PROMOTED</div>
+                                            @endif
+                                        <div class="card-body text-center">
+                                            <h5 class="fw-bold">{{ get_currency(request() ,$featured_prop->price)}}</h5>
+                                            @if($featured_prop->beds == null)
+                                            @else
+                                            <p>{{$featured_prop->beds}} Bed Semidetached house</p>
+                                            @endif
+                                            <p>{{$featured_prop->name}}</p>
+                                            <p>{{$featured_prop->city}},
+                                                {{App\Models\Country::where('id',$featured_prop->country)->first()->country_name}}
+                                            </p>
+                                            <p>
+                                                @if($featured_prop->beds != null)
+                                                {{$featured_prop->beds}}<i class="fas fa-bed ms-2 me-3"></i>
+                                                @endif
+                                                @if($featured_prop->baths != null)
+                                                {{$featured_prop->baths}}<i class="fas fa-bath ms-2"></i>
+                                                @endif
+                                            </p>
+                                        </div>
+                                    </a>
                                 </div>
-                        </div>
-                        </a>
-                    </div>
-                    @endforeach
+                            </div>
+                        @endforeach
                     @else
-                    @include('frontend.includes.not_found',[
-                    'not_found_title' => 'Featured properties not found',
-                    'not_found_button_caption' => null
-                    ])
+                        @if(json_decode($settings->value) != null)
+                            @if(json_decode($settings->value)[0]->properties != null)
+                                @php
+                                    $properties =  array_slice(json_decode($settings->value)[0]->properties, 0, 6);
+                                @endphp
+                                @foreach($properties as $prop)
+                                    <div class="col-4 col-xs-12 col-tab-50">
+                                        <div class="card custom-shadow position-relative" style="min-height:307px;  max-height:307px">
+                                            <a href="{{route('frontend.for_sale_single',$prop)}}" style="text-decoration:none">
+                                                <img src="{{ uploaded_asset(App\Models\Properties::where('id', $prop)->first()->feature_image_id) }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
+                                                    @if(App\Models\Properties::where('id', $prop)->first()->promoted == 'Enabled')
+                                                        <div class="free_listning position-absolute badge badge-danger p-2 m-2">PROMOTED</div>
+                                                    @endif
+                                                <div class="card-body text-center">
+                                                    <h5 class="fw-bold">{{ get_currency(request() ,App\Models\Properties::where('id', $prop)->first()->price)}}</h5>
+                                                    @if(App\Models\Properties::where('id', $prop)->first()->beds == null)
+                                                    @else
+                                                    <p>{{App\Models\Properties::where('id', $prop)->first()->beds}} Bed Semidetached house</p>
+                                                    @endif
+                                                    <p>{{App\Models\Properties::where('id', $prop)->first()->name}}</p>
+                                                    <p>{{App\Models\Properties::where('id', $prop)->first()->city}},
+                                                        {{App\Models\Country::where('id',App\Models\Properties::where('id', $prop)->first()->country)->first()->country_name}}
+                                                    </p>
+                                                    <p>
+                                                        @if(App\Models\Properties::where('id', $prop)->first()->beds != null)
+                                                        {{App\Models\Properties::where('id', $prop)->first()->beds}}<i class="fas fa-bed ms-2 me-3"></i>
+                                                        @endif
+                                                        @if(App\Models\Properties::where('id', $prop)->first()->baths != null)
+                                                        {{App\Models\Properties::where('id', $prop)->first()->baths}}<i class="fas fa-bath ms-2"></i>
+                                                        @endif
+                                                    </p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                @endforeach
+                            @endif
+                        @endif
                     @endif
                 </div>
             </div>
@@ -338,54 +394,112 @@
     </div>
 </div>
 
-@if(count($latest_properties) != 0)
-<div class="container">
-<h2 class="sub-topics">Latest New Developments</h2>
-</div>
 
-<div class="container swiper-container" style="margin-top: 4rem;">
-    <div class="swiper mySwiper">
-        <div class="swiper-wrapper">
-
-            @foreach($latest_properties as $key => $latest_prop)
-            <div class="swiper-slide">
-                <div class="card custom-shadow position-relative" style="min-height:307px;  max-height:307px">
-                    <a href="{{route('frontend.for_sale_single',$latest_prop->id)}}" style="text-decoration:none">
-                        <img src="{{ uploaded_asset($latest_prop->feature_image_id) }}" alt="" class="img-fluid w-100"
-                            style="height: 10rem; object-fit: cover;">
-                            @if($latest_prop->promoted == 'Enabled')
-                                <div class="free_listning position-absolute badge badge-danger p-2 m-2">PROMOTED</div>
-                            @endif
-                            <div class="card-body text-center">
-                            <h5 class="fw-bold">{{ get_currency(request() ,$latest_prop->price)}}</h5>
-                            @if($latest_prop->beds == null)
-                            @else
-                            <p>{{$latest_prop->beds}} Bed Semidetached house</p>
-                            @endif
-                            <p>{{$latest_prop->name}}</p>
-                            <p>{{$latest_prop->city}},
-                                {{App\Models\Country::where('id',$latest_prop->country)->first()->country_name}}</p>
-                            <p>
-                                @if($latest_prop->beds != null)
-                                {{$latest_prop->beds}}<i class="fas fa-bed ms-2 me-3"></i>
-                                @endif
-                                @if($latest_prop->baths != null)
-                                {{$latest_prop->baths}}<i class="fas fa-bath ms-2"></i>
-                                @endif
-                            </p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            @endforeach
-        </div>
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
+    @if(count($latest_properties) != 0)
+    <div class="container">
+    <h2 class="sub-topics">Latest New Developments</h2>
     </div>
-</div>
-@endif
+
+    <div class="container swiper-container" style="margin-top: 4rem;">
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+
+                
+                    @foreach($latest_properties as $key => $latest_prop)
+                    <div class="swiper-slide">
+                        <div class="card custom-shadow position-relative" style="min-height:307px;  max-height:307px">
+                            <a href="{{route('frontend.for_sale_single',$latest_prop->id)}}" style="text-decoration:none">
+                                <img src="{{ uploaded_asset($latest_prop->feature_image_id) }}" alt="" class="img-fluid w-100"
+                                    style="height: 10rem; object-fit: cover;">
+                                    @if($latest_prop->promoted == 'Enabled')
+                                        <div class="free_listning position-absolute badge badge-danger p-2 m-2">PROMOTED</div>
+                                    @endif
+                                    <div class="card-body text-center">
+                                    <h5 class="fw-bold">{{ get_currency(request() ,$latest_prop->price)}}</h5>
+                                    @if($latest_prop->beds == null)
+                                    @else
+                                    <p>{{$latest_prop->beds}} Bed Semidetached house</p>
+                                    @endif
+                                    <p>{{$latest_prop->name}}</p>
+                                    <p>{{$latest_prop->city}},
+                                        {{App\Models\Country::where('id',$latest_prop->country)->first()->country_name}}</p>
+                                    <p>
+                                        @if($latest_prop->beds != null)
+                                        {{$latest_prop->beds}}<i class="fas fa-bed ms-2 me-3"></i>
+                                        @endif
+                                        @if($latest_prop->baths != null)
+                                        {{$latest_prop->baths}}<i class="fas fa-bath ms-2"></i>
+                                        @endif
+                                    </p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    @endforeach
+
+                    </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </div>
+    @else
+
+        @if(json_decode($settings_latest->value) != null)
+        <div class="container">
+        <h2 class="sub-topics">Latest New Developments</h2>
+        </div>
+
+        <div class="container swiper-container" style="margin-top: 4rem;">
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+
+                        
+                            @if(json_decode($settings_latest->value)[0]->properties != null)
+                                @php
+                                    $properties =  array_slice(json_decode($settings_latest->value)[0]->properties, 0, 9);
+                                @endphp
+                                @foreach($properties as $prop)
+                                <div class="swiper-slide">
+                                    <div class="card custom-shadow position-relative" style="min-height:307px;  max-height:307px">
+                                        <a href="{{route('frontend.for_sale_single',$prop)}}" style="text-decoration:none">
+                                            <img src="{{ uploaded_asset(App\Models\Properties::where('id', $prop)->first()->feature_image_id) }}" alt="" class="img-fluid w-100"
+                                                style="height: 10rem; object-fit: cover;">
+                                                @if(App\Models\Properties::where('id', $prop)->first()->promoted == 'Enabled')
+                                                    <div class="free_listning position-absolute badge badge-danger p-2 m-2">PROMOTED</div>
+                                                @endif
+                                                <div class="card-body text-center">
+                                                <h5 class="fw-bold">{{ get_currency(request() ,App\Models\Properties::where('id', $prop)->first()->price)}}</h5>
+                                                @if(App\Models\Properties::where('id', $prop)->first()->beds == null)
+                                                @else
+                                                <p>{{App\Models\Properties::where('id', $prop)->first()->beds}} Bed Semidetached house</p>
+                                                @endif
+                                                <p>{{App\Models\Properties::where('id', $prop)->first()->name}}</p>
+                                                <p>{{App\Models\Properties::where('id', $prop)->first()->city}},
+                                                    {{App\Models\Country::where('id',App\Models\Properties::where('id', $prop)->first()->country)->first()->country_name}}</p>
+                                                <p>
+                                                    @if(App\Models\Properties::where('id', $prop)->first()->beds != null)
+                                                    {{App\Models\Properties::where('id', $prop)->first()->beds}}<i class="fas fa-bed ms-2 me-3"></i>
+                                                    @endif
+                                                    @if(App\Models\Properties::where('id', $prop)->first()->baths != null)
+                                                    {{App\Models\Properties::where('id', $prop)->first()->baths}}<i class="fas fa-bath ms-2"></i>
+                                                    @endif
+                                                </p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                @endforeach
+                            @endif
+                    
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </div>
+        @endif
 
 
+    @endif
 
 <!-- social section start here -->
 

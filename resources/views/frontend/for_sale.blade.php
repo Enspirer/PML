@@ -38,8 +38,8 @@
     <div class="container mt-4">
         <div class="row" style="margin-bottom: 3rem;">
             <div class="col-9 col-xs-12 col-tab-12">
-                
-                <h4>Properties for 
+
+                <h4>Properties for
                     @if(ucfirst($transaction_type) == 'Transaction_type')
                         All
                     @else
@@ -47,11 +47,11 @@
                     @endif
 
                     @if(get_country_cookie(request()) != null)
-                        in                      
+                        in
                         <span class="fw-bold">{{get_country_cookie(request())->country_name}}</span>
                      @endif
                     </h4>
-                    
+
                 <div class="row align-items-center">
                     <div class="col-6 col-xs-12">
                         <p>{{$count_for_sale}} units available</p>
@@ -72,7 +72,7 @@
                             <div class="col-6 text-end col-xs-12">
                                 <div class="input-group">
                                     <input type="text" name="search_keyword" class="form-control p-3" aria-label="search" data-bs-toggle="modal" data-bs-target="#exampleModal" placeholder="Filters" style="border-top-left-radius: 35px; border-bottom-left-radius: 35px;">
-        
+
                                     <button type="button" class="btn text-white" style="background-color : #35495E; border-top-right-radius: 35px; border-bottom-right-radius: 35px;"><img src="{{ url('img/frontend/index/filter.png') }}" alt="" style="height: 1rem;"></button>
                                 </div>
                             </div>
@@ -103,7 +103,7 @@
                         'not_found_title' => 'Properties Not Found',
                     ])
                 @endif     -->
-               
+
                 @if(count($properties_promoted) != 0 )
                     <div class="row mt-5 featured_properties">
                         @foreach($properties_promoted as $key => $property_pro)
@@ -111,9 +111,9 @@
                             <div class="card custom-shadow position-relative" style="min-height: 370px;max-height: 450px;">
                                     <a href="{{ route('frontend.for_sale_single',$property_pro->id) }}" class="text-decoration-none text-dark">
                                         <img src="{{ uploaded_asset($property_pro->feature_image_id) }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
-                                        
+
                                     </a>
-                                    
+
                                     <div class="card-body mt-2" style="margin-top:30px !important;">
                                         <div class="row mb-2">
                                             <div class="col-10">
@@ -130,7 +130,7 @@
                                                     }
                                                 @endphp
 
-                                                @auth                                                  
+                                                @auth
                                                     @if($favourite == null)
                                                         <form action="{{route('frontend.propertyFavourite')}}" method="post" enctype="multipart/form-data">
                                                         {{csrf_field()}}
@@ -140,7 +140,7 @@
                                                     @else
                                                         <form action="{{route('frontend.propertyFavouriteDelete',$favourite->id)}}" method="post" enctype="multipart/form-data">
                                                         {{csrf_field()}}
-                                                            <button class="fas fa-heart border-0" style="color: #F60331; background-color: white;"></button>  
+                                                            <button class="fas fa-heart border-0" style="color: #F60331; background-color: white;"></button>
                                                             <input type="hidden" name="prop_hidden_id" value="{{ $favourite->id }}" />
                                                         </form>
                                                     @endif
@@ -148,18 +148,18 @@
                                                     <form action="{{route('frontend.auth.login')}}" method="get" enctype="multipart/form-data">
                                                     {{csrf_field()}}
                                                         <button type="submit" class="fas fa-heart border-0" style="background-color: white"></button>
-                                                    </form>                                                   
+                                                    </form>
                                                 @endauth
                                             </div>
                                         </div>
-                                        
+
                                         <h6 class="fw-bold mb-2">{{$property_pro->name}}</h6>
                                         <p style="font-size: 11px; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical;">{{$property_pro->description}}</p>
                                         <!-- <p>541, Rosewood place,</p> -->
                                         <p class="mb-1 mt-1">{{App\Models\Location::where('id',$property_pro->area)->first()->district }}, {{App\Models\Country::where('id',$property_pro->country)->first()->country_name }}</p>
                                         <p>
                                         @if($property_pro->beds != null)
-                                            {{ $property_pro->beds }}<i class="fas fa-bed ms-2 me-3"></i> 
+                                            {{ $property_pro->beds }}<i class="fas fa-bed ms-2 me-3"></i>
                                         @endif
                                         @if($property_pro->baths != null)
                                             {{ $property_pro->baths }}<i class="fas fa-bath ms-2"></i>
@@ -177,7 +177,7 @@
                                             <div class="py-1 ps-3" style="background-color: #FF0000;">
                                                 <p class="text-white" style="font-size: 0.7rem;"><img src="{{ url('img/frontend/for_sale/promoted.png') }}" alt="">PROMOTED</p>
                                             </div>
-                                        </div>                                        
+                                        </div>
                                         <div class="col-6 text-end">
                                             @if(App\Models\AgentRequest::where('user_id',$property_pro->user_id)->first() != null)
                                                 <a href="{{route('frontend.individual_agent',App\Models\AgentRequest::where('user_id',$property_pro->user_id)->first()->id)}}" style="">
@@ -185,16 +185,16 @@
                                                 </a>
                                             @endif
                                         </div>
-                                    </div>                                
+                                    </div>
                             </div>
                         </div>
-                        @endforeach                    
+                        @endforeach
                     </div>
                 @endif
 
 
                 <div class="row" style="margin-top: 5rem;">
-                    
+
 
                     <div class="col-12">
                     @if(count($properties) == 0 )
@@ -250,16 +250,16 @@
                                                         </div>
                                                     </div>
                                                     <div class="col-3">
-                                                        
+
                                                     </div>
                                                 </div>
-                                                
+
                                             </div>
                                             <div class="col-6 text-end">
                                                 @if(App\Models\AgentRequest::where('user_id',$normal->user_id)->first() != null)
                                                     <a href="{{route('frontend.individual_agent',App\Models\AgentRequest::where('user_id',$normal->user_id)->first()->id)}}" style="text-decoration: none">
                                                         <img src="{{ uploaded_asset(App\Models\AgentRequest::where('user_id',$normal->user_id)->first()->logo) }}" width="50%">
-                                                    </a>                  
+                                                    </a>
                                                 @endif
                                             </div>
                                     </div>
@@ -277,7 +277,7 @@
                                                             <h3 class="fw-bold">{{ get_currency(request() ,$normal->price)}} <span class="fw-normal" style="font-size: 1rem; color: rgb(0, 0, 0, 0.45)">Per Perch</span></h3>
                                                         </a>
                                                     @endif
-                                                </div>                                                
+                                                </div>
                                             </div>
 
                                             <!-- <p class="mb-2 fw-bold" style="font-size: 1.1rem; color: black">Commercial Land for Sale</p> -->
@@ -288,7 +288,7 @@
 
                                             <p class="mt-3" style="font-size: 1rem;">
                                                 @if($normal->beds != null)
-                                                    {{$normal->beds}}<i class="fas fa-bed ms-2 me-3"></i> 
+                                                    {{$normal->beds}}<i class="fas fa-bed ms-2 me-3"></i>
                                                 @endif
                                                 @if($normal->beds != null)
                                                     {{$normal->baths}}<i class="fas fa-bath ms-2"></i>
@@ -302,7 +302,7 @@
                                                 @endif
 
                                                 <!-- <p class="mb-3 fw-bold btn"><i class="fas fa-heart me-3"></i>Save Property</p> -->
-                                                
+
                                                 @auth
                                                     @php
                                                         if(auth()->user())
@@ -322,7 +322,7 @@
                                                     @else
                                                         <form action="{{route('frontend.propertyFavouriteDelete',$favourite->id)}}" method="post" enctype="multipart/form-data">
                                                         {{csrf_field()}}
-                                                            <button type="submit" class="mb-3 fw-bold btn" style="margin-left:-13px; color: rgb(246, 3, 49); background-color: white;"><i class="fas fa-heart me-3"></i>Unsave Property</button>  
+                                                            <button type="submit" class="mb-3 fw-bold btn" style="margin-left:-13px; color: rgb(246, 3, 49); background-color: white;"><i class="fas fa-heart me-3"></i>Unsave Property</button>
                                                             <input type="hidden" name="prop_hidden_id" value="{{ $favourite->id }}" />
                                                         </form>
                                                     @endif
@@ -374,7 +374,7 @@
                                 <div class="col-6 p-3">
                                     <div class="row align-items-center mb-4 pt-4">
                                             <div class="col-6">
-                                                
+
                                             </div>
                                             <div class="col-6 text-end">
                                                 @if(App\Models\AgentRequest::where('user_id',$normal->user_id)->first() != null)
@@ -398,7 +398,7 @@
                                                             <h3 class="fw-bold">{{ get_currency(request() ,$normal->price)}} <span class="fw-normal" style="font-size: 1rem; color: rgb(0, 0, 0, 0.45)">Per Perch</span></h3>
                                                         </a>
                                                     @endif
-                                                </div>                                                
+                                                </div>
                                             </div>
 
                                             <!-- <p class="mb-2 fw-bold" style="font-size: 1.1rem; color: black">Commercial Land for Sale</p> -->
@@ -409,7 +409,7 @@
 
                                             <p class="mt-3" style="font-size: 1rem;">
                                                 @if($normal->beds != null)
-                                                    {{$normal->beds}}<i class="fas fa-bed ms-2 me-3"></i> 
+                                                    {{$normal->beds}}<i class="fas fa-bed ms-2 me-3"></i>
                                                 @endif
                                                 @if($normal->beds != null)
                                                     {{$normal->baths}}<i class="fas fa-bath ms-2"></i>
@@ -423,7 +423,7 @@
                                                 @endif
 
                                                 <!-- <p class="mb-3 fw-bold btn"><i class="fas fa-heart me-3"></i>Save Property</p> -->
-                                                
+
                                                 @auth
                                                     @php
                                                         if(auth()->user())
@@ -443,7 +443,7 @@
                                                     @else
                                                         <form action="{{route('frontend.propertyFavouriteDelete',$favourite->id)}}" method="post" enctype="multipart/form-data">
                                                         {{csrf_field()}}
-                                                            <button type="submit" class="mb-3 fw-bold btn" style="margin-left:-13px; color: rgb(246, 3, 49); background-color: white;"><i class="fas fa-heart me-3"></i>Unsave Property</button>  
+                                                            <button type="submit" class="mb-3 fw-bold btn" style="margin-left:-13px; color: rgb(246, 3, 49); background-color: white;"><i class="fas fa-heart me-3"></i>Unsave Property</button>
                                                             <input type="hidden" name="prop_hidden_id" value="{{ $favourite->id }}" />
                                                         </form>
                                                     @endif
@@ -451,16 +451,16 @@
                                                     <a href="{{route('frontend.auth.login')}}">
                                                         <button type="submit" style="margin-left:-13px;" class="mb-3 fw-bold btn"><i class="fas fa-heart me-3"></i>Save Property</button>
                                                     </a>
-                                                @endauth                                             
-                                                
+                                                @endauth
+
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                                
+
                             @endif
-                            
+
                         @endforeach
 
                         <div class="my-md-5">
@@ -490,8 +490,8 @@
                                     </div>
                                 </div>
                             </a>
-                            
-                        @else                            
+
+                        @else
                             <a href="{{route('frontend.auth.login')}}" class="btn py-2 fw-bold text-white w-100 rounded-pill tab-full-btn" style="border: 0.5px solid rgb(112, 112, 112);background-color: rgb(53, 73, 94);font-size: 12px;width: 230px;">
                                 <div class="row justify-content-center">
                                     <div class="col-2 p-0">
@@ -505,7 +505,7 @@
                         @endauth
 
 
-                        
+
 
 
 
@@ -546,7 +546,7 @@
                                 </form>
                             @endif
                         @else
-                            
+
                             <a href="{{route('frontend.auth.login')}}" class="btn py-2 fw-bold w-100 rounded-pill tab-full-btn" style="border: 1.5px solid rgb(112, 112, 112);font-size: 12px;width: 230px;">
                                 <div class="row justify-content-center">
                                     <div class="col-2 p-0">
@@ -626,12 +626,12 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                        
+
                         <div class="row justify-content-between">
                             <div>
                                 <label for="email" class="form-label mb-2 required">Email <span class="text-danger">*</span></label>
                                 <input type="email" class="form-control" name="email" id="email" aria-describedby="email" required>
-                            </div>                    
+                            </div>
                         </div>
 
                         </div>
@@ -645,7 +645,7 @@
         </div>
 
     @include('frontend.includes.search_filter_modal')
-    
+
 @endsection
 
 @push('after-scripts')
@@ -664,9 +664,9 @@
             let value = $('#propertyType').val();
 
             if(value == '') {
-                
 
-            } 
+
+            }
             else {
                 let url = '{{url('/')}}/api/get_property_type_details/' + value;
 
@@ -788,7 +788,7 @@
                                     <input type="text" class="form-control" name="${name}" id="${name}" aria-describedby="${name}">
                                 </div>`
                             }
-                    } 
+                    }
 
                     else if(i == 1) {
                         let name = fields[i].split(' ').join('_').toLowerCase();
@@ -1036,7 +1036,7 @@
 
 @if(count($properties) != 0 )
 @foreach($properties as $key => $normal)
-    <script>        
+    <script>
       var swiper = new Swiper("#swiper_small_2{{$normal->id}}", {
         spaceBetween: 10,
         slidesPerView: 4,
@@ -1055,8 +1055,8 @@
         },
       });
     </script>
-@endforeach  
-@endif  
+@endforeach
+@endif
 
 
 @endpush
