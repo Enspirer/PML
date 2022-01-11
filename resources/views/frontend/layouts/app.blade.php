@@ -78,8 +78,11 @@
         <!-- Scripts -->
         @stack('before-scripts')
         {!! script(mix('js/manifest.js')) !!}
-        {!! script(mix('js/vendor.js')) !!}
-        {!! script(mix('js/frontend.js')) !!}
+        {!! script(mix('js/vendor.js')) !!}    
+        <!-- This JS commented because it conflicts other JS files -->
+        <!-- {!! script(mix('js/frontend.js')) !!} -->
+    
+
 
             <script>
             function openNav() {

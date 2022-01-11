@@ -519,6 +519,7 @@ button.close:hover {
                                                 <p>{{ $property->description }}</p>
                                             </div>
                                             <div class="show-more">(Show More)</div>
+                                            <button type="button" onclick="checkJS()">Check JS</button>
                                         </div>
 
                                         <!-- <div id="profile-description">
@@ -1321,8 +1322,13 @@ button.close:hover {
 
 @endsection
 
-@push('after-scripts')
 
+@push('before-scripts')
+
+@endpush
+
+
+@push('after-scripts')
 
 
 <!-- external scripts -->
@@ -1339,6 +1345,13 @@ lightGallery(document.getElementById('lightgallery'))
 </script>
 
 <script>
+    function checkJS() {
+        alert("JS Checker");
+    }
+</script>
+ 
+
+<script>
 function changePanaroma(panaromalId) {
 
     let panoURL = "{{url('/')}}/pano/" + panaromalId;
@@ -1349,6 +1362,8 @@ function changePanaroma(panaromalId) {
 
 }
 </script>
+
+
 
 
 <script>
