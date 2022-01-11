@@ -1,0 +1,120 @@
+.article-main-area img {
+    width: 100%;
+}
+
+.article-main-area h1 {
+    padding-top: 10px;
+    padding-bottom: 15px;
+}
+
+.article-main-area {
+    margin-bottom: 60px;
+}
+
+.article-main-area h2 {
+    padding-top: 30px;
+    padding-bottom: 15px;
+}
+
+.article-main-area p {
+    margin-bottom: 15px !important;
+}
+
+.side-title  {
+    background-color: #35495e;
+    color: #fff;
+    font-size: 1rem;
+    padding: 10px 15px;
+}
+
+.most-viewed {
+    list-style: none;
+    padding-left: 10px;
+    padding-top: 15px;
+}
+
+.most-viewed li {
+    padding-bottom: 15px;
+    display: flex;
+    align-items: baseline;
+    font-size: 0.9rem;
+}
+
+.most-viewed li i {
+    padding-right: 15px;
+}
+
+.trending-card {
+    display: flex;
+    height: 120px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    gap: 15px;
+}
+
+.trending-card img  {
+    width: 40%;
+    object-fit: cover;
+}
+
+.trending-card-txt-wrapper h3 {
+    font-size: 0.9rem;
+    padding-bottom: 5px;
+}
+
+.trending-card-txt-wrapper h4 {
+    font-size: 0.7rem;
+}
+
+p.trending-card-date-time {
+    font-size: 0.5rem;
+    padding-bottom: 10px;
+}
+
+.trending-card-txt-wrapper p {
+    font-size: 0.6rem;
+    text-align: justify;
+}
+
+.txt-inner-wrapper {
+    height: 100px;
+    overflow: hidden;
+}
+
+button.trending-more-btn {
+    background: transparent;
+    border: 0;
+    font-size: 0.8rem;
+    padding-left: 0;
+}
+
+button.trending-more-btn i {
+    padding-left: 5px;
+}
+
+.option-bar {
+    display: flex;
+    justify-content: space-between;
+}
+
+.right-side {
+    display: flex;
+    gap: 20px;
+}
+
+h2.side-title {
+    padding-top: 15px;
+}
+
+.dotted-swiper-container {
+    padding-top: 30px;
+}
+
+.card-img-p {
+    padding: 10px;
+    object-fit: cover;
+}
+
+.swiper-pagination-bullets {
+    position: relative;
+}
