@@ -153,3 +153,7 @@ Breadcrumbs::for('admin.home_page_features.create', function ($trail) {
 Breadcrumbs::for('admin.home_page_latest.create', function ($trail) {
     $trail->push('Home Page Latest', route('admin.home_page_latest.create'));
 });
+
+Breadcrumbs::for('admin.pro_tal_settings', function ($trail) {
+    $trail->push('Home Featured', route('admin.pro_tal_settings'));
+});
