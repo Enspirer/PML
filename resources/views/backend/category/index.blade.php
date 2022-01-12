@@ -1,6 +1,6 @@
 @extends('backend.layouts.app')
 
-@section('title', __('Category'))
+@section('title', __('Industry'))
 
 @section('content')
     
@@ -10,7 +10,7 @@
 
             <div class="card">
                 <div class="card-header">
-                    <strong>Category&nbsp;</strong>
+                    <strong>Industry&nbsp;</strong>
                     
                     <div class="btn btn-info pull-right ml-3" data-toggle="modal" data-target="#exampleModalScrollable">Add New</div>
 
@@ -22,7 +22,8 @@
                             <tr>
                                 <th scope="col">#ID</th>
                                 <th scope="col">Icon</th>
-                                <th scope="col">Category Name</th>
+                                <th scope="col">Industry Name</th>
+                                <th scope="col">Featured</th>
                                 <th scope="col">Status</th>
                                 <th scope="col">Order</th>
                                 <th scope="col">Option</th>
@@ -74,6 +75,15 @@
                             <div class="file-preview box sm">
                             </div>
                         </div>  
+
+                        <div class="form-group">
+                            <label>Featured News <span class="text-danger">*</span></label>
+                            <select class="form-control" name="featured_news" required>
+                                <option value="1">Enable</option>   
+                                <option value="0">Disable</option>                                
+                            </select>
+                        </div>
+
                         <div class="form-group">
                             <label>Order <span class="text-danger">*</span></label>
                             <input type="number" class="form-control" name="order" required>
@@ -139,6 +149,7 @@
                     {data: 'id', name: 'id'},
                     {data: 'icon', name: 'icon'},
                     {data: 'name', name: 'name'},
+                    {data: 'is_feature', name: 'is_feature'},
                     {data: 'status', name: 'status'},
                     {data: 'order', name: 'order'},
                     {data: 'action', name: 'action', orderable: false, searchable: false},
