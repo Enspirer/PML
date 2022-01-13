@@ -27,6 +27,8 @@ class PropertyController extends Controller
         $propertDetails = Properties::where('id',$request->property_id)->first();
 
         $result_status = NearLocation::nearlocation($propertDetails->lat,$propertDetails->long,$propertDetails->id,$request->type);
+
+        return $result_status;
     }
 
 
