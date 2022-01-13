@@ -1,0 +1,77 @@
+.post-ad-container {
+    padding-top: 200px;
+    padding-bottom: 100px;
+}
+
+.ad-main-img {
+    width: 100%;
+}
+
+.ad-card-wrapper {
+    position: relative;
+}
+
+.ad-card-wrapper:hover .overlay {
+    display: block;
+    background: rgba(0, 0, 0, .3);
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0);
+    transition: background 0.5s ease;
+  }
+
+.ad-card-btn {
+    position: absolute;
+    left: 0%;
+    top: 45%;
+    width: 100%;
+    opacity: 0;
+    background-color: transparent;
+    transition: opacity .35s ease;
+    text-align: center;
+    border: 0;
+    z-index: 1;
+}
+
+.ad-card-btn a {
+    width: 100px;
+    background-color: #39B54A;
+    color: #fff;
+    border-radius: 7px;
+    padding: 20px 10px;
+}
+
+.ad-card-wrapper:hover .ad-card-btn {
+    opacity: 1;
+}
+
+/*mobile-view*/
+@media screen and (max-width: 767px) {
+    .post-ad-container {
+        padding-top: 100px;
+        padding-bottom: 100px;
+    }
+
+    .ad-card-wrapper {
+        margin-bottom: 30px;
+    }
+}
+
+
+
+/*tab-portrait*/
+@media (min-width: 768px) and (max-width: 991px) {
+}
+
+
+
+/*large screen*/
+@media screen and (min-width: 1400px) {
+   
+}
