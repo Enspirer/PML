@@ -588,40 +588,69 @@
                 </div>               
 
                                
-                @if(count(App\Models\Posts::get()) != 0)
-                    @foreach(App\Models\Posts::latest()->take(2)->get() as $key => $blog_posts)  
-                        <div class="col-4 col-xs-12">
-                            <a href="{{url('individual_post',$blog_posts->id)}}" style="color:black; text-decoration:none"></a>
-                                <div class="card position-relative" style="height: 27rem;"><a href="{{url('individual_post',$blog_posts->id)}}" style="color:black; text-decoration:none">
+                                
+
+                    <div class="col-4 col-xs-12">
+                        <a href="" style="color:black; text-decoration:none"></a>
+                            <div class="card position-relative" style="height: 27rem;"><a href="" style="color:black; text-decoration:none">
                                     
+                                    <div class="px-4 py-2" style="-webkit-box-shadow: inset 0.5px 14px -8px rgba(0,0,0,0.75); -moz-box-shadow: inset 0.5px 14px -8px rgba(0,0,0,0.75); box-shadow: inset 0px 0.5px 14px -8px rgba(0,0,0,0.75);">
+                                        <div class="row align-items-center">
+                                            <div class="col-12 text-center">
+                                                <img src="{{ url('img/frontend/index/property-news.png') }}" alt="" class="img-fluid" style="height:60px;">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                <img src="{{ url('img/frontend/index/PML-news.png') }}" class="card-img-top" alt="..." style="object-fit: cover; height: 13rem;">
+                            </a>
+                            <div class="card-body"><a href="" style="color:black; text-decoration:none">
+                                <p class="card-text mb-1"
+                                    style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical;">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                        
+                                    </a><div class="text-right mb-1"><a href="" style="color:black">
+                                                                                </a><div class="position-absolute read" style="right:20px;"><a href="" style="color:black; text-decoration:none">
+                                            </a><a href="" style="color:black; text-decoration:none">View More</a>
+                                        </div>
+                                                                                
+                                    </div>
+                                </div>
+                            </div>
+                            
+                    </div>
+
+                    @if($property_talk != null)
+                        <div class="col-4 col-xs-12">
+                            <a href="{{url('home_loan',$property_talk->category)}}" style="color:black; text-decoration:none"></a>
+                                <div class="card position-relative" style="height: 27rem;"><a href="{{url('home_loan',$property_talk->category)}}" style="color:black; text-decoration:none">
+                                        
                                         <div class="px-4 py-2" style="-webkit-box-shadow: inset 0.5px 14px -8px rgba(0,0,0,0.75); -moz-box-shadow: inset 0.5px 14px -8px rgba(0,0,0,0.75); box-shadow: inset 0px 0.5px 14px -8px rgba(0,0,0,0.75);">
                                             <div class="row align-items-center">
                                                 <div class="col-12 text-center">
-                                                    <img src="{{ uploaded_asset(App\Models\Category::where('id',$blog_posts->category)->first()->icon) }}" alt="" class="img-fluid" style="height:60px;">
+                                                    <img src="{{ url('img/frontend/index/talk-property.png') }}" alt="" class="img-fluid" style="height:60px;">
                                                 </div>
                                             </div>
                                         </div>
-                                    
-                                    <img src="{{ uploaded_asset($blog_posts->feature_image) }}" class="card-img-top" alt="..." style="object-fit: cover; height: 13rem;">
-                                    </a><div class="card-body"><a href="{{url('individual_post',$blog_posts->id)}}" style="color:black; text-decoration:none">
-                                    <p class="card-text mb-1"
-                                    style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical;">
-                                    {{$blog_posts->description}}</p>
                                         
-                                        </a><div class="text-right mb-1"><a href="https://tallentor.com/blog/Club" style="color:black">
-                                                                                    </a><div class="position-absolute read" style="right:20px;"><a href="{{url('individual_post',$blog_posts->id)}}" style="color:black; text-decoration:none">
-                                                </a><a href="{{url('individual_post',$blog_posts->id)}}" style="color:black; text-decoration:none">View More</a>
+                                    <img src="{{ uploaded_asset($property_talk->feature_image) }}" class="card-img-top" alt="..." style="object-fit: cover; height: 13rem;">
+                                </a>
+                                <div class="card-body"><a href="{{url('home_loan',$property_talk->category)}}" style="color:black; text-decoration:none">
+                                    <p class="card-text mb-1"
+                                        style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical;">
+                                            {{$property_talk->description}}</p>
+                                            
+                                        </a><div class="text-right mb-1"><a href="{{url('home_loan',$property_talk->category)}}" style="color:black">
+                                                                                    </a><div class="position-absolute read" style="right:20px;"><a href="{{url('home_loan',$property_talk->category)}}" style="color:black; text-decoration:none">
+                                                </a><a href="{{url('home_loan',$property_talk->category)}}" style="color:black; text-decoration:none">View More</a>
                                             </div>
-                                                                                
+                                                                                    
                                         </div>
                                     </div>
                                 </div>
-                            
+                                
                         </div>
-                            
-                    @endforeach
-                @endif
-                            
+                    @endif                            
      
         </div>
     </div>
@@ -685,59 +714,6 @@ var swiper = new Swiper(".mySwiper", {
 </script>
 
 
-<script>
-$(document).ready(function() {
-
-    let post_type = '<?php 
-
-            if($latest_post != null){   
-                echo $latest_post->type; 
-            }
-            ?>';
-
-
-    if (post_type != 'youtube') {
-        $('.article').removeClass('d-none');
-    } else {
-        $('.video').removeClass('d-none');
-    }
-
-
-    $('.right .article').on('click', function() {
-        $('.center .video').addClass('d-none');
-        $('.center .article').removeClass('d-none');
-
-        let vid = $('.center .video iframe').attr('src');
-        $('.center .video iframe').attr('src', vid);
-
-        let image = $(this).find('img').attr('src');
-        $(".main-image").attr("src", image);
-
-        let title = $(this).find('h6').text();
-        $(".title").text(title);
-
-        let description = $(this).find('.paragraph').text();
-        $(".description div").text(description);
-    });
-
-    $('.right .video').on('click', function() {
-
-        $('.center .video').removeClass('d-none');
-        $('.center .article').addClass('d-none');
-
-        let link = $(this).find('.video-value').val();
-        let video = 'https://www.youtube.com/embed/' + link;
-
-        $('.center .video iframe').attr('src', video);
-
-        let title = $(this).find('h6').text();
-        $(".title").text(title);
-
-        let description = $(this).find('.paragraph').text();
-        $(".description div").text(description);
-    });
-});
-</script>
 
 
 <script>

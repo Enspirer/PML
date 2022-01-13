@@ -92,7 +92,7 @@ class HomeController extends Controller
 
 //        $self = self::setCookie($request->countries_list);
 
-        $latest_post = Posts::where('status','=','Enabled')->take(1)->latest()->first();
+        $property_talk = Posts::where('id',get_settings('property_talk_featured'))->where('status','=','Enabled')->first();
         $posts = Posts::where('status','=','Enabled')->take(6)->latest()->get();
 
         $property_types = PropertyType::where('status','=','1')->get();
@@ -118,7 +118,7 @@ class HomeController extends Controller
 
         return view('frontend.index',[
             'posts' => $posts,
-            'latest_post' => $latest_post,
+            'property_talk' => $property_talk,
             'featured_properties' => $featured_properties,
             'latest_properties' => $latest_properties,
             'property_types' => $property_types,

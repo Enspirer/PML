@@ -508,5 +508,13 @@ class SettingsSeeder extends Seeder
             'user_id' => 1,
             ]
         );
+        DB::table('settings')
+        ->insert(
+            [             
+            'key' => 'property_talk_featured',
+            'value' => null, 
+            'user_id' => 1,
+            ]
+        );
     }
 }
