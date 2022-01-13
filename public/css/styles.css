@@ -525,6 +525,13 @@ a.get-started:hover {
     background-color: #000;
 }
 
+/*small mobile view*/
+@media screen and (max-width: 320px) {
+    .menu-icon-card-row {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
 /*mobile-view*/
 @media screen and (max-width: 767px) {
     .menu-icon-card-row {
@@ -706,11 +713,7 @@ a.get-started:hover {
     }
 
     /* main menu styles */
-    .menu-icon-card-row {
-        flex-direction: column;
-        gap: 30px;
-    }
-
+    
     .main-menu-content {
         height: 900px;
     }
