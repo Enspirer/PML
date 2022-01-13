@@ -17,7 +17,7 @@
                 <div class="overlay"></div>
                 <div class="btn-wrapper">
                     <div class="ad-card-btn">
-                        <a href="">Free Property Listing</a>
+                        <a href="{{ route('frontend.pre_listing') }}">Free Property Listing</a>
                     </div>
                 </div>
             </div>
@@ -39,7 +39,7 @@
                 <div class="overlay"></div>
                 <div class="btn-wrapper">
                     <div class="ad-card-btn">
-                        <a href="">Become an Agent</a>
+                        <a href="{{ route('frontend.user.agent') }}">Become an Agent</a>
                     </div>
                 </div>
             </div>
