@@ -567,7 +567,7 @@
                 <div class="row sidebar-card-area">
                     <div class="col-12 p-0 mb-4 custom-shadow">
                         <div class="card">
-                            <img src="{{ uploaded_asset(get_settings('property_page_advertiment_1')) }}" class="img-fluid" alt="..." style="object-fit: cover; height: 15rem;">
+                            <img src="{{ uploaded_asset(get_settings('property_page_advertiment_1')) }}" class="img-fluid" alt="..." style="">
                             <div class="card-body text-end">
                                 <a href="{{ get_settings('property_page_link_1') }}" target="_blank" class="btn find-out">Find Out More</a>
                             </div>
@@ -575,7 +575,7 @@
                     </div>
                     <div class="col-12 p-0 mb-4 custom-shadow">
                         <div class="card">
-                            <img src="{{ uploaded_asset(get_settings('property_page_advertiment_2')) }}" class="img-fluid" alt="..." style="object-fit: cover; height: 15rem;">
+                            <img src="{{ uploaded_asset(get_settings('property_page_advertiment_2')) }}" class="img-fluid" alt="..." style="">
                             <div class="card-body text-end">
                                 <a href="{{ get_settings('property_page_link_2') }}" class="btn find-out" target="_blank">Find Out More</a>
                             </div>
@@ -584,7 +584,7 @@
 
                     <div class="col-12 p-0 custom-shadow">
                         <div class="card">
-                            <img src="{{ uploaded_asset(get_settings('property_page_advertiment_3')) }}" class="img-fluid" alt="..." style="object-fit: cover; height: 25rem;">
+                            <img src="{{ uploaded_asset(get_settings('property_page_advertiment_3')) }}" class="img-fluid" alt="..." style="">
                             <div class="card-body text-end">
                                 <a href="{{ get_settings('property_page_link_3') }}" target="_blank" class="btn find-out">Find Out More</a>
                             </div>
