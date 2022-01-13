@@ -97,7 +97,7 @@ Route::get('marketing_services', [PagesController::class, 'marketing_services'])
 
 Route::get('home_loan/{id}', [MainMenuController::class, 'homeloan'])->name('homeloan');
 Route::get('article/{id}', [ArticleController::class, 'index'])->name('article');
-Route::get('video-article', [VideoController::class, 'index'])->name('video-article');
+Route::get('video-article', [VideoController::class, 'index'])->name('video_article');
 Route::get('post-ad', [PostAdController::class, 'index'])->name('post-ad');
 
 Route::get('image_assester/{id}',[HomeController::class,'image_assets'])->name('image_selected');
