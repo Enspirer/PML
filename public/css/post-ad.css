@@ -1,17 +1,17 @@
-.post-ad-container {
+.post-type-container {
     padding-top: 200px;
     padding-bottom: 100px;
 }
 
-.ad-main-img {
+.post-main-img {
     width: 100%;
 }
 
-.ad-card-wrapper {
+.post-card-wrapper {
     position: relative;
 }
 
-.ad-card-wrapper:hover .overlay {
+.post-card-wrapper:hover .overlay {
     display: block;
     background: rgba(0, 0, 0, .3);
 }
@@ -26,7 +26,7 @@
     transition: background 0.5s ease;
   }
 
-.ad-card-btn {
+.post-card-btn {
     position: absolute;
     left: 0%;
     top: 45%;
@@ -39,7 +39,7 @@
     z-index: 1;
 }
 
-.ad-card-btn a {
+.post-card-btn a {
     width: 100px;
     background-color: #39B54A;
     color: #fff;
@@ -47,18 +47,18 @@
     padding: 20px 10px;
 }
 
-.ad-card-wrapper:hover .ad-card-btn {
+.post-card-wrapper:hover .post-card-btn {
     opacity: 1;
 }
 
 /*mobile-view*/
 @media screen and (max-width: 767px) {
-    .post-ad-container {
+    .post-type-container {
         padding-top: 100px;
         padding-bottom: 100px;
     }
 
-    .ad-card-wrapper {
+    .post-card-wrapper {
         margin-bottom: 30px;
     }
 }

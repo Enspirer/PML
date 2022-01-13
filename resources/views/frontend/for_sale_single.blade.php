@@ -195,7 +195,7 @@ button.close:hover {
     <div class="row">
         <div class="col-9 col-xs-12 col-tab-12">
             <div class="row">
-                <div class="col-9 col-xs-12">
+                <div class="col-9 col-xs-12 mobile-swiper-area">
                     <div class="swiper mySwiper2">
                         <div class="swiper-wrapper">
                             @php

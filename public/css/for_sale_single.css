@@ -501,6 +501,10 @@ ul.option-list li a:hover {
     height: unset;
     width: 25%;
   }
+
+  .mobile-swiper-area {
+    margin-bottom: 0 !important;
+  }
 }
 
 

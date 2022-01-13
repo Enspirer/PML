@@ -9,36 +9,36 @@
 
 @section('content')
 
-<div class="container post-ad-container">
+<div class="container post-type-container">
     <div class="row">
-        <div class="col-4 col-xs-12 ad-card">
-            <div class="ad-card-wrapper">
-                <img class="ad-main-img" src="{{ url('img/frontend/post-ad/post-ad1.png') }}" alt="">
+        <div class="col-4 col-xs-12 post-card">
+            <div class="post-card-wrapper">
+                <img class="post-main-img" src="{{ url('img/frontend/post-ad/post-ad1.png') }}" alt="">
                 <div class="overlay"></div>
                 <div class="btn-wrapper">
-                    <div class="ad-card-btn">
+                    <div class="post-card-btn">
                         <a href="{{ route('frontend.pre_listing') }}">Free Property Listing</a>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-4 col-xs-12 ad-card">
-            <div class="ad-card-wrapper">
-                <img class="ad-main-img" src="{{ url('img/frontend/post-ad/post-ad1.png') }}" alt="">
+        <div class="col-4 col-xs-12 post-card">
+            <div class="post-card-wrapper">
+                <img class="post-main-img" src="{{ url('img/frontend/post-ad/post-ad2.png') }}" alt="">
                 <div class="overlay"></div>
                 <div class="btn-wrapper">
-                    <div class="ad-card-btn">
+                    <div class="post-card-btn">
                         <a href="">Premium Property Listing</a>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-4 col-xs-12 ad-card">
-            <div class="ad-card-wrapper">
-                <img class="ad-main-img" src="{{ url('img/frontend/post-ad/post-ad1.png') }}" alt="">
+        <div class="col-4 col-xs-12 post-card">
+            <div class="post-card-wrapper">
+                <img class="post-main-img" src="{{ url('img/frontend/post-ad/post-ad3.png') }}" alt="">
                 <div class="overlay"></div>
                 <div class="btn-wrapper">
-                    <div class="ad-card-btn">
+                    <div class="post-card-btn">
                         <a href="{{ route('frontend.user.agent') }}">Become an Agent</a>
                     </div>
                 </div>
