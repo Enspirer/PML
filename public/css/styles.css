@@ -720,7 +720,7 @@ a.get-started:hover {
     /* main menu styles */
     
     .main-menu-content {
-        height: 900px;
+        height: unset;
     }
 
     .menu-icon-card {
