@@ -407,7 +407,7 @@
 
             <div class="col-3 col-xs-12 sidebar-full-mobile col-tab-12">
                 <div class="row">
-                    
+
                     <div class="col-12">
                         <a href="{{ get_settings('sidebar_advertiment_link_1') }}" target="_blank">
                             <div class="sidebar-card">
@@ -415,14 +415,15 @@
                             </div>
                         </a>
                     </div>
-                    
+
                     <div class="col-12">
                         <a href="{{ get_settings('sidebar_advertiment_link_2') }}" target="_blank">
-                            <div class="card custom-shadow">
-                                <img src="{{ uploaded_asset(get_settings('sidebar_advertiment_2')) }}" alt="" class="img-fluid w-100" style="height: 19.2rem; object-fit: cover;">
+                            <div class="sidebar-card">
+                                <img width="100%" src="{{ uploaded_asset(get_settings('sidebar_advertiment_2')) }}" alt="banner">
                             </div>
                         </a>
-                    </div> 
+                    </div>                    
+                   
 
                 </div>
             </div>
