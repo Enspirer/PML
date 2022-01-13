@@ -528,7 +528,7 @@ a.get-started:hover {
 /*small mobile view*/
 @media screen and (max-width: 320px) {
     .menu-icon-card-row {
-        grid-template-columns: repeat(1, 1fr);
+        grid-template-columns: repeat(1, 1fr) !important;
     }
 }
 
@@ -735,6 +735,9 @@ a.get-started:hover {
 
 /*tab-portrait*/
 @media (min-width: 768px) and (max-width: 1100px) {
+    .menu-icon-card-row {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
     .hidden-xs {
         display: none !important;
     }
