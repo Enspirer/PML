@@ -254,23 +254,9 @@
             <a style="border-right:0px !important" class="wishlist fw-bold d-inline-block px-4 text-decoration-none border-start border-end mobiile-wish-list-btn"
                 href="{{url('favourites')}}"><i class="far fa-heart me-2"></i> Wish List</a>
 
-            <a class="wishlist fw-bold d-inline-block px-4 text-decoration-none border-start border-end"
-                    href="{{url('user_notifications')}}"><i class="far fa-bell me-2"></i> Notifications ({{App\Models\Notifications::where('user_id',auth()->user()->id)->where('status','Pending')->get()->count()}})</a>
+            
 
-            <!-- user login styles -->
-            <a onclick="showHideDivMobile()" class="nav-link dropdown-toggle d-inline-block ps-4 mb-4" href="{{route('frontend.auth.login')}}"
-                    id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-haspopup="true"
-                    aria-expanded="false">
-                    <img src="{{ url('img/frontend/user.jpg') }}" class="rounded-circle"
-                        style="height: 50px; width: 50px; margin-right: 1.4rem;"> <span
-                        class="fw-bold user-name">{{auth()->user()->first_name}}</span>
-            </a>
-            <div id="drop-menu-mobile" class="dropdown-menu mobile-drop-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="{{ route('frontend.user.dashboard') }}">My Account</a>
-                    <a class="dropdown-item" href="{{ route('frontend.auth.logout') }}" style="border-bottom: none">Log
-                        Out</a>
-            </div>
-            <!-- end of user login styles -->
+           
 
             <!-- <a class="add-property-btn fw-bold d-inline-block border px-4 text-decoration-none"
                     href="{{ route('frontend.pre_listing') }}">Add Property</a> -->
@@ -282,8 +268,7 @@
             <a style="border-right:0px !important;" class="wishlist fw-bold d-inline-block px-4 text-decoration-none border-start border-end mobiile-wish-list-btn"
                     href="{{ route('frontend.auth.login') }}"><i class="far fa-heart me-2"></i> Wish List</a>
 
-            <a class="wishlist fw-bold d-inline-block px-4 text-decoration-none border-start border-end"
-                    href="{{route('frontend.auth.login')}}"><i class="far fa-bell me-2"></i> Notifications</a>
+           
 
 
             <a class="register fw-bold d-inline-block border px-4 text-decoration-none"
@@ -307,6 +292,32 @@
 <div class="top-row-wrapper visible-xs">
     <span style="font-size:30px;cursor:pointer" class="mobile-menu-toggle" onclick="openNav()">&#9776;</span>
     <div class="mobile-logo-wrapper">
-        <img class="mobile-logo" src="{{ url('logo.gif') }}" alt="" >
+        <a href="{{ route('frontend.index') }}">
+            <img class="mobile-logo" src="{{ url('logo.gif') }}" alt="" >
+        </a>     
     </div>
+
+    <!-- notifications -->
+    @auth
+    <a style="position:relative;" class="wishlist fw-bold d-inline-block px-4 text-decoration-none border-start border-end"
+                    href="{{url('user_notifications')}}"><i class="far fa-bell me-2 mobile-bell-icon"></i><span class="mobile-noti-counter">({{App\Models\Notifications::where('user_id',auth()->user()->id)->where('status','Pending')->get()->count()}})</span></a>
+    @else
+    <a style="position:relative;" class="wishlist fw-bold d-inline-block px-4 text-decoration-none border-start border-end"
+                    href="{{route('frontend.auth.login')}}"><i class="far fa-bell me-2 mobile-bell-icon"></i></a>
+    @endauth
+     <!-- user login styles -->
+     <a onclick="showHideDivMobile()" class="nav-link dropdown-toggle d-inline-block ps-4 mb-4 mobile-bell-icon" href="{{route('frontend.auth.login')}}"
+                    id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">
+                    <img src="{{ url('img/frontend/user.jpg') }}" class="rounded-circle"
+                        style="height: 50px; width: 50px; margin-right: 1.4rem;"> 
+                        <!-- <span
+                        class="fw-bold user-name">{{auth()->user()->first_name}}</span> -->
+            </a>
+            <div id="drop-menu-mobile" class="dropdown-menu mobile-drop-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="{{ route('frontend.user.dashboard') }}">My Account</a>
+                    <a class="dropdown-item" href="{{ route('frontend.auth.logout') }}" style="border-bottom: none">Log
+                        Out</a>
+            </div>
+            <!-- end of user login styles -->
 </div>

@@ -602,9 +602,9 @@ a.get-started:hover {
     }
 
     .mobile-logo {
-        width: 50%;
-        margin-left: auto;
-        margin-right: auto;
+        width: 100%;
+        margin-left: 10px;
+        margin-right: 10px;
     }
 
     .top-row-wrapper {
@@ -736,6 +736,31 @@ a.get-started:hover {
 
     .container.main-menu-helper {
         padding-bottom: 0;
+    }
+
+    /*mobile navigation*/
+    img.rounded-circle {
+        margin-right: 0 !important;
+    }
+
+    .mobile-bell-icon {
+        font-size: 2.2rem;
+        color: #fff;
+    }
+
+    span.mobile-noti-counter {
+        display: block;
+        background: red;
+        width: max-content;
+        padding: 2px;
+        color: #fff;
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+
+    .top-row-wrapper.visible-xs {
+        align-items: center;
     }
     
 }

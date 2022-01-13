@@ -455,6 +455,7 @@ ul.option-list li a:hover {
   background: #35495e;
   color: #fff;
   padding: 5px 10px;
+  border: 0;
 }
 
 .share-options-wrapper {
@@ -465,6 +466,22 @@ ul.option-list li a:hover {
 
 .share-option i {
   font-size: 4rem;
+}
+
+a.near-cat-btn {
+  background: #eee;
+  padding: 10px 15px;
+  border-radius: 25px;
+  color: #838080;
+}
+
+.map-search-category-bar {
+  margin-bottom: 30px;
+}
+
+a.near-cat-btn.active-cat-btn {
+  background: #39b54a;
+  color: #fff;
 }
 
 /*mobile-view*/
@@ -505,6 +522,31 @@ ul.option-list li a:hover {
   .mobile-swiper-area {
     margin-bottom: 0 !important;
   }
+
+  ul.option-list-mobile.visible-xs {
+    list-style: none;
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1rem;
+    padding-left: 0;
+    margin-top: 30px;
+  }
+
+  ul.option-list-mobile.visible-xs  li {
+    background-color: #fff;
+    padding: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  }
+
+  ul.option-list-mobile.visible-xs  li i {
+    padding-right: 5px;
+  }
+  
+  .mobile-option-list-helper {
+    position: relative;
+  }
+
+
 }
 
 

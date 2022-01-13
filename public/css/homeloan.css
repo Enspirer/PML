@@ -13,6 +13,7 @@
 .property-detail-card-wrapper {
     position: relative;
     padding: 25px;
+    padding-top: 0;
 }
 
 .p-d-icon-wrapper {

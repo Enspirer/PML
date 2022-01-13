@@ -98,7 +98,8 @@ body {
 }
 
 .sidebar-card {
-    height: 634px;
+    height: max-content;
+    margin-bottom: 30px;
 }
 
 p.card-text.mb-1 {

@@ -83,7 +83,7 @@ button.close:hover {
 @include('frontend.includes.search')
 <div class="container index" style="margin-top: 2rem;">
         <div class="row">
-            <div class="col-9">
+            <div class="col-9 col-xs-12">
                 <p><a href="/" class="text-decoration-none text-dark fw-bold">Property Market Live</a>
                     >
                         <a href="#" class="text-decoration-none text-dark fw-bold">
@@ -93,7 +93,7 @@ button.close:hover {
                     > <a href="/home_loan" class="text-decoration-none text-dark fw-bold">Moscow Land</a></p>
 
             </div>
-            <div class="col-3">
+            <div class="col-3 col-xs-12">
                 <div class="topbar-icons">
                     <button class="topbar-single-icon" data-bs-toggle="modal" data-bs-target="#watch_list">
                     Watchlist<i class="far fa-eye"></i>
@@ -249,7 +249,7 @@ button.close:hover {
                     </div>
                     <div class="option-bar">
                         <div class="option-list-wrapper">
-                            <ul class="option-list">
+                            <ul class="option-list hidden-xs">
                                 @if($property->panaromal_status == 'google_panaroma')
                                     @if($property->google_panaroma != null)
                                         <li><a href="" data-toggle="modal" data-target="#threesixtyModal"><i class="fas fa-redo-alt"></i>360<sup>0</sup></a></li>
@@ -371,7 +371,7 @@ button.close:hover {
                 </div>
 
                 <div class="col-3 col-xs-12">
-                    <div thumbsSlider="" class="swiper mySwiper">
+                    <div thumbsSlider="" class="swiper mySwiper mobile-option-list-helper">
                         <div class="swiper-wrapper">
                             @if($property->panaromal_status == 'panaromal_images')
                                 @if($pano_arry)
@@ -391,9 +391,41 @@ button.close:hover {
                             @endforeach
 
                         </div>
-                    </div>
+
+                        <!-- mobile option list -->
+                        <div class="option-list-wrapper">
+                <ul class="option-list-mobile visible-xs">
+                                @if($property->panaromal_status == 'google_panaroma')
+                                    @if($property->google_panaroma != null)
+                                        <li><a href="" data-toggle="modal" data-target="#threesixtyModal"><i class="fas fa-redo-alt"></i>3600<sup>0</sup></a></li>
+                                    @endif
+                                @else
+                                    <li><i class="fas fa-redo-alt"></i>360<sup>0</sup></li>
+                                @endif
+                                <li>
+                                    <a href="#" data-toggle="modal" data-target="#photoModal"><i
+                                            class="fas fa-camera"></i>Photo</a>
+                                </li>
+                                <li>
+                                    <a href="#" data-toggle="modal" data-target="#videoModal"><i
+                                            class="fas fa-video"></i>Video</a>
+                                </li>
+                                <li>
+                                    <a href="#" data-toggle="modal" data-target="#"><i
+                                            class="fas fa-directions"></i>Direction</a>
+                                </li>
+                                <li class="last-item">
+                                    <a href="#" data-toggle="modal" data-target="#"><i class="far fa-map"></i>Flow
+                                        Plan</a>
+                                </li>
+
+                            </ul>
                 </div>
             </div>
+                    </div>
+                </div>
+
+              
             <!-- <div class="col-9">
                 <a class="btn-pano" href="#openModal-about">360<sup>0</sup> View</a>
             </div> -->
@@ -449,8 +481,15 @@ button.close:hover {
             <div class="row">
                 <div class="col-12">
                     <h5 style="padding-bottom:15px;">Nearby Place</h5>
-                    <div class="map-search-category-bar">
-                        
+                    <div id="near-cat-list" class="map-search-category-bar">
+                        <a href="#" class="near-cat-btn active-cat-btn">Shopping</a>
+                        <a href="#" class="near-cat-btn">Food</a>
+                        <a href="#" class="near-cat-btn">Restaurant</a>
+                        <a href="#" class="near-cat-btn">School</a>
+                        <a href="#" class="near-cat-btn">ATM</a>
+                        <a href="#" class="near-cat-btn">Hotel</a>
+                        <a href="#" class="near-cat-btn">Hospital</a>
+                        <a href="#" class="near-cat-btn">Gym</a>
                     </div>
                     <div id="map" style="height: 400px; width: 100%"></div>
                     <input type="text" name="lat" id="lat" value="{{$property->lat}}" class="mt-3 d-none">
@@ -1486,7 +1525,18 @@ function changePanaroma(panaromalId) {
 </script>
 
 
-
+<!-- near cat btn change -->
+<script>
+    var header = document.getElementById("near-cat-list");
+    var btns = header.getElementsByClassName("near-cat-btn");
+    for (var i = 0; i < btns.length; i++) {
+        btns[i].addEventListener("click", function() {
+            var current = document.getElementsByClassName("active-cat-btn");
+            current[0].className = current[0].className.replace(" active-cat-btn", "");
+            this.className += " active-cat-btn";
+        });
+    }
+</script>
 
 <script>
 var swiper = new Swiper(".mySwiper", {
