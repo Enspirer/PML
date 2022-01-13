@@ -528,6 +528,14 @@ a.get-started:hover {
 
 /*mobile-view*/
 @media screen and (max-width: 767px) {
+    .menu-icon-card-row {
+        display: grid;
+        grid-gap: 1rem;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .menu-icon-card {
+        margin-bottom: 15px;
+    }
     .hidden-xs {
         display: none !important;
     }
