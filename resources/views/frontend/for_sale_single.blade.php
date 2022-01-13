@@ -448,6 +448,10 @@ button.close:hover {
 
             <div class="row">
                 <div class="col-12">
+                    <h5 style="padding-bottom:15px;">Nearby Place</h5>
+                    <div class="map-search-category-bar">
+                        
+                    </div>
                     <div id="map" style="height: 400px; width: 100%"></div>
                     <input type="text" name="lat" id="lat" value="{{$property->lat}}" class="mt-3 d-none">
                     <input type="text" name="lng" id="lng" value="{{$property->long}}" class="mt-3 d-none">
