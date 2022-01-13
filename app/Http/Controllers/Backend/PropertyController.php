@@ -22,6 +22,15 @@ class PropertyController extends Controller
         return view('backend.property.index');
     }
 
+    public function property_nearby_generate(Request $request)
+    {
+        $propertDetails = Properties::where('id',$request->property_id)->first();
+
+        $result_status = NearLocation::nearlocation($propertDetails->lat,$propertDetails->long,$propertDetails->id,$request->type);
+    }
+
+
+
     public function property_nearby_index($id){
 
         $propertDetails = Properties::where('id',$id)->first();
