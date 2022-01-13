@@ -22,7 +22,8 @@ class MainMenuController extends Controller
         // dd($trending_posts);
 
         $youtube_posts = Posts::where('status','=','Enabled')->where('category',$category->id)->where('type','youtube')->take(5)->latest()->get();
-        $default_youtube_posts = Posts::where('status','=','Enabled')->where('category',$category->id)->where('type','youtube')->first();
+        $default_youtube_posts = Posts::where('status','=','Enabled')->where('category',$category->id)->where('type','youtube')->latest()->first();
+        // dd($youtube_posts);
         
         $article_posts = Posts::where('status','=','Enabled')->where('category',$category->id)->where('type','article')->orderby('order','asc')->get();
 

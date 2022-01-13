@@ -46,17 +46,15 @@
 
             @if($default_youtube_posts != null)
                 <div class="row scroll-box">
-
-                 <input type="hidden" value="{{ preg_match("#(?<=v=)[a-zA-Z0-9-]+(?=&)|(?<=v\/)[^&\n]+|(?<=v=)[^&\n]+|(?<=youtu.be/)[^&\n]+#", $default_youtube_posts->youtube, $defaultmatch) }}" />
-
                     
                     <!-- use video here -->
                     <div class="video">
+
                         <div class="col-12 mb-3" style="padding-right: 8px; height: 20rem;">
-                            <iframe width="100%" height="315" src="https://www.youtube.com/embed/{{ $defaultmatch[0] }}?rel=0"
-                                title="YouTube video player" frameborder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                allowfullscreen></iframe>
+
+                            <input type="hidden" value="{{ preg_match("#(?<=v=)[a-zA-Z0-9-]+(?=&)|(?<=v\/)[^&\n]+|(?<=v=)[^&\n]+|(?<=youtu.be/)[^&\n]+#", $default_youtube_posts->youtube, $default_match) }}" />
+
+                            <iframe style="height:20rem" class="img-fluid w-100" id="youtube_player" src="https://www.youtube.com/embed/{{ $default_match[0] }}?rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
 
                         <div class="col-12 mb-3" style="padding-right: 8px;">
@@ -105,14 +103,15 @@
             
 
             @if(count($youtube_posts) != 0)
-                @foreach($youtube_posts as $key => $youtube_post)
-
-                <input type="hidden" value="{{ preg_match("#(?<=v=)[a-zA-Z0-9-]+(?=&)|(?<=v\/)[^&\n]+|(?<=v=)[^&\n]+|(?<=youtu.be/)[^&\n]+#", $youtube_post->youtube, $matches) }}" />
-
-                <input type="hidden" id="videos_value" class="video-value" value="{{ $matches[0] }}" />
+                @foreach($youtube_posts as $key => $youtube_post)        
 
                 <!-- video here -->
                 <div class="row mb-3 video">
+                    
+                        <input type="hidden" value="{{ preg_match("#(?<=v=)[a-zA-Z0-9-]+(?=&)|(?<=v\/)[^&\n]+|(?<=v=)[^&\n]+|(?<=youtu.be/)[^&\n]+#", $youtube_post->youtube, $matches) }}" />
+
+                        <input type="hidden" class="video-value" value="{{ $matches[0] }}" />
+
                     <div class="col-6 pe-0">
                         <img src="{{ uploaded_asset($youtube_post->feature_image) }}" alt="" class="img-fluid w-100"
                             style="height: 5rem; object-fit: cover;">
@@ -128,6 +127,12 @@
                     </div>
                 </div>
                 @endforeach
+
+                <div class="row">
+                    <div class="col-12">
+                        <a href="{{route('frontend.video_article')}}" style="text-decoration:none" class="btn btn-secondary">View All</a>
+                    </div>
+                </div>
             @endif
 
             <!-- <div class="row mb-3 video">
@@ -683,20 +688,19 @@ var swiper = new Swiper(".mySwiper", {
 
 <!-- youtube script -->
     <script>
-      $(document).ready(function(){
+      $(document).ready(function(){        
 
             $('.right .video').on('click',function(){
 
-                // let link = $(this).find('.video-value').val();
-                let link = $('#videos_value').val();
-                // console.log(link);
-                    let video = 'https://www.youtube.com/embed/' + link;
-                $('.center .video iframe').attr('src', video);
-                    let title = $(this).find('h6').text();
-                $(".title").text(title);
-                    let description = $(this).find('.paragraph').text();
-                $(".description div").text(description);
+                let link = $(this).find('.video-value').val();
+                let video = 'https://www.youtube.com/embed/' + link;
+                    $('.center .video iframe').attr('src', video);
+                let title = $(this).find('h6').text();
+                    $(".title").text(title);
+                let description = $(this).find('.paragraph').text();
+                    $(".description div").text(description);
             });
+            
       });
     </script>
 
