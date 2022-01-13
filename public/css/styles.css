@@ -400,11 +400,12 @@ p#copyright-txt {
     left: 0;
     background: rgba(53, 73, 94, 0.7);
     width: 89%;
-    height: 200px;
     z-index: 1000;
     margin-left: 5.5%;
     margin-right: 5.5%;
 }
+
+
 
 .main-menu-inner {
     position: relative;
@@ -413,35 +414,34 @@ p#copyright-txt {
 
 button#closeMainMenu {
     position: absolute;
-    right: 0;
+    right: 5px;
     background-color: transparent;
     border: 0;
-    top: -30px;
+    top: -20px;
 }
 
 
 
 .menu-icon-card-row {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-left: 45px;
-    margin-right: 45px;
-    margin-top: 30px;
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: repeat(5, 1fr);
+    margin: 25px;
 }
 
 .menu-icon-card {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
     background: #fff;
     width: 100%;
-    height: 130px;
-    margin-left: 15px;
-    margin-right: 15px;
     border-radius: 5px;
+}
+
+.menu-card-img {
+    height: 90px;
+    display: block;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
 }
 
 .menu-icon-card:hover {
@@ -526,8 +526,29 @@ a.get-started:hover {
     background-color: #000;
 }
 
+/*small mobile view*/
+@media screen and (max-width: 320px) {
+    .menu-icon-card-row {
+        grid-template-columns: repeat(1, 1fr) !important;
+    }
+}
+
 /*mobile-view*/
 @media screen and (max-width: 767px) {
+    .menu-icon-card-row {
+        display: grid;
+        grid-gap: 1rem;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .menu-content-wrapper {
+        background: rgba(53, 73, 94, 0.7);
+    }
+    .menu-icon-card {
+        margin-bottom: 15px;
+    }
+    .social-wrapper{
+        width: 50%;
+    }
     .hidden-xs {
         display: none !important;
     }
@@ -687,7 +708,7 @@ a.get-started:hover {
     }
 
     .row.mobile-footer-row {
-        gap: 45px;
+        gap: 20px;
     }
 
     .row.mobile-footer-row .col-xs-12 {
@@ -699,29 +720,31 @@ a.get-started:hover {
     }
 
     /* main menu styles */
-    .menu-icon-card-row {
-        flex-direction: column;
-        gap: 30px;
-    }
-
+    
     .main-menu-content {
-        height: 900px;
+        height: unset;
     }
 
     .menu-icon-card {
-        width: 75%;
-        padding: 20px;
+        margin-bottom: 15px;
     }
 
     #addPropertyPopup .modal-content {
         padding: 0;
         height: 75vh;
     }
+
+    .container.main-menu-helper {
+        padding-bottom: 0;
+    }
     
 }
 
 /*tab-portrait*/
 @media (min-width: 768px) and (max-width: 1100px) {
+    .menu-icon-card-row {
+        grid-template-columns: repeat(4, 1fr);
+    }
     .hidden-xs {
         display: none !important;
     }
@@ -898,11 +921,6 @@ a.get-started:hover {
     
     .main-menu-content {
         width: 100%;
-        margin-left: 0;
-        margin-right: 0;
-    }
-
-    .menu-icon-card-row {
         margin-left: 0;
         margin-right: 0;
     }

@@ -149,7 +149,7 @@ Please fill up the form and one of our agents will be in touch with you.
 
                     </div>
 
-                    <a href="{{ route('frontend.post-ad') }}" class="get-started">Get Started</a>
+                    <a href="{{ route('frontend.add-property') }}" class="get-started">Get Started</a>
                 </div>
                 <!-- <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

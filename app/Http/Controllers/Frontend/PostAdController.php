@@ -12,6 +12,6 @@ class PostAdController extends Controller
      */
     public function index()
     {
-        return view('frontend.post-ad');
+        return view('frontend.add-property');
     }
 }

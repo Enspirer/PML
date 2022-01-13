@@ -102,6 +102,10 @@ class PreListningController extends Controller
         $addprop->meta_description=$request->meta_description;        
         $addprop->slug=$request->slug;        
         $addprop->transaction_type=$request->transaction_type;
+        $addprop->states=$request->states;
+        $addprop->postal_code=$request->postal_code;
+        $addprop->address_one=$request->address_line_one;
+        $addprop->address_two=$request->address_line_two;
         $addprop->user_id = auth()->user()->id;
         $addprop->admin_approval='Pending';
         $addprop->listning_type='free_listning';

@@ -1,6 +1,6 @@
 @extends('backend.layouts.app')
 
-@section('title', __('Home Page Advertisement'))
+@section('title', __('Blog Page Advertisement'))
 
 @section('content')
 
@@ -107,7 +107,7 @@
             <div class="tab-pane fade active show" id="ad1">
                 <div class="card-body">
                    
-                    <form action="{{route('admin.sidebar_ad.update1')}}" method="post" enctype="multipart/form-data">                    
+                    <form action="{{route('admin.homeloan_ad.update1')}}" method="post" enctype="multipart/form-data">                    
                         {{csrf_field()}}
                             
                             <div class="form-group">
@@ -117,18 +117,18 @@
                                         <div class="input-group-text bg-soft-secondary font-weight-medium">Browse</div>
                                     </div>
                                     <div class="form-control file-amount">Choose File</div>
-                                    <input type="hidden" name="image" value="{{ get_settings('sidebar_advertiment_1') }}"  class="selected-files" >
+                                    <input type="hidden" name="image" value="{{ get_settings('home_loan_advertisment') }}"  class="selected-files" >
                                 </div>
                                 <div class="file-preview box sm">
                                 </div>
                             </div>  
                             <div class="form-group">
                                 <label>Link</label>
-                                <input type="text" class="form-control" name="link" value="{{ get_settings('sidebar_advertiment_link_1') }}"/>
+                                <input type="text" class="form-control" name="link" value="{{ get_settings('home_loan_advertisment_link') }}"/>
                             </div>
                             <div class="form-group">
                                 <label>Description</label>
-                                <textarea class="form-control" name="description" rows="4">{{ get_settings('sidebar_advertiment_description_1') }}</textarea>
+                                <textarea class="form-control" name="description" rows="4">{{ get_settings('home_loan_advertisment_description') }}</textarea>
                             </div>
                             <div class="mt-4" align="right">
                                 <input type="submit" class="btn btn-success" value="Update">
@@ -139,7 +139,7 @@
             </div>
             <div class="tab-pane fade" id="ad2">
                 <div class="card-body">
-                <form action="{{route('admin.sidebar_ad.update2')}}" method="post" enctype="multipart/form-data">                    
+                <form action="{{route('admin.homeloan_ad.update2')}}" method="post" enctype="multipart/form-data">                    
                         {{csrf_field()}}
                             
                             <div class="form-group">
@@ -149,18 +149,18 @@
                                         <div class="input-group-text bg-soft-secondary font-weight-medium">Browse</div>
                                     </div>
                                     <div class="form-control file-amount">Choose File</div>
-                                    <input type="hidden" name="image" value="{{ get_settings('sidebar_advertiment_2') }}"  class="selected-files" >
+                                    <input type="hidden" name="image" value="{{ get_settings('home_loan_advertisment_2') }}"  class="selected-files" >
                                 </div>
                                 <div class="file-preview box sm">
                                 </div>
                             </div>  
                             <div class="form-group">
                                 <label>Link</label>
-                                <input type="text" class="form-control" name="link" value="{{ get_settings('sidebar_advertiment_link_2') }}"/>
+                                <input type="text" class="form-control" name="link" value="{{ get_settings('home_loan_advertisment_link_2') }}"/>
                             </div>
                             <div class="form-group">
                                 <label>Description</label>
-                                <textarea class="form-control" name="description" rows="4">{{ get_settings('sidebar_advertiment_description_2') }}</textarea>
+                                <textarea class="form-control" name="description" rows="4">{{ get_settings('home_loan_advertisment_description_2') }}</textarea>
                             </div>
                             <div class="mt-4" align="right">
                                 <input type="submit" class="btn btn-success" value="Update">
@@ -168,6 +168,7 @@
                     </form>
                 </div>
             </div>
+            
             
           </div>
         </div>

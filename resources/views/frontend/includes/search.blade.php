@@ -84,9 +84,9 @@
                                         @foreach(App\Models\Category::where('status','Enabled')->orderBy('order','ASC')->where('is_feature',1)->get() as $industry)
                                             <a class="menu-icon-card" href="{{route('frontend.homeloan',$industry->id)}}">
                                                 <div>
-                                                <img src="{{ uploaded_asset($industry->icon) }}" alt="" style="width:100%;">
+                                                <img class="menu-card-img" src="{{ uploaded_asset($industry->icon) }}" alt="">
 
-                                                    <p>{{$industry->name}}</p>
+                                                    <p style="text-align:center; padding-top:5px;">{{$industry->name}}</p>
                                                 </div>
 
                                             </a>
