@@ -406,6 +406,8 @@ p#copyright-txt {
     margin-right: 5.5%;
 }
 
+
+
 .main-menu-inner {
     position: relative;
 }
@@ -538,6 +540,9 @@ a.get-started:hover {
         display: grid;
         grid-gap: 1rem;
         grid-template-columns: repeat(2, 1fr);
+    }
+    .menu-content-wrapper {
+        background: rgba(53, 73, 94, 0.7);
     }
     .menu-icon-card {
         margin-bottom: 15px;
