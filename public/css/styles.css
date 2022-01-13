@@ -431,7 +431,6 @@ button#closeMainMenu {
 .menu-icon-card {
     background: #fff;
     width: 100%;
-    height: 150px;
     border-radius: 5px;
 }
 
@@ -717,7 +716,6 @@ a.get-started:hover {
     }
 
     .menu-icon-card {
-        padding: 20px;
         margin-bottom: 15px;
     }
 
@@ -910,11 +908,6 @@ a.get-started:hover {
     
     .main-menu-content {
         width: 100%;
-        margin-left: 0;
-        margin-right: 0;
-    }
-
-    .menu-icon-card-row {
         margin-left: 0;
         margin-right: 0;
     }
