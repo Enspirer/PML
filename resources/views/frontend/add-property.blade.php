@@ -13,7 +13,7 @@
     <div class="row">
         <div class="col-4 col-xs-12 post-card">
             <div class="post-card-wrapper">
-                <img class="post-main-img" src="{{ url('img/frontend/post-ad/post-ad1.png') }}" alt="">
+                <img class="post-main-img" src="{{ url('img/frontend/add-property-page/add-property1.png') }}" alt="">
                 <div class="overlay"></div>
                 <div class="btn-wrapper">
                     <div class="post-card-btn">
@@ -24,7 +24,7 @@
         </div>
         <div class="col-4 col-xs-12 post-card">
             <div class="post-card-wrapper">
-                <img class="post-main-img" src="{{ url('img/frontend/post-ad/post-ad2.png') }}" alt="">
+                <img class="post-main-img" src="{{ url('img/frontend/add-property-page/add-property2.png') }}" alt="">
                 <div class="overlay"></div>
                 <div class="btn-wrapper">
                     <div class="post-card-btn">
@@ -35,7 +35,7 @@
         </div>
         <div class="col-4 col-xs-12 post-card">
             <div class="post-card-wrapper">
-                <img class="post-main-img" src="{{ url('img/frontend/post-ad/post-ad3.png') }}" alt="">
+                <img class="post-main-img" src="{{ url('img/frontend/add-property-page/add-property3.png') }}" alt="">
                 <div class="overlay"></div>
                 <div class="btn-wrapper">
                     <div class="post-card-btn">
