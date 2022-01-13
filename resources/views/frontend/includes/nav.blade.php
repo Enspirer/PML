@@ -311,8 +311,7 @@
                     aria-expanded="false">
                     <img src="{{ url('img/frontend/user.jpg') }}" class="rounded-circle"
                         style="height: 50px; width: 50px; margin-right: 1.4rem;"> 
-                        <!-- <span
-                        class="fw-bold user-name">{{auth()->user()->first_name}}</span> -->
+                        
             </a>
             <div id="drop-menu-mobile" class="dropdown-menu mobile-drop-menu" aria-labelledby="navbarDropdownMenuLink">
                     <a class="dropdown-item" href="{{ route('frontend.user.dashboard') }}">My Account</a>
