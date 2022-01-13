@@ -449,6 +449,84 @@ button#closeMainMenu {
     filter: invert(1);
 }
 
+/*add property popup*/
+#addPropertyPopup h2 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+    padding-bottom: 15px;
+}
+
+#addPropertyPopup .modal-dialog {
+    max-width: 700px;
+}
+
+#addPropertyPopup .modal-content {
+    border-radius: 0;
+    padding: 15px 25px;
+}
+
+#addPropertyPopup .modal-body {
+    position: relative;
+}
+
+#addPropertyPopup .add-property-close {
+    position: absolute;
+    right: 10px;
+    background-color: transparent;
+    border: 0;
+    top: 10px;
+}
+
+.img-txt-wrapper h4 {
+    font-size: 1rem;
+}
+
+.img-txt-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.img-txt-wrapper img {
+    width: 50px;
+}
+
+.add-property-list  {
+    list-style: none;
+    padding-left: 60px;
+}
+
+.add-property-list li {
+    font-size: 0.8rem;
+    display: flex;
+    gap: 5px;
+    margin-top: 5px;
+}
+
+.list-icon-wrapper i {
+    color: #3BB64B;
+}
+
+a.get-started {
+    text-align: center;
+    width: max-content;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    background: #35495E;
+    padding: 10px 20px;
+    color: #fff;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    margin-top: 15px;
+}
+
+a.get-started:hover {
+    color: #fff;
+    background-color: #000;
+}
+
 /*mobile-view*/
 @media screen and (max-width: 767px) {
     .hidden-xs {
@@ -634,6 +712,11 @@ button#closeMainMenu {
     .menu-icon-card {
         width: 75%;
         padding: 20px;
+    }
+
+    #addPropertyPopup .modal-content {
+        padding: 0;
+        height: 75vh;
     }
     
 }

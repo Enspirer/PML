@@ -21,6 +21,7 @@ use App\Http\Controllers\Frontend\PagesController;
 use App\Http\Controllers\Frontend\MainMenuController;
 use App\Http\Controllers\Frontend\ArticleController;
 use App\Http\Controllers\Frontend\VideoController;
+use App\Http\Controllers\Frontend\PostAdController;
 
 
 /*
@@ -96,7 +97,8 @@ Route::get('marketing_services', [PagesController::class, 'marketing_services'])
 
 Route::get('home_loan/{id}', [MainMenuController::class, 'homeloan'])->name('homeloan');
 Route::get('article/{id}', [ArticleController::class, 'index'])->name('article');
-Route::get('video-article', [VideoController::class, 'index'])->name('video_article');
+Route::get('video-article', [VideoController::class, 'index'])->name('video-article');
+Route::get('post-ad', [PostAdController::class, 'index'])->name('post-ad');
 
 Route::get('image_assester/{id}',[HomeController::class,'image_assets'])->name('image_selected');
 Route::get('property_country/{id}',[HomeController::class,'property_country'])->name('property_country');

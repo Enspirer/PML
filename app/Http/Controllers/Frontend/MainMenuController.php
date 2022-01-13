@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use App\Models\Posts;
 use App\Models\Category;
+use App\Models\PropertyType;
 use Illuminate\Http\Request;
 
 class MainMenuController extends Controller
@@ -25,7 +26,8 @@ class MainMenuController extends Controller
         
         $article_posts = Posts::where('status','=','Enabled')->where('category',$category->id)->where('type','article')->orderby('order','asc')->get();
 
-    
+        $property_types = PropertyType::where('status','=','1')->get();
+
         return view('frontend.homeloan',[
             'posts' => $posts,
             'latest_post' => $latest_post,
@@ -34,7 +36,8 @@ class MainMenuController extends Controller
             'trending_posts' => $trending_posts,
             'article_posts' => $article_posts,
             'youtube_posts' => $youtube_posts,
-            'default_youtube_posts' => $default_youtube_posts
+            'default_youtube_posts' => $default_youtube_posts,
+            'property_types' => $property_types
         ]);
     }
 

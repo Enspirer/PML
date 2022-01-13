@@ -104,10 +104,11 @@
 
 
 
-                <a class="add-property-btn fw-bold d-inline-block border px-4 text-decoration-none"
-                    href="{{ route('frontend.pre_listing') }}">Add Property</a>
+                <!-- <a class="add-property-btn fw-bold d-inline-block border px-4 text-decoration-none"
+                    href="{{ route('frontend.pre_listing') }}">Add Property</a> -->
 
-
+                    <a class="add-property-btn fw-bold d-inline-block border px-4 text-decoration-none"
+                    href="" data-toggle="modal" data-target="#addPropertyPopup">Add Property</a>
 
             </div>
 
@@ -271,9 +272,10 @@
             </div>
             <!-- end of user login styles -->
 
+            <!-- <a class="add-property-btn fw-bold d-inline-block border px-4 text-decoration-none"
+                    href="{{ route('frontend.pre_listing') }}">Add Property</a> -->
             <a class="add-property-btn fw-bold d-inline-block border px-4 text-decoration-none"
-                    href="{{ route('frontend.pre_listing') }}">Add Property</a>
-
+                    href="" data-toggle="modal" data-target="#addPropertyPopup">Add Property</a>
 
         @else
           
