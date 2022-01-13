@@ -162,6 +162,10 @@ class PropertyController extends Controller
         $addprop->panaromal_status = $request->panaromal_status;
         $addprop->google_panaroma = $request->google_panaroma;
         $addprop->panaromal_images = $request->panaromal_images;
+        $addprop->states=$request->states;
+        $addprop->postal_code=$request->postal_code;
+        $addprop->address_one=$request->address_line_one;
+        $addprop->address_two=$request->address_line_two;
         $addprop->listning_type='agent_listning';
 
         $addprop->price_options=$request->validate;
@@ -302,6 +306,10 @@ class PropertyController extends Controller
         $update->panaromal_status = $request->panaromal_status;
         $update->google_panaroma = $request->google_panaroma;
         $update->panaromal_images = $request->panaromal_images;
+        $update->states=$request->states;
+        $update->postal_code=$request->postal_code;
+        $update->address_one=$request->address_line_one;
+        $update->address_two=$request->address_line_two;
         $update->listning_type='agent_listning';
 
         $update->price_options=$request->validate;
