@@ -145,6 +145,12 @@ p.card-text.mb-1 {
     .sidebar-full-mobile {
         padding-top: 60px;
     }
+
+    .sidebar-card {
+        width: 75%;
+        margin-left: auto;
+        margin-right: auto;
+    }
     
 }
 
