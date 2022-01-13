@@ -234,13 +234,6 @@ class AdvertisementController extends Controller
         return back()->withFlashSuccess('Updated Advertisement 2 Successfully'); 
     }
 
-
-
-
-
-
-
-
     public function homeloan_ad_update1(Request $request)
     {        
         $update = new Settings;

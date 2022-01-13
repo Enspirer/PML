@@ -97,6 +97,38 @@
                                 </div>    
                             </div>
                         </div>
+
+                        <div class="row">
+                            <div class="col-6">
+                                <div>
+                                    <label for="states" class="form-label mb-0 mt-4">State/Province/Region</label>
+                                    <input type="text" class="form-control" name="states" id="states" value="{{ $property->states }}" aria-describedby="states" required>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div>
+                                    <label for="postal_code" class="form-label mb-0 mt-4">Zip/Postal Code</label>
+                                    <input type="text" class="form-control" name="postal_code" id="postal_code" value="{{ $property->postal_code }}" aria-describedby="postal_code" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-6">
+                                <div>
+                                    <label for="address_line_one" class="form-label mb-0 mt-4">Address Line 1</label>
+                                    <input type="text" class="form-control" name="address_line_one" id="address_line_one" value="{{ $property->address_one }}" aria-describedby="address_line_one" required>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div>
+                                    <label for="address_line_two" class="form-label mb-0 mt-4">Address Line 2</label>
+                                    <input type="text" class="form-control" name="address_line_two" id="address_line_two" value="{{ $property->address_two }}" aria-describedby="address_line_two" required>
+                                </div>
+                            </div>
+                        </div>
+
+
                         <div class="row">
                             <div class="col-6">
                                 <div class="form-group">

@@ -161,3 +161,7 @@ Breadcrumbs::for('admin.pro_tal_settings', function ($trail) {
 Breadcrumbs::for('admin.homeloan_ad.index', function ($trail) {
     $trail->push('Blog Page', route('admin.homeloan_ad.index'));
 });
+
+Breadcrumbs::for('admin.property.property_nearby_index', function ($trail) {
+    $trail->push('Nearest Places', route('admin.property.property_nearby_index',1));
+});

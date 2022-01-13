@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\NearLocation;
 use Illuminate\Http\Request;
 use DataTables;
 use DB;
@@ -15,11 +16,37 @@ use App\Models\Auth\User;
 
 class PropertyController extends Controller
 {
-    
+
     public function index()
     {
         return view('backend.property.index');
     }
+
+    public function property_nearby_generate(Request $request)
+    {
+        $propertDetails = Properties::where('id',$request->property_id)->first();
+
+        $result_status = NearLocation::nearlocation($propertDetails->lat,$propertDetails->long,$propertDetails->id,$request->type);
+
+        return $result_status;
+    }
+
+
+
+    public function property_nearby_index($id){
+
+        $propertDetails = Properties::where('id',$id)->first();
+        $nearPlaces = NearLocation::where('property_id',$id)->get();
+
+//        $result_status = NearLocation::nearlocation($propertDetails->lat,$propertDetails->long,$id,'school');
+
+        return view('backend.property_nearby.index',[
+            'property_details' => $propertDetails,
+            'near_places' => $nearPlaces
+        ]);
+    }
+
+
 
     public function create()
     {
@@ -70,6 +97,7 @@ class PropertyController extends Controller
                        
                         $button = '<a href="'.route('admin.property.edit',$data->id).'" name="edit" id="'.$data->id.'" class="edit btn btn-secondary btn-sm ml-3" style="margin-right: 10px"><i class="fas fa-edit"></i> Edit </a>';
                         $button .= '<button type="button" name="delete" id="'.$data->id.'" class="delete btn btn-danger btn-sm"><i class="fas fa-trash"></i> Delete</button>';
+                        $button .= '<a href="'.route('admin.property.property_nearby_index',$data->id).'" style="margin-left: 10px;" class="btn btn-primary btn-sm"><i class="fas fa-building"></i> Near Places</button>';
                         return $button;
                     })
                     ->addColumn('feature_image', function($data){
@@ -162,6 +190,10 @@ class PropertyController extends Controller
         $addprop->panaromal_status = $request->panaromal_status;
         $addprop->google_panaroma = $request->google_panaroma;
         $addprop->panaromal_images = $request->panaromal_images;
+        $addprop->states=$request->states;
+        $addprop->postal_code=$request->postal_code;
+        $addprop->address_one=$request->address_line_one;
+        $addprop->address_two=$request->address_line_two;
         $addprop->listning_type='agent_listning';
 
         $addprop->price_options=$request->validate;
@@ -302,6 +334,10 @@ class PropertyController extends Controller
         $update->panaromal_status = $request->panaromal_status;
         $update->google_panaroma = $request->google_panaroma;
         $update->panaromal_images = $request->panaromal_images;
+        $update->states=$request->states;
+        $update->postal_code=$request->postal_code;
+        $update->address_one=$request->address_line_one;
+        $update->address_two=$request->address_line_two;
         $update->listning_type='agent_listning';
 
         $update->price_options=$request->validate;
