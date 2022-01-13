@@ -128,11 +128,13 @@
                 </div>
                 @endforeach
 
-                <div class="row">
+                <!-- <div class="row">
                     <div class="col-12">
-                        <a href="{{route('frontend.video_article')}}" style="text-decoration:none" class="btn btn-secondary">View All</a>
+                        <a  class="btn btn-secondary">View All</a>
                     </div>
-                </div>
+                </div> -->
+
+                <a href="{{route('frontend.video_article')}}" class="btn col-12 text-white rounded-0 border-start" style="background-color : #35495E; height:40px;">View All</a>
             @endif
 
             <!-- <div class="row mb-3 video">
