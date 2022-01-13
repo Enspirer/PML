@@ -33,12 +33,20 @@ class CategoryController extends Controller
                  
                     return $img;
                 })
+                ->editColumn('is_feature', function($data){
+                    if($data->is_feature == 1){
+                        $is_feature = '<span class="badge bg-success">Yes</span>';
+                    }else {
+                        $is_feature = '<span class="badge bg-warning text-dark">No</span>';
+                    }
+                    return $is_feature;
+                })
                 ->addColumn('action', function($data){
                     $button1 = '<a href="'.route('admin.category.edit',$data->id).'" name="edit" id="'.$data->id.'" class="edit btn btn-secondary btn-sm ml-3" style="margin-right: 10px"><i class="fas fa-edit"></i> Edit </a>';
                     $button2 = '&nbsp;&nbsp;&nbsp;&nbsp;<button type="button" name="delete" id="'.$data->id.'" class="delete btn btn-danger btn-sm"><i class="fas fa-trash"></i> Delete</button>';
                     return $button1.$button2;
                 })
-                ->rawColumns(['action','status','icon'])
+                ->rawColumns(['action','status','icon','is_feature'])
                 ->make(true);
         
         return back();
@@ -61,6 +69,7 @@ class CategoryController extends Controller
                 $add->icon = $request->icon;
                 $add->name = $request->name;        
                 $add->description = $request->description;
+                $add->is_feature = $request->featured_news;
                 $add->order = $request->order;
                 $add->status = $request->status;
 
@@ -70,7 +79,7 @@ class CategoryController extends Controller
             }           
 
         }else{
-            return back()->withErrors('You Already Added This Category');
+            return back()->withErrors('Already Added This Category');
         }              
 
     }
@@ -97,6 +106,7 @@ class CategoryController extends Controller
             $update->icon = $request->icon;
             $update->name = $request->name;        
             $update->description = $request->description;
+            $update->is_feature = $request->featured_news;
             $update->order = $request->order;
             $update->status = $request->status;
 

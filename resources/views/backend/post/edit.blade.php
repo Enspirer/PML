@@ -19,9 +19,9 @@
                             <textarea type="text" class="form-control" name="description" rows="6" required>{{ $post->description }}</textarea>
                         </div>                                                   
                         <div class="form-group">
-                            <label>Category <span class="text-danger">*</span></label>
+                            <label>Industry <span class="text-danger">*</span></label>
                             <select name="category" class="form-control" id="category" required>
-                                <option value="" selected disabled>-- Select Category --</option>
+                                <option value="" selected disabled>-- Select Industry --</option>
                                     @foreach ($categories as $category)
                                         <option value="{{ $category->id }}" {{ $post->category == $category->id ? "selected" : ""}}>{{ $category->name }}</option>
                                     @endforeach
@@ -41,7 +41,10 @@
                         
                     </div>
                 </div>
-                
+
+                <input type="hidden" name="hidden_id" value="{{ $post->id }}" />
+                <button type="submit" class="btn btn-success pull-right">Update Post</button><br>
+
             </div><br>
             
             <div class="col-md-7">               
@@ -51,7 +54,6 @@
                         <div class="" style="border-style: ridge;border-width: 3px;padding: 20px;">                       
                             <div class="form-group">
                                 <label>Feature Image
-                                    <span class="text-danger">*</span>
                                 </label>
                                 <div class="input-group" data-toggle="aizuploader" data-type="image">
                                     <div class="input-group-prepend">
@@ -89,8 +91,7 @@
                     
                 </div>     
 
-                <input type="hidden" name="hidden_id" value="{{ $post->id }}" />
-                <button type="submit" class="btn btn-success pull-right">Update Post</button><br>
+                
             </div><br>
             
         </div>

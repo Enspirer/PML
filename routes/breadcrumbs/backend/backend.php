@@ -62,10 +62,10 @@ Breadcrumbs::for('admin.agent_request.edit', function ($trail) {
 });
 
 Breadcrumbs::for('admin.category.index', function ($trail) {
-    $trail->push('Category', route('admin.category.index'));
+    $trail->push('Industry', route('admin.category.index'));
 });
 Breadcrumbs::for('admin.category.edit', function ($trail) {
-    $trail->push('Edit Category', route('admin.category.edit',1));
+    $trail->push('Edit Industry', route('admin.category.edit',1));
 });
 
 Breadcrumbs::for('admin.post.index', function ($trail) {
@@ -152,4 +152,8 @@ Breadcrumbs::for('admin.home_page_features.create', function ($trail) {
 });
 Breadcrumbs::for('admin.home_page_latest.create', function ($trail) {
     $trail->push('Home Page Latest', route('admin.home_page_latest.create'));
+});
+
+Breadcrumbs::for('admin.pro_tal_settings', function ($trail) {
+    $trail->push('Home Featured', route('admin.pro_tal_settings'));
 });

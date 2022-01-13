@@ -15,13 +15,13 @@
 <div class="container index" style="margin-top: 2rem;">
         <div class="row">
             <div class="col-12">
-                <p><a href="/" class="text-decoration-none text-dark fw-bold">Property Market Live</a>
+                <p><a href="{{url('/')}}" class="text-decoration-none text-dark fw-bold">Property Market Live</a>
                     >
-                        <a href="#" class="text-decoration-none text-dark fw-bold">
+                        <a class="text-decoration-none text-dark fw-bold">
                             Main Menu
                         </a>
 
-                    > <a href="/home_loan" class="text-decoration-none text-dark fw-bold">Home Loan</a></p>
+                    > <a class="text-decoration-none text-dark fw-bold">{{$category->name}}</a></p>
             </div>
         </div>
 </div>
@@ -30,105 +30,107 @@
     <div class="row">
 
         <div class="col-3 left col-xs-12">
-            <a class="btn link-btn w-100 mb-3 main-menu-links active-menu"><img src="{{ url('img/frontend/index/location-pin.png') }}" alt=""
-                    class="me-3">Home Loan</a>
-            <a class="btn link-btn w-100 mb-3 main-menu-links"><img src="{{ url('img/frontend/index/house.png') }}" alt=""
-                    class="me-3">Constructions</a>
-            <a class="btn link-btn w-100 mb-3 main-menu-links"><img src="{{ url('img/frontend/index/livingroom.png') }}" alt=""
-                    class="me-3">Interior Designs</a>
-            <a class="btn link-btn w-100 mb-3 main-menu-links"><img src="{{ url('img/frontend/index/mortgage.png') }}" alt=""
-                    class="me-3">Insurance</a>
-            <a class="btn link-btn w-100 mb-3 main-menu-links"><img src="{{ url('img/frontend/index/compass.png') }}" alt=""
-                    class="me-3">Vaastu</a>
+
+            @if(count($categories) != 0)
+                @foreach($categories as $cat)
+                    @if($cat->id == $category->id)
+                        <a href="{{route('frontend.homeloan',$cat->id)}}" class="btn link-btn w-100 mb-3 main-menu-links active-menu"><img src="{{ uploaded_asset($cat->icon) }}" alt="" class="me-3">{{$cat->name}}</a>
+                    @else
+                        <a href="{{route('frontend.homeloan',$cat->id)}}" class="btn link-btn w-100 mb-3 main-menu-links"><img src="{{ uploaded_asset($cat->icon) }}" alt="" class="me-3">{{$cat->name}}</a>
+                    @endif
+                @endforeach
+            @endif
         </div>
 
         <div class="col-6 center col-xs-12">
-            <div class="row scroll-box">
-                <!-- use article here -->
-                <div class="article d-none">
-                    <div class="col-12 mb-3" style="padding-right: 8px;">
-                        <img src="{{url('')}}" alt="" class="img-fluid w-100 main-image"
-                            style="object-fit: cover; height: 20rem;">
-                    </div>
 
-                    <div class="col-12 mb-3" style="padding-right: 8px;">
-                        <h5 class="fw-bold title" style="font-size: 1.15rem;">latest post title</h5>
-                    </div>
+            @if($default_youtube_posts != null)
+                <div class="row scroll-box">
 
-                    <div class="col-12 description" style="padding-right: 8px;">
-                        <div style="font-size: 0.9rem; color: #666666;">latest post article</div>
-                    </div>
-                </div>
-                <!-- use video here -->
-                <div class="video">
-                    <div class="col-12 mb-3" style="padding-right: 8px; height: 20rem;">
-                        <iframe width="100%" height="315" src="https://www.youtube.com/embed/0kXCPo7c63I"
-                            title="YouTube video player" frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen></iframe>
-                    </div>
+                 <input type="hidden" value="{{ preg_match("#(?<=v=)[a-zA-Z0-9-]+(?=&)|(?<=v\/)[^&\n]+|(?<=v=)[^&\n]+|(?<=youtu.be/)[^&\n]+#", $default_youtube_posts->youtube, $defaultmatch) }}" />
 
-                    <div class="col-12 mb-3" style="padding-right: 8px;">
-                        <h5 class="fw-bold title" style="font-size: 1.15rem;">Home Loan Process Explained</h5>
-                    </div>
-
-                    <div class="col-12 option-bar">
-                        <div class="left-side">
-                            <span>18,719,690</span>
-                            <span>Jun 29, 2014</span>
+                    
+                    <!-- use video here -->
+                    <div class="video">
+                        <div class="col-12 mb-3" style="padding-right: 8px; height: 20rem;">
+                            <iframe width="100%" height="315" src="https://www.youtube.com/embed/{{ $defaultmatch[0] }}?rel=0"
+                                title="YouTube video player" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
                         </div>
-                        <div class="right-side">
-                            <div class="right-side-tile">
-                                <span class="option-icon"><i class="far fa-thumbs-up"></i></span>
-                                <span class="option-txt">304k</span>
+
+                        <div class="col-12 mb-3" style="padding-right: 8px;">
+                            <h5 class="fw-bold title" style="font-size: 1.15rem;">{{$default_youtube_posts->title}}</h5>
+                        </div>
+
+                        <div class="col-12 option-bar">
+                            <div class="left-side">
+                                <span>18,719,690</span>
+                                <span>{{ $default_youtube_posts->created_at->format('M d Y') }}</span>
                             </div>
-                            <div class="right-side-tile">
-                                <span class="option-icon"><i class="far fa-thumbs-down"></i></span>
-                                <span class="option-txt">2k</span>
-                            </div>
-                            <div class="right-side-tile">
-                                <span class="option-icon"><i class="fas fa-share"></i></span>
-                                <span class="option-txt">SHARE</span>
-                            </div>
-                            <div class="right-side-tile">
-                                <span class="option-icon"><i class="fas fa-save"></i></span>
-                                <span class="option-txt">SAVE</span>
+                            <div class="right-side">
+                                <div class="right-side-tile">
+                                    <span class="option-icon"><i class="far fa-thumbs-up"></i></span>
+                                    <span class="option-txt">304k</span>
+                                </div>
+                                <div class="right-side-tile">
+                                    <span class="option-icon"><i class="far fa-thumbs-down"></i></span>
+                                    <span class="option-txt">2k</span>
+                                </div>
+                                <div class="right-side-tile">
+                                    <span class="option-icon"><i class="fas fa-share"></i></span>
+                                    <span class="option-txt">SHARE</span>
+                                </div>
+                                <div class="right-side-tile">
+                                    <span class="option-icon"><i class="fas fa-save"></i></span>
+                                    <span class="option-txt">SAVE</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="col-12 description" style="padding-right: 8px;">
-                        <div style="font-size: 0.9rem; color: #666666;">Lorem ipsum dolor sit amet consectetur
-                            adipisicing elit. Fugit, quis neque a rerum id cupiditate tenetur omnis asperiores provident
-                            minima quibusdam vel eum quos, illum deserunt ea, dolor ab ducimus?
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti velit autem quos dolores provident commodi aspernatur, labore officiis vel necessitatibus quo sint dolor, facilis minus sunt ipsa laboriosam reprehenderit a.
-                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maiores illum deleniti accusantium fugit explicabo voluptatum assumenda molestias, quos nihil saepe, sit consequatur harum fuga? Cumque dolorum quaerat ipsam quos soluta?
+                        <div class="col-12 description" style="padding-right: 8px;">
+                            <div style="font-size: 0.9rem; color: #666666;">{{$default_youtube_posts->description}}</div>
                         </div>
                     </div>
                 </div>
-            </div>
+            @else
+                @include('frontend.includes.not_found',[
+                    'not_found_title' => 'Youtube Videos Not Found',
+                    'not_found_description' => null,
+                    'not_found_button_caption' => null
+                ])
+            @endif
         </div>
         <div class="col-3 right col-xs-12">
-            <!-- article here -->
-            <div class="row mb-3 article">
-                <div class="col-6 pe-0">
-                    <img src="{{ url('img/frontend/home-loan/homeloan1.jpg') }}" alt="" class="img-fluid w-100"
-                        style="height: 5rem; object-fit: cover;">
-                </div>
-                <div class="col-6">
-                    <h6 class="fw-bolder aa"
-                        style="font-size: 0.75rem; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical;">
-                        post title</h6>
-                    <div
-                        style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;">
-                        <div class="paragraph" style="color: #666666;">post article</div>
-                    </div>
-                    <!-- <p style="font-size: 0.7rem;">1.1 M views  2 months ago</p> -->
-                </div>
-            </div>
+            
 
-            <!-- video here -->
-            <div class="row mb-3 video">
+            @if(count($youtube_posts) != 0)
+                @foreach($youtube_posts as $key => $youtube_post)
+
+                <input type="hidden" value="{{ preg_match("#(?<=v=)[a-zA-Z0-9-]+(?=&)|(?<=v\/)[^&\n]+|(?<=v=)[^&\n]+|(?<=youtu.be/)[^&\n]+#", $youtube_post->youtube, $matches) }}" />
+
+                <input type="hidden" id="videos_value" class="video-value" value="{{ $matches[0] }}" />
+
+                <!-- video here -->
+                <div class="row mb-3 video">
+                    <div class="col-6 pe-0">
+                        <img src="{{ uploaded_asset($youtube_post->feature_image) }}" alt="" class="img-fluid w-100"
+                            style="height: 5rem; object-fit: cover;">
+                    </div>
+                    <div class="col-6">
+                        <h6 class="fw-bolder aa"
+                            style="font-size: 0.75rem; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical;">
+                            {{$youtube_post->title}}</h6>
+                        <div
+                            style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;">
+                            <div class="paragraph" style="font-size: 0.8rem; color: #666666;">{{$youtube_post->description}}</div>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+            @endif
+
+            <!-- <div class="row mb-3 video">
                 <div class="col-6 pe-0">
                     <img src="{{ url('img/frontend/home-loan/homeloan3.jpg') }}" alt="" class="img-fluid w-100"
                         style="height: 5rem; object-fit: cover;">
@@ -144,25 +146,7 @@
                 </div>
             </div>
 
-            <!-- article here -->
-            <div class="row mb-3 article">
-                <div class="col-6 pe-0">
-                    <img src="{{ url('img/frontend/home-loan/homeloan4.jpg') }}" alt="" class="img-fluid w-100"
-                        style="height: 5rem; object-fit: cover;">
-                </div>
-                <div class="col-6">
-                    <h6 class="fw-bolder aa"
-                        style="font-size: 0.75rem; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical;">
-                        post title</h6>
-                    <div
-                        style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;">
-                        <div class="paragraph" style="color: #666666;">post article</div>
-                    </div>
-                    <!-- <p style="font-size: 0.7rem;">1.1 M views  2 months ago</p> -->
-                </div>
-            </div>
-
-            <!-- video here -->
+            
             <div class="row mb-3 video">
                 <div class="col-6 pe-0">
                     <img src="{{ url('img/frontend/home-loan/homeloan3.jpg') }}" alt="" class="img-fluid w-100"
@@ -177,266 +161,101 @@
                         <div class="paragraph" style="font-size: 0.8rem; color: #666666;">post description</div>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
         </div>
 
     </div>
 </div>
 
-<!-- 
-    <div class="properties" style="margin-top: 3rem;">
-        <div class="container">
-            <div class="row mt-5 mb-4">
-                <div class="col-3">
-                    <div class="card custom-shadow">
-                        <img src="{{ url('img/frontend/index/1.png') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
-                        <div class="card-body text-center">
-                            <h5 class="fw-bold">$450, 000</h5>
-                            <p>4 Bed Semidetached house</p>
-                            <p>541, Rosewood place,</p>
-                            <p>Colombo, Sri Lanka</p>
-                            <p>3<i class="fas fa-bed ms-2 me-3"></i> 5<i class="fas fa-bath ms-2"></i></p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-3">
-                    <div class="card custom-shadow">
-                        <img src="{{ url('img/frontend/index/2.png') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
-                        <div class="card-body text-center">
-                            <h5 class="fw-bold">$450, 000</h5>
-                            <p>4 Bed Semidetached house</p>
-                            <p>541, Rosewood place,</p>
-                            <p>Colombo, Sri Lanka</p>
-                            <p>3<i class="fas fa-bed ms-2 me-3"></i> 5<i class="fas fa-bath ms-2"></i></p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-3">
-                    <div class="card custom-shadow">
-                        <img src="{{ url('img/frontend/index/3.png') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
-                        <div class="card-body text-center">
-                            <h5 class="fw-bold">$450, 000</h5>
-                            <p>4 Bed Semidetached house</p>
-                            <p>541, Rosewood place,</p>
-                            <p>Colombo, Sri Lanka</p>
-                            <p>3<i class="fas fa-bed ms-2 me-3"></i> 5<i class="fas fa-bath ms-2"></i></p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-3">
-                    <a href="#" target="_blank">
-                        <div class="card custom-shadow">
-                            <img src="" alt="" class="img-fluid w-100" style="height: 19.2rem; object-fit: cover;">
-                        </div>
-                    </a>
-                </div>
-            </div>
-
-            <div class="row mb-3">
-                <div class="col-3">
-                    <div class="card custom-shadow">
-                        <img src="{{ url('img/frontend/index/4.png') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
-                        <div class="card-body text-center">
-                            <h5 class="fw-bold">$450, 000</h5>
-                            <p>4 Bed Semidetached house</p>
-                            <p>541, Rosewood place,</p>
-                            <p>Colombo, Sri Lanka</p>
-                            <p>3<i class="fas fa-bed ms-2 me-3"></i> 5<i class="fas fa-bath ms-2"></i></p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-3">
-                    <div class="card custom-shadow">
-                        <img src="{{ url('img/frontend/index/5.png') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
-                        <div class="card-body text-center">
-                            <h5 class="fw-bold">$450, 000</h5>
-                            <p>4 Bed Semidetached house</p>
-                            <p>541, Rosewood place,</p>
-                            <p>Colombo, Sri Lanka</p>
-                            <p>3<i class="fas fa-bed ms-2 me-3"></i> 5<i class="fas fa-bath ms-2"></i></p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-3">
-                    <div class="card custom-shadow">
-                        <img src="{{ url('img/frontend/index/6.png') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
-                        <div class="card-body text-center">
-                            <h5 class="fw-bold">$450, 000</h5>
-                            <p>4 Bed Semidetached house</p>
-                            <p>541, Rosewood place,</p>
-                            <p>Colombo, Sri Lanka</p>
-                            <p>3<i class="fas fa-bed ms-2 me-3"></i> 5<i class="fas fa-bath ms-2"></i></p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-3">
-                    <a href="#" target="_blank">
-                        <div class="card custom-shadow">
-                            <img src="" alt="" class="img-fluid w-100" style="height: 19.2rem; object-fit: cover;">
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div> -->
 
 
+@if(count($trending_posts) != 0)
 <div class="container slider-container" style="margin-top: 4rem;">
-    <h2 style="margin-bottom:15px !important;">Trending Now</h2>
+    <h2 style="margin-bottom:25px !important;">Trending Now</h2>
     <div class="swiper mySwiper">
         <div class="swiper-wrapper">
-            <div class="swiper-slide">
-                <div class="card custom-shadow">
-                    <img src="{{ url('img/frontend/index/5.png') }}" alt="" class="img-fluid w-100"
-                        style="height: 10rem; object-fit: cover;">
-                    <div class="card-body text-center">
-                        <h5 class="fw-bold">$450, 000</h5>
-                        <p>4 Bed Semidetached house</p>
-                        <p>541, Rosewood place,</p>
-                        <p>Colombo, Sri Lanka</p>
-                        <p>3<i class="fas fa-bed ms-2 me-3"></i> 5<i class="fas fa-bath ms-2"></i></p>
+
+                @foreach($trending_posts as $trending)
+                    <div class="swiper-slide">
+                        <div class="card custom-shadow">
+                            <a href="{{route('frontend.article',$trending->id)}}" style="text-decoration:none">
+                                <img src="{{ uploaded_asset($trending->feature_image) }}" alt="" class="img-fluid w-100"
+                                    style="height: 10rem; object-fit: cover;">
+                            </a>
+                            <div class="card-body text-center">
+                                <h5 style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical;" class="mb-1 fw-bold">{{$trending->title}}</h5>
+                                <p style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;" >{{$trending->description}}</p>
+                                <!-- <p>3<i class="fas fa-bed ms-2 me-3"></i> 5<i class="fas fa-bath ms-2"></i></p> -->
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div class="swiper-slide">
-                <div class="card custom-shadow">
-                    <img src="{{ url('img/frontend/index/4.png') }}" alt="" class="img-fluid w-100"
-                        style="height: 10rem; object-fit: cover;">
-                    <div class="card-body text-center">
-                        <h5 class="fw-bold">$450, 000</h5>
-                        <p>4 Bed Semidetached house</p>
-                        <p>541, Rosewood place,</p>
-                        <p>Colombo, Sri Lanka</p>
-                        <p>3<i class="fas fa-bed ms-2 me-3"></i> 5<i class="fas fa-bath ms-2"></i></p>
-                    </div>
-                </div>
-            </div>
-            <div class="swiper-slide">
-                <div class="card custom-shadow">
-                    <img src="{{ url('img/frontend/index/3.png') }}" alt="" class="img-fluid w-100"
-                        style="height: 10rem; object-fit: cover;">
-                    <div class="card-body text-center">
-                        <h5 class="fw-bold">$450, 000</h5>
-                        <p>4 Bed Semidetached house</p>
-                        <p>541, Rosewood place,</p>
-                        <p>Colombo, Sri Lanka</p>
-                        <p>3<i class="fas fa-bed ms-2 me-3"></i> 5<i class="fas fa-bath ms-2"></i></p>
-                    </div>
-                </div>
-            </div>
-            <div class="swiper-slide">
-                <div class="card custom-shadow">
-                    <img src="{{ url('img/frontend/index/2.png') }}" alt="" class="img-fluid w-100"
-                        style="height: 10rem; object-fit: cover;">
-                    <div class="card-body text-center">
-                        <h5 class="fw-bold">$450, 000</h5>
-                        <p>4 Bed Semidetached house</p>
-                        <p>541, Rosewood place,</p>
-                        <p>Colombo, Sri Lanka</p>
-                        <p>3<i class="fas fa-bed ms-2 me-3"></i> 5<i class="fas fa-bath ms-2"></i></p>
-                    </div>
-                </div>
-            </div>
-            <div class="swiper-slide">
-                <div class="card custom-shadow">
-                    <img src="{{ url('img/frontend/index/1.png') }}" alt="" class="img-fluid w-100"
-                        style="height: 10rem; object-fit: cover;">
-                    <div class="card-body text-center">
-                        <h5 class="fw-bold">$450, 000</h5>
-                        <p>4 Bed Semidetached house</p>
-                        <p>541, Rosewood place,</p>
-                        <p>Colombo, Sri Lanka</p>
-                        <p>3<i class="fas fa-bed ms-2 me-3"></i> 5<i class="fas fa-bath ms-2"></i></p>
-                    </div>
-                </div>
-            </div>
+                @endforeach
+           
+            
         </div>
         <div  class="swiper-button-next"></div>
         <div class="swiper-button-prev"></div>
     </div>
 </div>
 
+@endif
+
+
 <!-- fullsize area -->
-<div class="container">
+<div class="container" style="margin-top: 3rem;">
     <div class="row">
         <div class="col-9 col-xs-12 col-tab-12">
 
-            <!-- card only have text -->
-            <div class="property-detail-card-wrapper">
-                <div class="p-d-icon-wrapper">
-                <i class="fas fa-ellipsis-v"></i>
-                </div>
-                <h3>Almond Property</h3>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Saepe provident iusto earum aspernatur, eaque similique pariatur voluptas aliquam porro natus? Nihil facilis quaerat, quas neque natus corporis deserunt dolorem incidunt!</p>
-                <div class="property-card-meta-details">
-                    Property agent |  Rentals | New Apartmens for Sale
-                </div>
-            </div>
-            <!-- card with image or video -->
-            <div class="property-detail-card-wrapper">
-                <div class="p-d-icon-wrapper">
-                <i class="fas fa-ellipsis-v"></i>
-                </div>
-                <h3>Almond Property</h3>
-                <div class="p-d-inner-wrapper">
-                    <img src="{{ url('img/frontend/home-loan/homeloan2.jpg') }}" alt="">
-                    <div class="p-d-inner-txt-wrapper">
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Saepe provident iusto earum aspernatur, eaque similique pariatur voluptas aliquam porro natus? Nihil facilis quaerat, quas neque natus corporis deserunt dolorem incidunt!</p>
-                        <div class="property-card-meta-details">
-                            Property agent |  Rentals | New Apartmens for Sale
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @if(count($article_posts) == 0)
+                @include('frontend.includes.not_found',[
+                    'not_found_title' => 'Articles Not Found',
+                    'not_found_description' => null,
+                    'not_found_button_caption' => null
+                ])
+            @else
+                @foreach($article_posts as $article)
+                    @if($article->feature_image == null)
+                        <!-- card only have text -->
+                        <a href="{{route('frontend.article',$article->id)}}" style="text-decoration:none; color:black">
+                            <div class="property-detail-card-wrapper">
+                                <div class="p-d-icon-wrapper">
+                                <i class="fas fa-ellipsis-v"></i>
+                                </div>
+                                <h3>{{$article->title}}</h3>
+                                <p style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical;">{!!$article->description!!}</p>
+                                <div class="property-card-meta-details">
+                                    {{ $article->created_at->format('M d Y') }}
+                                </div>
+                            </div>
+                        </a>
+                    @else
+                        <!-- card with image or video -->
+                        <a href="{{route('frontend.article',$article->id)}}" style="text-decoration:none; color:black">
+                            <div class="property-detail-card-wrapper">
+                                <div class="p-d-icon-wrapper">
+                                <i class="fas fa-ellipsis-v"></i>
+                                </div>
+                                <h3>{{$article->title}}</h3>
+                                <div class="p-d-inner-wrapper">
+                                    <img src="{{ uploaded_asset($article->feature_image) }}" alt="">
+                                    <div class="p-d-inner-txt-wrapper">
+                                        <p style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical;">{!!$article->description!!}</p>
+                                        <div class="property-card-meta-details">
+                                            {{ $article->created_at->format('M d Y') }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    @endif
+                @endforeach
+            @endif
 
-            <div class="property-detail-card-wrapper">
-                <div class="p-d-icon-wrapper">
-                <i class="fas fa-ellipsis-v"></i>
-                </div>
-                <h3>Almond Property</h3>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Saepe provident iusto earum aspernatur, eaque similique pariatur voluptas aliquam porro natus? Nihil facilis quaerat, quas neque natus corporis deserunt dolorem incidunt!</p>
-                <div class="property-card-meta-details">
-                    Property agent |  Rentals | New Apartmens for Sale
-                </div>
-            </div>
-
-            <div class="property-detail-card-wrapper">
-                <div class="p-d-icon-wrapper">
-                <i class="fas fa-ellipsis-v"></i>
-                </div>
-                <h3>Almond Property</h3>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Saepe provident iusto earum aspernatur, eaque similique pariatur voluptas aliquam porro natus? Nihil facilis quaerat, quas neque natus corporis deserunt dolorem incidunt!</p>
-                <div class="property-card-meta-details">
-                    Property agent |  Rentals | New Apartmens for Sale
-                </div>
-            </div>
-
-            <!-- card with image or video -->
-            <div class="property-detail-card-wrapper">
-                <div class="p-d-icon-wrapper">
-                <i class="fas fa-ellipsis-v"></i>
-                </div>
-                <h3>Almond Property</h3>
-                <div class="p-d-inner-wrapper">
-                    <img src="{{ url('img/frontend/home-loan/homeloan2.jpg') }}" alt="">
-                    <div class="p-d-inner-txt-wrapper">
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Saepe provident iusto earum aspernatur, eaque similique pariatur voluptas aliquam porro natus? Nihil facilis quaerat, quas neque natus corporis deserunt dolorem incidunt!</p>
-                        <div class="property-card-meta-details">
-                            Property agent |  Rentals | New Apartmens for Sale
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
-        <div class="col-3 col-xs-12 col-tab-12 side-area">
-            <div class="sidebar-card">
+        
+        <div class="col-3 col-xs-12 col-tab-12 side-area" style="height:900px;">
+            <div class="sidebar-card" style="height:430px;">
                 <img src="{{ url('img/frontend/index/ad_1.png') }}" alt="">
             </div>
             <div class="sidebar-card">
@@ -457,7 +276,7 @@
 var swiper = new Swiper(".mySwiper", {
     slidesPerView: 4,
     spaceBetween: 20,
-    loop: true,
+    loop: false,
     navigation: {
         nextEl: ".swiper-button-next",
         prevEl: ".swiper-button-prev",
@@ -486,55 +305,20 @@ var swiper = new Swiper(".mySwiper", {
 
 
 <!-- youtube script -->
-<script>
+    <script>
       $(document).ready(function(){
 
-            // if($latest_post->type == null) {
-            //     let post_type = null;
-            // } else {
-            //    
-            // }
-
-            //Main post showing
-            // if(post_type != 'youtube') {
-            //     $('.article').removeClass('d-none');
-            // } else {
-            //     $('.video').removeClass('d-none');
-            // }
-
-
-            //righside - article click
-            $('.right .article').on('click',function(){
-
-                $('.center .video').addClass('d-none');
-                $('.center .article').removeClass('d-none');
-                let vid = $('.center .video iframe').attr('src');
-                $('.center .video iframe').attr('src', vid);
-                let image = $(this).find('img').attr('src');
-                $(".main-image").attr("src", image);
-                let title = $(this).find('h6').text();
-                $(".title").text(title);
-                let description = $(this).find('.paragraph').text();
-                $(".description div").text(description);
-
-
-            });
-
-            // oe7eVN2azBo
-
-            //rightside - video click
             $('.right .video').on('click',function(){
-                $('.center .video').removeClass('d-none');
-                $('.center .article').addClass('d-none');
-                let link = $(this).find('.video-value').val();
-                let video = 'https://www.youtube.com/embed/' + link;
+
+                // let link = $(this).find('.video-value').val();
+                let link = $('#videos_value').val();
+                // console.log(link);
+                    let video = 'https://www.youtube.com/embed/' + link;
                 $('.center .video iframe').attr('src', video);
-                let title = $(this).find('h6').text();
+                    let title = $(this).find('h6').text();
                 $(".title").text(title);
-                let description = $(this).find('.paragraph').text();
+                    let description = $(this).find('.paragraph').text();
                 $(".description div").text(description);
-
-
             });
       });
     </script>

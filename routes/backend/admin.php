@@ -31,6 +31,9 @@ Route::post('country/update', [CountryController::class, 'update'])->name('count
 Route::get('country/delete/{id}', [CountryController::class, 'destroy'])->name('country.destroy');
 
 Route::get('property', [PropertyController::class, 'index'])->name('property.index');
+Route::get('property_nearby/{property_id}', [PropertyController::class, 'property_nearby_index'])->name('property.property_nearby_index');
+Route::post('property_nearby_generate', [PropertyController::class, 'property_nearby_generate'])->name('property.property_nearby_generate');
+
 Route::get('property/create', [PropertyController::class, 'create'])->name('property.create');
 Route::post('property/store', [PropertyController::class, 'store'])->name('property.store');
 Route::get('property/getdetails', [PropertyController::class, 'getDetails'])->name('property.getDetails');
@@ -157,3 +160,7 @@ Route::post('home_page_features/store', [HomeFeaturedController::class, 'store']
 
 Route::get('home_page_latest/create', [HomeFeaturedController::class, 'home_page_latest_create'])->name('home_page_latest.create');
 Route::post('home_page_latest/store', [HomeFeaturedController::class, 'home_page_latest_store'])->name('home_page_latest.store');
+
+
+Route::get('pro_tal_settings', [PostController::class, 'pro_tal_settings'])->name('pro_tal_settings');
+Route::post('pro_tal_settings/store', [PostController::class, 'pro_tal_settings_store'])->name('pro_tal_settings.store');

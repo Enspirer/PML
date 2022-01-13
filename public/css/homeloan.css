@@ -25,7 +25,8 @@
 }
 
 .p-d-inner-wrapper img {
-    width: 200px;
+    width: 150px;
+    object-fit:cover;
 }
 
 .p-d-inner-wrapper {

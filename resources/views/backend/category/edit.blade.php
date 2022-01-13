@@ -1,6 +1,6 @@
 @extends('backend.layouts.app')
 
-@section('title', __('Edit'))
+@section('title', __('Edit Industry'))
 
 @section('content')
 
@@ -35,6 +35,13 @@
                             </div>
                         </div> 
 
+                        <div class="form-group">
+                            <label>Featured News <span class="text-danger">*</span></label>
+                            <select class="form-control" name="featured_news" required>
+                                <option value="1" {{ $categories->is_feature == 1 ? "selected" : "" }}>Enable</option>   
+                                <option value="0" {{ $categories->is_feature == 0 ? "selected" : "" }}>Disable</option>                                
+                            </select>
+                        </div>
 
                         <div class="form-group">
                             <label>Status <span class="text-danger">*</span></label>

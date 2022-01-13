@@ -95,8 +95,8 @@ Route::get('tips_for_sellers', [PagesController::class, 'tips_for_sellers'])->na
 Route::get('commercial_resources', [PagesController::class, 'commercial_resources'])->name('commercial_resources');
 Route::get('marketing_services', [PagesController::class, 'marketing_services'])->name('marketing_services');
 
-Route::get('home_loan', [MainMenuController::class, 'homeloan'])->name('homeloan');
-Route::get('article', [ArticleController::class, 'index'])->name('article');
+Route::get('home_loan/{id}', [MainMenuController::class, 'homeloan'])->name('homeloan');
+Route::get('article/{id}', [ArticleController::class, 'index'])->name('article');
 Route::get('video-article', [VideoController::class, 'index'])->name('video-article');
 Route::get('post-ad', [PostAdController::class, 'index'])->name('post-ad');
 

@@ -22,7 +22,7 @@ class CreatePostsTable extends Migration
             $table->text('type');
             $table->text('youtube')->nullable();
             $table->text('article')->nullable();
-            $table->text('feature_image');
+            $table->text('feature_image')->nullable();
             $table->integer('order');
             $table->text('status');
             $table->timestamps();
