@@ -434,6 +434,12 @@ button#closeMainMenu {
     border-radius: 5px;
 }
 
+.menu-card-img {
+    height: 90px;
+    display: block;
+    text-align: center;
+}
+
 .menu-icon-card:hover {
     filter: invert(1);
 }
