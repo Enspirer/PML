@@ -425,6 +425,7 @@ button#closeMainMenu {
     display: grid;
     grid-gap: 1rem;
     grid-template-columns: repeat(5, 1fr);
+    margin: 25px;
 }
 
 .menu-icon-card {
@@ -710,6 +711,7 @@ a.get-started:hover {
     .menu-icon-card {
         width: 75%;
         padding: 20px;
+        margin-bottom: 15px;
     }
 
     #addPropertyPopup .modal-content {

@@ -86,7 +86,7 @@
                                                 <div>
                                                 <img class="menu-card-img" src="{{ uploaded_asset($industry->icon) }}" alt="">
 
-                                                    <p style="text-align:center;">{{$industry->name}}</p>
+                                                    <p style="text-align:center; padding-top:5px;">{{$industry->name}}</p>
                                                 </div>
 
                                             </a>
