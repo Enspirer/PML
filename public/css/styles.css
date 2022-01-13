@@ -398,8 +398,7 @@ p#copyright-txt {
 .main-menu-content {
     position: absolute;
     left: 0;
-    background: #35495e;
-    opacity: 0.8;
+    background: rgba(53, 73, 94, 0.7);
     width: 89%;
     height: 200px;
     z-index: 1000;
