@@ -31,6 +31,9 @@ Route::post('country/update', [CountryController::class, 'update'])->name('count
 Route::get('country/delete/{id}', [CountryController::class, 'destroy'])->name('country.destroy');
 
 Route::get('property', [PropertyController::class, 'index'])->name('property.index');
+Route::get('property_nearby/{property_id}', [PropertyController::class, 'property_nearby_index'])->name('property.property_nearby_index');
+Route::post('property_nearby_generate', [PropertyController::class, 'property_nearby_generate'])->name('property.property_nearby_generate');
+
 Route::get('property/create', [PropertyController::class, 'create'])->name('property.create');
 Route::post('property/store', [PropertyController::class, 'store'])->name('property.store');
 Route::get('property/getdetails', [PropertyController::class, 'getDetails'])->name('property.getDetails');

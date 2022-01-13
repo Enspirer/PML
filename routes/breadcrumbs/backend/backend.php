@@ -153,3 +153,7 @@ Breadcrumbs::for('admin.home_page_features.create', function ($trail) {
 Breadcrumbs::for('admin.home_page_latest.create', function ($trail) {
     $trail->push('Home Page Latest', route('admin.home_page_latest.create'));
 });
+
+Breadcrumbs::for('admin.property.property_nearby_index', function ($trail) {
+    $trail->push('Property Nearby Generator', route('admin.property.property_nearby_index',1));
+});

@@ -32,20 +32,25 @@
 <!-- map links -->
 <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
 <script src="https://unpkg.com/@googlemaps/markerclusterer/dist/index.min.js"></script>
+
+
 <script>
     var mapDiv;
 
     function initMap() {
         mapDiv = document.getElementById('map');
 
-        @if($default_country == null)
-            var map = new google.maps.Map(mapDiv, {
-                    center: new google.maps.LatLng(6.9271, 79.8612),
-                    zoom: 12,
-                    mapTypeId: google.maps.MapTypeId.ROADMAP,
-                    // styles: [{"featureType":"landscape","stylers":[{"saturation":-100},{"lightness":65},{"visibility":"on"}]},{"featureType":"poi","stylers":[{"visibility":"off"}]},{"featureType":"road.highway","stylers":[{"saturation":-100},{"visibility":"simplified"}]},{"featureType":"road.arterial","stylers":[{"saturation":-100},{"lightness":30},{"visibility":"on"}]},{"featureType":"road.local","stylers":[{"saturation":-100},{"lightness":40},{"visibility":"on"}]},{"featureType":"transit","stylers":[{"saturation":-100},{"visibility":"simplified"}]},{"featureType":"administrative.province","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"labels","stylers":[{"visibility":"on"},{"lightness":-25},{"saturation":-100}]},{"featureType":"water","elementType":"geometry","stylers":[{"hue":"#ffff00"},{"lightness":-25},{"saturation":-97}]}] // "Subtle Grayscale" style found on snazzymaps.com
+                @if($default_country == null)
+        var map = new google.maps.Map(mapDiv, {
+                center: new google.maps.LatLng(6.9271, 79.8612),
+                zoom: 12,
+                mapTypeId: google.maps.MapTypeId.ROADMAP,
 
-                });
+                // styles: [{"featureType":"landscape","stylers":[{"saturation":-100},{"lightness":65},{"visibility":"on"}]},{"featureType":"poi","stylers":[{"visibility":"off"}]},{"featureType":"road.highway","stylers":[{"saturation":-100},{"visibility":"simplified"}]},{"featureType":"road.arterial","stylers":[{"saturation":-100},{"lightness":30},{"visibility":"on"}]},{"featureType":"road.local","stylers":[{"saturation":-100},{"lightness":40},{"visibility":"on"}]},{"featureType":"transit","stylers":[{"saturation":-100},{"visibility":"simplified"}]},{"featureType":"administrative.province","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"labels","stylers":[{"visibility":"on"},{"lightness":-25},{"saturation":-100}]},{"featureType":"water","elementType":"geometry","stylers":[{"hue":"#ffff00"},{"lightness":-25},{"saturation":-97}]}] // "Subtle Grayscale" style found on snazzymaps.com
+
+            });
+
+
 
         // Add the circle for this city to the map.
         const cityCircle = new google.maps.Circle({
@@ -57,28 +62,30 @@
             map,
             center:  new google.maps.LatLng(6.9271, 79.8612),
             radius: Math.sqrt(2714856),
+
         });
-        @else
+                @else
 
 
-            var map = new google.maps.Map(mapDiv, {
+        var map = new google.maps.Map(mapDiv, {
                 center: new google.maps.LatLng({{$default_country->lat}}, {{$default_country->lng}}),
                 zoom: 12,
+                draggable: true,
                 mapTypeId: google.maps.MapTypeId.ROADMAP,
                 // styles: [{"featureType":"landscape","stylers":[{"saturation":-100},{"lightness":65},{"visibility":"on"}]},{"featureType":"poi","stylers":[{"visibility":"off"}]},{"featureType":"road.highway","stylers":[{"saturation":-100},{"visibility":"simplified"}]},{"featureType":"road.arterial","stylers":[{"saturation":-100},{"lightness":30},{"visibility":"on"}]},{"featureType":"road.local","stylers":[{"saturation":-100},{"lightness":40},{"visibility":"on"}]},{"featureType":"transit","stylers":[{"saturation":-100},{"visibility":"simplified"}]},{"featureType":"administrative.province","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"labels","stylers":[{"visibility":"on"},{"lightness":-25},{"saturation":-100}]},{"featureType":"water","elementType":"geometry","stylers":[{"hue":"#ffff00"},{"lightness":-25},{"saturation":-97}]}] // "Subtle Grayscale" style found on snazzymaps.com
 
             });
-            const cityCircle = new google.maps.Circle({
-                strokeColor: "#201a4a",
-                strokeOpacity: 0.8,
-                strokeWeight: 2,
-                fillColor: "#201a4a",
-                fillOpacity: 0.10,
-                map,
-                center:  new google.maps.LatLng(6.9271, 79.8612),
-                radius: Math.sqrt(2714856),
-            });
-        @endif
+        const cityCircle = new google.maps.Circle({
+            strokeColor: "#201a4a",
+            strokeOpacity: 0.8,
+            strokeWeight: 2,
+            fillColor: "#201a4a",
+            fillOpacity: 0.10,
+            map,
+            center:  new google.maps.LatLng(6.9271, 79.8612),
+            radius: Math.sqrt(2714856),
+        });
+                @endif
 
 
 
@@ -156,6 +163,18 @@
         locationButton.textContent = "Pan to Current Location";
         locationButton.classList.add("custom-map-control-button");
         map.controls[google.maps.ControlPosition.TOP_CENTER].push(locationButton);
+
+        marker = new google.maps.Marker({
+            shadow: null,
+            zIndex: 999,
+            map,
+            draggable: true,
+            label: {
+                fontFamily: 'Fontawesome',
+                content: '<h2>Hello</h2>'
+            }
+        });
+
         locationButton.addEventListener("click", () => {
             // Try HTML5 geolocation.
             if (navigator.geolocation) {
@@ -183,21 +202,12 @@
                                 }, 1000);
 
 
-
-
+                                marker.setPosition(pos);
+                                cityCircle.setPosition(pos);
 
                             }
                         });
-                        marker = new google.maps.Marker({
-                            shadow: null,
-                            zIndex: 999,
-                            map,
-                            position: pos,
-                            label: {
-                                fontFamily: 'Fontawesome',
-                                content: '<h2>Hello</h2>'
-                            }
-                        });
+
 
                         infoWindow.open({
                             anchor: marker,
@@ -225,6 +235,40 @@
                 // Browser doesn't support Geolocation
                 handleLocationError(false, infoWindow, map.getCenter());
             }
+        });
+
+        marker.addListener("dragend", e => {
+            const pos = {
+                lat: marker.getPosition().lat(),
+                lng: marker.getPosition().lng(),
+            };
+
+            $.ajax({
+                type: "GET",
+                url: "{{ url('api/nest_property')  }}/"+ marker.getPosition().lng() + "/" +  marker.getPosition().lat() ,
+                success: function(data) {
+                    infoWindow.setPosition(pos);
+
+                    var resultcontent = '' +
+                        '<div class="" id="map_resoult" style="height: 420px;width: 340px;">' +
+
+                        '</div>';
+                    infoWindow.setContent(resultcontent);
+
+                    setTimeout(function () {
+                        $('#map_resoult').html( data );
+                    }, 1000);
+
+
+                    marker.setPosition(pos);
+                    cityCircle.center(pos);
+
+                }
+            });
+
+            console.log(pos);
+
+
         });
 
 
