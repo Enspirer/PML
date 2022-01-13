@@ -23,7 +23,7 @@
         </div>
     </div>
 
-    <div class="container mt-4" style="margin-bottom: 3rem;">
+    <div class="container mt-4 find-agent-full-color" style="margin-bottom: 3rem;">
         <div class="row">
             <div class="col-9 col-xs-12 col-tab-12">
 
@@ -32,7 +32,7 @@
                         <div class="banner">
                             <div class="row mobile-find-agent-area" style="padding-top: 3rem; padding-left: 5rem;">
                                 <div class="col-6 text-white col-xs-12">
-                                <form action="{{route('frontend.find-agent.store')}}" method="post" enctype="multipart/form-data">
+                                <form class="find-agent-form" action="{{route('frontend.find-agent.store')}}" method="post" enctype="multipart/form-data">
                                     {{csrf_field()}}
                                         <h4 class="fw-bold mb-3">Find Your Agent</h4>
 

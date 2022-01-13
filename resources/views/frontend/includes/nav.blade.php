@@ -299,12 +299,14 @@
 
     <!-- notifications -->
     @auth
-    <a style="position:relative;" class="wishlist fw-bold d-inline-block px-4 text-decoration-none border-start border-end"
+    <a style="position:relative;border:0px !important;" class="wishlist fw-bold d-inline-block px-4 text-decoration-none border-start border-end"
                     href="{{url('user_notifications')}}"><i class="far fa-bell me-2 mobile-bell-icon"></i><span class="mobile-noti-counter">({{App\Models\Notifications::where('user_id',auth()->user()->id)->where('status','Pending')->get()->count()}})</span></a>
     @else
     <a style="position:relative;" class="wishlist fw-bold d-inline-block px-4 text-decoration-none border-start border-end"
                     href="{{route('frontend.auth.login')}}"><i class="far fa-bell me-2 mobile-bell-icon"></i></a>
     @endauth
+
+    @auth
      <!-- user login styles -->
      <a onclick="showHideDivMobile()" class="nav-link dropdown-toggle d-inline-block ps-4 mb-4 mobile-bell-icon" href="{{route('frontend.auth.login')}}"
                     id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-haspopup="true"
@@ -319,4 +321,5 @@
                         Out</a>
             </div>
             <!-- end of user login styles -->
+    @endauth
 </div>

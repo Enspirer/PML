@@ -38,9 +38,10 @@
                 </div>
             </div>
             <div class="row">
-                <h5 style="margin-bottom:10px !important;" class="fw-bold title">Homes on Property Market Live</h5>
+                
                 <div class="inner-row-wrapper">
                     <div class="property-count-wrapper">
+                    <h5 style="margin-bottom:10px !important;" class="fw-bold title mobile-h5">Homes on Property Market Live</h5>
                         <div class="count-box-wrapper">
                             <div class="count-box">
                                 <span class="number">{{ App\Models\Properties::where('user_id',$agent_details->user_id)->where('transaction_type','sale')->get()->count() }}</span>

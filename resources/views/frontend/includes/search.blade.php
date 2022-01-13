@@ -54,8 +54,8 @@
 
                         <button type="button" class="btn text-white rounded-0 border-start"
                             style="background-color : #35495E;height:50px;border:0;" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal">Filter
-                            <img src="{{ url('img/frontend/index/filter.png') }}" alt="" class="ms-3"
+                            data-bs-target="#exampleModal"><span class="hidden-xs">Filter</span>
+                            <img src="{{ url('img/frontend/index/filter.png') }}" alt="" class="ms-3 mobile-margin-zero"
                                 style="height: 1rem;">
                         </button>
                     </div>

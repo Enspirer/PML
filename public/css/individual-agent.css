@@ -62,7 +62,6 @@
     display: flex;
     flex-direction: column;
     position: relative;
-    top: -30px;
 }
 
 .agent-contact-btn {
@@ -225,6 +224,14 @@ a.ad-btn {
 
     .individual-agent-banner img {
         height: 350px !important;
+    }
+
+    .count-box-wrapper {
+        gap: 50px;
+    }
+
+    .agent-contact-btn {
+        width: 225px;
     }
 }
 

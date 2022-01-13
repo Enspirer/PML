@@ -546,6 +546,9 @@ a.get-started:hover {
     .menu-icon-card {
         margin-bottom: 15px;
     }
+    .mobile-margin-zero {
+        margin-left: 0 !important;
+    }
     .social-wrapper{
         width: 50%;
     }
@@ -560,6 +563,21 @@ a.get-started:hover {
         max-width: 100% !important;
         flex: 100% !important;
         margin-bottom: 15px;
+    }
+
+    .col-mobile-50 {
+        max-width: 50% !important;
+        flex: 50% !important;
+        padding: 5px !important;
+    }
+
+    .mobile-h5 {
+        font-size: 0.9rem;
+    }
+
+    .card .card-body {
+        padding: 10px !important;
+        text-align: left !important;
     }
 
     .sidenav {
@@ -704,7 +722,6 @@ a.get-started:hover {
 
     .search-area-wrapper {
         display: flex;
-        width: 100%;
     }
 
     .row.mobile-footer-row {

@@ -324,7 +324,7 @@
                 <div class="row">
                     @if(count($featured_properties) != 0)
                         @foreach($featured_properties as $key => $featured_prop)
-                            <div class="col-4 col-xs-12 col-tab-50">
+                            <div class="col-4 col-mobile-50 col-tab-50">
                                 <div class="card custom-shadow position-relative" style="min-height:307px;  max-height:307px">
                                     <a href="{{route('frontend.for_sale_single',$featured_prop->id)}}"
                                         style="text-decoration:none">
@@ -337,7 +337,7 @@
                                                 <div class="free_listning position-absolute badge badge-danger p-2 m-2">PROMOTED</div>
                                             @endif
                                         <div class="card-body text-center">
-                                            <h5 class="fw-bold">{{ get_currency(request() ,$featured_prop->price)}}</h5>
+                                            <h5 class="fw-bold mobile-h5">{{ get_currency(request() ,$featured_prop->price)}}</h5>
                                             @if($featured_prop->beds == null)
                                             @else
                                             <p>{{$featured_prop->beds}} Bed Semidetached house</p>
@@ -366,7 +366,7 @@
                                     $properties =  array_slice(json_decode($settings->value)[0]->properties, 0, 6);
                                 @endphp
                                 @foreach($properties as $prop)
-                                    <div class="col-4 col-xs-12 col-tab-50">
+                                    <div class="col-4 col-mobile-50 col-tab-50">
                                         <div class="card custom-shadow position-relative" style="min-height:307px;  max-height:307px">
                                             <a href="{{route('frontend.for_sale_single',$prop)}}" style="text-decoration:none">
                                                 <img src="{{ uploaded_asset(App\Models\Properties::where('id', $prop)->first()->feature_image_id) }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
@@ -377,7 +377,7 @@
                                                         <div class="free_listning position-absolute badge badge-danger p-2 m-2">PROMOTED</div>
                                                     @endif
                                                 <div class="card-body text-center">
-                                                    <h5 class="fw-bold">{{ get_currency(request() ,App\Models\Properties::where('id', $prop)->first()->price)}}</h5>
+                                                    <h5 class="fw-bold mobile-h5">{{ get_currency(request() ,App\Models\Properties::where('id', $prop)->first()->price)}}</h5>
                                                     @if(App\Models\Properties::where('id', $prop)->first()->beds == null)
                                                     @else
                                                     <p>{{App\Models\Properties::where('id', $prop)->first()->beds}} Bed Semidetached house</p>

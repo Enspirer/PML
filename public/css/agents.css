@@ -72,6 +72,15 @@
     
     .banner {
         height: 575px;
+        background: transparent !important;
+    }
+
+    form.find-agent-form {
+        color: #000;
+    }
+
+    .find-agent-form .form-select {
+        color: #000 !important;
     }
 
     .agents .logo {
@@ -82,6 +91,10 @@
     .sidebar-card-area {
         padding-left: 15px;
         padding-right: 15px;
+    }
+
+    .find-agent-full-color {
+        background-color: #e6e9eb;
     }
 }
 
