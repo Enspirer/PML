@@ -107,6 +107,10 @@ Route::get('solo_agent_ad', [AdvertisementController::class, 'solo_agent_index']
 Route::post('solo_agent_ad/update1', [AdvertisementController::class, 'solo_agent_update1'])->name('solo_agent_ad.update1');
 Route::post('solo_agent_ad/update2', [AdvertisementController::class, 'solo_agent_update2'])->name('solo_agent_ad.update2');
 
+Route::get('homeloan_ad', [AdvertisementController::class, 'homeloan_ad_index'])->name('homeloan_ad.index');
+Route::post('homeloan_ad/update1', [AdvertisementController::class, 'homeloan_ad_update1'])->name('homeloan_ad.update1');
+Route::post('homeloan_ad/update2', [AdvertisementController::class, 'homeloan_ad_update2'])->name('homeloan_ad.update2');
+
 
 Route::get('file_manager', [FileManagerController::class, 'index'])->name('file_manager.index');
 Route::get('file_manager/getdetails', [FileManagerController::class, 'getdetails'])->name('file_manager.getdetails');
