@@ -491,6 +491,16 @@ ul.option-list li a:hover {
     padding-left: 15px;
     padding-right: 15px;
   }
+
+  .swiper-free-mode>.swiper-wrapper {
+    flex-direction: unset;
+    margin: 0;
+  }
+
+  .swiper-wrapper {
+    height: unset;
+    width: 25%;
+  }
 }
 
 
