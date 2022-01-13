@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\NearLocation;
 use Illuminate\Http\Request;
 use DataTables;
 use DB;
@@ -15,11 +16,26 @@ use App\Models\Auth\User;
 
 class PropertyController extends Controller
 {
-    
+
     public function index()
     {
         return view('backend.property.index');
     }
+
+    public function property_nearby_index($id){
+
+        $propertDetails = Properties::where('id',$id)->first();
+        $nearPlaces = NearLocation::where('property_id',$id)->get();
+
+//        $result_status = NearLocation::nearlocation($propertDetails->lat,$propertDetails->long,$id,'school');
+
+        return view('backend.property_nearby.index',[
+            'property_details' => $propertDetails,
+            'near_places' => $nearPlaces
+        ]);
+    }
+
+
 
     public function create()
     {
@@ -70,6 +86,7 @@ class PropertyController extends Controller
                        
                         $button = '<a href="'.route('admin.property.edit',$data->id).'" name="edit" id="'.$data->id.'" class="edit btn btn-secondary btn-sm ml-3" style="margin-right: 10px"><i class="fas fa-edit"></i> Edit </a>';
                         $button .= '<button type="button" name="delete" id="'.$data->id.'" class="delete btn btn-danger btn-sm"><i class="fas fa-trash"></i> Delete</button>';
+                        $button .= '<a href="'.route('admin.property.property_nearby_index',$data->id).'" style="margin-left: 10px;" class="btn btn-primary btn-sm"><i class="fas fa-building"></i> Near Places</button>';
                         return $button;
                     })
                     ->addColumn('feature_image', function($data){
