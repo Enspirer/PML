@@ -516,5 +516,53 @@ class SettingsSeeder extends Seeder
             'user_id' => 1,
             ]
         );
+        DB::table('settings')
+        ->insert(
+            [             
+            'key' => 'home_loan_advertisment',
+            'value' => null, 
+            'user_id' => 1,
+            ]
+        ); 
+        DB::table('settings')
+        ->insert(
+            [             
+            'key' => 'home_loan_advertisment_description',
+            'value' => null, 
+            'user_id' => 1,
+            ]
+        ); 
+        DB::table('settings')
+        ->insert(
+            [             
+            'key' => 'home_loan_advertisment_link',
+            'value' => null, 
+            'user_id' => 1,
+            ]
+        );  
+        DB::table('settings')
+        ->insert(
+            [             
+            'key' => 'home_loan_advertisment_2',
+            'value' => null, 
+            'user_id' => 1,
+            ]
+        ); 
+        DB::table('settings')
+        ->insert(
+            [             
+            'key' => 'home_loan_advertisment_description_2',
+            'value' => null, 
+            'user_id' => 1,
+            ]
+        ); 
+        DB::table('settings')
+        ->insert(
+            [             
+            'key' => 'home_loan_advertisment_link_2',
+            'value' => null, 
+            'user_id' => 1,
+            ]
+        ); 
     }
 }

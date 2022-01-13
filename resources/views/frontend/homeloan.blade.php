@@ -259,14 +259,27 @@
 
         </div>
         
-        <div class="col-3 col-xs-12 col-tab-12 side-area" style="height:900px;">
-            <div class="sidebar-card" style="height:430px;">
-                <img src="{{ url('img/frontend/index/ad_1.png') }}" alt="">
-            </div>
-            <div class="sidebar-card">
-                <img src="{{ url('img/frontend/index/ad_2.png') }}" alt="">
+     
+        <div class="col-3 col-xs-12 sidebar-full-mobile col-tab-12">
+            <div class="row">
+                <div class="col-12">
+                    <a href="{{ get_settings('home_loan_advertisment_link') }}" target="_blank">
+                        <div class="sidebar-card">
+                            <img width="100%" src="{{ uploaded_asset(get_settings('home_loan_advertisment')) }}" alt="banner">
+                        </div>
+                    </a>
+                </div>      
+                <div class="col-12">
+                    <a href="{{ get_settings('home_loan_advertisment_link_2') }}" target="_blank">
+                        <div class="sidebar-card">
+                            <img width="100%" src="{{ uploaded_asset(get_settings('home_loan_advertisment_2')) }}" alt="banner">
+                        </div>
+                    </a>
+                </div>               
             </div>
         </div>
+
+        
     </div>
 </div>
 

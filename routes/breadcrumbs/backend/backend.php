@@ -157,3 +157,7 @@ Breadcrumbs::for('admin.home_page_latest.create', function ($trail) {
 Breadcrumbs::for('admin.pro_tal_settings', function ($trail) {
     $trail->push('Home Featured', route('admin.pro_tal_settings'));
 });
+
+Breadcrumbs::for('admin.homeloan_ad.index', function ($trail) {
+    $trail->push('Blog Page', route('admin.homeloan_ad.index'));
+});
