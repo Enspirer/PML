@@ -290,6 +290,10 @@ class AgentController extends Controller
         $addprop->meta_description=$request->meta_description;        
         $addprop->slug=$request->slug;        
         $addprop->transaction_type=$request->transaction_type;
+        $addprop->states=$request->states;
+        $addprop->postal_code=$request->postal_code;
+        $addprop->address_one=$request->address_line_one;
+        $addprop->address_two=$request->address_line_two;
         $addprop->user_id = auth()->user()->id;
         $addprop->admin_approval='Pending';
         $addprop->area_manager_approval='Pending';
@@ -380,6 +384,10 @@ class AgentController extends Controller
         $update->meta_description=$request->meta_description;        
         $update->slug=$request->slug;        
         $update->transaction_type=$request->transaction_type;
+        $update->states=$request->states;
+        $update->postal_code=$request->postal_code;
+        $update->address_one=$request->address_line_one;
+        $update->address_two=$request->address_line_two;
         $update->user_id = auth()->user()->id;
         $update->admin_approval='Pending';
         $update->area_manager_approval='Pending';
