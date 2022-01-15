@@ -200,6 +200,7 @@ button.close:hover {
                         <div class="swiper-wrapper">
                             @php
                             $str_arr2 = preg_split ("/\,/", $property->image_ids);
+                            $flow_plan = preg_split ("/\,/", $property->flow_plan);
 
                             @endphp
 
@@ -261,18 +262,26 @@ button.close:hover {
                                     <a href="#" data-toggle="modal" data-target="#photoModal"><i
                                             class="fas fa-camera"></i>Photo</a>
                                 </li>
-                                <li>
-                                    <a href="#" data-toggle="modal" data-target="#videoModal"><i
-                                            class="fas fa-video"></i>Video</a>
-                                </li>
+                                @if($property->video != null)
+                                    <li>
+                                        <a href="#" data-toggle="modal" data-target="#videoModal"><i
+                                                class="fas fa-video"></i>Video</a>
+                                    </li>
+                                @else
+                                    <li><i class="fas fa-video"></i>Video</li>
+                                @endif
                                 <li>
                                     <a href="#" data-toggle="modal" data-target="#"><i
                                             class="fas fa-directions"></i>Direction</a>
                                 </li>
-                                <li class="last-item">
-                                    <a href="#" data-toggle="modal" data-target="#"><i class="far fa-map"></i>Flow
-                                        Plan</a>
-                                </li>
+                                @if($property->flow_plan != null)
+                                    <li class="last-item">
+                                        <a href="#" data-toggle="modal" data-target="#flow_plan_modal"><i
+                                                class="far fa-map"></i>Flow Plan</a>
+                                    </li>
+                                @else
+                                    <li class="last-item"><i class="far fa-map"></i>Flow Plan</li>
+                                @endif
 
                             </ul>
                         </div>
@@ -326,7 +335,7 @@ button.close:hover {
                                             @foreach($str_arr2 as $key=> $pre)
                                             <li data-responsive="{{ uploaded_asset($pre) }}"
                                                 data-src="{{ uploaded_asset($pre) }}"
-                                                data-sub-html="<h4>Fading Light</h4><p>Classic view from Rigwood Jetty on Coniston Water an old archive shot similar to an old post but a little later on.</p>">
+                                                data-sub-html="">
                                                 <a href="">
                                                     <img class="img-responsive" src="{{ uploaded_asset($pre) }}">
                                                     <div class="demo-gallery-poster">
@@ -349,19 +358,69 @@ button.close:hover {
                         </div>
                     </div>
                 </div>
+
                 <!-- video popup -->
-                <div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+
+                @if($property->video != null)
+                    <div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="videoModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="videoModalLabel">Video</h5>
+                                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body text-center">
+                                    
+                                <input type="hidden" value="{{ preg_match("#(?<=v=)[a-zA-Z0-9-]+(?=&)|(?<=v\/)[^&\n]+|(?<=v=)[^&\n]+|(?<=youtu.be/)[^&\n]+#", $property->video, $default_match) }}" />
+
+                                <iframe width="100%" height="400" src="https://www.youtube.com/embed/{{ $default_match[0] }}?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                @endif
+
+                
+                <div class="modal fade" id="flow_plan_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
                     aria-hidden="true">
                     <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <!-- <div class="modal-header">
-                        
-                    </div> -->
-                            <div class="modal-body">
+                        <div class="modal-content lightgallery-content">
+                            <!-- <div class="modal-header"> </div> -->
+                            
+                            <div class="modal-body light-gallery-body">
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
-                                <h2>Video gallery</h2>
+                                
+                                <div class="cont">
+
+
+                                    <div class="demo-gallery">
+                                        <ul id="lightgallery_flow">
+                                            @foreach($flow_plan as $key=> $flow)
+                                            <li data-responsive="{{ uploaded_asset($flow) }}"
+                                                data-src="{{ uploaded_asset($flow) }}"
+                                                data-sub-html="">
+                                                <a href="">
+                                                    <img class="img-responsive" src="{{ uploaded_asset($flow) }}">
+                                                    <div class="demo-gallery-poster">
+                                                        <img
+                                                            src="https://sachinchoolur.github.io/lightgallery.js/static/img/zoom.png">
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            @endforeach
+                                        </ul>
+                                        <span class="small">Click on any of the images to see lightGallery</span>
+                                    </div>
+                                </div>
+
+
                             </div>
                             <!-- <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -369,6 +428,11 @@ button.close:hover {
                         </div>
                     </div>
                 </div>
+
+
+
+
+
 
                 <div class="col-3 col-xs-12">
                     <div thumbsSlider="" class="swiper mySwiper mobile-option-list-helper">
@@ -406,18 +470,27 @@ button.close:hover {
                                     <a href="#" data-toggle="modal" data-target="#photoModal"><i
                                             class="fas fa-camera"></i>Photo</a>
                                 </li>
-                                <li>
-                                    <a href="#" data-toggle="modal" data-target="#videoModal"><i
-                                            class="fas fa-video"></i>Video</a>
-                                </li>
+                                @if($property->video != null)
+                                    <li>
+                                        <a href="#" data-toggle="modal" data-target="#videoModal"><i
+                                                class="fas fa-video"></i>Video</a>
+                                    </li>
+                                @else
+                                    <li><i class="fas fa-video"></i>Video</li>
+                                @endif
+                                
                                 <li>
                                     <a href="#" data-toggle="modal" data-target="#"><i
                                             class="fas fa-directions"></i>Direction</a>
                                 </li>
-                                <li class="last-item">
-                                    <a href="#" data-toggle="modal" data-target="#"><i class="far fa-map"></i>Flow
-                                        Plan</a>
-                                </li>
+                                @if($property->flow_plan != null)
+                                    <li class="last-item">
+                                        <a href="#" data-toggle="modal" data-target="#flow_plan_modal"><i
+                                                class="far fa-map"></i>Flow Plan</a>
+                                    </li>
+                                @else
+                                    <li class="last-item"><i class="far fa-map"></i>Flow Plan</li>
+                                @endif
 
                             </ul>
                 </div>
@@ -1510,6 +1583,10 @@ button.close:hover {
 <script src="https://cdn.jsdelivr.net/picturefill/2.3.1/picturefill.min.js"></script>
 <script>
 lightGallery(document.getElementById('lightgallery'))
+</script>
+
+<script>
+lightGallery(document.getElementById('lightgallery_flow'))
 </script>
 
 <script>

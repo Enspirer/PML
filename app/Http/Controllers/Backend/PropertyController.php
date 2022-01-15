@@ -194,6 +194,8 @@ class PropertyController extends Controller
         $addprop->postal_code=$request->postal_code;
         $addprop->address_one=$request->address_line_one;
         $addprop->address_two=$request->address_line_two;
+        $addprop->video=$request->video;
+        $addprop->flow_plan=$request->flow_plan;
         $addprop->listning_type='agent_listning';
 
         $addprop->price_options=$request->validate;
@@ -338,6 +340,8 @@ class PropertyController extends Controller
         $update->postal_code=$request->postal_code;
         $update->address_one=$request->address_line_one;
         $update->address_two=$request->address_line_two;
+        $update->video=$request->video;
+        $update->flow_plan=$request->flow_plan;
         $update->listning_type='agent_listning';
 
         $update->price_options=$request->validate;
