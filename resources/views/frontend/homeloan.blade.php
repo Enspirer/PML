@@ -29,7 +29,7 @@
 <div class="container" style="margin-top: 2rem;">
     <div class="row">
 
-        <div class="col-3 left col-xs-12">
+        <div class="col-3 left col-xs-12 col-tab-12">
 
             @if(count($categories) != 0)
                 @foreach($categories as $cat)
@@ -42,7 +42,7 @@
             @endif
         </div>
 
-        <div class="col-6 center col-xs-12">
+        <div class="col-6 center col-xs-12 col-tab-75">
 
             @if($default_youtube_posts != null)
                 <div class="row scroll-box">
