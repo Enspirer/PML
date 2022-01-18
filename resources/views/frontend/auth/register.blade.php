@@ -18,7 +18,7 @@
                     <form action="{{ url('register') }}" method="post" enctype="multipart/form-data" class="needs-validation">
                         {{ csrf_field() }}
                         <div class="row align-items-center mobile-register-area">
-                            <div class="col-5 col-xs-12">
+                            <div class="col-5 col-xs-12 col-tab-12">
                                 <h3 class="text-white text-center mb-2">Create your account.</h3>
 
                                 <div class="mb-4">
