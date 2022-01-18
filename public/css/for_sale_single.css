@@ -675,5 +675,13 @@ div#near-cat-list::-webkit-scrollbar-thumb {
     margin-right: auto;
   }
 
+  ul.option-list.hidden-xs {
+    display: flex !important;
+  }
+
+  ul.option-list-mobile.visible-xs {
+    display: none !important;
+  }
+
 }
 
