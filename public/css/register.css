@@ -101,14 +101,11 @@ input:-webkit-autofill
     }
 
     .mobile-padding-60 {
-        padding-top: 60px !important;
+        padding-top: 5px !important;
     }
 
     .horizontal-line {
-        height: 5px;
-        width: 100%;
-        background: #fff;
-        margin-top: 60px;
+        display: none;
     }
 
     .mobile-mb-30 {
@@ -121,6 +118,10 @@ input:-webkit-autofill
 
     .mobile-register-btn button#submit_btn {
         width: 100% !important;
+    }
+
+    .mobile-mb-0  {
+        margin-bottom: 0 !important;
     }
     
 }

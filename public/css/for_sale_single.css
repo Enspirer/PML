@@ -534,6 +534,7 @@ div#near-cat-list::-webkit-scrollbar-thumb {
   .sidebar-card-area {
     padding-left: 15px;
     padding-right: 15px;
+    padding-top: 220px;
   }
 
   .swiper-free-mode>.swiper-wrapper {
@@ -619,7 +620,9 @@ div#near-cat-list::-webkit-scrollbar-thumb {
     z-index: 100;
   }
 
-  
+  .feature-list {
+    padding-left: 0;
+  }
 
 
 }

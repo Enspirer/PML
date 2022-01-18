@@ -48,7 +48,7 @@
 
 
                             <div class="col-5 col-xs-12">
-                                <h3 class="text-white text-center bottom mobile-mb-30"></h3>
+                                <h3 class="text-white text-center bottom mobile-mb-0"></h3>
                                 <div class="mb-2">
                                     <label for="password" class="form-label text-white mb-0 me-3 form-label">Password</label>
                                     <input type="password" class="form-control text-white" id="password" name="password" aria-describedby="password" required>

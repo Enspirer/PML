@@ -579,7 +579,7 @@ button.close:hover {
                                 <h4 class="fw-bold">Features and Description</h4>
                                 <div class="row mt-2 ms-2" aria-expanded="false">
                                     <div class="col-12">
-                                        <ul>
+                                        <ul class="feature-list">
                                             <div class="row">
 
 
