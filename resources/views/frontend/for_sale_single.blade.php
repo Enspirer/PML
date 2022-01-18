@@ -565,7 +565,7 @@ button.close:hover {
                 <div class="col-12">
                     <h5 style="padding-bottom:15px;">Nearby Place</h5>
                     <div id="near-cat-list" class="map-search-category-bar">
-                        <button type="button" id="shopping" class="near-cat-btn active-cat-btn">Shopping</button>
+                        <button type="button" id="shopping" class="near-cat-btn">Shopping</button>
                         <button type="button" id="food" class="near-cat-btn">Food</button>
                         <button type="button" id="restuarant" class="near-cat-btn">Restaurant</button>
                         <button type="button" id="school" class="near-cat-btn">School</button>
