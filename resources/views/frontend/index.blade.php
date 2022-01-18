@@ -366,7 +366,7 @@
                                     $properties =  array_slice(json_decode($settings->value)[0]->properties, 0, 6);
                                 @endphp
                                 @foreach($properties as $prop)
-                                    <div class="col-4 col-mobile-50 col-tab-50">
+                                    <div class="col-4 col-xs-12 col-tab-50">
                                         <div class="card custom-shadow position-relative" style="min-height:307px;  max-height:307px">
                                             <a href="{{route('frontend.for_sale_single',$prop)}}" style="text-decoration:none">
                                                 <img src="{{ uploaded_asset(App\Models\Properties::where('id', $prop)->first()->feature_image_id) }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
