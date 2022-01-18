@@ -750,6 +750,13 @@ a.get-started:hover {
 
     .menu-icon-card {
         margin-bottom: 15px;
+        display: block;
+        background: transparent;
+        border-radius: 0;
+    }
+
+    .menu-icon-card:hover {
+        border-bottom: 2px solid red;
     }
 
     #addPropertyPopup .modal-content {
@@ -791,6 +798,10 @@ a.get-started:hover {
         height: unset;
         margin: 0;
         padding-right: 15px;
+    }
+
+    button#closeMainMenu {
+        top: 5px;
     }
 
     .mobile-menu-icon-card-wrapper {
