@@ -127,7 +127,16 @@ input:-webkit-autofill
 }
 
 /*tab-portrait*/
-@media (min-width: 768px) and (max-width: 991px) {}
+@media (min-width: 768px) and (max-width: 991px) {
+    
+    .col-6.text-end.mobile-register-btn {
+        text-align: left !important;
+    }
+
+    h3.text-white.text-center.bottom.mobile-mb-0 {
+        margin: 0 !important;
+    }
+}
 
 /* Tab Landscape */
 @media (min-width: 992px) and (max-width: 1024px) {}
