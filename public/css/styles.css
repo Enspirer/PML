@@ -1058,6 +1058,7 @@ a.get-started:hover {
     i.far.fa-bell.me-2.mobile-bell-icon {
         font-size: 50px;
         padding-top: 10px;
+        color: #fff;
     }
 
     .mobile-padding-30 {
@@ -1089,7 +1090,7 @@ a.get-started:hover {
         top: 0;
         right: 0;
     }
-    
+
     .col-tab-60 {
         max-width: 60% !important;
         flex: 60% !important;
@@ -1103,8 +1104,8 @@ a.get-started:hover {
     div#drop-menu-mobile {
         padding: 0;
         position: absolute !important;
-        left: -45px !important;
         top: -9px;
+        right: 45px !important;
     }
 }
 
