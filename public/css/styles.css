@@ -1088,7 +1088,7 @@ a.get-started:hover {
 /* small laptop */
 @media (min-width: 992px) and (max-width: 1200px) {
     .individual-agent-banner img {
-        padding-top: 0;
+        padding-top: 0 !important;
     }
 }
 
