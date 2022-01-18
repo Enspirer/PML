@@ -1048,7 +1048,11 @@ a.get-started:hover {
     }
 
     .mobile-menu-item p {
-        font-size: 24px;
+        font-size: 22px;
+    }
+
+    h2.sub-topics {
+        margin-top: 100px;
     }
 }
 
