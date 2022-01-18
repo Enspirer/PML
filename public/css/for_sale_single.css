@@ -522,7 +522,7 @@ div#near-cat-list::-webkit-scrollbar-thumb {
     margin-right: auto;
   }
   .modal-content {
-    padding: 25px;
+    padding: 10px;
   }
 
   .email-modal-dialog {
@@ -651,6 +651,10 @@ div#near-cat-list::-webkit-scrollbar-thumb {
     margin-right: auto;
     margin-top: 60px;
   }
+
+  .email-modal-dialog {
+    width: 90% !important;
+}
 
   .sidebar-card-area .card {
     margin-bottom: 0;
