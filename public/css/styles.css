@@ -1043,8 +1043,13 @@ a.get-started:hover {
         padding-right: 15px;
     }
 
+    button#closeMainMenu {
+        top: 5px;
+    }
 
-    
+    .mobile-menu-item p {
+        font-size: 24px;
+    }
 }
 
 /* Tab Landscape */
