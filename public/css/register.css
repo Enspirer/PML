@@ -140,6 +140,11 @@ input:-webkit-autofill
     .mobile-padding-60  {
         padding-top: 60px !important; 
     }
+
+    span.mobile-noti-counter {
+        position: absolute;
+        right: 10px;
+    }
 }
 
 /* Tab Landscape */

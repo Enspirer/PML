@@ -654,5 +654,16 @@ div#near-cat-list::-webkit-scrollbar-thumb {
     width: max-content;
   }
 
+  .map-search-category-bar {
+    display: flex;
+    flex-direction: row;
+    overflow: scroll hidden;
+    position: relative;
+    scroll-behavior: smooth;
+    scroll-snap-type: both mandatory;
+    padding-bottom: 5px;
+    z-index: 100;
+}
+
 }
 
