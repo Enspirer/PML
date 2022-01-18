@@ -1078,6 +1078,11 @@ a.get-started:hover {
     .social-login-btn {
         margin-top: 5px;
     }
+
+    span.mobile-noti-counter {
+        position: absolute;
+        right: 5px;
+    }
 }
 
 /* Tab Landscape */
