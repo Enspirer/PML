@@ -785,6 +785,10 @@ a.get-started:hover {
     .top-row-wrapper.visible-xs {
         align-items: center;
     }
+
+    .menu-card-img {
+        height: 50px;
+    }
     
 }
 
