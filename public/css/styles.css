@@ -1010,6 +1010,39 @@ a.get-started:hover {
         flex: 0 0 50% !important;
         max-width: 50% !important;
     }
+    .mobile-margin-zero {
+        margin-left: 0 !important;
+    }
+
+    .container.main-menu-helper {
+        padding-bottom: 0;
+    }
+
+    /*main  menu styles*/
+    .mobile-menu-icon-card-wrapper {
+        display: block;
+    }
+
+    .menu-icon-card {
+        margin-bottom: 15px;
+        display: block;
+        background: transparent;
+        border-radius: 0;
+    }
+
+    .mobile-menu-item {
+        display: flex;
+        padding: 15px;
+        align-items: center;
+    }
+
+    .menu-card-img {
+        width: 65px;
+        height: unset;
+        margin: 0;
+        padding-right: 15px;
+    }
+
 
     
 }
