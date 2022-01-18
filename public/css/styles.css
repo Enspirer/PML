@@ -1105,7 +1105,8 @@ a.get-started:hover {
         padding: 0;
         position: absolute !important;
         top: -9px;
-        right: 45px !important;
+        right: 0px !important;
+        margin-right: 10px;
     }
 }
 
@@ -1115,6 +1116,3 @@ a.get-started:hover {
         padding-top: 0 !important;
     }
 }
-
-/*4k screen*/
-@media screen and (min-width: 1441px) {}
