@@ -1007,8 +1007,8 @@ a.get-started:hover {
     }
 
     .tab-search {
-        flex: 0 0 55% !important;
-        max-width: 55% !important;
+        flex: 0 0 50% !important;
+        max-width: 50% !important;
     }
 
     
