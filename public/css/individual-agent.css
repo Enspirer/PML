@@ -259,6 +259,10 @@ a.ad-btn {
     
     .individual-agent-banner img {
         padding-top: 0;
+        height: 300px;
+    }
+    .agent-list-wrapper {
+        margin-right: 0;
     }
 }
 
