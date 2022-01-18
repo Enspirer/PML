@@ -603,7 +603,7 @@ a.get-started:hover {
       }
       
       .sidenav a:hover {
-        color: #f1f1f1;
+        color:#000;
       }
       
       .sidenav .closebtn {
@@ -620,9 +620,7 @@ a.get-started:hover {
     }
 
     .mobile-logo {
-        width: 100%;
-        margin-left: 10px;
-        margin-right: 10px;
+        width: 50%;
     }
 
     .top-row-wrapper {
@@ -637,8 +635,8 @@ a.get-started:hover {
     }
 
     .mobile-logo-wrapper {
-        display: flex;
-        justify-content: center;
+        display: block;
+        text-align: center;
     }
 
     .mobile-menu-toggle {
@@ -711,6 +709,7 @@ a.get-started:hover {
     .profile-nav a {
         color: #000;
         border: 1px solid #818181 !important;
+        border-right: 1px solid #818181 !important;;
     }
 
     .profile-nav a:hover {

@@ -526,11 +526,11 @@ a.near-cat-btn.active-cat-btn {
   ul.option-list-mobile.visible-xs {
     list-style: none;
     display: grid !important;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 1rem;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 0.5rem;
     padding-left: 0;
-    margin-top: 30px;
-  }
+    margin-top: 15px;
+}
 
   ul.option-list-mobile.visible-xs  li {
     background-color: #fff;
@@ -544,6 +544,50 @@ a.near-cat-btn.active-cat-btn {
   
   .mobile-option-list-helper {
     position: relative;
+  }
+
+  .mySwiper2 img {
+    height: 280px;
+  }
+
+  .mySwiper2 {
+    height: unset !important;
+  }
+
+  .demo-gallery > ul {
+    padding-left: 0;
+  }
+
+  .modal-body.light-gallery-body {
+    padding: 0;
+  }
+
+  .modal-content.lightgallery-content {
+    padding: 15px;
+    margin-top: 10vh;
+  }
+
+  .demo-gallery {
+    margin-top: 0;
+  }
+
+  button.close {
+    position: relative;
+    top: -5px;
+    right: 15px;
+  }
+
+  .mobile-height-fix {
+    height: 175px;
+  }
+
+  .map-search-category-bar {
+    display: flex;
+    flex-direction: row;
+    overflow: scroll hidden;
+    position: relative;
+    scroll-behavior: smooth;
+    scroll-snap-type: both mandatory;
   }
 
 

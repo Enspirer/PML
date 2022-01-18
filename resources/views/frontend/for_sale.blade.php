@@ -1032,7 +1032,7 @@
     $('.filter-reset').click(function(){
         $('#filter-form')[0].reset();
     });
-</script>
+</script> 
 
 
 

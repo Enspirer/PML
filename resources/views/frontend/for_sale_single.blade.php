@@ -370,7 +370,7 @@ button.close:hover {
                     </div>
                 </div>
 
-                <div class="col-3 col-xs-12">
+                <div class="col-3 col-xs-12 mobile-height-fix">
                     <div thumbsSlider="" class="swiper mySwiper mobile-option-list-helper">
                         <div class="swiper-wrapper">
                             @if($property->panaromal_status == 'panaromal_images')

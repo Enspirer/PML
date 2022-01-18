@@ -113,7 +113,7 @@ background-color: #35495E;
         width: 100%;
     }
     .single-filter-btn a {
-        margin-bottom: 15px;
+        margin-bottom: 5px;
     }
 
     .sidebar-card-area {
@@ -123,6 +123,10 @@ background-color: #35495E;
 
     span.text-white.fw-bold.user-name {
         color: #000 !important;
+    }
+
+    .logo {
+        height: 2.5rem;
     }
 }
 

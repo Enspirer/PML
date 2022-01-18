@@ -4,7 +4,7 @@
             {{csrf_field()}}
             <div class="row justify-content-center mobile-gap">
 
-                <div class="left-toggle">
+                <div class="left-toggle hidden-xs">
                     <!-- <div class="btn-group left-toggle-btn-group" role="group" aria-label="Basic example">
                         <button type="button" class="btn btn-secondary left-menu-btn">Left</button>
                         <button type="button" class="btn btn-secondary left-menu-btn">Middle</button>
@@ -61,6 +61,27 @@
                     </div>
                 </div>
 
+
+                <div class="left-toggle visible-xs">
+                    <!-- <div class="btn-group left-toggle-btn-group" role="group" aria-label="Basic example">
+                        <button type="button" class="btn btn-secondary left-menu-btn">Left</button>
+                        <button type="button" class="btn btn-secondary left-menu-btn">Middle</button>
+                        <button type="button" class="btn btn-secondary left-menu-btn">Right</button>
+                    </div> -->
+
+                    <div class="btn-group btn-group-toggle left-toggle-btn-group" data-toggle="buttons">
+                        <label class="btn btn-secondary left-menu-btn">
+                            <input type="radio" name="sale" id="trans_sale"> Sale
+                        </label>
+                        <label class="btn btn-secondary left-menu-btn">
+                            <input type="radio" name="rent" id="trans_rent"> Rent
+                        </label>
+                        <!-- <label class="btn btn-secondary left-menu-btn">
+                            <input type="radio" name="trans_type"> Lands
+                        </label> -->
+                    </div>
+
+                </div>
                 <div class="my-menu">
                     <!-- <button type="button" class="btn text-white rounded-0 border-start" style="background-color : #35495E; height:50px;"             
                     data-bs-toggle="modal" data-bs-target="#exampleModal"
