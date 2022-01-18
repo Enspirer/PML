@@ -1084,9 +1084,14 @@ a.get-started:hover {
         right: 5px;
     }
 
-    .col-tab-75 {
-        max-width: 75% !important;
-        flex: 75% !important;
+    .col-tab-60 {
+        max-width: 60% !important;
+        flex: 60% !important;
+    }
+
+    .col-tab-40 {
+        max-width: 40%;
+        flex: 40%;
     }
 }
 

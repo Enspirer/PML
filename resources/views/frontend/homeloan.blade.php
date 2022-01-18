@@ -42,7 +42,7 @@
             @endif
         </div>
 
-        <div class="col-6 center col-xs-12 col-tab-75">
+        <div class="col-6 center col-xs-12 col-tab-60">
 
             @if($default_youtube_posts != null)
                 <div class="row scroll-box">
@@ -99,7 +99,7 @@
                 ])
             @endif
         </div>
-        <div class="col-3 right col-xs-12">
+        <div class="col-3 right col-xs-12 col-tab-40">
             
 
             @if(count($youtube_posts) != 0)
