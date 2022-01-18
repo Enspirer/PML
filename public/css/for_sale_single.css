@@ -685,3 +685,13 @@ div#near-cat-list::-webkit-scrollbar-thumb {
 
 }
 
+/*min laptop-portrait*/
+@media (min-width: 992px) and (max-width: 1200px) {
+  ul.option-list.hidden-xs {
+    display: flex !important;
+  }
+
+  ul.option-list-mobile.visible-xs {
+    display: none !important;
+  }
+}
