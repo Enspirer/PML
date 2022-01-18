@@ -1090,8 +1090,8 @@ a.get-started:hover {
     }
 
     .col-tab-40 {
-        max-width: 40%;
-        flex: 40%;
+        max-width: 40% !important;
+        flex: 40% !important;
     }
 }
 
