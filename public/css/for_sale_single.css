@@ -508,6 +508,10 @@ div#near-cat-list::-webkit-scrollbar-thumb {
 }
 
 
+.light-gallery-close {
+  color: #fff;
+}
+
 
 /*mobile-view*/
 @media screen and (max-width: 767px) {
@@ -521,6 +525,14 @@ div#near-cat-list::-webkit-scrollbar-thumb {
     padding: 25px;
   }
 
+  .email-modal-dialog {
+    width: 80%;
+  }
+
+
+  .modal-content .modal-body.contact-agent {
+    padding: 0 !important; 
+  }
   .near-cat-btn {
     margin-right: 5px;
   }

@@ -317,7 +317,7 @@ button.close:hover {
                     </div> -->
                             <div class="modal-body light-gallery-body">
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
+                                    <span class="light-gallery-close" aria-hidden="true">&times;</span>
                                 </button>
                                 <!-- image slider -->
                                 <!--
@@ -1174,7 +1174,7 @@ button.close:hover {
 
 <div class="modal fade bd-example-modal-lg" id="emailModal" tabindex="-1" aria-labelledby="emailModalLabel"
     aria-hidden="true">
-    <div class="modal-dialog" style="width: 910px;max-width: 1040px;">
+    <div class="modal-dialog email-modal-dialog" style="width: 910px;max-width: 1040px;">
         <div class="modal-content">
             <form action="{{route('frontend.contact_agent')}}" method="post">
                 {{csrf_field()}}
