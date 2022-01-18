@@ -95,11 +95,64 @@
                     </button>
                     <!-- main menu content -->
                     <div id="contentMenu" class="main-menu-content" style="display:none;">
-                        <div class="main-menu-inner">
+                        <div class="main-menu-inner ">
                             <button type="button" id="closeMainMenu" onclick="closeMenu()"><i
                                     class="fas fa-times"></i></button>
-                            <div class="menu-content-wrapper">
+                            <div class="menu-content-wrapper hidden-xs">
                                 <div class="menu-icon-card-row">
+
+                                    @if(count(App\Models\Category::where('status','Enabled')->orderBy('order','ASC')->where('is_feature',1)->get()) != 0)
+                                        @foreach(App\Models\Category::where('status','Enabled')->orderBy('order','ASC')->where('is_feature',1)->get() as $industry)
+                                            <a class="menu-icon-card" href="{{route('frontend.homeloan',$industry->id)}}">
+                                                <div>
+                                                <img class="menu-card-img" src="{{ uploaded_asset($industry->icon) }}" alt="">
+
+                                                    <p style="text-align:center; padding-top:5px;">{{$industry->name}}</p>
+                                                </div>
+
+                                            </a>
+                                        @endforeach
+                                    @endif
+
+                                    <!-- <a class="menu-icon-card" href="">
+                                        <div>
+                                        <img src="{{ url('img/frontend/index/house.png') }}" alt="" style="width:100%;">
+
+                                            <p>Construction</p>
+                                        </div>
+                                    </a>
+
+
+                                    <a class="menu-icon-card" href="">
+                                        <div>
+                                        <img src="{{ url('img/frontend/index/livingroom.png') }}" alt="" style="width:100%;">
+
+                                            <p>Interior Designs</p>
+                                        </div>
+                                    </a>
+
+                                    <a class="menu-icon-card" href="">
+                                        <div>
+                                        <img src="{{ url('img/frontend/index/mortgage.png') }}" alt="" style="width:100%;">
+
+                                            <p>Insurance</p>
+                                        </div>
+                                    </a>
+
+                                    <a class="menu-icon-card" href="">
+                                        <div>
+                                        <img src="{{ url('img/frontend/index/compass.png') }}" alt="" style="width:100%;">
+
+                                            <p>Vaastu</p>
+                                        </div>
+                                    </a> -->
+                                </div>
+
+                            </div>
+
+                            <!-- mobile main menu -->
+                            <div class="menu-content-wrapper visible-xs">
+                                <div class="mobile-menu-icon-card-wrapper">
 
                                     @if(count(App\Models\Category::where('status','Enabled')->orderBy('order','ASC')->where('is_feature',1)->get()) != 0)
                                         @foreach(App\Models\Category::where('status','Enabled')->orderBy('order','ASC')->where('is_feature',1)->get() as $industry)

@@ -789,6 +789,10 @@ a.get-started:hover {
     .menu-card-img {
         height: 50px;
     }
+
+    .mobile-menu-icon-card-wrapper {
+        display: block;
+    }
     
 }
 
