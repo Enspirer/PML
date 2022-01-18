@@ -1080,10 +1080,16 @@ a.get-started:hover {
     }
 
     span.mobile-noti-counter {
+        display: block;
+        background: red;
+        width: max-content;
+        padding: 2px;
+        color: #fff;
         position: absolute;
-        right: 5px;
+        top: 0;
+        right: 0;
     }
-
+    
     .col-tab-60 {
         max-width: 60% !important;
         flex: 60% !important;
