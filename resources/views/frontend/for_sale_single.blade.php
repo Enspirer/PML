@@ -758,7 +758,7 @@ button.close:hover {
                                         <p>{{ $agent->agent_type }} Agents</p>
 
                                         <div class="row justify-content-center mt-3">
-                                            <div class="col-12 text-center mb-2">
+                                            <div class="col-12 text-center mb-2 tab-agent-details">
                                                 <a href="tel:{{ $agent->telephone }}"
                                                     class="btn py-2 fw-bold text-white w-100 rounded-pill tab-btn-width"
                                                     style="border: 1.5px solid rgb(112, 112, 112);background-color: rgb(53, 73, 94);font-size: 14px;">

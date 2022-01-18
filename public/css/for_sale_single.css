@@ -663,7 +663,17 @@ div#near-cat-list::-webkit-scrollbar-thumb {
     scroll-snap-type: both mandatory;
     padding-bottom: 5px;
     z-index: 100;
-}
+  }
+
+  a.near-cat-btn {
+    margin-right: 5px;
+  }
+
+  .tab-agent-details {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+  }
 
 }
 
