@@ -787,11 +787,17 @@ a.get-started:hover {
     }
 
     .menu-card-img {
-        height: 50px;
+        width: 50px;
     }
 
     .mobile-menu-icon-card-wrapper {
         display: block;
+    }
+
+    .mobile-menu-item {
+        display: flex;
+        padding: 15px;
+        align-items: center;
     }
     
 }

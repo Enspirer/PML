@@ -157,10 +157,10 @@
                                     @if(count(App\Models\Category::where('status','Enabled')->orderBy('order','ASC')->where('is_feature',1)->get()) != 0)
                                         @foreach(App\Models\Category::where('status','Enabled')->orderBy('order','ASC')->where('is_feature',1)->get() as $industry)
                                             <a class="menu-icon-card" href="{{route('frontend.homeloan',$industry->id)}}">
-                                                <div>
+                                                <div class="mobile-menu-item">
                                                 <img class="menu-card-img" src="{{ uploaded_asset($industry->icon) }}" alt="">
 
-                                                    <p style="text-align:center; padding-top:5px;">{{$industry->name}}</p>
+                                                    <p style="text-align:center; padding-top:5px;color:#fff;">{{$industry->name}}</p>
                                                 </div>
 
                                             </a>
