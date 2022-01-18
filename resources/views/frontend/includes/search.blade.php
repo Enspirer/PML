@@ -24,7 +24,7 @@
                     </div>
 
                 </div>
-                <div class="col-8 mobile-search">
+                <div class="col-8 mobile-search tab-search">
 
                     <div class="input-group">
 

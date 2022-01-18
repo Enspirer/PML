@@ -127,6 +127,15 @@
     .agents .logo {
         width: 6rem;
     }
+
+    i.far.fa-bell.me-2.mobile-bell-icon {
+        font-size: 55px;
+        padding-top: 5px;
+    }
+
+    .mobile-margin-zero {
+        margin-left: 0 !important;
+    }
 }
 
 /* Tab Landscape */

@@ -1010,6 +1010,11 @@ a.get-started:hover {
         margin-right: 0;
     }
 
+    .tab-search {
+        flex: 0 0 55%;
+        max-width: 55%;
+    }
+
     
 }
 
