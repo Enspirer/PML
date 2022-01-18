@@ -764,6 +764,9 @@ a.get-started:hover {
         margin-left: 0;
     }
     
+    .main-menu-content {
+        background: rgba(53, 73, 94, 0.9);
+    }
 
     #addPropertyPopup .modal-content {
         padding: 0;
