@@ -555,14 +555,14 @@ button.close:hover {
                 <div class="col-12">
                     <h5 style="padding-bottom:15px;">Nearby Place</h5>
                     <div id="near-cat-list" class="map-search-category-bar">
-                        <a href="#" class="near-cat-btn active-cat-btn">Shopping</a>
-                        <a href="#" class="near-cat-btn">Food</a>
-                        <a href="#" class="near-cat-btn">Restaurant</a>
-                        <a href="#" class="near-cat-btn">School</a>
-                        <a href="#" class="near-cat-btn">ATM</a>
-                        <a href="#" class="near-cat-btn">Hotel</a>
-                        <a href="#" class="near-cat-btn">Hospital</a>
-                        <a href="#" class="near-cat-btn">Gym</a>
+                        <button type="button" id="shopping" class="near-cat-btn active-cat-btn">Shopping</button>
+                        <button type="button" onclick="foodLocations()" class="near-cat-btn">Food</button>
+                        <button type="button" onclick="restaurantLocations()" class="near-cat-btn">Restaurant</button>
+                        <button type="button" onclick="schoolLocations()" class="near-cat-btn">School</button>
+                        <button type="button" onclick="atmLocations()" class="near-cat-btn">ATM</button>
+                        <button type="button" onclick="hotelLocations()" class="near-cat-btn">Hotel</button>
+                        <button type="button" onclick="hospitalLocations()" class="near-cat-btn">Hospital</button>
+                        <button type="button" onclick="gymLocations()" class="near-cat-btn">Gym</button>
                     </div>
                     <div id="map" style="height: 400px; width: 100%"></div>
                     <input type="text" name="lat" id="lat" value="{{$property->lat}}" class="mt-3 d-none">
@@ -2044,6 +2044,7 @@ $('.filter-reset').click(function() {
 });
 </script>
 
+
 <script>
 function initMap() {
     let lat = $('#lat').val();
@@ -2059,6 +2060,17 @@ function initMap() {
         center: myLatLng
     };
 
+      //custom icons for marker type
+      const iconBase = "{{ url('img/frontend/map-icons') }}";
+        const icons = {
+            //shopping
+            shopping: {
+                icon: iconBase + "/shopping.png",
+            }
+        };
+
+
+
     const map = new google.maps.Map(document.getElementById("map"), options);
 
     let marker = new google.maps.Marker({
@@ -2066,7 +2078,91 @@ function initMap() {
         map: map
     });
 
+
+    $("#shopping").click(function() {
+
+        let shoppingLocations = [
+            {
+                id: 1,
+                lat: 50.9474,
+                lng: 10.7098,
+                type: "shopping"
+            },
+            {
+                id: 2,
+                lat: 50.5558,
+                lng: 9.6808,
+                type: "shopping"
+            }
+        ];
+        
+
+      ;
+        
+
+        //add multiple markers to the map
+        const markers = shoppingLocations.map((position, i) => {
+            const marker = new google.maps.Marker({
+                position,
+                icon: icons[shoppingLocations[i].type].icon,
+                map,
+            });
+        })    
+    })
+
+
+   
+
+  
+
 }
+
+/*nearby place*/
+
+// function shoppingLocations() {
+//     alert("You clicked shoping locations");
+// }
+
+
+function foodLocations() {
+    alert("You clicked food locations");
+}
+
+function restaurantLocations() {
+    alert("You clicked restaurant locations");
+}
+
+function schoolLocations() {
+    alert("You clicked school locations");
+}
+
+function restaurantLocations() {
+    alert("You clicked restaurant locations");
+}
+
+function schoolLocations() {
+    alert("You clicked school locations");
+}
+
+function atmLocations() {
+    alert("You clicked atm locations");
+}
+
+function hotelLocations() {
+    alert("You clicked hotel locations");
+}
+
+function hospitalLocations() {
+    alert("You clicked hospital locations");
+}
+
+function gymLocations() {
+    alert("You clicked gym locations");
+}
+
+
+
+
 </script>
 
 <script async defer

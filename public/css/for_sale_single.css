@@ -468,18 +468,20 @@ ul.option-list li a:hover {
   font-size: 4rem;
 }
 
-a.near-cat-btn {
+.near-cat-btn {
   background: #eee;
   padding: 10px 15px;
   border-radius: 25px;
   color: #838080;
+  border: 0;
+  margin-right: 15px;
 }
 
 .map-search-category-bar {
   margin-bottom: 30px;
 }
 
-a.near-cat-btn.active-cat-btn {
+.near-cat-btn.active-cat-btn {
   background: #39b54a;
   color: #fff;
 }
@@ -519,7 +521,7 @@ div#near-cat-list::-webkit-scrollbar-thumb {
     padding: 25px;
   }
 
-  a.near-cat-btn {
+  .near-cat-btn {
     margin-right: 5px;
   }
 
@@ -665,7 +667,7 @@ div#near-cat-list::-webkit-scrollbar-thumb {
     z-index: 100;
   }
 
-  a.near-cat-btn {
+  .near-cat-btn {
     margin-right: 5px;
   }
 
