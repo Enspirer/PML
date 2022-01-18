@@ -661,7 +661,7 @@ div#near-cat-list::-webkit-scrollbar-thumb {
     position: relative;
     scroll-behavior: smooth;
     scroll-snap-type: both mandatory;
-    padding-bottom: 5px;
+    padding-bottom: 15px;
     z-index: 100;
   }
 
