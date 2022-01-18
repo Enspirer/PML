@@ -755,9 +755,10 @@ a.get-started:hover {
         border-radius: 0;
     }
 
-    .menu-icon-card:hover {
-        border-bottom: 2px solid red;
+    .menu-icon-card:hover, .menu-icon-card:active {
+        border-bottom: 2px solid #000;
     }
+    
 
     #addPropertyPopup .modal-content {
         padding: 0;
