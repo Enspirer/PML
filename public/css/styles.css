@@ -830,6 +830,9 @@ a.get-started:hover {
     .menu-icon-card-row {
         grid-template-columns: repeat(4, 1fr);
     }
+    .main-menu-content {
+        background: rgba(53, 73, 94, 0.9);
+    }
     .hidden-xs {
         display: none !important;
     }
