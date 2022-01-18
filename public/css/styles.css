@@ -788,6 +788,8 @@ a.get-started:hover {
 
     .menu-card-img {
         width: 50px;
+        height: unset;
+        margin: 0;
     }
 
     .mobile-menu-icon-card-wrapper {
