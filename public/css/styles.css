@@ -1093,6 +1093,13 @@ a.get-started:hover {
         max-width: 40% !important;
         flex: 40% !important;
     }
+
+    div#drop-menu-mobile {
+        padding: 0;
+        position: absolute !important;
+        left: -45px !important;
+        top: -9px;
+    }
 }
 
 /* small laptop */
