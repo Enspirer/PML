@@ -116,7 +116,7 @@
 
                         @foreach($agents as $agent)
                             <div class="col-4 text-center mb-4 col-xs-12 col-tab-50">
-                                <div class="card custom-shadow position-relative" style="max-height:550px; min-height:550px;">
+                                <div class="card custom-shadow position-relative mobile-max-height" style="max-height:550px; min-height:550px;">
                                     <div class="card-body agent-card-mobile">
                                         <img src="{{ uploaded_asset($agent->logo) }}" width="40%" style="border-radius: 50%;" alt="" class="img-fluid logo mb-3 agent-logo-mobile">
 

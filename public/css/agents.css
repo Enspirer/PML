@@ -110,6 +110,10 @@
     .card-body.agent-card-mobile {
         text-align: center !important;
     }
+
+    .mobile-max-height {
+        max-height: 580px;
+    }
 }
 
 /*tab-portrait*/
