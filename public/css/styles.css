@@ -1067,6 +1067,14 @@ a.get-started:hover {
     .mobile-label {
         white-space: nowrap;
     }
+
+    .mobile-horizontal-line-wrapper {
+        text-align: center;
+    }
+
+    .mobile-horizontal-line-wrapper p {
+        color: #fff;
+    }
 }
 
 /* Tab Landscape */

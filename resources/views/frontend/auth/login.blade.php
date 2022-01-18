@@ -74,7 +74,7 @@
                             <div class="right-line"></div>
                         </div>
 
-                        <div class="col-5 col-xs-12">
+                        <div class="col-5 col-xs-12 col-tab-12">
                             <div class="row justify-content-center mb-4">
                                 <div class="col-5 social-login-btn">
                                     <a href="" class="text-decoration-none text-dark">
