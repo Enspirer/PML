@@ -1075,6 +1075,9 @@ a.get-started:hover {
     .mobile-horizontal-line-wrapper p {
         color: #fff;
     }
+    .social-login-btn {
+        margin-top: 5px;
+    }
 }
 
 /* Tab Landscape */
