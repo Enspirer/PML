@@ -571,7 +571,7 @@
         <h2 class="sub-topic center-topic">Latest from Property Market</h2>
 
         <div class="row" style="margin-top:30px;">
-                <div class="col-4 col-xs-12">
+                <div class="col-4 col-xs-12 col-tab-50">
                     <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fpropertymarketlive&tabs=timeline&width=340&height=500&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="100%" height="500" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
 
                 </div>               
@@ -579,7 +579,7 @@
                                
                                 
 
-                    <div class="col-4 col-xs-12">
+                    <div class="col-4 col-xs-12 col-tab-50">
                         <a href="" style="color:black; text-decoration:none"></a>
                             <div class="card position-relative" style="height: 27rem;"><a href="" style="color:black; text-decoration:none">
                                     
@@ -610,7 +610,7 @@
                     </div>
 
                     @if($property_talk != null)
-                        <div class="col-4 col-xs-12">
+                        <div class="col-4 col-xs-12 col-tab-50 middle-card">
                             <a href="{{url('home_loan',$property_talk->category)}}" style="color:black; text-decoration:none"></a>
                                 <div class="card position-relative" style="height: 27rem;"><a href="{{url('home_loan',$property_talk->category)}}" style="color:black; text-decoration:none">
                                         
