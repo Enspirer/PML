@@ -23,14 +23,14 @@
     color: #fff;
 }
 
-div#panoModal  .modal-dialog {
+div#panoModal .modal-dialog {
     max-width: 90%;
 }
 
 div#panoModal .modal-content .modal-body {
     padding: 0 !important;
     position: relative;
-} 
+}
 
 
 div#panoModal button.close {
@@ -44,7 +44,7 @@ div#panoModal button.close {
     height: 30px;
 }
 
-div#panoModal  .modal-content {
+div#panoModal .modal-content {
     height: 90vh;
     margin-top: 5vh;
     margin-bottom: 5vh;
@@ -55,7 +55,7 @@ div#panoModal  .modal-content {
     background: #000;
 }
 
-div#panoModal  .modal-body {
+div#panoModal .modal-body {
     height: 90vh;
     max-height: unset !important;
     overflow: hidden !important;
@@ -82,30 +82,31 @@ button.close:hover {
 
 @include('frontend.includes.search')
 <div class="container index" style="margin-top: 2rem;">
-        <div class="row">
-            <div class="col-9 col-xs-12">
-                <p><a href="/" class="text-decoration-none text-dark fw-bold">Property Market Live</a>
-                    >
-                        <a href="#" class="text-decoration-none text-dark fw-bold">
-                            For Sale
-                        </a>
+    <div class="row">
+        <div class="col-9 col-xs-12">
+            <p><a href="/" class="text-decoration-none text-dark fw-bold">Property Market Live</a>
+                >
+                <a href="#" class="text-decoration-none text-dark fw-bold">
+                    For Sale
+                </a>
 
-                    > <a href="/home_loan" class="text-decoration-none text-dark fw-bold">Moscow Land</a></p>
+                > <a href="/home_loan" class="text-decoration-none text-dark fw-bold">Moscow Land</a>
+            </p>
 
-            </div>
-            <div class="col-3 col-xs-12">
-                <div class="topbar-icons">
-                    <button class="topbar-single-icon" data-bs-toggle="modal" data-bs-target="#watch_list">
-                    Watchlist<i class="far fa-eye"></i>
-</button>
-                    <button type="button" class="topbar-single-icon" data-toggle="modal" data-target="#shareModal">
-                        
-                    Share <i class="far fa-share-square"></i>
-</button>
-                </div>
-               
-            </div>
         </div>
+        <div class="col-3 col-xs-12">
+            <div class="topbar-icons">
+                <button class="topbar-single-icon" data-bs-toggle="modal" data-bs-target="#watch_list">
+                    Watchlist<i class="far fa-eye"></i>
+                </button>
+                <button type="button" class="topbar-single-icon" data-toggle="modal" data-target="#shareModal">
+
+                    Share <i class="far fa-share-square"></i>
+                </button>
+            </div>
+
+        </div>
+    </div>
 </div>
 
 
@@ -205,29 +206,29 @@ button.close:hover {
                             @endphp
 
                             @if($property->panaromal_images)
-                                @php
-                                    $pano_arry = preg_split ("/\,/", $property->panaromal_images);
-                                @endphp
+                            @php
+                            $pano_arry = preg_split ("/\,/", $property->panaromal_images);
+                            @endphp
                             @else
-                                @php
-                                    $pano_arry = null;
-                                @endphp
+                            @php
+                            $pano_arry = null;
+                            @endphp
                             @endif
 
                             @if($property->panaromal_status == 'panaromal_images')
-                                @if($pano_arry)
-                                    @foreach($pano_arry as $panoarray)
-                                    <div class="swiper-slide">
-                                        <a href="#" data-toggle="modal" data-target="#panoModal"
-                                            onclick="changePanaroma('{{ $panoarray }}')">
-                                            <div class="pano-wrapper">
-                                                <img src="{{ uploaded_asset($panoarray) }}" />
-                                                <img class="pano-symbol" src="{{ url('img/360.png') }}" alt="360 logo">
-                                            </div>
-                                        </a>
+                            @if($pano_arry)
+                            @foreach($pano_arry as $panoarray)
+                            <div class="swiper-slide">
+                                <a href="#" data-toggle="modal" data-target="#panoModal"
+                                    onclick="changePanaroma('{{ $panoarray }}')">
+                                    <div class="pano-wrapper">
+                                        <img src="{{ uploaded_asset($panoarray) }}" />
+                                        <img class="pano-symbol" src="{{ url('img/360.png') }}" alt="360 logo">
                                     </div>
-                                    @endforeach
-                                @endif
+                                </a>
+                            </div>
+                            @endforeach
+                            @endif
                             @endif
 
                             @foreach($str_arr2 as $key=> $pre)
@@ -252,35 +253,36 @@ button.close:hover {
                         <div class="option-list-wrapper">
                             <ul class="option-list hidden-xs">
                                 @if($property->panaromal_status == 'google_panaroma')
-                                    @if($property->google_panaroma != null)
-                                        <li><a href="" data-toggle="modal" data-target="#threesixtyModal"><i class="fas fa-redo-alt"></i>360<sup>0</sup></a></li>
-                                    @endif
+                                @if($property->google_panaroma != null)
+                                <li><a href="" data-toggle="modal" data-target="#threesixtyModal"><i
+                                            class="fas fa-redo-alt"></i>360<sup>0</sup></a></li>
+                                @endif
                                 @else
-                                    <li><i class="fas fa-redo-alt"></i>360<sup>0</sup></li>
+                                <li><i class="fas fa-redo-alt"></i>360<sup>0</sup></li>
                                 @endif
                                 <li>
                                     <a href="#" data-toggle="modal" data-target="#photoModal"><i
                                             class="fas fa-camera"></i>Photo</a>
                                 </li>
                                 @if($property->video != null)
-                                    <li>
-                                        <a href="#" data-toggle="modal" data-target="#videoModal"><i
-                                                class="fas fa-video"></i>Video</a>
-                                    </li>
+                                <li>
+                                    <a href="#" data-toggle="modal" data-target="#videoModal"><i
+                                            class="fas fa-video"></i>Video</a>
+                                </li>
                                 @else
-                                    <li><i class="fas fa-video"></i>Video</li>
+                                <li><i class="fas fa-video"></i>Video</li>
                                 @endif
                                 <li>
                                     <a href="#" data-toggle="modal" data-target="#"><i
                                             class="fas fa-directions"></i>Direction</a>
                                 </li>
                                 @if($property->flow_plan != null)
-                                    <li class="last-item">
-                                        <a href="#" data-toggle="modal" data-target="#flow_plan_modal"><i
-                                                class="far fa-map"></i>Flow Plan</a>
-                                    </li>
+                                <li class="last-item">
+                                    <a href="#" data-toggle="modal" data-target="#flow_plan_modal"><i
+                                            class="far fa-map"></i>Flow Plan</a>
+                                </li>
                                 @else
-                                    <li class="last-item"><i class="far fa-map"></i>Flow Plan</li>
+                                <li class="last-item"><i class="far fa-map"></i>Flow Plan</li>
                                 @endif
 
                             </ul>
@@ -288,20 +290,22 @@ button.close:hover {
                     </div>
                 </div>
 
-                <div class="modal fade" id="threesixtyModal" tabindex="-1" aria-labelledby="three_sixtyModalLabel" aria-hidden="true">
+                <div class="modal fade" id="threesixtyModal" tabindex="-1" aria-labelledby="three_sixtyModalLabel"
+                    aria-hidden="true">
                     <div class="modal-dialog modal-lg">
                         <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="three_sixtyModalLabel">Google Panaroma</h5>
-                            <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body text-center">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="three_sixtyModalLabel">Google Panaroma</h5>
+                                <button type="button" class="btn-close" data-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body text-center">
                                 {!!$property->google_panaroma!!}
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
-                        </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -334,8 +338,7 @@ button.close:hover {
                                         <ul id="lightgallery">
                                             @foreach($str_arr2 as $key=> $pre)
                                             <li data-responsive="{{ uploaded_asset($pre) }}"
-                                                data-src="{{ uploaded_asset($pre) }}"
-                                                data-sub-html="">
+                                                data-src="{{ uploaded_asset($pre) }}" data-sub-html="">
                                                 <a href="">
                                                     <img class="img-responsive" src="{{ uploaded_asset($pre) }}">
                                                     <div class="demo-gallery-poster">
@@ -362,41 +365,48 @@ button.close:hover {
                 <!-- video popup -->
 
                 @if($property->video != null)
-                    <div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="videoModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-lg">
-                            <div class="modal-content">
+                <div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="videoModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="videoModalLabel">Video</h5>
-                                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+                                <button type="button" class="btn-close" data-dismiss="modal"
+                                    aria-label="Close"></button>
                             </div>
                             <div class="modal-body text-center">
-                                    
-                                <input type="hidden" value="{{ preg_match("#(?<=v=)[a-zA-Z0-9-]+(?=&)|(?<=v\/)[^&\n]+|(?<=v=)[^&\n]+|(?<=youtu.be/)[^&\n]+#", $property->video, $default_match) }}" />
 
-                                <iframe width="100%" height="400" src="https://www.youtube.com/embed/{{ $default_match[0] }}?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <input type="hidden"
+                                    value="{{ preg_match("#(?<=v=)[a-zA-Z0-9-]+(?=&)|(?<=v\/)[^&\n]+|(?<=v=)[^&\n]+|(?<=youtu.be/)[^&\n]+#", $property->video, $default_match) }}" />
+
+                                <iframe width="100%" height="400"
+                                    src="https://www.youtube.com/embed/{{ $default_match[0] }}?rel=0"
+                                    title="YouTube video player" frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen></iframe>
 
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                 <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
                             </div>
-                            </div>
                         </div>
                     </div>
+                </div>
                 @endif
 
-                
-                <div class="modal fade" id="flow_plan_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-                    aria-hidden="true">
+
+                <div class="modal fade" id="flow_plan_modal" tabindex="-1" role="dialog"
+                    aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content lightgallery-content">
                             <!-- <div class="modal-header"> </div> -->
-                            
+
                             <div class="modal-body light-gallery-body">
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
-                                
+
                                 <div class="cont">
 
 
@@ -404,8 +414,7 @@ button.close:hover {
                                         <ul id="lightgallery_flow">
                                             @foreach($flow_plan as $key=> $flow)
                                             <li data-responsive="{{ uploaded_asset($flow) }}"
-                                                data-src="{{ uploaded_asset($flow) }}"
-                                                data-sub-html="">
+                                                data-src="{{ uploaded_asset($flow) }}" data-sub-html="">
                                                 <a href="">
                                                     <img class="img-responsive" src="{{ uploaded_asset($flow) }}">
                                                     <div class="demo-gallery-poster">
@@ -438,13 +447,13 @@ button.close:hover {
                     <div thumbsSlider="" class="swiper mySwiper mobile-option-list-helper">
                         <div class="swiper-wrapper">
                             @if($property->panaromal_status == 'panaromal_images')
-                                @if($pano_arry)
-                                    @foreach($pano_arry as $panoarray)
-                                    <div class="swiper-slide">
-                                        <img src="{{ uploaded_asset($panoarray) }}" />
-                                    </div>
-                                    @endforeach
-                                @endif
+                            @if($pano_arry)
+                            @foreach($pano_arry as $panoarray)
+                            <div class="swiper-slide">
+                                <img src="{{ uploaded_asset($panoarray) }}" />
+                            </div>
+                            @endforeach
+                            @endif
                             @endif
 
                             @foreach($str_arr2 as $key=> $pre)
@@ -458,47 +467,48 @@ button.close:hover {
 
                         <!-- mobile option list -->
                         <div class="option-list-wrapper">
-                <ul class="option-list-mobile visible-xs">
+                            <ul class="option-list-mobile visible-xs">
                                 @if($property->panaromal_status == 'google_panaroma')
-                                    @if($property->google_panaroma != null)
-                                        <li><a href="" data-toggle="modal" data-target="#threesixtyModal"><i class="fas fa-redo-alt"></i>3600<sup>0</sup></a></li>
-                                    @endif
+                                @if($property->google_panaroma != null)
+                                <li><a href="" data-toggle="modal" data-target="#threesixtyModal"><i
+                                            class="fas fa-redo-alt"></i>3600<sup>0</sup></a></li>
+                                @endif
                                 @else
-                                    <li><i class="fas fa-redo-alt"></i>360<sup>0</sup></li>
+                                <li><i class="fas fa-redo-alt"></i>360<sup>0</sup></li>
                                 @endif
                                 <li>
                                     <a href="#" data-toggle="modal" data-target="#photoModal"><i
                                             class="fas fa-camera"></i>Photo</a>
                                 </li>
                                 @if($property->video != null)
-                                    <li>
-                                        <a href="#" data-toggle="modal" data-target="#videoModal"><i
-                                                class="fas fa-video"></i>Video</a>
-                                    </li>
+                                <li>
+                                    <a href="#" data-toggle="modal" data-target="#videoModal"><i
+                                            class="fas fa-video"></i>Video</a>
+                                </li>
                                 @else
-                                    <li><i class="fas fa-video"></i>Video</li>
+                                <li><i class="fas fa-video"></i>Video</li>
                                 @endif
-                                
+
                                 <li>
                                     <a href="#" data-toggle="modal" data-target="#"><i
                                             class="fas fa-directions"></i>Direction</a>
                                 </li>
                                 @if($property->flow_plan != null)
-                                    <li class="last-item">
-                                        <a href="#" data-toggle="modal" data-target="#flow_plan_modal"><i
-                                                class="far fa-map"></i>Flow Plan</a>
-                                    </li>
+                                <li class="last-item">
+                                    <a href="#" data-toggle="modal" data-target="#flow_plan_modal"><i
+                                            class="far fa-map"></i>Flow Plan</a>
+                                </li>
                                 @else
-                                    <li class="last-item"><i class="far fa-map"></i>Flow Plan</li>
+                                <li class="last-item"><i class="far fa-map"></i>Flow Plan</li>
                                 @endif
 
                             </ul>
-                </div>
-            </div>
+                        </div>
                     </div>
                 </div>
+            </div>
 
-              
+
             <!-- <div class="col-9">
                 <a class="btn-pano" href="#openModal-about">360<sup>0</sup> View</a>
             </div> -->
@@ -556,13 +566,12 @@ button.close:hover {
                     <h5 style="padding-bottom:15px;">Nearby Place</h5>
                     <div id="near-cat-list" class="map-search-category-bar">
                         <button type="button" id="shopping" class="near-cat-btn active-cat-btn">Shopping</button>
-                        <button type="button" onclick="foodLocations()" class="near-cat-btn">Food</button>
-                        <button type="button" onclick="restaurantLocations()" class="near-cat-btn">Restaurant</button>
-                        <button type="button" onclick="schoolLocations()" class="near-cat-btn">School</button>
-                        <button type="button" onclick="atmLocations()" class="near-cat-btn">ATM</button>
-                        <button type="button" onclick="hotelLocations()" class="near-cat-btn">Hotel</button>
-                        <button type="button" onclick="hospitalLocations()" class="near-cat-btn">Hospital</button>
-                        <button type="button" onclick="gymLocations()" class="near-cat-btn">Gym</button>
+                        <button type="button" id="food" class="near-cat-btn">Food</button>
+                        <button type="button" id="restuarant" class="near-cat-btn">Restaurant</button>
+                        <button type="button" id="school" class="near-cat-btn">School</button>
+                        <button type="button" id="atm" class="near-cat-btn">ATM</button>
+                        <button type="button" id="hospital" class="near-cat-btn">Hospital</button>
+                        <button type="button" id="gym" class="near-cat-btn">Gym</button>
                     </div>
                     <div id="map" style="height: 400px; width: 100%"></div>
                     <input type="text" name="lat" id="lat" value="{{$property->lat}}" class="mt-3 d-none">
@@ -1314,34 +1323,35 @@ button.close:hover {
 
 
 <!-- share modal -->
-<div class="modal fade" id="shareModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Share this Listing</h5>
-        <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
-        </button>
+<div class="modal fade" id="shareModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Share this Listing</h5>
+                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
+                </button>
 
-        <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
-      </div>
-      <div class="modal-body">
-        <div class="share-options-wrapper">
-            <div class="share-option">
-            <i class="fab fa-facebook-square"></i>
+                <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
             </div>
-            <div class="share-option">
-            <i class="fab fa-twitter"></i>
+            <div class="modal-body">
+                <div class="share-options-wrapper">
+                    <div class="share-option">
+                        <i class="fab fa-facebook-square"></i>
+                    </div>
+                    <div class="share-option">
+                        <i class="fab fa-twitter"></i>
+                    </div>
+                    <div class="share-option">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                </div>
             </div>
-            <div class="share-option">
-            <i class="fab fa-instagram"></i>
-            </div>
-        </div>
-      </div>
-      <!-- <div class="modal-footer">
+            <!-- <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       </div> -->
+        </div>
     </div>
-  </div>
 </div>
 
 <!-- Login Modal -->
@@ -1604,15 +1614,14 @@ function changePanaroma(panaromalId) {
 
 <!-- near cat btn change -->
 <script>
-    var header = document.getElementById("near-cat-list");
-    var btns = header.getElementsByClassName("near-cat-btn");
-    for (var i = 0; i < btns.length; i++) {
-        btns[i].addEventListener("click", function() {
-            var current = document.getElementsByClassName("active-cat-btn");
-            current[0].className = current[0].className.replace(" active-cat-btn", "");
-            this.className += " active-cat-btn";
+
+    $(document).ready(function(){
+        $('.near-cat-btn').click(function(){
+            $('.near-cat-btn').removeClass("active-cat-btn");
+            $(this).addClass("active-cat-btn");
         });
-    }
+    });
+
 </script>
 
 <script>
@@ -2060,14 +2069,32 @@ function initMap() {
         center: myLatLng
     };
 
-      //custom icons for marker type
-      const iconBase = "{{ url('img/frontend/map-icons') }}";
-        const icons = {
-            //shopping
-            shopping: {
-                icon: iconBase + "/shopping.png",
-            }
-        };
+    //custom icons for marker type
+    const iconBase = "{{ url('img/frontend/map-icons') }}";
+    const icons = {
+        //shopping
+        shopping: {
+            icon: iconBase + "/shopping.png",
+        },
+        food: {
+            icon: iconBase + "/food.png",
+        },
+        restuarant: {
+            icon: iconBase + "/restuarant.png",
+        },
+        school: {
+            icon: iconBase + "/school.png",
+        },
+        atm: {
+            icon: iconBase + "/atm.png",
+        },
+        hospital: {
+            icon: iconBase + "/hospital.png",
+        },
+        gym: {
+            icon: iconBase + "/gym.png",
+        }
+    };
 
 
 
@@ -2078,11 +2105,21 @@ function initMap() {
         map: map
     });
 
+    
 
+    let markers = [];
+
+
+
+    //----------------shopping-----------------------
     $("#shopping").click(function() {
 
-        let shoppingLocations = [
-            {
+        for (var i = 0; i < markers.length; i++) {
+
+            markers[i].setMap(null);
+        }
+
+        let shoppingLocations = [{
                 id: 1,
                 lat: 50.9474,
                 lng: 10.7098,
@@ -2095,74 +2132,262 @@ function initMap() {
                 type: "shopping"
             }
         ];
-        
 
-      ;
-        
 
-        //add multiple markers to the map
-        const markers = shoppingLocations.map((position, i) => {
-            const marker = new google.maps.Marker({
-                position,
+        for (var i = 0; i < shoppingLocations.length; i++) {
+
+            var marker = new google.maps.Marker({
+                map: map,
+                position: shoppingLocations[i],
                 icon: icons[shoppingLocations[i].type].icon,
-                map,
             });
-        })    
+
+            markers.push(marker);
+        }
+
     })
 
 
-   
+    //----------------food-----------------------
+    $("#food").click(function() {
+
+        for (var i = 0; i < markers.length; i++) {
+
+            markers[i].setMap(null);
+        }
+
+
+        let foodLocations = [{
+                id: 1,
+                lat: 50.8019,
+                lng: 8.7658,
+                type: "food"
+            },
+            {
+                id: 2,
+                lat: 50.6077,
+                lng: 10.6881,
+                type: "food"
+            }
+        ];
+
+
+        for (var i = 0; i < foodLocations.length; i++) {
+
+            var marker = new google.maps.Marker({
+                map: map,
+                position: foodLocations[i],
+                icon: icons[foodLocations[i].type].icon,
+            });
+
+            markers.push(marker);
+        }
+
+
+    })
+
+
+//----------------restuarant-----------------------
+    $("#restuarant").click(function() {
+
+        for (var i = 0; i < markers.length; i++) {
+
+            markers[i].setMap(null);
+        }
+
+
+        let restuarantLocations = [{
+                id: 1,
+                lat: 50.9271,
+                lng: 11.5892,
+                type: "restuarant"
+            },
+            {
+                id: 2,
+                lat: 50.7508,
+                lng: 9.2692,
+                type: "restuarant"
+            }
+        ];
+
+
+        for (var i = 0; i < restuarantLocations.length; i++) {
+
+            var marker = new google.maps.Marker({
+                map: map,
+                position: restuarantLocations[i],
+                icon: icons[restuarantLocations[i].type].icon,
+            });
+
+            markers.push(marker);
+        }
+
+       
+    })
+
+
+    //----------------school-----------------------
+    $("#school").click(function() {
+
+        for (var i = 0; i < markers.length; i++) {
+
+            markers[i].setMap(null);
+        }
+
+
+        let schoolLocations = [{
+                id: 1,
+                lat: 50.7271,
+                lng: 11.4892,
+                type: "school"
+            },
+            {
+                id: 2,
+                lat: 50.6508,
+                lng: 9.3692,
+                type: "school"
+            }
+        ];
+
+
+        for (var i = 0; i < schoolLocations.length; i++) {
+
+            var marker = new google.maps.Marker({
+                map: map,
+                position: schoolLocations[i],
+                icon: icons[schoolLocations[i].type].icon,
+            });
+
+            markers.push(marker);
+        }
 
   
+    })
+
+
+    //----------------atm-----------------------
+    $("#atm").click(function() {
+
+        for (var i = 0; i < markers.length; i++) {
+
+            markers[i].setMap(null);
+        }
+
+
+        let atmLocations = [{
+                id: 1,
+                lat: 50.5271,
+                lng: 11.6892,
+                type: "atm"
+            },
+            {
+                id: 2,
+                lat: 50.5508,
+                lng: 9.5692,
+                type: "atm"
+            }
+        ];
+
+
+        for (var i = 0; i < atmLocations.length; i++) {
+
+            var marker = new google.maps.Marker({
+                map: map,
+                position: atmLocations[i],
+                icon: icons[atmLocations[i].type].icon,
+            });
+
+            markers.push(marker);
+        }
+
+
+    })
+
+
+     //----------------hospital-----------------------
+     $("#hospital").click(function() {
+
+        for (var i = 0; i < markers.length; i++) {
+
+            markers[i].setMap(null);
+        }
+
+
+        let hospitalLocations = [
+            {
+                id: 1,
+                lat: 50.5671,
+                lng: 11.5892,
+                type: "hospital"
+            },
+            {
+                id: 2,
+                lat: 50.5608,
+                lng: 9.3692,
+                type: "hospital"
+            }
+        ];
+
+
+        for (var i = 0; i < hospitalLocations.length; i++) {
+
+            var marker = new google.maps.Marker({
+                map: map,
+                position: hospitalLocations[i],
+                icon: icons[hospitalLocations[i].type].icon,
+            });
+
+            markers.push(marker);
+        }
+
+
+    })
+
+
+       //----------------gym-----------------------
+       $("#gym").click(function() {
+
+            for (var i = 0; i < markers.length; i++) {
+
+                markers[i].setMap(null);
+            }
+
+
+            let gymLocations = [
+                {
+                    id: 1,
+                    lat: 50.9671,
+                    lng: 10.5892,
+                    type: "gym"
+                },
+                {
+                    id: 2,
+                    lat: 50.5608,
+                    lng: 11.3692,
+                    type: "gym"
+                }
+            ];
+
+
+            for (var i = 0; i < gymLocations.length; i++) {
+
+                var marker = new google.maps.Marker({
+                    map: map,
+                    position: gymLocations[i],
+                    icon: icons[gymLocations[i].type].icon,
+                });
+
+                markers.push(marker);
+            }
+
+
+        })
+
+
+
+
 
 }
-
-/*nearby place*/
-
-// function shoppingLocations() {
-//     alert("You clicked shoping locations");
-// }
-
-
-function foodLocations() {
-    alert("You clicked food locations");
-}
-
-function restaurantLocations() {
-    alert("You clicked restaurant locations");
-}
-
-function schoolLocations() {
-    alert("You clicked school locations");
-}
-
-function restaurantLocations() {
-    alert("You clicked restaurant locations");
-}
-
-function schoolLocations() {
-    alert("You clicked school locations");
-}
-
-function atmLocations() {
-    alert("You clicked atm locations");
-}
-
-function hotelLocations() {
-    alert("You clicked hotel locations");
-}
-
-function hospitalLocations() {
-    alert("You clicked hospital locations");
-}
-
-function gymLocations() {
-    alert("You clicked gym locations");
-}
-
-
-
-
 </script>
 
 <script async defer
