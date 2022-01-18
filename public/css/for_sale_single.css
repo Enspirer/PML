@@ -484,6 +484,29 @@ a.near-cat-btn.active-cat-btn {
   color: #fff;
 }
 
+div#near-cat-list::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	background-color: #F5F5F5;
+  height: 6px;
+}
+
+div#near-cat-list::-webkit-scrollbar {
+  border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #555;
+  height: 6px;
+}
+
+div#near-cat-list::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #555;
+  height: 6px;
+}
+
+
+
 /*mobile-view*/
 @media screen and (max-width: 767px) {
   .modal-dialog {
@@ -494,6 +517,10 @@ a.near-cat-btn.active-cat-btn {
   }
   .modal-content {
     padding: 25px;
+  }
+
+  a.near-cat-btn {
+    margin-right: 5px;
   }
 
   .modal-body.light-gallery-body {
@@ -588,7 +615,11 @@ a.near-cat-btn.active-cat-btn {
     position: relative;
     scroll-behavior: smooth;
     scroll-snap-type: both mandatory;
+    padding-bottom: 5px;
+    z-index: 100;
   }
+
+  
 
 
 }

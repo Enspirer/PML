@@ -96,6 +96,20 @@
     .find-agent-full-color {
         background-color: #e6e9eb;
     }
+
+    .mobile-find-agent-btn {
+        width: 100%;
+        border-radius: 0 !important;
+    }
+    .agent-logo-mobile {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .card-body.agent-card-mobile {
+        text-align: center !important;
+    }
 }
 
 /*tab-portrait*/

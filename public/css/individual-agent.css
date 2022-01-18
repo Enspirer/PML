@@ -220,10 +220,13 @@ a.ad-btn {
 
     .inner-row-wrapper {
         flex-direction: column;
+        align-items: center;
+        margin-top: 15px;
+        margin-bottom: 15px;
     }
 
     .individual-agent-banner img {
-        height: 350px !important;
+        height: 250px !important;
     }
 
     .count-box-wrapper {
@@ -232,6 +235,14 @@ a.ad-btn {
 
     .agent-contact-btn {
         width: 225px;
+    }
+
+    .profile-pic {
+        height: 130px;
+    }
+
+    #agent-prof {
+        top: -45px;
     }
 }
 

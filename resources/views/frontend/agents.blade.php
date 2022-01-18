@@ -69,7 +69,7 @@
                                         </div>
 
                                         <div class="mt-4">
-                                            <button type="submit" class="btn text-light px-5 py-2 rounded-pill fw-bold" style="background-color: #35495E;">Find Agent</button>
+                                            <button type="submit" class="btn text-light px-5 py-2 rounded-pill fw-bold mobile-find-agent-btn" style="background-color: #35495E;">Find Agent</button>
                                         </div>
 
                                     </form>
@@ -117,8 +117,8 @@
                         @foreach($agents as $agent)
                             <div class="col-4 text-center mb-4 col-xs-12 col-tab-50">
                                 <div class="card custom-shadow position-relative" style="max-height:550px; min-height:550px;">
-                                    <div class="card-body">
-                                        <img src="{{ uploaded_asset($agent->logo) }}" width="40%" style="border-radius: 50%;" alt="" class="img-fluid logo mb-3">
+                                    <div class="card-body agent-card-mobile">
+                                        <img src="{{ uploaded_asset($agent->logo) }}" width="40%" style="border-radius: 50%;" alt="" class="img-fluid logo mb-3 agent-logo-mobile">
 
                                         <h5 class="fw-bold">{{ $agent->name }}</h5>
                                         

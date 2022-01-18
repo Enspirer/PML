@@ -100,14 +100,18 @@ input::placeholder {
         flex-direction: column;
     }
 
-    .mobile-padding-60 {
-        padding-top: 60px !important;
+    .mobile-padding-30 {
+        padding-top: 30px !important;
     }
 
     .mobile-horizontal-line-wrapper p {
         color: #fff;
         width: 20%;
         text-align: center;
+    }
+
+    .mobile-login-title {
+        padding-bottom: 30px;
     }
 
     .visible-xs.mobile-horizontal-line-wrapper {
@@ -126,6 +130,10 @@ input::placeholder {
 
     .social-login-btn {
         margin-bottom: 15px;
+    }
+
+    .mobile-label {
+        white-space: nowrap;
     }
 }
 

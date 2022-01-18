@@ -9,12 +9,12 @@
 @section('content')
     <div class="container-fluid p-0 banner login">
         <div class="container">
-            <div class="row justify-content-center mobile-padding-60" style="padding-top: 9rem;">
+            <div class="row justify-content-center mobile-padding-30" style="padding-top: 9rem;">
             @include('includes.partials.messages')
                 <div class="col-10">
                     <div class="row align-items-center mobile-login-area">
                         <div class="col-6 col-xs-12">
-                            <h3 class="text-white text-center mb-2">Login to your account.</h3>
+                            <h3 class="text-white text-center mb-2 mobile-login-title">Login to your account.</h3>
                             {{ html()->form('POST', route('frontend.auth.login.post'))->open() }}
                                 <div class="mb-3">
                                     <label for="email" class="form-label text-white mb-0 me-3 form-label">Email Address</label>                                    
@@ -35,14 +35,14 @@
                                     <div class="col-6">
                                         <div class="form-check">
                                             <input class="form-check-input" type="radio" name="radio" id="radio">
-                                            <label class="form-check-label text-white" for="flexRadioDefault1">Remember Me</label>
+                                            <label class="form-check-label text-white mobile-label" for="flexRadioDefault1">Remember Me</label>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="row mb-0 align-items-center">
                                     <div class="col-6">
-                                        <a href="{{ route('frontend.auth.password.reset') }}" class="text-decoration-none text-white" style="font-size: 0.9rem;">Forgot Your Password?</a>
+                                        <a href="{{ route('frontend.auth.password.reset') }}" class="text-decoration-none text-white mobile-label" style="font-size: 0.9rem;">Forgot Your Password?</a>
                                     </div>
 
                                     <div class="col-6 text-end">
@@ -52,7 +52,7 @@
                             {{ html()->form()->close() }}
 
                             <div class="row justify-content-center">
-                                <div class="col-12">
+                                <div class="col-12 mobile-padding-30">
                                     <p class="text-white mb-1" style="font-size: 1rem;">No account? <a href="{{ route('frontend.auth.register') }}" class="text-decoration-none" style="color: #FF7E00; font-size: 1.2rem; margin-top:15px;">Create one here.</a></p>
                                     
                                 </div>

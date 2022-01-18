@@ -267,6 +267,24 @@
         margin-bottom: 45px;
     }
 
+    .other-contact-wrapper {
+        padding-left: 0;
+    }
+
+    .other-txt {
+        margin-left: 15px;
+    }
+
+    .contact-card {
+        padding: 15px;
+        left: -25px;
+    }
+
+    .contact-icon-wrapper {
+        width: max-content;
+        margin-right: 5px;
+    }
+
 }
 
 
@@ -325,6 +343,8 @@
     .office-card-txt-wrapper {
         padding: 15px;
     }
+
+    
 }
 
 /* Tab Landscape */
