@@ -13,7 +13,7 @@
             @include('includes.partials.messages')
                 <div class="col-10">
                     <div class="row align-items-center mobile-login-area">
-                        <div class="col-6 col-xs-12">
+                        <div class="col-6 col-xs-12 col-tab-12">
                             <h3 class="text-white text-center mb-2 mobile-login-title">Login to your account.</h3>
                             {{ html()->form('POST', route('frontend.auth.login.post'))->open() }}
                                 <div class="mb-3">

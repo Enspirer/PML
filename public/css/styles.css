@@ -1054,6 +1054,19 @@ a.get-started:hover {
     h2.sub-topics {
         margin-top: 100px;
     }
+
+    i.far.fa-bell.me-2.mobile-bell-icon {
+        font-size: 50px;
+        padding-top: 10px;
+    }
+
+    .mobile-padding-30 {
+        padding-top: 30px !important;
+    }
+
+    .mobile-label {
+        white-space: nowrap;
+    }
 }
 
 /* Tab Landscape */
