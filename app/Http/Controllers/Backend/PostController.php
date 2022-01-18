@@ -40,6 +40,15 @@ class PostController extends Controller
                     }   
                     return $status;
                 })
+                ->addColumn('featured', function($data){
+                    if($data->featured == 'Enabled'){
+                        $featured = '<span class="badge badge-success">Enabled</span>';
+                    }
+                    else{
+                        $featured = '<span class="badge badge-danger">Disabled</span>';
+                    }   
+                    return $featured;
+                })
                 ->addColumn('feature_image', function($data){
                     $img = '<img src="'.uploaded_asset($data->feature_image).'" style="width: 50%">';
                  
@@ -50,7 +59,7 @@ class PostController extends Controller
                     $button2 = '<button type="button" name="delete" id="'.$data->id.'" class="delete btn btn-danger btn-sm"><i class="fas fa-trash"></i> Delete</button>';
                     return $button1.$button2;
                 })
-                ->rawColumns(['action','status','feature_image'])
+                ->rawColumns(['action','status','feature_image','featured'])
                 ->make(true);
         
         return back();
@@ -71,6 +80,7 @@ class PostController extends Controller
         $add->user_id = auth()->user()->id;
         $add->feature_image = $request->feature_image;
         $add->order = $request->order;
+        $add->featured = $request->featured;
         $add->status = $request->status;
 
         $add->save();
@@ -106,6 +116,7 @@ class PostController extends Controller
         $update->user_id = auth()->user()->id;
         $update->feature_image = $request->feature_image;
         $update->order = $request->order;
+        $update->featured = $request->featured;
         $update->status = $request->status;
 
         Posts::whereId($request->hidden_id)->update($update->toArray());

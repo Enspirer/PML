@@ -41,28 +41,23 @@
 
         </div>
         <div class="col-4 col-xs-12 col-tab-12">
-            <div class="most-viewed-wrapper">
-                <h2 class="side-title">Most Viewed</h2>
-                <ul class="most-viewed">
-                    <li><i class="fas fa-play"></i>
-                    <span class="most-viewed-txt">
-                    Before You Move In to Your New Home
-                    </span></li>
-                    <li><i class="fas fa-play"></i>
-                    <span class="most-viewed-txt">
-                    Interior Designing Guide lines
-                    </span>
-                    </li>
-                    <li><i class="fas fa-play"></i>
-                    <span class="most-viewed-txt">
-                    The operation of the house’s components.
-                    </span>
-                </li>
-                    <li><i class="fas fa-play"></i>
-                    <span class="most-viewed-txt">Maintenance Responsibilities</span></li>
-                    <li><i class="fas fa-play"></i>  <span class="most-viewed-txt">Before You Move In to Your New Home</span></li>
-                </ul>
-            </div>
+
+            @if(count($random_posts) != 0)
+                <div class="most-viewed-wrapper">
+                    <h2 class="side-title">Most Viewed</h2>
+                    <ul class="most-viewed">                        
+                        @foreach($random_posts as $random_post)
+                        <a href="{{route('frontend.article',$random_post->id)}}" style="text-decoration:none; color:#212529">
+                            <li>
+                                <i class="fas fa-play"></i>
+                                <span class="most-viewed-txt">{{$random_post->title}}</span>
+                            </li>
+                        </a>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
 
             <div class="trending-wrapper">
                 <h2 class="side-title">Trending Now</h2>

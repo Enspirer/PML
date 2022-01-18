@@ -25,6 +25,7 @@
                                 <th scope="col">Title</th>
                                 <th scope="col">Type</th>
                                 <th scope="col">Order</th>
+                                <th scope="col">Featured</th>
                                 <th scope="col">Status</th>
                                 <th scope="col">Option</th>
                             </tr>
@@ -82,6 +83,7 @@
                     {data: 'title', name: 'title'},
                     {data: 'type', name: 'type'},
                     {data: 'order', name: 'order'},
+                    {data: 'featured', name: 'featured'},
                     {data: 'status', name: 'status'},
                     {data: 'action', name: 'action', orderable: false, searchable: false},
                 ]
