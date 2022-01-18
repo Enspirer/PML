@@ -526,7 +526,7 @@ div#near-cat-list::-webkit-scrollbar-thumb {
   }
 
   .email-modal-dialog {
-    width: 80%;
+    width: 90% !important;
   }
 
 
