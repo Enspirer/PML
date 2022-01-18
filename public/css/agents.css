@@ -112,7 +112,7 @@
     }
 
     .mobile-max-height {
-        max-height: 580px;
+        max-height: 590px !important;
     }
 }
 
