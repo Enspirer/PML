@@ -539,6 +539,11 @@ a.get-started:hover {
 
 /*mobile-view*/
 @media screen and (max-width: 767px) {
+
+    h1 {
+        font-size: 2rem !important;
+    }
+
     .menu-icon-card-row {
         display: grid;
         grid-gap: 1rem;
@@ -620,9 +625,10 @@ a.get-started:hover {
       }
 
       .container-fluid.home-search {
-        padding-top: 30px !important;
+        padding-top: 10px !important;
+        padding-bottom: 15px !important;
     }
-
+     
     .mobile-logo {
         width: 120px;
     }
@@ -636,16 +642,18 @@ a.get-started:hover {
     
     .top-row-wrapper.visible-xs {
         display: flex !important;
+        justify-content: space-around;
     }
 
     .mobile-logo-wrapper {
         display: block;
         text-align: center;
+        padding-left: 15px;
+        padding-right: 15px;
     }
 
     .mobile-menu-toggle {
         color: #fff;
-        margin-left: 15px;
     }
 
     .mobile-gap {
@@ -653,7 +661,7 @@ a.get-started:hover {
     }
 
     .search-wrapper {
-        margin-bottom: 15px;
+        margin-bottom: 10px;
     }
     
     button.btn.text-white.rounded-0.border-start {
@@ -670,7 +678,7 @@ a.get-started:hover {
     .profile-nav {
         display: flex !important;
         flex-direction: column;
-        gap: 30px;
+        gap: 25px;
         width: 90%;
         padding-left: 15px;
     }
@@ -686,6 +694,7 @@ a.get-started:hover {
         margin-left: 0;
         color: #fff;
         text-align: center;
+        margin-top: -15px !important;
     }
 
     .mobile-nav-link {
@@ -713,17 +722,25 @@ a.get-started:hover {
     .profile-nav a {
         color: #000;
         border: 1px solid #818181 !important;
-        border-right: 1px solid #818181 !important;;
+        border-right: 1px solid #818181 !important;
+        margin-top: 10px;
+
     }
 
     .profile-nav a:hover {
         color: #000;
     }
+
     div#drop-menu-mobile {
         padding: 0;
         position: absolute !important;
-        left: -45px !important;
-        top: -9px;
+        transform: unset !important;
+        left: -75px !important;
+        top: 55px !important;
+    }
+
+    .profile-wrapper {
+        position: relative;
     }
 
     .search-area-wrapper {
@@ -783,8 +800,17 @@ a.get-started:hover {
     }
 
     .mobile-bell-icon {
-        font-size: 2.2rem;
+        font-size: 2rem !important;
         color: #fff;
+    }
+
+    .mobile-bell-area {
+        padding-left: 0 !important; 
+    }
+
+    .mobile-profile {
+        padding-left: 0 !important; 
+        position: relative;
     }
 
     span.mobile-noti-counter {
@@ -794,8 +820,9 @@ a.get-started:hover {
         padding: 2px;
         color: #fff;
         position: absolute;
-        top: 0;
-        right: 0;
+        top: -3px;
+        right: -6px;
+        font-size: 0.5rem;
     }
 
     .top-row-wrapper.visible-xs {
@@ -821,6 +848,10 @@ a.get-started:hover {
         display: flex;
         padding: 15px;
         align-items: center;
+    }
+
+    .mobile-country-list {
+        width: 84%;
     }
     
 }
@@ -1111,6 +1142,7 @@ a.get-started:hover {
         right: 0px !important;
         margin-right: 10px;
     }
+    
 }
 
 /* small laptop */

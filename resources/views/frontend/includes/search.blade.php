@@ -2,7 +2,7 @@
     <div class="container main-menu-helper">
         <form action="{{route('frontend.property.search')}}" method="post" enctype="multipart/form-data">
             {{csrf_field()}}
-            <div class="row justify-content-center mobile-gap">
+            <div class="row justify-content-center">
 
                 <div class="left-toggle hidden-xs">
                     <!-- <div class="btn-group left-toggle-btn-group" role="group" aria-label="Basic example">
