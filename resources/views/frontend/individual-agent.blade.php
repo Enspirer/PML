@@ -17,6 +17,19 @@
 <div class="individual-agent-banner">
     <img src="{{ uploaded_asset($agent_details->cover_photo) }}" alt="agent-banner" style="height:550px; object-fit:cover">
 </div>
+
+<div class="container index" style="margin-top: 2rem;">
+    <div class="row">
+        <div class="col-12">
+            <p><a href="" class="text-decoration-none text-dark fw-bold">Property Market Live</a>
+                ><a href="" class="text-decoration-none text-dark fw-bold">Agents</a>
+              
+
+                > <a href="" class="text-decoration-none text-dark fw-bold">Agent Profile</a>
+            </p>
+        </div>
+    </div>
+</div>
 <div class="container agent-container">
     <!-- agent main area -->
     <div class="agent-main-area">
@@ -41,7 +54,7 @@
                 
                 <div class="inner-row-wrapper">
                     <div class="property-count-wrapper">
-                    <h5 style="margin-bottom:10px !important;" class="fw-bold title mobile-h5">Homes on Property Market Live</h5>
+                    <h5 style="margin-bottom:10px !important;" class="fw-bold title mobile-i-agent-h5">Homes on Property Market Live</h5>
                         <div class="count-box-wrapper">
                             <div class="count-box">
                                 <span class="number">{{ App\Models\Properties::where('user_id',$agent_details->user_id)->where('transaction_type','sale')->get()->count() }}</span>

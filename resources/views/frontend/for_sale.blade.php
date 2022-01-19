@@ -146,7 +146,7 @@
 
             <!-- mobile area -->
             <div class="row justify-content-center custom-shadow p-3 mb-4 visible-xs sale-mobile-area">
-                <div class="">
+                <div class="mobile-p-0">
 
                     <div class="sale-btns-area">
                         @auth
@@ -248,7 +248,7 @@
                             @endif
                         </a>
 
-                        <div class="card-body mt-2" style="margin-top:30px !important;">
+                        <div class="for-sale-card-body-mobile card-body mt-2">
                             <div class="row mb-2">
                                 <div class="col-10">
                                     <h5 class="fw-bold">{{ get_currency(request() ,$property_pro->price)}}</h5>
@@ -356,7 +356,7 @@
                     @foreach($properties as $key => $normal)
                     @if($normal->premium == 'Enabled')
                     <div class="row custom-shadow mb-4 mx-1">
-                        <div class="col-6 p-3 col-xs-12">
+                        <div class="col-6 p-3 col-xs-12 mobile-m-0">
                             <div class="swiper mySwiper2" id="swiper_2{{$normal->id}}">
                                 <div class="swiper-wrapper">
                                     @php
@@ -388,13 +388,13 @@
                             </div>
                         </div>
 
-                        <div class="col-6 p-3 col-xs-12">
+                        <div class="col-6 p-3 col-xs-12 mobile-p-0">
                             <div class="row align-items-center mb-4 pt-4">
                                 <div class="col-6">
                                     <div class="row">
-                                        <div class="col-9">
+                                        <div class="tag-premium">
                                             <div class="py-1 text-center" style="background-color: #FF0000;">
-                                                <p class="text-white">Premium Listing</p>
+                                                <p style="white-space: nowrap;padding:5px 10px;" class="text-white">Premium Listing</p>
                                             </div>
                                         </div>
                                         <div class="col-3">
@@ -511,7 +511,7 @@
                     @else
 
                     <div class="row custom-shadow mb-4 mx-1">
-                        <div class="col-6 p-3">
+                        <div class="col-6 p-3 col-xs-12">
                             <div class="swiper mySwiper2" id="swiper_2{{$normal->id}}">
                                 <div class="swiper-wrapper">
                                     @php
@@ -543,7 +543,7 @@
                             </div>
                         </div>
 
-                        <div class="col-6 p-3">
+                        <div class="col-6 p-3 col-xs-12">
                             <div class="row align-items-center mb-4 pt-4">
                                 <div class="col-6">
 

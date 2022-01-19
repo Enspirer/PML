@@ -69,7 +69,19 @@
         padding-left: 15px !important;
         padding-right: 15px;
     }
+
+    .mobile-full-bar {
+        display: flex !important;
+        justify-content: space-between;
+        margin-top: 15px;
+    }
     
+    .container.index {
+        margin-top: 0 !important;
+        background: #e6e9eb;
+        padding-top: 15px;
+    }
+
     .banner {
         height: 575px;
         background: transparent !important;
@@ -95,6 +107,7 @@
 
     .find-agent-full-color {
         background-color: #e6e9eb;
+        margin-top: 0 !important;
     }
 
     .mobile-find-agent-btn {

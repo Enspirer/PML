@@ -78,6 +78,9 @@
                         </div>
                     </div>
                 </div>
+
+
+
                 
                 @if($selected_country == 'country')
                     <h4 class="mt-4">All Agents</h4>
@@ -86,11 +89,13 @@
                 @endif
                     
                 <div class="row align-items-center">
-                    <div class="col-6 col-xs-12">
+
+                    <!-- desktop agents details row -->
+                    <div class="col-6 col-xs-12 hidden-xs">
                         <p>{{$count_for_sale}} agents available</p>
                     </div>
 
-                    <div class="col-6 col-xs-12">
+                    <div class="col-6 col-xs-12 hidden-xs">
                         <div class="row align-items-center justify-content-end">
                             <div class="col-6 text-end">
                                 <p style="color: black;">
@@ -103,6 +108,27 @@
                             </div>
                         </div>
                     </div>
+
+
+                    <!-- mobile agent details row -->
+                    <div class="mobile-full-bar visible-xs">
+                        <p>{{$count_for_sale}} agents available</p>
+
+                        <div class="">
+                                <p style="color: black;">
+                                    <i class="fas fa-sort-amount-down"></i>
+                                    Sort By:
+                                    <select name="" class="border-0" style="color: #FF0000">
+                                        <option value="most_recent">Most Recent</option>
+                                    </select>
+                                </p>
+                        </div>
+
+
+                    </div>
+
+
+
                 </div>
 
                 

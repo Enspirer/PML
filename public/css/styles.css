@@ -678,7 +678,7 @@ a.get-started:hover {
     .profile-nav {
         display: flex !important;
         flex-direction: column;
-        gap: 25px;
+        gap: 10px;
         width: 90%;
         padding-left: 15px;
     }
@@ -692,9 +692,8 @@ a.get-started:hover {
     }
     a.add-property-btn {
         margin-left: 0;
-        color: #fff;
-        text-align: center;
-        margin-top: -15px !important;
+        color: #fff !important;
+        text-align: center;;
     }
 
     .mobile-nav-link {
@@ -962,6 +961,7 @@ a.get-started:hover {
         margin-left: 0;
         color: #fff;
         text-align: center;
+        margin-top: -15px !important;
     }
 
     .mobile-nav-link {
@@ -989,6 +989,7 @@ a.get-started:hover {
     .profile-nav a {
         color: #000;
         border: 1px solid #818181 !important;
+        margin-top: 10px;
     }
 
     .profile-nav a:hover {
@@ -1142,6 +1143,10 @@ a.get-started:hover {
         top: -9px;
         right: 0px !important;
         margin-right: 10px;
+    }
+
+    .mobile-country-list {
+        width: 84%;
     }
     
 }

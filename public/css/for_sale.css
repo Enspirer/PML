@@ -115,7 +115,7 @@ background-color: #35495E;
     flex-direction: row;
     position: relative;
     padding-bottom: 15px;
-    z-index: 100;
+    z-index: 2;
     gap: 15px;
     overflow: auto hidden;
     scroll-behavior: smooth;
@@ -127,8 +127,29 @@ background-color: #35495E;
     color: #fff !important;
 }
 
+.for-sale-card-body-mobile.card-body.mt-2 {
+    margin-top: 30px !important;
+}
+
+.tag-premium {
+    width: max-content;
+}
+
+
 /*mobile-view*/
 @media screen and (max-width: 767px) {
+
+    .mobile-m-0 {
+        margin-bottom: 0;
+    }
+
+    .mobile-p-0 {
+        padding-top: 0 !important;
+    }
+
+    .prom-logo {
+        top: 7.5rem;
+    }
 
     .sale-mobile-area {
         background: white;
@@ -173,16 +194,46 @@ background-color: #35495E;
         height: 2.5rem;
     }
 
-    
+    .mobile-p-0  {
+        padding-left: 0;
+        padding-right: 0;
+    }
+ 
+    .for-sale-card-body-mobile.card-body.mt-2 {
+        padding: 15px !important;
+        margin-top: 60px !important;
+    }
 }
 
 /*tab-portrait*/
 @media (min-width: 768px) and (max-width: 991px) {
 
+    .sale-btns-area {
+        display: flex;
+        gap: 15px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .sale-mobile-area {
+        background: white;
+        border: 0;
+        box-shadow: unset;
+    }
+
+    .mobile-full-bar {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 15px;
+        margin-top: 5px;
+    }
+
     .filter-btn-area-mobile{ 
         overflow: scroll hidden;
         scroll-behavior: smooth;
         scroll-snap-type: both mandatory;
+        margin-top: 15px;
+        z-index: 2;
     }
         
   
@@ -200,6 +251,10 @@ background-color: #35495E;
     }
     .tab-mb-30 {
         margin-bottom: 30px;
+    }
+
+    .featured_properties .col-tab-50 {
+        margin-bottom: 15px;
     }
 }
 

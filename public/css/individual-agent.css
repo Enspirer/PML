@@ -196,8 +196,13 @@ a.ad-btn {
 
 /*mobile-view*/
 @media screen and (max-width: 767px) {
-    .individual-agent-banner img {
-        padding-top: 0;
+
+    .mobile-i-agent-h5 {
+        font-size: 0.7rem;
+    }
+
+    .individual-agent-banner {
+        display: none;
     }
 
     .agent-container {
@@ -218,23 +223,47 @@ a.ad-btn {
         height: 250px;
     }
 
-    .inner-row-wrapper {
-        flex-direction: column;
-        align-items: center;
-        margin-top: 15px;
-        margin-bottom: 15px;
+    .agent-profile-area {
+        padding-left: 15px;
+        padding-right: 15px;
     }
+
+    .agent-main-area {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .agent-txt-main h1 {
+        font-size: 1.5rem !important;
+    }
+
+    .inner-row-wrapper {
+        flex-direction: row-reverse;
+        align-items: center;
+        margin-bottom: 15px;
+        padding-left: 0;
+        gap: 15px;
+        justify-content: center;
+    }
+
+   
 
     .individual-agent-banner img {
         height: 250px !important;
     }
 
     .count-box-wrapper {
-        gap: 50px;
+        gap: 15px;
     }
 
     .agent-contact-btn {
-        width: 225px;
+        width: 150px;
+        font-size: 0.6rem;
+        padding: 10px 10px;
+    }
+
+    span.icon {
+        padding-right: 10px;
     }
 
     .profile-pic {
@@ -242,7 +271,22 @@ a.ad-btn {
     }
 
     #agent-prof {
-        top: -45px;
+        position: unset;
+        width: 100px;
+        height: 100px;
+        object-fit: contain;
+    }
+
+    span.number {
+        font-size: 1rem;
+    }
+
+    .agent-flex-row {
+        margin-top: 15px;
+    }
+
+    .agent-txt-main {
+        padding-left: 0;
     }
 }
 

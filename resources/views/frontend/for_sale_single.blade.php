@@ -956,7 +956,7 @@ button.close:hover {
             <div class="row mt-5 similar">
                 <div class="col-12">
                     <h5 class="fw-bold">You may also like</h5>
-
+                    <!-- you may like desktop version -->
                     <div class="row mt-3">
                         @foreach($random as $ran)
                         <div class="col-4 col-xs-12 col-tab-50">
@@ -1139,6 +1139,14 @@ button.close:hover {
                                 </div>
                             </div> -->
                     </div>
+
+                   
+
+
+
+
+
+
                 </div>
             </div>
 
@@ -1614,14 +1622,12 @@ function changePanaroma(panaromalId) {
 
 <!-- near cat btn change -->
 <script>
-
-    $(document).ready(function(){
-        $('.near-cat-btn').click(function(){
-            $('.near-cat-btn').removeClass("active-cat-btn");
-            $(this).addClass("active-cat-btn");
-        });
+$(document).ready(function() {
+    $('.near-cat-btn').click(function() {
+        $('.near-cat-btn').removeClass("active-cat-btn");
+        $(this).addClass("active-cat-btn");
     });
-
+});
 </script>
 
 <script>
@@ -2105,7 +2111,7 @@ function initMap() {
         map: map
     });
 
-    
+
 
     let markers = [];
 
@@ -2187,7 +2193,7 @@ function initMap() {
     })
 
 
-//----------------restuarant-----------------------
+    //----------------restuarant-----------------------
     $("#restuarant").click(function() {
 
         for (var i = 0; i < markers.length; i++) {
@@ -2222,7 +2228,7 @@ function initMap() {
             markers.push(marker);
         }
 
-       
+
     })
 
 
@@ -2261,7 +2267,7 @@ function initMap() {
             markers.push(marker);
         }
 
-  
+
     })
 
 
@@ -2304,8 +2310,8 @@ function initMap() {
     })
 
 
-     //----------------hospital-----------------------
-     $("#hospital").click(function() {
+    //----------------hospital-----------------------
+    $("#hospital").click(function() {
 
         for (var i = 0; i < markers.length; i++) {
 
@@ -2313,8 +2319,7 @@ function initMap() {
         }
 
 
-        let hospitalLocations = [
-            {
+        let hospitalLocations = [{
                 id: 1,
                 lat: 50.5671,
                 lng: 11.5892,
@@ -2344,44 +2349,43 @@ function initMap() {
     })
 
 
-       //----------------gym-----------------------
-       $("#gym").click(function() {
+    //----------------gym-----------------------
+    $("#gym").click(function() {
 
-            for (var i = 0; i < markers.length; i++) {
+        for (var i = 0; i < markers.length; i++) {
 
-                markers[i].setMap(null);
+            markers[i].setMap(null);
+        }
+
+
+        let gymLocations = [{
+                id: 1,
+                lat: 50.9671,
+                lng: 10.5892,
+                type: "gym"
+            },
+            {
+                id: 2,
+                lat: 50.5608,
+                lng: 11.3692,
+                type: "gym"
             }
+        ];
 
 
-            let gymLocations = [
-                {
-                    id: 1,
-                    lat: 50.9671,
-                    lng: 10.5892,
-                    type: "gym"
-                },
-                {
-                    id: 2,
-                    lat: 50.5608,
-                    lng: 11.3692,
-                    type: "gym"
-                }
-            ];
+        for (var i = 0; i < gymLocations.length; i++) {
+
+            var marker = new google.maps.Marker({
+                map: map,
+                position: gymLocations[i],
+                icon: icons[gymLocations[i].type].icon,
+            });
+
+            markers.push(marker);
+        }
 
 
-            for (var i = 0; i < gymLocations.length; i++) {
-
-                var marker = new google.maps.Marker({
-                    map: map,
-                    position: gymLocations[i],
-                    icon: icons[gymLocations[i].type].icon,
-                });
-
-                markers.push(marker);
-            }
-
-
-        })
+    })
 
 
 
