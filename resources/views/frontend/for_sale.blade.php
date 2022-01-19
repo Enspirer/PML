@@ -329,7 +329,7 @@
                                 <a href="{{route('frontend.individual_agent',App\Models\AgentRequest::where('user_id',$property_pro->user_id)->first()->id)}}"
                                     style="">
                                     <img src="{{ uploaded_asset(App\Models\AgentRequest::where('user_id',$property_pro->user_id)->first()->logo) }}"
-                                        width="50%" style="object-fit:cover">
+                                        width="50%" class="mobile-agent-squre-img" style="object-fit:cover">
                                 </a>
                                 @endif
                             </div>

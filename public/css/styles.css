@@ -540,6 +540,10 @@ a.get-started:hover {
 /*mobile-view*/
 @media screen and (max-width: 767px) {
 
+    .mobile-agent-squre-img {
+        height: 75px;
+    }
+
     h1 {
         font-size: 2rem !important;
     }
