@@ -206,7 +206,9 @@ a.ad-btn {
         font-size: 0.7rem;
     }
 
- 
+    .container.index {
+        margin-left: 10px;
+    }
 
     .individual-agent-banner {
         display: none;
