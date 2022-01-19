@@ -672,7 +672,7 @@
 
 <script>
 var swiper = new Swiper(".mySwiper", {
-    slidesPerView: 4,
+    slidesPerView: 3,
     slidePerGroup: 1,
     spaceBetween: 20,
     // spaceBetween: 20,
@@ -690,13 +690,18 @@ var swiper = new Swiper(".mySwiper", {
         0: {
             slidesPerView: 1,
         },
-
         576: {
             slidesPerView: 2,
         },
+
         768: {
             slidesPerView: 2,
+        },
+
+        991: {
+            slidesPerView: 3,
         }
+
     },
 
 });
