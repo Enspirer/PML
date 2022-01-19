@@ -598,6 +598,9 @@ div#near-cat-list::-webkit-scrollbar-thumb {
 
   .demo-gallery > ul {
     padding-left: 0;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
   }
 
   .modal-body.light-gallery-body {
