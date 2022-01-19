@@ -834,6 +834,7 @@ a.get-started:hover {
         height: unset;
         margin: 0;
         padding-right: 15px;
+        filter: invert(1);
     }
 
     button#closeMainMenu {
