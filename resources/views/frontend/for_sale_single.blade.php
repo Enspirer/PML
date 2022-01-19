@@ -2136,6 +2136,15 @@ function initMap() {
             markers[i].setMap(null);
         }
 
+
+        $.ajax ({
+            type: "GET",
+            url: 
+            success: function(data) {
+                
+            }
+        });
+
         let shoppingLocations = [{
                 id: 1,
                 lat: 50.9474,

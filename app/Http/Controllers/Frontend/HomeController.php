@@ -700,6 +700,11 @@ class HomeController extends Controller
     }
 
 
+    public function near_location() {
+        
+    }
+
 
 }
+
 

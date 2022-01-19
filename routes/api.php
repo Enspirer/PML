@@ -25,6 +25,7 @@ Route::get('findLocationWithCountryID/{id}', [AgentController::class, 'findLocat
 Route::get('map_api', [HomeController::class, 'map_api'])->name('map_api');
 Route::get('nest_property/{lng}/{lat}', [HomeController::class, 'nest_property'])->name('nest_property');
 Route::post('fetch', [HomeController::class, 'fetch'])->name('fetch');
+Route::get('near_location/{property_id}', [HomeController::class, 'near_location'])->name('near_location');
 
 
 
