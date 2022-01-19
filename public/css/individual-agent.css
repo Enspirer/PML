@@ -202,6 +202,10 @@ a.ad-btn {
 /*mobile-view*/
 @media screen and (max-width: 767px) {
 
+    .agent-contact-wrapper {
+        flex: 2;
+    }
+
     .mobile-i-agent-h5 {
         font-size: 0.7rem;
     }
@@ -266,7 +270,7 @@ a.ad-btn {
     }
 
     .agent-contact-btn {
-        width: 150px;
+        width: 100%;
         font-size: 0.6rem;
         padding: 10px 10px;
     }
