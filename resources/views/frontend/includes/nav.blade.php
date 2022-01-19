@@ -227,10 +227,10 @@
 
             @if(isset(get_country_cookie(request())->country_id))
 
-            <form action="{{route('frontend.country_change')}}" method="post">
+            <form action="{{route('frontend.country_change')}}" method="post" style="margin-bottom:25px;">
                 {{csrf_field()}}
 
-                <select name="countries_list" class="position-absolute me-3" style="margin-bottom:25px;" onchange="this.form.submit()">
+                <select name="countries_list" class="position-absolute me-3" onchange="this.form.submit()">
                     <option value="" selected disabled>Select Your Country</option>
 
                     @foreach($tpr_countries as $tpr_country)
