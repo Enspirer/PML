@@ -445,24 +445,18 @@ button.close:hover {
                     aria-hidden="true">
                     <div class="modal-dialog modal-lg">
                         <div class="modal-content">
-                            <button type="button" class="btn-close all-modal-close" data-dismiss="modal"
-                                aria-label="Close"></button>
+                            <button type="button" class="all-modal-close" data-dismiss="modal"
+                                aria-label="Close"><i class="far fa-times-circle"></i></button>
                             <!-- <div class="modal-header">
                                 <h5 class="modal-title" id="videoModalLabel">All</h5>
                              
                             </div> -->
                             <div class="modal-body text-center">
-
-
-
-
-
-
+                   
                                 <div class="tab-content" id="myTabContent">
+                                    <!-- 360 tab -->
                                     <div class="tab-pane fade show active" id="virtual" role="tabpanel"
                                         aria-labelledby="virtual-tab">360</div>
-
-
 
                                     <!-- photo tab -->
                                     <div class="tab-pane fade" id="photo" role="tabpanel" aria-labelledby="photo-tab">
@@ -491,10 +485,18 @@ button.close:hover {
 
                                     </div>
 
-
-
+                                    <!-- video tab -->
                                     <div class="tab-pane fade" id="video" role="tabpanel" aria-labelledby="video-tab">
                                         Video</div>
+
+                                    <!-- map tab -->
+                                    <div class="tab-pane fade" id="all-map" role="tabpanel"
+                                        aria-labelledby="all-map-tab">
+                                        <div id="map-all" style="height: 400px; width: 100%"></div>
+                                    </div>
+
+
+
                                 </div>
 
 
@@ -522,6 +524,11 @@ button.close:hover {
                                         <button class="nav-link all-btn" id="video-tab" data-bs-toggle="tab"
                                             data-bs-target="#video" type="button" role="tab" aria-controls="video"
                                             aria-selected="false">Video</button>
+                                    </li>
+                                    <li class="nav-item all-nav-item" role="presentation">
+                                        <button class="nav-link all-btn" id="all-map-tab" data-bs-toggle="tab"
+                                            data-bs-target="#all-map" type="button" role="tab" aria-controls="all-map"
+                                            aria-selected="false">Map</button>
                                     </li>
                                 </ul>
                                 <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
@@ -2213,6 +2220,8 @@ function initMap() {
         position: myLatLng,
         map: map
     });
+
+
 
 
 
