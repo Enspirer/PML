@@ -255,6 +255,7 @@ ul.option-list li a:hover {
     transform: scale3d(1, 1, 1);
     height: 150px;
     width: 150px;
+    object-fit: cover;
   }
   
   .demo-gallery > ul > li a:hover > img {
