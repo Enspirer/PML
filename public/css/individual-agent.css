@@ -194,6 +194,11 @@ a.ad-btn {
     padding-top: 103px;
 }
 
+.container.index {
+    position: relative;
+    left: 200px;
+}
+
 /*mobile-view*/
 @media screen and (max-width: 767px) {
 
