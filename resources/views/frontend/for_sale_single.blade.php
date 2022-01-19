@@ -492,9 +492,15 @@ button.close:hover {
                                     <!-- map tab -->
                                     <div class="tab-pane fade" id="all-map" role="tabpanel"
                                         aria-labelledby="all-map-tab">
-                                        <div id="map-all" style="height: 400px; width: 100%"></div>
+                                        map here
                                     </div>
 
+
+                                     <!-- flow plan tab -->
+                                     <div class="tab-pane fade" id="flow-plan" role="tabpanel"
+                                        aria-labelledby="flow-plan-tab">
+                                        flow plan here
+                                    </div>
 
 
                                 </div>
@@ -507,11 +513,14 @@ button.close:hover {
                                 <ul class="nav nav-tabs all-nav-tabs" id="myTab" role="tablist">
 
 
+                                    <!--------- 360 ------------>
                                     <li class="nav-item all-nav-item" role="presentation">
                                         <button class="nav-link active all-btn" id="virtual-tab" data-bs-toggle="tab"
                                             data-bs-target="#virtual" type="button" role="tab" aria-controls="virtual"
                                             aria-selected="true">360<sup>0</sup></button>
                                     </li>
+
+                                    
 
 
                                     <!-- photo -->
@@ -520,16 +529,29 @@ button.close:hover {
                                             data-bs-target="#photo" type="button" role="tab" aria-controls="photo"
                                             aria-selected="false">Photo</button>
                                     </li>
+
+                                    <!-------video------------>
                                     <li class="nav-item all-nav-item" role="presentation">
                                         <button class="nav-link all-btn" id="video-tab" data-bs-toggle="tab"
                                             data-bs-target="#video" type="button" role="tab" aria-controls="video"
                                             aria-selected="false">Video</button>
                                     </li>
+
+                                    <!------------- direction  ---------->
                                     <li class="nav-item all-nav-item" role="presentation">
                                         <button class="nav-link all-btn" id="all-map-tab" data-bs-toggle="tab"
                                             data-bs-target="#all-map" type="button" role="tab" aria-controls="all-map"
-                                            aria-selected="false">Map</button>
+                                            aria-selected="false">Direction</button>
                                     </li>
+
+                                    <!---------- flow plan------------>
+                                    <li class="nav-item all-nav-item" role="presentation">
+                                        <button class="nav-link all-btn" id="flow-plan-tab" data-bs-toggle="tab"
+                                            data-bs-target="#flow-plan" type="button" role="tab" aria-controls="flow-plan-tab"
+                                            aria-selected="false">Flow Plan</button>
+                                    </li>
+
+
                                 </ul>
                                 <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
                                 <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
@@ -567,6 +589,7 @@ button.close:hover {
                         <!-- mobile option list -->
                         <div class="option-list-wrapper">
                             <ul class="option-list-mobile visible-xs">
+
                                 @if($property->panaromal_status == 'google_panaroma')
                                 @if($property->google_panaroma != null)
                                 <li><a href="" data-toggle="modal" data-target="#threesixtyModal"><i
@@ -575,10 +598,12 @@ button.close:hover {
                                 @else
                                 <li><i class="fas fa-redo-alt"></i>360<sup>0</sup></li>
                                 @endif
+
                                 <li>
                                     <a href="#" data-toggle="modal" data-target="#photoModal"><i
                                             class="fas fa-camera"></i>Photo</a>
                                 </li>
+
                                 @if($property->video != null)
                                 <li>
                                     <a href="#" data-toggle="modal" data-target="#videoModal"><i
@@ -588,10 +613,13 @@ button.close:hover {
                                 <li><i class="fas fa-video"></i>Video</li>
                                 @endif
 
+
                                 <li>
                                     <a href="#" data-toggle="modal" data-target="#"><i
                                             class="fas fa-directions"></i>Direction</a>
                                 </li>
+
+
                                 @if($property->flow_plan != null)
                                 <li class="last-item">
                                     <a href="#" data-toggle="modal" data-target="#flow_plan_modal"><i
@@ -600,6 +628,8 @@ button.close:hover {
                                 @else
                                 <li class="last-item"><i class="far fa-map"></i>Flow Plan</li>
                                 @endif
+
+                                
 
                             </ul>
                         </div>

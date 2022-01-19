@@ -522,6 +522,7 @@ div#all_property_model .modal-content {
   border-radius: 0;
   position: relative;
   background-color: #16202c;
+  color: #fff;
 }
 
 div#all_property_model .modal-body {
