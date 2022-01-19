@@ -700,7 +700,7 @@ class HomeController extends Controller
     }
 
 
-    public function near_location() {
+    public function near_location($property_id) {
         
     }
 
