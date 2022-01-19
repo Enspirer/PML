@@ -90,6 +90,7 @@ background-color: #35495E;
 
 .single-filter-btn {
     width: max-content;
+    white-space: nowrap;
 }
 
 .card {
@@ -104,18 +105,61 @@ background-color: #35495E;
     margin-bottom: 15px !important;
 }
 
+.row.mt-4.align-items-center.btn-filters {
+    margin-top: 0 !important;
+}
+
+
+.filter-btn-area-mobile{
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    padding-bottom: 15px;
+    z-index: 100;
+    gap: 15px;
+    overflow: auto hidden;
+    scroll-behavior: smooth;
+    scroll-snap-type: both mandatory;
+}
+
+.active-room {
+    background: #35495e !important;
+    color: #fff !important;
+}
+
 /*mobile-view*/
 @media screen and (max-width: 767px) {
-    .single-filter-btn {
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        width: 100%;
-    }
-    .single-filter-btn a {
-        margin-bottom: 5px;
+
+    .sale-mobile-area {
+        background: white;
+        border: 0;
+        box-shadow: unset;
     }
 
+    .sale-btns-area {
+        display: flex;
+        gap: 15px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .mobile-full-bar {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 15px;
+        margin-top: 5px;
+    }
+
+    .mobile-filter {
+        margin-bottom: 30px;
+    }
+    
+    .filter-btn-area-mobile{ 
+        overflow: scroll hidden;
+        scroll-behavior: smooth;
+        scroll-snap-type: both mandatory;
+    }
+        
     .sidebar-card-area {
         padding-left: 15px;
         padding-right: 15px;
@@ -128,10 +172,19 @@ background-color: #35495E;
     .logo {
         height: 2.5rem;
     }
+
+    
 }
 
 /*tab-portrait*/
 @media (min-width: 768px) and (max-width: 991px) {
+
+    .filter-btn-area-mobile{ 
+        overflow: scroll hidden;
+        scroll-behavior: smooth;
+        scroll-snap-type: both mandatory;
+    }
+        
   
     .tab-full-btn {
         width: 100% !important;
