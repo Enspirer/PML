@@ -837,7 +837,8 @@ a.get-started:hover {
     }
 
     button#closeMainMenu {
-        top: 5px;
+        top: 10px;
+        right: 10px;
     }
 
     .mobile-menu-icon-card-wrapper {

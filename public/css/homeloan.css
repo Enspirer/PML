@@ -76,6 +76,10 @@
         flex-direction: column;
     }
 
+    .p-d-inner-wrapper img {
+        width: 100%;
+    }
+
     .slider-container {
         width: 90%;
         margin-left: auto;
