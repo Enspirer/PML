@@ -512,6 +512,66 @@ div#near-cat-list::-webkit-scrollbar-thumb {
   color: #fff;
 }
 
+/*for sale single*/
+div#all_property_model .modal-dialog.modal-lg {
+  max-width: 95%;
+}
+
+div#all_property_model .modal-content {
+  border-radius: 0;
+  position: relative;
+  background-color: #16202c;
+}
+
+div#all_property_model .modal-body {
+  position: relative;
+  height: 80vh;
+}
+
+div#all_property_model .modal-footer {
+  justify-content: center;
+  padding: 0;
+  min-height: 0;
+  border: 0;
+}
+
+.all-modal-close {
+  top: 15px;
+  left: 15px;
+  position: absolute;
+  z-index: 3;
+}
+
+.all-nav-tabs {
+  width: 100%;
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+
+.all-btn {
+  width: 100%;
+  border-radius: 0 !important;
+  color: #fff;
+  border: 0;
+  height: 100%;
+}
+
+.all-btn:hover {
+  border: 0;
+  background-color: #fff;
+  color: #000;
+}
+
+.nav-link.all-btn.active {
+  background-color: #39b54a;
+  color: #fff;
+  border: 0;
+}
+
+.all-nav-item {
+  flex: 1;
+}
 
 /*mobile-view*/
 @media screen and (max-width: 767px) {

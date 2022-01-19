@@ -285,6 +285,10 @@ button.close:hover {
                                 <li class="last-item"><i class="far fa-map"></i>Flow Plan</li>
                                 @endif
 
+                                <li class="last-item">
+                                    <a href="#" data-toggle="modal" data-target="#all_property_model"><i
+                                            class="far fa-map"></i>All</a>
+
                             </ul>
                         </div>
                     </div>
@@ -316,9 +320,6 @@ button.close:hover {
                     aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content lightgallery-content">
-                            <!-- <div class="modal-header">
-                        
-                    </div> -->
                             <div class="modal-body light-gallery-body">
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span class="light-gallery-close" aria-hidden="true">&times;</span>
@@ -331,7 +332,7 @@ button.close:hover {
                         Labels with thumbnails to detect click event
                         Main Image
                         -->
-                                <div class="cont">
+                                <!-- <div class="cont">
 
 
                                     <div class="demo-gallery">
@@ -351,7 +352,7 @@ button.close:hover {
                                         </ul>
                                         <span class="small">Click on any of the images to see lightGallery</span>
                                     </div>
-                                </div>
+                                </div> -->
 
 
                             </div>
@@ -438,6 +439,97 @@ button.close:hover {
                     </div>
                 </div>
 
+
+                <!-- All Property Model -->
+                <div class="modal fade" id="all_property_model" tabindex="-1" aria-labelledby="all_property_model"
+                    aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <button type="button" class="btn-close all-modal-close" data-dismiss="modal"
+                                aria-label="Close"></button>
+                            <!-- <div class="modal-header">
+                                <h5 class="modal-title" id="videoModalLabel">All</h5>
+                             
+                            </div> -->
+                            <div class="modal-body text-center">
+
+
+
+
+
+
+                                <div class="tab-content" id="myTabContent">
+                                    <div class="tab-pane fade show active" id="virtual" role="tabpanel"
+                                        aria-labelledby="virtual-tab">360</div>
+
+
+
+                                    <!-- photo tab -->
+                                    <div class="tab-pane fade" id="photo" role="tabpanel" aria-labelledby="photo-tab">
+
+                                        <div class="cont">
+                                            <div class="demo-gallery">
+                                                <ul id="lightgallery">
+                                                    @foreach($str_arr2 as $key=> $pre)
+                                                    <li data-responsive="{{ uploaded_asset($pre) }}"
+                                                        data-src="{{ uploaded_asset($pre) }}" data-sub-html="">
+                                                        <a href="">
+                                                            <img class="img-responsive"
+                                                                src="{{ uploaded_asset($pre) }}">
+                                                            <div class="demo-gallery-poster">
+                                                                <img
+                                                                    src="https://sachinchoolur.github.io/lightgallery.js/static/img/zoom.png">
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                                    @endforeach
+                                                </ul>
+                                                <span class="small">Click on any of the images to see
+                                                    lightGallery</span>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+
+
+                                    <div class="tab-pane fade" id="video" role="tabpanel" aria-labelledby="video-tab">
+                                        Video</div>
+                                </div>
+
+
+
+
+                            </div>
+                            <div class="modal-footer">
+                                <ul class="nav nav-tabs all-nav-tabs" id="myTab" role="tablist">
+
+
+                                    <li class="nav-item all-nav-item" role="presentation">
+                                        <button class="nav-link active all-btn" id="virtual-tab" data-bs-toggle="tab"
+                                            data-bs-target="#virtual" type="button" role="tab" aria-controls="virtual"
+                                            aria-selected="true">360<sup>0</sup></button>
+                                    </li>
+
+
+                                    <!-- photo -->
+                                    <li class="nav-item all-nav-item" role="presentation">
+                                        <button class="nav-link all-btn" id="photo-tab" data-bs-toggle="tab"
+                                            data-bs-target="#photo" type="button" role="tab" aria-controls="photo"
+                                            aria-selected="false">Photo</button>
+                                    </li>
+                                    <li class="nav-item all-nav-item" role="presentation">
+                                        <button class="nav-link all-btn" id="video-tab" data-bs-toggle="tab"
+                                            data-bs-target="#video" type="button" role="tab" aria-controls="video"
+                                            aria-selected="false">Video</button>
+                                    </li>
+                                </ul>
+                                <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+                                <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
 
 
@@ -2137,13 +2229,13 @@ function initMap() {
         }
 
 
-        $.ajax ({
-            type: "GET",
-            url: 
-            success: function(data) {
-                
-            }
-        });
+        // $.ajax ({
+        //     type: "GET",
+        //     url: 
+        //     success: function(data) {
+
+        //     }
+        // });
 
         let shoppingLocations = [{
                 id: 1,
