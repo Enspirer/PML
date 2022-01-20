@@ -487,6 +487,10 @@ ul.option-list li a:hover {
   color: #fff;
 }
 
+.all-modal-i {
+  padding-right: 5px;
+}
+
 /* div#near-cat-list::-webkit-scrollbar-track {
   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
 	border-radius: 10px;
@@ -573,6 +577,13 @@ div#all_property_model .modal-footer {
   background-color: #39b54a;
   color: #fff;
   border: 0;
+}
+
+.nav-link.inactive {
+  background-color: #eb0000;
+  width: 100%;
+  border-radius: 0;
+  color: #fff;
 }
 
 .all-nav-item {
@@ -665,8 +676,22 @@ div#all_property_model .modal-footer {
   .demo-gallery > ul {
     padding-left: 0;
     justify-content: center;
-    display: flex;
-    flex-direction: column;
+    display: inline-block;
+    flex-direction: unset;
+  }
+
+  .all-btn {
+    width: max-content;
+  }
+
+  button#flow-plan-tab {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .demo-gallery > ul > li a > img {
+    width: 100px;
+    height: 100px;
   }
 
   .modal-body.light-gallery-body {

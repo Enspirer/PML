@@ -253,41 +253,78 @@ button.close:hover {
                         <div class="option-list-wrapper">
                             <ul class="option-list hidden-xs">
                                 @if($property->panaromal_status == 'google_panaroma')
-                                @if($property->google_panaroma != null)
-                                <li><a href="" data-toggle="modal" data-target="#threesixtyModal"><i
-                                            class="fas fa-redo-alt"></i>360<sup>0</sup></a></li>
-                                @endif
+                                    @if($property->google_panaroma != null)
+                                    <li class="last-item">
+                                        <a href="#" data-toggle="modal" data-target="#all_property_model" class="option-btn"
+                                            onclick="virtualActive()"><i class="fas fa-redo-alt" aria-hidden="true"></i>360</a>
+                                    </li>
+                                    @endif
                                 @else
-                                <li><i class="fas fa-redo-alt"></i>360<sup>0</sup></li>
-                                @endif
-                                <li>
-                                    <a href="#" data-toggle="modal" data-target="#photoModal"><i
-                                            class="fas fa-camera"></i>Photo</a>
-                                </li>
-                                @if($property->video != null)
-                                <li>
-                                    <a href="#" data-toggle="modal" data-target="#videoModal"><i
-                                            class="fas fa-video"></i>Video</a>
-                                </li>
-                                @else
-                                <li><i class="fas fa-video"></i>Video</li>
-                                @endif
-                                <li>
-                                    <a href="#" data-toggle="modal" data-target="#"><i
-                                            class="fas fa-directions"></i>Direction</a>
-                                </li>
-                                @if($property->flow_plan != null)
-                                <li class="last-item">
-                                    <a href="#" data-toggle="modal" data-target="#flow_plan_modal"><i
-                                            class="far fa-map"></i>Flow Plan</a>
-                                </li>
-                                @else
-                                <li class="last-item"><i class="far fa-map"></i>Flow Plan</li>
+                                    <li class="last-item">
+                                        <i class="fas fa-redo-alt" aria-hidden="true"></i>360
+                                    </li>
                                 @endif
 
+
                                 <li class="last-item">
-                                    <a href="#" data-toggle="modal" data-target="#all_property_model"><i
-                                            class="far fa-map"></i>All</a>
+                                    <a href="#" data-toggle="modal" data-target="#all_property_model" class="option-btn"
+                                        onclick="photoActive()"><i class="fas fa-camera" aria-hidden="true"></i>Photo</a>
+                                </li>
+                                
+                                @if($property->video != null)
+                                <li class="last-item">
+                                    <a href="#" data-toggle="modal" data-target="#all_property_model" class="option-btn"
+                                        onclick="videoActive()"><i class="fas fa-video" aria-hidden="true"></i>Video</a>
+                                </li>
+                                @else
+                                <li class="last-item">
+                                   <i class="fas fa-video" aria-hidden="true"></i>Video
+                                </li>
+                                @endif
+
+
+                                <li class="last-item">
+                                    <a href="#" data-toggle="modal" data-target="#all_property_model" class="option-btn"
+                                        onclick="directionActive()"><i class="fas fa-directions" aria-hidden="true"></i>Direction</a>
+                                </li>
+
+                                
+                                @if($property->flow_plan != null)
+                                <li class="last-item">
+                                    <a href="#" data-toggle="modal" data-target="#all_property_model" class="option-btn"
+                                        onclick="flowPlanActive()"><i class="far fa-map"></i>Flow Plan</a>
+                                </li>
+                                @else
+                                <li class="last-item">
+                                    <i class="far fa-map"></i>Flow Plan
+                                </li>
+                                @endif 
+
+                                <!-- <li class="last-item">
+                                    <a href="#" data-toggle="modal" data-target="#all_property_model" class="option-btn"
+                                        onclick="virtualActive()"><i class="fas fa-redo-alt" aria-hidden="true"></i>360</a>
+                                </li> -->
+
+
+                                <!-- <li class="last-item">
+                                    <a href="#" data-toggle="modal" data-target="#all_property_model" class="option-btn"
+                                        onclick="photoActive()"><i class="fas fa-camera" aria-hidden="true"></i>Photo</a>
+                                </li> -->
+
+                               
+
+                              
+
+                                <!-- <li class="last-item">
+                                    <a href="#" data-toggle="modal" data-target="#all_property_model" class="option-btn"
+                                        onclick="flowPlanActive()"><i class="far fa-map"></i>Flow Plan</a>
+                                </li> -->
+
+
+
+
+
+
 
                             </ul>
                         </div>
@@ -445,17 +482,17 @@ button.close:hover {
                     aria-hidden="true">
                     <div class="modal-dialog modal-lg">
                         <div class="modal-content">
-                            <button type="button" class="all-modal-close" data-dismiss="modal"
-                                aria-label="Close"><i class="far fa-times-circle"></i></button>
+                            <button type="button" class="all-modal-close" data-dismiss="modal" aria-label="Close"><i
+                                    class="far fa-times-circle"></i></button>
                             <!-- <div class="modal-header">
                                 <h5 class="modal-title" id="videoModalLabel">All</h5>
                              
                             </div> -->
                             <div class="modal-body text-center">
-                   
+
                                 <div class="tab-content" id="myTabContent">
                                     <!-- 360 tab -->
-                                    <div class="tab-pane fade show active" id="virtual" role="tabpanel"
+                                    <div class="tab-pane fade active show" id="virtual" role="tabpanel"
                                         aria-labelledby="virtual-tab">360</div>
 
                                     <!-- photo tab -->
@@ -496,8 +533,8 @@ button.close:hover {
                                     </div>
 
 
-                                     <!-- flow plan tab -->
-                                     <div class="tab-pane fade" id="flow-plan" role="tabpanel"
+                                    <!-- flow plan tab -->
+                                    <div class="tab-pane fade" id="flow-plan" role="tabpanel"
                                         aria-labelledby="flow-plan-tab">
                                         flow plan here
                                     </div>
@@ -514,42 +551,71 @@ button.close:hover {
 
 
                                     <!--------- 360 ------------>
-                                    <li class="nav-item all-nav-item" role="presentation">
-                                        <button class="nav-link active all-btn" id="virtual-tab" data-bs-toggle="tab"
-                                            data-bs-target="#virtual" type="button" role="tab" aria-controls="virtual"
-                                            aria-selected="true">360<sup>0</sup></button>
-                                    </li>
-
-                                    
-
+                                    @if($property->panaromal_status == 'google_panaroma')
+                                        @if($property->google_panaroma != null)
+                                        <li class="nav-item all-nav-item" role="presentation">
+                                            <button class="nav-link all-btn active" id="virtual-tab" data-bs-toggle="tab"
+                                                data-bs-target="#virtual" type="button" role="tab" aria-controls="virtual"
+                                                aria-selected="false"><i class="fas fa-redo-alt all-modal-i" aria-hidden="true"></i>360<sup>0</sup></button>
+                                        </li>
+                                        @endif
+                                    @else
+                                        <li class="nav-item all-nav-item" role="presentation">
+                                            <button class="nav-link inactive" id="virtual-tab" 
+                                                 type="button" role="tab"><i class="fas fa-redo-alt all-modal-i" aria-hidden="true"></i>360<sup>0</sup></button>
+                                        </li>
+                                    @endif
 
                                     <!-- photo -->
                                     <li class="nav-item all-nav-item" role="presentation">
                                         <button class="nav-link all-btn" id="photo-tab" data-bs-toggle="tab"
                                             data-bs-target="#photo" type="button" role="tab" aria-controls="photo"
-                                            aria-selected="false">Photo</button>
+                                            aria-selected="false"><i class="fas fa-camera all-modal-i" aria-hidden="true"></i>Photo</button>
                                     </li>
 
+
+                                    @if($property->video != null)
                                     <!-------video------------>
                                     <li class="nav-item all-nav-item" role="presentation">
                                         <button class="nav-link all-btn" id="video-tab" data-bs-toggle="tab"
                                             data-bs-target="#video" type="button" role="tab" aria-controls="video"
-                                            aria-selected="false">Video</button>
+                                            aria-selected="false"><i class="fas fa-video all-modal-i" aria-hidden="true"></i>Video</button>
                                     </li>
+                                    @else 
+                                    <li class="nav-item all-nav-item" role="presentation">
+                                        <button class="nav-link inactive" id="video-tab" 
+                                             type="button" role="tab" aria-controls="video"
+                                            aria-selected="false"><i class="fas fa-video all-modal-i" aria-hidden="true"></i>Video</button>
+                                    </li>
+
+                                    @endif
+
+
+
+
 
                                     <!------------- direction  ---------->
                                     <li class="nav-item all-nav-item" role="presentation">
                                         <button class="nav-link all-btn" id="all-map-tab" data-bs-toggle="tab"
                                             data-bs-target="#all-map" type="button" role="tab" aria-controls="all-map"
-                                            aria-selected="false">Direction</button>
+                                            aria-selected="false"><i class="fas fa-directions all-modal-i" aria-hidden="true"></i>Direction</button>
                                     </li>
 
+
+
+                                    @if($property->flow_plan != null)
                                     <!---------- flow plan------------>
                                     <li class="nav-item all-nav-item" role="presentation">
                                         <button class="nav-link all-btn" id="flow-plan-tab" data-bs-toggle="tab"
-                                            data-bs-target="#flow-plan" type="button" role="tab" aria-controls="flow-plan-tab"
-                                            aria-selected="false">Flow Plan</button>
+                                            data-bs-target="#flow-plan" type="button" role="tab"
+                                            aria-controls="flow-plan-tab" aria-selected="false"><i class="far fa-map all-modal-i" aria-hidden="true"></i>Flow Plan</button>
                                     </li>
+                                    @else
+                                    <li class="nav-item all-nav-item" role="presentation">
+                                        <button class="nav-link inactive" id="flow-plan-tab" type="button" role="tab"
+                                            aria-controls="flow-plan-tab" aria-selected="false"><i class="far fa-map all-modal-i" aria-hidden="true"></i>Flow Plan</button>
+                                    </li>
+                                    @endif
 
 
                                 </ul>
@@ -590,46 +656,54 @@ button.close:hover {
                         <div class="option-list-wrapper">
                             <ul class="option-list-mobile visible-xs">
 
-                                @if($property->panaromal_status == 'google_panaroma')
-                                @if($property->google_panaroma != null)
-                                <li><a href="" data-toggle="modal" data-target="#threesixtyModal"><i
-                                            class="fas fa-redo-alt"></i>3600<sup>0</sup></a></li>
-                                @endif
+                            @if($property->panaromal_status == 'google_panaroma')
+                                    @if($property->google_panaroma != null)
+                                    <li class="last-item">
+                                        <a href="#" data-toggle="modal" data-target="#all_property_model" class="option-btn"
+                                            onclick="virtualActive()"><i class="fas fa-redo-alt" aria-hidden="true"></i>360</a>
+                                    </li>
+                                    @endif
                                 @else
-                                <li><i class="fas fa-redo-alt"></i>360<sup>0</sup></li>
-                                @endif
-
-                                <li>
-                                    <a href="#" data-toggle="modal" data-target="#photoModal"><i
-                                            class="fas fa-camera"></i>Photo</a>
-                                </li>
-
-                                @if($property->video != null)
-                                <li>
-                                    <a href="#" data-toggle="modal" data-target="#videoModal"><i
-                                            class="fas fa-video"></i>Video</a>
-                                </li>
-                                @else
-                                <li><i class="fas fa-video"></i>Video</li>
+                                    <li class="last-item">
+                                        <i class="fas fa-redo-alt" aria-hidden="true"></i>360
+                                    </li>
                                 @endif
 
 
-                                <li>
-                                    <a href="#" data-toggle="modal" data-target="#"><i
-                                            class="fas fa-directions"></i>Direction</a>
-                                </li>
-
-
-                                @if($property->flow_plan != null)
                                 <li class="last-item">
-                                    <a href="#" data-toggle="modal" data-target="#flow_plan_modal"><i
-                                            class="far fa-map"></i>Flow Plan</a>
+                                    <a href="#" data-toggle="modal" data-target="#all_property_model" class="option-btn"
+                                        onclick="photoActive()"><i class="fas fa-camera" aria-hidden="true"></i>Photo</a>
+                                </li>
+                                
+                                @if($property->video != null)
+                                <li class="last-item">
+                                    <a href="#" data-toggle="modal" data-target="#all_property_model" class="option-btn"
+                                        onclick="videoActive()"><i class="fas fa-video" aria-hidden="true"></i>Video</a>
                                 </li>
                                 @else
-                                <li class="last-item"><i class="far fa-map"></i>Flow Plan</li>
+                                <li class="last-item">
+                                   <i class="fas fa-video" aria-hidden="true"></i>Video
+                                </li>
                                 @endif
+
+
+                                <li class="last-item">
+                                    <a href="#" data-toggle="modal" data-target="#all_property_model" class="option-btn"
+                                        onclick="directionActive()"><i class="fas fa-directions" aria-hidden="true"></i>Direction</a>
+                                </li>
 
                                 
+                                @if($property->flow_plan != null)
+                                <li class="last-item">
+                                    <a href="#" data-toggle="modal" data-target="#all_property_model" class="option-btn"
+                                        onclick="flowPlanActive()"><i class="far fa-map"></i>Flow Plan</a>
+                                </li>
+                                @else
+                                <li class="last-item">
+                                    <i class="far fa-map"></i>Flow Plan
+                                </li>
+                                @endif 
+
 
                             </ul>
                         </div>
@@ -1769,6 +1843,211 @@ $(document).ready(function() {
     });
 });
 </script>
+
+<script>
+function photoActive() {
+
+    //---------all btn active class remove---------------
+    //select all buttons in all popup
+    virtualbtn = document.querySelector("#virtual-tab");
+    photobtn = document.querySelector("#photo-tab");
+    videobtn = document.querySelector("#video-tab");
+    directionbtn = document.querySelector("#all-map-tab");
+    flowplanbtn = document.querySelector("#flow-plan-tab");
+
+
+    //remove active class from all buttons in all popup
+    virtualbtn.classList.remove("active");
+    photobtn.classList.add("active");
+    videobtn.classList.remove("active");
+    directionbtn.classList.remove("active");
+    flowplanbtn.classList.remove("active");
+
+
+    //--------tab panes active show classes remove---------
+
+    //-----photo active-----
+    //select photo tab pane in all popup
+    virtualTab = document.querySelector("#virtual");
+    photoTab = document.querySelector("#photo");
+    videoTab = document.querySelector("#video");
+    directionTab = document.querySelector("#all-map");
+    flowplanTab = document.querySelector("#flow-plan");
+
+
+
+    //remove active and show classes from all tab panes in all popup
+    virtualTab.classList.remove("active", "show");
+    photoTab.classList.add("active", "show");
+    videoTab.classList.remove("active", "show");
+    directionTab.classList.remove("active", "show");
+    flowplanTab.classList.remove("active", "show");
+
+
+}
+
+
+function videoActive() {
+
+    //---------all btn active class remove---------------
+    //select all buttons in all popup
+    virtualbtn = document.querySelector("#virtual-tab");
+    photobtn = document.querySelector("#photo-tab");
+    videobtn = document.querySelector("#video-tab");
+    directionbtn = document.querySelector("#all-map-tab");
+    flowplanbtn = document.querySelector("#flow-plan-tab");
+
+
+    //remove active class from all buttons in all popup
+    virtualbtn.classList.remove("active");
+    photobtn.classList.remove("active");
+    videobtn.classList.add("active");
+    directionbtn.classList.remove("active");
+    flowplanbtn.classList.remove("active");
+
+
+    //--------tab panes active show classes remove---------
+
+    //-----photo active-----
+    //select photo tab pane in all popup
+    virtualTab = document.querySelector("#virtual");
+    photoTab = document.querySelector("#photo");
+    videoTab = document.querySelector("#video");
+    directionTab = document.querySelector("#all-map");
+    flowplanTab = document.querySelector("#flow-plan");
+
+
+
+    //remove active and show classes from all tab panes in all popup
+    virtualTab.classList.remove("active", "show");
+    photoTab.classList.remove("active", "show");
+    videoTab.classList.add("active", "show");
+    directionTab.classList.remove("active", "show");
+    flowplanTab.classList.remove("active", "show");
+
+
+}
+
+
+function virtualActive() {
+
+    //---------all btn active class remove---------------
+    //select all buttons in all popup
+    virtualbtn = document.querySelector("#virtual-tab");
+    photobtn = document.querySelector("#photo-tab");
+    videobtn = document.querySelector("#video-tab");
+    directionbtn = document.querySelector("#all-map-tab");
+    flowplanbtn = document.querySelector("#flow-plan-tab");
+
+
+    //remove active class from all buttons in all popup
+    virtualbtn.classList.add("active");
+    photobtn.classList.remove("active");
+    videobtn.classList.remove("active");
+    directionbtn.classList.remove("active");
+    flowplanbtn.classList.remove("active");
+
+
+    //--------tab panes active show classes remove---------
+
+    //-----photo active-----
+    //select photo tab pane in all popup
+    virtualTab = document.querySelector("#virtual");
+    photoTab = document.querySelector("#photo");
+    videoTab = document.querySelector("#video");
+    directionTab = document.querySelector("#all-map");
+    flowplanTab = document.querySelector("#flow-plan");
+
+
+
+    //remove active and show classes from all tab panes in all popup
+    virtualTab.classList.add("active", "show");
+    photoTab.classList.remove("active", "show");
+    videoTab.classList.remove("active", "show");
+    directionTab.classList.remove("active", "show");
+    flowplanTab.classList.remove("active", "show");
+
+
+}
+
+function directionActive() {
+    //---------all btn active class remove---------------
+    //select all buttons in all popup
+    virtualbtn = document.querySelector("#virtual-tab");
+    photobtn = document.querySelector("#photo-tab");
+    videobtn = document.querySelector("#video-tab");
+    directionbtn = document.querySelector("#all-map-tab");
+    flowplanbtn = document.querySelector("#flow-plan-tab");
+
+
+    //remove active class from all buttons in all popup
+    virtualbtn.classList.remove("active");
+    photobtn.classList.remove("active");
+    videobtn.classList.remove("active");
+    directionbtn.classList.add("active");
+    flowplanbtn.classList.remove("active");
+
+
+    //--------tab panes active show classes remove---------
+
+    //-----photo active-----
+    //select photo tab pane in all popup
+    virtualTab = document.querySelector("#virtual");
+    photoTab = document.querySelector("#photo");
+    videoTab = document.querySelector("#video");
+    directionTab = document.querySelector("#all-map");
+    flowplanTab = document.querySelector("#flow-plan");
+
+
+
+    //remove active and show classes from all tab panes in all popup
+    virtualTab.classList.remove("active", "show");
+    photoTab.classList.remove("active", "show");
+    videoTab.classList.remove("active", "show");
+    directionTab.classList.add("active", "show");
+    flowplanTab.classList.remove("active", "show");
+}
+
+
+function flowPlanActive() {
+    //---------all btn active class remove---------------
+    //select all buttons in all popup
+    virtualbtn = document.querySelector("#virtual-tab");
+    photobtn = document.querySelector("#photo-tab");
+    videobtn = document.querySelector("#video-tab");
+    directionbtn = document.querySelector("#all-map-tab");
+    flowplanbtn = document.querySelector("#flow-plan-tab");
+
+
+    //remove active class from all buttons in all popup
+    virtualbtn.classList.remove("active");
+    photobtn.classList.remove("active");
+    videobtn.classList.remove("active");
+    directionbtn.classList.remove("active");
+    flowplanbtn.classList.add("active");
+
+
+    //--------tab panes active show classes remove---------
+
+    //-----photo active-----
+    //select photo tab pane in all popup
+    virtualTab = document.querySelector("#virtual");
+    photoTab = document.querySelector("#photo");
+    videoTab = document.querySelector("#video");
+    directionTab = document.querySelector("#all-map");
+    flowplanTab = document.querySelector("#flow-plan");
+
+
+
+    //remove active and show classes from all tab panes in all popup
+    virtualTab.classList.remove("active", "show");
+    photoTab.classList.remove("active", "show");
+    videoTab.classList.remove("active", "show");
+    directionTab.classList.remove("active", "show");
+    flowplanTab.classList.add("active", "show");
+}
+</script>
+
 
 <script>
 var swiper = new Swiper(".mySwiper", {
