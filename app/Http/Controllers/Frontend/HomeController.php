@@ -17,6 +17,7 @@ use App\Models\Search;
 use App\Models\Settings;
 use App\Models\Upload;
 use App\Models\Favorite;
+use App\Models\NearLocation;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Cookie;
 use DB;
@@ -700,8 +701,15 @@ class HomeController extends Controller
     }
 
 
-    public function near_location($property_id) {
+    public function near_location($property_id,$type) {
         
+        $near_location = NearLocation::where('property_id',$property_id)->where('type',$type)->get();
+
+        if($near_location){
+            return $near_location;
+        }else{
+            return null;
+        }
     }
 
 
