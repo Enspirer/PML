@@ -201,34 +201,34 @@ button.close:hover {
                         <div class="swiper-wrapper">
 
                             @php
-                                $str_arr2 = preg_split ("/\,/", $property->image_ids);
-                                $flow_plan = preg_split ("/\,/", $property->flow_plan);
+                            $str_arr2 = preg_split ("/\,/", $property->image_ids);
+                            $flow_plan = preg_split ("/\,/", $property->flow_plan);
                             @endphp
 
                             @if($property->panaromal_images)
-                                @php
-                                    $pano_arry = preg_split ("/\,/", $property->panaromal_images);
-                                @endphp
+                            @php
+                            $pano_arry = preg_split ("/\,/", $property->panaromal_images);
+                            @endphp
                             @else
-                                @php
-                                    $pano_arry = null;
-                                @endphp
+                            @php
+                            $pano_arry = null;
+                            @endphp
                             @endif
 
                             @if($property->panaromal_status == 'panaromal_images')
-                                @if($pano_arry)
-                                    @foreach($pano_arry as $panoarray)
-                                    <div class="swiper-slide">
-                                        <a href="#" data-toggle="modal" data-target="#panoModal"
-                                            onclick="changePanaroma('{{ $panoarray }}')">
-                                            <div class="pano-wrapper">
-                                                <img src="{{ uploaded_asset($panoarray) }}" />
-                                                <img class="pano-symbol" src="{{ url('img/360.png') }}" alt="360 logo">
-                                            </div>
-                                        </a>
+                            @if($pano_arry)
+                            @foreach($pano_arry as $panoarray)
+                            <div class="swiper-slide">
+                                <a href="#" data-toggle="modal" data-target="#panoModal"
+                                    onclick="changePanaroma('{{ $panoarray }}')">
+                                    <div class="pano-wrapper">
+                                        <img src="{{ uploaded_asset($panoarray) }}" />
+                                        <img class="pano-symbol" src="{{ url('img/360.png') }}" alt="360 logo">
                                     </div>
-                                    @endforeach
-                                @endif
+                                </a>
+                            </div>
+                            @endforeach
+                            @endif
                             @endif
 
                             @foreach($str_arr2 as $key=> $pre)
@@ -253,24 +253,26 @@ button.close:hover {
                         <div class="option-list-wrapper">
                             <ul class="option-list hidden-xs">
                                 @if($property->panaromal_status == 'google_panaroma')
-                                    @if($property->google_panaroma != null)
-                                    <li class="last-item">
-                                        <a href="#" data-toggle="modal" data-target="#all_property_model" class="option-btn"
-                                            onclick="virtualActive()"><i class="fas fa-redo-alt" aria-hidden="true"></i>360</a>
-                                    </li>
-                                    @endif
+                                @if($property->google_panaroma != null)
+                                <li class="last-item">
+                                    <a href="#" data-toggle="modal" data-target="#all_property_model" class="option-btn"
+                                        onclick="virtualActive()"><i class="fas fa-redo-alt"
+                                            aria-hidden="true"></i>360</a>
+                                </li>
+                                @endif
                                 @else
-                                    <li class="last-item">
-                                        <i class="fas fa-redo-alt" aria-hidden="true"></i>360
-                                    </li>
+                                <li class="last-item">
+                                    <i class="fas fa-redo-alt" aria-hidden="true"></i>360
+                                </li>
                                 @endif
 
 
                                 <li class="last-item">
                                     <a href="#" data-toggle="modal" data-target="#all_property_model" class="option-btn"
-                                        onclick="photoActive()"><i class="fas fa-camera" aria-hidden="true"></i>Photo</a>
+                                        onclick="photoActive()"><i class="fas fa-camera"
+                                            aria-hidden="true"></i>Photo</a>
                                 </li>
-                                
+
                                 @if($property->video != null)
                                 <li class="last-item">
                                     <a href="#" data-toggle="modal" data-target="#all_property_model" class="option-btn"
@@ -278,27 +280,28 @@ button.close:hover {
                                 </li>
                                 @else
                                 <li class="last-item">
-                                   <i class="fas fa-video" aria-hidden="true"></i>Video
+                                    <i class="fas fa-video" aria-hidden="true"></i>Video
                                 </li>
                                 @endif
 
 
                                 <li class="last-item">
                                     <a href="#" data-toggle="modal" data-target="#all_property_model" class="option-btn"
-                                        onclick="directionActive()"><i class="fas fa-directions" aria-hidden="true"></i>Direction</a>
+                                        onclick="directionActive()"><i class="fas fa-directions"
+                                            aria-hidden="true"></i>Direction</a>
                                 </li>
 
-                                
+
                                 @if($property->flow_plan != null)
                                 <li class="last-item">
                                     <a href="#" data-toggle="modal" data-target="#all_property_model" class="option-btn"
-                                        onclick="flowPlanActive()"><i class="far fa-map"></i>Flow Plan</a>
+                                        onclick="flowPlanActive()"><i class="far fa-map"></i>Floor Plan</a>
                                 </li>
                                 @else
                                 <li class="last-item">
-                                    <i class="far fa-map"></i>Flow Plan
+                                    <i class="far fa-map"></i>Floor Plan
                                 </li>
-                                @endif 
+                                @endif
 
                                 <!-- <li class="last-item">
                                     <a href="#" data-toggle="modal" data-target="#all_property_model" class="option-btn"
@@ -311,9 +314,9 @@ button.close:hover {
                                         onclick="photoActive()"><i class="fas fa-camera" aria-hidden="true"></i>Photo</a>
                                 </li> -->
 
-                               
 
-                              
+
+
 
                                 <!-- <li class="last-item">
                                     <a href="#" data-toggle="modal" data-target="#all_property_model" class="option-btn"
@@ -399,7 +402,7 @@ button.close:hover {
                         </div>
                     </div>
                 </div>
-                     
+
 
 
                 <!-- All Property Model -->
@@ -423,7 +426,7 @@ button.close:hover {
                                     <!-- photo tab -->
                                     <div class="tab-pane fade" id="photo" role="tabpanel" aria-labelledby="photo-tab">
 
-                                        <div class="cont">
+                                        <!-- <div class="cont">
                                             <div class="demo-gallery">
                                                 <ul id="lightgallery">
                                                     @foreach($str_arr2 as $key=> $pre)
@@ -443,21 +446,126 @@ button.close:hover {
                                                 <span class="small">Click on any of the images to see
                                                     lightGallery</span>
                                             </div>
+                                        </div> -->
+
+
+                                        <!-- new image slider -->
+
+                                        <div class="fullsilder-container">
+                                            <div class="fullslider-main-container">
+                                                <!-- main images -->
+                                                <div class="holder">
+                                                    <div class="fullslider-slides">
+                                                        <img src="https://images.unsplash.com/photo-1505438157249-00e1b44ee34f?ixlib=rb-0.3.5&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ&s=dfc554074f522ec42818a052152dac21g"
+                                                            alt="" />
+                                                    </div>
+
+                                                    <div class="fullslider-slides">
+                                                        <img
+                                                            src="https://images.unsplash.com/photo-1515870672913-a4c298575776?ixlib=rb-0.3.5&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ&s=aa80486fd3343134706e785c034b339d">
+                                                    </div>
+
+                                                    <div class="fullslider-slides">
+                                                        <img
+                                                            src="https://images.unsplash.com/photo-1521651201144-634f700b36ef?ixlib=rb-0.3.5&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ&s=e26ec8c74dc99aff53a60741538cad5f">
+                                                    </div>
+
+                                                    <div class="fullslider-slides">
+                                                        <img
+                                                            src="https://images.unsplash.com/photo-1504618223053-559bdef9dd5a?ixlib=rb-0.3.5&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ&s=583c2bf56c8006e507e2a9905fc1e54c">
+                                                    </div>
+
+                                                    <div class="fullslider-slides">
+                                                        <img
+                                                            src="https://images.unsplash.com/photo-1504208434309-cb69f4fe52b0?ixlib=rb-0.3.5&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ&s=69093505f999d8170e9a1aab3771c07e">
+                                                    </div>
+
+                                                    <div class="fullslider-slides">
+                                                        <img
+                                                            src="https://images.unsplash.com/photo-1485199433301-8b7102e86995?ixlib=rb-0.3.5&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ&s=c7783fe3a697b1a2248450120435cbc3">
+                                                    </div>
+                                                </div>
+
+                                                <!-- <div class="fullsliderPrevContainer"><a class="fullslider-prev"
+                                                        onclick="plusSlides(-1)">
+                                                        <svg viewBox="0 0 24 24">
+                                                            <path
+                                                                d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z">
+                                                            </path>
+                                                        </svg>
+                                                    </a></div>
+                                                <div class="fullslidernextContainer"><a class="fullslider-next"
+                                                        onclick="plusSlides(1)">
+                                                        <svg viewBox="0 0 24 24">
+                                                            <path
+                                                                d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z">
+                                                            </path>
+                                                        </svg>
+                                                    </a>
+                                                </div> -->
+
+                                                
+                                                    <!-- <div class="caption-container">
+                                                    <p id="fullslider-caption"></p>
+                                                </div> -->
+                                            </div>
+
+
+                                            <!-- thumnails in a row -->
+                                            <div class="fullslider-side-container">
+                                                <div class="fullslider-column">
+                                                    <img class="fullslider-slide-thumbnail"
+                                                        src="https://images.unsplash.com/photo-1505438157249-00e1b44ee34f?ixlib=rb-0.3.5&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ&s=dfc554074f522ec42818a052152dac21g"
+                                                        onclick="currentSlide(1)" alt="Caption One">
+                                                </div>
+                                                <div class="fullslider-column">
+                                                    <img class="fullslider-slide-thumbnail"
+                                                        src="https://images.unsplash.com/photo-1515870672913-a4c298575776?ixlib=rb-0.3.5&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ&s=aa80486fd3343134706e785c034b339d"
+                                                        onclick="currentSlide(2)" alt="Caption Two">
+                                                </div>
+                                                <div class="fullslider-column">
+                                                    <img class="fullslider-slide-thumbnail"
+                                                        src="https://images.unsplash.com/photo-1521651201144-634f700b36ef?ixlib=rb-0.3.5&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ&s=e26ec8c74dc99aff53a60741538cad5f"
+                                                        onclick="currentSlide(3)" alt="Caption Three">
+                                                </div>
+                                                <div class="fullslider-column">
+                                                    <img class="fullslider-slide-thumbnail"
+                                                        src="https://images.unsplash.com/photo-1504618223053-559bdef9dd5a?ixlib=rb-0.3.5&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ&s=583c2bf56c8006e507e2a9905fc1e54c"
+                                                        onclick="currentSlide(4)" alt="Caption Four">
+                                                </div>
+                                                <div class="fullslider-column">
+                                                    <img class="fullslider-slide-thumbnail"
+                                                        src="https://images.unsplash.com/photo-1504208434309-cb69f4fe52b0?ixlib=rb-0.3.5&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ&s=69093505f999d8170e9a1aab3771c07e"
+                                                        onclick="currentSlide(5)" alt="Caption Five">
+                                                </div>
+                                                <div class="fullslider-column">
+                                                    <img class="fullslider-slide-thumbnail"
+                                                        src="https://images.unsplash.com/photo-1485199433301-8b7102e86995?ixlib=rb-0.3.5&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ&s=c7783fe3a697b1a2248450120435cbc3"
+                                                        onclick="currentSlide(6)" alt="Caption Six">
+                                                </div>
+                                            </div>
                                         </div>
+
 
                                     </div>
 
+
                                     <!-- video tab -->
                                     <div class="tab-pane fade" id="video" role="tabpanel" aria-labelledby="video-tab">
-                                        
-                                    @if($property->video != null)                
 
-                                        <input type="hidden" value="{{ preg_match("#(?<=v=)[a-zA-Z0-9-]+(?=&)|(?<=v\/)[^&\n]+|(?<=v=)[^&\n]+|(?<=youtu.be/)[^&\n]+#", $property->video, $default_match) }}" />
-                                        
-                                        <iframe width="100%" height="500" src="https://www.youtube.com/embed/{{ $default_match[0] }}?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                        @if($property->video != null)
 
-                                    @endif
-                                
+                                        <input type="hidden"
+                                            value="{{ preg_match("#(?<=v=)[a-zA-Z0-9-]+(?=&)|(?<=v\/)[^&\n]+|(?<=v=)[^&\n]+|(?<=youtu.be/)[^&\n]+#", $property->video, $default_match) }}" />
+
+                                        <iframe width="100%" height="500"
+                                            src="https://www.youtube.com/embed/{{ $default_match[0] }}?rel=0"
+                                            title="YouTube video player" frameborder="0"
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                            allowfullscreen></iframe>
+
+                                        @endif
+
                                     </div>
 
                                     <!-- map tab -->
@@ -470,10 +578,10 @@ button.close:hover {
                                     <!-- flow plan tab -->
                                     <div class="tab-pane fade" id="flow-plan" role="tabpanel"
                                         aria-labelledby="flow-plan-tab">
-                                        
-                                        
+
+
                                         @if($property->flow_plan != null)
-                                    
+
                                         <div class="demo-gallery">
                                             <ul id="lightgallery_flow">
                                                 @foreach($flow_plan as $key=> $flow)
@@ -509,25 +617,28 @@ button.close:hover {
 
                                     <!--------- 360 ------------>
                                     @if($property->panaromal_status == 'google_panaroma')
-                                        @if($property->google_panaroma != null)
-                                        <li class="nav-item all-nav-item" role="presentation">
-                                            <button class="nav-link all-btn active" id="virtual-tab" data-bs-toggle="tab"
-                                                data-bs-target="#virtual" type="button" role="tab" aria-controls="virtual"
-                                                aria-selected="false"><i class="fas fa-redo-alt all-modal-i" aria-hidden="true"></i>360<sup>0</sup></button>
-                                        </li>
-                                        @endif
+                                    @if($property->google_panaroma != null)
+                                    <li class="nav-item all-nav-item" role="presentation">
+                                        <button class="nav-link all-btn active" id="virtual-tab" data-bs-toggle="tab"
+                                            data-bs-target="#virtual" type="button" role="tab" aria-controls="virtual"
+                                            aria-selected="false"><i class="fas fa-redo-alt all-modal-i"
+                                                aria-hidden="true"></i>360<sup>0</sup></button>
+                                    </li>
+                                    @endif
                                     @else
-                                        <li class="nav-item all-nav-item" role="presentation">
-                                            <button class="nav-link inactive" id="virtual-tab" 
-                                                 type="button" role="tab"><i class="fas fa-redo-alt all-modal-i" aria-hidden="true"></i>360<sup>0</sup></button>
-                                        </li>
+                                    <li class="nav-item all-nav-item" role="presentation">
+                                        <button class="nav-link inactive" id="virtual-tab" type="button" role="tab"><i
+                                                class="fas fa-redo-alt all-modal-i"
+                                                aria-hidden="true"></i>360<sup>0</sup></button>
+                                    </li>
                                     @endif
 
                                     <!-- photo -->
                                     <li class="nav-item all-nav-item" role="presentation">
                                         <button class="nav-link all-btn" id="photo-tab" data-bs-toggle="tab"
                                             data-bs-target="#photo" type="button" role="tab" aria-controls="photo"
-                                            aria-selected="false"><i class="fas fa-camera all-modal-i" aria-hidden="true"></i>Photo</button>
+                                            aria-selected="false"><i class="fas fa-camera all-modal-i"
+                                                aria-hidden="true"></i>Photo</button>
                                     </li>
 
 
@@ -536,13 +647,14 @@ button.close:hover {
                                     <li class="nav-item all-nav-item" role="presentation">
                                         <button class="nav-link all-btn" id="video-tab" data-bs-toggle="tab"
                                             data-bs-target="#video" type="button" role="tab" aria-controls="video"
-                                            aria-selected="false"><i class="fas fa-video all-modal-i" aria-hidden="true"></i>Video</button>
+                                            aria-selected="false"><i class="fas fa-video all-modal-i"
+                                                aria-hidden="true"></i>Video</button>
                                     </li>
-                                    @else 
+                                    @else
                                     <li class="nav-item all-nav-item" role="presentation">
-                                        <button class="nav-link inactive" id="video-tab" 
-                                             type="button" role="tab" aria-controls="video"
-                                            aria-selected="false"><i class="fas fa-video all-modal-i" aria-hidden="true"></i>Video</button>
+                                        <button class="nav-link inactive" id="video-tab" type="button" role="tab"
+                                            aria-controls="video" aria-selected="false"><i
+                                                class="fas fa-video all-modal-i" aria-hidden="true"></i>Video</button>
                                     </li>
 
                                     @endif
@@ -555,7 +667,8 @@ button.close:hover {
                                     <li class="nav-item all-nav-item" role="presentation">
                                         <button class="nav-link all-btn" id="all-map-tab" data-bs-toggle="tab"
                                             data-bs-target="#all-map" type="button" role="tab" aria-controls="all-map"
-                                            aria-selected="false"><i class="fas fa-directions all-modal-i" aria-hidden="true"></i>Direction</button>
+                                            aria-selected="false"><i class="fas fa-directions all-modal-i"
+                                                aria-hidden="true"></i>Direction</button>
                                     </li>
 
 
@@ -565,12 +678,16 @@ button.close:hover {
                                     <li class="nav-item all-nav-item" role="presentation">
                                         <button class="nav-link all-btn" id="flow-plan-tab" data-bs-toggle="tab"
                                             data-bs-target="#flow-plan" type="button" role="tab"
-                                            aria-controls="flow-plan-tab" aria-selected="false"><i class="far fa-map all-modal-i" aria-hidden="true"></i>Flow Plan</button>
+                                            aria-controls="flow-plan-tab" aria-selected="false"><i
+                                                class="far fa-map all-modal-i" aria-hidden="true"></i>Floor
+                                            Plan</button>
                                     </li>
                                     @else
                                     <li class="nav-item all-nav-item" role="presentation">
                                         <button class="nav-link inactive" id="flow-plan-tab" type="button" role="tab"
-                                            aria-controls="flow-plan-tab" aria-selected="false"><i class="far fa-map all-modal-i" aria-hidden="true"></i>Flow Plan</button>
+                                            aria-controls="flow-plan-tab" aria-selected="false"><i
+                                                class="far fa-map all-modal-i" aria-hidden="true"></i>Floor
+                                            Plan</button>
                                     </li>
                                     @endif
 
@@ -613,25 +730,27 @@ button.close:hover {
                         <div class="option-list-wrapper">
                             <ul class="option-list-mobile visible-xs">
 
-                            @if($property->panaromal_status == 'google_panaroma')
-                                    @if($property->google_panaroma != null)
-                                    <li class="last-item">
-                                        <a href="#" data-toggle="modal" data-target="#all_property_model" class="option-btn"
-                                            onclick="virtualActive()"><i class="fas fa-redo-alt" aria-hidden="true"></i>360</a>
-                                    </li>
-                                    @endif
+                                @if($property->panaromal_status == 'google_panaroma')
+                                @if($property->google_panaroma != null)
+                                <li class="last-item">
+                                    <a href="#" data-toggle="modal" data-target="#all_property_model" class="option-btn"
+                                        onclick="virtualActive()"><i class="fas fa-redo-alt"
+                                            aria-hidden="true"></i>360</a>
+                                </li>
+                                @endif
                                 @else
-                                    <li class="last-item">
-                                        <i class="fas fa-redo-alt" aria-hidden="true"></i>360
-                                    </li>
+                                <li class="last-item">
+                                    <i class="fas fa-redo-alt" aria-hidden="true"></i>360
+                                </li>
                                 @endif
 
 
                                 <li class="last-item">
                                     <a href="#" data-toggle="modal" data-target="#all_property_model" class="option-btn"
-                                        onclick="photoActive()"><i class="fas fa-camera" aria-hidden="true"></i>Photo</a>
+                                        onclick="photoActive()"><i class="fas fa-camera"
+                                            aria-hidden="true"></i>Photo</a>
                                 </li>
-                                
+
                                 @if($property->video != null)
                                 <li class="last-item">
                                     <a href="#" data-toggle="modal" data-target="#all_property_model" class="option-btn"
@@ -639,27 +758,28 @@ button.close:hover {
                                 </li>
                                 @else
                                 <li class="last-item">
-                                   <i class="fas fa-video" aria-hidden="true"></i>Video
+                                    <i class="fas fa-video" aria-hidden="true"></i>Video
                                 </li>
                                 @endif
 
 
                                 <li class="last-item">
                                     <a href="#" data-toggle="modal" data-target="#all_property_model" class="option-btn"
-                                        onclick="directionActive()"><i class="fas fa-directions" aria-hidden="true"></i>Direction</a>
+                                        onclick="directionActive()"><i class="fas fa-directions"
+                                            aria-hidden="true"></i>Direction</a>
                                 </li>
 
-                                
+
                                 @if($property->flow_plan != null)
                                 <li class="last-item">
                                     <a href="#" data-toggle="modal" data-target="#all_property_model" class="option-btn"
-                                        onclick="flowPlanActive()"><i class="far fa-map"></i>Flow Plan</a>
+                                        onclick="flowPlanActive()"><i class="far fa-map"></i>Floor Plan</a>
                                 </li>
                                 @else
                                 <li class="last-item">
-                                    <i class="far fa-map"></i>Flow Plan
+                                    <i class="far fa-map"></i>Floor Plan
                                 </li>
-                                @endif 
+                                @endif
 
 
                             </ul>
@@ -1054,7 +1174,7 @@ button.close:hover {
                                                             </div>
 
                                                         </div>
-                                                        <input type="hidden" name="prop_hidden_id"
+                                                        <input type="hidden" id="prop_hidden_id" name="prop_hidden_id"
                                                             value="{{ $property->id }}" />
                                                     </button>
                                                 </form>
@@ -2498,15 +2618,17 @@ function initMap() {
     //----------------shopping-----------------------
     $("#shopping").click(function() {
 
+        property_id = $('#prop_hidden_id').val();
+        console.log('anything');
+
         for (var i = 0; i < markers.length; i++) {
 
             markers[i].setMap(null);
         }
 
-
         // $.ajax ({
         //     type: "GET",
-        //     url: 
+        //     url: "{{url('/')}}/near_location/" + ,
         //     success: function(data) {
 
         //     }
@@ -2514,14 +2636,14 @@ function initMap() {
 
         let shoppingLocations = [{
                 id: 1,
-                lat: 50.9474,
                 lng: 10.7098,
+                lat: 50.9474,
                 type: "shopping"
             },
             {
                 id: 2,
-                lat: 50.5558,
                 lng: 9.6808,
+                lat: 50.5558,
                 type: "shopping"
             }
         ];
@@ -2784,5 +2906,45 @@ function initMap() {
 <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEBj8LhHUJaf2MXpqIQ_MOXs7HkeUXnac&callback=initMap"
     type="text/javascript"></script>
+
+
+<script>
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+    showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+    showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+    var i;
+    var slides = document.getElementsByClassName("fullslider-slides");
+    var dots = document.getElementsByClassName("fullslider-slide-thumbnail");
+    var captionText = document.getElementById("fullslider-caption");
+    if (n > slides.length) {
+        slideIndex = 1
+    }
+    if (n < 1) {
+        slideIndex = slides.length
+    }
+    console.log(slideIndex);
+
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+        // slides[i].style.display = "inline";
+    }
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex - 1].style.display = "block";
+    // slides[slideIndex-1].style.display = "inline";
+    dots[slideIndex - 1].className += " active";
+    captionText.innerHTML = dots[slideIndex - 1].alt;
+}
+</script>
 
 @endpush
