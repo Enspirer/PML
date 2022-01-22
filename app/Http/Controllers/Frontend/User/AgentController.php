@@ -294,6 +294,8 @@ class AgentController extends Controller
         $addprop->postal_code=$request->postal_code;
         $addprop->address_one=$request->address_line_one;
         $addprop->address_two=$request->address_line_two;
+        $addprop->video=$request->video;
+        $addprop->flow_plan=$request->flow_plan;
         $addprop->user_id = auth()->user()->id;
         $addprop->admin_approval='Pending';
         $addprop->area_manager_approval='Pending';
@@ -388,6 +390,8 @@ class AgentController extends Controller
         $update->postal_code=$request->postal_code;
         $update->address_one=$request->address_line_one;
         $update->address_two=$request->address_line_two;
+        $update->video=$request->video;
+        $update->flow_plan=$request->flow_plan;
         $update->user_id = auth()->user()->id;
         $update->admin_approval='Pending';
         $update->area_manager_approval='Pending';

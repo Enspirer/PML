@@ -134,7 +134,9 @@ class FreeListningController extends Controller
         $update->image_ids=$request->multiple_images;
         $update->panaromal_images=$request->panaromal_images;
         $update->google_panaroma=$request->google_panaroma;
-        $update->meta_description=$request->meta_description;        
+        $update->meta_description=$request->meta_description;       
+        $update->flow_plan=$request->flow_plan;
+        $update->video=$request->video;
         $update->slug=$request->slug;        
         $update->transaction_type=$request->transaction_type;
         $update->admin_approval=$request->admin_approval;

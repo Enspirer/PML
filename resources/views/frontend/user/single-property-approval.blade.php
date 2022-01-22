@@ -41,13 +41,22 @@
                                             <div class="swiper-wrapper">
                                                 @php
                                                     $str_arr2 = preg_split ("/\,/", $single_approval->image_ids);
-                                                @endphp
+                                                    $flow_plan = preg_split ("/\,/", $single_approval->flow_plan);
+                                                @endphp                                                
 
                                                 @foreach($str_arr2 as $key=> $pre)
                                                     <div class="swiper-slide">
                                                         <img src="{{ uploaded_asset($pre) }}" class="d-block w-100" style="height:370px; object-fit:cover;"/>
                                                     </div>
                                                 @endforeach
+
+                                                @if($single_approval->flow_plan != null)
+                                                    @foreach($flow_plan as $key=> $flow)
+                                                        <div class="swiper-slide">
+                                                            <img src="{{ uploaded_asset($flow) }}" class="d-block w-100" style="height:370px; object-fit:cover;"/>
+                                                        </div>
+                                                    @endforeach
+                                                @endif
                                             </div>
 
                                             <div class="swiper-button-next"></div>
@@ -61,17 +70,32 @@
                         </div>
 
                             <div class="row mt-5">
-                                <div class="col-12">
+                                <div class="col-12 mb-3">
                                     <div class="row align-items-center">
                                         <div class="col-5">
                                             <h4 class="mb-0">{{ $single_approval->name }}</h4>
                                         </div>
-                                        <div class="col-2">
-                                            @if($single_approval->listning_type == 'free_listning')
-                                                <div class="badge badge-warning p-2 m-2">Free Listning</div>
-                                            @endif
-                                        </div>                                        
                                         <div class="col-5">
+                                            <div class="row">
+                                                <div class="col-6">
+                                                    @if($single_approval->panaromal_status == 'google_panaroma')
+                                                        @if($single_approval->google_panaroma != null)
+                                                            <div class="">
+                                                                <button class="btn btn-success" data-toggle="modal" data-target="#virtual_tour_modal">Virtual Tour</button>
+                                                            </div>
+                                                        @endif
+                                                    @endif
+                                                </div>
+                                                <div class="col-6">
+                                                    @if($single_approval->video != null)
+                                                        <div class="">
+                                                            <button class="btn btn-info" data-toggle="modal" data-target="#video_modal">Video</button>
+                                                        </div>
+                                                    @endif
+                                                </div>
+                                            </div>
+                                        </div>                                        
+                                        <div class="col-2">
                                             <div class="text-end">
                                                 <h5 class="d-inline-block mb-0 py-2 px-4 text-light" style="background-color: #4195E1;">{{ $property_type->property_type_name }}</h5>
                                             </div>
@@ -99,6 +123,11 @@
                                                     <td style="font-weight: 600;">Slug</td>
                                                     <td>{{ $single_approval->slug }}</td>
                                                 </tr>
+                                                @if($single_approval->listning_type == 'free_listning')
+                                                    <tr>
+                                                        <td><div class="badge badge-warning p-2">Free Listning</div></td>
+                                                    </tr>
+                                                @endif                                               
                                             </tbody>
                                         </table>
                                     </div>
@@ -250,6 +279,47 @@
             </div>
         </div>
     </div> 
+
+
+    <div class="modal fade" id="virtual_tour_modal" tabindex="-1" aria-labelledby="virtual_tour_modalModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="virtual_tour_modalModalLabel">Virtal Tour</h5>
+                <button type="button" class="btn-close mt-3" data-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                    {!!$single_approval->google_panaroma!!}
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="video_modal" tabindex="-1" aria-labelledby="video_modalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+            <div class="modal-body text-center">
+                @if($single_approval->video != null)               
+
+                    <input type="hidden" value="{{ preg_match("#(?<=v=)[a-zA-Z0-9-]+(?=&)|(?<=v\/)[^&\n]+|(?<=v=)[^&\n]+|(?<=youtu.be/)[^&\n]+#", $single_approval->video, $default_match) }}" />
+
+                    <iframe width="100%" height="400" src="https://www.youtube.com/embed/{{ $default_match[0] }}?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+                @endif
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+            </div>
+            </div>
+        </div>
+    </div>
+
+    
 
 @endsection
 

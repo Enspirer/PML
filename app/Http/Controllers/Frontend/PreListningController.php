@@ -106,6 +106,7 @@ class PreListningController extends Controller
         $addprop->postal_code=$request->postal_code;
         $addprop->address_one=$request->address_line_one;
         $addprop->address_two=$request->address_line_two;
+        $addprop->flow_plan=$request->flow_plan;
         $addprop->user_id = auth()->user()->id;
         $addprop->admin_approval='Pending';
         $addprop->listning_type='free_listning';

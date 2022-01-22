@@ -199,36 +199,36 @@ button.close:hover {
                 <div class="col-9 col-xs-12 mobile-swiper-area">
                     <div class="swiper mySwiper2">
                         <div class="swiper-wrapper">
-                            @php
-                            $str_arr2 = preg_split ("/\,/", $property->image_ids);
-                            $flow_plan = preg_split ("/\,/", $property->flow_plan);
 
+                            @php
+                                $str_arr2 = preg_split ("/\,/", $property->image_ids);
+                                $flow_plan = preg_split ("/\,/", $property->flow_plan);
                             @endphp
 
                             @if($property->panaromal_images)
-                            @php
-                            $pano_arry = preg_split ("/\,/", $property->panaromal_images);
-                            @endphp
+                                @php
+                                    $pano_arry = preg_split ("/\,/", $property->panaromal_images);
+                                @endphp
                             @else
-                            @php
-                            $pano_arry = null;
-                            @endphp
+                                @php
+                                    $pano_arry = null;
+                                @endphp
                             @endif
 
                             @if($property->panaromal_status == 'panaromal_images')
-                            @if($pano_arry)
-                            @foreach($pano_arry as $panoarray)
-                            <div class="swiper-slide">
-                                <a href="#" data-toggle="modal" data-target="#panoModal"
-                                    onclick="changePanaroma('{{ $panoarray }}')">
-                                    <div class="pano-wrapper">
-                                        <img src="{{ uploaded_asset($panoarray) }}" />
-                                        <img class="pano-symbol" src="{{ url('img/360.png') }}" alt="360 logo">
+                                @if($pano_arry)
+                                    @foreach($pano_arry as $panoarray)
+                                    <div class="swiper-slide">
+                                        <a href="#" data-toggle="modal" data-target="#panoModal"
+                                            onclick="changePanaroma('{{ $panoarray }}')">
+                                            <div class="pano-wrapper">
+                                                <img src="{{ uploaded_asset($panoarray) }}" />
+                                                <img class="pano-symbol" src="{{ url('img/360.png') }}" alt="360 logo">
+                                            </div>
+                                        </a>
                                     </div>
-                                </a>
-                            </div>
-                            @endforeach
-                            @endif
+                                    @endforeach
+                                @endif
                             @endif
 
                             @foreach($str_arr2 as $key=> $pre)
@@ -399,82 +399,7 @@ button.close:hover {
                         </div>
                     </div>
                 </div>
-
-                <!-- video popup -->
-
-                @if($property->video != null)
-                <div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="videoModalLabel"
-                    aria-hidden="true">
-                    <div class="modal-dialog modal-lg">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="videoModalLabel">Video</h5>
-                                <button type="button" class="btn-close" data-dismiss="modal"
-                                    aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body text-center">
-
-                                <input type="hidden"
-                                    value="{{ preg_match("#(?<=v=)[a-zA-Z0-9-]+(?=&)|(?<=v\/)[^&\n]+|(?<=v=)[^&\n]+|(?<=youtu.be/)[^&\n]+#", $property->video, $default_match) }}" />
-
-                                <iframe width="100%" height="400"
-                                    src="https://www.youtube.com/embed/{{ $default_match[0] }}?rel=0"
-                                    title="YouTube video player" frameborder="0"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                    allowfullscreen></iframe>
-
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                @endif
-
-
-                <div class="modal fade" id="flow_plan_modal" tabindex="-1" role="dialog"
-                    aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content lightgallery-content">
-                            <!-- <div class="modal-header"> </div> -->
-
-                            <div class="modal-body light-gallery-body">
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-
-                                <div class="cont">
-
-
-                                    <div class="demo-gallery">
-                                        <ul id="lightgallery_flow">
-                                            @foreach($flow_plan as $key=> $flow)
-                                            <li data-responsive="{{ uploaded_asset($flow) }}"
-                                                data-src="{{ uploaded_asset($flow) }}" data-sub-html="">
-                                                <a href="">
-                                                    <img class="img-responsive" src="{{ uploaded_asset($flow) }}">
-                                                    <div class="demo-gallery-poster">
-                                                        <img
-                                                            src="https://sachinchoolur.github.io/lightgallery.js/static/img/zoom.png">
-                                                    </div>
-                                                </a>
-                                            </li>
-                                            @endforeach
-                                        </ul>
-                                        <span class="small">Click on any of the images to see lightGallery</span>
-                                    </div>
-                                </div>
-
-
-                            </div>
-                            <!-- <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    </div> -->
-                        </div>
-                    </div>
-                </div>
+                     
 
 
                 <!-- All Property Model -->
@@ -493,7 +418,7 @@ button.close:hover {
                                 <div class="tab-content" id="myTabContent">
                                     <!-- 360 tab -->
                                     <div class="tab-pane fade active show" id="virtual" role="tabpanel"
-                                        aria-labelledby="virtual-tab">360</div>
+                                        aria-labelledby="virtual-tab">{!!$property->google_panaroma!!}</div>
 
                                     <!-- photo tab -->
                                     <div class="tab-pane fade" id="photo" role="tabpanel" aria-labelledby="photo-tab">
@@ -524,7 +449,16 @@ button.close:hover {
 
                                     <!-- video tab -->
                                     <div class="tab-pane fade" id="video" role="tabpanel" aria-labelledby="video-tab">
-                                        Video</div>
+                                        
+                                    @if($property->video != null)                
+
+                                        <input type="hidden" value="{{ preg_match("#(?<=v=)[a-zA-Z0-9-]+(?=&)|(?<=v\/)[^&\n]+|(?<=v=)[^&\n]+|(?<=youtu.be/)[^&\n]+#", $property->video, $default_match) }}" />
+                                        
+                                        <iframe width="100%" height="500" src="https://www.youtube.com/embed/{{ $default_match[0] }}?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+                                    @endif
+                                
+                                    </div>
 
                                     <!-- map tab -->
                                     <div class="tab-pane fade" id="all-map" role="tabpanel"
@@ -536,7 +470,30 @@ button.close:hover {
                                     <!-- flow plan tab -->
                                     <div class="tab-pane fade" id="flow-plan" role="tabpanel"
                                         aria-labelledby="flow-plan-tab">
-                                        flow plan here
+                                        
+                                        
+                                        @if($property->flow_plan != null)
+                                    
+                                        <div class="demo-gallery">
+                                            <ul id="lightgallery_flow">
+                                                @foreach($flow_plan as $key=> $flow)
+                                                <li data-responsive="{{ uploaded_asset($flow) }}"
+                                                    data-src="{{ uploaded_asset($flow) }}" data-sub-html="">
+                                                    <a href="">
+                                                        <img class="img-responsive" src="{{ uploaded_asset($flow) }}">
+                                                        <div class="demo-gallery-poster">
+                                                            <img
+                                                                src="https://sachinchoolur.github.io/lightgallery.js/static/img/zoom.png">
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                @endforeach
+                                            </ul>
+                                            <span class="small">Click on any of the images to see lightGallery</span>
+                                        </div>
+
+                                        @endif
+
                                     </div>
 
 
