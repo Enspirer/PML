@@ -1522,10 +1522,10 @@ button.close:hover {
             <div class="modal-body">
                 <div class="share-options-wrapper">
                     <div class="share-option">
-                        <i class="fab fa-facebook-square"></i>
+                        <a href="https://www.facebook.com/sharer/sharer.php?u={{ url('for-sale/single-property') }}&quote=Check%20is%20property%20:{{ url('for-sale/single-property',$property->id) }}" style="color:black"><i class="fab fa-facebook-square"></i></a>
                     </div>
                     <div class="share-option">
-                        <i class="fab fa-twitter"></i>
+                        <a href="http://twitter.com/home?status=Check%20this%20property%20{{ url('for-sale/single-property',$property->id) }}" style="color:black"> <i class="fab fa-twitter"></i></a>
                     </div>
                     <div class="share-option">
                         <i class="fab fa-instagram"></i>
