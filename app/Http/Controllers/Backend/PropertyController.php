@@ -28,7 +28,12 @@ class PropertyController extends Controller
 
         $result_status = NearLocation::nearlocation($propertDetails->lat,$propertDetails->long,$propertDetails->id,$request->type);
 
-        return $result_status;
+        if($result_status){
+            return back()->withFlashSuccess('Added Successfully');   
+        }else{
+            return back()->withErrors('Something Went Wrong!');   
+        }
+        
     }
 
 

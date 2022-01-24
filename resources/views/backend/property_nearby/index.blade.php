@@ -60,7 +60,7 @@
     </ul>
 
 
-    <div class="tab-content" id="myTabContent">
+    <div class="tab-content mb-4" id="myTabContent">
 
         <div class="tab-pane fade show active" id="shopping" role="tabpanel" aria-labelledby="shopping-tab">
 
