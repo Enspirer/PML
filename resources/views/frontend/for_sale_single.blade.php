@@ -285,7 +285,7 @@ button.close:hover {
 
                                 <li class="last-item">
                                     <a href="#" data-toggle="modal" data-target="#all_property_model" class="option-btn"
-                                        onclick="directionActive()"><i class="fas fa-directions" aria-hidden="true"></i>Direction</a>
+                                        onclick="directionActive()"><i class="fas fa-directions" aria-hidden="true"></i>Map</a>
                                 </li>
 
                                 
@@ -462,8 +462,14 @@ button.close:hover {
 
                                     <!-- map tab -->
                                     <div class="tab-pane fade" id="all-map" role="tabpanel"
-                                        aria-labelledby="all-map-tab">
-                                        map here
+                                        aria-labelledby="all-map-tab">                                        
+                                            
+                                        <div class="location">
+                                            <div id="map2" style="height: 490px; width: 100%;"></div>
+                                            <input type="text" name="lat" id="lat2" value="{{$property->lat}}" class="mt-3 d-none">
+                                            <input type="text" name="lng" id="lng2" value="{{$property->long}}" class="mt-3 d-none">
+                                        </div>
+
                                     </div>
 
 
@@ -2437,352 +2443,381 @@ $('.filter-reset').click(function() {
 
 
 <script>
-function initMap() {
-    let lat = $('#lat').val();
-    let lng = $('#lng').val();
 
-    const myLatLng = {
-        lat: parseFloat(lat),
-        lng: parseFloat(lng)
-    };
+    function initMaptwo() {
+        let lat = $('#lat2').val();
+        let lng = $('#lng2').val();
 
-    let options = {
-        zoom: 8,
-        center: myLatLng
-    };
+        const myLatLng = { lat: parseFloat(lat), lng: parseFloat(lng) };
 
-    //custom icons for marker type
-    const iconBase = "{{ url('img/frontend/map-icons') }}";
-    const icons = {
-        //shopping
-        shopping: {
-            icon: iconBase + "/shopping.png",
-        },
-        food: {
-            icon: iconBase + "/food.png",
-        },
-        restuarant: {
-            icon: iconBase + "/restuarant.png",
-        },
-        school: {
-            icon: iconBase + "/school.png",
-        },
-        atm: {
-            icon: iconBase + "/atm.png",
-        },
-        hospital: {
-            icon: iconBase + "/hospital.png",
-        },
-        gym: {
-            icon: iconBase + "/gym.png",
-        }
-    };
+            let options = {
+            zoom: 8,
+            center: myLatLng
+            };
+
+            const map = new google.maps.Map(document.getElementById("map2"), options);
 
 
-
-    const map = new google.maps.Map(document.getElementById("map"), options);
-
-    let marker = new google.maps.Marker({
-        position: myLatLng,
-        map: map
-    });
-
-
-
-
-
-    let markers = [];
-
-
-
-    //----------------shopping-----------------------
-    $("#shopping").click(function() {
-
-        for (var i = 0; i < markers.length; i++) {
-
-            markers[i].setMap(null);
-        }
-
-
-        // $.ajax ({
-        //     type: "GET",
-        //     url: 
-        //     success: function(data) {
-
-        //     }
-        // });
-
-        let shoppingLocations = [{
-                id: 1,
-                lat: 50.9474,
-                lng: 10.7098,
-                type: "shopping"
-            },
-            {
-                id: 2,
-                lat: 50.5558,
-                lng: 9.6808,
-                type: "shopping"
-            }
-        ];
-
-
-        for (var i = 0; i < shoppingLocations.length; i++) {
-
-            var marker = new google.maps.Marker({
-                map: map,
-                position: shoppingLocations[i],
-                icon: icons[shoppingLocations[i].type].icon,
+            let marker = new google.maps.Marker({
+                position: myLatLng,
+                map:map
             });
 
-            markers.push(marker);
         }
 
-    })
+</script>
 
+<script>
+    function initMap() {
 
-    //----------------food-----------------------
-    $("#food").click(function() {
+        initMaptwo();
 
-        for (var i = 0; i < markers.length; i++) {
+        let lat = $('#lat').val();
+        let lng = $('#lng').val();
 
-            markers[i].setMap(null);
-        }
+        const myLatLng = {
+            lat: parseFloat(lat),
+            lng: parseFloat(lng)
+        };
 
+        let options = {
+            zoom: 8,
+            center: myLatLng
+        };
 
-        let foodLocations = [{
-                id: 1,
-                lat: 50.8019,
-                lng: 8.7658,
-                type: "food"
+        //custom icons for marker type
+        const iconBase = "{{ url('img/frontend/map-icons') }}";
+        const icons = {
+            //shopping
+            shopping: {
+                icon: iconBase + "/shopping.png",
             },
-            {
-                id: 2,
-                lat: 50.6077,
-                lng: 10.6881,
-                type: "food"
-            }
-        ];
-
-
-        for (var i = 0; i < foodLocations.length; i++) {
-
-            var marker = new google.maps.Marker({
-                map: map,
-                position: foodLocations[i],
-                icon: icons[foodLocations[i].type].icon,
-            });
-
-            markers.push(marker);
-        }
-
-
-    })
-
-
-    //----------------restuarant-----------------------
-    $("#restuarant").click(function() {
-
-        for (var i = 0; i < markers.length; i++) {
-
-            markers[i].setMap(null);
-        }
-
-
-        let restuarantLocations = [{
-                id: 1,
-                lat: 50.9271,
-                lng: 11.5892,
-                type: "restuarant"
+            food: {
+                icon: iconBase + "/food.png",
             },
-            {
-                id: 2,
-                lat: 50.7508,
-                lng: 9.2692,
-                type: "restuarant"
-            }
-        ];
-
-
-        for (var i = 0; i < restuarantLocations.length; i++) {
-
-            var marker = new google.maps.Marker({
-                map: map,
-                position: restuarantLocations[i],
-                icon: icons[restuarantLocations[i].type].icon,
-            });
-
-            markers.push(marker);
-        }
-
-
-    })
-
-
-    //----------------school-----------------------
-    $("#school").click(function() {
-
-        for (var i = 0; i < markers.length; i++) {
-
-            markers[i].setMap(null);
-        }
-
-
-        let schoolLocations = [{
-                id: 1,
-                lat: 50.7271,
-                lng: 11.4892,
-                type: "school"
+            restuarant: {
+                icon: iconBase + "/restuarant.png",
             },
-            {
-                id: 2,
-                lat: 50.6508,
-                lng: 9.3692,
-                type: "school"
-            }
-        ];
-
-
-        for (var i = 0; i < schoolLocations.length; i++) {
-
-            var marker = new google.maps.Marker({
-                map: map,
-                position: schoolLocations[i],
-                icon: icons[schoolLocations[i].type].icon,
-            });
-
-            markers.push(marker);
-        }
-
-
-    })
-
-
-    //----------------atm-----------------------
-    $("#atm").click(function() {
-
-        for (var i = 0; i < markers.length; i++) {
-
-            markers[i].setMap(null);
-        }
-
-
-        let atmLocations = [{
-                id: 1,
-                lat: 50.5271,
-                lng: 11.6892,
-                type: "atm"
+            school: {
+                icon: iconBase + "/school.png",
             },
-            {
-                id: 2,
-                lat: 50.5508,
-                lng: 9.5692,
-                type: "atm"
-            }
-        ];
-
-
-        for (var i = 0; i < atmLocations.length; i++) {
-
-            var marker = new google.maps.Marker({
-                map: map,
-                position: atmLocations[i],
-                icon: icons[atmLocations[i].type].icon,
-            });
-
-            markers.push(marker);
-        }
-
-
-    })
-
-
-    //----------------hospital-----------------------
-    $("#hospital").click(function() {
-
-        for (var i = 0; i < markers.length; i++) {
-
-            markers[i].setMap(null);
-        }
-
-
-        let hospitalLocations = [{
-                id: 1,
-                lat: 50.5671,
-                lng: 11.5892,
-                type: "hospital"
+            atm: {
+                icon: iconBase + "/atm.png",
             },
-            {
-                id: 2,
-                lat: 50.5608,
-                lng: 9.3692,
-                type: "hospital"
-            }
-        ];
-
-
-        for (var i = 0; i < hospitalLocations.length; i++) {
-
-            var marker = new google.maps.Marker({
-                map: map,
-                position: hospitalLocations[i],
-                icon: icons[hospitalLocations[i].type].icon,
-            });
-
-            markers.push(marker);
-        }
-
-
-    })
-
-
-    //----------------gym-----------------------
-    $("#gym").click(function() {
-
-        for (var i = 0; i < markers.length; i++) {
-
-            markers[i].setMap(null);
-        }
-
-
-        let gymLocations = [{
-                id: 1,
-                lat: 50.9671,
-                lng: 10.5892,
-                type: "gym"
+            hospital: {
+                icon: iconBase + "/hospital.png",
             },
-            {
-                id: 2,
-                lat: 50.5608,
-                lng: 11.3692,
-                type: "gym"
+            gym: {
+                icon: iconBase + "/gym.png",
             }
-        ];
+        };
 
 
-        for (var i = 0; i < gymLocations.length; i++) {
 
-            var marker = new google.maps.Marker({
-                map: map,
-                position: gymLocations[i],
-                icon: icons[gymLocations[i].type].icon,
-            });
+        const map = new google.maps.Map(document.getElementById("map"), options);
 
-            markers.push(marker);
-        }
-
-
-    })
+        let marker = new google.maps.Marker({
+            position: myLatLng,
+            map: map
+        });
 
 
 
 
 
-}
+        let markers = [];
+
+
+
+        //----------------shopping-----------------------
+        $("#shopping").click(function() {
+
+            for (var i = 0; i < markers.length; i++) {
+
+                markers[i].setMap(null);
+            }
+
+
+            // $.ajax ({
+            //     type: "GET",
+            //     url: 
+            //     success: function(data) {
+
+            //     }
+            // });
+
+            let shoppingLocations = [{
+                    id: 1,
+                    lat: 50.9474,
+                    lng: 10.7098,
+                    type: "shopping"
+                },
+                {
+                    id: 2,
+                    lat: 50.5558,
+                    lng: 9.6808,
+                    type: "shopping"
+                }
+            ];
+
+
+            for (var i = 0; i < shoppingLocations.length; i++) {
+
+                var marker = new google.maps.Marker({
+                    map: map,
+                    position: shoppingLocations[i],
+                    icon: icons[shoppingLocations[i].type].icon,
+                });
+
+                markers.push(marker);
+            }
+
+        })
+
+
+        //----------------food-----------------------
+        $("#food").click(function() {
+
+            for (var i = 0; i < markers.length; i++) {
+
+                markers[i].setMap(null);
+            }
+
+
+            let foodLocations = [{
+                    id: 1,
+                    lat: 50.8019,
+                    lng: 8.7658,
+                    type: "food"
+                },
+                {
+                    id: 2,
+                    lat: 50.6077,
+                    lng: 10.6881,
+                    type: "food"
+                }
+            ];
+
+
+            for (var i = 0; i < foodLocations.length; i++) {
+
+                var marker = new google.maps.Marker({
+                    map: map,
+                    position: foodLocations[i],
+                    icon: icons[foodLocations[i].type].icon,
+                });
+
+                markers.push(marker);
+            }
+
+
+        })
+
+
+        //----------------restuarant-----------------------
+        $("#restuarant").click(function() {
+
+            for (var i = 0; i < markers.length; i++) {
+
+                markers[i].setMap(null);
+            }
+
+
+            let restuarantLocations = [{
+                    id: 1,
+                    lat: 50.9271,
+                    lng: 11.5892,
+                    type: "restuarant"
+                },
+                {
+                    id: 2,
+                    lat: 50.7508,
+                    lng: 9.2692,
+                    type: "restuarant"
+                }
+            ];
+
+
+            for (var i = 0; i < restuarantLocations.length; i++) {
+
+                var marker = new google.maps.Marker({
+                    map: map,
+                    position: restuarantLocations[i],
+                    icon: icons[restuarantLocations[i].type].icon,
+                });
+
+                markers.push(marker);
+            }
+
+
+        })
+
+
+        //----------------school-----------------------
+        $("#school").click(function() {
+
+            for (var i = 0; i < markers.length; i++) {
+
+                markers[i].setMap(null);
+            }
+
+
+            let schoolLocations = [{
+                    id: 1,
+                    lat: 50.7271,
+                    lng: 11.4892,
+                    type: "school"
+                },
+                {
+                    id: 2,
+                    lat: 50.6508,
+                    lng: 9.3692,
+                    type: "school"
+                }
+            ];
+
+
+            for (var i = 0; i < schoolLocations.length; i++) {
+
+                var marker = new google.maps.Marker({
+                    map: map,
+                    position: schoolLocations[i],
+                    icon: icons[schoolLocations[i].type].icon,
+                });
+
+                markers.push(marker);
+            }
+
+
+        })
+
+
+        //----------------atm-----------------------
+        $("#atm").click(function() {
+
+            for (var i = 0; i < markers.length; i++) {
+
+                markers[i].setMap(null);
+            }
+
+
+            let atmLocations = [{
+                    id: 1,
+                    lat: 50.5271,
+                    lng: 11.6892,
+                    type: "atm"
+                },
+                {
+                    id: 2,
+                    lat: 50.5508,
+                    lng: 9.5692,
+                    type: "atm"
+                }
+            ];
+
+
+            for (var i = 0; i < atmLocations.length; i++) {
+
+                var marker = new google.maps.Marker({
+                    map: map,
+                    position: atmLocations[i],
+                    icon: icons[atmLocations[i].type].icon,
+                });
+
+                markers.push(marker);
+            }
+
+
+        })
+
+
+        //----------------hospital-----------------------
+        $("#hospital").click(function() {
+
+            for (var i = 0; i < markers.length; i++) {
+
+                markers[i].setMap(null);
+            }
+
+
+            let hospitalLocations = [{
+                    id: 1,
+                    lat: 50.5671,
+                    lng: 11.5892,
+                    type: "hospital"
+                },
+                {
+                    id: 2,
+                    lat: 50.5608,
+                    lng: 9.3692,
+                    type: "hospital"
+                }
+            ];
+
+
+            for (var i = 0; i < hospitalLocations.length; i++) {
+
+                var marker = new google.maps.Marker({
+                    map: map,
+                    position: hospitalLocations[i],
+                    icon: icons[hospitalLocations[i].type].icon,
+                });
+
+                markers.push(marker);
+            }
+
+
+        })
+
+
+        //----------------gym-----------------------
+        $("#gym").click(function() {
+
+            for (var i = 0; i < markers.length; i++) {
+
+                markers[i].setMap(null);
+            }
+
+
+            let gymLocations = [{
+                    id: 1,
+                    lat: 50.9671,
+                    lng: 10.5892,
+                    type: "gym"
+                },
+                {
+                    id: 2,
+                    lat: 50.5608,
+                    lng: 11.3692,
+                    type: "gym"
+                }
+            ];
+
+
+            for (var i = 0; i < gymLocations.length; i++) {
+
+                var marker = new google.maps.Marker({
+                    map: map,
+                    position: gymLocations[i],
+                    icon: icons[gymLocations[i].type].icon,
+                });
+
+                markers.push(marker);
+            }
+
+        })
+
+    }
+
+    
+
 </script>
 
 <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEBj8LhHUJaf2MXpqIQ_MOXs7HkeUXnac&callback=initMap"
     type="text/javascript"></script>
+
+
+    
 
 @endpush
