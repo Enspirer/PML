@@ -12,9 +12,8 @@
 }
 
 .custom-map-control-button {
-    background-color: #fff;
     border: 0;
-    border-radius: 2px;
+    border-radius: 10px;
     box-shadow: 0 1px 4px -1px rgba(0, 0, 0, 0.3);
     margin: 10px;
     padding: 0 0.5em;
@@ -22,9 +21,12 @@
     overflow: hidden;
     height: 40px;
     cursor: pointer;
+    background: #16202c;
+    color: white;
 }
 .custom-map-control-button:hover {
-    background: #ebebeb;
+    background: #060a0d;
+
 }
 
 </style>
@@ -160,7 +162,7 @@
 
         const locationButton = document.createElement("button");
 
-        locationButton.textContent = "Pan to Current Location";
+        locationButton.innerHTML = "Pan to Current Location";
         locationButton.classList.add("custom-map-control-button");
         map.controls[google.maps.ControlPosition.TOP_CENTER].push(locationButton);
 
