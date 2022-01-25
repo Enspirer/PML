@@ -140,6 +140,95 @@ p.card-text.mb-1 {
     font-size: 0.8rem;
 }
 
+/*loader styles*/
+.overlay-loader {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0, 0.9);
+    overflow-x: hidden;
+    transition: 0.5s;
+}
+
+
+
+.loading-overlay {
+    position: relative;
+    width: 100%;
+    top: 30%;
+    text-align: center;
+    margin-top: 30px;
+    color: #fff;
+}
+
+
+
+
+.first-wrapper {
+	background-color: #0EB1D2;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+}
+
+.square {
+	width: 50px;
+	height: 50px;
+	background-color: rgba(255,255,255,0);
+	margin-right: auto;
+	margin-left: auto;
+	border: 2px solid #fff;
+	left: 73px;
+	top: 73px;
+	position: absolute;
+}
+
+.square-loader {
+  transform: rotate(45deg);
+}
+
+.first_square {
+  animation: first_square_animate 1s infinite ease-in-out;
+}
+.second_square {
+	animation: second_square 1s forwards, 
+             second_square_animate 1s infinite ease-in-out;
+}	
+.third_square {
+	animation: third_square 1s forwards, 
+             third_square_animate 1s infinite ease-in-out;
+}	
+		
+@keyframes second_square {
+  100% { width: 100px; height:100px; left: 48px; top: 48px; }
+}
+
+@keyframes third_square {
+  100% { width: 150px; height:150px; left: 23px; top: 23px;}
+}
+
+@keyframes first_square_animate {
+  0%   { transform: perspective(100px) rotateX(0deg) rotateY(0deg);} 
+  50%  { transform: perspective(100px) rotateX(-180deg) rotateY(0deg); }
+  100% { transform: perspective(100px) rotateX(-180deg) rotateY(-180deg); }
+}
+
+@keyframes second_square_animate {
+  0%   { transform: perspective(200px) rotateX(0deg) rotateY(0deg); } 
+  50%  { transform: perspective(200px) rotateX(180deg) rotateY(0deg); } 
+  100% { transform: perspective(200px) rotateX(180deg) rotateY(180deg); }
+}
+
+@keyframes third_square_animate {
+  0%   { transform: perspective(300px) rotateX(0deg) rotateY(0deg); } 
+  50%  { transform: perspective(300px) rotateX(-180deg) rotateY(0deg); } 
+  100% { transform: perspective(300px) rotateX(-180deg) rotateY(-180deg); }
+}
+
 /*mobile-view*/
 @media screen and (max-width: 767px) {
 

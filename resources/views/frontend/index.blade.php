@@ -314,7 +314,19 @@
 
 <div id="map"></div>
 
+<div id="loadingDiv" class="overlay-loader">
+    <div class="loading-overlay">
+        <!-- <h2>Loading div</h2> -->
+        <div class="first-wrapper">
+            <div class="square-loader">
+                <div class="square first_square"></div>
+                <div class="square second_square"></div>
+                <div class="square third_square"></div>
+            </div>
+        </div>
 
+    </div>
+</div>
   
 
 <div class="properties" style="margin-top: 3rem;">
@@ -1089,6 +1101,22 @@ $('.filter-reset').click(function() {
     fail(function(jqXHR, textStatus, errorThrown) {
         $('.twitter').addClass('d-none');
     });
+</script>
+
+<script>
+    $(document).ready(function() {
+        var $loading = $('#loadingDiv').hide();
+    });
+
+
+    // var $loading = $('#loadingDiv').hide();
+    // $(document)
+    // .ajaxStart(function () {
+    //     $loading.show();
+    // })
+    // .ajaxStop(function () {
+    //     $loading.hide();
+    // });
 </script>
 
 @endpush

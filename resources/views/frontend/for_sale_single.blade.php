@@ -4,7 +4,8 @@
 
 @push('after-styles')
 <link href="{{ url('css/for_sale_single.css') }}" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.rawgit.com/sachinchoolur/lightgallery.js/master/dist/css/lightgallery.css">
+<!-- <link rel="stylesheet" href="https://cdn.rawgit.com/sachinchoolur/lightgallery.js/master/dist/css/lightgallery.css"> -->
+
 
 <style>
 .btn-pano {
@@ -423,7 +424,7 @@ button.close:hover {
                                     <!-- photo tab -->
                                     <div class="tab-pane fade" id="photo" role="tabpanel" aria-labelledby="photo-tab">
 
-                                        <div class="cont">
+                                        <!-- <div class="cont">
                                             <div class="demo-gallery">
                                                 <ul id="lightgallery">
                                                     @foreach($str_arr2 as $key=> $pre)
@@ -442,6 +443,103 @@ button.close:hover {
                                                 </ul>
                                                 <span class="small">Click on any of the images to see
                                                     lightGallery</span>
+                                            </div>
+                                        </div> -->
+
+                                      
+
+                                        <div class="fullsilder-container">
+                                            <div class="fullslider-main-container">
+                                                <!-- main images -->
+                                                <div class="holder">
+                                                    <div class="fullslider-slides">
+                                                        <img src="https://images.unsplash.com/photo-1505438157249-00e1b44ee34f?ixlib=rb-0.3.5&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ&s=dfc554074f522ec42818a052152dac21g"
+                                                            alt="" />
+                                                    </div>
+
+                                                    <div class="fullslider-slides">
+                                                        <img
+                                                            src="https://images.unsplash.com/photo-1515870672913-a4c298575776?ixlib=rb-0.3.5&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ&s=aa80486fd3343134706e785c034b339d">
+                                                    </div>
+
+                                                    <div class="fullslider-slides">
+                                                        <img
+                                                            src="https://images.unsplash.com/photo-1521651201144-634f700b36ef?ixlib=rb-0.3.5&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ&s=e26ec8c74dc99aff53a60741538cad5f">
+                                                    </div>
+
+                                                    <div class="fullslider-slides">
+                                                        <img
+                                                            src="https://images.unsplash.com/photo-1504618223053-559bdef9dd5a?ixlib=rb-0.3.5&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ&s=583c2bf56c8006e507e2a9905fc1e54c">
+                                                    </div>
+
+                                                    <div class="fullslider-slides">
+                                                        <img
+                                                            src="https://images.unsplash.com/photo-1504208434309-cb69f4fe52b0?ixlib=rb-0.3.5&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ&s=69093505f999d8170e9a1aab3771c07e">
+                                                    </div>
+
+                                                    <div class="fullslider-slides">
+                                                        <img
+                                                            src="https://images.unsplash.com/photo-1485199433301-8b7102e86995?ixlib=rb-0.3.5&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ&s=c7783fe3a697b1a2248450120435cbc3">
+                                                    </div>
+                                                </div>
+
+                                                <div class="fullsliderPrevContainer"><a class="fullslider-prev"
+                                                        onclick="plusSlides(-1)">
+                                                        <svg viewBox="0 0 24 24">
+                                                            <path
+                                                                d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z">
+                                                            </path>
+                                                        </svg>
+                                                    </a></div>
+                                                <div class="fullslidernextContainer"><a class="fullslider-next"
+                                                        onclick="plusSlides(1)">
+                                                        <svg viewBox="0 0 24 24">
+                                                            <path
+                                                                d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z">
+                                                            </path>
+                                                        </svg>
+                                                    </a>
+                                                </div> 
+
+                                                
+                                                    <!-- <div class="caption-container">
+                                                    <p id="fullslider-caption"></p>
+                                                </div> -->
+                                            </div>
+
+
+                                            <!-- thumnails in a row -->
+                                            <div class="fullslider-side-container">
+                                                <div class="fullslider-column">
+                                                    <img class="fullslider-slide-thumbnail"
+                                                        src="https://images.unsplash.com/photo-1505438157249-00e1b44ee34f?ixlib=rb-0.3.5&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ&s=dfc554074f522ec42818a052152dac21g"
+                                                        onclick="currentSlide(1)" alt="Caption One">
+                                                </div>
+                                                <div class="fullslider-column">
+                                                    <img class="fullslider-slide-thumbnail"
+                                                        src="https://images.unsplash.com/photo-1515870672913-a4c298575776?ixlib=rb-0.3.5&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ&s=aa80486fd3343134706e785c034b339d"
+                                                        onclick="currentSlide(2)" alt="Caption Two">
+                                                </div>
+                                                <div class="fullslider-column">
+                                                    <img class="fullslider-slide-thumbnail"
+                                                        src="https://images.unsplash.com/photo-1521651201144-634f700b36ef?ixlib=rb-0.3.5&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ&s=e26ec8c74dc99aff53a60741538cad5f"
+                                                        onclick="currentSlide(3)" alt="Caption Three">
+                                                </div>
+                                                <div class="fullslider-column">
+                                                    <img class="fullslider-slide-thumbnail"
+                                                        src="https://images.unsplash.com/photo-1504618223053-559bdef9dd5a?ixlib=rb-0.3.5&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ&s=583c2bf56c8006e507e2a9905fc1e54c"
+                                                        onclick="currentSlide(4)" alt="Caption Four">
+                                                </div>
+                                                <div class="fullslider-column">
+                                                    <img class="fullslider-slide-thumbnail"
+                                                        src="https://images.unsplash.com/photo-1504208434309-cb69f4fe52b0?ixlib=rb-0.3.5&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ&s=69093505f999d8170e9a1aab3771c07e"
+                                                        onclick="currentSlide(5)" alt="Caption Five">
+                                                </div>
+                                                <div class="fullslider-column">
+                                                    <img class="fullslider-slide-thumbnail"
+                                                        src="https://images.unsplash.com/photo-1485199433301-8b7102e86995?ixlib=rb-0.3.5&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ&s=c7783fe3a697b1a2248450120435cbc3"
+                                                        onclick="currentSlide(6)" alt="Caption Six">
+                                                </div>
                                             </div>
                                         </div>
 
@@ -2817,7 +2915,42 @@ $('.filter-reset').click(function() {
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEBj8LhHUJaf2MXpqIQ_MOXs7HkeUXnac&callback=initMap"
     type="text/javascript"></script>
 
+    <script>
+var slideIndex = 1;
+showSlides(slideIndex);
 
-    
+function plusSlides(n) {
+    showSlides(slideIndex += n);
+}
 
+function currentSlide(n) {
+    showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+    var i;
+    var slides = document.getElementsByClassName("fullslider-slides");
+    var dots = document.getElementsByClassName("fullslider-slide-thumbnail");
+    var captionText = document.getElementById("fullslider-caption");
+    if (n > slides.length) {
+        slideIndex = 1
+    }
+    if (n < 1) {
+        slideIndex = slides.length
+    }
+    console.log(slideIndex);
+
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+        // slides[i].style.display = "inline";
+    }
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex - 1].style.display = "block";
+    // slides[slideIndex-1].style.display = "inline";
+    dots[slideIndex - 1].className += " active";
+    captionText.innerHTML = dots[slideIndex - 1].alt;
+}
+</script>
 @endpush
