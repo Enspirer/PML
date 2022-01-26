@@ -770,6 +770,29 @@ div#all_property_model .modal-footer {
 
   
 
+  /*photo modal*/
+  .photoModalSwiper {
+    margin-left: 0;
+  }
+
+  .photoModalSwiper, .photoModalThumbSlider {
+    height: 50vh;
+}
+
+.location {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+div#map2 {
+  height: 55vh !important;
+}
+
+.apart-avail button {
+  margin-right: 0 !important;
+  margin-bottom: 5px;
+}
+
   .email-modal-dialog {
     width: 90% !important;
   }

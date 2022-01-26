@@ -202,34 +202,34 @@ button.close:hover {
                         <div class="swiper-wrapper">
 
                             @php
-                                $str_arr2 = preg_split ("/\,/", $property->image_ids);
-                                $flow_plan = preg_split ("/\,/", $property->flow_plan);
+                            $str_arr2 = preg_split ("/\,/", $property->image_ids);
+                            $flow_plan = preg_split ("/\,/", $property->flow_plan);
                             @endphp
 
                             @if($property->panaromal_images)
-                                @php
-                                    $pano_arry = preg_split ("/\,/", $property->panaromal_images);
-                                @endphp
+                            @php
+                            $pano_arry = preg_split ("/\,/", $property->panaromal_images);
+                            @endphp
                             @else
-                                @php
-                                    $pano_arry = null;
-                                @endphp
+                            @php
+                            $pano_arry = null;
+                            @endphp
                             @endif
 
                             @if($property->panaromal_status == 'panaromal_images')
-                                @if($pano_arry)
-                                    @foreach($pano_arry as $panoarray)
-                                    <div class="swiper-slide">
-                                        <a href="#" data-toggle="modal" data-target="#panoModal"
-                                            onclick="changePanaroma('{{ $panoarray }}')">
-                                            <div class="pano-wrapper">
-                                                <img src="{{ uploaded_asset($panoarray) }}" />
-                                                <img class="pano-symbol" src="{{ url('img/360.png') }}" alt="360 logo">
-                                            </div>
-                                        </a>
+                            @if($pano_arry)
+                            @foreach($pano_arry as $panoarray)
+                            <div class="swiper-slide">
+                                <a href="#" data-toggle="modal" data-target="#panoModal"
+                                    onclick="changePanaroma('{{ $panoarray }}')">
+                                    <div class="pano-wrapper">
+                                        <img src="{{ uploaded_asset($panoarray) }}" />
+                                        <img class="pano-symbol" src="{{ url('img/360.png') }}" alt="360 logo">
                                     </div>
-                                    @endforeach
-                                @endif
+                                </a>
+                            </div>
+                            @endforeach
+                            @endif
                             @endif
 
                             @foreach($str_arr2 as $key=> $pre)
@@ -254,24 +254,26 @@ button.close:hover {
                         <div class="option-list-wrapper">
                             <ul class="option-list hidden-xs">
                                 @if($property->panaromal_status == 'google_panaroma')
-                                    @if($property->google_panaroma != null)
-                                    <li class="last-item">
-                                        <a href="#" data-toggle="modal" data-target="#all_property_model" class="option-btn"
-                                            onclick="virtualActive()"><i class="fas fa-redo-alt" aria-hidden="true"></i>360</a>
-                                    </li>
-                                    @endif
+                                @if($property->google_panaroma != null)
+                                <li class="last-item">
+                                    <a href="#" data-toggle="modal" data-target="#all_property_model" class="option-btn"
+                                        onclick="virtualActive()"><i class="fas fa-redo-alt"
+                                            aria-hidden="true"></i>360</a>
+                                </li>
+                                @endif
                                 @else
-                                    <li class="last-item">
-                                        <i class="fas fa-redo-alt" aria-hidden="true"></i>360
-                                    </li>
+                                <li class="last-item">
+                                    <i class="fas fa-redo-alt" aria-hidden="true"></i>360
+                                </li>
                                 @endif
 
 
                                 <li class="last-item">
                                     <a href="#" data-toggle="modal" data-target="#all_property_model" class="option-btn"
-                                        onclick="photoActive()"><i class="fas fa-camera" aria-hidden="true"></i>Photo</a>
+                                        onclick="photoActive()"><i class="fas fa-camera"
+                                            aria-hidden="true"></i>Photo</a>
                                 </li>
-                                
+
                                 @if($property->video != null)
                                 <li class="last-item">
                                     <a href="#" data-toggle="modal" data-target="#all_property_model" class="option-btn"
@@ -279,17 +281,18 @@ button.close:hover {
                                 </li>
                                 @else
                                 <li class="last-item">
-                                   <i class="fas fa-video" aria-hidden="true"></i>Video
+                                    <i class="fas fa-video" aria-hidden="true"></i>Video
                                 </li>
                                 @endif
 
 
                                 <li class="last-item">
                                     <a href="#" data-toggle="modal" data-target="#all_property_model" class="option-btn"
-                                        onclick="directionActive()"><i class="fas fa-directions" aria-hidden="true"></i>Map</a>
+                                        onclick="directionActive()"><i class="fas fa-directions"
+                                            aria-hidden="true"></i>Map</a>
                                 </li>
 
-                                
+
                                 @if($property->flow_plan != null)
                                 <li class="last-item">
                                     <a href="#" data-toggle="modal" data-target="#all_property_model" class="option-btn"
@@ -299,7 +302,7 @@ button.close:hover {
                                 <li class="last-item">
                                     <i class="far fa-map"></i>Flow Plan
                                 </li>
-                                @endif 
+                                @endif
 
                                 <!-- <li class="last-item">
                                     <a href="#" data-toggle="modal" data-target="#all_property_model" class="option-btn"
@@ -312,9 +315,9 @@ button.close:hover {
                                         onclick="photoActive()"><i class="fas fa-camera" aria-hidden="true"></i>Photo</a>
                                 </li> -->
 
-                               
 
-                              
+
+
 
                                 <!-- <li class="last-item">
                                     <a href="#" data-toggle="modal" data-target="#all_property_model" class="option-btn"
@@ -400,7 +403,7 @@ button.close:hover {
                         </div>
                     </div>
                 </div>
-                     
+
 
 
                 <!-- All Property Model -->
@@ -425,65 +428,68 @@ button.close:hover {
                                     <div class="tab-pane fade" id="photo" role="tabpanel" aria-labelledby="photo-tab">
 
                                         <!-- <div class="cont">
-                                            <div class="demo-gallery">
-                                                <ul id="lightgallery">
-                                                    @foreach($str_arr2 as $key=> $pre)
-                                                    <li data-responsive="{{ uploaded_asset($pre) }}"
-                                                        data-src="{{ uploaded_asset($pre) }}" data-sub-html="">
-                                                        <a href="">
-                                                            <img class="img-responsive"
-                                                                src="{{ uploaded_asset($pre) }}">
-                                                            <div class="demo-gallery-poster">
-                                                                <img
-                                                                    src="https://sachinchoolur.github.io/lightgallery.js/static/img/zoom.png">
-                                                            </div>
-                                                        </a>
-                                                    </li>
-                                                    @endforeach
-                                                </ul>
-                                                <span class="small">Click on any of the images to see
-                                                    lightGallery</span>
-                                            </div>
-                                        </div> -->
+    <div class="demo-gallery">
+        <ul id="lightgallery">
+            @foreach($str_arr2 as $key=> $pre)
+            <li data-responsive="{{ uploaded_asset($pre) }}"
+                data-src="{{ uploaded_asset($pre) }}" data-sub-html="">
+                <a href="">
+                    <img class="img-responsive"
+                        src="{{ uploaded_asset($pre) }}">
+                    <div class="demo-gallery-poster">
+                        <img
+                            src="https://sachinchoolur.github.io/lightgallery.js/static/img/zoom.png">
+                    </div>
+                </a>
+            </li>
+            @endforeach
+        </ul>
+        <span class="small">Click on any of the images to see
+            lightGallery</span>
+    </div>
+</div> -->
 
-                                      
+
                                         <div class="row">
                                             <div class="col-9 col-xs-12 mobile-swiper-area">
-                                                <div class="swiper modalSwiper2">
+                                                <div class="swiper modalSwiper2 photoModalSwiper">
                                                     <div class="swiper-wrapper">
                                                         @php
                                                         $str_arr2 = preg_split ("/\,/", $property->image_ids);
                                                         @endphp
 
                                                         @if($property->panaromal_images)
-                                                            @php
-                                                                $pano_arry = preg_split ("/\,/", $property->panaromal_images);
-                                                            @endphp
+                                                        @php
+                                                        $pano_arry = preg_split ("/\,/", $property->panaromal_images);
+                                                        @endphp
                                                         @else
-                                                            @php
-                                                                $pano_arry = null;
-                                                            @endphp
+                                                        @php
+                                                        $pano_arry = null;
+                                                        @endphp
                                                         @endif
 
                                                         @if($property->panaromal_status == 'panaromal_images')
-                                                            @if($pano_arry)
-                                                                @foreach($pano_arry as $panoarray)
-                                                                <div class="swiper-slide">
-                                                                    <a href="#" data-toggle="modal" data-target="#panoModal"
-                                                                        onclick="changePanaroma('{{ $panoarray }}')">
-                                                                        <div class="pano-wrapper">
-                                                                            <img src="{{ uploaded_asset($panoarray) }}" />
-                                                                            <img class="pano-symbol" src="{{ url('img/360.png') }}" alt="360 logo">
-                                                                        </div>
-                                                                    </a>
+                                                        @if($pano_arry)
+                                                        @foreach($pano_arry as $panoarray)
+                                                        <div class="swiper-slide">
+                                                            <a href="#" data-toggle="modal" data-target="#panoModal"
+                                                                onclick="changePanaroma('{{ $panoarray }}')">
+                                                                <div class="pano-wrapper">
+                                                                    <img class="photoModalSwiperImg"
+                                                                        src="{{ uploaded_asset($panoarray) }}" />
+                                                                    <img class="pano-symbol"
+                                                                        src="{{ url('img/360.png') }}" alt="360 logo">
                                                                 </div>
-                                                                @endforeach
-                                                            @endif
+                                                            </a>
+                                                        </div>
+                                                        @endforeach
+                                                        @endif
                                                         @endif
 
                                                         @foreach($str_arr2 as $key=> $pre)
                                                         <div class="swiper-slide">
-                                                            <img src="{{ uploaded_asset($pre) }}" />
+                                                            <img class="photoModalSwiperImg"
+                                                                src="{{ uploaded_asset($pre) }}" />
 
                                                         </div>
                                                         @endforeach
@@ -495,7 +501,8 @@ button.close:hover {
 
                                                     <div class="position-absolute apart-avail">
                                                         <button class="btn fw-bold me-3">APARTMENT</button>
-                                                        <button class="btn fw-bold" style="color: #39B54A">AVAILABLE</button>
+                                                        <button class="btn fw-bold"
+                                                            style="color: #39B54A">AVAILABLE</button>
                                                     </div>
 
                                                 </div>
@@ -503,21 +510,23 @@ button.close:hover {
 
 
                                             <div class="col-3 col-xs-12">
-                                                <div thumbsSlider="" class="swiper modalSwiper">
+                                                <div thumbsSlider="" class="swiper modalSwiper photoModalThumbSlider">
                                                     <div class="swiper-wrapper">
                                                         @if($property->panaromal_status == 'panaromal_images')
-                                                            @if($pano_arry)
-                                                                @foreach($pano_arry as $panoarray)
-                                                                <div class="swiper-slide">
-                                                                    <img src="{{ uploaded_asset($panoarray) }}" />
-                                                                </div>
-                                                                @endforeach
-                                                            @endif
+                                                        @if($pano_arry)
+                                                        @foreach($pano_arry as $panoarray)
+                                                        <div class="swiper-slide">
+                                                            <img class="photoModalSwiperThumb"
+                                                                src="{{ uploaded_asset($panoarray) }}" />
+                                                        </div>
+                                                        @endforeach
+                                                        @endif
                                                         @endif
 
                                                         @foreach($str_arr2 as $key=> $pre)
                                                         <div class="swiper-slide">
-                                                            <img src="{{ uploaded_asset($pre) }}" />
+                                                            <img class="photoModalSwiperThumb"
+                                                                src="{{ uploaded_asset($pre) }}" />
 
                                                         </div>
                                                         @endforeach
@@ -528,86 +537,95 @@ button.close:hover {
 
 
                                         </div>
-                                        
-                                        
+
+
 
 
                                     </div>
 
                                     <!-- video tab -->
                                     <div class="tab-pane fade" id="video" role="tabpanel" aria-labelledby="video-tab">
-                                        
-                                    @if($property->video != null)                
 
-                                        <input type="hidden" value="{{ preg_match("#(?<=v=)[a-zA-Z0-9-]+(?=&)|(?<=v\/)[^&\n]+|(?<=v=)[^&\n]+|(?<=youtu.be/)[^&\n]+#", $property->video, $default_match) }}" />
-                                        
-                                        <iframe width="100%" height="500" src="https://www.youtube.com/embed/{{ $default_match[0] }}?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                        @if($property->video != null)
 
-                                    @endif
-                                
+                                        <input type="hidden"
+                                            value="{{ preg_match("#(?<=v=)[a-zA-Z0-9-]+(?=&)|(?<=v\/)[^&\n]+|(?<=v=)[^&\n]+|(?<=youtu.be/)[^&\n]+#", $property->video, $default_match) }}" />
+
+                                        <iframe width="100%" height="500"
+                                            src="https://www.youtube.com/embed/{{ $default_match[0] }}?rel=0"
+                                            title="YouTube video player" frameborder="0"
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                            allowfullscreen></iframe>
+
+                                        @endif
+
                                     </div>
 
                                     <!-- map tab -->
                                     <div class="tab-pane fade" id="all-map" role="tabpanel"
-                                        aria-labelledby="all-map-tab">                                        
-                                            
+                                        aria-labelledby="all-map-tab">
+
                                         <div class="location">
-                                            <div id="map2" style="height: 490px; width: 100%;"></div>
-                                            <input type="text" name="lat" id="lat2" value="{{$property->lat}}" class="mt-3 d-none">
-                                            <input type="text" name="lng" id="lng2" value="{{$property->long}}" class="mt-3 d-none">
+                                            <div id="map2" style="height: 70vh; width: 100%;"></div>
+                                            <input type="text" name="lat" id="lat2" value="{{$property->lat}}"
+                                                class="mt-3 d-none">
+                                            <input type="text" name="lng" id="lng2" value="{{$property->long}}"
+                                                class="mt-3 d-none">
                                         </div>
 
                                     </div>
 
 
                                     <!-- flow plan tab -->
-                                    <div class="tab-pane fade" id="flow-plan" role="tabpanel" aria-labelledby="flow-plan-tab">
-                                        
+                                    <div class="tab-pane fade" id="flow-plan" role="tabpanel"
+                                        aria-labelledby="flow-plan-tab">
+
 
                                         @if($property->flow_plan != null)
 
-                                            <div class="row">
-                                                <div class="col-9 col-xs-12 mobile-swiper-area">
-                                                    <div class="swiper modalflowSwiper2">
-                                                        <div class="swiper-wrapper">
+                                        <div class="row">
+                                            <div class="col-9 col-xs-12 mobile-swiper-area">
+                                                <div class="swiper modalflowSwiper2 ">
+                                                    <div class="swiper-wrapper">
 
-                                                            @foreach($flow_plan as $key=> $flow)
-                                                                <div class="swiper-slide">
-                                                                    <img src="{{ uploaded_asset($flow) }}" />
-
-                                                                </div>
-                                                            @endforeach
+                                                        @foreach($flow_plan as $key=> $flow)
+                                                        <div class="swiper-slide">
+                                                            <img src="{{ uploaded_asset($flow) }}" />
 
                                                         </div>
-                                                        <div class="swiper-button-next"></div>
-                                                        <div class="swiper-button-prev"></div>
-
-                                                        <div class="position-absolute apart-avail">
-                                                            <button class="btn fw-bold me-3">APARTMENT</button>
-                                                            <button class="btn fw-bold" style="color: #39B54A">AVAILABLE</button>
-                                                        </div>
+                                                        @endforeach
 
                                                     </div>
-                                                </div>
+                                                    <div class="swiper-button-next"></div>
+                                                    <div class="swiper-button-prev"></div>
 
-
-                                                <div class="col-3 col-xs-12">
-                                                    <div thumbsSlider="" class="swiper modalflowSwiper">
-                                                        <div class="swiper-wrapper">
-                                                            
-                                                            @foreach($flow_plan as $key=> $flow)                                                        
-                                                                <div class="swiper-slide">
-                                                                    <img src="{{ uploaded_asset($flow) }}" />
-
-                                                                </div>
-                                                            @endforeach
-
-                                                        </div>
+                                                    <div class="position-absolute apart-avail">
+                                                        <button class="btn fw-bold me-3">APARTMENT</button>
+                                                        <button class="btn fw-bold"
+                                                            style="color: #39B54A">AVAILABLE</button>
                                                     </div>
+
                                                 </div>
-
-
                                             </div>
+
+
+                                            <div class="col-3 col-xs-12">
+                                                <div thumbsSlider="" class="swiper modalflowSwiper">
+                                                    <div class="swiper-wrapper">
+
+                                                        @foreach($flow_plan as $key=> $flow)
+                                                        <div class="swiper-slide">
+                                                            <img src="{{ uploaded_asset($flow) }}" />
+
+                                                        </div>
+                                                        @endforeach
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
 
                                         @endif
 
@@ -628,25 +646,28 @@ button.close:hover {
 
                                     <!--------- 360 ------------>
                                     @if($property->panaromal_status == 'google_panaroma')
-                                        @if($property->google_panaroma != null)
-                                        <li class="nav-item all-nav-item" role="presentation">
-                                            <button class="nav-link all-btn active" id="virtual-tab" data-bs-toggle="tab"
-                                                data-bs-target="#virtual" type="button" role="tab" aria-controls="virtual"
-                                                aria-selected="false"><i class="fas fa-redo-alt all-modal-i" aria-hidden="true"></i>360<sup>0</sup></button>
-                                        </li>
-                                        @endif
+                                    @if($property->google_panaroma != null)
+                                    <li class="nav-item all-nav-item" role="presentation">
+                                        <button class="nav-link all-btn active" id="virtual-tab" data-bs-toggle="tab"
+                                            data-bs-target="#virtual" type="button" role="tab" aria-controls="virtual"
+                                            aria-selected="false"><i class="fas fa-redo-alt all-modal-i"
+                                                aria-hidden="true"></i>360<sup>0</sup></button>
+                                    </li>
+                                    @endif
                                     @else
-                                        <li class="nav-item all-nav-item" role="presentation">
-                                            <button class="nav-link inactive" id="virtual-tab" 
-                                                 type="button" role="tab"><i class="fas fa-redo-alt all-modal-i" aria-hidden="true"></i>360<sup>0</sup></button>
-                                        </li>
+                                    <li class="nav-item all-nav-item" role="presentation">
+                                        <button class="nav-link inactive" id="virtual-tab" type="button" role="tab"><i
+                                                class="fas fa-redo-alt all-modal-i"
+                                                aria-hidden="true"></i>360<sup>0</sup></button>
+                                    </li>
                                     @endif
 
                                     <!-- photo -->
                                     <li class="nav-item all-nav-item" role="presentation">
                                         <button class="nav-link all-btn" id="photo-tab" data-bs-toggle="tab"
                                             data-bs-target="#photo" type="button" role="tab" aria-controls="photo"
-                                            aria-selected="false"><i class="fas fa-camera all-modal-i" aria-hidden="true"></i>Photo</button>
+                                            aria-selected="false"><i class="fas fa-camera all-modal-i"
+                                                aria-hidden="true"></i>Photo</button>
                                     </li>
 
 
@@ -655,13 +676,14 @@ button.close:hover {
                                     <li class="nav-item all-nav-item" role="presentation">
                                         <button class="nav-link all-btn" id="video-tab" data-bs-toggle="tab"
                                             data-bs-target="#video" type="button" role="tab" aria-controls="video"
-                                            aria-selected="false"><i class="fas fa-video all-modal-i" aria-hidden="true"></i>Video</button>
+                                            aria-selected="false"><i class="fas fa-video all-modal-i"
+                                                aria-hidden="true"></i>Video</button>
                                     </li>
-                                    @else 
+                                    @else
                                     <li class="nav-item all-nav-item" role="presentation">
-                                        <button class="nav-link inactive" id="video-tab" 
-                                             type="button" role="tab" aria-controls="video"
-                                            aria-selected="false"><i class="fas fa-video all-modal-i" aria-hidden="true"></i>Video</button>
+                                        <button class="nav-link inactive" id="video-tab" type="button" role="tab"
+                                            aria-controls="video" aria-selected="false"><i
+                                                class="fas fa-video all-modal-i" aria-hidden="true"></i>Video</button>
                                     </li>
 
                                     @endif
@@ -674,7 +696,8 @@ button.close:hover {
                                     <li class="nav-item all-nav-item" role="presentation">
                                         <button class="nav-link all-btn" id="all-map-tab" data-bs-toggle="tab"
                                             data-bs-target="#all-map" type="button" role="tab" aria-controls="all-map"
-                                            aria-selected="false"><i class="fas fa-directions all-modal-i" aria-hidden="true"></i>Map</button>
+                                            aria-selected="false"><i class="fas fa-directions all-modal-i"
+                                                aria-hidden="true"></i>Map</button>
                                     </li>
 
 
@@ -684,12 +707,14 @@ button.close:hover {
                                     <li class="nav-item all-nav-item" role="presentation">
                                         <button class="nav-link all-btn" id="flow-plan-tab" data-bs-toggle="tab"
                                             data-bs-target="#flow-plan" type="button" role="tab"
-                                            aria-controls="flow-plan-tab" aria-selected="false"><i class="far fa-map all-modal-i" aria-hidden="true"></i>Flow Plan</button>
+                                            aria-controls="flow-plan-tab" aria-selected="false"><i
+                                                class="far fa-map all-modal-i" aria-hidden="true"></i>Flow Plan</button>
                                     </li>
                                     @else
                                     <li class="nav-item all-nav-item" role="presentation">
                                         <button class="nav-link inactive" id="flow-plan-tab" type="button" role="tab"
-                                            aria-controls="flow-plan-tab" aria-selected="false"><i class="far fa-map all-modal-i" aria-hidden="true"></i>Flow Plan</button>
+                                            aria-controls="flow-plan-tab" aria-selected="false"><i
+                                                class="far fa-map all-modal-i" aria-hidden="true"></i>Flow Plan</button>
                                     </li>
                                     @endif
 
@@ -732,25 +757,27 @@ button.close:hover {
                         <div class="option-list-wrapper">
                             <ul class="option-list-mobile visible-xs">
 
-                            @if($property->panaromal_status == 'google_panaroma')
-                                    @if($property->google_panaroma != null)
-                                    <li class="last-item">
-                                        <a href="#" data-toggle="modal" data-target="#all_property_model" class="option-btn"
-                                            onclick="virtualActive()"><i class="fas fa-redo-alt" aria-hidden="true"></i>360</a>
-                                    </li>
-                                    @endif
+                                @if($property->panaromal_status == 'google_panaroma')
+                                @if($property->google_panaroma != null)
+                                <li class="last-item">
+                                    <a href="#" data-toggle="modal" data-target="#all_property_model" class="option-btn"
+                                        onclick="virtualActive()"><i class="fas fa-redo-alt"
+                                            aria-hidden="true"></i>360</a>
+                                </li>
+                                @endif
                                 @else
-                                    <li class="last-item">
-                                        <i class="fas fa-redo-alt" aria-hidden="true"></i>360
-                                    </li>
+                                <li class="last-item">
+                                    <i class="fas fa-redo-alt" aria-hidden="true"></i>360
+                                </li>
                                 @endif
 
 
                                 <li class="last-item">
                                     <a href="#" data-toggle="modal" data-target="#all_property_model" class="option-btn"
-                                        onclick="photoActive()"><i class="fas fa-camera" aria-hidden="true"></i>Photo</a>
+                                        onclick="photoActive()"><i class="fas fa-camera"
+                                            aria-hidden="true"></i>Photo</a>
                                 </li>
-                                
+
                                 @if($property->video != null)
                                 <li class="last-item">
                                     <a href="#" data-toggle="modal" data-target="#all_property_model" class="option-btn"
@@ -758,17 +785,18 @@ button.close:hover {
                                 </li>
                                 @else
                                 <li class="last-item">
-                                   <i class="fas fa-video" aria-hidden="true"></i>Video
+                                    <i class="fas fa-video" aria-hidden="true"></i>Video
                                 </li>
                                 @endif
 
 
                                 <li class="last-item">
                                     <a href="#" data-toggle="modal" data-target="#all_property_model" class="option-btn"
-                                        onclick="directionActive()"><i class="fas fa-directions" aria-hidden="true"></i>Direction</a>
+                                        onclick="directionActive()"><i class="fas fa-directions"
+                                            aria-hidden="true"></i>Direction</a>
                                 </li>
 
-                                
+
                                 @if($property->flow_plan != null)
                                 <li class="last-item">
                                     <a href="#" data-toggle="modal" data-target="#all_property_model" class="option-btn"
@@ -778,7 +806,7 @@ button.close:hover {
                                 <li class="last-item">
                                     <i class="far fa-map"></i>Flow Plan
                                 </li>
-                                @endif 
+                                @endif
 
 
                             </ul>
@@ -1635,10 +1663,12 @@ button.close:hover {
             <div class="modal-body">
                 <div class="share-options-wrapper">
                     <div class="share-option">
-                        <a href="https://www.facebook.com/sharer/sharer.php?u={{ url('for-sale/single-property') }}&quote=Check%20is%20property%20:{{ url('for-sale/single-property',$property->id) }}" style="color:black"><i class="fab fa-facebook-square"></i></a>
+                        <a href="https://www.facebook.com/sharer/sharer.php?u={{ url('for-sale/single-property') }}&quote=Check%20is%20property%20:{{ url('for-sale/single-property',$property->id) }}"
+                            style="color:black"><i class="fab fa-facebook-square"></i></a>
                     </div>
                     <div class="share-option">
-                        <a href="http://twitter.com/home?status=Check%20this%20property%20{{ url('for-sale/single-property',$property->id) }}" style="color:black"> <i class="fab fa-twitter"></i></a>
+                        <a href="http://twitter.com/home?status=Check%20this%20property%20{{ url('for-sale/single-property',$property->id) }}"
+                            style="color:black"> <i class="fab fa-twitter"></i></a>
                     </div>
                     <div class="share-option">
                         <i class="fab fa-instagram"></i>
@@ -2126,66 +2156,66 @@ function flowPlanActive() {
 
 
 <script>
-    var swiper = new Swiper(".mySwiper", {
-        spaceBetween: 10,
-        slidesPerView: 4,
-        freeMode: true,
-        watchSlidesProgress: true,
-        direction: 'vertical'
-    });
-    var swiper2 = new Swiper(".mySwiper2", {
-        spaceBetween: 10,
-        loop: true,
-        navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
-        },
-        thumbs: {
-            swiper: swiper,
-        },
-    });
+var swiper = new Swiper(".mySwiper", {
+    spaceBetween: 10,
+    slidesPerView: 4,
+    freeMode: true,
+    watchSlidesProgress: true,
+    direction: 'vertical'
+});
+var swiper2 = new Swiper(".mySwiper2", {
+    spaceBetween: 10,
+    loop: true,
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+    },
+    thumbs: {
+        swiper: swiper,
+    },
+});
 </script>
 
 <script>
-    var swiper = new Swiper(".modalSwiper", {
-        spaceBetween: 10,
-        slidesPerView: 4,
-        freeMode: true,
-        watchSlidesProgress: true,
-        direction: 'vertical'
-    });
-    var swiper2 = new Swiper(".modalSwiper2", {
-        spaceBetween: 10,
-        loop: true,
-        navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
-        },
-        thumbs: {
-            swiper: swiper,
-        },
-    });
+var swiper = new Swiper(".modalSwiper", {
+    spaceBetween: 10,
+    slidesPerView: 4,
+    freeMode: true,
+    watchSlidesProgress: true,
+    direction: 'vertical'
+});
+var swiper2 = new Swiper(".modalSwiper2", {
+    spaceBetween: 10,
+    loop: true,
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+    },
+    thumbs: {
+        swiper: swiper,
+    },
+});
 </script>
 
 <script>
-    var swiper = new Swiper(".modalflowSwiper", {
-        spaceBetween: 10,
-        slidesPerView: 4,
-        freeMode: true,
-        watchSlidesProgress: true,
-        direction: 'vertical'
-    });
-    var swiper2 = new Swiper(".modalflowSwiper2", {
-        spaceBetween: 10,
-        loop: true,
-        navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
-        },
-        thumbs: {
-            swiper: swiper,
-        },
-    });
+var swiper = new Swiper(".modalflowSwiper", {
+    spaceBetween: 10,
+    slidesPerView: 4,
+    freeMode: true,
+    watchSlidesProgress: true,
+    direction: 'vertical'
+});
+var swiper2 = new Swiper(".modalflowSwiper2", {
+    spaceBetween: 10,
+    loop: true,
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+    },
+    thumbs: {
+        swiper: swiper,
+    },
+});
 </script>
 
 
@@ -2598,381 +2628,379 @@ $('.filter-reset').click(function() {
 
 
 <script>
+function initMaptwo() {
+    let lat = $('#lat2').val();
+    let lng = $('#lng2').val();
 
-    function initMaptwo() {
-        let lat = $('#lat2').val();
-        let lng = $('#lng2').val();
+    const myLatLng = {
+        lat: parseFloat(lat),
+        lng: parseFloat(lng)
+    };
 
-        const myLatLng = { lat: parseFloat(lat), lng: parseFloat(lng) };
+    let options = {
+        zoom: 8,
+        center: myLatLng
+    };
 
-            let options = {
-            zoom: 8,
-            center: myLatLng
-            };
-
-            const map = new google.maps.Map(document.getElementById("map2"), options);
+    const map = new google.maps.Map(document.getElementById("map2"), options);
 
 
-            let marker = new google.maps.Marker({
-                position: myLatLng,
-                map:map
-            });
+    let marker = new google.maps.Marker({
+        position: myLatLng,
+        map: map
+    });
 
-        }
-
+}
 </script>
 
 <script>
-    function initMap() {
+function initMap() {
 
-        initMaptwo();
+    initMaptwo();
 
-        let lat = $('#lat').val();
-        let lng = $('#lng').val();
+    let lat = $('#lat').val();
+    let lng = $('#lng').val();
 
-        const myLatLng = {
-            lat: parseFloat(lat),
-            lng: parseFloat(lng)
-        };
+    const myLatLng = {
+        lat: parseFloat(lat),
+        lng: parseFloat(lng)
+    };
 
-        let options = {
-            zoom: 8,
-            center: myLatLng
-        };
+    let options = {
+        zoom: 8,
+        center: myLatLng
+    };
 
-        //custom icons for marker type
-        const iconBase = "{{ url('img/frontend/map-icons') }}";
-        const icons = {
-            //shopping
-            shopping: {
-                icon: iconBase + "/shopping.png",
+    //custom icons for marker type
+    const iconBase = "{{ url('img/frontend/map-icons') }}";
+    const icons = {
+        //shopping
+        shopping: {
+            icon: iconBase + "/shopping.png",
+        },
+        food: {
+            icon: iconBase + "/food.png",
+        },
+        restuarant: {
+            icon: iconBase + "/restuarant.png",
+        },
+        school: {
+            icon: iconBase + "/school.png",
+        },
+        atm: {
+            icon: iconBase + "/atm.png",
+        },
+        hospital: {
+            icon: iconBase + "/hospital.png",
+        },
+        gym: {
+            icon: iconBase + "/gym.png",
+        }
+    };
+
+
+
+    const map = new google.maps.Map(document.getElementById("map"), options);
+
+    let marker = new google.maps.Marker({
+        position: myLatLng,
+        map: map
+    });
+
+
+
+
+
+    let markers = [];
+
+
+
+    //----------------shopping-----------------------
+    $("#shopping").click(function() {
+
+        for (var i = 0; i < markers.length; i++) {
+
+            markers[i].setMap(null);
+        }
+
+
+        // $.ajax ({
+        //     type: "GET",
+        //     url: 
+        //     success: function(data) {
+
+        //     }
+        // });
+
+        let shoppingLocations = [{
+                id: 1,
+                lat: 50.9474,
+                lng: 10.7098,
+                type: "shopping"
             },
-            food: {
-                icon: iconBase + "/food.png",
+            {
+                id: 2,
+                lat: 50.5558,
+                lng: 9.6808,
+                type: "shopping"
+            }
+        ];
+
+
+        for (var i = 0; i < shoppingLocations.length; i++) {
+
+            var marker = new google.maps.Marker({
+                map: map,
+                position: shoppingLocations[i],
+                icon: icons[shoppingLocations[i].type].icon,
+            });
+
+            markers.push(marker);
+        }
+
+    })
+
+
+    //----------------food-----------------------
+    $("#food").click(function() {
+
+        for (var i = 0; i < markers.length; i++) {
+
+            markers[i].setMap(null);
+        }
+
+
+        let foodLocations = [{
+                id: 1,
+                lat: 50.8019,
+                lng: 8.7658,
+                type: "food"
             },
-            restuarant: {
-                icon: iconBase + "/restuarant.png",
+            {
+                id: 2,
+                lat: 50.6077,
+                lng: 10.6881,
+                type: "food"
+            }
+        ];
+
+
+        for (var i = 0; i < foodLocations.length; i++) {
+
+            var marker = new google.maps.Marker({
+                map: map,
+                position: foodLocations[i],
+                icon: icons[foodLocations[i].type].icon,
+            });
+
+            markers.push(marker);
+        }
+
+
+    })
+
+
+    //----------------restuarant-----------------------
+    $("#restuarant").click(function() {
+
+        for (var i = 0; i < markers.length; i++) {
+
+            markers[i].setMap(null);
+        }
+
+
+        let restuarantLocations = [{
+                id: 1,
+                lat: 50.9271,
+                lng: 11.5892,
+                type: "restuarant"
             },
-            school: {
-                icon: iconBase + "/school.png",
+            {
+                id: 2,
+                lat: 50.7508,
+                lng: 9.2692,
+                type: "restuarant"
+            }
+        ];
+
+
+        for (var i = 0; i < restuarantLocations.length; i++) {
+
+            var marker = new google.maps.Marker({
+                map: map,
+                position: restuarantLocations[i],
+                icon: icons[restuarantLocations[i].type].icon,
+            });
+
+            markers.push(marker);
+        }
+
+
+    })
+
+
+    //----------------school-----------------------
+    $("#school").click(function() {
+
+        for (var i = 0; i < markers.length; i++) {
+
+            markers[i].setMap(null);
+        }
+
+
+        let schoolLocations = [{
+                id: 1,
+                lat: 50.7271,
+                lng: 11.4892,
+                type: "school"
             },
-            atm: {
-                icon: iconBase + "/atm.png",
+            {
+                id: 2,
+                lat: 50.6508,
+                lng: 9.3692,
+                type: "school"
+            }
+        ];
+
+
+        for (var i = 0; i < schoolLocations.length; i++) {
+
+            var marker = new google.maps.Marker({
+                map: map,
+                position: schoolLocations[i],
+                icon: icons[schoolLocations[i].type].icon,
+            });
+
+            markers.push(marker);
+        }
+
+
+    })
+
+
+    //----------------atm-----------------------
+    $("#atm").click(function() {
+
+        for (var i = 0; i < markers.length; i++) {
+
+            markers[i].setMap(null);
+        }
+
+
+        let atmLocations = [{
+                id: 1,
+                lat: 50.5271,
+                lng: 11.6892,
+                type: "atm"
             },
-            hospital: {
-                icon: iconBase + "/hospital.png",
+            {
+                id: 2,
+                lat: 50.5508,
+                lng: 9.5692,
+                type: "atm"
+            }
+        ];
+
+
+        for (var i = 0; i < atmLocations.length; i++) {
+
+            var marker = new google.maps.Marker({
+                map: map,
+                position: atmLocations[i],
+                icon: icons[atmLocations[i].type].icon,
+            });
+
+            markers.push(marker);
+        }
+
+
+    })
+
+
+    //----------------hospital-----------------------
+    $("#hospital").click(function() {
+
+        for (var i = 0; i < markers.length; i++) {
+
+            markers[i].setMap(null);
+        }
+
+
+        let hospitalLocations = [{
+                id: 1,
+                lat: 50.5671,
+                lng: 11.5892,
+                type: "hospital"
             },
-            gym: {
-                icon: iconBase + "/gym.png",
+            {
+                id: 2,
+                lat: 50.5608,
+                lng: 9.3692,
+                type: "hospital"
             }
-        };
+        ];
 
 
+        for (var i = 0; i < hospitalLocations.length; i++) {
 
-        const map = new google.maps.Map(document.getElementById("map"), options);
+            var marker = new google.maps.Marker({
+                map: map,
+                position: hospitalLocations[i],
+                icon: icons[hospitalLocations[i].type].icon,
+            });
 
-        let marker = new google.maps.Marker({
-            position: myLatLng,
-            map: map
-        });
-
-
-
-
-
-        let markers = [];
+            markers.push(marker);
+        }
 
 
+    })
 
-        //----------------shopping-----------------------
-        $("#shopping").click(function() {
 
-            for (var i = 0; i < markers.length; i++) {
+    //----------------gym-----------------------
+    $("#gym").click(function() {
 
-                markers[i].setMap(null);
+        for (var i = 0; i < markers.length; i++) {
+
+            markers[i].setMap(null);
+        }
+
+
+        let gymLocations = [{
+                id: 1,
+                lat: 50.9671,
+                lng: 10.5892,
+                type: "gym"
+            },
+            {
+                id: 2,
+                lat: 50.5608,
+                lng: 11.3692,
+                type: "gym"
             }
+        ];
 
 
-            // $.ajax ({
-            //     type: "GET",
-            //     url: 
-            //     success: function(data) {
+        for (var i = 0; i < gymLocations.length; i++) {
 
-            //     }
-            // });
+            var marker = new google.maps.Marker({
+                map: map,
+                position: gymLocations[i],
+                icon: icons[gymLocations[i].type].icon,
+            });
 
-            let shoppingLocations = [{
-                    id: 1,
-                    lat: 50.9474,
-                    lng: 10.7098,
-                    type: "shopping"
-                },
-                {
-                    id: 2,
-                    lat: 50.5558,
-                    lng: 9.6808,
-                    type: "shopping"
-                }
-            ];
+            markers.push(marker);
+        }
 
+    })
 
-            for (var i = 0; i < shoppingLocations.length; i++) {
-
-                var marker = new google.maps.Marker({
-                    map: map,
-                    position: shoppingLocations[i],
-                    icon: icons[shoppingLocations[i].type].icon,
-                });
-
-                markers.push(marker);
-            }
-
-        })
-
-
-        //----------------food-----------------------
-        $("#food").click(function() {
-
-            for (var i = 0; i < markers.length; i++) {
-
-                markers[i].setMap(null);
-            }
-
-
-            let foodLocations = [{
-                    id: 1,
-                    lat: 50.8019,
-                    lng: 8.7658,
-                    type: "food"
-                },
-                {
-                    id: 2,
-                    lat: 50.6077,
-                    lng: 10.6881,
-                    type: "food"
-                }
-            ];
-
-
-            for (var i = 0; i < foodLocations.length; i++) {
-
-                var marker = new google.maps.Marker({
-                    map: map,
-                    position: foodLocations[i],
-                    icon: icons[foodLocations[i].type].icon,
-                });
-
-                markers.push(marker);
-            }
-
-
-        })
-
-
-        //----------------restuarant-----------------------
-        $("#restuarant").click(function() {
-
-            for (var i = 0; i < markers.length; i++) {
-
-                markers[i].setMap(null);
-            }
-
-
-            let restuarantLocations = [{
-                    id: 1,
-                    lat: 50.9271,
-                    lng: 11.5892,
-                    type: "restuarant"
-                },
-                {
-                    id: 2,
-                    lat: 50.7508,
-                    lng: 9.2692,
-                    type: "restuarant"
-                }
-            ];
-
-
-            for (var i = 0; i < restuarantLocations.length; i++) {
-
-                var marker = new google.maps.Marker({
-                    map: map,
-                    position: restuarantLocations[i],
-                    icon: icons[restuarantLocations[i].type].icon,
-                });
-
-                markers.push(marker);
-            }
-
-
-        })
-
-
-        //----------------school-----------------------
-        $("#school").click(function() {
-
-            for (var i = 0; i < markers.length; i++) {
-
-                markers[i].setMap(null);
-            }
-
-
-            let schoolLocations = [{
-                    id: 1,
-                    lat: 50.7271,
-                    lng: 11.4892,
-                    type: "school"
-                },
-                {
-                    id: 2,
-                    lat: 50.6508,
-                    lng: 9.3692,
-                    type: "school"
-                }
-            ];
-
-
-            for (var i = 0; i < schoolLocations.length; i++) {
-
-                var marker = new google.maps.Marker({
-                    map: map,
-                    position: schoolLocations[i],
-                    icon: icons[schoolLocations[i].type].icon,
-                });
-
-                markers.push(marker);
-            }
-
-
-        })
-
-
-        //----------------atm-----------------------
-        $("#atm").click(function() {
-
-            for (var i = 0; i < markers.length; i++) {
-
-                markers[i].setMap(null);
-            }
-
-
-            let atmLocations = [{
-                    id: 1,
-                    lat: 50.5271,
-                    lng: 11.6892,
-                    type: "atm"
-                },
-                {
-                    id: 2,
-                    lat: 50.5508,
-                    lng: 9.5692,
-                    type: "atm"
-                }
-            ];
-
-
-            for (var i = 0; i < atmLocations.length; i++) {
-
-                var marker = new google.maps.Marker({
-                    map: map,
-                    position: atmLocations[i],
-                    icon: icons[atmLocations[i].type].icon,
-                });
-
-                markers.push(marker);
-            }
-
-
-        })
-
-
-        //----------------hospital-----------------------
-        $("#hospital").click(function() {
-
-            for (var i = 0; i < markers.length; i++) {
-
-                markers[i].setMap(null);
-            }
-
-
-            let hospitalLocations = [{
-                    id: 1,
-                    lat: 50.5671,
-                    lng: 11.5892,
-                    type: "hospital"
-                },
-                {
-                    id: 2,
-                    lat: 50.5608,
-                    lng: 9.3692,
-                    type: "hospital"
-                }
-            ];
-
-
-            for (var i = 0; i < hospitalLocations.length; i++) {
-
-                var marker = new google.maps.Marker({
-                    map: map,
-                    position: hospitalLocations[i],
-                    icon: icons[hospitalLocations[i].type].icon,
-                });
-
-                markers.push(marker);
-            }
-
-
-        })
-
-
-        //----------------gym-----------------------
-        $("#gym").click(function() {
-
-            for (var i = 0; i < markers.length; i++) {
-
-                markers[i].setMap(null);
-            }
-
-
-            let gymLocations = [{
-                    id: 1,
-                    lat: 50.9671,
-                    lng: 10.5892,
-                    type: "gym"
-                },
-                {
-                    id: 2,
-                    lat: 50.5608,
-                    lng: 11.3692,
-                    type: "gym"
-                }
-            ];
-
-
-            for (var i = 0; i < gymLocations.length; i++) {
-
-                var marker = new google.maps.Marker({
-                    map: map,
-                    position: gymLocations[i],
-                    icon: icons[gymLocations[i].type].icon,
-                });
-
-                markers.push(marker);
-            }
-
-        })
-
-    }
-
-    
-
+}
 </script>
 
 <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEBj8LhHUJaf2MXpqIQ_MOXs7HkeUXnac&callback=initMap"
     type="text/javascript"></script>
 
-    <script>
+<script>
 var slideIndex = 1;
 showSlides(slideIndex);
 
