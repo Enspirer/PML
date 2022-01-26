@@ -437,7 +437,7 @@ button.close:hover {
                                                         @if($pano_arry)
                                                             @foreach($pano_arry as $panoarray)
                                                                 <div class="pano-wrapper">
-                                                                    <img class="photoModalSwiperImg mt-3" src="{{ uploaded_asset($panoarray) }}" />
+                                                                    <img class="photoModalSwiperImg mt-3" style="width: 100%; height: 200px; object-fit: cover;" src="{{ uploaded_asset($panoarray) }}" />
                                                                     <img class="pano-symbol" src="{{ url('img/360.png') }}" alt="360 logo">
                                                                 </div>
                                                             @endforeach
