@@ -561,31 +561,57 @@ button.close:hover {
 
 
                                     <!-- flow plan tab -->
-                                    <div class="tab-pane fade" id="flow-plan" role="tabpanel"
-                                        aria-labelledby="flow-plan-tab">
+                                    <div class="tab-pane fade" id="flow-plan" role="tabpanel" aria-labelledby="flow-plan-tab">
                                         
-                                        
+
                                         @if($property->flow_plan != null)
-                                    
-                                        <div class="demo-gallery">
-                                            <ul id="lightgallery_flow">
-                                                @foreach($flow_plan as $key=> $flow)
-                                                <li data-responsive="{{ uploaded_asset($flow) }}"
-                                                    data-src="{{ uploaded_asset($flow) }}" data-sub-html="">
-                                                    <a href="">
-                                                        <img class="img-responsive" src="{{ uploaded_asset($flow) }}">
-                                                        <div class="demo-gallery-poster">
-                                                            <img
-                                                                src="https://sachinchoolur.github.io/lightgallery.js/static/img/zoom.png">
+
+                                            <div class="row">
+                                                <div class="col-9 col-xs-12 mobile-swiper-area">
+                                                    <div class="swiper modalflowSwiper2">
+                                                        <div class="swiper-wrapper">
+
+                                                            @foreach($flow_plan as $key=> $flow)
+                                                                <div class="swiper-slide">
+                                                                    <img src="{{ uploaded_asset($flow) }}" />
+
+                                                                </div>
+                                                            @endforeach
+
                                                         </div>
-                                                    </a>
-                                                </li>
-                                                @endforeach
-                                            </ul>
-                                            <span class="small">Click on any of the images to see lightGallery</span>
-                                        </div>
+                                                        <div class="swiper-button-next"></div>
+                                                        <div class="swiper-button-prev"></div>
+
+                                                        <div class="position-absolute apart-avail">
+                                                            <button class="btn fw-bold me-3">APARTMENT</button>
+                                                            <button class="btn fw-bold" style="color: #39B54A">AVAILABLE</button>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="col-3 col-xs-12">
+                                                    <div thumbsSlider="" class="swiper modalflowSwiper">
+                                                        <div class="swiper-wrapper">
+                                                            
+                                                            @foreach($flow_plan as $key=> $flow)                                                        
+                                                                <div class="swiper-slide">
+                                                                    <img src="{{ uploaded_asset($flow) }}" />
+
+                                                                </div>
+                                                            @endforeach
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+                                            </div>
 
                                         @endif
+
+
 
                                     </div>
 
@@ -2129,6 +2155,27 @@ function flowPlanActive() {
         direction: 'vertical'
     });
     var swiper2 = new Swiper(".modalSwiper2", {
+        spaceBetween: 10,
+        loop: true,
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+        thumbs: {
+            swiper: swiper,
+        },
+    });
+</script>
+
+<script>
+    var swiper = new Swiper(".modalflowSwiper", {
+        spaceBetween: 10,
+        slidesPerView: 4,
+        freeMode: true,
+        watchSlidesProgress: true,
+        direction: 'vertical'
+    });
+    var swiper2 = new Swiper(".modalflowSwiper2", {
         spaceBetween: 10,
         loop: true,
         navigation: {
