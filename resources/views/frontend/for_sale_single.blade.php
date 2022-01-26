@@ -447,101 +447,90 @@ button.close:hover {
                                         </div> -->
 
                                       
+                                        <div class="row">
+                                            <div class="col-9 col-xs-12 mobile-swiper-area">
+                                                <div class="swiper modalSwiper2">
+                                                    <div class="swiper-wrapper">
+                                                        @php
+                                                        $str_arr2 = preg_split ("/\,/", $property->image_ids);
+                                                        @endphp
 
-                                        <div class="fullsilder-container">
-                                            <div class="fullslider-main-container">
-                                                <!-- main images -->
-                                                <div class="holder">
-                                                    <div class="fullslider-slides">
-                                                        <img src="https://images.unsplash.com/photo-1505438157249-00e1b44ee34f?ixlib=rb-0.3.5&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ&s=dfc554074f522ec42818a052152dac21g"
-                                                            alt="" />
+                                                        @if($property->panaromal_images)
+                                                            @php
+                                                                $pano_arry = preg_split ("/\,/", $property->panaromal_images);
+                                                            @endphp
+                                                        @else
+                                                            @php
+                                                                $pano_arry = null;
+                                                            @endphp
+                                                        @endif
+
+                                                        @if($property->panaromal_status == 'panaromal_images')
+                                                            @if($pano_arry)
+                                                                @foreach($pano_arry as $panoarray)
+                                                                <div class="swiper-slide">
+                                                                    <a href="#" data-toggle="modal" data-target="#panoModal"
+                                                                        onclick="changePanaroma('{{ $panoarray }}')">
+                                                                        <div class="pano-wrapper">
+                                                                            <img src="{{ uploaded_asset($panoarray) }}" />
+                                                                            <img class="pano-symbol" src="{{ url('img/360.png') }}" alt="360 logo">
+                                                                        </div>
+                                                                    </a>
+                                                                </div>
+                                                                @endforeach
+                                                            @endif
+                                                        @endif
+
+                                                        @foreach($str_arr2 as $key=> $pre)
+                                                        <div class="swiper-slide">
+                                                            <img src="{{ uploaded_asset($pre) }}" />
+
+                                                        </div>
+                                                        @endforeach
+
+
+                                                    </div>
+                                                    <div class="swiper-button-next"></div>
+                                                    <div class="swiper-button-prev"></div>
+
+                                                    <div class="position-absolute apart-avail">
+                                                        <button class="btn fw-bold me-3">APARTMENT</button>
+                                                        <button class="btn fw-bold" style="color: #39B54A">AVAILABLE</button>
                                                     </div>
 
-                                                    <div class="fullslider-slides">
-                                                        <img
-                                                            src="https://images.unsplash.com/photo-1515870672913-a4c298575776?ixlib=rb-0.3.5&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ&s=aa80486fd3343134706e785c034b339d">
-                                                    </div>
-
-                                                    <div class="fullslider-slides">
-                                                        <img
-                                                            src="https://images.unsplash.com/photo-1521651201144-634f700b36ef?ixlib=rb-0.3.5&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ&s=e26ec8c74dc99aff53a60741538cad5f">
-                                                    </div>
-
-                                                    <div class="fullslider-slides">
-                                                        <img
-                                                            src="https://images.unsplash.com/photo-1504618223053-559bdef9dd5a?ixlib=rb-0.3.5&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ&s=583c2bf56c8006e507e2a9905fc1e54c">
-                                                    </div>
-
-                                                    <div class="fullslider-slides">
-                                                        <img
-                                                            src="https://images.unsplash.com/photo-1504208434309-cb69f4fe52b0?ixlib=rb-0.3.5&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ&s=69093505f999d8170e9a1aab3771c07e">
-                                                    </div>
-
-                                                    <div class="fullslider-slides">
-                                                        <img
-                                                            src="https://images.unsplash.com/photo-1485199433301-8b7102e86995?ixlib=rb-0.3.5&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ&s=c7783fe3a697b1a2248450120435cbc3">
-                                                    </div>
                                                 </div>
-
-                                                <div class="fullsliderPrevContainer"><a class="fullslider-prev"
-                                                        onclick="plusSlides(-1)">
-                                                        <svg viewBox="0 0 24 24">
-                                                            <path
-                                                                d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z">
-                                                            </path>
-                                                        </svg>
-                                                    </a></div>
-                                                <div class="fullslidernextContainer"><a class="fullslider-next"
-                                                        onclick="plusSlides(1)">
-                                                        <svg viewBox="0 0 24 24">
-                                                            <path
-                                                                d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z">
-                                                            </path>
-                                                        </svg>
-                                                    </a>
-                                                </div> 
-
-                                                
-                                                    <!-- <div class="caption-container">
-                                                    <p id="fullslider-caption"></p>
-                                                </div> -->
                                             </div>
 
 
-                                            <!-- thumnails in a row -->
-                                            <div class="fullslider-side-container">
-                                                <div class="fullslider-column">
-                                                    <img class="fullslider-slide-thumbnail"
-                                                        src="https://images.unsplash.com/photo-1505438157249-00e1b44ee34f?ixlib=rb-0.3.5&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ&s=dfc554074f522ec42818a052152dac21g"
-                                                        onclick="currentSlide(1)" alt="Caption One">
-                                                </div>
-                                                <div class="fullslider-column">
-                                                    <img class="fullslider-slide-thumbnail"
-                                                        src="https://images.unsplash.com/photo-1515870672913-a4c298575776?ixlib=rb-0.3.5&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ&s=aa80486fd3343134706e785c034b339d"
-                                                        onclick="currentSlide(2)" alt="Caption Two">
-                                                </div>
-                                                <div class="fullslider-column">
-                                                    <img class="fullslider-slide-thumbnail"
-                                                        src="https://images.unsplash.com/photo-1521651201144-634f700b36ef?ixlib=rb-0.3.5&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ&s=e26ec8c74dc99aff53a60741538cad5f"
-                                                        onclick="currentSlide(3)" alt="Caption Three">
-                                                </div>
-                                                <div class="fullslider-column">
-                                                    <img class="fullslider-slide-thumbnail"
-                                                        src="https://images.unsplash.com/photo-1504618223053-559bdef9dd5a?ixlib=rb-0.3.5&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ&s=583c2bf56c8006e507e2a9905fc1e54c"
-                                                        onclick="currentSlide(4)" alt="Caption Four">
-                                                </div>
-                                                <div class="fullslider-column">
-                                                    <img class="fullslider-slide-thumbnail"
-                                                        src="https://images.unsplash.com/photo-1504208434309-cb69f4fe52b0?ixlib=rb-0.3.5&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ&s=69093505f999d8170e9a1aab3771c07e"
-                                                        onclick="currentSlide(5)" alt="Caption Five">
-                                                </div>
-                                                <div class="fullslider-column">
-                                                    <img class="fullslider-slide-thumbnail"
-                                                        src="https://images.unsplash.com/photo-1485199433301-8b7102e86995?ixlib=rb-0.3.5&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ&s=c7783fe3a697b1a2248450120435cbc3"
-                                                        onclick="currentSlide(6)" alt="Caption Six">
+                                            <div class="col-3 col-xs-12">
+                                                <div thumbsSlider="" class="swiper modalSwiper">
+                                                    <div class="swiper-wrapper">
+                                                        @if($property->panaromal_status == 'panaromal_images')
+                                                            @if($pano_arry)
+                                                                @foreach($pano_arry as $panoarray)
+                                                                <div class="swiper-slide">
+                                                                    <img src="{{ uploaded_asset($panoarray) }}" />
+                                                                </div>
+                                                                @endforeach
+                                                            @endif
+                                                        @endif
+
+                                                        @foreach($str_arr2 as $key=> $pre)
+                                                        <div class="swiper-slide">
+                                                            <img src="{{ uploaded_asset($pre) }}" />
+
+                                                        </div>
+                                                        @endforeach
+
+                                                    </div>
                                                 </div>
                                             </div>
+
+
                                         </div>
+                                        
+                                        
+
 
                                     </div>
 
@@ -659,7 +648,7 @@ button.close:hover {
                                     <li class="nav-item all-nav-item" role="presentation">
                                         <button class="nav-link all-btn" id="all-map-tab" data-bs-toggle="tab"
                                             data-bs-target="#all-map" type="button" role="tab" aria-controls="all-map"
-                                            aria-selected="false"><i class="fas fa-directions all-modal-i" aria-hidden="true"></i>Direction</button>
+                                            aria-selected="false"><i class="fas fa-directions all-modal-i" aria-hidden="true"></i>Map</button>
                                     </li>
 
 
@@ -2111,24 +2100,45 @@ function flowPlanActive() {
 
 
 <script>
-var swiper = new Swiper(".mySwiper", {
-    spaceBetween: 10,
-    slidesPerView: 4,
-    freeMode: true,
-    watchSlidesProgress: true,
-    direction: 'vertical'
-});
-var swiper2 = new Swiper(".mySwiper2", {
-    spaceBetween: 10,
-    loop: true,
-    navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-    },
-    thumbs: {
-        swiper: swiper,
-    },
-});
+    var swiper = new Swiper(".mySwiper", {
+        spaceBetween: 10,
+        slidesPerView: 4,
+        freeMode: true,
+        watchSlidesProgress: true,
+        direction: 'vertical'
+    });
+    var swiper2 = new Swiper(".mySwiper2", {
+        spaceBetween: 10,
+        loop: true,
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+        thumbs: {
+            swiper: swiper,
+        },
+    });
+</script>
+
+<script>
+    var swiper = new Swiper(".modalSwiper", {
+        spaceBetween: 10,
+        slidesPerView: 4,
+        freeMode: true,
+        watchSlidesProgress: true,
+        direction: 'vertical'
+    });
+    var swiper2 = new Swiper(".modalSwiper2", {
+        spaceBetween: 10,
+        loop: true,
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+        thumbs: {
+            swiper: swiper,
+        },
+    });
 </script>
 
 
