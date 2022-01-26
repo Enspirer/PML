@@ -253,19 +253,18 @@ button.close:hover {
                     <div class="option-bar">
                         <div class="option-list-wrapper">
                             <ul class="option-list hidden-xs">
-                                @if($property->panaromal_status == 'google_panaroma')
-                                @if($property->google_panaroma != null)
-                                <li class="last-item">
-                                    <a href="#" data-toggle="modal" data-target="#all_property_model" class="option-btn"
-                                        onclick="virtualActive()"><i class="fas fa-redo-alt"
+                                
+                                @if($property->google_panaroma != null || $property->panaromal_images != null)
+                                    <li class="last-item">
+                                        <a href="#" data-toggle="modal" data-target="#all_property_model" class="option-btn"
+                                            onclick="virtualActive()"><i class="fas fa-redo-alt"
                                             aria-hidden="true"></i>360</a>
-                                </li>
-                                @endif
+                                    </li>
                                 @else
-                                <li class="last-item">
-                                    <i class="fas fa-redo-alt" aria-hidden="true"></i>360
-                                </li>
-                                @endif
+                                    <li class="last-item">
+                                        <i class="fas fa-redo-alt" aria-hidden="true"></i>360
+                                    </li>
+                                @endif 
 
 
                                 <li class="last-item">
@@ -421,33 +420,61 @@ button.close:hover {
 
                                 <div class="tab-content" id="myTabContent">
                                     <!-- 360 tab -->
-                                    <div class="tab-pane fade active show" id="virtual" role="tabpanel"
-                                        aria-labelledby="virtual-tab">{!!$property->google_panaroma!!}</div>
+                                    <div class="tab-pane fade active show" id="virtual" role="tabpanel" aria-labelledby="virtual-tab">
+                                        
+                                        @if($property->panaromal_status != 'panaromal_images')
+                                    
+                                            {!!$property->google_panaroma!!}
+
+                                        @else                                          
+                                        
+                                            <div class="row">
+                                                <div class="col-8">
+                                                        Panaromal Main Image
+                                                </div>
+                                                <div class="col-4">
+                                                    @if($property->panaromal_status == 'panaromal_images')
+                                                        @if($pano_arry)
+                                                            @foreach($pano_arry as $panoarray)
+                                                                <div class="pano-wrapper">
+                                                                    <img class="photoModalSwiperImg mt-3" src="{{ uploaded_asset($panoarray) }}" />
+                                                                    <img class="pano-symbol" src="{{ url('img/360.png') }}" alt="360 logo">
+                                                                </div>
+                                                            @endforeach
+                                                        @endif
+                                                    @endif
+                                                </div>
+                                            </div>                                            
+
+                                        @endif
+                                    
+                                    
+                                    </div>
 
                                     <!-- photo tab -->
                                     <div class="tab-pane fade" id="photo" role="tabpanel" aria-labelledby="photo-tab">
 
                                         <!-- <div class="cont">
-    <div class="demo-gallery">
-        <ul id="lightgallery">
-            @foreach($str_arr2 as $key=> $pre)
-            <li data-responsive="{{ uploaded_asset($pre) }}"
-                data-src="{{ uploaded_asset($pre) }}" data-sub-html="">
-                <a href="">
-                    <img class="img-responsive"
-                        src="{{ uploaded_asset($pre) }}">
-                    <div class="demo-gallery-poster">
-                        <img
-                            src="https://sachinchoolur.github.io/lightgallery.js/static/img/zoom.png">
-                    </div>
-                </a>
-            </li>
-            @endforeach
-        </ul>
-        <span class="small">Click on any of the images to see
-            lightGallery</span>
-    </div>
-</div> -->
+                                            <div class="demo-gallery">
+                                                <ul id="lightgallery">
+                                                    @foreach($str_arr2 as $key=> $pre)
+                                                    <li data-responsive="{{ uploaded_asset($pre) }}"
+                                                        data-src="{{ uploaded_asset($pre) }}" data-sub-html="">
+                                                        <a href="">
+                                                            <img class="img-responsive"
+                                                                src="{{ uploaded_asset($pre) }}">
+                                                            <div class="demo-gallery-poster">
+                                                                <img
+                                                                    src="https://sachinchoolur.github.io/lightgallery.js/static/img/zoom.png">
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                                    @endforeach
+                                                </ul>
+                                                <span class="small">Click on any of the images to see
+                                                    lightGallery</span>
+                                            </div>
+                                        </div> -->
 
 
                                         <div class="row">
@@ -455,36 +482,20 @@ button.close:hover {
                                                 <div class="swiper modalSwiper2 photoModalSwiper">
                                                     <div class="swiper-wrapper">
                                                         @php
-                                                        $str_arr2 = preg_split ("/\,/", $property->image_ids);
+                                                            $str_arr2 = preg_split ("/\,/", $property->image_ids);
                                                         @endphp
 
                                                         @if($property->panaromal_images)
-                                                        @php
-                                                        $pano_arry = preg_split ("/\,/", $property->panaromal_images);
-                                                        @endphp
+                                                            @php
+                                                                $pano_arry = preg_split ("/\,/", $property->panaromal_images);
+                                                            @endphp
                                                         @else
-                                                        @php
-                                                        $pano_arry = null;
-                                                        @endphp
+                                                            @php
+                                                                $pano_arry = null;
+                                                            @endphp
                                                         @endif
 
-                                                        @if($property->panaromal_status == 'panaromal_images')
-                                                        @if($pano_arry)
-                                                        @foreach($pano_arry as $panoarray)
-                                                        <div class="swiper-slide">
-                                                            <a href="#" data-toggle="modal" data-target="#panoModal"
-                                                                onclick="changePanaroma('{{ $panoarray }}')">
-                                                                <div class="pano-wrapper">
-                                                                    <img class="photoModalSwiperImg"
-                                                                        src="{{ uploaded_asset($panoarray) }}" />
-                                                                    <img class="pano-symbol"
-                                                                        src="{{ url('img/360.png') }}" alt="360 logo">
-                                                                </div>
-                                                            </a>
-                                                        </div>
-                                                        @endforeach
-                                                        @endif
-                                                        @endif
+                                                        
 
                                                         @foreach($str_arr2 as $key=> $pre)
                                                         <div class="swiper-slide">
@@ -512,17 +523,7 @@ button.close:hover {
                                             <div class="col-3 col-xs-12">
                                                 <div thumbsSlider="" class="swiper modalSwiper photoModalThumbSlider">
                                                     <div class="swiper-wrapper">
-                                                        @if($property->panaromal_status == 'panaromal_images')
-                                                        @if($pano_arry)
-                                                        @foreach($pano_arry as $panoarray)
-                                                        <div class="swiper-slide">
-                                                            <img class="photoModalSwiperThumb"
-                                                                src="{{ uploaded_asset($panoarray) }}" />
-                                                        </div>
-                                                        @endforeach
-                                                        @endif
-                                                        @endif
-
+                                                        
                                                         @foreach($str_arr2 as $key=> $pre)
                                                         <div class="swiper-slide">
                                                             <img class="photoModalSwiperThumb"
@@ -645,23 +646,23 @@ button.close:hover {
 
 
                                     <!--------- 360 ------------>
-                                    @if($property->panaromal_status == 'google_panaroma')
-                                    @if($property->google_panaroma != null)
-                                    <li class="nav-item all-nav-item" role="presentation">
-                                        <button class="nav-link all-btn active" id="virtual-tab" data-bs-toggle="tab"
-                                            data-bs-target="#virtual" type="button" role="tab" aria-controls="virtual"
-                                            aria-selected="false"><i class="fas fa-redo-alt all-modal-i"
-                                                aria-hidden="true"></i>360<sup>0</sup></button>
-                                    </li>
-                                    @endif
+                                   
+                                    @if($property->google_panaroma != null || $property->panaromal_images != null)
+                                        <li class="nav-item all-nav-item" role="presentation">
+                                            <button class="nav-link all-btn active" id="virtual-tab" data-bs-toggle="tab"
+                                                data-bs-target="#virtual" type="button" role="tab" aria-controls="virtual"
+                                                aria-selected="false"><i class="fas fa-redo-alt all-modal-i"
+                                                    aria-hidden="true"></i>360<sup>0</sup></button>
+                                        </li>
                                     @else
-                                    <li class="nav-item all-nav-item" role="presentation">
-                                        <button class="nav-link inactive" id="virtual-tab" type="button" role="tab"><i
-                                                class="fas fa-redo-alt all-modal-i"
-                                                aria-hidden="true"></i>360<sup>0</sup></button>
-                                    </li>
+                                        <li class="nav-item all-nav-item" role="presentation">
+                                            <button class="nav-link inactive" id="virtual-tab" type="button" role="tab"><i
+                                                    class="fas fa-redo-alt all-modal-i"
+                                                    aria-hidden="true"></i>360<sup>0</sup></button>
+                                        </li>
                                     @endif
 
+                                  
                                     <!-- photo -->
                                     <li class="nav-item all-nav-item" role="presentation">
                                         <button class="nav-link all-btn" id="photo-tab" data-bs-toggle="tab"
@@ -757,19 +758,17 @@ button.close:hover {
                         <div class="option-list-wrapper">
                             <ul class="option-list-mobile visible-xs">
 
-                                @if($property->panaromal_status == 'google_panaroma')
-                                @if($property->google_panaroma != null)
-                                <li class="last-item">
-                                    <a href="#" data-toggle="modal" data-target="#all_property_model" class="option-btn"
-                                        onclick="virtualActive()"><i class="fas fa-redo-alt"
+                                @if($property->google_panaroma != null || $property->panaromal_images != null)
+                                    <li class="last-item">
+                                        <a href="#" data-toggle="modal" data-target="#all_property_model" class="option-btn"
+                                            onclick="virtualActive()"><i class="fas fa-redo-alt"
                                             aria-hidden="true"></i>360</a>
-                                </li>
-                                @endif
+                                    </li>
                                 @else
-                                <li class="last-item">
-                                    <i class="fas fa-redo-alt" aria-hidden="true"></i>360
-                                </li>
-                                @endif
+                                    <li class="last-item">
+                                        <i class="fas fa-redo-alt" aria-hidden="true"></i>360
+                                    </li>
+                                @endif 
 
 
                                 <li class="last-item">
