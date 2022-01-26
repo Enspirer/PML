@@ -634,6 +634,13 @@ div#all_property_model .modal-footer {
   height: 66vh;
   object-fit: cover;
 }
+
+.location {
+  padding: 20px;
+}
+
+
+
 /* Smartphones (portrait and landscape) ----------- */
 @media only screen and (max-width: 767px) {
   .fullsliderPrevContainer, .fullslidernextContainer {
