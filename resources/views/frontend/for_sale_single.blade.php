@@ -585,12 +585,12 @@ button.close:hover {
 
                                         <div class="row">
                                             <div class="col-9 col-xs-12 mobile-swiper-area">
-                                                <div class="swiper modalflowSwiper2 ">
+                                                <div class="swiper modalflowSwiper2 photoModalSwiper">
                                                     <div class="swiper-wrapper">
 
                                                         @foreach($flow_plan as $key=> $flow)
                                                         <div class="swiper-slide">
-                                                            <img src="{{ uploaded_asset($flow) }}" />
+                                                            <img class="photoModalSwiperImg" src="{{ uploaded_asset($flow) }}" />
 
                                                         </div>
                                                         @endforeach
@@ -610,12 +610,12 @@ button.close:hover {
 
 
                                             <div class="col-3 col-xs-12">
-                                                <div thumbsSlider="" class="swiper modalflowSwiper">
+                                                <div thumbsSlider="" class="swiper modalflowSwiper photoModalThumbSlider">
                                                     <div class="swiper-wrapper">
 
                                                         @foreach($flow_plan as $key=> $flow)
                                                         <div class="swiper-slide">
-                                                            <img src="{{ uploaded_asset($flow) }}" />
+                                                            <img class="photoModalSwiperThumb" src="{{ uploaded_asset($flow) }}" />
 
                                                         </div>
                                                         @endforeach

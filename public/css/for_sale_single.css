@@ -1006,3 +1006,11 @@ div#map2 {
  
   
 }
+
+
+/*min laptop-portrait*/
+@media (min-width: 1600px) {
+  div#all_property_model .modal-dialog.modal-lg {
+    max-width: 60%;
+  }
+}
