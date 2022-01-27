@@ -132,8 +132,9 @@ class FreeListningController extends Controller
         $update->country=$request->country;
         $update->feature_image_id=$request->feature_image;
         $update->image_ids=$request->multiple_images;
-        $update->panaromal_images=$request->panaromal_images;
-        $update->google_panaroma=$request->google_panaroma;
+        $update->panaromal_status = $request->panaromal_status;
+        $update->google_panaroma = $request->google_panaroma;
+        $update->panaromal_images = $request->panaromal_images;
         $update->meta_description=$request->meta_description;       
         $update->flow_plan=$request->flow_plan;
         $update->video=$request->video;

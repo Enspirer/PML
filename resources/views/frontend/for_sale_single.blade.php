@@ -1269,8 +1269,11 @@ button.close:hover {
                             <div class="card custom-shadow position-relative"
                                 style="min-height: 320px; max-height: 320px;">
                                 <a href="{{ route('frontend.for_sale_single',$ran->id) }}" class="text-decoration-none">
-                                    <img src="{{ uploaded_asset($ran->feature_image_id) }}" alt=""
-                                        class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
+                                    <img src="{{ uploaded_asset($ran->feature_image_id) }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
+                                        
+                                    @if($ran->panaromal_status != 'no_any')
+                                        <img class="pano-symbol" src="{{ url('img/360.png') }}" alt="360 logo">
+                                    @endif
 
                                 </a>
                                 <div class="card-body mt-3">

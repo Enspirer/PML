@@ -303,7 +303,7 @@
             
         </div>
         <div class="col-md-5 p-1">  
-        <div class="card">
+            <div class="card">
                 <div class="card-body">
                     <div class="" style="border-style: ridge;border-width: 3px;padding: 20px;">
                         <div class="row">

@@ -243,9 +243,9 @@
                             class="text-decoration-none text-dark">
                             <img src="{{ uploaded_asset($property_pro->feature_image_id) }}" alt=""
                                 class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
-                            @if($property_pro->panaromal_status == 'google_panaroma')
-                            <img class="pano-symbol" src="{{ url('img/360.png') }}" alt="360 logo">
-                            @endif
+                                @if($property_pro->panaromal_status != 'no_any')
+                                    <img class="pano-symbol" src="{{ url('img/360.png') }}" alt="360 logo">
+                                @endif
                         </a>
 
                         <div class="for-sale-card-body-mobile card-body mt-2">

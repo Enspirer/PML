@@ -110,6 +110,7 @@ class PreListningController extends Controller
         $addprop->user_id = auth()->user()->id;
         $addprop->admin_approval='Pending';
         $addprop->listning_type='free_listning';
+        $addprop->panaromal_status='no_any';        
         $addprop->google_panaroma=$request->google_panaroma;
 
         if($request->land_size){

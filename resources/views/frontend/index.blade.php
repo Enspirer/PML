@@ -344,7 +344,7 @@
                                         style="text-decoration:none">
                                         <img src="{{ uploaded_asset($featured_prop->feature_image_id) }}" alt=""
                                             class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
-                                            @if($featured_prop->panaromal_status == 'google_panaroma')
+                                            @if($featured_prop->panaromal_status != 'no_any')
                                                 <img class="pano-symbol" src="{{ url('img/360.png') }}" alt="360 logo">
                                             @endif
                                             @if($featured_prop->promoted == 'Enabled')
@@ -384,7 +384,8 @@
                                         <div class="card custom-shadow position-relative" style="min-height:307px;  max-height:307px">
                                             <a href="{{route('frontend.for_sale_single',$prop)}}" style="text-decoration:none">
                                                 <img src="{{ uploaded_asset(App\Models\Properties::where('id', $prop)->first()->feature_image_id) }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
-                                                    @if(App\Models\Properties::where('id', $prop)->first()->panaromal_status == 'google_panaroma')
+                                                   
+                                                    @if(App\Models\Properties::where('id', $prop)->first()->panaromal_status != 'no_any')
                                                         <img class="pano-symbol" src="{{ url('img/360.png') }}" alt="360 logo">
                                                     @endif
                                                     @if(App\Models\Properties::where('id', $prop)->first()->promoted == 'Enabled')
@@ -464,7 +465,7 @@
                             <a href="{{route('frontend.for_sale_single',$latest_prop->id)}}" style="text-decoration:none">
                                 <img src="{{ uploaded_asset($latest_prop->feature_image_id) }}" alt="" class="img-fluid w-100"
                                     style="height: 10rem; object-fit: cover;">
-                                    @if($latest_prop->panaromal_status == 'google_panaroma')
+                                    @if($latest_prop->panaromal_status != 'no_any')
                                         <img class="pano-symbol" src="{{ url('img/360.png') }}" alt="360 logo">
                                     @endif
                                     @if($latest_prop->promoted == 'Enabled')
@@ -520,7 +521,7 @@
                                         <a href="{{route('frontend.for_sale_single',$prop)}}" style="text-decoration:none">
                                             <img src="{{ uploaded_asset(App\Models\Properties::where('id', $prop)->first()->feature_image_id) }}" alt="" class="img-fluid w-100"
                                                 style="height: 10rem; object-fit: cover;">
-                                                @if(App\Models\Properties::where('id', $prop)->first() == 'google_panaroma')
+                                                @if(App\Models\Properties::where('id', $prop)->first()->panaromal_status != 'no_any')
                                                     <img class="pano-symbol" src="{{ url('img/360.png') }}" alt="360 logo">
                                                 @endif
                                                 @if(App\Models\Properties::where('id', $prop)->first()->promoted == 'Enabled')

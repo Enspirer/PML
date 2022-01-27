@@ -160,7 +160,7 @@
 
                                     </div>
                                     <img class="property-img" src="{{ uploaded_asset($prop->feature_image_id) }}" alt="property" style="object-fit:cover">
-                                    @if($prop->panaromal_status == 'google_panaroma')
+                                    @if($prop->panaromal_status != 'no_any')
                                         <img class="pano-symbol" src="{{ url('img/360.png') }}" alt="360 logo">
                                     @endif
                                     @if($prop->promoted == 'Enabled')
@@ -230,7 +230,7 @@
 
                                     </div>
                                     <img class="property-img" src="{{ uploaded_asset($prop->feature_image_id) }}" alt="property" style="object-fit:cover">
-                                    @if($prop->panaromal_status == 'google_panaroma')
+                                    @if($prop->panaromal_status != 'no_any')
                                         <img class="pano-symbol" src="{{ url('img/360.png') }}" alt="360 logo">
                                     @endif
                                     @if($prop->promoted == 'Enabled')
@@ -303,7 +303,7 @@
 
                                     </div>
                                     <img class="property-img" src="{{ uploaded_asset($prop->feature_image_id) }}" alt="property" style="object-fit:cover">
-                                    @if($prop->panaromal_status == 'google_panaroma')
+                                    @if($prop->panaromal_status != 'no_any')
                                         <img class="pano-symbol" src="{{ url('img/360.png') }}" alt="360 logo">
                                     @endif
                                     @if($prop->promoted == 'Enabled')
