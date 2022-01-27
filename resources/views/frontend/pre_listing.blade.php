@@ -417,31 +417,7 @@
                             <div style="border:1px solid red; text-align:center" class="mb-4 p-1">
                                 <h6 style="color:red" class="mb-2 mt-1">Alert!</h6><h6 class="mb-1" style="font-size:15px;"> If You Want To Enable Panaroma Call This Number +94 778669990.</h6>
                             </div>
-                                    
-                            <!-- <div class="row">
-                                <div class="col-12">
-                                    <div>
-                                        <label for="google_panaroma" class="form-label mb-2">Google Panaroma</label>
-                                        <textarea class="form-control" rows="4" name="google_panaroma"></textarea>                                    
-                                    </div>  
-                                </div>                            
-                            </div>
-                            <div class="row mt-4">
-                                <div class="col-12">
-                                    <div class="form-group">
-                                        <label class="mb-2 mt-2">Panaromal Images</label>
-                                        <div class="input-group" data-toggle="aizuploader" data-type="image" data-multiple="true">
-                                            <div class="input-group-prepend">
-                                                <div class="input-group-text bg-soft-secondary font-weight-medium">Browse</div>
-                                            </div>
-                                            <div class="form-control file-amount">Choose File</div>
-                                            <input type="hidden" name="panaromal_images" class="selected-files" >
-                                        </div>
-                                        <div class="file-preview box sm">
-                                        </div>
-                                    </div> 
-                                </div>
-                            </div>  -->
+                                                                
                                                             
                         </div>
                         

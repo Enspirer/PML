@@ -254,17 +254,19 @@ button.close:hover {
                         <div class="option-list-wrapper">
                             <ul class="option-list hidden-xs">
                                 
-                                @if($property->google_panaroma != null || $property->panaromal_images != null)
-                                    <li class="last-item">
-                                        <a href="#" data-toggle="modal" data-target="#all_property_model" class="option-btn"
-                                            onclick="virtualActive()"><i class="fas fa-redo-alt"
-                                            aria-hidden="true"></i>360</a>
-                                    </li>
+                                @if($property->panaromal_status != 'no_any')
+                                    @if($property->google_panaroma != null || $property->panaromal_images != null)
+                                        <li class="last-item">
+                                            <a href="#" data-toggle="modal" data-target="#all_property_model" class="option-btn"
+                                                onclick="virtualActive()"><i class="fas fa-redo-alt"
+                                                aria-hidden="true"></i>360</a>
+                                        </li>
+                                    @endif
                                 @else
                                     <li class="last-item">
                                         <i class="fas fa-redo-alt" aria-hidden="true"></i>360
                                     </li>
-                                @endif 
+                                @endif
 
 
                                 <li class="last-item">
@@ -334,25 +336,6 @@ button.close:hover {
                     </div>
                 </div>
 
-                <div class="modal fade" id="threesixtyModal" tabindex="-1" aria-labelledby="three_sixtyModalLabel"
-                    aria-hidden="true">
-                    <div class="modal-dialog modal-lg">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="three_sixtyModalLabel">Google Panaroma</h5>
-                                <button type="button" class="btn-close" data-dismiss="modal"
-                                    aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body text-center">
-                                {!!$property->google_panaroma!!}
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
 
                 <!-- Image gallery popup -->
@@ -422,9 +405,9 @@ button.close:hover {
                                     <!-- 360 tab -->
                                     <div class="tab-pane fade active show" id="virtual" role="tabpanel" aria-labelledby="virtual-tab">
                                         
-                                        @if($property->panaromal_status != 'panaromal_images')
+                                        @if($property->panaromal_status == 'google_panaroma')
                                     
-                                            {!!$property->google_panaroma!!}
+                                            <iframe src="{{url($property->google_panaroma)}}" width="100%" height="480px" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
 
                                         @else                                          
                                         
@@ -647,13 +630,15 @@ button.close:hover {
 
                                     <!--------- 360 ------------>
                                    
-                                    @if($property->google_panaroma != null || $property->panaromal_images != null)
-                                        <li class="nav-item all-nav-item" role="presentation">
-                                            <button class="nav-link all-btn active" id="virtual-tab" data-bs-toggle="tab"
-                                                data-bs-target="#virtual" type="button" role="tab" aria-controls="virtual"
-                                                aria-selected="false"><i class="fas fa-redo-alt all-modal-i"
-                                                    aria-hidden="true"></i>360<sup>0</sup></button>
-                                        </li>
+                                    @if($property->panaromal_status != 'no_any')
+                                        @if($property->google_panaroma != null || $property->panaromal_images != null)
+                                            <li class="nav-item all-nav-item" role="presentation">
+                                                <button class="nav-link all-btn active" id="virtual-tab" data-bs-toggle="tab"
+                                                    data-bs-target="#virtual" type="button" role="tab" aria-controls="virtual"
+                                                    aria-selected="false"><i class="fas fa-redo-alt all-modal-i"
+                                                        aria-hidden="true"></i>360<sup>0</sup></button>
+                                            </li>
+                                        @endif
                                     @else
                                         <li class="nav-item all-nav-item" role="presentation">
                                             <button class="nav-link inactive" id="virtual-tab" type="button" role="tab"><i
@@ -757,19 +742,20 @@ button.close:hover {
                         <!-- mobile option list -->
                         <div class="option-list-wrapper">
                             <ul class="option-list-mobile visible-xs">
-
-                                @if($property->google_panaroma != null || $property->panaromal_images != null)
-                                    <li class="last-item">
-                                        <a href="#" data-toggle="modal" data-target="#all_property_model" class="option-btn"
-                                            onclick="virtualActive()"><i class="fas fa-redo-alt"
-                                            aria-hidden="true"></i>360</a>
-                                    </li>
+                             
+                                @if($property->panaromal_status != 'no_any')
+                                    @if($property->google_panaroma != null || $property->panaromal_images != null)
+                                        <li class="last-item">
+                                            <a href="#" data-toggle="modal" data-target="#all_property_model" class="option-btn"
+                                                onclick="virtualActive()"><i class="fas fa-redo-alt"
+                                                aria-hidden="true"></i>360</a>
+                                        </li>
+                                    @endif
                                 @else
                                     <li class="last-item">
                                         <i class="fas fa-redo-alt" aria-hidden="true"></i>360
                                     </li>
-                                @endif 
-
+                                @endif
 
                                 <li class="last-item">
                                     <a href="#" data-toggle="modal" data-target="#all_property_model" class="option-btn"
