@@ -429,15 +429,15 @@ button.close:hover {
                                         @else                                          
                                         
                                             <div class="row">
-                                                <div class="col-8">
+                                                <div class="col-10">
                                                         Panaromal Main Image
                                                 </div>
-                                                <div class="col-4">
+                                                <div class="col-2">
                                                     @if($property->panaromal_status == 'panaromal_images')
                                                         @if($pano_arry)
                                                             @foreach($pano_arry as $panoarray)
                                                                 <div class="pano-wrapper">
-                                                                    <img class="photoModalSwiperImg mt-3" style="width: 100%; height: 200px; object-fit: cover;" src="{{ uploaded_asset($panoarray) }}" />
+                                                                    <img class="photoModalSwiperImg mt-3" style="width: 80%; height: 100px; object-fit: cover;" src="{{ uploaded_asset($panoarray) }}" />
                                                                     <img class="pano-symbol" src="{{ url('img/360.png') }}" alt="360 logo">
                                                                 </div>
                                                             @endforeach
