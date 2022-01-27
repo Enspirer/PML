@@ -4,7 +4,7 @@
 
 @push('after-styles')
 <link href="{{ url('css/for_sale_single.css') }}" rel="stylesheet">
-<!-- <link rel="stylesheet" href="https://cdn.rawgit.com/sachinchoolur/lightgallery.js/master/dist/css/lightgallery.css"> -->
+<link rel="stylesheet" href="https://cdn.rawgit.com/sachinchoolur/lightgallery.js/master/dist/css/lightgallery.css">
 
 
 <style>
@@ -83,8 +83,8 @@ button.close:hover {
 
 @include('frontend.includes.search')
 <div class="container index" style="margin-top: 2rem;">
-    <div class="row">
-        <div class="col-9 col-xs-12">
+    <div class="row tab-column-row">
+        <div class="col-7 col-xs-12">
             <p><a href="/" class="text-decoration-none text-dark fw-bold">Property Market Live</a>
                 >
                 <a href="#" class="text-decoration-none text-dark fw-bold">
@@ -95,7 +95,7 @@ button.close:hover {
             </p>
 
         </div>
-        <div class="col-3 col-xs-12">
+        <div class="col-5 col-xs-12 tab-column-container">
             <div class="topbar-icons">
                 <button class="topbar-single-icon" data-bs-toggle="modal" data-bs-target="#watch_list">
                     Watchlist<i class="far fa-eye"></i>
@@ -104,6 +104,67 @@ button.close:hover {
 
                     Share <i class="far fa-share-square"></i>
                 </button>
+                @auth
+                @if($favourite == null)
+                <form action="{{route('frontend.propertyFavourite')}}" method="post" enctype="multipart/form-data">
+                    {{csrf_field()}}
+                    <button type="submit" class="btn py-2 fw-bold rounded-pill" style="border: 1.5px solid #707070">
+                        <div class="row justify-content-center">
+                            <!-- <div class="col-3 p-0">
+                                                                <i class="far fa-heart"></i>
+                                                            </div>
+                                                            <div class="col-7 p-0 text-start"
+                                                                style="font-size: 0.9rem;">
+                                                                Save this Property
+                                                            </div> -->
+                            <div class="btn-wrapper property-btn-wrapper" style="gap:0;">
+                                <i class="far fa-heart"></i><span style="font-size: 0.9rem;">Save this Property</span>
+                            </div>
+
+                        </div>
+                        <input type="hidden" name="prop_hidden_id" value="{{ $property->id }}" />
+                    </button>
+                </form>
+                @else
+                <form action="{{route('frontend.propertyFavouriteDelete',$favourite->id)}}" method="post"
+                    enctype="multipart/form-data">
+                    {{csrf_field()}}
+                    <button type="submit" class="btn py-2 fw-bold rounded-pill"
+                        style="border: 1.5px solid #707070; background-color:#F33A6A;">
+                        <div class="row justify-content-center">
+                            <!-- <div class="col-3 p-0">
+                                                                <i class="far fa-heart"></i>
+                                                            </div>
+                                                            <div class="col-7 p-0 text-start text-light"
+                                                                style="font-size: 0.9rem;">
+                                                                Unsave this Property
+                                                            </div> -->
+                            <div class="btn-wrapper property-btn-wrapper" style="gap:0;">
+                                <i class="far fa-heart text-light"></i><span style="font-size: 0.9rem;"
+                                    class="text-light">Save
+                                    this Property</span>
+                            </div>
+                        </div>
+                    </button>
+                    <input type="hidden" name="prop_hidden_id" value="{{ $favourite->id }}" />
+                </form>
+                @endif
+                @else
+                <a href="{{route('frontend.auth.login')}}" class="btn py-2 fw-bold rounded-pill"
+                    style="border: 1.5px solid #707070">
+                    <div class="row justify-content-center">
+                        <!-- <div class="col-3 p-0">
+                                                            <i class="far fa-heart"></i>
+                                                        </div>
+                                                        <div class="col-7 p-0 text-start" style="font-size: 0.9rem;">
+                                                            Save this Property
+                                                        </div> -->
+                        <div class="btn-wrapper property-btn-wrapper" style="gap:0;">
+                            <i class="far fa-heart"></i><span style="font-size: 0.9rem;">Save this Property</span>
+                        </div>
+                    </div>
+                </a>
+                @endauth
             </div>
 
         </div>
@@ -253,19 +314,19 @@ button.close:hover {
                     <div class="option-bar">
                         <div class="option-list-wrapper">
                             <ul class="option-list hidden-xs">
-                                
+
                                 @if($property->panaromal_status != 'no_any')
-                                    @if($property->google_panaroma != null || $property->panaromal_images != null)
-                                        <li class="last-item">
-                                            <a href="#" data-toggle="modal" data-target="#all_property_model" class="option-btn"
-                                                onclick="virtualActive()"><i class="fas fa-redo-alt"
-                                                aria-hidden="true"></i>360</a>
-                                        </li>
-                                    @endif
+                                @if($property->google_panaroma != null || $property->panaromal_images != null)
+                                <li class="last-item">
+                                    <a href="#" data-toggle="modal" data-target="#all_property_model" class="option-btn"
+                                        onclick="virtualActive()"><i class="fas fa-redo-alt"
+                                            aria-hidden="true"></i>360</a>
+                                </li>
+                                @endif
                                 @else
-                                    <li class="last-item">
-                                        <i class="fas fa-redo-alt" aria-hidden="true"></i>360
-                                    </li>
+                                <li class="last-item">
+                                    <i class="fas fa-redo-alt" aria-hidden="true"></i>360
+                                </li>
                                 @endif
 
 
@@ -339,7 +400,7 @@ button.close:hover {
 
 
                 <!-- Image gallery popup -->
-                <div class="modal fade" id="photoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                <!-- <div class="modal fade" id="photoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
                     aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content lightgallery-content">
@@ -354,7 +415,7 @@ button.close:hover {
                         Radio Inputs
                         Labels with thumbnails to detect click event
                         Main Image
-                        -->
+                        <!-- -->
                                 <!-- <div class="cont">
 
 
@@ -375,16 +436,16 @@ button.close:hover {
                                         </ul>
                                         <span class="small">Click on any of the images to see lightGallery</span>
                                     </div>
-                                </div> -->
+                                </div>  -->
 
 
-                            </div>
-                            <!-- <div class="modal-footer">
+                            <!-- </div>
+                            <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    </div> -->
+                    </div> 
                         </div>
                     </div>
-                </div>
+                </div> -->
 
 
 
@@ -403,46 +464,53 @@ button.close:hover {
 
                                 <div class="tab-content" id="myTabContent">
                                     <!-- 360 tab -->
-                                    <div class="tab-pane fade active show" id="virtual" role="tabpanel" aria-labelledby="virtual-tab">
-                                        
+                                    <div class="tab-pane fade active show" id="virtual" role="tabpanel"
+                                        aria-labelledby="virtual-tab">
+
                                         @if($property->panaromal_status == 'google_panaroma')
-                                    
-                                            <iframe src="{{url($property->google_panaroma)}}" width="100%" height="480px" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
 
-                                        @else                                          
-                                        
-                                            <div class="row">
-                                                <div class="col-10">
+                                        <iframe src="{{url($property->google_panaroma)}}" width="100%" height="480px"
+                                            style="border:0;" allowfullscreen="" loading="lazy"></iframe>
 
-                                                <iframe id="panoFrame" src="" frameborder="0" width="100%" style="height:500px"></iframe>
+                                        @else
 
-   
-                                                </div>
-                                                <div class="col-2">
-                                                    @if($property->panaromal_status == 'panaromal_images')
-                                                        @if($pano_arry)
-                                                            @foreach($pano_arry as $key => $panoarray)
-                                                            
-                                                                <a href="#" onclick="changePanaroma('{{ $panoarray }}')">
-                                                                    <div class="pano-wrapper">
-                                                                        <img class="photoModalSwiperImg mt-3" style="width: 80%; height: 100px; object-fit: cover;" src="{{ uploaded_asset($panoarray) }}" />
-                                                                        <img class="pano-symbol" src="{{ url('img/360.png') }}" alt="360 logo">
-                                                                    </div>
-                                                                </a>
-                                                            @endforeach
+                                        <div class="row">
+                                            <div class="col-10">
 
-                                                            @if($pano_arry[0] != null)
-                                                                <input type="hidden" id="pano_first_selected" value="{{$pano_arry[0]}}" name="pano_first_selected">
-                                                            @endif
+                                                <iframe id="panoFrame" src="" frameborder="0" width="100%"
+                                                    style="height:500px"></iframe>
 
-                                                        @endif
-                                                    @endif
-                                                </div>
-                                            </div>                                            
+
+                                            </div>
+                                            <div class="col-2">
+                                                @if($property->panaromal_status == 'panaromal_images')
+                                                @if($pano_arry)
+                                                @foreach($pano_arry as $key => $panoarray)
+
+                                                <a href="#" onclick="changePanaroma('{{ $panoarray }}')">
+                                                    <div class="pano-wrapper">
+                                                        <img class="photoModalSwiperImg mt-3"
+                                                            style="width: 80%; height: 100px; object-fit: cover;"
+                                                            src="{{ uploaded_asset($panoarray) }}" />
+                                                        <img class="pano-symbol" src="{{ url('img/360.png') }}"
+                                                            alt="360 logo">
+                                                    </div>
+                                                </a>
+                                                @endforeach
+
+                                                @if($pano_arry[0] != null)
+                                                <input type="hidden" id="pano_first_selected" value="{{$pano_arry[0]}}"
+                                                    name="pano_first_selected">
+                                                @endif
+
+                                                @endif
+                                                @endif
+                                            </div>
+                                        </div>
 
                                         @endif
-                                    
-                                    
+
+
                                     </div>
 
                                     <!-- photo tab -->
@@ -452,7 +520,8 @@ button.close:hover {
                                             <div class="demo-gallery">
                                                 <ul id="lightgallery">
                                                     @foreach($str_arr2 as $key=> $pre)
-                                                    <li data-responsive="{{ uploaded_asset($pre) }}"
+                                                    <li 
+                                                    data-responsive="{{ uploaded_asset($pre) }}"
                                                         data-src="{{ uploaded_asset($pre) }}" data-sub-html="">
                                                         <a href="">
                                                             <img class="img-responsive"
@@ -476,20 +545,20 @@ button.close:hover {
                                                 <div class="swiper modalSwiper2 photoModalSwiper">
                                                     <div class="swiper-wrapper">
                                                         @php
-                                                            $str_arr2 = preg_split ("/\,/", $property->image_ids);
+                                                        $str_arr2 = preg_split ("/\,/", $property->image_ids);
                                                         @endphp
 
                                                         @if($property->panaromal_images)
-                                                            @php
-                                                                $pano_arry = preg_split ("/\,/", $property->panaromal_images);
-                                                            @endphp
+                                                        @php
+                                                        $pano_arry = preg_split ("/\,/", $property->panaromal_images);
+                                                        @endphp
                                                         @else
-                                                            @php
-                                                                $pano_arry = null;
-                                                            @endphp
+                                                        @php
+                                                        $pano_arry = null;
+                                                        @endphp
                                                         @endif
 
-                                                        
+
 
                                                         @foreach($str_arr2 as $key=> $pre)
                                                         <div class="swiper-slide">
@@ -516,10 +585,10 @@ button.close:hover {
 
                                             <div class="col-3 col-xs-12">
                                                 <div thumbsSlider="" class="swiper modalSwiper photoModalThumbSlider">
-                                                    <div class="swiper-wrapper">
-                                                        
+                                                    <div class="swiper-wrapper photoThumbSwiperWrapper">
+
                                                         @foreach($str_arr2 as $key=> $pre)
-                                                        <div class="swiper-slide">
+                                                        <div class="swiper-slide thumbSwiperSlide">
                                                             <img class="photoModalSwiperThumb"
                                                                 src="{{ uploaded_asset($pre) }}" />
 
@@ -585,7 +654,8 @@ button.close:hover {
 
                                                         @foreach($flow_plan as $key=> $flow)
                                                         <div class="swiper-slide">
-                                                            <img class="photoModalSwiperImg" src="{{ uploaded_asset($flow) }}" />
+                                                            <img class="photoModalSwiperImg"
+                                                                src="{{ uploaded_asset($flow) }}" />
 
                                                         </div>
                                                         @endforeach
@@ -605,12 +675,14 @@ button.close:hover {
 
 
                                             <div class="col-3 col-xs-12">
-                                                <div thumbsSlider="" class="swiper modalflowSwiper photoModalThumbSlider">
-                                                    <div class="swiper-wrapper">
+                                                <div thumbsSlider=""
+                                                    class="swiper modalflowSwiper photoModalThumbSlider">
+                                                    <div class="swiper-wrapper photoThumbSwiperWrapper">
 
                                                         @foreach($flow_plan as $key=> $flow)
-                                                        <div class="swiper-slide">
-                                                            <img class="photoModalSwiperThumb" src="{{ uploaded_asset($flow) }}" />
+                                                        <div class="swiper-slide thumbSwiperSlide">
+                                                            <img class="photoModalSwiperThumb"
+                                                                src="{{ uploaded_asset($flow) }}" />
 
                                                         </div>
                                                         @endforeach
@@ -640,25 +712,25 @@ button.close:hover {
 
 
                                     <!--------- 360 ------------>
-                                   
+
                                     @if($property->panaromal_status != 'no_any')
-                                        @if($property->google_panaroma != null || $property->panaromal_images != null)
-                                            <li class="nav-item all-nav-item" role="presentation">
-                                                <button class="nav-link all-btn active" id="virtual-tab" data-bs-toggle="tab"
-                                                    data-bs-target="#virtual" type="button" role="tab" aria-controls="virtual"
-                                                    aria-selected="false"><i class="fas fa-redo-alt all-modal-i"
-                                                        aria-hidden="true"></i>360<sup>0</sup></button>
-                                            </li>
-                                        @endif
+                                    @if($property->google_panaroma != null || $property->panaromal_images != null)
+                                    <li class="nav-item all-nav-item" role="presentation">
+                                        <button class="nav-link all-btn active" id="virtual-tab" data-bs-toggle="tab"
+                                            data-bs-target="#virtual" type="button" role="tab" aria-controls="virtual"
+                                            aria-selected="false"><i class="fas fa-redo-alt all-modal-i"
+                                                aria-hidden="true"></i>360<sup>0</sup></button>
+                                    </li>
+                                    @endif
                                     @else
-                                        <li class="nav-item all-nav-item" role="presentation">
-                                            <button class="nav-link inactive" id="virtual-tab" type="button" role="tab"><i
-                                                    class="fas fa-redo-alt all-modal-i"
-                                                    aria-hidden="true"></i>360<sup>0</sup></button>
-                                        </li>
+                                    <li class="nav-item all-nav-item" role="presentation">
+                                        <button class="nav-link inactive" id="virtual-tab" type="button" role="tab"><i
+                                                class="fas fa-redo-alt all-modal-i"
+                                                aria-hidden="true"></i>360<sup>0</sup></button>
+                                    </li>
                                     @endif
 
-                                  
+
                                     <!-- photo -->
                                     <li class="nav-item all-nav-item" role="presentation">
                                         <button class="nav-link all-btn" id="photo-tab" data-bs-toggle="tab"
@@ -753,19 +825,19 @@ button.close:hover {
                         <!-- mobile option list -->
                         <div class="option-list-wrapper">
                             <ul class="option-list-mobile visible-xs">
-                             
+
                                 @if($property->panaromal_status != 'no_any')
-                                    @if($property->google_panaroma != null || $property->panaromal_images != null)
-                                        <li class="last-item">
-                                            <a href="#" data-toggle="modal" data-target="#all_property_model" class="option-btn"
-                                                onclick="virtualActive()"><i class="fas fa-redo-alt"
-                                                aria-hidden="true"></i>360</a>
-                                        </li>
-                                    @endif
+                                @if($property->google_panaroma != null || $property->panaromal_images != null)
+                                <li class="last-item">
+                                    <a href="#" data-toggle="modal" data-target="#all_property_model" class="option-btn"
+                                        onclick="virtualActive()"><i class="fas fa-redo-alt"
+                                            aria-hidden="true"></i>360</a>
+                                </li>
+                                @endif
                                 @else
-                                    <li class="last-item">
-                                        <i class="fas fa-redo-alt" aria-hidden="true"></i>360
-                                    </li>
+                                <li class="last-item">
+                                    <i class="fas fa-redo-alt" aria-hidden="true"></i>360
+                                </li>
                                 @endif
 
                                 <li class="last-item">
@@ -1266,10 +1338,11 @@ button.close:hover {
                             <div class="card custom-shadow position-relative"
                                 style="min-height: 320px; max-height: 320px;">
                                 <a href="{{ route('frontend.for_sale_single',$ran->id) }}" class="text-decoration-none">
-                                    <img src="{{ uploaded_asset($ran->feature_image_id) }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
-                                        
+                                    <img src="{{ uploaded_asset($ran->feature_image_id) }}" alt=""
+                                        class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
+
                                     @if($ran->panaromal_status != 'no_any')
-                                        <img class="pano-symbol" src="{{ url('img/360.png') }}" alt="360 logo">
+                                    <img class="pano-symbol" src="{{ url('img/360.png') }}" alt="360 logo">
                                     @endif
 
                                 </a>
@@ -1919,11 +1992,11 @@ button.close:hover {
 <script src="https://cdn.rawgit.com/sachinchoolur/lg-hash.js/master/dist/lg-hash.js"></script>
 <script src="https://cdn.jsdelivr.net/picturefill/2.3.1/picturefill.min.js"></script>
 <script>
-lightGallery(document.getElementById('lightgallery'))
+lightGallery(document.getElementById('lightgallery'));
 </script>
 
 <script>
-lightGallery(document.getElementById('lightgallery_flow'))
+lightGallery(document.getElementById('lightgallery_flow'));
 </script>
 
 <script>
@@ -1941,17 +2014,15 @@ function changePanaroma(panaromalId) {
 
 
 <script>
+$(document).ready(function() {
+    var first_pano = $('#pano_first_selected').val();
+    // console.log(first_pano);
 
-    $(document).ready(function(){
-        var first_pano = $('#pano_first_selected').val();
-            // console.log(first_pano);
+    let panoURL = "{{url('/')}}/pano/" + first_pano;
+    // console.log(panoURL);
 
-        let panoURL = "{{url('/')}}/pano/" + first_pano;
-        // console.log(panoURL);
-
-        document.getElementById("panoFrame").src = panoURL;
-    });
-
+    document.getElementById("panoFrame").src = panoURL;
+});
 </script>
 
 
@@ -2734,50 +2805,50 @@ function initMap() {
     //----------------shopping-----------------------
     $("#shopping").click(function() {
 
- 
-        
-    for (var i = 0; i < markers.length; i++) {
-
-        markers[i].setMap(null);
-    }
 
 
-    $.ajax ({
-        type: "GET",
-        url: "{{ url('api/near_location',$property->id) }}" + '/shopping',
-        success: function(data) {
-            let shoppingLocations = data;
+        for (var i = 0; i < markers.length; i++) {
 
-            for (var i = 0; i < shoppingLocations.length; i++) {
-
-                var marker = new google.maps.Marker({
-                    map: map,
-                    position: shoppingLocations[i],
-                    icon: icons[shoppingLocations[i].type].icon,
-                });
-
-                markers.push(marker);
-
-            }
+            markers[i].setMap(null);
         }
 
 
+        $.ajax({
+            type: "GET",
+            url: "{{ url('api/near_location',$property->id) }}" + '/shopping',
+            success: function(data) {
+                let shoppingLocations = data;
 
-    });
+                for (var i = 0; i < shoppingLocations.length; i++) {
 
-    // let shoppingLocations = [{
-    //         id: 1,
-    //         lat: 50.9474,
-    //         lng: 10.7098,
-    //         type: "shopping"
-    //     },
-    //     {
-    //         id: 2,
-    //         lat: 50.5558,
-    //         lng: 9.6808,
-    //         type: "shopping"
-    //     }
-    // ];
+                    var marker = new google.maps.Marker({
+                        map: map,
+                        position: shoppingLocations[i],
+                        icon: icons[shoppingLocations[i].type].icon,
+                    });
+
+                    markers.push(marker);
+
+                }
+            }
+
+
+
+        });
+
+        // let shoppingLocations = [{
+        //         id: 1,
+        //         lat: 50.9474,
+        //         lng: 10.7098,
+        //         type: "shopping"
+        //     },
+        //     {
+        //         id: 2,
+        //         lat: 50.5558,
+        //         lng: 9.6808,
+        //         type: "shopping"
+        //     }
+        // ];
 
 
 
@@ -2788,60 +2859,60 @@ function initMap() {
     //----------------food-----------------------
     $("#food").click(function() {
 
-    for (var i = 0; i < markers.length; i++) {
+        for (var i = 0; i < markers.length; i++) {
 
-        markers[i].setMap(null);
-    }
-
-
-    $.ajax ({
-        type: "GET",
-        url: "{{ url('api/near_location',$property->id) }}" + '/food',
-        success: function(data) {
-            let foodLocations = data;
-
-            for (var i = 0; i < foodLocations.length; i++) {
-
-                var marker = new google.maps.Marker({
-                    map: map,
-                    position: foodLocations[i],
-                    icon: icons[foodLocations[i].type].icon,
-                });
-
-                markers.push(marker);
-            }
+            markers[i].setMap(null);
         }
 
 
+        $.ajax({
+            type: "GET",
+            url: "{{ url('api/near_location',$property->id) }}" + '/food',
+            success: function(data) {
+                let foodLocations = data;
 
-    });
+                for (var i = 0; i < foodLocations.length; i++) {
+
+                    var marker = new google.maps.Marker({
+                        map: map,
+                        position: foodLocations[i],
+                        icon: icons[foodLocations[i].type].icon,
+                    });
+
+                    markers.push(marker);
+                }
+            }
 
 
-    // let foodLocations = [{
-    //         id: 1,
-    //         lat: 50.8019,
-    //         lng: 8.7658,
-    //         type: "food"
-    //     },
-    //     {
-    //         id: 2,
-    //         lat: 50.6077,
-    //         lng: 10.6881,
-    //         type: "food"
-    //     }
-    // ];
+
+        });
 
 
-    // for (var i = 0; i < foodLocations.length; i++) {
+        // let foodLocations = [{
+        //         id: 1,
+        //         lat: 50.8019,
+        //         lng: 8.7658,
+        //         type: "food"
+        //     },
+        //     {
+        //         id: 2,
+        //         lat: 50.6077,
+        //         lng: 10.6881,
+        //         type: "food"
+        //     }
+        // ];
 
-    //     var marker = new google.maps.Marker({
-    //         map: map,
-    //         position: foodLocations[i],
-    //         icon: icons[foodLocations[i].type].icon,
-    //     });
 
-    //     markers.push(marker);
-    // }
+        // for (var i = 0; i < foodLocations.length; i++) {
+
+        //     var marker = new google.maps.Marker({
+        //         map: map,
+        //         position: foodLocations[i],
+        //         icon: icons[foodLocations[i].type].icon,
+        //     });
+
+        //     markers.push(marker);
+        // }
 
 
     })
@@ -2850,63 +2921,63 @@ function initMap() {
     //----------------restuarant-----------------------
     $("#restuarant").click(function() {
 
-    for (var i = 0; i < markers.length; i++) {
+        for (var i = 0; i < markers.length; i++) {
 
-        markers[i].setMap(null);
-    }
-
-
-
-    $.ajax ({
-        type: "GET",
-        url: "{{ url('api/near_location',$property->id) }}" + '/restuarant',
-        success: function(data) {
-            let restuarantLocations = data;
-
-            for (var i = 0; i < restuarantLocations.length; i++) {
-
-                var marker = new google.maps.Marker({
-                    map: map,
-                    position: restuarantLocations[i],
-                    icon: icons[restuarantLocations[i].type].icon,
-                });
-
-                markers.push(marker);
-
-            }
+            markers[i].setMap(null);
         }
 
 
 
-    });
+        $.ajax({
+            type: "GET",
+            url: "{{ url('api/near_location',$property->id) }}" + '/restuarant',
+            success: function(data) {
+                let restuarantLocations = data;
+
+                for (var i = 0; i < restuarantLocations.length; i++) {
+
+                    var marker = new google.maps.Marker({
+                        map: map,
+                        position: restuarantLocations[i],
+                        icon: icons[restuarantLocations[i].type].icon,
+                    });
+
+                    markers.push(marker);
+
+                }
+            }
 
 
 
-    // let restuarantLocations = [{
-    //         id: 1,
-    //         lat: 50.9271,
-    //         lng: 11.5892,
-    //         type: "restuarant"
-    //     },
-    //     {
-    //         id: 2,
-    //         lat: 50.7508,
-    //         lng: 9.2692,
-    //         type: "restuarant"
-    //     }
-    // ];
+        });
 
 
-    // for (var i = 0; i < restuarantLocations.length; i++) {
 
-    //     var marker = new google.maps.Marker({
-    //         map: map,
-    //         position: restuarantLocations[i],
-    //         icon: icons[restuarantLocations[i].type].icon,
-    //     });
+        // let restuarantLocations = [{
+        //         id: 1,
+        //         lat: 50.9271,
+        //         lng: 11.5892,
+        //         type: "restuarant"
+        //     },
+        //     {
+        //         id: 2,
+        //         lat: 50.7508,
+        //         lng: 9.2692,
+        //         type: "restuarant"
+        //     }
+        // ];
 
-    //     markers.push(marker);
-    // }
+
+        // for (var i = 0; i < restuarantLocations.length; i++) {
+
+        //     var marker = new google.maps.Marker({
+        //         map: map,
+        //         position: restuarantLocations[i],
+        //         icon: icons[restuarantLocations[i].type].icon,
+        //     });
+
+        //     markers.push(marker);
+        // }
 
 
     })
@@ -2915,59 +2986,59 @@ function initMap() {
     //----------------school-----------------------
     $("#school").click(function() {
 
-    for (var i = 0; i < markers.length; i++) {
+        for (var i = 0; i < markers.length; i++) {
 
-        markers[i].setMap(null);
-    }
-
-    $.ajax ({
-        type: "GET",
-        url: "{{ url('api/near_location',$property->id) }}" + '/school',
-        success: function(data) {
-            let schoolLocations = data;
-
-            for (var i = 0; i < schoolLocations.length; i++) {
-
-                var marker = new google.maps.Marker({
-                    map: map,
-                    position: schoolLocations[i],
-                    icon: icons[schoolLocations[i].type].icon,
-                });
-
-                markers.push(marker);
-
-            }
+            markers[i].setMap(null);
         }
 
+        $.ajax({
+            type: "GET",
+            url: "{{ url('api/near_location',$property->id) }}" + '/school',
+            success: function(data) {
+                let schoolLocations = data;
+
+                for (var i = 0; i < schoolLocations.length; i++) {
+
+                    var marker = new google.maps.Marker({
+                        map: map,
+                        position: schoolLocations[i],
+                        icon: icons[schoolLocations[i].type].icon,
+                    });
+
+                    markers.push(marker);
+
+                }
+            }
 
 
-    });
 
-    // let schoolLocations = [{
-    //         id: 1,
-    //         lat: 50.7271,
-    //         lng: 11.4892,
-    //         type: "school"
-    //     },
-    //     {
-    //         id: 2,
-    //         lat: 50.6508,
-    //         lng: 9.3692,
-    //         type: "school"
-    //     }
-    // ];
+        });
+
+        // let schoolLocations = [{
+        //         id: 1,
+        //         lat: 50.7271,
+        //         lng: 11.4892,
+        //         type: "school"
+        //     },
+        //     {
+        //         id: 2,
+        //         lat: 50.6508,
+        //         lng: 9.3692,
+        //         type: "school"
+        //     }
+        // ];
 
 
-    // for (var i = 0; i < schoolLocations.length; i++) {
+        // for (var i = 0; i < schoolLocations.length; i++) {
 
-    //     var marker = new google.maps.Marker({
-    //         map: map,
-    //         position: schoolLocations[i],
-    //         icon: icons[schoolLocations[i].type].icon,
-    //     });
+        //     var marker = new google.maps.Marker({
+        //         map: map,
+        //         position: schoolLocations[i],
+        //         icon: icons[schoolLocations[i].type].icon,
+        //     });
 
-    //     markers.push(marker);
-    // }
+        //     markers.push(marker);
+        // }
 
 
     })
@@ -2976,59 +3047,59 @@ function initMap() {
     //----------------atm-----------------------
     $("#atm").click(function() {
 
-    for (var i = 0; i < markers.length; i++) {
+        for (var i = 0; i < markers.length; i++) {
 
-        markers[i].setMap(null);
-    }
-
-    $.ajax ({
-        type: "GET",
-        url: "{{ url('api/near_location',$property->id) }}" + '/atm',
-        success: function(data) {
-            let atmLocations = data;
-
-            for (var i = 0; i < atmLocations.length; i++) {
-
-                var marker = new google.maps.Marker({
-                    map: map,
-                    position: atmLocations[i],
-                    icon: icons[atmLocations[i].type].icon,
-                });
-
-                markers.push(marker);
-
-            }
+            markers[i].setMap(null);
         }
 
+        $.ajax({
+            type: "GET",
+            url: "{{ url('api/near_location',$property->id) }}" + '/atm',
+            success: function(data) {
+                let atmLocations = data;
+
+                for (var i = 0; i < atmLocations.length; i++) {
+
+                    var marker = new google.maps.Marker({
+                        map: map,
+                        position: atmLocations[i],
+                        icon: icons[atmLocations[i].type].icon,
+                    });
+
+                    markers.push(marker);
+
+                }
+            }
 
 
-    });
 
-    // let atmLocations = [{
-    //         id: 1,
-    //         lat: 50.5271,
-    //         lng: 11.6892,
-    //         type: "atm"
-    //     },
-    //     {
-    //         id: 2,
-    //         lat: 50.5508,
-    //         lng: 9.5692,
-    //         type: "atm"
-    //     }
-    // ];
+        });
+
+        // let atmLocations = [{
+        //         id: 1,
+        //         lat: 50.5271,
+        //         lng: 11.6892,
+        //         type: "atm"
+        //     },
+        //     {
+        //         id: 2,
+        //         lat: 50.5508,
+        //         lng: 9.5692,
+        //         type: "atm"
+        //     }
+        // ];
 
 
-    // for (var i = 0; i < atmLocations.length; i++) {
+        // for (var i = 0; i < atmLocations.length; i++) {
 
-    //     var marker = new google.maps.Marker({
-    //         map: map,
-    //         position: atmLocations[i],
-    //         icon: icons[atmLocations[i].type].icon,
-    //     });
+        //     var marker = new google.maps.Marker({
+        //         map: map,
+        //         position: atmLocations[i],
+        //         icon: icons[atmLocations[i].type].icon,
+        //     });
 
-    //     markers.push(marker);
-    // }
+        //     markers.push(marker);
+        // }
 
 
     })
@@ -3037,60 +3108,60 @@ function initMap() {
     //----------------hospital-----------------------
     $("#hospital").click(function() {
 
-    for (var i = 0; i < markers.length; i++) {
+        for (var i = 0; i < markers.length; i++) {
 
-        markers[i].setMap(null);
-    }
-
-
-    $.ajax ({
-        type: "GET",
-        url: "{{ url('api/near_location',$property->id) }}" + '/hospital',
-        success: function(data) {
-            let hospitalLocations = data;
-
-            for (var i = 0; i < hospitalLocations.length; i++) {
-
-                var marker = new google.maps.Marker({
-                    map: map,
-                    position: hospitalLocations[i],
-                    icon: icons[hospitalLocations[i].type].icon,
-                });
-
-                markers.push(marker);
-
-            }
+            markers[i].setMap(null);
         }
 
 
+        $.ajax({
+            type: "GET",
+            url: "{{ url('api/near_location',$property->id) }}" + '/hospital',
+            success: function(data) {
+                let hospitalLocations = data;
 
-    });
+                for (var i = 0; i < hospitalLocations.length; i++) {
 
-    // let hospitalLocations = [{
-    //         id: 1,
-    //         lat: 50.5671,
-    //         lng: 11.5892,
-    //         type: "hospital"
-    //     },
-    //     {
-    //         id: 2,
-    //         lat: 50.5608,
-    //         lng: 9.3692,
-    //         type: "hospital"
-    //     }
-    // ];
+                    var marker = new google.maps.Marker({
+                        map: map,
+                        position: hospitalLocations[i],
+                        icon: icons[hospitalLocations[i].type].icon,
+                    });
+
+                    markers.push(marker);
+
+                }
+            }
 
 
-    // for (var i = 0; i < hospitalLocations.length; i++) {
 
-    //     var marker = new google.maps.Marker({
-    //         map: map,
-    //         position: hospitalLocations[i],
-    //         icon: icons[hospitalLocations[i].type].icon,
-    //     });
+        });
 
-    //     markers.push(marker);
-    // }
+        // let hospitalLocations = [{
+        //         id: 1,
+        //         lat: 50.5671,
+        //         lng: 11.5892,
+        //         type: "hospital"
+        //     },
+        //     {
+        //         id: 2,
+        //         lat: 50.5608,
+        //         lng: 9.3692,
+        //         type: "hospital"
+        //     }
+        // ];
+
+
+        // for (var i = 0; i < hospitalLocations.length; i++) {
+
+        //     var marker = new google.maps.Marker({
+        //         map: map,
+        //         position: hospitalLocations[i],
+        //         icon: icons[hospitalLocations[i].type].icon,
+        //     });
+
+        //     markers.push(marker);
+        // }
 
 
     })
@@ -3099,61 +3170,61 @@ function initMap() {
     //----------------gym-----------------------
     $("#gym").click(function() {
 
-    for (var i = 0; i < markers.length; i++) {
+        for (var i = 0; i < markers.length; i++) {
 
-        markers[i].setMap(null);
-    }
-
-
-    $.ajax ({
-        type: "GET",
-        url: "{{ url('api/near_location',$property->id) }}" + '/hospital',
-        success: function(data) {
-            let gymLocations = data;
-
-            for (var i = 0; i < gymLocations.length; i++) {
-
-                var marker = new google.maps.Marker({
-                    map: map,
-                    position: gymLocations[i],
-                    icon: icons[gymLocations[i].type].icon,
-                });
-
-                markers.push(marker);
-
-            }
+            markers[i].setMap(null);
         }
 
 
+        $.ajax({
+            type: "GET",
+            url: "{{ url('api/near_location',$property->id) }}" + '/hospital',
+            success: function(data) {
+                let gymLocations = data;
 
-    });
+                for (var i = 0; i < gymLocations.length; i++) {
+
+                    var marker = new google.maps.Marker({
+                        map: map,
+                        position: gymLocations[i],
+                        icon: icons[gymLocations[i].type].icon,
+                    });
+
+                    markers.push(marker);
+
+                }
+            }
 
 
-    // let gymLocations = [{
-    //         id: 1,
-    //         lat: 50.9671,
-    //         lng: 10.5892,
-    //         type: "gym"
-    //     },
-    //     {
-    //         id: 2,
-    //         lat: 50.5608,
-    //         lng: 11.3692,
-    //         type: "gym"
-    //     }
-    // ];
+
+        });
 
 
-    // for (var i = 0; i < gymLocations.length; i++) {
+        // let gymLocations = [{
+        //         id: 1,
+        //         lat: 50.9671,
+        //         lng: 10.5892,
+        //         type: "gym"
+        //     },
+        //     {
+        //         id: 2,
+        //         lat: 50.5608,
+        //         lng: 11.3692,
+        //         type: "gym"
+        //     }
+        // ];
 
-    //     var marker = new google.maps.Marker({
-    //         map: map,
-    //         position: gymLocations[i],
-    //         icon: icons[gymLocations[i].type].icon,
-    //     });
 
-    //     markers.push(marker);
-    // }
+        // for (var i = 0; i < gymLocations.length; i++) {
+
+        //     var marker = new google.maps.Marker({
+        //         map: map,
+        //         position: gymLocations[i],
+        //         icon: icons[gymLocations[i].type].icon,
+        //     });
+
+        //     markers.push(marker);
+        // }
 
     })
 
