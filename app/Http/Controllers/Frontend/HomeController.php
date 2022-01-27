@@ -74,18 +74,12 @@ class HomeController extends Controller
                if($getcountry){
                    $countryIso = Country::where('country_id',$getcountry)->first();
                    Cookie::queue("country_code", $getcountry ,1000);
-
                }else{
                    $countryIso = null;
-
                }
-
-
            $countryIso = null;
        }else{
-
            $countryIso = $endetails;
-
        }
 
 
@@ -95,7 +89,6 @@ class HomeController extends Controller
 
         $property_talk = Posts::where('id',get_settings('property_talk_featured'))->where('status','=','Enabled')->first();
         $posts = Posts::where('status','=','Enabled')->take(6)->latest()->get();
-
         $property_types = PropertyType::where('status','=','1')->get();
 
        
@@ -705,8 +698,26 @@ class HomeController extends Controller
         
         $near_location = NearLocation::where('property_id',$property_id)->where('type',$type)->get();
 
+        $outarray =[];
+
+        foreach ($near_location as $nearloc)
+        {
+            $outsubArray = [
+              'id' => $nearloc->id ,
+              'lng' => (double) $nearloc->lng ,
+              'lat' => (double) $nearloc->lat ,
+              'name' => $nearloc->name ,
+              'address' => $nearloc->address ,
+              'property_id' => $nearloc->property_id ,
+              'icon' => $nearloc->icon ,
+              'feature_img' => $nearloc->feature_img ,
+              'type' => $nearloc->type ,
+              'distance' => $nearloc->distance ,
+            ];
+            array_push($outarray,$outsubArray);
+        }
         if($near_location){
-            return $near_location;
+            return $outarray;
         }else{
             return null;
         }
