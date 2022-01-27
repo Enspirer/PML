@@ -134,7 +134,7 @@ button.close:hover {
                     <span aria-hidden="true">&times;</span>
                 </button>
                 <!-- iframe -->
-                <iframe id="panoFrame" src="" frameborder="0" width="100%" height="100%"></iframe>
+                <iframe id="panoFrametwo" src="" frameborder="0" width="100%" height="100%"></iframe>
             </div>
             <!-- <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -413,17 +413,28 @@ button.close:hover {
                                         
                                             <div class="row">
                                                 <div class="col-10">
-                                                        Panaromal Main Image
+
+                                                <iframe id="panoFrame" src="" frameborder="0" width="100%" style="height:500px"></iframe>
+
+   
                                                 </div>
                                                 <div class="col-2">
                                                     @if($property->panaromal_status == 'panaromal_images')
                                                         @if($pano_arry)
-                                                            @foreach($pano_arry as $panoarray)
-                                                                <div class="pano-wrapper">
-                                                                    <img class="photoModalSwiperImg mt-3" style="width: 80%; height: 100px; object-fit: cover;" src="{{ uploaded_asset($panoarray) }}" />
-                                                                    <img class="pano-symbol" src="{{ url('img/360.png') }}" alt="360 logo">
-                                                                </div>
+                                                            @foreach($pano_arry as $key => $panoarray)
+                                                            
+                                                                <a href="#" onclick="changePanaroma('{{ $panoarray }}')">
+                                                                    <div class="pano-wrapper">
+                                                                        <img class="photoModalSwiperImg mt-3" style="width: 80%; height: 100px; object-fit: cover;" src="{{ uploaded_asset($panoarray) }}" />
+                                                                        <img class="pano-symbol" src="{{ url('img/360.png') }}" alt="360 logo">
+                                                                    </div>
+                                                                </a>
                                                             @endforeach
+
+                                                            @if($pano_arry[0] != null)
+                                                                <input type="hidden" id="pano_first_selected" value="{{$pano_arry[0]}}" name="pano_first_selected">
+                                                            @endif
+
                                                         @endif
                                                     @endif
                                                 </div>
@@ -1921,11 +1932,28 @@ function changePanaroma(panaromalId) {
     let panoURL = "{{url('/')}}/pano/" + panaromalId;
 
     document.getElementById("panoFrame").src = panoURL;
+    document.getElementById("panoFrametwo").src = panoURL;
 
     // $("#panoFrame")
 
 }
 </script>
+
+
+<script>
+
+    $(document).ready(function(){
+        var first_pano = $('#pano_first_selected').val();
+            // console.log(first_pano);
+
+        let panoURL = "{{url('/')}}/pano/" + first_pano;
+        // console.log(panoURL);
+
+        document.getElementById("panoFrame").src = panoURL;
+    });
+
+</script>
+
 
 
 <!-- near cat btn change -->
