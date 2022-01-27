@@ -2655,7 +2655,7 @@ function initMap() {
     };
 
     let options = {
-        zoom: 8,
+        zoom: 10,
         center: myLatLng
     };
 
