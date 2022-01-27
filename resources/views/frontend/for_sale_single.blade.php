@@ -2706,45 +2706,53 @@ function initMap() {
     //----------------shopping-----------------------
     $("#shopping").click(function() {
 
-        for (var i = 0; i < markers.length; i++) {
+ 
+        
+    for (var i = 0; i < markers.length; i++) {
 
-            markers[i].setMap(null);
-        }
+        markers[i].setMap(null);
+    }
 
 
-        // $.ajax ({
-        //     type: "GET",
-        //     url: 
-        //     success: function(data) {
+    $.ajax ({
+        type: "GET",
+        url: "{{ url('api/near_location',$property->id) }}" + '/shopping',
+        success: function(data) {
+            let shoppingLocations = data;
 
-        //     }
-        // });
+            for (var i = 0; i < shoppingLocations.length; i++) {
 
-        let shoppingLocations = [{
-                id: 1,
-                lat: 50.9474,
-                lng: 10.7098,
-                type: "shopping"
-            },
-            {
-                id: 2,
-                lat: 50.5558,
-                lng: 9.6808,
-                type: "shopping"
+                var marker = new google.maps.Marker({
+                    map: map,
+                    position: shoppingLocations[i],
+                    icon: icons[shoppingLocations[i].type].icon,
+                });
+
+                markers.push(marker);
+
             }
-        ];
-
-
-        for (var i = 0; i < shoppingLocations.length; i++) {
-
-            var marker = new google.maps.Marker({
-                map: map,
-                position: shoppingLocations[i],
-                icon: icons[shoppingLocations[i].type].icon,
-            });
-
-            markers.push(marker);
         }
+
+
+
+    });
+
+    // let shoppingLocations = [{
+    //         id: 1,
+    //         lat: 50.9474,
+    //         lng: 10.7098,
+    //         type: "shopping"
+    //     },
+    //     {
+    //         id: 2,
+    //         lat: 50.5558,
+    //         lng: 9.6808,
+    //         type: "shopping"
+    //     }
+    // ];
+
+
+
 
     })
 
@@ -2752,37 +2760,60 @@ function initMap() {
     //----------------food-----------------------
     $("#food").click(function() {
 
-        for (var i = 0; i < markers.length; i++) {
+    for (var i = 0; i < markers.length; i++) {
 
-            markers[i].setMap(null);
-        }
+        markers[i].setMap(null);
+    }
 
 
-        let foodLocations = [{
-                id: 1,
-                lat: 50.8019,
-                lng: 8.7658,
-                type: "food"
-            },
-            {
-                id: 2,
-                lat: 50.6077,
-                lng: 10.6881,
-                type: "food"
+    $.ajax ({
+        type: "GET",
+        url: "{{ url('api/near_location',$property->id) }}" + '/food',
+        success: function(data) {
+            let foodLocations = data;
+
+            for (var i = 0; i < foodLocations.length; i++) {
+
+                var marker = new google.maps.Marker({
+                    map: map,
+                    position: foodLocations[i],
+                    icon: icons[foodLocations[i].type].icon,
+                });
+
+                markers.push(marker);
             }
-        ];
-
-
-        for (var i = 0; i < foodLocations.length; i++) {
-
-            var marker = new google.maps.Marker({
-                map: map,
-                position: foodLocations[i],
-                icon: icons[foodLocations[i].type].icon,
-            });
-
-            markers.push(marker);
         }
+
+
+
+    });
+
+
+    // let foodLocations = [{
+    //         id: 1,
+    //         lat: 50.8019,
+    //         lng: 8.7658,
+    //         type: "food"
+    //     },
+    //     {
+    //         id: 2,
+    //         lat: 50.6077,
+    //         lng: 10.6881,
+    //         type: "food"
+    //     }
+    // ];
+
+
+    // for (var i = 0; i < foodLocations.length; i++) {
+
+    //     var marker = new google.maps.Marker({
+    //         map: map,
+    //         position: foodLocations[i],
+    //         icon: icons[foodLocations[i].type].icon,
+    //     });
+
+    //     markers.push(marker);
+    // }
 
 
     })
@@ -2791,37 +2822,63 @@ function initMap() {
     //----------------restuarant-----------------------
     $("#restuarant").click(function() {
 
-        for (var i = 0; i < markers.length; i++) {
+    for (var i = 0; i < markers.length; i++) {
 
-            markers[i].setMap(null);
-        }
+        markers[i].setMap(null);
+    }
 
 
-        let restuarantLocations = [{
-                id: 1,
-                lat: 50.9271,
-                lng: 11.5892,
-                type: "restuarant"
-            },
-            {
-                id: 2,
-                lat: 50.7508,
-                lng: 9.2692,
-                type: "restuarant"
+
+    $.ajax ({
+        type: "GET",
+        url: "{{ url('api/near_location',$property->id) }}" + '/restuarant',
+        success: function(data) {
+            let restuarantLocations = data;
+
+            for (var i = 0; i < restuarantLocations.length; i++) {
+
+                var marker = new google.maps.Marker({
+                    map: map,
+                    position: restuarantLocations[i],
+                    icon: icons[restuarantLocations[i].type].icon,
+                });
+
+                markers.push(marker);
+
             }
-        ];
-
-
-        for (var i = 0; i < restuarantLocations.length; i++) {
-
-            var marker = new google.maps.Marker({
-                map: map,
-                position: restuarantLocations[i],
-                icon: icons[restuarantLocations[i].type].icon,
-            });
-
-            markers.push(marker);
         }
+
+
+
+    });
+
+
+
+    // let restuarantLocations = [{
+    //         id: 1,
+    //         lat: 50.9271,
+    //         lng: 11.5892,
+    //         type: "restuarant"
+    //     },
+    //     {
+    //         id: 2,
+    //         lat: 50.7508,
+    //         lng: 9.2692,
+    //         type: "restuarant"
+    //     }
+    // ];
+
+
+    // for (var i = 0; i < restuarantLocations.length; i++) {
+
+    //     var marker = new google.maps.Marker({
+    //         map: map,
+    //         position: restuarantLocations[i],
+    //         icon: icons[restuarantLocations[i].type].icon,
+    //     });
+
+    //     markers.push(marker);
+    // }
 
 
     })
@@ -2830,37 +2887,59 @@ function initMap() {
     //----------------school-----------------------
     $("#school").click(function() {
 
-        for (var i = 0; i < markers.length; i++) {
+    for (var i = 0; i < markers.length; i++) {
 
-            markers[i].setMap(null);
-        }
+        markers[i].setMap(null);
+    }
 
+    $.ajax ({
+        type: "GET",
+        url: "{{ url('api/near_location',$property->id) }}" + '/school',
+        success: function(data) {
+            let schoolLocations = data;
 
-        let schoolLocations = [{
-                id: 1,
-                lat: 50.7271,
-                lng: 11.4892,
-                type: "school"
-            },
-            {
-                id: 2,
-                lat: 50.6508,
-                lng: 9.3692,
-                type: "school"
+            for (var i = 0; i < schoolLocations.length; i++) {
+
+                var marker = new google.maps.Marker({
+                    map: map,
+                    position: schoolLocations[i],
+                    icon: icons[schoolLocations[i].type].icon,
+                });
+
+                markers.push(marker);
+
             }
-        ];
-
-
-        for (var i = 0; i < schoolLocations.length; i++) {
-
-            var marker = new google.maps.Marker({
-                map: map,
-                position: schoolLocations[i],
-                icon: icons[schoolLocations[i].type].icon,
-            });
-
-            markers.push(marker);
         }
+
+
+
+    });
+
+    // let schoolLocations = [{
+    //         id: 1,
+    //         lat: 50.7271,
+    //         lng: 11.4892,
+    //         type: "school"
+    //     },
+    //     {
+    //         id: 2,
+    //         lat: 50.6508,
+    //         lng: 9.3692,
+    //         type: "school"
+    //     }
+    // ];
+
+
+    // for (var i = 0; i < schoolLocations.length; i++) {
+
+    //     var marker = new google.maps.Marker({
+    //         map: map,
+    //         position: schoolLocations[i],
+    //         icon: icons[schoolLocations[i].type].icon,
+    //     });
+
+    //     markers.push(marker);
+    // }
 
 
     })
@@ -2869,37 +2948,59 @@ function initMap() {
     //----------------atm-----------------------
     $("#atm").click(function() {
 
-        for (var i = 0; i < markers.length; i++) {
+    for (var i = 0; i < markers.length; i++) {
 
-            markers[i].setMap(null);
-        }
+        markers[i].setMap(null);
+    }
 
+    $.ajax ({
+        type: "GET",
+        url: "{{ url('api/near_location',$property->id) }}" + '/atm',
+        success: function(data) {
+            let atmLocations = data;
 
-        let atmLocations = [{
-                id: 1,
-                lat: 50.5271,
-                lng: 11.6892,
-                type: "atm"
-            },
-            {
-                id: 2,
-                lat: 50.5508,
-                lng: 9.5692,
-                type: "atm"
+            for (var i = 0; i < atmLocations.length; i++) {
+
+                var marker = new google.maps.Marker({
+                    map: map,
+                    position: atmLocations[i],
+                    icon: icons[atmLocations[i].type].icon,
+                });
+
+                markers.push(marker);
+
             }
-        ];
-
-
-        for (var i = 0; i < atmLocations.length; i++) {
-
-            var marker = new google.maps.Marker({
-                map: map,
-                position: atmLocations[i],
-                icon: icons[atmLocations[i].type].icon,
-            });
-
-            markers.push(marker);
         }
+
+
+
+    });
+
+    // let atmLocations = [{
+    //         id: 1,
+    //         lat: 50.5271,
+    //         lng: 11.6892,
+    //         type: "atm"
+    //     },
+    //     {
+    //         id: 2,
+    //         lat: 50.5508,
+    //         lng: 9.5692,
+    //         type: "atm"
+    //     }
+    // ];
+
+
+    // for (var i = 0; i < atmLocations.length; i++) {
+
+    //     var marker = new google.maps.Marker({
+    //         map: map,
+    //         position: atmLocations[i],
+    //         icon: icons[atmLocations[i].type].icon,
+    //     });
+
+    //     markers.push(marker);
+    // }
 
 
     })
@@ -2908,37 +3009,60 @@ function initMap() {
     //----------------hospital-----------------------
     $("#hospital").click(function() {
 
-        for (var i = 0; i < markers.length; i++) {
+    for (var i = 0; i < markers.length; i++) {
 
-            markers[i].setMap(null);
-        }
+        markers[i].setMap(null);
+    }
 
 
-        let hospitalLocations = [{
-                id: 1,
-                lat: 50.5671,
-                lng: 11.5892,
-                type: "hospital"
-            },
-            {
-                id: 2,
-                lat: 50.5608,
-                lng: 9.3692,
-                type: "hospital"
+    $.ajax ({
+        type: "GET",
+        url: "{{ url('api/near_location',$property->id) }}" + '/hospital',
+        success: function(data) {
+            let hospitalLocations = data;
+
+            for (var i = 0; i < hospitalLocations.length; i++) {
+
+                var marker = new google.maps.Marker({
+                    map: map,
+                    position: hospitalLocations[i],
+                    icon: icons[hospitalLocations[i].type].icon,
+                });
+
+                markers.push(marker);
+
             }
-        ];
-
-
-        for (var i = 0; i < hospitalLocations.length; i++) {
-
-            var marker = new google.maps.Marker({
-                map: map,
-                position: hospitalLocations[i],
-                icon: icons[hospitalLocations[i].type].icon,
-            });
-
-            markers.push(marker);
         }
+
+
+
+    });
+
+    // let hospitalLocations = [{
+    //         id: 1,
+    //         lat: 50.5671,
+    //         lng: 11.5892,
+    //         type: "hospital"
+    //     },
+    //     {
+    //         id: 2,
+    //         lat: 50.5608,
+    //         lng: 9.3692,
+    //         type: "hospital"
+    //     }
+    // ];
+
+
+    // for (var i = 0; i < hospitalLocations.length; i++) {
+
+    //     var marker = new google.maps.Marker({
+    //         map: map,
+    //         position: hospitalLocations[i],
+    //         icon: icons[hospitalLocations[i].type].icon,
+    //     });
+
+    //     markers.push(marker);
+    // }
 
 
     })
@@ -2947,37 +3071,61 @@ function initMap() {
     //----------------gym-----------------------
     $("#gym").click(function() {
 
-        for (var i = 0; i < markers.length; i++) {
+    for (var i = 0; i < markers.length; i++) {
 
-            markers[i].setMap(null);
-        }
+        markers[i].setMap(null);
+    }
 
 
-        let gymLocations = [{
-                id: 1,
-                lat: 50.9671,
-                lng: 10.5892,
-                type: "gym"
-            },
-            {
-                id: 2,
-                lat: 50.5608,
-                lng: 11.3692,
-                type: "gym"
+    $.ajax ({
+        type: "GET",
+        url: "{{ url('api/near_location',$property->id) }}" + '/hospital',
+        success: function(data) {
+            let gymLocations = data;
+
+            for (var i = 0; i < gymLocations.length; i++) {
+
+                var marker = new google.maps.Marker({
+                    map: map,
+                    position: gymLocations[i],
+                    icon: icons[gymLocations[i].type].icon,
+                });
+
+                markers.push(marker);
+
             }
-        ];
-
-
-        for (var i = 0; i < gymLocations.length; i++) {
-
-            var marker = new google.maps.Marker({
-                map: map,
-                position: gymLocations[i],
-                icon: icons[gymLocations[i].type].icon,
-            });
-
-            markers.push(marker);
         }
+
+
+
+    });
+
+
+    // let gymLocations = [{
+    //         id: 1,
+    //         lat: 50.9671,
+    //         lng: 10.5892,
+    //         type: "gym"
+    //     },
+    //     {
+    //         id: 2,
+    //         lat: 50.5608,
+    //         lng: 11.3692,
+    //         type: "gym"
+    //     }
+    // ];
+
+
+    // for (var i = 0; i < gymLocations.length; i++) {
+
+    //     var marker = new google.maps.Marker({
+    //         map: map,
+    //         position: gymLocations[i],
+    //         icon: icons[gymLocations[i].type].icon,
+    //     });
+
+    //     markers.push(marker);
+    // }
 
     })
 
