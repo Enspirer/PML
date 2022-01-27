@@ -704,8 +704,8 @@ class HomeController extends Controller
         {
             $outsubArray = [
               'id' => $nearloc->id ,
-              'lng' => (int) $nearloc->lng ,
-              'lat' => (int) $nearloc->lat ,
+              'lng' => (double) $nearloc->lng ,
+              'lat' => (double) $nearloc->lat ,
               'name' => $nearloc->name ,
               'address' => $nearloc->address ,
               'property_id' => $nearloc->property_id ,
