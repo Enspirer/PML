@@ -116,7 +116,15 @@ class FreeListningController extends Controller
             ]
         );        
 
-      
+        if($request->google_panaroma != null){
+            $test = preg_match('/src="([^"]+)"/', $request->google_panaroma, $match); 
+
+            if($match != null){
+                $google_panaroma = $match[1];
+            }else{
+                $google_panaroma = $request->google_panaroma;
+            }
+        }
 
         $update = new Properties;
 
@@ -133,7 +141,9 @@ class FreeListningController extends Controller
         $update->feature_image_id=$request->feature_image;
         $update->image_ids=$request->multiple_images;
         $update->panaromal_status = $request->panaromal_status;
-        $update->google_panaroma = $request->google_panaroma;
+        if($request->google_panaroma != null){
+            $update->google_panaroma = $google_panaroma;
+        }
         $update->panaromal_images = $request->panaromal_images;
         $update->meta_description=$request->meta_description;       
         $update->flow_plan=$request->flow_plan;

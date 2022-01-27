@@ -387,7 +387,6 @@ class AgentController extends Controller
         $update->area=$request->area; 
         $update->country=$request->country;
         $update->feature_image_id=$request->feature_image;
-        $update->panaromal_images=$request->panaromal_images;
         $update->image_ids=$request->multiple_images;
         $update->meta_description=$request->meta_description;        
         $update->slug=$request->slug;        
@@ -402,6 +401,13 @@ class AgentController extends Controller
         $update->admin_approval='Pending';
         $update->area_manager_approval='Pending';
         $update->listning_type='agent_listning';
+        $update->panaromal_images=$request->panaromal_images;
+
+        if($request->panaromal_images != null){
+            $addprop->panaromal_status='panaromal_images';
+        }else{
+            $addprop->panaromal_status='no_any';
+        }
 
         if($request->land_size){
             $update->land_size=$request->land_size;

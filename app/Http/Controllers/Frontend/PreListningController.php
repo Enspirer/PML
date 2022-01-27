@@ -97,7 +97,6 @@ class PreListningController extends Controller
         $addprop->area=$request->area; 
         $addprop->city=$request->city;
         $addprop->feature_image_id=$request->feature_image;
-        $addprop->panaromal_images=$request->panaromal_images;
         $addprop->image_ids=$request->multiple_images;
         $addprop->meta_description=$request->meta_description;        
         $addprop->slug=$request->slug;        
@@ -111,7 +110,6 @@ class PreListningController extends Controller
         $addprop->admin_approval='Pending';
         $addprop->listning_type='free_listning';
         $addprop->panaromal_status='no_any';        
-        $addprop->google_panaroma=$request->google_panaroma;
 
         if($request->land_size){
             $addprop->land_size=$request->land_size;

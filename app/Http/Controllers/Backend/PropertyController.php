@@ -168,6 +168,16 @@ class PropertyController extends Controller
             ]
         );        
 
+        if($request->google_panaroma != null){
+            $test = preg_match('/src="([^"]+)"/', $request->google_panaroma, $match); 
+            
+            if($match != null){
+                $google_panaroma = $match[1];
+            }else{
+                $google_panaroma = $request->google_panaroma;
+            }
+        }
+
         $addprop = new Properties;
 
         $addprop->name=$request->name; 
@@ -182,8 +192,6 @@ class PropertyController extends Controller
         $addprop->city=$request->city;
         $addprop->feature_image_id=$request->feature_image;
         $addprop->image_ids=$request->multiple_images;
-        $addprop->panaromal_images=$request->panaromal_images;
-        $addprop->google_panaroma=$request->google_panaroma;
         $addprop->meta_description=$request->meta_description;        
         $addprop->slug=$request->slug;        
         $addprop->transaction_type=$request->transaction_type;
@@ -193,7 +201,9 @@ class PropertyController extends Controller
         $addprop->featured=$request->featured;
         $addprop->user_id = $request->agent_user_id;
         $addprop->panaromal_status = $request->panaromal_status;
-        $addprop->google_panaroma = $request->google_panaroma;
+        if($request->google_panaroma != null){
+            $addprop->google_panaroma = $google_panaroma;
+        }
         $addprop->panaromal_images = $request->panaromal_images;
         $addprop->states=$request->states;
         $addprop->postal_code=$request->postal_code;
@@ -310,6 +320,16 @@ class PropertyController extends Controller
             ]
         );        
 
+        if($request->google_panaroma != null){
+            $test = preg_match('/src="([^"]+)"/', $request->google_panaroma, $match); 
+
+            if($match != null){
+                $google_panaroma = $match[1];
+            }else{
+                $google_panaroma = $request->google_panaroma;
+            }
+        }
+        
         $agent_request = AgentRequest::where('user_id',$request->agent_user_id)->first();
         // dd($agent_request);
         $user_id = User::where('id',$agent_request->user_id)->first();
@@ -328,8 +348,6 @@ class PropertyController extends Controller
         $update->country=$request->country;
         $update->feature_image_id=$request->feature_image;
         $update->image_ids=$request->multiple_images;
-        $update->panaromal_images=$request->panaromal_images;
-        $update->google_panaroma=$request->google_panaroma;
         $update->meta_description=$request->meta_description;        
         $update->slug=$request->slug;        
         $update->transaction_type=$request->transaction_type;
@@ -339,7 +357,9 @@ class PropertyController extends Controller
         $update->featured=$request->featured;
         $update->user_id = $user_id->id;
         $update->panaromal_status = $request->panaromal_status;
-        $update->google_panaroma = $request->google_panaroma;
+        if($request->google_panaroma != null){
+            $update->google_panaroma = $google_panaroma;
+        }
         $update->panaromal_images = $request->panaromal_images;
         $update->states=$request->states;
         $update->postal_code=$request->postal_code;
