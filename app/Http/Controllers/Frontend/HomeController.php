@@ -167,6 +167,8 @@ class HomeController extends Controller
     {
         // dd($request);
 
+        
+
         if(request('search_keyword') != null) {
             $key_name = request('search_keyword');
         }
@@ -303,6 +305,14 @@ class HomeController extends Controller
             $parking_type = 'parking_type';
         }
 
+        if($lng == null) {
+            $lng = 'long';
+        }
+
+        if($lat == null) {
+            $lat = 'lat';
+        }
+
 
 
         // dd($key_name,
@@ -342,7 +352,10 @@ class HomeController extends Controller
             $building_size,
             $farm_type,
             $parking_type,
-            $city
+            $city,
+            $lng,
+            $lat,
+            $areacod
         ]);
     }
 
@@ -596,6 +609,9 @@ class HomeController extends Controller
         $building_size = 'building_size';
         $farm_type = 'farm_type';
         $parking_type = 'parking_type';
+        $long = 'long';
+        $lat = 'lat';
+        $area_coordinator = 'area_coordinator';
         
         return redirect()->route('frontend.for_sale', [
             $key_name,
@@ -614,7 +630,10 @@ class HomeController extends Controller
             $building_size,
             $farm_type,
             $parking_type,
-            $city
+            $city,
+            $long,
+            $lat,
+            $area_coordinator
         ]);                           
 
     }

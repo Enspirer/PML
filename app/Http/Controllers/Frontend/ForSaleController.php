@@ -14,6 +14,7 @@ use App\Models\UserSearch;
 use App\Models\Search;
 use App\Models\EmailAlert;
 use App\Models\WatchListing;
+use GuzzleHttp;
 
 /**
  * Class ForSaleController.
@@ -49,6 +50,66 @@ class ForSaleController extends Controller
     public function search(Request $request)
     {
         // dd($request);
+
+        if($request->search_keyword == null){
+            $lat = null;
+            $lng = null;
+            $areacod = 'area_coordinator';
+        }else{
+            $client = new GuzzleHttp\Client();
+            $url = 'https://maps.googleapis.com/maps/api/geocode/json?address='.urlencode($request->search_keyword).'&key=AIzaSyAEBj8LhHUJaf2MXpqIQ_MOXs7HkeUXnac';
+            $res = $client->request('GET', $url);
+            $refidymeter = json_decode($res->getBody()->getContents());
+            // dd($refidymeter);
+            if($refidymeter->status == 'ZERO_RESULTS'){
+                $lat = null;
+                $lng = null;
+                $areacod = 'area_coordinator';
+            }else{
+                $lat = $refidymeter->results[0]->geometry->location->lat;
+                $lng = $refidymeter->results[0]->geometry->location->lng;
+
+                if (isset($refidymeter->results[0]->geometry->bounds)) {
+                    $boundtry = $refidymeter->results[0]->geometry->bounds;
+                }else {
+                    $boundtry = null;
+                }
+                // dd($boundtry);
+
+                if($boundtry == null) {
+                    $north_string1 = null;
+                }else {
+                    $north_string1 = $boundtry->northeast->lat.'_'.$boundtry->northeast->lng;
+                }
+
+                // dd($north_string1);
+
+
+                if($boundtry == null) {
+                    $south_string2 = null;
+                }else {
+                    $south_string2 = $boundtry->southwest->lat.'_'.$boundtry->southwest->lng;
+                }
+
+                // dd($south_string2);
+
+                if($north_string1 || $south_string2 == null){
+                    $areacod = 'area_coordinator';
+                }else{
+                    $areacod = $north_string1.'_'.$south_string2;
+                }
+
+                // dd($areacod);
+
+
+                // $north_string1 =  $boundtry->northeast->lat.'_'.$boundtry->northeast->lng;
+                // $south_string2 =  $boundtry->southwest->lat.'_'.$boundtry->southwest->lng;
+
+
+            }
+        }
+
+        // dd($areacod);
 
         $add = new Search;
 
@@ -168,18 +229,19 @@ class ForSaleController extends Controller
         }else{
             $city = $request->city;
         }
-        return redirect()->route('frontend.for_sale',[$search,$min_price,$max_price,$transaction_type,$property_type,$beds,$baths,$land_size,$listed_since,$building_type,$open_house,$zoning_type,$units,$building_size,$farm_type,$parking_type,$city]);
+        dd('test');
+        return redirect()->route('frontend.for_sale',[$search,$min_price,$max_price,$transaction_type,$property_type,$beds,$baths,$land_size,$listed_since,$building_type,$open_house,$zoning_type,$units,$building_size,$farm_type,$parking_type,$city,$long,$lat,$area_coordinator]);
     }
    
 
 
-    public function for_sale($key_name,$min_price,$max_price,$transaction_type,$property_type,$beds,$baths,$land_size,$listed_since,$building_type,$open_house,$zoning_type,$units,$building_size,$farm_type,$parking_type,$city)
+    public function for_sale($key_name,$min_price,$max_price,$transaction_type,$property_type,$beds,$baths,$land_size,$listed_since,$building_type,$open_house,$zoning_type,$units,$building_size,$farm_type,$parking_type,$city,$long,$lat,$area_coordinator)
     {
 
         // $property_types = PropertyType::where('status','=','1')->get();
         // $countries = Country::where('status',1)->get();
 
-        // dd($max_price);
+        dd($max_price);
 
         if(get_country_cookie(request()) == null ){
             $properties = Properties::where('admin_approval', 'Approved')->where('sold_request',null)->orderBy('id','desc');
@@ -307,7 +369,10 @@ class ForSaleController extends Controller
             'count_for_sale' => $count_for_sale,
             'properties' => $fe_properties,
             'transaction_type' => $transaction_type,
-            'property_types' => $property_types
+            'property_types' => $property_types,
+            'search_long' => $long,
+            'search_lat' => $lat,
+            'area_coords'=>$longertutr
         ]);
     }
 

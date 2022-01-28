@@ -32,10 +32,9 @@
                         <div class="search-area-wrapper">
                             <div class="search-wrapper">
 
-                                <input type="text" id="search-word" name="search_keyword"
-                                    class="form-control p-4 rounded-0" aria-label="search" placeholder="Search">
+                                <input type="text" id="search" name="search_keyword" class="form-control p-4 rounded-0" aria-label="search" placeholder="Search">
 
-                                <div id="search-result"></div>
+                                <!-- <div id="search-result"></div> -->
 
                             </div>
 
@@ -213,3 +212,5 @@
 
     </div>
 </div>
+
+

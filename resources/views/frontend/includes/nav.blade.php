@@ -14,31 +14,31 @@
                 </li>
                 <li class="nav-item px-4 border-end">
                     <a class="nav-link fw-bold p-0 {{ Request::segment(1) == 'for-sale' ? 'active' : null }}"
-                        href="{{ route('frontend.for_sale', ['key_name', 'min_price', 'max_price', 'sale', 'property_type', 'beds', 'baths', 'land_size', 'listed_since', 'building_type', 'open_house', 'zoning_type', 'units', 'building_size', 'farm_type', 'parking_type', 'city'] )}}">For
+                        href="{{ route('frontend.for_sale', ['key_name', 'min_price', 'max_price', 'sale', 'property_type', 'beds', 'baths', 'land_size', 'listed_since', 'building_type', 'open_house', 'zoning_type', 'units', 'building_size', 'farm_type', 'parking_type', 'city', 'long', 'lat', 'area_coordinator'] )}}">For
                         Sale</a>
                 </li>
                 <li class="nav-item px-4 border-end">
                     <a class="nav-link fw-bold p-0 {{ Request::segment(1) == 'for-rent' ? 'active' : null }}"
-                        href="{{ route('frontend.for_sale', ['key_name', 'min_price', 'max_price', 'rent', 'property_type', 'beds', 'baths', 'land_size', 'listed_since', 'building_type', 'open_house', 'zoning_type', 'units', 'building_size', 'farm_type', 'parking_type', 'city'] )}}">For
+                        href="{{ route('frontend.for_sale', ['key_name', 'min_price', 'max_price', 'rent', 'property_type', 'beds', 'baths', 'land_size', 'listed_since', 'building_type', 'open_house', 'zoning_type', 'units', 'building_size', 'farm_type', 'parking_type', 'city', 'long', 'lat', 'area_coordinator'] )}}">For
                         Rent</a>
                 </li>
 
                 @if(App\Models\PropertyType::where('id',get_settings('menu_type_1'))->first() != null)
                 <li class="nav-item px-4 border-end">
                     <a class="nav-link fw-bold p-0 {{ Request::segment(1) == 'new-development' ? 'active' : null }}"
-                        href="{{ route('frontend.for_sale', ['key_name', 'min_price', 'max_price', 'transaction_type', App\Models\PropertyType::where('id',get_settings('menu_type_1'))->first()->id, 'beds', 'baths', 'land_size', 'listed_since', 'building_type', 'open_house', 'zoning_type', 'units', 'building_size', 'farm_type', 'parking_type', 'city'] )}}">{{App\Models\PropertyType::where('id',get_settings('menu_type_1'))->first()->property_type_name}}</a>
+                        href="{{ route('frontend.for_sale', ['key_name', 'min_price', 'max_price', 'transaction_type', App\Models\PropertyType::where('id',get_settings('menu_type_1'))->first()->id, 'beds', 'baths', 'land_size', 'listed_since', 'building_type', 'open_house', 'zoning_type', 'units', 'building_size', 'farm_type', 'parking_type', 'city', 'long', 'lat', 'area_coordinator'] )}}">{{App\Models\PropertyType::where('id',get_settings('menu_type_1'))->first()->property_type_name}}</a>
                 </li>
                 @endif
                 @if(App\Models\PropertyType::where('id',get_settings('menu_type_2'))->first() != null)
                 <li class="nav-item px-4 border-end">
                     <a class="nav-link fw-bold p-0 {{ Request::segment(1) == 'new-development' ? 'active' : null }}"
-                        href="{{ route('frontend.for_sale', ['key_name', 'min_price', 'max_price', 'transaction_type', App\Models\PropertyType::where('id',get_settings('menu_type_2'))->first()->id, 'beds', 'baths', 'land_size', 'listed_since', 'building_type', 'open_house', 'zoning_type', 'units', 'building_size', 'farm_type', 'parking_type', 'city'] )}}">{{App\Models\PropertyType::where('id',get_settings('menu_type_2'))->first()->property_type_name}}</a>
+                        href="{{ route('frontend.for_sale', ['key_name', 'min_price', 'max_price', 'transaction_type', App\Models\PropertyType::where('id',get_settings('menu_type_2'))->first()->id, 'beds', 'baths', 'land_size', 'listed_since', 'building_type', 'open_house', 'zoning_type', 'units', 'building_size', 'farm_type', 'parking_type', 'city', 'long', 'lat', 'area_coordinator'] )}}">{{App\Models\PropertyType::where('id',get_settings('menu_type_2'))->first()->property_type_name}}</a>
                 </li>
                 @endif
                 @if(App\Models\PropertyType::where('id',get_settings('menu_type_3'))->first() != null)
                 <li class="nav-item px-4 border-end">
                     <a class="nav-link fw-bold p-0 {{ Request::segment(1) == 'new-development' ? 'active' : null }}"
-                        href="{{ route('frontend.for_sale', ['key_name', 'min_price', 'max_price', 'transaction_type', App\Models\PropertyType::where('id',get_settings('menu_type_3'))->first()->id, 'beds', 'baths', 'land_size', 'listed_since', 'building_type', 'open_house', 'zoning_type', 'units', 'building_size', 'farm_type', 'parking_type', 'city'] )}}">{{App\Models\PropertyType::where('id',get_settings('menu_type_3'))->first()->property_type_name}}</a>
+                        href="{{ route('frontend.for_sale', ['key_name', 'min_price', 'max_price', 'transaction_type', App\Models\PropertyType::where('id',get_settings('menu_type_3'))->first()->id, 'beds', 'baths', 'land_size', 'listed_since', 'building_type', 'open_house', 'zoning_type', 'units', 'building_size', 'farm_type', 'parking_type', 'city', 'long', 'lat', 'area_coordinator'] )}}">{{App\Models\PropertyType::where('id',get_settings('menu_type_3'))->first()->property_type_name}}</a>
                 </li>
                 @endif
 
@@ -200,22 +200,22 @@
         <div class="tab-pane fade show active mobile-nav-tab" id="home" role="tabpanel" aria-labelledby="home-tab">
             <a href="{{ route('frontend.index') }}">Home</a>
             <a
-                href="{{ route('frontend.for_sale', ['key_name', 'min_price', 'max_price', 'sale', 'property_type', 'beds', 'baths', 'land_size', 'listed_since', 'building_type', 'open_house', 'zoning_type', 'units', 'building_size', 'farm_type', 'parking_type', 'city'] )}}">For
+                href="{{ route('frontend.for_sale', ['key_name', 'min_price', 'max_price', 'sale', 'property_type', 'beds', 'baths', 'land_size', 'listed_since', 'building_type', 'open_house', 'zoning_type', 'units', 'building_size', 'farm_type', 'parking_type', 'city', 'long', 'lat', 'area_coordinator'] )}}">For
                 Sale</a>
             <a
-                href="{{ route('frontend.for_sale', ['key_name', 'min_price', 'max_price', 'rent', 'property_type', 'beds', 'baths', 'land_size', 'listed_since', 'building_type', 'open_house', 'zoning_type', 'units', 'building_size', 'farm_type', 'parking_type', 'city'] )}}">For
+                href="{{ route('frontend.for_sale', ['key_name', 'min_price', 'max_price', 'rent', 'property_type', 'beds', 'baths', 'land_size', 'listed_since', 'building_type', 'open_house', 'zoning_type', 'units', 'building_size', 'farm_type', 'parking_type', 'city', 'long', 'lat', 'area_coordinator'] )}}">For
                 Rent</a>
             @if(App\Models\PropertyType::where('id',get_settings('menu_type_1'))->first() != null)
             <a
-                href="{{ route('frontend.for_sale', ['key_name', 'min_price', 'max_price', 'transaction_type', App\Models\PropertyType::where('id',get_settings('menu_type_1'))->first()->id, 'beds', 'baths', 'land_size', 'listed_since', 'building_type', 'open_house', 'zoning_type', 'units', 'building_size', 'farm_type', 'parking_type', 'city'] )}}">{{App\Models\PropertyType::where('id',get_settings('menu_type_1'))->first()->property_type_name}}</a>
+                href="{{ route('frontend.for_sale', ['key_name', 'min_price', 'max_price', 'transaction_type', App\Models\PropertyType::where('id',get_settings('menu_type_1'))->first()->id, 'beds', 'baths', 'land_size', 'listed_since', 'building_type', 'open_house', 'zoning_type', 'units', 'building_size', 'farm_type', 'parking_type', 'city', 'long', 'lat', 'area_coordinator'] )}}">{{App\Models\PropertyType::where('id',get_settings('menu_type_1'))->first()->property_type_name}}</a>
             @endif
             @if(App\Models\PropertyType::where('id',get_settings('menu_type_2'))->first() != null)
             <a
-                href="{{ route('frontend.for_sale', ['key_name', 'min_price', 'max_price', 'transaction_type', App\Models\PropertyType::where('id',get_settings('menu_type_2'))->first()->id, 'beds', 'baths', 'land_size', 'listed_since', 'building_type', 'open_house', 'zoning_type', 'units', 'building_size', 'farm_type', 'parking_type', 'city'] )}}">{{App\Models\PropertyType::where('id',get_settings('menu_type_2'))->first()->property_type_name}}</a>
+                href="{{ route('frontend.for_sale', ['key_name', 'min_price', 'max_price', 'transaction_type', App\Models\PropertyType::where('id',get_settings('menu_type_2'))->first()->id, 'beds', 'baths', 'land_size', 'listed_since', 'building_type', 'open_house', 'zoning_type', 'units', 'building_size', 'farm_type', 'parking_type', 'city', 'long', 'lat', 'area_coordinator'] )}}">{{App\Models\PropertyType::where('id',get_settings('menu_type_2'))->first()->property_type_name}}</a>
             @endif
             @if(App\Models\PropertyType::where('id',get_settings('menu_type_3'))->first() != null)
             <a
-                href="{{ route('frontend.for_sale', ['key_name', 'min_price', 'max_price', 'transaction_type', App\Models\PropertyType::where('id',get_settings('menu_type_3'))->first()->id, 'beds', 'baths', 'land_size', 'listed_since', 'building_type', 'open_house', 'zoning_type', 'units', 'building_size', 'farm_type', 'parking_type', 'city'] )}}">{{App\Models\PropertyType::where('id',get_settings('menu_type_3'))->first()->property_type_name}}</a>
+                href="{{ route('frontend.for_sale', ['key_name', 'min_price', 'max_price', 'transaction_type', App\Models\PropertyType::where('id',get_settings('menu_type_3'))->first()->id, 'beds', 'baths', 'land_size', 'listed_since', 'building_type', 'open_house', 'zoning_type', 'units', 'building_size', 'farm_type', 'parking_type', 'city', 'long', 'lat', 'area_coordinator'] )}}">{{App\Models\PropertyType::where('id',get_settings('menu_type_3'))->first()->property_type_name}}</a>
             @endif
             <a href="{{ route('frontend.find-agent', ['country','area', 'agent_type', 'agent_name'] )}}">Agents</a>
             <a href="{{ route('frontend.contact_us') }}">Contact Us</a>

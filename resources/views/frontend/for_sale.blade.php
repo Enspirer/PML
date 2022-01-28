@@ -117,27 +117,27 @@
             <div class="row mt-4 align-items-center btn-filters">
                 <div class="filter-btn-area-mobile">
                     <div class="single-filter-btn">
-                        <a href="{{ route('frontend.for_sale', ['key_name', 'min_price', 'max_price', 'transaction_type', 'property_type', 'all_beds', 'baths', 'land_size', 'listed_since', 'building_type', 'open_house', 'zoning_type', 'units', 'building_size', 'farm_type', 'parking_type', 'city'] )}}"
+                        <a href="{{ route('frontend.for_sale', ['key_name', 'min_price', 'max_price', 'transaction_type', 'property_type', 'all_beds', 'baths', 'land_size', 'listed_since', 'building_type', 'open_house', 'zoning_type', 'units', 'building_size', 'farm_type', 'parking_type', 'city', 'long', 'lat', 'area_coordinator'] )}}"
                             class="btn bg-white border px-3 single-filter-btn-a active-room"
                             style="text-decoration:none">All Rooms</a>
                     </div>
                     <div class="single-filter-btn">
-                        <a href="{{ route('frontend.for_sale', ['key_name', 'min_price', 'max_price', 'transaction_type', 'property_type', '1', 'baths', 'land_size', 'listed_since', 'building_type', 'open_house', 'zoning_type', 'units', 'building_size', 'farm_type', 'parking_type', 'city'] )}}"
+                        <a href="{{ route('frontend.for_sale', ['key_name', 'min_price', 'max_price', 'transaction_type', 'property_type', '1', 'baths', 'land_size', 'listed_since', 'building_type', 'open_house', 'zoning_type', 'units', 'building_size', 'farm_type', 'parking_type', 'city', 'long', 'lat', 'area_coordinator'] )}}"
                             class="btn bg-white border px-3 single-filter-btn-a" style="text-decoration:none">1
                             bedroom</a>
                     </div>
                     <div class="single-filter-btn">
-                        <a href="{{ route('frontend.for_sale', ['key_name', 'min_price', 'max_price', 'transaction_type', 'property_type', '2', 'baths', 'land_size', 'listed_since', 'building_type', 'open_house', 'zoning_type', 'units', 'building_size', 'farm_type', 'parking_type', 'city'] )}}"
+                        <a href="{{ route('frontend.for_sale', ['key_name', 'min_price', 'max_price', 'transaction_type', 'property_type', '2', 'baths', 'land_size', 'listed_since', 'building_type', 'open_house', 'zoning_type', 'units', 'building_size', 'farm_type', 'parking_type', 'city', 'long', 'lat', 'area_coordinator'] )}}"
                             class="btn bg-white border px-3 single-filter-btn-a" style="text-decoration:none">2
                             bedrooms</a>
                     </div>
                     <div class="single-filter-btn">
-                        <a href="{{ route('frontend.for_sale', ['key_name', 'min_price', 'max_price', 'transaction_type', 'property_type', '3', 'baths', 'land_size', 'listed_since', 'building_type', 'open_house', 'zoning_type', 'units', 'building_size', 'farm_type', 'parking_type', 'city'] )}}"
+                        <a href="{{ route('frontend.for_sale', ['key_name', 'min_price', 'max_price', 'transaction_type', 'property_type', '3', 'baths', 'land_size', 'listed_since', 'building_type', 'open_house', 'zoning_type', 'units', 'building_size', 'farm_type', 'parking_type', 'city', 'long', 'lat', 'area_coordinator'] )}}"
                             class="btn bg-white border px-3 single-filter-btn-a" style="text-decoration:none">3
                             bedrooms</a>
                     </div>
                     <div class="single-filter-btn">
-                        <a href="{{ route('frontend.for_sale', ['key_name', 'min_price', 'max_price', 'transaction_type', 'property_type', '4', 'baths', 'land_size', 'listed_since', 'building_type', 'open_house', 'zoning_type', 'units', 'building_size', 'farm_type', 'parking_type', 'city'] )}}"
+                        <a href="{{ route('frontend.for_sale', ['key_name', 'min_price', 'max_price', 'transaction_type', 'property_type', '4', 'baths', 'land_size', 'listed_since', 'building_type', 'open_house', 'zoning_type', 'units', 'building_size', 'farm_type', 'parking_type', 'city', 'long', 'lat', 'area_coordinator'] )}}"
                             class="btn bg-white border px-3 single-filter-btn-a" style="text-decoration:none">4
                             bedrooms</a>
                     </div>

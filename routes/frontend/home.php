@@ -59,7 +59,7 @@ Route::get('pano/{image_id}', [PanoController::class, 'index'])->name('pano');
 
 // Route::get('for-sale', [ForSaleController::class, 'index'])->name('for_sale');
 
-Route::get('search_result_filter/{key_name}/{min_price}/{max_price}/{transaction_type}/{property_type}/{listed_since}/{building_type}/{beds}/{baths}/{land_size}/{open_house}/{zoning_type}/{units}/{building_size}/{farm_type}/{parking_type}/{city}',[ForSaleController::class,'for_sale'])->name('for_sale');
+Route::get('search_result_filter/{key_name}/{min_price}/{max_price}/{transaction_type}/{property_type}/{listed_since}/{building_type}/{beds}/{baths}/{land_size}/{open_house}/{zoning_type}/{units}/{building_size}/{farm_type}/{parking_type}/{city}/{long}/{lat}/{area_coordinator}',[ForSaleController::class,'for_sale'])->name('for_sale');
 
 Route::get('for-sale/single-property/{id}', [ForSaleController::class, 'singleProperty'])->name('for_sale_single');
 Route::post('contact_agent', [ForSaleController::class, 'contact_agent'])->name('contact_agent');
