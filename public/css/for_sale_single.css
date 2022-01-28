@@ -703,6 +703,11 @@ div#virtual {
 
 div#virtual .col-10 {
     display: flex;
+    padding-right: 0;
+}
+
+div#virtual .col-2 {
+    padding-left: 0;
 }
 
 iframe#panoFrame {
@@ -876,8 +881,12 @@ div#swiper-wrapper-89405108b96c2ac5f .swiper-slide {
         padding-right: 0;
     }
 
-    div#map2 {
-        height: 55vh !important;
+    iframe#panoFrame {
+        height: 70vh !important;
+    }
+
+    .location #map2 {
+        height: 70vh !important;
     }
 
     .apart-avail button {
