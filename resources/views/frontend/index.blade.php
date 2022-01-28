@@ -696,7 +696,7 @@ function searchAddress() {
 
     initMap();
     
-    const input = document.getElementById("search-word");
+    const input = document.getElementById("search");
     const search = new google.maps.places.SearchBox(input);
     // map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
     // Bias the SearchBox results towards current map's viewport.
