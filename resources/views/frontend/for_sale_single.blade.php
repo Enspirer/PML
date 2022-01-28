@@ -674,7 +674,7 @@ button.close:hover {
                                             </div>
 
 
-                                            <div class="col-3">
+                                            <div class="col-3 col-xs-12">
                                                 <div thumbsSlider=""
                                                     class="swiper modalflowSwiper photoModalThumbSlider">
                                                     <div class="swiper-wrapper photoThumbSwiperWrapper" style="height: 75.75px">
