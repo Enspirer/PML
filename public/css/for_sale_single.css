@@ -685,6 +685,18 @@ button.all-modal-close i {
     align-items: center;
 }
 
+div#virtual {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+}
+
+iframe#panoFrame {
+    height: 79vh !important;
+}
+
 /* Smartphones (portrait and landscape) ----------- */
 @media only screen and (max-width: 767px) {
     .fullsliderPrevContainer,
