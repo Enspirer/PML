@@ -316,13 +316,13 @@ button.close:hover {
                             <ul class="option-list hidden-xs">
 
                                 @if($property->panaromal_status != 'no_any')
-                                @if($property->google_panaroma != null || $property->panaromal_images != null)
-                                <li class="last-item">
-                                    <a href="#" data-toggle="modal" data-target="#all_property_model" class="option-btn"
-                                        onclick="virtualActive()"><i class="fas fa-redo-alt"
-                                            aria-hidden="true"></i>360</a>
-                                </li>
-                                @endif
+                                    @if($property->google_panaroma != null || $property->panaromal_images != null)
+                                    <li class="last-item">
+                                        <a href="#" data-toggle="modal" data-target="#all_property_model" class="option-btn"
+                                            onclick="virtualActive()"><i class="fas fa-redo-alt"
+                                                aria-hidden="true"></i>360</a>
+                                    </li>
+                                    @endif
                                 @else
                                 <li class="last-item">
                                     <i class="fas fa-redo-alt" aria-hidden="true"></i>360
@@ -585,11 +585,11 @@ button.close:hover {
 
                                             <div class="col-3 col-xs-12">
                                                 <div thumbsSlider="" class="swiper modalSwiper photoModalThumbSlider">
-                                                    <div class="swiper-wrapper photoThumbSwiperWrapper">
+                                                    <div class="swiper-wrapper photoThumbSwiperWrapper" style="height: 79.5px;/* margin-bottom: 10px; */">
 
                                                         @foreach($str_arr2 as $key=> $pre)
-                                                        <div class="swiper-slide thumbSwiperSlide">
-                                                            <img class="photoModalSwiperThumb"
+                                                        <div class="swiper-slide thumbSwiperSlide" style="height: 85.75px;margin-bottom: 10px;">
+                                                            <img style="height: 80px;object-fit: cover;"  class="photoModalSwiperThumb"
                                                                 src="{{ uploaded_asset($pre) }}" />
 
                                                         </div>
@@ -674,14 +674,14 @@ button.close:hover {
                                             </div>
 
 
-                                            <div class="col-3 col-xs-12">
+                                            <div class="col-4">
                                                 <div thumbsSlider=""
                                                     class="swiper modalflowSwiper photoModalThumbSlider">
-                                                    <div class="swiper-wrapper photoThumbSwiperWrapper">
+                                                    <div class="swiper-wrapper photoThumbSwiperWrapper" style="height: 75.75px">
 
                                                         @foreach($flow_plan as $key=> $flow)
-                                                        <div class="swiper-slide thumbSwiperSlide">
-                                                            <img class="photoModalSwiperThumb"
+                                                        <div class="swiper-slide thumbSwiperSlide" style="height: 85.75px;margin-bottom: 10px;">
+                                                            <img style="height: 80px;object-fit: cover;" class="photoModalSwiperThumb"
                                                                 src="{{ uploaded_asset($flow) }}" />
 
                                                         </div>
