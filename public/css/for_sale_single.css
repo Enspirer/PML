@@ -685,6 +685,14 @@ button.all-modal-close i {
     align-items: center;
 }
 
+.photoModalThumbSlider .photoThumbSwiperWrapper .thumbSwiperSlide {
+    height: auto !important;
+}
+
+.location #map2 {
+    height: 80vh !important;
+}
+
 div#virtual {
     position: absolute;
     top: 50%;
@@ -693,8 +701,12 @@ div#virtual {
     width: 100%;
 }
 
+div#virtual .col-10 {
+    display: flex;
+}
+
 iframe#panoFrame {
-    height: 79vh !important;
+    height: 80vh !important;
 }
 
 /* Smartphones (portrait and landscape) ----------- */
