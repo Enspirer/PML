@@ -108,9 +108,6 @@ class ForSaleController extends Controller
 
             }
         }
-
-        // dd($areacod);
-
         $add = new Search;
 
         if($request->search_keyword == null){
@@ -229,8 +226,7 @@ class ForSaleController extends Controller
         }else{
             $city = $request->city;
         }
-        dd('test');
-        return redirect()->route('frontend.for_sale',[$search,$min_price,$max_price,$transaction_type,$property_type,$beds,$baths,$land_size,$listed_since,$building_type,$open_house,$zoning_type,$units,$building_size,$farm_type,$parking_type,$city,$long,$lat,$area_coordinator]);
+        return redirect()->route('frontend.for_sale',[$search,$min_price,$max_price,$transaction_type,$property_type,$beds,$baths,$land_size,$listed_since,$building_type,$open_house,$zoning_type,$units,$building_size,$farm_type,$parking_type,$city,$lng,$lat,$areacod]);
     }
    
 
@@ -241,7 +237,6 @@ class ForSaleController extends Controller
         // $property_types = PropertyType::where('status','=','1')->get();
         // $countries = Country::where('status',1)->get();
 
-        dd($max_price);
 
         if(get_country_cookie(request()) == null ){
             $properties = Properties::where('admin_approval', 'Approved')->where('sold_request',null)->orderBy('id','desc');
@@ -372,7 +367,7 @@ class ForSaleController extends Controller
             'property_types' => $property_types,
             'search_long' => $long,
             'search_lat' => $lat,
-            'area_coords'=>$longertutr
+            'area_coords'=>'area_coords'
         ]);
     }
 
