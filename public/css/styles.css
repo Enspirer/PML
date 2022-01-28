@@ -1,11 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 
 * {
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
 }
 
-h1, h2, h3, h4, h5, h6, p {
-    margin-bottom: 0!important;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin-bottom: 0 !important;
 }
 
 a:hover {
@@ -22,19 +28,19 @@ p {
 }
 
 .navbar {
-    padding-top: 4.5rem!important;
-    background-color: #16202C;
+    padding-top: 4.5rem !important;
+    background-color: #16202c;
 }
 .navbar-nav a {
-    color: white!important;
+    color: white !important;
     font-size: 0.9rem;
     border-bottom: 2px solid transparent;
 }
 .navbar-nav a:hover {
-    border-bottom: 2px solid red!important;
+    border-bottom: 2px solid red !important;
 }
 .navbar-nav a.active {
-    border-bottom: 2px solid red!important;
+    border-bottom: 2px solid red !important;
 }
 .navbar-nav .nav-item {
     z-index: 1;
@@ -43,8 +49,8 @@ p {
     width: 15%;
     top: -3rem;
     right: 43rem;
-    border-radius: 0!important;
-    background-color: #16202C;
+    border-radius: 0 !important;
+    background-color: #16202c;
     color: white;
     border: 1px solid #524c4c;
     font-size: 0.9rem;
@@ -57,22 +63,22 @@ p {
 }
 
 .navbar .dropdown-menu {
-    min-width: 10rem!important;
+    min-width: 10rem !important;
     left: 19.5rem;
     top: 3.5rem;
-    border-top: 5px solid #39B54A;
-    background-color: #FFFFFF;
-    padding-bottom: 0!important;
+    border-top: 5px solid #39b54a;
+    background-color: #ffffff;
+    padding-bottom: 0 !important;
 }
 
 .navbar .dropdown-menu .dropdown-item {
     border-bottom: 1px solid #707070;
-    color: black!important;
-    padding: 0.5rem 1rem!important;
+    color: black !important;
+    padding: 0.5rem 1rem !important;
 }
 
 .navbar .dropdown-menu .dropdown-item:hover {
-    background-color: #E3EDEF;
+    background-color: #e3edef;
 }
 
 .logo {
@@ -90,19 +96,21 @@ p {
     top: -3.5rem;
     right: 0rem;
 }
-.log-reg a, .log-reg select {
+.log-reg a,
+.log-reg select {
     color: white;
     font-size: 0.9rem;
 }
 .log-reg a:hover {
-    color: white!important;
+    color: white !important;
 }
 .log-reg .register {
     padding-top: 0.39rem;
     padding-bottom: 0.39rem;
 }
 
-::placeholder { /* Chrome/Opera/Safari */
+::placeholder {
+    /* Chrome/Opera/Safari */
     font-size: 0.8rem;
 }
 .input-group-text {
@@ -118,7 +126,7 @@ p {
     white-space: nowrap;
     background-color: #e9ecef;
     border: 1px solid #ced4da;
-    border-radius: .25rem;
+    border-radius: 0.25rem;
 }
 /* 
 div#mainMenuModal .modal-backdrop {
@@ -126,19 +134,28 @@ div#mainMenuModal .modal-backdrop {
 } */
 
 @media screen and (min-width: 1300px) {
-    .container, .container-lg, .container-md, .container-sm, .container-xl {
-        max-width: 1350px!important;
+    .container,
+    .container-lg,
+    .container-md,
+    .container-sm,
+    .container-xl {
+        max-width: 1350px !important;
     }
 }
 
 @media screen and (min-width: 1100px) {
-    .container, .container-lg, .container-md, .container-sm, .container-xl {
-        max-width: 1250px!important;
+    .container,
+    .container-lg,
+    .container-md,
+    .container-sm,
+    .container-xl {
+        max-width: 1250px !important;
     }
 }
 
 /*search bar*/
-.left-toggle, .my-menu {
+.left-toggle,
+.my-menu {
     width: max-content;
 }
 
@@ -154,7 +171,8 @@ label.btn.btn-secondary.toggle-label.active {
 
 .left-toggle-btn-group {
     background: transparent;
-    box-shadow: -5px -5px 15px 0px #ffffff, inset 3px 3px 5px 0px #c4c4c4, inset -3px -3px 5px 0px #ffffff, 3px 3px 15px 0px #c4c4c4;
+    box-shadow: -5px -5px 15px 0px #ffffff, inset 3px 3px 5px 0px #c4c4c4,
+        inset -3px -3px 5px 0px #ffffff, 3px 3px 15px 0px #c4c4c4;
     padding: 5px;
     height: 50px;
 }
@@ -169,7 +187,7 @@ label.btn.btn-secondary.toggle-label.active {
     color: #35495e !important;
 }
 
-.left-menu-btn.active  {
+.left-menu-btn.active {
     background-color: rgb(53, 73, 94) !important;
     color: #fff !important;
 }
@@ -226,27 +244,27 @@ a.add-property-btn {
 
 /*geolocation infowindow styles*/
 .tooltipContainer {
-	margin: auto;
-	background: transparent;
-	border-radius: 5px;
-	height: 130px;
-	width: 150px;
-	
-	/* To Display the tooltip 'span' in the center of the container */
-	display: flex;
-	align-items: center;
-	justify-content: center;
+    margin: auto;
+    background: transparent;
+    border-radius: 5px;
+    height: 130px;
+    width: 150px;
+
+    /* To Display the tooltip 'span' in the center of the container */
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: relative;
 }
 
 /* Tooltip Styles */
 .tooltip {
-	color: #FFFFFF;
-	font-size: 3rem;
-	
-	position: relative;
-	z-index: 100;
-	top: -20px;
+    color: #ffffff;
+    font-size: 3rem;
+
+    position: relative;
+    z-index: 100;
+    top: -20px;
 }
 /* 
 [data-tooltip-location = "bottom"]:hover::before {
@@ -259,7 +277,7 @@ a.add-property-btn {
 	border-top: 10px solid transparent;
 	border-left: 10px solid transparent;
 	border-right: 10px solid transparent; */
-	/*
+/*
 	opacity: 0;
 	transition: opacity 0.3s, transform 0.3s;
 	transform-origin: -2em 50%;
@@ -293,52 +311,56 @@ a.add-property-btn {
 span.tooltip {
     top: 5px;
     left: 55px;
-    color: rgba(255,154,66,0.7);
+    color: rgba(255, 154, 66, 0.7);
     opacity: 1;
     font-size: 50px;
 }
 
-
 /* Animations Extra */
 .geo-i i:hover {
-	color: rgba(255,154,66,1);
-	animation: jumpInPlace 1s linear infinite;
-  	position: absolute;
-  	left: -18px;
-  	top: -20px;
+    color: rgba(255, 154, 66, 1);
+    animation: jumpInPlace 1s linear infinite;
+    position: absolute;
+    left: -18px;
+    top: -20px;
 }
 
 @keyframes jumpInPlace {
-  0%, 100% {
-    top: -20px;
-  }
-  50% {
-    top: -40px;
-  }
+    0%,
+    100% {
+        top: -20px;
+    }
+    50% {
+        top: -40px;
+    }
 }
 
 .circle {
-	border-radius: 50%;
-	background: rgba(21,22,30,1);
-	background: linear-gradient(135deg, rgba(21,22,30,1) 0%, rgba(22,23,31,1) 1%, rgba(115,115,115,1) 100%);
-	width: 50px;
-	height: 50px;
-	position: absolute;
-	opacity: 0;
-	animation: scaleIn 4s infinite cubic-bezier(.36, .11, .89, .32);
- }
-
-@keyframes scaleIn {
-  from {
-    transform: scale(.5, .5);
-    opacity: .5;
-  }
-  to {
-    transform: scale(2.5, 2.5);
+    border-radius: 50%;
+    background: rgba(21, 22, 30, 1);
+    background: linear-gradient(
+        135deg,
+        rgba(21, 22, 30, 1) 0%,
+        rgba(22, 23, 31, 1) 1%,
+        rgba(115, 115, 115, 1) 100%
+    );
+    width: 50px;
+    height: 50px;
+    position: absolute;
     opacity: 0;
-  }
+    animation: scaleIn 4s infinite cubic-bezier(0.36, 0.11, 0.89, 0.32);
 }
 
+@keyframes scaleIn {
+    from {
+        transform: scale(0.5, 0.5);
+        opacity: 0.5;
+    }
+    to {
+        transform: scale(2.5, 2.5);
+        opacity: 0;
+    }
+}
 
 h5.geo {
     display: block;
@@ -360,7 +382,7 @@ h2.sub-topics {
     margin-top: 60px;
 }
 
-h2.sub-topic.center-topic  {
+h2.sub-topic.center-topic {
     text-align: center;
 }
 
@@ -389,7 +411,6 @@ p#copyright-txt {
     width: 80%;
 }
 
-
 .container.main-menu-helper {
     position: relative;
 }
@@ -404,12 +425,9 @@ p#copyright-txt {
     margin-right: 5.5%;
 }
 
-
-
 .main-menu-inner {
     position: relative;
 }
-
 
 button#closeMainMenu {
     position: absolute;
@@ -418,8 +436,6 @@ button#closeMainMenu {
     border: 0;
     top: -20px;
 }
-
-
 
 .menu-icon-card-row {
     display: grid;
@@ -490,7 +506,7 @@ button#closeMainMenu {
     width: 50px;
 }
 
-.add-property-list  {
+.add-property-list {
     list-style: none;
     padding-left: 60px;
 }
@@ -503,7 +519,7 @@ button#closeMainMenu {
 }
 
 .list-icon-wrapper i {
-    color: #3BB64B;
+    color: #3bb64b;
 }
 
 a.get-started {
@@ -512,7 +528,7 @@ a.get-started {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    background: #35495E;
+    background: #35495e;
     padding: 10px 20px;
     color: #fff;
     border-radius: 4px;
@@ -531,7 +547,7 @@ a.get-started:hover {
 
 .password-full-height {
     padding-top: 130px;
-  }
+}
 
 /*small mobile view*/
 @media screen and (max-width: 320px) {
@@ -542,7 +558,6 @@ a.get-started:hover {
 
 /*mobile-view*/
 @media screen and (max-width: 767px) {
-
     .mobile-agent-squre-img {
         height: 75px;
     }
@@ -565,7 +580,7 @@ a.get-started:hover {
     .mobile-margin-zero {
         margin-left: 0 !important;
     }
-    .social-wrapper{
+    .social-wrapper {
         width: 50%;
     }
     .hidden-xs {
@@ -607,46 +622,46 @@ a.get-started:hover {
         overflow-x: hidden;
         transition: 0.5s;
         padding-top: 15px;
-      }
-      
-      .sidenav a {
+    }
+
+    .sidenav a {
         padding: 8px 8px 8px 32px;
         text-decoration: none;
         font-size: 15px;
         color: #818181;
         display: block;
         transition: 0.3s;
-      }
-      
-      .sidenav a:hover {
-        color:#000;
-      }
-      
-      .sidenav .closebtn {
+    }
+
+    .sidenav a:hover {
+        color: #000;
+    }
+
+    .sidenav .closebtn {
         position: absolute;
         top: 0;
         right: 25px;
         font-size: 36px;
         margin-left: 50px;
         padding: 1px;
-      }
+    }
 
-      .container-fluid.home-search {
+    .container-fluid.home-search {
         padding-top: 10px !important;
         padding-bottom: 15px !important;
     }
-     
+
     .mobile-logo {
         width: 120px;
     }
 
     .top-row-wrapper {
         display: flex;
-        background-color: #16202C;
+        background-color: #16202c;
         padding-top: 15px;
         padding-bottom: 15px;
     }
-    
+
     .top-row-wrapper.visible-xs {
         display: flex !important;
         justify-content: space-around;
@@ -670,7 +685,7 @@ a.get-started:hover {
     .search-wrapper {
         margin-bottom: 10px;
     }
-    
+
     button.btn.text-white.rounded-0.border-start {
         display: block;
         margin-left: auto !important;
@@ -700,7 +715,7 @@ a.get-started:hover {
     a.add-property-btn {
         margin-left: 0;
         color: #fff !important;
-        text-align: center;;
+        text-align: center;
     }
 
     .mobile-nav-link {
@@ -716,7 +731,6 @@ a.get-started:hover {
     .mobile-tab-list {
         position: absolute;
         top: 0;
-
     }
 
     .mobile-tab-list button {
@@ -730,7 +744,6 @@ a.get-started:hover {
         border: 1px solid #818181 !important;
         border-right: 1px solid #818181 !important;
         margin-top: 10px;
-
     }
 
     .profile-nav a:hover {
@@ -766,7 +779,7 @@ a.get-started:hover {
     }
 
     /* main menu styles */
-    
+
     .main-menu-content {
         height: unset;
     }
@@ -778,7 +791,8 @@ a.get-started:hover {
         border-radius: 0;
     }
 
-    .menu-icon-card:hover, .menu-icon-card:active {
+    .menu-icon-card:hover,
+    .menu-icon-card:active {
         border-bottom: 2px solid #000;
     }
 
@@ -786,7 +800,7 @@ a.get-started:hover {
         width: 100%;
         margin-left: 0;
     }
-    
+
     .main-menu-content {
         background: rgba(53, 73, 94, 0.9);
     }
@@ -811,11 +825,11 @@ a.get-started:hover {
     }
 
     .mobile-bell-area {
-        padding-left: 0 !important; 
+        padding-left: 0 !important;
     }
 
     .mobile-profile {
-        padding-left: 0 !important; 
+        padding-left: 0 !important;
         position: relative;
     }
 
@@ -861,7 +875,6 @@ a.get-started:hover {
     .mobile-country-list {
         width: 84%;
     }
-    
 }
 
 /*tab-portrait*/
@@ -889,31 +902,31 @@ a.get-started:hover {
         overflow-x: hidden;
         transition: 0.5s;
         padding-top: 15px;
-      }
-      
-      .sidenav a {
+    }
+
+    .sidenav a {
         padding: 8px 8px 8px 32px;
         text-decoration: none;
         font-size: 15px;
         color: #818181;
         display: block;
         transition: 0.3s;
-      }
-      
-      .sidenav a:hover {
+    }
+
+    .sidenav a:hover {
         color: #f1f1f1;
-      }
-      
-      .sidenav .closebtn {
+    }
+
+    .sidenav .closebtn {
         position: absolute;
         top: 0;
         right: 25px;
         font-size: 36px;
         margin-left: 50px;
         padding: 1px;
-      }
+    }
 
-      .container-fluid.home-search {
+    .container-fluid.home-search {
         padding-top: 30px !important;
     }
 
@@ -926,7 +939,7 @@ a.get-started:hover {
 
     .top-row-wrapper {
         display: flex;
-        background-color: #16202C;
+        background-color: #16202c;
         padding-top: 15px;
         padding-bottom: 15px;
     }
@@ -943,7 +956,7 @@ a.get-started:hover {
     .search-wrapper {
         margin-bottom: 15px;
     }
-    
+
     button.btn.text-white.rounded-0.border-start {
         display: block;
         margin-left: auto !important;
@@ -985,7 +998,6 @@ a.get-started:hover {
     .mobile-tab-list {
         position: absolute;
         top: 0;
-
     }
 
     .mobile-tab-list button {
@@ -1018,8 +1030,8 @@ a.get-started:hover {
     .footer-news-tab {
         padding-left: 15px !important;
     }
-    
-    .search-area-wrapper{
+
+    .search-area-wrapper {
         width: 75%;
     }
 
@@ -1033,17 +1045,17 @@ a.get-started:hover {
         flex: 50% !important;
     }
 
-   .tab-center {
-       display: block;
-       margin-left: auto;
-       margin-right: auto;
-   }
+    .tab-center {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
 
     .col-tab-12 {
         max-width: 100% !important;
         flex: 100% !important;
     }
-    
+
     .main-menu-content {
         width: 100%;
         margin-left: 0;
@@ -1156,7 +1168,6 @@ a.get-started:hover {
     .mobile-country-list {
         width: 84%;
     }
-    
 }
 
 /* small laptop */
@@ -1169,5 +1180,5 @@ a.get-started:hover {
         margin-left: auto;
         margin-right: auto;
         margin-top: 100px;
-      }
+    }
 }
