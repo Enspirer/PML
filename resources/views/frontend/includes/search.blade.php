@@ -13,7 +13,7 @@
 
                     <div class="btn-group btn-group-toggle left-toggle-btn-group" data-toggle="buttons">
                         <label class="btn btn-secondary left-menu-btn">
-                            <input type="radio" name="sale" id="trans_sale"> Sale
+                            <input type="radio" name="sale" id="trans_sale" checked> Sale
                         </label>
                         <label class="btn btn-secondary left-menu-btn">
                             <input type="radio" name="rent" id="trans_rent"> Rent

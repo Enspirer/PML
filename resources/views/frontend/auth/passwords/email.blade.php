@@ -3,7 +3,7 @@
 @section('title', app_name() . ' | ' . __('labels.frontend.passwords.reset_password_box_title'))
 
 @section('content')
-    <div class="row justify-content-center align-items-center">
+    <div class="row justify-content-center align-items-center" style="margin-top:170px; margin-bottom:50px">
         <div class="col col-sm-6 align-self-center">
             <div class="card">
                 <div class="card-header">
