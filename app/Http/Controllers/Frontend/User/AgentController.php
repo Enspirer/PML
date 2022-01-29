@@ -404,9 +404,9 @@ class AgentController extends Controller
         $update->panaromal_images=$request->panaromal_images;
 
         if($request->panaromal_images != null){
-            $addprop->panaromal_status='panaromal_images';
+            $update->panaromal_status='panaromal_images';
         }else{
-            $addprop->panaromal_status='no_any';
+            $update->panaromal_status='no_any';
         }
 
         if($request->land_size){

@@ -135,7 +135,11 @@
 
         @if(is_country_manager(auth()->user()->id))
 
-            <h5 class="px-5 pb-2 mb-0 fw-bolder" style="font-size: 1.3rem; margin-top: 1.5rem">Area Manager</h5>
+            <h5 class="px-5 pb-2 mb-0 fw-bolder" style="font-size: 1.3rem; margin-top: 1.5rem">Area Manager
+            @if(App\Models\Location::where('area_manager',auth()->user()->id)->first()->district != null)
+            - {{App\Models\Location::where('area_manager',auth()->user()->id)->first()->district}}
+            @endif
+            </h5>
             
             <a class="nav-link text-dark fw-bold ps-5 w-100 {{ Request::segment(1) == 'area-management-property-approval' ? 'active' : null }}" id="nav-favorite-tab" href="{{ route('frontend.user.area-management-property-approval') }}" type="button" role="tab" aria-controls="nav-favorite" aria-selected="false"> 
                 <div class="row align-items-center justify-content-between">
