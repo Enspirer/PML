@@ -18,7 +18,7 @@
     <img src="{{ uploaded_asset($agent_details->cover_photo) }}" alt="agent-banner" style="height:550px; object-fit:cover">
 </div>
 
-<div class="container index" style="margin-top: 2rem;">
+<!-- <div class="container index" style="margin-top: 2rem;">
     <div class="row">
         <div class="col-12">
             <p><a href="" class="text-decoration-none text-dark fw-bold">Property Market Live</a>
@@ -29,7 +29,7 @@
             </p>
         </div>
     </div>
-</div>
+</div> -->
 <div class="container agent-container">
     <!-- agent main area -->
     <div class="agent-main-area">
@@ -41,7 +41,13 @@
                         alt="profile pic">
                 </div>
                 <div class="agent-txt-main">
-                    <h1>@if($agent_details->company_name == null)
+
+                <p><a href="{{url('/')}}" class="text-decoration-none text-dark fw-bold">Property Market Live</a>
+                    ><a href="{{ route('frontend.find-agent', ['country','area', 'agent_type', 'agent_name'] )}}" class="text-decoration-none text-dark fw-bold">Agents</a>
+                    > <a class="text-decoration-none text-dark fw-bold">Agent Profile</a>
+                </p>
+
+                    <h1 class="mt-3">@if($agent_details->company_name == null)
                             {{ $agent_details->name }}
                         @else
                             {{ $agent_details->company_name }}

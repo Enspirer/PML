@@ -2,50 +2,77 @@
 
 @section('title', app_name() . ' | ' . __('labels.frontend.passwords.reset_password_box_title'))
 
+@push('after-styles')
+    <link href="{{ url('css/login.css') }}" rel="stylesheet">
+@endpush
+
 @section('content')
-    <div class="row justify-content-center align-items-center" style="margin-top:170px; margin-bottom:50px">
-        <div class="col col-sm-6 align-self-center">
-            <div class="card">
-                <div class="card-header">
-                    <strong>
-                        @lang('labels.frontend.passwords.reset_password_box_title')
-                    </strong>
-                </div><!--card-header-->
+    <div class="container-fluid p-0 banner login">
+        <div class="container">
+            <div class="row justify-content-center mobile-padding-30" style="padding-top: 9rem;">
+                <div class="col-10">
+                    @include('includes.partials.messages')
 
-                <div class="card-body">
+                    <div class="row d-flex justify-content-center mobile-login-area">
 
-                    @if(session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    {{ html()->form('POST', route('frontend.auth.password.email.post'))->open() }}
-                        <div class="row">
-                            <div class="col">
-                                <div class="form-group">
-                                    {{ html()->label(__('validation.attributes.frontend.email'))->for('email') }}
-
+                        <div class="col-6 col-xs-12 col-tab-12 mt-4">
+                            <h3 class="text-white text-center mb-5 mobile-login-title">Reset Password</h3>
+                            @if(session('status'))
+                                <div class="alert alert-success">
+                                    {{ session('status') }}
+                                </div>
+                            @endif
+                            {{ html()->form('POST', route('frontend.auth.password.email.post'))->open() }}
+                                <div class="mb-3 mt-4">
+                                    <label for="email" class="form-label text-white mb-0 me-3 form-label">Email Address</label>                                    
                                     {{ html()->email('email')
-                                        ->class('form-control')
-                                        ->placeholder(__('validation.attributes.frontend.email'))
+                                        ->class('form-control text-white')
                                         ->attribute('maxlength', 191)
                                         ->required()
-                                        ->autofocus() }}
-                                </div><!--form-group-->
-                            </div><!--col-->
-                        </div><!--row-->
+                                        ->autofocus() }} 
+                                </div>                           
+                               
+                                <div class="row mb-0 d-flex justify-content-center">
+                                   
+                                    <div class="col-12 col-md-12 col-sm-12 text-start">
+                                        <button type="submit" class="btn login-btn w-50">Send Password Reset Link</button>
+                                    </div>
+                                </div>
+                            {{ html()->form()->close() }}
+                            
+                        </div>                        
+                        
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
 
-                        <div class="row">
-                            <div class="col">
-                                <div class="form-group mb-0 clearfix">
-                                    {{ form_submit(__('labels.frontend.passwords.send_password_reset_link_button')) }}
-                                </div><!--form-group-->
-                            </div><!--col-->
-                        </div><!--row-->
-                    {{ html()->form()->close() }}
-                </div><!-- card-body -->
-            </div><!-- card -->
-        </div><!-- col-6 -->
-    </div><!-- row -->
 @endsection
+
+@push('after-scripts')
+    @if(config('access.captcha.login'))
+        @captchaScripts
+    @endif
+
+<script>
+    $('#email').focus(function() {
+        $(this).siblings('label').addClass('click-input');
+    });
+    $('#email').focusout(function() {
+    if($(this).val() == '' ) {
+        $(this).siblings('label').removeClass('click-input');
+        }
+    });
+   
+    $('#email')
+        .each(function(element, i) {
+            if ((element.value !== undefined && element.value.length > 0) || $(this).attr('placeholder') !== null) {
+                $(this).siblings('label').addClass('click-input');
+            } else {
+                $(this).siblings('label').removeClass('click-input');
+            }
+        });
+</script>
+@endpush
