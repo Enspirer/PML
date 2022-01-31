@@ -87,9 +87,15 @@ button.close:hover {
         <div class="col-7 col-xs-12">
             <p><a href="{{url('/')}}" class="text-decoration-none text-dark fw-bold">Property Market Live</a>
                 >
-                <a href="" class="text-decoration-none text-dark fw-bold">
-                    For Sale
-                </a>
+                @if($property->transaction_type == 'sale')
+                    <a href="{{ route('frontend.for_sale', ['key_name', 'min_price', 'max_price', 'sale', 'property_type', 'beds', 'baths', 'land_size', 'listed_since', 'building_type', 'open_house', 'zoning_type', 'units', 'building_size', 'farm_type', 'parking_type', 'city', 'long', 'lat', 'area_coordinator'] )}}" class="text-decoration-none text-dark fw-bold">
+                        For Sale
+                    </a>
+                @else
+                    <a href="{{ route('frontend.for_sale', ['key_name', 'min_price', 'max_price', 'rent', 'property_type', 'beds', 'baths', 'land_size', 'listed_since', 'building_type', 'open_house', 'zoning_type', 'units', 'building_size', 'farm_type', 'parking_type', 'city', 'long', 'lat', 'area_coordinator'] )}}" class="text-decoration-none text-dark fw-bold">
+                        For Rent
+                    </a>
+                @endif
 
                 > <a class="text-decoration-none text-dark fw-bold">{{$property->name}}</a>
             </p>

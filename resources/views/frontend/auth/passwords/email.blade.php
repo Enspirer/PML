@@ -34,8 +34,11 @@
                                
                                 <div class="row mb-0 d-flex justify-content-center">
                                    
-                                    <div class="col-12 col-md-12 col-sm-12 text-start">
-                                        <button type="submit" class="btn login-btn w-50">Send Password Reset Link</button>
+                                    <div class="col-8 text-start">
+                                        <button type="submit" class="btn login-btn w-100">Send Password Reset Link</button>
+                                    </div>
+                                    <div class="col-4 text-end">
+                                        <a href="{{route('frontend.auth.login')}}" type="submit" class="btn login-btn w-100 text-light">Login</a>
                                     </div>
                                 </div>
                             {{ html()->form()->close() }}
