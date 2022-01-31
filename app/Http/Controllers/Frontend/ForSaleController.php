@@ -371,6 +371,7 @@ class ForSaleController extends Controller
             'property_types' => $property_types,
             'search_long' => $long,
             'search_lat' => $lat,
+            'beds' => $beds,
             'area_coords'=>'area_coords'
         ]);
     }

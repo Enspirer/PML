@@ -73,7 +73,7 @@
                         data-bs-toggle="modal" data-bs-target="#exampleModal" placeholder="Filters"
                         style="border-top-left-radius: 35px; border-bottom-left-radius: 35px;">
 
-                    <button type="button" class="btn text-white"
+                    <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn text-white"
                         style="background-color : #35495E; border-top-right-radius: 35px; border-bottom-right-radius: 35px;"><img
                             src="{{ url('img/frontend/index/filter.png') }}" alt="" style="height: 1rem;"></button>
                 </div>
@@ -104,7 +104,7 @@
                                     data-bs-toggle="modal" data-bs-target="#exampleModal" placeholder="Filters"
                                     style="border-top-left-radius: 35px; border-bottom-left-radius: 35px;">
 
-                                <button type="button" class="btn text-white"
+                                <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn text-white"
                                     style="background-color : #35495E; border-top-right-radius: 35px; border-bottom-right-radius: 35px;"><img
                                         src="{{ url('img/frontend/index/filter.png') }}" alt=""
                                         style="height: 1rem;"></button>
@@ -116,31 +116,76 @@
 
             <div class="row mt-4 align-items-center btn-filters">
                 <div class="filter-btn-area-mobile">
-                    <div class="single-filter-btn">
-                        <a href="{{ route('frontend.for_sale', ['key_name', 'min_price', 'max_price', 'transaction_type', 'property_type', 'all_beds', 'baths', 'land_size', 'listed_since', 'building_type', 'open_house', 'zoning_type', 'units', 'building_size', 'farm_type', 'parking_type', 'city', 'long', 'lat', 'area_coordinator'] )}}"
-                            class="btn bg-white border px-3 single-filter-btn-a active-room"
-                            style="text-decoration:none">All Rooms</a>
-                    </div>
-                    <div class="single-filter-btn">
-                        <a href="{{ route('frontend.for_sale', ['key_name', 'min_price', 'max_price', 'transaction_type', 'property_type', '1', 'baths', 'land_size', 'listed_since', 'building_type', 'open_house', 'zoning_type', 'units', 'building_size', 'farm_type', 'parking_type', 'city', 'long', 'lat', 'area_coordinator'] )}}"
-                            class="btn bg-white border px-3 single-filter-btn-a" style="text-decoration:none">1
-                            bedroom</a>
-                    </div>
-                    <div class="single-filter-btn">
-                        <a href="{{ route('frontend.for_sale', ['key_name', 'min_price', 'max_price', 'transaction_type', 'property_type', '2', 'baths', 'land_size', 'listed_since', 'building_type', 'open_house', 'zoning_type', 'units', 'building_size', 'farm_type', 'parking_type', 'city', 'long', 'lat', 'area_coordinator'] )}}"
-                            class="btn bg-white border px-3 single-filter-btn-a" style="text-decoration:none">2
-                            bedrooms</a>
-                    </div>
-                    <div class="single-filter-btn">
-                        <a href="{{ route('frontend.for_sale', ['key_name', 'min_price', 'max_price', 'transaction_type', 'property_type', '3', 'baths', 'land_size', 'listed_since', 'building_type', 'open_house', 'zoning_type', 'units', 'building_size', 'farm_type', 'parking_type', 'city', 'long', 'lat', 'area_coordinator'] )}}"
-                            class="btn bg-white border px-3 single-filter-btn-a" style="text-decoration:none">3
-                            bedrooms</a>
-                    </div>
-                    <div class="single-filter-btn">
-                        <a href="{{ route('frontend.for_sale', ['key_name', 'min_price', 'max_price', 'transaction_type', 'property_type', '4', 'baths', 'land_size', 'listed_since', 'building_type', 'open_house', 'zoning_type', 'units', 'building_size', 'farm_type', 'parking_type', 'city', 'long', 'lat', 'area_coordinator'] )}}"
-                            class="btn bg-white border px-3 single-filter-btn-a" style="text-decoration:none">4
-                            bedrooms</a>
-                    </div>
+                    @if($beds == 'all_beds' || $beds == 'beds')
+                        <div class="single-filter-btn">
+                            <a href="{{ route('frontend.for_sale', ['key_name', 'min_price', 'max_price', 'transaction_type', 'property_type', 'all_beds', 'baths', 'land_size', 'listed_since', 'building_type', 'open_house', 'zoning_type', 'units', 'building_size', 'farm_type', 'parking_type', 'city', 'long', 'lat', 'area_coordinator'] )}}"
+                                class="btn bg-white border px-3 single-filter-btn-a active-room"
+                                style="text-decoration:none">All Rooms</a>
+                        </div>
+                    @else
+                        <div class="single-filter-btn">
+                            <a href="{{ route('frontend.for_sale', ['key_name', 'min_price', 'max_price', 'transaction_type', 'property_type', 'all_beds', 'baths', 'land_size', 'listed_since', 'building_type', 'open_house', 'zoning_type', 'units', 'building_size', 'farm_type', 'parking_type', 'city', 'long', 'lat', 'area_coordinator'] )}}"
+                                class="btn bg-white border px-3 single-filter-btn-a"
+                                style="text-decoration:none">All Rooms</a>
+                        </div>
+                    @endif
+
+                    @if($beds == 1)
+                        <div class="single-filter-btn">
+                            <a href="{{ route('frontend.for_sale', ['key_name', 'min_price', 'max_price', 'transaction_type', 'property_type', '1', 'baths', 'land_size', 'listed_since', 'building_type', 'open_house', 'zoning_type', 'units', 'building_size', 'farm_type', 'parking_type', 'city', 'long', 'lat', 'area_coordinator'] )}}"
+                                class="btn bg-white border px-3 single-filter-btn-a active-room" style="text-decoration:none">1
+                                bedroom</a>
+                        </div>
+                    @else
+                        <div class="single-filter-btn">
+                            <a href="{{ route('frontend.for_sale', ['key_name', 'min_price', 'max_price', 'transaction_type', 'property_type', '1', 'baths', 'land_size', 'listed_since', 'building_type', 'open_house', 'zoning_type', 'units', 'building_size', 'farm_type', 'parking_type', 'city', 'long', 'lat', 'area_coordinator'] )}}"
+                                class="btn bg-white border px-3 single-filter-btn-a" style="text-decoration:none">1
+                                bedroom</a>
+                        </div>
+                    @endif
+
+                    @if($beds == 2)
+                        <div class="single-filter-btn">
+                            <a href="{{ route('frontend.for_sale', ['key_name', 'min_price', 'max_price', 'transaction_type', 'property_type', '2', 'baths', 'land_size', 'listed_since', 'building_type', 'open_house', 'zoning_type', 'units', 'building_size', 'farm_type', 'parking_type', 'city', 'long', 'lat', 'area_coordinator'] )}}"
+                                class="btn bg-white border px-3 single-filter-btn-a active-room" style="text-decoration:none">2
+                                bedrooms</a>
+                        </div>
+                    @else
+                        <div class="single-filter-btn">
+                            <a href="{{ route('frontend.for_sale', ['key_name', 'min_price', 'max_price', 'transaction_type', 'property_type', '2', 'baths', 'land_size', 'listed_since', 'building_type', 'open_house', 'zoning_type', 'units', 'building_size', 'farm_type', 'parking_type', 'city', 'long', 'lat', 'area_coordinator'] )}}"
+                                class="btn bg-white border px-3 single-filter-btn-a" style="text-decoration:none">2
+                                bedrooms</a>
+                        </div>
+                    @endif
+
+                    @if($beds == 3)
+                        <div class="single-filter-btn">
+                            <a href="{{ route('frontend.for_sale', ['key_name', 'min_price', 'max_price', 'transaction_type', 'property_type', '3', 'baths', 'land_size', 'listed_since', 'building_type', 'open_house', 'zoning_type', 'units', 'building_size', 'farm_type', 'parking_type', 'city', 'long', 'lat', 'area_coordinator'] )}}"
+                                class="btn bg-white border px-3 single-filter-btn-a active-room" style="text-decoration:none">3
+                                bedrooms</a>
+                        </div>
+                    @else
+                        <div class="single-filter-btn">
+                            <a href="{{ route('frontend.for_sale', ['key_name', 'min_price', 'max_price', 'transaction_type', 'property_type', '3', 'baths', 'land_size', 'listed_since', 'building_type', 'open_house', 'zoning_type', 'units', 'building_size', 'farm_type', 'parking_type', 'city', 'long', 'lat', 'area_coordinator'] )}}"
+                                class="btn bg-white border px-3 single-filter-btn-a" style="text-decoration:none">3
+                                bedrooms</a>
+                        </div>
+                    @endif
+
+                    @if($beds == 4)
+                        <div class="single-filter-btn">
+                            <a href="{{ route('frontend.for_sale', ['key_name', 'min_price', 'max_price', 'transaction_type', 'property_type', '4', 'baths', 'land_size', 'listed_since', 'building_type', 'open_house', 'zoning_type', 'units', 'building_size', 'farm_type', 'parking_type', 'city', 'long', 'lat', 'area_coordinator'] )}}"
+                                class="btn bg-white border px-3 single-filter-btn-a active-room" style="text-decoration:none">4
+                                bedrooms</a>
+                        </div>
+                    @else
+                        <div class="single-filter-btn">
+                            <a href="{{ route('frontend.for_sale', ['key_name', 'min_price', 'max_price', 'transaction_type', 'property_type', '4', 'baths', 'land_size', 'listed_since', 'building_type', 'open_house', 'zoning_type', 'units', 'building_size', 'farm_type', 'parking_type', 'city', 'long', 'lat', 'area_coordinator'] )}}"
+                                class="btn bg-white border px-3 single-filter-btn-a" style="text-decoration:none">4
+                                bedrooms</a>
+                        </div>
+                    @endif
+                   
                 </div>
             </div>
 
