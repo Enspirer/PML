@@ -878,7 +878,7 @@
     aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <form action="{{route('frontend.email_alert')}}" method="post" enctype="multipart/form-data">
+            <form action="{{route('frontend.subscribed.store')}}" method="post" enctype="multipart/form-data">
                 {{csrf_field()}}
                 <div class="modal-header">
                     <h5 class="modal-title" id="shareModalLabel">Create Email Alert</h5>

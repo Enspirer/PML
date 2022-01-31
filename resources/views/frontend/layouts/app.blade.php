@@ -156,7 +156,7 @@ type="text/javascript"></script>
                 <div class="modal-content">
 
                     <div class="modal-body" style="padding: 3rem">
-                        <h4 class="text-center">Subscribed Successfully!</h4>
+                        <h4 class="text-center">Submitted Successfully!</h4>
                         <!-- <h5>Email Alert Sent</h5> -->
                     </div>
                     <div class="modal-footer">

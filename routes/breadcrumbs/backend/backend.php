@@ -169,3 +169,17 @@ Breadcrumbs::for('admin.property.property_nearby_index', function ($trail) {
 Breadcrumbs::for('admin.subscribed_emails.index', function ($trail) {
     $trail->push('Subscribed Emails', route('admin.subscribed_emails.index'));
 });
+
+
+Breadcrumbs::for('admin.tips_for_buyers', function ($trail) {
+    $trail->push('Tips for buyers', route('admin.tips_for_buyers'));
+});
+Breadcrumbs::for('admin.tips_for_sellers', function ($trail) {
+    $trail->push('Tips for sellers', route('admin.tips_for_sellers'));
+});
+Breadcrumbs::for('admin.commercial_resources', function ($trail) {
+    $trail->push('Commercial Resources', route('admin.commercial_resources'));
+});
+Breadcrumbs::for('admin.marketing_services', function ($trail) {
+    $trail->push('Marketing Services', route('admin.marketing_services'));
+});

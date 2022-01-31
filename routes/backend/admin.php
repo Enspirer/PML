@@ -17,6 +17,7 @@ use App\Http\Controllers\Backend\PropertyHistoryController;
 use App\Http\Controllers\Backend\FreeListningController;
 use App\Http\Controllers\Backend\HomeFeaturedController;
 use App\Http\Controllers\Backend\SubscribedEmailsController;
+use App\Http\Controllers\Backend\PagesController;
 
 
 // All route names are prefixed with 'admin.'.
@@ -172,3 +173,16 @@ Route::get('subscribed_emails/delete/{id}', [SubscribedEmailsController::class, 
 
 Route::get('pro_tal_settings', [PostController::class, 'pro_tal_settings'])->name('pro_tal_settings');
 Route::post('pro_tal_settings/store', [PostController::class, 'pro_tal_settings_store'])->name('pro_tal_settings.store');
+
+
+Route::get('tips_for_buyers', [PagesController::class, 'tips_for_buyers'])->name('tips_for_buyers');
+Route::post('tips_for_buyers/update', [PagesController::class, 'tips_for_buyers_update'])->name('tips_for_buyers_update');
+
+Route::get('tips_for_sellers', [PagesController::class, 'tips_for_sellers'])->name('tips_for_sellers');
+Route::post('tips_for_sellers/update', [PagesController::class, 'tips_for_sellers_update'])->name('tips_for_sellers_update');
+
+Route::get('commercial_resources', [PagesController::class, 'commercial_resources'])->name('commercial_resources');
+Route::post('commercial_resources/update', [PagesController::class, 'commercial_resources_update'])->name('commercial_resources_update');
+
+Route::get('marketing_services', [PagesController::class, 'marketing_services'])->name('marketing_services');
+Route::post('marketing_services/update', [PagesController::class, 'marketing_services_update'])->name('marketing_services_update');
