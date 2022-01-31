@@ -5,9 +5,9 @@
 }
 
 .link-btn {
-    -webkit-box-shadow: 0px 0px 3px 1px rgba(0,0,0,0.75);
-    -moz-box-shadow: 0px 0px 3px 1px rgba(0,0,0,0.75);
-    box-shadow: 0px 0px 3px 1px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.75);
 }
 
 .pano-symbol {
@@ -34,9 +34,8 @@
 }
 .center .scroll-box::-webkit-scrollbar-thumb {
     border-radius: 0;
-    background: #35495E;
+    background: #35495e;
 }
-
 
 .social a i {
     color: black;
@@ -47,25 +46,28 @@
     color: #007bff;
 }
 
-.swiper-button-next, .swiper-rtl .swiper-button-prev {
-    right: 0px!important;
+.swiper-button-next,
+.swiper-rtl .swiper-button-prev {
+    right: 0px !important;
     left: auto;
 }
-.swiper-button-prev, .swiper-rtl .swiper-button-next {
-    left: 0px!important;
+.swiper-button-prev,
+.swiper-rtl .swiper-button-next {
+    left: 0px !important;
     right: auto;
 }
-.swiper-button-next:after, .swiper-rtl .swiper-button-prev:after {
+.swiper-button-next:after,
+.swiper-rtl .swiper-button-prev:after {
     font-size: 2rem;
     color: black;
     font-weight: 800;
 }
-.swiper-button-prev:after, .swiper-rtl .swiper-button-next:after {
+.swiper-button-prev:after,
+.swiper-rtl .swiper-button-next:after {
     font-size: 2rem;
     color: black;
     font-weight: 800;
 }
-
 
 .right .article .paragraph p {
     font-size: 0.75rem;
@@ -108,15 +110,12 @@ p.card-text.mb-1 {
     padding-bottom: 0;
 }
 
-
 /*map*/
 .card.custom-shadow.info-card {
     width: 250px;
     height: 200px;
     margin-bottom: 0;
 }
-
-
 
 .card.custom-shadow.info-card .card-body p {
     margin-bottom: 15px !important;
@@ -132,8 +131,8 @@ p.card-text.mb-1 {
 }
 
 .social-banner .card-body {
-    padding: 0.8rem!important;
-    font-size: 0.8rem!important;
+    padding: 0.8rem !important;
+    font-size: 0.8rem !important;
 }
 
 .social-banner .card-body p.card-text.mb-1 {
@@ -148,14 +147,12 @@ p.card-text.mb-1 {
     z-index: 10;
     top: 0;
     left: 0;
-    background-color: rgb(0,0,0);
+    background-color: rgb(0, 0, 0);
     background-color: rgb(230 233 235);
     overflow-x: hidden;
     transition: 0.5s;
     margin-top: 210px;
 }
-
-
 
 .loading-overlay {
     position: relative;
@@ -166,11 +163,8 @@ p.card-text.mb-1 {
     color: #fff;
 }
 
-
-
-
 .first-wrapper {
-    background-color: #0EB1D2;
+    background-color: #0eb1d2;
     position: absolute;
     top: 40%;
     left: 50%;
@@ -179,7 +173,7 @@ p.card-text.mb-1 {
 .square {
     width: 50px;
     height: 50px;
-    background-color: rgba(255,255,255,0);
+    background-color: rgba(255, 255, 255, 0);
     margin-right: auto;
     margin-left: auto;
     border: 2px solid #16202c;
@@ -197,42 +191,69 @@ p.card-text.mb-1 {
 }
 .second_square {
     animation: second_square 1s forwards,
-    second_square_animate 1s infinite ease-in-out;
+        second_square_animate 1s infinite ease-in-out;
 }
 .third_square {
     animation: third_square 1s forwards,
-    third_square_animate 1s infinite ease-in-out;
+        third_square_animate 1s infinite ease-in-out;
 }
 
 @keyframes second_square {
-    100% { width: 100px; height:100px; left: 48px; top: 48px; }
+    100% {
+        width: 100px;
+        height: 100px;
+        left: 48px;
+        top: 48px;
+    }
 }
 
 @keyframes third_square {
-    100% { width: 150px; height:150px; left: 23px; top: 23px;}
+    100% {
+        width: 150px;
+        height: 150px;
+        left: 23px;
+        top: 23px;
+    }
 }
 
 @keyframes first_square_animate {
-    0%   { transform: perspective(100px) rotateX(0deg) rotateY(0deg);}
-    50%  { transform: perspective(100px) rotateX(-180deg) rotateY(0deg); }
-    100% { transform: perspective(100px) rotateX(-180deg) rotateY(-180deg); }
+    0% {
+        transform: perspective(100px) rotateX(0deg) rotateY(0deg);
+    }
+    50% {
+        transform: perspective(100px) rotateX(-180deg) rotateY(0deg);
+    }
+    100% {
+        transform: perspective(100px) rotateX(-180deg) rotateY(-180deg);
+    }
 }
 
 @keyframes second_square_animate {
-    0%   { transform: perspective(200px) rotateX(0deg) rotateY(0deg); }
-    50%  { transform: perspective(200px) rotateX(180deg) rotateY(0deg); }
-    100% { transform: perspective(200px) rotateX(180deg) rotateY(180deg); }
+    0% {
+        transform: perspective(200px) rotateX(0deg) rotateY(0deg);
+    }
+    50% {
+        transform: perspective(200px) rotateX(180deg) rotateY(0deg);
+    }
+    100% {
+        transform: perspective(200px) rotateX(180deg) rotateY(180deg);
+    }
 }
 
 @keyframes third_square_animate {
-    0%   { transform: perspective(300px) rotateX(0deg) rotateY(0deg); }
-    50%  { transform: perspective(300px) rotateX(-180deg) rotateY(0deg); }
-    100% { transform: perspective(300px) rotateX(-180deg) rotateY(-180deg); }
+    0% {
+        transform: perspective(300px) rotateX(0deg) rotateY(0deg);
+    }
+    50% {
+        transform: perspective(300px) rotateX(-180deg) rotateY(0deg);
+    }
+    100% {
+        transform: perspective(300px) rotateX(-180deg) rotateY(-180deg);
+    }
 }
 
 /*mobile-view*/
 @media screen and (max-width: 767px) {
-
     .sidebar-full-mobile {
         padding-top: 60px;
     }
@@ -242,7 +263,6 @@ p.card-text.mb-1 {
         margin-left: auto;
         margin-right: auto;
     }
-
 }
 
 /*tab-portrait*/
@@ -270,13 +290,12 @@ p.card-text.mb-1 {
         margin-right: auto;
         margin-top: 80px;
     }
-
-
-
 }
 
 /* Tab Landscape */
-@media (min-width: 992px) and (max-width: 1024px) {}
+@media (min-width: 992px) and (max-width: 1024px) {
+}
 
 /*4k screen*/
-@media screen and (min-width: 1441px) {}
+@media screen and (min-width: 1441px) {
+}

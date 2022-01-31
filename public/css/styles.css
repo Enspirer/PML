@@ -459,10 +459,6 @@ button#closeMainMenu {
     margin-top: 15px;
 }
 
-.menu-icon-card:hover {
-    filter: invert(1);
-}
-
 /*add property popup*/
 #addPropertyPopup h2 {
     font-size: 1.2rem;
@@ -594,6 +590,7 @@ a.get-started:hover {
         max-width: 100% !important;
         flex: 100% !important;
         margin-bottom: 15px;
+        position: relative !important;
     }
 
     .col-mobile-50 {

@@ -367,6 +367,7 @@ Please fill up the form and one of our agents will be in touch with you.
             x.style.display = "none";
         }
     }
+
     </script>
 
     @stack('after-scripts')
