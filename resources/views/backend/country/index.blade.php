@@ -22,6 +22,7 @@
                             <tr>
                                 <th scope="col">#ID</th>
                                 <th scope="col">Country Name</th>
+                                <th scope="col">Country ID</th>
                                 <th scope="col">Currency</th>
                                 <th scope="col">Status</th>
                                 <th scope="col">Option</th>
@@ -77,6 +78,7 @@
                 columns: [
                     {data: 'id', name: 'id'},
                     {data: 'country_name', name: 'country_name'},
+                    {data: 'country_id', name: 'country_id'},
                     {data: 'currency', name: 'currency'},
                     {data: 'status', name: 'status'},
                     {data: 'action', name: 'action', orderable: false, searchable: false},
