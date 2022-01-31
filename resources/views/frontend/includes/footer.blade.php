@@ -62,7 +62,7 @@
                     <h5 class="fw-bolder mt-2" style="margin-bottom:30px !important;">Social</h5>
                     <div class="social-row" style="margin-bottom:30px;">
                         <div class="icon-wrapper">
-                            <a href="https://www.facebook.com/tallentor" target="_blank"><i class="fab fa-facebook-square"></i></a>
+                            <a href="https://www.facebook.com/propertymarketlive" target="_blank"><i class="fab fa-facebook-square"></i></a>
                         </div>
                         <div class="icon-wrapper">
                         <a href=""><i class="fab fa-twitter"></i></a>

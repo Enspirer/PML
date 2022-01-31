@@ -39,7 +39,11 @@
                 <div class="overlay"></div>
                 <div class="btn-wrapper">
                     <div class="post-card-btn">
-                        <a href="{{ route('frontend.user.agent') }}">Become an Agent</a>
+                        @if(App\Models\AgentRequest::where('user_id',auth()->user()->id)->first() == null)
+                            <a href="{{ route('frontend.user.agent') }}">Become an Agent</a>
+                        @else
+                            <a href="{{ route('frontend.user.create-property') }}">Add Property as an Agent</a>
+                        @endif
                     </div>
                 </div>
             </div>

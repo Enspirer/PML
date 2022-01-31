@@ -154,6 +154,9 @@ class ForSaleController extends Controller
         else{
             $transaction_type = $request->transaction_type;
         }
+
+        // dd($transaction_type);
+        
         
         if($request->property_type == null){
             $property_type = 'property_type';
@@ -237,6 +240,7 @@ class ForSaleController extends Controller
         // $property_types = PropertyType::where('status','=','1')->get();
         // $countries = Country::where('status',1)->get();
 
+        // dd($transaction_type);
 
         if(get_country_cookie(request()) == null ){
             $properties = Properties::where('admin_approval', 'Approved')->where('sold_request',null)->orderBy('id','desc');
@@ -367,6 +371,7 @@ class ForSaleController extends Controller
             'property_types' => $property_types,
             'search_long' => $long,
             'search_lat' => $lat,
+            'beds' => $beds,
             'area_coords'=>'area_coords'
         ]);
     }

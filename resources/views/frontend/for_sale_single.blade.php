@@ -85,13 +85,19 @@ button.close:hover {
 <div class="container index" style="margin-top: 2rem;">
     <div class="row tab-column-row">
         <div class="col-7 col-xs-12">
-            <p><a href="/" class="text-decoration-none text-dark fw-bold">Property Market Live</a>
+            <p><a href="{{url('/')}}" class="text-decoration-none text-dark fw-bold">Property Market Live</a>
                 >
-                <a href="#" class="text-decoration-none text-dark fw-bold">
-                    For Sale
-                </a>
+                @if($property->transaction_type == 'sale')
+                    <a href="{{ route('frontend.for_sale', ['key_name', 'min_price', 'max_price', 'sale', 'property_type', 'beds', 'baths', 'land_size', 'listed_since', 'building_type', 'open_house', 'zoning_type', 'units', 'building_size', 'farm_type', 'parking_type', 'city', 'long', 'lat', 'area_coordinator'] )}}" class="text-decoration-none text-dark fw-bold">
+                        For Sale
+                    </a>
+                @else
+                    <a href="{{ route('frontend.for_sale', ['key_name', 'min_price', 'max_price', 'rent', 'property_type', 'beds', 'baths', 'land_size', 'listed_since', 'building_type', 'open_house', 'zoning_type', 'units', 'building_size', 'farm_type', 'parking_type', 'city', 'long', 'lat', 'area_coordinator'] )}}" class="text-decoration-none text-dark fw-bold">
+                        For Rent
+                    </a>
+                @endif
 
-                > <a href="/home_loan" class="text-decoration-none text-dark fw-bold">Moscow Land</a>
+                > <a class="text-decoration-none text-dark fw-bold">{{$property->name}}</a>
             </p>
 
         </div>
@@ -247,7 +253,7 @@ button.close:hover {
 <div class="container index" style="margin-top: 2rem;">
     <div class="row">
         <div class="col-12">
-            <p><a href="" class="text-decoration-none text-dark fw-bold">Back to Search Results</a></p>
+            <!-- <p><a href="" class="text-decoration-none text-dark fw-bold">Back to Search Results</a></p> -->
             <br>
             <h4>{{$property->name}}</h4>
         </div>

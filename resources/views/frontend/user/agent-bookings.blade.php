@@ -78,54 +78,56 @@
 
                 @else
                     @foreach($bookings as $booking)
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="px-2" id="nav-properties" role="tabpanel" aria-labelledby="nav-properties-tab">
-                                    <div class="row align-items-center justify-content-between mb-4 border py-3">
-                                        <div class="col-5">
-                                            <a href="{{ route('frontend.for_sale_single', $booking->property_id) }}"><img src="{{ uploaded_asset(App\Models\Properties::where('id',$booking->property_id)->first()->feature_image_id) }}" class="card-img-top" alt="..."></a>
-                                        </div>
-                                        <div class="col-6">
-                                            <h6 class="card-title mt-4">Customer Name : <span class="text-primary">{{ $booking->first_name }} {{ $booking->last_name }}</span></h6>
+                        @if(App\Models\Properties::where('id',$booking->property_id)->first() != null)
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="px-2" id="nav-properties" role="tabpanel" aria-labelledby="nav-properties-tab">
+                                        <div class="row align-items-center justify-content-between mb-4 border py-3">
+                                            <div class="col-5">
+                                                <a href="{{ route('frontend.for_sale_single', $booking->property_id) }}"><img src="{{ uploaded_asset(App\Models\Properties::where('id',$booking->property_id)->first()->feature_image_id) }}" class="card-img-top" alt="..."></a>
+                                            </div>
+                                            <div class="col-6">
+                                                <h6 class="card-title mt-4">Customer Name : <span class="text-primary">{{ $booking->first_name }} {{ $booking->last_name }}</span></h6>
 
-                                            <h5 class="card-title mt-1 mb-1">{{\App\Models\Properties::where('id',$booking->property_id)->first()->name}}</h5>
+                                                <h5 class="card-title mt-1 mb-1">{{\App\Models\Properties::where('id',$booking->property_id)->first()->name}}</h5>
 
-                                            <p class="card-text mb-1">Country: {{\App\Models\Country::where('id',App\Models\Properties::where('id',$booking->property_id)->first()->country)->first()->country_name }}</p>
+                                                <p class="card-text mb-1">Country: {{\App\Models\Country::where('id',App\Models\Properties::where('id',$booking->property_id)->first()->country)->first()->country_name }}</p>
 
-                                            <p class="card-text mb-1">Transaction Type: {{\App\Models\Properties::where('id',$booking->property_id)->first()->transaction_type}}</p>
+                                                <p class="card-text mb-1">Transaction Type: {{\App\Models\Properties::where('id',$booking->property_id)->first()->transaction_type}}</p>
 
-                                            <!-- <p class="mt-1 text-info mb-0">${{number_format(\App\Models\Properties::where('id',$booking->property_id)->first()->price,2)}}</p> -->
+                                                <!-- <p class="mt-1 text-info mb-0">${{number_format(\App\Models\Properties::where('id',$booking->property_id)->first()->price,2)}}</p> -->
 
-                                            <p class="mb-0 d-inline-block px-2 py-1 mt-2 text-light mb-1" style="font-size: 0.8rem; background: #4195e1; border-radius: 7px;">{{ get_currency(request() ,App\Models\Properties::where('id',$booking->property_id)->first()->price)}}</p>
+                                                <p class="mb-0 d-inline-block px-2 py-1 mt-2 text-light mb-1" style="font-size: 0.8rem; background: #4195e1; border-radius: 7px;">{{ get_currency(request() ,App\Models\Properties::where('id',$booking->property_id)->first()->price)}}</p>
 
 
-                                            <div class="row justify-content-between">
-                                                <div class="col-12">
-                                                    <div class="row justify-content-end">
-                                                        <div class="col-4">
-                                                            <button class="btn px-3 rounded-0 text-light py-1" data-bs-toggle="modal" data-bs-target="#exampleModal{{$booking->id}}" style="background-color: #4195E1">Open</button>
+                                                <div class="row justify-content-between">
+                                                    <div class="col-12">
+                                                        <div class="row justify-content-end">
+                                                            <div class="col-4">
+                                                                <button class="btn px-3 rounded-0 text-light py-1" data-bs-toggle="modal" data-bs-target="#exampleModal{{$booking->id}}" style="background-color: #4195E1">Open</button>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <!-- <div class="col-3">
-                                            <div class="card">
-                                                <div class="text-center">
-                                                    <img src="{{ url('files/agent_request',\App\Models\AgentRequest::where('id',$booking->agent_id)->first()->photo ) }}" class="rounded-circle card-img-top border border-2 img-fluid" alt="..." style="height: 7rem; width: 60%">
-                                                </div>
+                                            <!-- <div class="col-3">
+                                                <div class="card">
+                                                    <div class="text-center">
+                                                        <img src="{{ url('files/agent_request',\App\Models\AgentRequest::where('id',$booking->agent_id)->first()->photo ) }}" class="rounded-circle card-img-top border border-2 img-fluid" alt="..." style="height: 7rem; width: 60%">
+                                                    </div>
 
-                                                <div class="card-body text-center">
-                                                    <h5 class="card-title text-center">{{\App\Models\AgentRequest::where('id',$booking->agent_id)->first()->name}}</h5>
-                                                    <p class="card-text mb-0">{{\App\Models\AgentRequest::where('id',$booking->agent_id)->first()->email}}</p>
-                                                    <p class="card-text mb-0">{{\App\Models\AgentRequest::where('id',$booking->agent_id)->first()->telephone}}</p>
+                                                    <div class="card-body text-center">
+                                                        <h5 class="card-title text-center">{{\App\Models\AgentRequest::where('id',$booking->agent_id)->first()->name}}</h5>
+                                                        <p class="card-text mb-0">{{\App\Models\AgentRequest::where('id',$booking->agent_id)->first()->email}}</p>
+                                                        <p class="card-text mb-0">{{\App\Models\AgentRequest::where('id',$booking->agent_id)->first()->telephone}}</p>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </div> -->
+                                            </div> -->
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        @endif
 
 
 
