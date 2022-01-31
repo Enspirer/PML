@@ -18,6 +18,7 @@
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/aa4e69f91b.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
 
     @yield('meta')
 
@@ -147,6 +148,25 @@ type="text/javascript"></script>
         @include('frontend.includes.footer')
     </div><!-- #app -->
 
+    
+    @if(\Session::has('subscribe'))
+    
+        <div class="modal fade" id="subModal" tabindex="-1" aria-labelledby="subModal" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+
+                    <div class="modal-body" style="padding: 3rem">
+                        <h4 class="text-center">Subscribed Successfully!</h4>
+                        <!-- <h5>Email Alert Sent</h5> -->
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endif    
+
     <!-- Add Property Popup -->
     <div class="modal fade" id="addPropertyPopup" tabindex="-1" role="dialog"
         aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -236,7 +256,11 @@ Please fill up the form and one of our agents will be in touch with you.
     <!-- This JS commented because it conflicts other JS files -->
     <!-- {!! script(mix('js/frontend.js')) !!} -->
 
-
+    <script>       
+        $(document).ready(function(){
+            $("#subModal").modal();
+        });
+    </script>
 
     <script>
     function openNav() {
@@ -256,6 +280,7 @@ Please fill up the form and one of our agents will be in touch with you.
     </script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
         integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous">
     </script>

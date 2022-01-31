@@ -16,6 +16,7 @@ use App\Http\Controllers\Backend\LocationController;
 use App\Http\Controllers\Backend\PropertyHistoryController;
 use App\Http\Controllers\Backend\FreeListningController;
 use App\Http\Controllers\Backend\HomeFeaturedController;
+use App\Http\Controllers\Backend\SubscribedEmailsController;
 
 
 // All route names are prefixed with 'admin.'.
@@ -165,6 +166,9 @@ Route::post('home_page_features/store', [HomeFeaturedController::class, 'store']
 Route::get('home_page_latest/create', [HomeFeaturedController::class, 'home_page_latest_create'])->name('home_page_latest.create');
 Route::post('home_page_latest/store', [HomeFeaturedController::class, 'home_page_latest_store'])->name('home_page_latest.store');
 
+Route::get('subscribed_emails', [SubscribedEmailsController::class, 'index'])->name('subscribed_emails.index');
+Route::get('subscribed_emails/getdetails', [SubscribedEmailsController::class, 'getdetails'])->name('subscribed_emails.getdetails');
+Route::get('subscribed_emails/delete/{id}', [SubscribedEmailsController::class, 'destroy'])->name('subscribed_emails.destroy');
 
 Route::get('pro_tal_settings', [PostController::class, 'pro_tal_settings'])->name('pro_tal_settings');
 Route::post('pro_tal_settings/store', [PostController::class, 'pro_tal_settings_store'])->name('pro_tal_settings.store');

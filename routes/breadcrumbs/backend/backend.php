@@ -165,3 +165,7 @@ Breadcrumbs::for('admin.homeloan_ad.index', function ($trail) {
 Breadcrumbs::for('admin.property.property_nearby_index', function ($trail) {
     $trail->push('Nearest Places', route('admin.property.property_nearby_index',1));
 });
+
+Breadcrumbs::for('admin.subscribed_emails.index', function ($trail) {
+    $trail->push('Subscribed Emails', route('admin.subscribed_emails.index'));
+});

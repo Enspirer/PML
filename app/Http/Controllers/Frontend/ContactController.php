@@ -11,6 +11,8 @@ use App\Models\ContactUs;
 use Mail;
 use \App\Mail\ContactUsMail;
 use App\Models\Auth\User;
+use App\Models\SubscribedEmails;
+
 /**
  * Class ContactController.
  */
@@ -50,6 +52,30 @@ class ContactController extends Controller
         session()->flash('message','Thanks!');
 
         return back();    
+    }
+
+    public function subscribed(Request $request)
+    {        
+        // dd($request);     
+
+        $sub = SubscribedEmails::where('email',$request->email)->first();
+        // dd($sub);     
+
+        if($sub == null){
+
+            $add = new SubscribedEmails;
+
+            $add->email = $request->email;
+            if(!empty( auth()->user()->id) === true){
+                $add->user_id = auth()->user()->id;
+            }                    
+            $add->save();
+
+        }
+       
+        return back()->with([
+            'subscribe' => 'subscribe'
+        ]);     
     }
 
     /**

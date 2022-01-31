@@ -44,10 +44,10 @@
             <div class="col-3 ps-5 col-xs-12 col-tab-6 footer-news-tab">
                 <h5 class="text-white fw-bolder mt-2" style="margin-bottom:30px!important;">Newsletter</h5>
                 <p class="text-white">You can trust us. we only send promo offers, not a single spam.</p>
-                <form>
-                    {{csrf_field()}}
+                <form action="{{route('frontend.subscribed.store')}}" method="post" enctype="multipart/form-data">
+                {{csrf_field()}}
                     <div class="input-group mt-4 mb-3 p-1" style="background-color: rgb(255, 254, 252, 0.1); border: 1px solid white; border-radius: 50px">
-                        <input type="text" class="form-control border-0" placeholder="Type your Email" aria-label="email" aria-describedby="email" name="email" style="background: border-box; border-radius: 50px; color: white">
+                        <input type="email" class="form-control border-0" placeholder="Type your Email" aria-label="email" aria-describedby="email" name="email" style="background: border-box; border-radius: 50px; color: white" required>
                         <button class="btn rounded-0 text-light border-0" type="submit" style="background-color: #F60331; border-radius: 50px!important; font-size: 0.6rem;">SUBSCRIBE</button>
                     </div>
                 </form>
@@ -89,4 +89,5 @@
             <p id="copyright-txt">Copyright &copy; 2022. | Property Market Live. All rights reserved.</p>
         </div>
     </div>
+
 </section>
