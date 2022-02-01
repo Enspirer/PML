@@ -36,6 +36,13 @@
         <div class="col-5 contact-form col-xs-90precent col-tab-50">
             <form action="{{route('frontend.contact_us.store')}}" method="post" enctype="multipart/form-data">
                 {{csrf_field()}}
+
+                @if(session()->has('error'))
+                    <div class="alert alert-danger">
+                        {{ session()->get('error') }}
+                    </div>
+                @endif
+
                 <h5 class="fw-bold">Let Us Call You!</h5>
                 <h6 class="mb-4">To help you choose your property</h6>
 
@@ -73,7 +80,7 @@
                 <div>
                     <p class="mb-1">Consent</p>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" required>
                         <label class="form-check-label ms-2" for="flexCheckDefault">
                             Acceptance * <br>
                             I would like to receive information & updates from Trace Solutions in relation to my
