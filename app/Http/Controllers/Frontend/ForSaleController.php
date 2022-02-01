@@ -52,8 +52,8 @@ class ForSaleController extends Controller
         // dd($request);
 
         if($request->search_keyword == null){
-            $lat = null;
-            $lng = null;
+            $lat = 'lat';
+            $lng = 'lng';
             $areacod = 'area_coordinator';
         }else{
             $client = new GuzzleHttp\Client();
@@ -62,8 +62,8 @@ class ForSaleController extends Controller
             $refidymeter = json_decode($res->getBody()->getContents());
             // dd($refidymeter);
             if($refidymeter->status == 'ZERO_RESULTS'){
-                $lat = null;
-                $lng = null;
+                $lat = 'lat';
+                $lng = 'lng';
                 $areacod = 'area_coordinator';
             }else{
                 $lat = $refidymeter->results[0]->geometry->location->lat;
