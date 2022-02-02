@@ -114,6 +114,8 @@ class AizUploadController extends Controller
                 if($type[$extension] == 'image'){
                     try {
                         $img = Image::make($request->file('aiz_file')->getRealPath())->encode();
+                        $img->insert('logo.png'); 
+
                         $height = $img->height();
                         $width = $img->width();
                         if($width > $height && $width > 1500){
