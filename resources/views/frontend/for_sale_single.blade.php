@@ -111,65 +111,56 @@ button.close:hover {
                     Share <i class="far fa-share-square"></i>
                 </button>
                 @auth
-                @if($favourite == null)
-                <form action="{{route('frontend.propertyFavourite')}}" method="post" enctype="multipart/form-data">
-                    {{csrf_field()}}
-                    <button type="submit" class="btn py-2 fw-bold rounded-pill" style="border: 1.5px solid #707070">
-                        <div class="row justify-content-center">
-                            <!-- <div class="col-3 p-0">
-                                                                <i class="far fa-heart"></i>
-                                                            </div>
-                                                            <div class="col-7 p-0 text-start"
-                                                                style="font-size: 0.9rem;">
-                                                                Save this Property
-                                                            </div> -->
-                            <div class="btn-wrapper property-btn-wrapper" style="gap:0;">
-                                <i class="far fa-heart"></i><span style="font-size: 0.9rem;">Save this Property</span>
-                            </div>
+                    @if($favourite == null)
+                        <form action="{{route('frontend.propertyFavourite')}}" method="post" enctype="multipart/form-data">
+                            {{csrf_field()}}
+                            <button type="submit" class="btn py-2 fw-bold rounded-pill" style="border: 1.5px solid #707070">
+                                <div class="row justify-content-center">
+                                    <div class="btn-wrapper property-btn-wrapper" style="gap:0;">
+                                        <i class="far fa-heart"></i><span style="font-size: 0.9rem;">Save this Property</span>
+                                    </div>
+                                </div>
+                                <input type="hidden" name="prop_hidden_id" value="{{ $property->id }}" />
+                            </button>
+                        </form>
+                    @else
+                        <form action="{{route('frontend.propertyFavouriteDelete',$favourite->id)}}" method="post"
+                            enctype="multipart/form-data">
+                            {{csrf_field()}}
+                            <button type="submit" class="btn py-2 fw-bold rounded-pill" style="border: 1.5px solid #707070; background-color:#F33A6A;">
+                                <div class="row justify-content-center">
+                                    <div class="btn-wrapper property-btn-wrapper" style="gap:0;">
+                                        <i class="far fa-heart text-light"></i><span style="font-size: 0.9rem;" class="text-light">Save this Property</span>
+                                    </div>
+                                </div>
+                            </button>
+                            <input type="hidden" name="prop_hidden_id" value="{{ $favourite->id }}" />
+                        </form>
+                    @endif
+                @else
 
-                        </div>
-                        <input type="hidden" name="prop_hidden_id" value="{{ $property->id }}" />
-                    </button>
-                </form>
-                @else
-                <form action="{{route('frontend.propertyFavouriteDelete',$favourite->id)}}" method="post"
-                    enctype="multipart/form-data">
-                    {{csrf_field()}}
-                    <button type="submit" class="btn py-2 fw-bold rounded-pill"
-                        style="border: 1.5px solid #707070; background-color:#F33A6A;">
-                        <div class="row justify-content-center">
-                            <!-- <div class="col-3 p-0">
-                                                                <i class="far fa-heart"></i>
-                                                            </div>
-                                                            <div class="col-7 p-0 text-start text-light"
-                                                                style="font-size: 0.9rem;">
-                                                                Unsave this Property
-                                                            </div> -->
-                            <div class="btn-wrapper property-btn-wrapper" style="gap:0;">
-                                <i class="far fa-heart text-light"></i><span style="font-size: 0.9rem;"
-                                    class="text-light">Save
-                                    this Property</span>
+                    @if(is_favorite_cookie($property->id))
+                        <a href="{{url('favourite_cookie_properties/remove',$property->id)}}" class="btn py-2 fw-bold rounded-pill" style="border: 1.5px solid #707070; background-color:#F33A6A;">
+                            <div class="row justify-content-center">
+                                <div class="btn-wrapper property-btn-wrapper" style="gap:0;">
+                                    <i class="far fa-heart text-light"></i><span class="text-light" style="font-size: 0.9rem;">Unsave this Property</span>
+                                </div>
                             </div>
-                        </div>
-                    </button>
-                    <input type="hidden" name="prop_hidden_id" value="{{ $favourite->id }}" />
-                </form>
-                @endif
-                @else
-                <a href="{{route('frontend.auth.login')}}" class="btn py-2 fw-bold rounded-pill"
-                    style="border: 1.5px solid #707070">
-                    <div class="row justify-content-center">
-                        <!-- <div class="col-3 p-0">
-                                                            <i class="far fa-heart"></i>
-                                                        </div>
-                                                        <div class="col-7 p-0 text-start" style="font-size: 0.9rem;">
-                                                            Save this Property
-                                                        </div> -->
-                        <div class="btn-wrapper property-btn-wrapper" style="gap:0;">
-                            <i class="far fa-heart"></i><span style="font-size: 0.9rem;">Save this Property</span>
-                        </div>
-                    </div>
-                </a>
+                        </a>
+                    @else                                
+                        <form action="{{route('frontend.favourite_cookie.store')}}" method="post" enctype="multipart/form-data">
+                        {{csrf_field()}}
+                            <input type="hidden" name="cookie_property_id" value="{{ $property->id }}" />
+                            <button type="submit" class="btn py-2 fw-bold rounded-pill" style="border: 1.5px solid #707070;">
+                                <div class="row justify-content-center">
+                                    <div class="btn-wrapper property-btn-wrapper" style="gap:0;">
+                                        <i class="far fa-heart"></i><span style="font-size: 0.9rem;">Save this Property</span>
+                                    </div>
+                                </div>
+                            </button>
+                        </form>
+                    @endif
+                    
                 @endauth
             </div>
 
@@ -1255,73 +1246,63 @@ button.close:hover {
 
                                             <div class="col-12 text-center mb-2">
                                                 @auth
-                                                @if($favourite == null)
-                                                <form action="{{route('frontend.propertyFavourite')}}" method="post"
-                                                    enctype="multipart/form-data">
-                                                    {{csrf_field()}}
-                                                    <button type="submit" class="btn py-2 fw-bold w-100 rounded-pill"
-                                                        style="border: 1.5px solid #707070">
-                                                        <div class="row justify-content-center">
-                                                            <!-- <div class="col-3 p-0">
-                                                                <i class="far fa-heart"></i>
-                                                            </div>
-                                                            <div class="col-7 p-0 text-start"
-                                                                style="font-size: 0.9rem;">
-                                                                Save this Property
-                                                            </div> -->
-                                                            <div class="btn-wrapper">
-                                                                <i class="far fa-heart"></i><span
-                                                                    style="font-size: 0.9rem;">Save this Property</span>
-                                                            </div>
+                                                    @if($favourite == null)
+                                                        <form action="{{route('frontend.propertyFavourite')}}" method="post" enctype="multipart/form-data">
+                                                            {{csrf_field()}}
+                                                            <button type="submit" class="btn py-2 fw-bold w-100 rounded-pill" style="border: 1.5px solid #707070">
+                                                                <div class="row justify-content-center">
+                                                                    <div class="btn-wrapper">
+                                                                        <i class="far fa-heart"></i><span style="font-size: 0.9rem;">Save this Property</span>
+                                                                    </div>
+                                                                </div>
+                                                                <input type="hidden" name="prop_hidden_id" value="{{ $property->id }}" />
+                                                            </button>
+                                                        </form>
+                                                    @else
+                                                        <form
+                                                            action="{{route('frontend.propertyFavouriteDelete',$favourite->id)}}" method="post" enctype="multipart/form-data">
+                                                            {{csrf_field()}}
+                                                            <button type="submit" class="btn py-2 fw-bold w-100 rounded-pill" style="border: 1.5px solid #707070; background-color:#F33A6A;">
+                                                                <div class="row justify-content-center">
+                                                                    <div class="btn-wrapper">
+                                                                        <i class="far fa-heart text-light"></i><span style="font-size: 0.9rem;" class="text-light">Save this Property</span>
+                                                                    </div>
+                                                                </div>
+                                                            </button>
+                                                            <input type="hidden" name="prop_hidden_id" value="{{ $favourite->id }}" />
+                                                        </form>
+                                                    @endif
+                                                @else
 
-                                                        </div>
-                                                        <input type="hidden" name="prop_hidden_id"
-                                                            value="{{ $property->id }}" />
-                                                    </button>
-                                                </form>
-                                                @else
-                                                <form
-                                                    action="{{route('frontend.propertyFavouriteDelete',$favourite->id)}}"
-                                                    method="post" enctype="multipart/form-data">
-                                                    {{csrf_field()}}
-                                                    <button type="submit" class="btn py-2 fw-bold w-100 rounded-pill"
-                                                        style="border: 1.5px solid #707070; background-color:#F33A6A;">
+                                                @if(is_favorite_cookie($property->id))
+                                                    <a href="{{url('favourite_cookie_properties/remove',$property->id)}}" class="btn py-2 fw-bold w-100 rounded-pill" style="border: 1.5px solid #707070; background-color:#F33A6A;">
                                                         <div class="row justify-content-center">
-                                                            <!-- <div class="col-3 p-0">
-                                                                <i class="far fa-heart"></i>
-                                                            </div>
-                                                            <div class="col-7 p-0 text-start text-light"
-                                                                style="font-size: 0.9rem;">
-                                                                Unsave this Property
-                                                            </div> -->
-                                                            <div class="btn-wrapper">
-                                                                <i class="far fa-heart text-light"></i><span
-                                                                    style="font-size: 0.9rem;" class="text-light">Save
-                                                                    this Property</span>
+                                                            <div class="btn-wrapper property-btn-wrapper" style="gap:0;">
+                                                                <i class="far fa-heart text-light"></i><span class="text-light" style="font-size: 0.9rem;">Unsave this Property</span>
                                                             </div>
                                                         </div>
-                                                    </button>
-                                                    <input type="hidden" name="prop_hidden_id"
-                                                        value="{{ $favourite->id }}" />
-                                                </form>
+                                                    </a>
+                                                @else                                
+                                                    <form action="{{route('frontend.favourite_cookie.store')}}" method="post" enctype="multipart/form-data">
+                                                    {{csrf_field()}}
+                                                        <input type="hidden" name="cookie_property_id" value="{{ $property->id }}" />
+                                                        <button type="submit" class="btn py-2 fw-bold w-100 rounded-pill" style="border: 1.5px solid #707070;">
+                                                            <div class="row justify-content-center">
+                                                                <div class="btn-wrapper property-btn-wrapper" style="gap:0;">
+                                                                    <i class="far fa-heart"></i><span style="font-size: 0.9rem;">Save this Property</span>
+                                                                </div>
+                                                            </div>
+                                                        </button>
+                                                    </form>
                                                 @endif
-                                                @else
-                                                <a href="{{route('frontend.auth.login')}}"
-                                                    class="btn py-2 fw-bold w-100 rounded-pill"
-                                                    style="border: 1.5px solid #707070">
-                                                    <div class="row justify-content-center">
-                                                        <!-- <div class="col-3 p-0">
-                                                            <i class="far fa-heart"></i>
+
+                                                    <!-- <a href="{{route('frontend.auth.login')}}" class="btn py-2 fw-bold w-100 rounded-pill" style="border: 1.5px solid #707070">
+                                                        <div class="row justify-content-center">
+                                                            <div class="btn-wrapper">
+                                                                <i class="far fa-heart"></i><span style="font-size: 0.9rem;">Save this Property</span>
+                                                            </div>
                                                         </div>
-                                                        <div class="col-7 p-0 text-start" style="font-size: 0.9rem;">
-                                                            Save this Property
-                                                        </div> -->
-                                                        <div class="btn-wrapper">
-                                                            <i class="far fa-heart"></i><span
-                                                                style="font-size: 0.9rem;">Save this Property</span>
-                                                        </div>
-                                                    </div>
-                                                </a>
+                                                    </a> -->
                                                 @endauth
 
                                             </div>
@@ -1360,41 +1341,38 @@ button.close:hover {
                                         <div style="display:flex;justify-content:center;" class="col-1">
 
                                             @php
-                                            if(auth()->user())
-                                            {
-                                            $favourite =
-                                            App\Models\Favorite::where('property_id',$ran->id)->where('user_id',auth()->user()->id)->first();
-                                            }else{
-                                            $favourite = null;
-                                            }
+                                                if(auth()->user()){
+                                                    $favourite = App\Models\Favorite::where('property_id',$ran->id)->where('user_id',auth()->user()->id)->first();
+                                                }else{
+                                                    $favourite = null;
+                                                }
                                             @endphp
 
                                             @auth
-                                            @if($favourite == null)
-                                            <form action="{{route('frontend.propertyFavourite')}}" method="post"
-                                                enctype="multipart/form-data">
-                                                {{csrf_field()}}
-                                                <button type="submit" class="fas fa-heart border-0"
-                                                    style="background-color: white"></button>
-                                                <input type="hidden" name="prop_hidden_id" value="{{ $ran->id }}" />
-                                            </form>
+                                                @if($favourite == null)
+                                                    <form action="{{route('frontend.propertyFavourite')}}" method="post" enctype="multipart/form-data">
+                                                        {{csrf_field()}}
+                                                        <button type="submit" class="fas fa-heart border-0" style="background-color: white"></button>
+                                                        <input type="hidden" name="prop_hidden_id" value="{{ $ran->id }}" />
+                                                    </form>
+                                                @else
+                                                    <form action="{{route('frontend.propertyFavouriteDelete',$favourite->id)}}" method="post" enctype="multipart/form-data">
+                                                        {{csrf_field()}}
+                                                        <button class="fas fa-heart border-0" style="color: #F60331; background-color: white;"></button>
+                                                        <input type="hidden" name="prop_hidden_id" value="{{ $favourite->id }}" />
+                                                    </form>
+                                                @endif
                                             @else
-                                            <form action="{{route('frontend.propertyFavouriteDelete',$favourite->id)}}"
-                                                method="post" enctype="multipart/form-data">
-                                                {{csrf_field()}}
-                                                <button class="fas fa-heart border-0"
-                                                    style="color: #F60331; background-color: white;"></button>
-                                                <input type="hidden" name="prop_hidden_id"
-                                                    value="{{ $favourite->id }}" />
-                                            </form>
-                                            @endif
-                                            @else
-                                            <form action="{{route('frontend.auth.login')}}" method="get"
-                                                enctype="multipart/form-data">
-                                                {{csrf_field()}}
-                                                <button type="submit" class="fas fa-heart border-0"
-                                                    style="background-color: white"></button>
-                                            </form>
+                                                @if(is_favorite_cookie($ran->id))
+                                                    <a href="{{url('favourite_cookie_properties/remove',$ran->id)}}" class="fas fa-heart border-0" style="text-decoration:none; color:red; border: 1.5px solid; background-color:white;"></a>
+                                                @else 
+                                                    <form action="{{route('frontend.favourite_cookie.store')}}" method="post" enctype="multipart/form-data">
+                                                        {{csrf_field()}}
+                                                        <input type="hidden" name="cookie_property_id" value="{{ $ran->id }}" />
+                                                        <button type="submit" class="fas fa-heart border-0" style="background-color: white"></button>
+                                                    </form>
+                                                @endif
+
                                             @endauth
                                         </div>
                                     </div>

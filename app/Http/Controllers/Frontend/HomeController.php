@@ -22,6 +22,7 @@ use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Cookie;
 use DB;
 use GuzzleHttp\Client;
+use Cart;
 
 /**
  * Class HomeController.
@@ -740,6 +741,39 @@ class HomeController extends Controller
         }else{
             return null;
         }
+    }
+
+
+    public function favourite_cookie(Request $request)
+    {        
+        // dd($request);
+
+        $prop_cookie_favourite = Properties::where('id',$request->cookie_property_id)->first();
+
+        Cart::add($prop_cookie_favourite->id, $prop_cookie_favourite->name, $prop_cookie_favourite->price, 1, [
+            'feature_image_id' => $prop_cookie_favourite->feature_image_id,
+            'transaction_type' => $prop_cookie_favourite->transaction_type
+        ]);
+
+        return back();
+    }
+
+    public function favourite_cookie_properties(Request $request)
+    {        
+        // dd($request);
+        $favorite_item = Cart::getContent();
+        // dd($favorite_item);
+
+        return view('frontend.favourite_property_cookie',[
+            'favorite_item' => $favorite_item
+        ]);
+    }
+
+    public function favourite_cookie_properties_remove($id)
+    {           
+        Cart::remove($id);
+
+        return back();
     }
 
 

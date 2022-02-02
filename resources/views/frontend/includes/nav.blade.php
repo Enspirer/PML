@@ -120,7 +120,7 @@
 
             <div class="log-reg position-absolute">
                 <a class="wishlist fw-bold d-inline-block px-4 text-decoration-none border-start border-end"
-                    style="border-right:0px!important;" href="{{ route('frontend.auth.login') }}"><i
+                    style="border-right:0px!important;" href="{{ route('frontend.favourite_cookie_properties') }}"><i
                         class="far fa-heart me-2"></i> Wish List</a>
                 <a class="wishlist fw-bold d-inline-block px-4 text-decoration-none border-start border-end text-white"
                     href="{{route('frontend.auth.login')}}"><i class="far fa-bell me-2"></i> Notifications</a>
@@ -277,7 +277,7 @@
             @else
 
             <a class="wishlist fw-bold d-inline-block px-4 text-decoration-none border-start border-end mobiile-wish-list-btn wishlist-border-none"
-                href="{{ route('frontend.auth.login') }}"><i class="far fa-heart me-2"></i> Wish List</a>
+                href="{{route('frontend.favourite_cookie_properties')}}"><i class="far fa-heart me-2"></i> Wish List</a>
 
 
 

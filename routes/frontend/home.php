@@ -105,6 +105,11 @@ Route::get('property_country/{id}',[HomeController::class,'property_country'])->
 
 Route::post('subscribed/store',[ContactController::class,'subscribed'])->name('subscribed.store');
 
+
+Route::post('favourite_cookie/store',[HomeController::class,'favourite_cookie'])->name('favourite_cookie.store');
+Route::get('favourite_cookie_properties',[HomeController::class,'favourite_cookie_properties'])->name('favourite_cookie_properties');
+Route::get('favourite_cookie_properties/remove/{id}', [HomeController::class, 'favourite_cookie_properties_remove'])->name('favourite_cookie_properties_remove');
+
 /*
  * These frontend controllers require the user to be logged in
  * All route names are prefixed with 'frontend.'

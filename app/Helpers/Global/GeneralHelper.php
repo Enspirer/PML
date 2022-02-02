@@ -8,6 +8,8 @@ use App\Models\Country;
 use App\Models\WatchListing; 
 use App\Models\Notifications; 
 use Illuminate\Http\Request;
+use App\Models\Properties;
+use Cart as FAVCart;
 
 if (! function_exists('app_name')) {
     /**
@@ -293,6 +295,39 @@ if (! function_exists('push_notification')) {
       
         return 'done';
        
+    }
+}
+
+if (! function_exists('is_favorite_cookie')) {
+    /**
+     * Return the route to the "home" page depending on authentication/authorization status.
+     *
+     * @return string
+     */
+    function is_favorite_cookie($property_id)
+    {     
+        // dd($property_id);
+        
+        $favorite_cookie = FAVCart::getContent();
+        // dd($favorite_cookie);
+
+        if(count($favorite_cookie) == 0){
+            return null;
+        }else{
+            
+            foreach($favorite_cookie as $key => $favorite_cook){
+                // dd($favorite_cook);
+
+                if($favorite_cook->id == $property_id){
+                    $property = Properties::where('id',$favorite_cook->id)->first();
+                    // dd('yes');
+
+                    return $property;
+                }
+               
+            }
+        }
+        
     }
 }
 
