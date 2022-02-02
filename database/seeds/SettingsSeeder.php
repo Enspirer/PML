@@ -596,5 +596,13 @@ class SettingsSeeder extends Seeder
             'user_id' => 1,
             ]
         ); 
+        DB::table('settings')
+        ->insert(
+            [             
+            'key' => 'watermark',
+            'value' => 'logo.png', 
+            'user_id' => 1,
+            ]
+        ); 
     }
 }

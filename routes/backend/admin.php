@@ -144,6 +144,9 @@ Route::post('terms_and_conditions_update/update', [SettingsController::class, 't
 Route::get('contactus_thanks', [SettingsController::class, 'contactus_thanks'])->name('contactus_thanks');
 Route::post('contactus_thanks_update/update', [SettingsController::class, 'contactus_thanks_update'])->name('contactus_thanks_update');
 
+Route::get('watermark', [SettingsController::class, 'watermark'])->name('watermark');
+Route::post('watermark/update', [SettingsController::class, 'watermark_update'])->name('watermark_update');
+
 
 Route::get('location', [LocationController::class, 'index'])->name('location.index');
 Route::get('location/create', [LocationController::class, 'create'])->name('location.create');

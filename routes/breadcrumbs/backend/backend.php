@@ -183,3 +183,7 @@ Breadcrumbs::for('admin.commercial_resources', function ($trail) {
 Breadcrumbs::for('admin.marketing_services', function ($trail) {
     $trail->push('Marketing Services', route('admin.marketing_services'));
 });
+
+Breadcrumbs::for('admin.watermark', function ($trail) {
+    $trail->push('Watermark', route('admin.watermark'));
+});

@@ -262,7 +262,12 @@
                             <a class="nav-link {{active_class(Route::is('admin/home_page_latest/create'))}}" href="{{ route('admin.home_page_latest.create') }}">
                                 Home Page Latest
                             </a>
-                        </li>        
+                        </li>       
+                        <li class="nav-item">
+                            <a class="nav-link {{active_class(Route::is('admin/watermark'))}}" href="{{ route('admin.watermark') }}">
+                                Watermark
+                            </a>
+                        </li>    
                     </ul>
                 </li>
 
