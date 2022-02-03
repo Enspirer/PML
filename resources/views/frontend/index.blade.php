@@ -426,7 +426,11 @@
                     <div class="col-12">
                         <a href="{{ get_settings('sidebar_advertiment_link_1') }}" target="_blank">
                             <div class="sidebar-card">
-                                <img width="100%" src="{{ uploaded_asset(get_settings('sidebar_advertiment_1')) }}" alt="banner">
+                                @if(get_settings('sidebar_advertiment_1') != null)
+                                    <img width="100%" src="{{ url(get_settings('sidebar_advertiment_1')) }}" alt="banner">
+                                @else
+                                    <img width="100%" src="{{ url('img/no-image.jpg') }}" alt="banner">
+                                @endif
                             </div>
                         </a>
                     </div>
@@ -434,7 +438,11 @@
                     <div class="col-12">
                         <a href="{{ get_settings('sidebar_advertiment_link_2') }}" target="_blank">
                             <div class="sidebar-card">
-                                <img width="100%" src="{{ uploaded_asset(get_settings('sidebar_advertiment_2')) }}" alt="banner">
+                                @if(get_settings('sidebar_advertiment_2') != null)
+                                    <img width="100%" src="{{ url(get_settings('sidebar_advertiment_2')) }}" alt="banner">
+                                @else
+                                    <img width="100%" src="{{ url('img/no-image.jpg') }}" alt="banner">
+                                @endif
                             </div>
                         </a>
                     </div>                    
