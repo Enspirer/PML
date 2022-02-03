@@ -675,6 +675,7 @@ class HomeController extends Controller
 //               ];
 
             $rebust = '<div class="card">'.
+                        '<a href="for-sale/single-property/'.$property->id.'">'.
                             '<div class="card-body">'.
                                 '<div class="info-card" style="display:flex;">'.
                                     '<div class="info-img-area" style="flex:1;">'.
@@ -689,6 +690,7 @@ class HomeController extends Controller
                                     '</div>'.
                                 '</div>'.
                             '</div>'.
+                            '</a>'.
                         '</div>';
 
 
