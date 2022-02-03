@@ -364,14 +364,22 @@
     <!-- agent sidebar -->
     <div class="agent-side-area">
         <div class="ad-card">
-            <img width="100%" src="{{ uploaded_asset(get_settings('solo_agent_advertiment_1')) }}" >
+            @if(get_settings('solo_agent_advertiment_1') != null)
+                <img width="100%" src="{{ url(get_settings('solo_agent_advertiment_1')) }}">
+            @else
+                <img width="100%" src="{{ url('img/no-image.jpg') }}" >
+            @endif
             <div class="ad-btn-wrapper">
                 <a href="{{ get_settings('solo_agent_advertiment_link_1') }}" target="_blank" class="ad-btn">Find Out More</a>
             </div>
         </div>
 
         <div class="ad-card">
-            <img width="100%" src="{{ uploaded_asset(get_settings('solo_agent_advertiment_2')) }}" >
+            @if(get_settings('solo_agent_advertiment_2') != null)
+                <img width="100%" src="{{ url(get_settings('solo_agent_advertiment_2')) }}">
+            @else
+                <img width="100%" src="{{ url('img/no-image.jpg') }}" >
+            @endif
             <div class="ad-btn-wrapper">
                 <a href="{{ get_settings('solo_agent_advertiment_link_2') }}" target="_blank" class="ad-btn">Find Out More</a>
             </div>
