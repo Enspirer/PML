@@ -826,11 +826,15 @@
                 </div>
             </div>
 
-            <div class="row sidebar-card-area">
+            <div class="row sidebar-card-area mt-5">
                 <div class="col-12 p-0 mb-4 custom-shadow">
                     <div class="card">
-                        <img src="{{ uploaded_asset(get_settings('property_page_advertiment_1')) }}" class="img-fluid"
-                            alt="..." style="">
+                        @if(get_settings('property_page_advertiment_1') != null)
+                            <img width="100%" src="{{ url(get_settings('property_page_advertiment_1')) }}" class="img-fluid" alt="..." style="">
+                        @else
+                            <img width="100%" src="{{ url('img/no-image.jpg') }}" class="img-fluid" alt="..." style="">
+                        @endif
+                        
                         <div class="card-body text-end">
                             <a href="{{ get_settings('property_page_link_1') }}" target="_blank"
                                 class="btn find-out">Find Out More</a>
@@ -839,8 +843,11 @@
                 </div>
                 <div class="col-12 p-0 mb-4 custom-shadow">
                     <div class="card">
-                        <img src="{{ uploaded_asset(get_settings('property_page_advertiment_2')) }}" class="img-fluid"
-                            alt="..." style="">
+                        @if(get_settings('property_page_advertiment_2') != null)
+                            <img width="100%" src="{{ url(get_settings('property_page_advertiment_2')) }}" class="img-fluid" alt="..." style="">
+                        @else
+                            <img width="100%" src="{{ url('img/no-image.jpg') }}" class="img-fluid" alt="..." style="">
+                        @endif
                         <div class="card-body text-end">
                             <a href="{{ get_settings('property_page_link_2') }}" class="btn find-out"
                                 target="_blank">Find Out More</a>
@@ -850,8 +857,11 @@
 
                 <div class="col-12 p-0 custom-shadow">
                     <div class="card">
-                        <img src="{{ uploaded_asset(get_settings('property_page_advertiment_3')) }}" class="img-fluid"
-                            alt="..." style="">
+                        @if(get_settings('property_page_advertiment_3') != null)
+                            <img width="100%" src="{{ url(get_settings('property_page_advertiment_3')) }}" class="img-fluid" alt="..." style="">
+                        @else
+                            <img width="100%" src="{{ url('img/no-image.jpg') }}" class="img-fluid" alt="..." style="">
+                        @endif
                         <div class="card-body text-end">
                             <a href="{{ get_settings('property_page_link_3') }}" target="_blank"
                                 class="btn find-out">Find Out More</a>

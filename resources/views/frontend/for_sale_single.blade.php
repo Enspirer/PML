@@ -1527,8 +1527,11 @@ button.close:hover {
             <div class="row sidebar-card-area">
                 <div class="col-12 p-0 mb-4 custom-shadow">
                     <div class="card">
-                        <img src="{{ uploaded_asset(get_settings('solo_property_advertiment_1')) }}" class="img-fluid"
-                            alt="..." style="object-fit: cover; height: 15rem;">
+                        @if(get_settings('solo_property_advertiment_1') != null)
+                            <img width="100%" src="{{ url(get_settings('solo_property_advertiment_1')) }}" class="img-fluid" alt="..." style="object-fit: cover; height: 15rem;">
+                        @else
+                            <img width="100%" src="{{ url('img/no-image.jpg') }}" class="img-fluid" alt="..." style="object-fit: cover; height: 15rem;">
+                        @endif
                         <div class="card-body text-end">
                             <a href="{{ get_settings('solo_property_advertiment_link_1') }}" target="_blank"
                                 class="btn find-out">Find Out More</a>
@@ -1537,8 +1540,11 @@ button.close:hover {
                 </div>
                 <div class="col-12 p-0 mb-4 custom-shadow">
                     <div class="card">
-                        <img src="{{ uploaded_asset(get_settings('solo_property_advertiment_2')) }}" class="img-fluid"
-                            alt="..." style="object-fit: cover; height: 15rem;">
+                        @if(get_settings('solo_property_advertiment_2') != null)
+                            <img width="100%" src="{{ url(get_settings('solo_property_advertiment_2')) }}" class="img-fluid" alt="..." style="object-fit: cover; height: 15rem;">
+                        @else
+                            <img width="100%" src="{{ url('img/no-image.jpg') }}" class="img-fluid" alt="..." style="object-fit: cover; height: 15rem;">
+                        @endif
                         <div class="card-body text-end">
                             <a href="{{ get_settings('solo_property_advertiment_link_2') }}" target="_blank"
                                 class="btn find-out">Find Out More</a>
