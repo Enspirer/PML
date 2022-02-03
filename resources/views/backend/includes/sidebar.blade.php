@@ -177,6 +177,45 @@
                 </a>
             </li>
 
+            <li class="nav-item">
+                <a class="nav-link {{active_class(Route::is('admin/subscribed_emails'))}}" href="{{ route('admin.subscribed_emails.index') }}">
+                    <i class="nav-icon fas fa-envelope-open-text"></i>
+                    Subscribed Emails
+                </a>
+            </li>
+
+            <li class="nav-item nav-dropdown ">
+                <a class="nav-link nav-dropdown-toggle " href="#">
+                    <i class="nav-icon fas fa-book-open"></i>
+                    Pages
+                </a>
+
+                <ul class="nav-dropdown-items">
+                    
+                    <li class="nav-item">
+                        <a class="nav-link {{active_class(Route::is('admin/tips_for_buyers'))}}" href="{{ route('admin.tips_for_buyers') }}">
+                            Tips for buyers
+                        </a>
+                    </li>                    
+                    <li class="nav-item">
+                        <a class="nav-link {{active_class(Route::is('admin/tips_for_sellers'))}}" href="{{ route('admin.tips_for_sellers') }}">
+                            Tips for sellers
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{active_class(Route::is('admin/commercial_resources'))}}" href="{{ route('admin.commercial_resources') }}">
+                            Commercial Resources
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{active_class(Route::is('admin/marketing_services'))}}" href="{{ route('admin.marketing_services') }}">
+                            Marketing Services
+                        </a>
+                    </li>
+                        
+                </ul>
+            </li> 
+
             @if ($logged_in_user->isAdmin())
                 <li class="nav-title">
                     @lang('menus.backend.sidebar.system')
@@ -223,7 +262,12 @@
                             <a class="nav-link {{active_class(Route::is('admin/home_page_latest/create'))}}" href="{{ route('admin.home_page_latest.create') }}">
                                 Home Page Latest
                             </a>
-                        </li>        
+                        </li>       
+                        <li class="nav-item">
+                            <a class="nav-link {{active_class(Route::is('admin/watermark'))}}" href="{{ route('admin.watermark') }}">
+                                Watermark
+                            </a>
+                        </li>    
                     </ul>
                 </li>
 

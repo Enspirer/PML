@@ -1,6 +1,6 @@
 @extends('backend.layouts.app')
 
-@section('title', __('Country'))
+@section('title', __('Subscribed Emails'))
 
 @section('content')
     
@@ -10,10 +10,8 @@
 
             <div class="card">
                 <div class="card-header">
-                    <strong>Country&nbsp;</strong>
+                    <strong>Subscribed Emails List&nbsp;</strong>
 
-                    <a href="{{route('admin.country.create')}}" class="btn btn-primary pull-right ml-4">Create New</a>
-                   
                 </div><!--card-header-->
 
                 <div class="card-body">
@@ -21,10 +19,7 @@
                         <thead>
                             <tr>
                                 <th scope="col">#ID</th>
-                                <th scope="col">Country Name</th>
-                                <th scope="col">Country ID</th>
-                                <th scope="col">Currency</th>
-                                <th scope="col">Status</th>
+                                <th scope="col">Email</th>
                                 <th scope="col">Option</th>
                             </tr>
                         </thead>
@@ -72,15 +67,12 @@
         $(function () {
             var table = $('#villadatatable').DataTable({
                 processing: true,
-                ajax: "{{route('admin.country.getdetails')}}",
+                ajax: "{{route('admin.subscribed_emails.getdetails')}}",
                 serverSide: true,
                 order: [[0, "desc"]],
                 columns: [
                     {data: 'id', name: 'id'},
-                    {data: 'country_name', name: 'country_name'},
-                    {data: 'country_id', name: 'country_id'},
-                    {data: 'currency', name: 'currency'},
-                    {data: 'status', name: 'status'},
+                    {data: 'email', name: 'email'},
                     {data: 'action', name: 'action', orderable: false, searchable: false},
                 ]
             });
@@ -95,7 +87,7 @@
 
             $('#ok_button').click(function(){
             $.ajax({
-            url:"country/delete/"+user_id,
+            url:"subscribed_emails/delete/"+user_id,
             
             success:function(data)
             {

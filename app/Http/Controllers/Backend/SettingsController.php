@@ -201,11 +201,40 @@ class SettingsController extends Controller
     }
 
 
+    public function watermark()
+    {
+        $watermark = Settings::where('key','=','watermark')->first();
 
+        return view('backend.settings.watermark',[
+            'watermark' => $watermark
+        ]);
+    }
 
+    public function watermark_update(Request $request)
+    {            
 
+        $this->validate($request, [
+            'watermark'  => 'mimes:jpeg,png,jpg|max:25000'
+        ]);
+    
+        if($request->file('watermark'))
+        {            
+            $preview_fileName = time().'_'.rand(1000,10000).'.'.$request->watermark->getClientOriginalExtension();
+            $fullURLsPreviewFile = $request->watermark->move(public_path('watermark'), $preview_fileName);
+            $image_url = $preview_fileName;
+        }else{
+            $detail = Settings::where('key','=','watermark')->first();
+            $image_url = $detail->value;        
+        } 
+ 
+        $update = new Settings;
 
+        $update->value=$image_url;
+        
+        Settings::where('key','=','watermark')->update($update->toArray());
+        return back()->withFlashSuccess('Updated Successfully');                
 
+    }
 
 
 

@@ -158,10 +158,19 @@
                                                 </form>
                                             @endif
                                         @else
-                                            <form action="{{route('frontend.auth.login')}}" method="get" enctype="multipart/form-data">
+                                            @if(is_favorite_cookie($prop->id))
+                                                <a href="{{url('favourite_cookie_properties/remove',$prop->id)}}" class="fas fa-heart border-0" style="text-decoration:none; color:red; background-color:white;"></a>
+                                            @else 
+                                                <form action="{{route('frontend.favourite_cookie.store')}}" method="post" enctype="multipart/form-data">
+                                                    {{csrf_field()}}
+                                                    <input type="hidden" name="cookie_property_id" value="{{ $prop->id }}" />
+                                                    <button type="submit" class="far fa-heart border-0" style="background-color: white"></button>
+                                                </form>
+                                            @endif
+                                            <!-- <form action="{{route('frontend.auth.login')}}" method="get" enctype="multipart/form-data">
                                             {{csrf_field()}}
                                                 <button type="submit" class="far fa-heart border-0" style="background-color: white"></button>
-                                            </form>                                                   
+                                            </form>                                                    -->
                                         @endauth
 
                                     </div>
@@ -228,10 +237,15 @@
                                                 </form>
                                             @endif
                                         @else
-                                            <form action="{{route('frontend.auth.login')}}" method="get" enctype="multipart/form-data">
-                                            {{csrf_field()}}
-                                                <button type="submit" class="far fa-heart border-0" style="background-color: white"></button>
-                                            </form>                                                   
+                                            @if(is_favorite_cookie($prop->id))
+                                                <a href="{{url('favourite_cookie_properties/remove',$prop->id)}}" class="fas fa-heart border-0" style="text-decoration:none; color:red; background-color:white;"></a>
+                                            @else 
+                                                <form action="{{route('frontend.favourite_cookie.store')}}" method="post" enctype="multipart/form-data">
+                                                    {{csrf_field()}}
+                                                    <input type="hidden" name="cookie_property_id" value="{{ $prop->id }}" />
+                                                    <button type="submit" class="far fa-heart border-0" style="background-color: white"></button>
+                                                </form>
+                                            @endif                                                   
                                         @endauth
 
                                     </div>
@@ -301,10 +315,15 @@
                                                 </form>
                                             @endif
                                         @else
-                                            <form action="{{route('frontend.auth.login')}}" method="get" enctype="multipart/form-data">
-                                            {{csrf_field()}}
-                                                <button type="submit" class="far fa-heart border-0" style="background-color: white"></button>
-                                            </form>                                                   
+                                            @if(is_favorite_cookie($prop->id))
+                                                <a href="{{url('favourite_cookie_properties/remove',$prop->id)}}" class="fas fa-heart border-0" style="text-decoration:none; color:red; background-color:white;"></a>
+                                            @else 
+                                                <form action="{{route('frontend.favourite_cookie.store')}}" method="post" enctype="multipart/form-data">
+                                                    {{csrf_field()}}
+                                                    <input type="hidden" name="cookie_property_id" value="{{ $prop->id }}" />
+                                                    <button type="submit" class="far fa-heart border-0" style="background-color: white"></button>
+                                                </form>
+                                            @endif                                                  
                                         @endauth
 
                                     </div>
