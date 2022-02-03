@@ -200,8 +200,8 @@ p.card-text.mb-1 {
 }
 
 #preloader {
-    position: absolute;
-    top: 22%;
+    position: relative;
+    top: -660px;
     background: #2c3e50;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -209,6 +209,7 @@ p.card-text.mb-1 {
     background-size: cover;
     overflow-x: hidden;
     height: 660px;
+    margin-bottom: -660px;
     width: 100%;
     z-index: 100; /* makes sure it stays on top */
 }
@@ -338,12 +339,6 @@ p.card-text.mb-1 {
     }
 }
 
-@media screen and (max-width: 336px) {
-    #preloader {
-        top: 32% !important;
-    }
-}
-
 /*mobile-view*/
 @media screen and (max-width: 767px) {
     .sidebar-full-mobile {
@@ -354,10 +349,6 @@ p.card-text.mb-1 {
         width: 75%;
         margin-left: auto;
         margin-right: auto;
-    }
-
-    #preloader {
-        top: 26% !important;
     }
 }
 
@@ -386,22 +377,12 @@ p.card-text.mb-1 {
         margin-right: auto;
         margin-top: 80px;
     }
-
-    #preloader {
-        top: 25%;
-    }
 }
 
 /* Tab Landscape */
 @media (min-width: 992px) and (max-width: 1024px) {
-    #preloader {
-        top: 27%;
-    }
 }
 
 /*4k screen*/
 @media screen and (max-width: 1441px) {
-    #preloader {
-        top: 24%;
-    }
 }
