@@ -15,12 +15,7 @@
 <div class="container index" style="margin-top: 2rem;">
         <div class="row">
             <div class="col-12">
-                <p><a href="{{url('/')}}" class="text-decoration-none text-dark fw-bold">Property Market Live</a>
-                    >
-                        <a class="text-decoration-none text-dark fw-bold">
-                            Main Menu
-                        </a>
-
+                <p><a href="{{url('/')}}" class="text-decoration-none text-dark fw-bold">Property Market Live</a>                    
                     > <a class="text-decoration-none text-dark fw-bold">{{$category->name}}</a></p>
             </div>
         </div>
@@ -34,9 +29,9 @@
             @if(count($categories) != 0)
                 @foreach($categories as $cat)
                     @if($cat->id == $category->id)
-                        <a href="{{route('frontend.homeloan',$cat->id)}}" class="btn link-btn w-100 mb-3 main-menu-links active-menu"><img src="{{ uploaded_asset($cat->icon) }}" alt="" class="me-3">{{$cat->name}}</a>
+                        <a href="{{route('frontend.news',$cat->slug)}}" class="btn link-btn w-100 mb-3 main-menu-links active-menu"><img src="{{ uploaded_asset($cat->icon) }}" alt="" class="me-3">{{$cat->name}}</a>
                     @else
-                        <a href="{{route('frontend.homeloan',$cat->id)}}" class="btn link-btn w-100 mb-3 main-menu-links"><img src="{{ uploaded_asset($cat->icon) }}" alt="" class="me-3">{{$cat->name}}</a>
+                        <a href="{{route('frontend.news',$cat->slug)}}" class="btn link-btn w-100 mb-3 main-menu-links"><img src="{{ uploaded_asset($cat->icon) }}" alt="" class="me-3">{{$cat->name}}</a>
                     @endif
                 @endforeach
             @endif

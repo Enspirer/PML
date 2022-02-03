@@ -13,11 +13,15 @@
                         
                         <div class="form-group">
                             <label>Name <span class="text-danger">*</span></label>
-                            <textarea type="text" class="form-control" name="name" rows="3" required> {{ $categories->name }} </textarea>
-                        </div>                        
+                            <input type="text" class="form-control" id="name" name="name" value="{{ $categories->name }}" required>
+                        </div>        
+                        <div class="form-group">
+                            <label>Slug <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="slug" name="slug" value="{{ $categories->slug }}" required>
+                        </div>                
                         <div class="form-group">
                             <label>Description</label>
-                            <textarea type="text" class="form-control" name="description" rows="2"> {{ $categories->description }} </textarea>
+                            <textarea type="text" class="form-control" name="description" rows="2">{{ $categories->description }}</textarea>
                         </div>                         
                 
                         <div class="form-group">
@@ -70,4 +74,13 @@
 
 
 <br><br>
+
+    <script>
+        $("#name").keyup(function(){
+            var str = $(this).val();
+            var trims = $.trim(str)
+            var slug = trims.replace(/[^a-z0-9]/gi, '-').replace(/-+/g, '-').replace(/^-|-$/g, '')
+            $("#slug").val(slug.toLowerCase()) 
+        });    
+    </script>
 @endsection

@@ -17,7 +17,7 @@
         <div class="col-12">
             <p><a href="{{url('/')}}" class="text-decoration-none text-dark fw-bold">Property Market Live</a>
                 >
-                <a href="{{route('frontend.homeloan',$category->id)}}" class="text-decoration-none text-dark fw-bold">
+                <a href="{{route('frontend.news',$category->slug)}}" class="text-decoration-none text-dark fw-bold">
                     {{$category->name}}
                 </a>
 

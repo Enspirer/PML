@@ -102,7 +102,7 @@
 
                                     @if(count(App\Models\Category::where('status','Enabled')->orderBy('order','ASC')->where('is_feature',1)->get()) != 0)
                                         @foreach(App\Models\Category::where('status','Enabled')->orderBy('order','ASC')->where('is_feature',1)->get() as $industry)
-                                            <a class="menu-icon-card" href="{{route('frontend.homeloan',$industry->id)}}">
+                                            <a class="menu-icon-card" href="{{route('frontend.news',$industry->slug)}}">
                                                 <div>
                                                 <img class="menu-card-img" src="{{ uploaded_asset($industry->icon) }}" alt="">
 
@@ -155,7 +155,7 @@
 
                                     @if(count(App\Models\Category::where('status','Enabled')->orderBy('order','ASC')->where('is_feature',1)->get()) != 0)
                                         @foreach(App\Models\Category::where('status','Enabled')->orderBy('order','ASC')->where('is_feature',1)->get() as $industry)
-                                            <a class="menu-icon-card" href="{{route('frontend.homeloan',$industry->id)}}">
+                                            <a class="menu-icon-card" href="{{route('frontend.news',$industry->slug)}}">
                                                 <div class="mobile-menu-item">
                                                 <img class="menu-card-img" src="{{ uploaded_asset($industry->icon) }}" alt="">
 

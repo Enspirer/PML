@@ -68,6 +68,7 @@ class CategoryController extends Controller
 
                 $add->icon = $request->icon;
                 $add->name = $request->name;        
+                $add->slug = $request->slug;        
                 $add->description = $request->description;
                 $add->is_feature = $request->featured_news;
                 $add->order = $request->order;
@@ -104,7 +105,8 @@ class CategoryController extends Controller
             $update = new Category;
 
             $update->icon = $request->icon;
-            $update->name = $request->name;        
+            $update->name = $request->name;       
+            $update->slug = $request->slug;        
             $update->description = $request->description;
             $update->is_feature = $request->featured_news;
             $update->order = $request->order;

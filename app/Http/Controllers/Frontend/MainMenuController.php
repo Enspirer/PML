@@ -10,9 +10,9 @@ use Illuminate\Http\Request;
 
 class MainMenuController extends Controller
 {
-    public function homeloan($id) {
+    public function news($slug) {
 
-        $category = Category::where('id',$id)->first();
+        $category = Category::where('slug',$slug)->first();
         $categories = Category::where('status','Enabled')->orderBy('order','ASC')->get();
 
         $latest_post = Posts::where('status','=','Enabled')->take(1)->latest()->first();
