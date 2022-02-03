@@ -314,6 +314,18 @@
 
 <div id="map"></div>
 
+<div id="preloader">
+  <div id="status">
+     <div class="spinner">
+      <div class="rect1"></div>
+      <div class="rect2"></div>
+      <div class="rect3"></div>
+      <div class="rect4"></div>
+      <div class="rect5"></div>
+    </div>
+  </div>
+</div>
+
 <div id="loadingDiv" class="overlay-loader">
     <div class="loading-overlay">
         <!-- <h2>Loading div</h2> -->
@@ -1185,9 +1197,11 @@ $('.filter-reset').click(function() {
 
 <script>
     $(document).ready(function() {
-        var $loading = $('#loadingDiv').hide();
+        // var $loading = $('#loadingDiv').hide();
+        $('#preloader').hide();
     });
 
+    
 
     // var $loading = $('#loadingDiv').hide();
     // $(document)
