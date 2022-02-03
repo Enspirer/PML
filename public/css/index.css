@@ -152,6 +152,7 @@ p.card-text.mb-1 {
     overflow-x: hidden;
     transition: 0.5s;
     margin-top: 210px;
+    display: none;
 }
 
 .loading-overlay {

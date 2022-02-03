@@ -1197,8 +1197,8 @@ $('.filter-reset').click(function() {
 
 <script>
     $(document).ready(function() {
-        var $loading = $('#loadingDiv').hide();
-        // $('#preloader').hide();
+        // var $loading = $('#loadingDiv').hide();
+        $('#preloader').hide();
     });
 
     
