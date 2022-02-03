@@ -18,7 +18,7 @@
         <a class="nav-link text-dark fw-bold ps-5 w-100 {{ Request::segment(1) == 'accounts-dashboard' ? 'active' : null }}" id="nav-accountDashboard-tab" href="{{route('frontend.user.account_dashboard')}}" type="button" role="tab" aria-controls="nav-accountDashboard" aria-selected="false">
             <div class="row align-items-center justify-content-between">
                 <div class="col-1">
-                    <img src="{{ url('img/frontend/profile/my_properties.png') }}" alt="">
+                    <img src="{{ url('img/frontend/profile/account_dashboard.png') }}" alt="">
                 </div>
                 <div class="col-10 ps-0">
                     <p class="text-dark fw-bold">Account Dashboard</p>

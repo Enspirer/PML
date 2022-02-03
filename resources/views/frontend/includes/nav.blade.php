@@ -65,12 +65,10 @@
 
             @auth
             <div class="log-reg position-absolute" style="top: -4.1rem">
-                <a class="wishlist fw-bold d-inline-block px-4 text-decoration-none border-start border-end text-white wishlist-border-none"
-                    href="{{url('favourites')}}"><i class="far fa-heart me-2"></i> Wish List</a>
+                <a class="wishlist fw-bold d-inline-block px-4 text-decoration-none border-start  text-white wishlist-border-none"
+                    href="{{url('favourites')}}"><i class="far fa-heart me-2"></i> Wish List ({{App\Models\Favorite::where('user_id',auth()->user()->id)->get()->count()}})</a>
 
-                <a class="wishlist fw-bold d-inline-block px-4 text-decoration-none border-start border-end text-white"
-                    href="{{url('user_notifications')}}"><i class="far fa-bell me-2"></i> Notifications
-                    ({{App\Models\Notifications::where('user_id',auth()->user()->id)->where('status','Pending')->get()->count()}})</a>
+                <a class="wishlist fw-bold d-inline-block px-4 text-decoration-none border-start border-end text-white" href="{{url('user_notifications')}}"><i class="far fa-bell me-2"></i> Notifications ({{App\Models\Notifications::where('user_id',auth()->user()->id)->where('status','Pending')->get()->count()}})</a>
 
                 <!-- <a class="wishlist fw-bold d-inline-block px-4 text-decoration-none border-start border-end" href="{{ route('frontend.auth.login') }}"><i class="far fa-heart me-2"></i> Second List</a> -->
 
@@ -83,9 +81,9 @@
                 </a>
                 <div id="drop-menu" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     <a class="dropdown-item" href="{{ route('frontend.user.dashboard') }}">My Account</a>
-                    <!-- <a class="dropdown-item" href="">My Settings</a> -->
-                    <a class="dropdown-item" href="{{ route('frontend.auth.logout') }}" style="border-bottom: none">Log
-                        Out</a>
+                    <a class="dropdown-item" href="{{ route('frontend.user.my_properties') }}">My Properties</a>
+                    <a class="dropdown-item" href="{{ route('frontend.user.my-bookings') }}">My Bookings</a>
+                    <a class="dropdown-item" href="{{ route('frontend.auth.logout') }}" style="border-bottom: none">Log Out</a>
                 </div>
 
                 <!-- User Dropdown -->
@@ -121,7 +119,7 @@
             <div class="log-reg position-absolute">
                 <a class="wishlist fw-bold d-inline-block px-4 text-decoration-none border-start border-end"
                     style="border-right:0px!important;" href="{{ route('frontend.favourite_cookie_properties') }}"><i
-                        class="far fa-heart me-2"></i> Wish List</a>
+                        class="far fa-heart me-2"></i> Wish List ({{ count($favourites_cookies) }})</a>
                 <a class="wishlist fw-bold d-inline-block px-4 text-decoration-none border-start border-end text-white"
                     href="{{route('frontend.auth.login')}}"><i class="far fa-bell me-2"></i> Notifications</a>
 
@@ -263,7 +261,7 @@
             @auth
 
             <a class="wishlist wishlist-border-none fw-bold d-inline-block px-4 text-decoration-none border-start border-end mobiile-wish-list-btn"
-                href="{{url('favourites')}}"><i class="far fa-heart me-2"></i> Wish List</a>
+                href="{{url('favourites')}}"><i class="far fa-heart me-2"></i> Wish List ({{App\Models\Favorite::where('user_id',auth()->user()->id)->get()->count()}})</a>
 
 
 
@@ -277,7 +275,7 @@
             @else
 
             <a class="wishlist fw-bold d-inline-block px-4 text-decoration-none border-start border-end mobiile-wish-list-btn wishlist-border-none"
-                href="{{route('frontend.favourite_cookie_properties')}}"><i class="far fa-heart me-2"></i> Wish List</a>
+                href="{{route('frontend.favourite_cookie_properties')}}"><i class="far fa-heart me-2"></i> Wish List ({{ count($favourites_cookies) }})</a>
 
 
 
@@ -310,14 +308,9 @@
 
     <!-- notifications -->
     @auth
-    <a style="position:relative;border:0px !important; padding-left:0px !important; padding-right:0px !important;"
-        class="wishlist fw-bold d-inline-block px-4 text-decoration-none border-start border-end mobile-bell-area"
-        href="{{url('user_notifications')}}"><i class="far fa-bell me-2 mobile-bell-icon"></i><span
-            class="mobile-noti-counter">({{App\Models\Notifications::where('user_id',auth()->user()->id)->where('status','Pending')->get()->count()}})</span></a>
+        <a style="position:relative;border:0px !important; padding-left:0px !important; padding-right:0px !important;" class="wishlist fw-bold d-inline-block px-4 text-decoration-none border-start border-end mobile-bell-area" href="{{url('user_notifications')}}"><i class="far fa-bell me-2 mobile-bell-icon"></i><span class="mobile-noti-counter">({{App\Models\Notifications::where('user_id',auth()->user()->id)->where('status','Pending')->get()->count()}})</span></a>
     @else
-    <a style="position:relative;border:0px !important; padding-left:0px !important; padding-right:0px !important;"
-        class="wishlist fw-bold d-inline-block px-4 text-decoration-none border-start border-end mobile-bell-area"
-        href="{{route('frontend.auth.login')}}"><i class="far fa-bell me-2 mobile-bell-icon"></i></a>
+        <a style="position:relative;border:0px !important; padding-left:0px !important; padding-right:0px !important;" class="wishlist fw-bold d-inline-block px-4 text-decoration-none border-start border-end mobile-bell-area" href="{{route('frontend.auth.login')}}"><i class="far fa-bell me-2 mobile-bell-icon"></i></a>
     @endauth
 
     @auth
@@ -332,8 +325,9 @@
         </a>
         <div id="drop-menu-mobile" class="dropdown-menu mobile-drop-menu" aria-labelledby="navbarDropdownMenuLink" >
             <a class="dropdown-item" href="{{ route('frontend.user.dashboard') }}">My Account</a>
-            <a class="dropdown-item" href="{{ route('frontend.auth.logout') }}" style="border-bottom: none">Log
-                Out</a>
+            <a class="dropdown-item" href="{{ route('frontend.user.my_properties') }}">My Properties</a>
+            <a class="dropdown-item" href="{{ route('frontend.user.my-bookings') }}">My Bookings</a>
+            <a class="dropdown-item" href="{{ route('frontend.auth.logout') }}" style="border-bottom: none">Log Out</a>
         </div>
         <!-- end of user login styles -->
     </div>
