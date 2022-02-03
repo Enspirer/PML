@@ -109,18 +109,16 @@
                    
                     <form action="{{route('admin.homeloan_ad.update1')}}" method="post" enctype="multipart/form-data">                    
                         {{csrf_field()}}
-                            
+                        
                             <div class="form-group">
-                                <label>Image <span class="text-danger">*</span></label>
-                                <div class="input-group" data-toggle="aizuploader" data-type="image">
-                                    <div class="input-group-prepend">
-                                        <div class="input-group-text bg-soft-secondary font-weight-medium">Browse</div>
-                                    </div>
-                                    <div class="form-control file-amount">Choose File</div>
-                                    <input type="hidden" name="image" value="{{ get_settings('home_loan_advertisment') }}"  class="selected-files" >
-                                </div>
-                                <div class="file-preview box sm">
-                                </div>
+                                <label class="mb-3">Image</label>
+                                <div class="form-group">                            
+                                    <input type="file" class="form-control" name="image">
+                                    <br>              
+                                    @if(get_settings('home_loan_advertisment') != null)                      
+                                        <img src="{{ url(get_settings('home_loan_advertisment')) }}" style="width: 40%">
+                                    @endif
+                                </div>                                 
                             </div>  
                             <div class="form-group">
                                 <label>Link</label>
@@ -141,18 +139,16 @@
                 <div class="card-body">
                 <form action="{{route('admin.homeloan_ad.update2')}}" method="post" enctype="multipart/form-data">                    
                         {{csrf_field()}}
-                            
+                        
                             <div class="form-group">
-                                <label>Image <span class="text-danger">*</span></label>
-                                <div class="input-group" data-toggle="aizuploader" data-type="image">
-                                    <div class="input-group-prepend">
-                                        <div class="input-group-text bg-soft-secondary font-weight-medium">Browse</div>
-                                    </div>
-                                    <div class="form-control file-amount">Choose File</div>
-                                    <input type="hidden" name="image" value="{{ get_settings('home_loan_advertisment_2') }}"  class="selected-files" >
-                                </div>
-                                <div class="file-preview box sm">
-                                </div>
+                                <label class="mb-3">Image</label>
+                                <div class="form-group">                            
+                                    <input type="file" class="form-control" name="image">
+                                    <br>              
+                                    @if(get_settings('home_loan_advertisment_2') != null)                      
+                                        <img src="{{ url(get_settings('home_loan_advertisment_2')) }}" style="width: 40%">
+                                    @endif
+                                </div>                                 
                             </div>  
                             <div class="form-group">
                                 <label>Link</label>
