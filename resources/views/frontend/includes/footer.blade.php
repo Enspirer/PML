@@ -11,7 +11,7 @@
                         <i class="fas fa-phone-alt text-white"></i>
                     </div>
                     <div class="col-10 ps-0">
-                        <p class="text-white mb-3">+94 778669990</p>
+                        <p class="text-white mb-3"><a class="text-white" href="tel:+94778669990">+94 778669990</a></p>
                     </div>
                 </div>
 
@@ -20,7 +20,7 @@
                         <i class="fas fa-envelope text-white"></i>
                     </div>
                     <div class="col-10 ps-0">
-                        <p class="text-white mb-3">hello@propertymarketlive.com</p>
+                        <p class="text-white mb-3"><a class="text-white" href="mailto:hello@propertymarketlive.com">hello@propertymarketlive.com</a></p>
                     </div>
                 </div>
 
