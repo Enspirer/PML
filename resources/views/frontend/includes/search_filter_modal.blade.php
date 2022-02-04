@@ -15,9 +15,9 @@
                         </div>
                         
                         <div class="row mt-3">
-                            <div class="col-3 col-xs-12 col-tab-12">
+                            <div class="col-4 col-xs-12 col-tab-12">
                                 <div>
-                                    <label for="propertyType" class="form-label mb-0 required">Property Type</label>
+                                    <label for="propertyType" class="form-label required">Property Type</label>
                                     <select class="form-select" aria-label="propertyType" name="propertyType" id="propertyType" onChange="renderFields()">
 
                                         <option value="" selected> Select </option>
@@ -29,9 +29,9 @@
                                 </div>  
                             </div>
                                 
-                            <div class="col-3 col-xs-12 col-tab-12">
+                            <div class="col-4 col-xs-12 col-tab-12">
                                 <div>
-                                    <label for="transaction_type" class="form-label mb-0 required">Transaction Type</label>
+                                    <label for="transaction_type" class="form-label required">Transaction Type</label>
                                     <select class="form-select" aria-label="transaction_type" name="transaction_type" id="transaction_type">
                                         <option value="">Select</option>
                                         <option value="sale">For sale</option>
@@ -40,9 +40,9 @@
                                 </div> 
                             </div>
                                 
-                            <div class="col-3 col-xs-12 col-tab-12">
+                            <div class="col-4 col-xs-12 col-tab-12">
                                 <div>
-                                    <label for="min_price" class="form-label mb-0 required">City</label>
+                                    <label for="min_price" class="form-label required">City</label>
                                     <select class="form-select areas" aria-label="Default select example" name="city">
                                         <option value="">Select</option>
                                     </select>
@@ -68,9 +68,9 @@
 
                         <div class="row mt-3">
 
-                            <div class="col-3 col-xs-12 col-tab-12">
+                            <div class="col-4 col-xs-12 col-tab-12">
                                 <div>
-                                    <label for="min_price" class="form-label mb-0 required">Min Price</label>
+                                    <label for="min_price" class="form-label required">Min Price</label>
                                     <select class="form-select" aria-label="min_price" name="min_price" id="min_price">
                                         <option value="0">Unlimited</option>
                                         <option value="25000">25,000</option>
@@ -129,12 +129,11 @@
                                         <option value="20000000">20,000,000</option>
                                     </select>
                                 </div> 
-                            </div>
-                            
+                            </div>                            
 
-                            <div class="col-3 col-xs-12 col-tab-12">
+                            <div class="col-4 col-xs-12 col-tab-12">
                                 <div>
-                                    <label for="max_price" class="form-label mb-0 required">Max Price</label>
+                                    <label for="max_price" class="form-label required">Max Price</label>
                                     <select class="form-select" aria-label="max_price" name="max_price" id="max_price">
                                         <option value="0">Unlimited</option>
                                         <option value="25000">25,000</option>
@@ -195,15 +194,11 @@
                                 </div> 
                             </div>
 
-                            <div class="col-3 col-xs-12 col-tab-12">
+                            <div class="col-4 col-xs-12 col-tab-12">
                                 <div>
-                                    <label for="listed_since" class="form-label mb-0 required">Listed Since</label>
+                                    <label for="listed_since" class="form-label required">Listed Since</label>
                                     <input type="date" name="listed_since" class="form-control" aria-label="listed_since">
                                 </div> 
-                            </div>
-
-                            <div class="col-3 first-incoming-field">
-                            
                             </div>
                         </div>
 
@@ -217,8 +212,8 @@
                     </div>
                         
                     <div class="modal-footer justify-content-center">
-                        <button type="button" class="btn rounded-pill me-2 p-0 p-2 filter-reset" style="border: 1px solid #CCCCCC; color: #23A1C0">Reset <i class="fas fa-undo ms-3"></i></button>
-                        <button type="submit" class="btn rounded-pill text-light px-4 py-2 ms-2" style="background-color: #94ca60;">Search</button>
+                        <button type="button" class="btn rounded-pill me-2 p-0 p-2 filter-reset" style="border: 1px solid #CCCCCC; color: #23A1C0">Reset <i class="fas fa-undo"></i></button>
+                        <button type="submit" class="btn rounded-pill text-light px-4 py-2 ms-2" style="background-color: #94ca60;"><i class="fas fa-search"></i>Search</button>
                     </div>
                 </div>
             </div>

@@ -9,7 +9,7 @@
 
 @section('content')
 
-<div class="container post-type-container">
+<!-- <div class="container post-type-container">
     <div class="row">
         <div class="col-4 col-xs-12 post-card">
             <div class="post-card-wrapper">
@@ -49,7 +49,77 @@
             </div>
         </div>
     </div>
+</div> -->
+
+
+<section class="section-add-property" id="section-add-property">
+<div class="container">
+    <div class="row row-cols-1 row-cols-md-3 g-0">
+        <div class="col add-property-col">
+            <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Free Property Listing</h5>
+                <img src="{{ url('img/frontend/add-property-page/add-property1.png') }}" class="card-img-top" alt="...">
+                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                <ul>
+                    <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
+                    <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
+                    <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
+                    <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
+                </ul>
+                <div>
+                    <a href="{{ route('frontend.pre_listing') }}" class="add-property-btn">Free Property Listing</a>
+                </div>
+            </div>
+            </div>
+        </div>
+        <div class="col add-property-col">
+            <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Premium Property Listing</h5>
+                <img src="{{ url('img/frontend/add-property-page/add-property2.png') }}" class="card-img-top" alt="...">
+                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                <ul>
+                    <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
+                    <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
+                    <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
+                    <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
+                </ul>
+                <div>
+                    <a href="" class="add-property-btn">Premium Property Listing</a>
+                </div>
+            </div>
+            </div>
+        </div>
+        <div class="col add-property-col">
+            <div class="card">
+            <div class="card-body">
+            @if(App\Models\AgentRequest::where('user_id',auth()->user()->id)->first() == null)
+                <h5 class="card-title">Become an Agent</h5>
+            @else
+                <h5 class="card-title">Add Property as an Agent</h5>
+            @endif
+                <img src="{{ url('img/frontend/add-property-page/add-property3.png') }}" class="card-img-top" alt="...">
+                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                <ul>
+                    <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
+                    <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
+                    <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
+                    <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
+                </ul>
+                <div>
+                    @if(App\Models\AgentRequest::where('user_id',auth()->user()->id)->first() == null)
+                        <a href="{{ route('frontend.user.agent') }}" class="add-property-btn">Become an Agent</a>
+                    @else
+                        <a href="{{ route('frontend.user.create-property') }}" class="add-property-btn">Add Property as an Agent</a>
+                    @endif
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
 </div>
+</section>
 
 
 @endsection

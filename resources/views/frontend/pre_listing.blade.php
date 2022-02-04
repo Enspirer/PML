@@ -141,7 +141,7 @@
           <div class="list-group list-group-flush account-settings-links">
             <!-- <a class="list-group-item list-group-item-action active" data-toggle="list" href="#user_details">User Details</a> -->
             <a class="list-group-item list-group-item-action active" data-toggle="list" href="#property_details">Property Details</a>
-            <a class="list-group-item list-group-item-action" data-toggle="list" href="#panaromal_details">Panaromal Details</a>
+            <a class="list-group-item list-group-item-action toggle-submit" data-toggle="list" href="#panaromal_details">Panaromal Details</a>
         </div>
         </div>
         <div class="col-md-9">
@@ -412,20 +412,32 @@
                         </div>
                     </div>
                     <div class="tab-pane fade" id="panaromal_details">
-                        <div class="card-body">         
+                        <!-- <div class="card-body">         
                             
                             <div style="border:1px solid red; text-align:center" class="mb-4 p-1">
                                 <h6 style="color:red" class="mb-2 mt-1">Alert!</h6><h6 class="mb-1" style="font-size:15px;"> If You Want To Enable Panaroma Call This Number +94 778669990.</h6>
                             </div>
                                                                 
                                                             
+                        </div> -->
+
+                        <div class="alert">
+                            <div class="alert-body">
+                                <button type="button" class="btn-close"></button>
+                                <img src="{{url('img/warning.png')}}" alt="">
+                                <p>If You Want to Enable Panaroma, Call This Number</p>
+                                <a href="tel:+94778669990">+94 778669990</a>
+                                <div>
+                                    <button class="alert-btn">OK</button>
+                                </div>
+                            </div>
                         </div>
                         
                     </div>
                     
                 </div>
                 <div class="mt-4" align="right" style="margin:0px 25px 25px 0px">
-                    <input type="submit" class="btn btn-success" value="Submit">
+                    <input type="submit" class="btn btn-success alert-btn-trigger" value="Submit">
                 </div>
             </form>
         </div>
@@ -868,6 +880,19 @@ function geocodeLatLng(geocoder, map, infowindow) {
         })
         .catch((e) => window.alert("Geocoder failed due to: " + e));
     }
+
+    // Trigger panaroma details OK button
+    $('.alert-btn').click(function(){
+        $('.alert-btn-trigger').trigger("click");
+    })
+
+    $('.toggle-submit').click(function(){
+        $('.alert-btn-trigger').hide();
+    })
+
+    $('.list-group-item').first().click(function(){
+        $('.alert-btn-trigger').show();
+    })
 
 </script>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEBj8LhHUJaf2MXpqIQ_MOXs7HkeUXnac&callback=initMap&libraries=places&v=weekly&channel=2"

@@ -29,6 +29,7 @@
 
     <link rel="stylesheet" href="{{url('css/aiz-core.css')}}">
     <link rel="stylesheet" href="{{url('css/vendors.css')}}">
+    <link rel="stylesheet" href="{{url('css/custom.css')}}">
 
     <script>
     var AIZ = AIZ || {};
