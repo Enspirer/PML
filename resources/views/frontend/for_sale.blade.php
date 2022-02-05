@@ -406,13 +406,13 @@
 
                     @else
                         @foreach($properties as $key => $normal)
-                            @if($normal->premium == 'Enabled')
+                            @if($normal['premium'] == 'Enabled')
                                 <div class="row custom-shadow mb-4 mx-1">
                                     <div class="col-6 p-3 col-xs-12 mobile-m-0">
-                                        <div class="swiper mySwiper2" id="swiper_2{{$normal->id}}">
+                                        <div class="swiper mySwiper2" id="swiper_2{{$normal['id']}}">
                                             <div class="swiper-wrapper">
                                                 @php
-                                                    $str_arr2 = preg_split ("/\,/", $normal->image_ids);
+                                                    $str_arr2 = preg_split ("/\,/", $normal['image_ids']);
                                                 @endphp
 
                                                 @foreach($str_arr2 as $key=> $pre)
@@ -429,7 +429,7 @@
                                                 <button class="btn fw-bold" style="color: #39B54A">AVAILABLE</button>
                                             </div>
                                         </div>
-                                        <div thumbsSlider="" class="swiper mySwiper mt-2" id="swiper_small_2{{$normal->id}}">
+                                        <div thumbsSlider="" class="swiper mySwiper mt-2" id="swiper_small_2{{$normal['id']}}">
                                             <div class="swiper-wrapper">
                                                 @foreach($str_arr2 as $key=> $pre)
                                                     <div class="swiper-slide">
@@ -456,10 +456,10 @@
 
                                             </div>
                                             <div class="col-6 text-end">
-                                                @if(App\Models\AgentRequest::where('user_id',$normal->user_id)->first() != null)
-                                                <a href="{{route('frontend.individual_agent',App\Models\AgentRequest::where('user_id',$normal->user_id)->first()->id)}}"
+                                                @if(App\Models\AgentRequest::where('user_id',$normal['user_id'])->first() != null)
+                                                <a href="{{route('frontend.individual_agent',App\Models\AgentRequest::where('user_id',$normal['user_id'])->first()->id)}}"
                                                     style="text-decoration: none">
-                                                    <img src="{{ uploaded_asset(App\Models\AgentRequest::where('user_id',$normal->user_id)->first()->logo) }}"
+                                                    <img src="{{ uploaded_asset(App\Models\AgentRequest::where('user_id',$normal['user_id'])->first()->logo) }}"
                                                         width="50%" class="mobile-agent-squre-img" style="object-fit:cover;">
                                                 </a>
                                                 @endif
@@ -470,15 +470,15 @@
                                             <div class="col-12">
                                                 <div class="row mb-2">
                                                     <div class="col-10">
-                                                        @if($normal->price_options == 'Full')
-                                                            <a href="{{ route('frontend.for_sale_single',$normal->id) }}"
+                                                        @if($normal['price_options'] == 'Full')
+                                                            <a href="{{ route('frontend.for_sale_single',$normal['id']) }}"
                                                                 class="text-decoration-none text-dark">
-                                                                <h3 class="fw-bold">{{ get_currency(request() ,$normal->price)}}</h3>
+                                                                <h3 class="fw-bold">{{ get_currency(request() ,$normal['price'])}}</h3>
                                                             </a>
                                                         @else
-                                                            <a href="{{ route('frontend.for_sale_single',$normal->id) }}"
+                                                            <a href="{{ route('frontend.for_sale_single',$normal['id']) }}"
                                                                 class="text-decoration-none text-dark">
-                                                                <h3 class="fw-bold">{{ get_currency(request() ,$normal->price)}} <span
+                                                                <h3 class="fw-bold">{{ get_currency(request() ,$normal['price'])}} <span
                                                                         class="fw-normal"
                                                                         style="font-size: 1rem; color: rgb(0, 0, 0, 0.45)">Per
                                                                         Perch</span></h3>
@@ -488,33 +488,33 @@
                                                 </div>
 
                                                 <!-- <p class="mb-2 fw-bold" style="font-size: 1.1rem; color: black">Commercial Land for Sale</p> -->
-                                                <a href="{{ route('frontend.for_sale_single',$normal->id) }}"
+                                                <a href="{{ route('frontend.for_sale_single',$normal['id']) }}"
                                                     class="text-decoration-none text-dark">
-                                                    <p class="mb-2" style="font-size: 1rem; color: black">{{$normal->name}},
-                                                        {{App\Models\Location::where('id',$normal->area)->first()->district }},
-                                                        {{App\Models\Country::where('id',$normal->country)->first()->country_name }}
+                                                    <p class="mb-2" style="font-size: 1rem; color: black">{{$normal['name']}},
+                                                        {{App\Models\Location::where('id',$normal['area'])->first()->district }},
+                                                        {{App\Models\Country::where('id',$normal['country'])->first()->country_name }}
                                                     </p>
                                                 </a>
                                                 <p
                                                     style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;">
-                                                    {{$normal->description}}</p>
+                                                    {{$normal['description']}}</p>
 
                                                 <p class="mt-3" style="font-size: 1rem;">
-                                                    @if($normal->beds != null)
-                                                    {{$normal->beds}}<i class="fas fa-bed ms-2 me-3"></i>
+                                                    @if($normal['beds'] != null)
+                                                    {{$normal['beds']}}<i class="fas fa-bed ms-2 me-3"></i>
                                                     @endif
-                                                    @if($normal->beds != null)
-                                                    {{$normal->baths}}<i class="fas fa-bath ms-2"></i>
+                                                    @if($normal['beds'] != null)
+                                                    {{$normal['baths']}}<i class="fas fa-bath ms-2"></i>
                                                     @endif
                                                 </p>
 
                                                 <div class="mt-3">
-                                                    @if(App\Models\AgentRequest::where('user_id',$normal->user_id)->first() != null)
+                                                    @if(App\Models\AgentRequest::where('user_id',$normal['user_id'])->first() != null)
                                                     <p class="mb-3 fw-bold"><i
-                                                            class="fas fa-phone-alt me-3"></i></i>{{App\Models\AgentRequest::where('user_id',$normal->user_id)->first()->telephone}}
+                                                            class="fas fa-phone-alt me-3"></i></i>{{App\Models\AgentRequest::where('user_id',$normal['user_id'])->first()->telephone}}
                                                     </p>
                                                     <p class="mb-3 fw-bold"><i
-                                                            class="fas fa-envelope me-3"></i>{{App\Models\AgentRequest::where('user_id',$normal->user_id)->first()->email}}
+                                                            class="fas fa-envelope me-3"></i>{{App\Models\AgentRequest::where('user_id',$normal['user_id'])->first()->email}}
                                                     </p>
                                                     @endif
 
@@ -523,7 +523,7 @@
                                                     @auth
                                                         @php
                                                             if(auth()->user()) {
-                                                                $favourite = App\Models\Favorite::where('property_id',$normal->id)->where('user_id',auth()->user()->id)->first();
+                                                                $favourite = App\Models\Favorite::where('property_id',$normal['id'])->where('user_id',auth()->user()->id)->first();
                                                             }else{
                                                                 $favourite = null;
                                                             }
@@ -533,7 +533,7 @@
                                                             <form action="{{route('frontend.propertyFavourite')}}" method="post" enctype="multipart/form-data">
                                                                 {{csrf_field()}}
                                                                 <button type="submit" style="margin-left:-13px;" class="mb-3 fw-bold btn"><i class="fas fa-heart me-3"></i>Save Property</button>
-                                                                <input type="hidden" name="prop_hidden_id" value="{{ $normal->id }}" />
+                                                                <input type="hidden" name="prop_hidden_id" value="{{ $normal['id'] }}" />
                                                             </form>
                                                         @else
                                                             <form action="{{route('frontend.propertyFavouriteDelete',$favourite->id)}}" method="post" enctype="multipart/form-data">
@@ -543,12 +543,12 @@
                                                             </form>
                                                         @endif
                                                     @else
-                                                        @if(is_favorite_cookie($normal->id))
-                                                            <a href="{{url('favourite_cookie_properties/remove',$normal->id)}}" class="mb-3 fw-bold btn" style="margin-left:-13px; text-decoration:none; color:red; background-color:white;"><i class="fas fa-heart me-3"></i>Unsave Property</a>
+                                                        @if(is_favorite_cookie($normal['id']))
+                                                            <a href="{{url('favourite_cookie_properties/remove',$normal['id'])}}" class="mb-3 fw-bold btn" style="margin-left:-13px; text-decoration:none; color:red; background-color:white;"><i class="fas fa-heart me-3"></i>Unsave Property</a>
                                                         @else 
                                                             <form action="{{route('frontend.favourite_cookie.store')}}" method="post" enctype="multipart/form-data">
                                                                 {{csrf_field()}}
-                                                                <input type="hidden" name="cookie_property_id" value="{{ $normal->id }}" />
+                                                                <input type="hidden" name="cookie_property_id" value="{{ $normal['id'] }}" />
                                                                 <button type="submit" style="margin-left:-13px;" class="mb-3 fw-bold btn"><i class="fas fa-heart me-3"></i>Save Property</button>
                                                             </form>
                                                         @endif
@@ -566,10 +566,10 @@
 
                                 <div class="row custom-shadow mb-4 mx-1">
                                     <div class="col-6 p-3 col-xs-12">
-                                        <div class="swiper mySwiper2" id="swiper_2{{$normal->id}}">
+                                        <div class="swiper mySwiper2" id="swiper_2{{$normal['id']}}">
                                             <div class="swiper-wrapper">
                                                 @php
-                                                $str_arr2 = preg_split ("/\,/", $normal->image_ids);
+                                                $str_arr2 = preg_split ("/\,/", $normal['image_ids']);
                                                 @endphp
 
                                                 @foreach($str_arr2 as $key=> $pre)
@@ -586,7 +586,7 @@
                                                 <button class="btn fw-bold" style="color: #39B54A">AVAILABLE</button>
                                             </div>
                                         </div>
-                                        <div thumbsSlider="" class="swiper mySwiper mt-2" id="swiper_small_2{{$normal->id}}">
+                                        <div thumbsSlider="" class="swiper mySwiper mt-2" id="swiper_small_2{{$normal['id']}}">
                                             <div class="swiper-wrapper">
                                                 @foreach($str_arr2 as $key=> $pre)
                                                 <div class="swiper-slide">
@@ -603,10 +603,10 @@
 
                                             </div>
                                             <div class="col-6 text-end">
-                                                @if(App\Models\AgentRequest::where('user_id',$normal->user_id)->first() != null)
-                                                <a href="{{route('frontend.individual_agent',App\Models\AgentRequest::where('user_id',$normal->user_id)->first()->id)}}"
+                                                @if(App\Models\AgentRequest::where('user_id',$normal['user_id'])->first() != null)
+                                                <a href="{{route('frontend.individual_agent',App\Models\AgentRequest::where('user_id',$normal['user_id'])->first()->id)}}"
                                                     style="text-decoration: none">
-                                                    <img src="{{ uploaded_asset(App\Models\AgentRequest::where('user_id',$normal->user_id)->first()->logo) }}"
+                                                    <img src="{{ uploaded_asset(App\Models\AgentRequest::where('user_id',$normal['user_id'])->first()->logo) }}"
                                                         width="50%">
                                                 </a>
                                                 @endif
@@ -617,15 +617,15 @@
                                             <div class="col-12">
                                                 <div class="row mb-2">
                                                     <div class="col-10">
-                                                        @if($normal->price_options == 'Full')
-                                                        <a href="{{ route('frontend.for_sale_single',$normal->id) }}"
+                                                        @if($normal['price_options'] == 'Full')
+                                                        <a href="{{ route('frontend.for_sale_single',$normal['id']) }}"
                                                             class="text-decoration-none text-dark">
-                                                            <h3 class="fw-bold">{{ get_currency(request() ,$normal->price)}}</h3>
+                                                            <h3 class="fw-bold">{{ get_currency(request() ,$normal['price'])}}</h3>
                                                         </a>
                                                         @else
-                                                        <a href="{{ route('frontend.for_sale_single',$normal->id) }}"
+                                                        <a href="{{ route('frontend.for_sale_single',$normal['id']) }}"
                                                             class="text-decoration-none text-dark">
-                                                            <h3 class="fw-bold">{{ get_currency(request() ,$normal->price)}} <span
+                                                            <h3 class="fw-bold">{{ get_currency(request() ,$normal['price'])}} <span
                                                                     class="fw-normal"
                                                                     style="font-size: 1rem; color: rgb(0, 0, 0, 0.45)">Per
                                                                     Perch</span></h3>
@@ -635,33 +635,33 @@
                                                 </div>
 
                                                 <!-- <p class="mb-2 fw-bold" style="font-size: 1.1rem; color: black">Commercial Land for Sale</p> -->
-                                                <a href="{{ route('frontend.for_sale_single',$normal->id) }}"
+                                                <a href="{{ route('frontend.for_sale_single',$normal['id']) }}"
                                                     class="text-decoration-none text-dark">
-                                                    <p class="mb-2" style="font-size: 1rem; color: black">{{$normal->name}},
-                                                        {{App\Models\Location::where('id',$normal->area)->first()->district }},
-                                                        {{App\Models\Country::where('id',$normal->country)->first()->country_name }}
+                                                    <p class="mb-2" style="font-size: 1rem; color: black">{{$normal['name']}},
+                                                        {{App\Models\Location::where('id',$normal['area'])->first()->district }},
+                                                        {{App\Models\Country::where('id',$normal['country'])->first()->country_name }}
                                                     </p>
                                                 </a>
                                                 <p
                                                     style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;">
-                                                    {{$normal->description}}</p>
+                                                    {{$normal['description']}}</p>
 
                                                 <p class="mt-3" style="font-size: 1rem;">
-                                                    @if($normal->beds != null)
-                                                    {{$normal->beds}}<i class="fas fa-bed ms-2 me-3"></i>
+                                                    @if($normal['beds'] != null)
+                                                    {{$normal['beds']}}<i class="fas fa-bed ms-2 me-3"></i>
                                                     @endif
-                                                    @if($normal->beds != null)
-                                                    {{$normal->baths}}<i class="fas fa-bath ms-2"></i>
+                                                    @if($normal['beds'] != null)
+                                                    {{$normal['baths']}}<i class="fas fa-bath ms-2"></i>
                                                     @endif
                                                 </p>
 
                                                 <div class="mt-3">
-                                                    @if(App\Models\AgentRequest::where('user_id',$normal->user_id)->first() != null)
+                                                    @if(App\Models\AgentRequest::where('user_id',$normal['user_id'])->first() != null)
                                                     <p class="mb-3 fw-bold"><i
-                                                            class="fas fa-phone-alt me-3"></i></i>{{App\Models\AgentRequest::where('user_id',$normal->user_id)->first()->telephone}}
+                                                            class="fas fa-phone-alt me-3"></i></i>{{App\Models\AgentRequest::where('user_id',$normal['user_id'])->first()->telephone}}
                                                     </p>
                                                     <p class="mb-3 fw-bold"><i
-                                                            class="fas fa-envelope me-3"></i>{{App\Models\AgentRequest::where('user_id',$normal->user_id)->first()->email}}
+                                                            class="fas fa-envelope me-3"></i>{{App\Models\AgentRequest::where('user_id',$normal['user_id'])->first()->email}}
                                                     </p>
                                                     @endif
 
@@ -670,7 +670,7 @@
                                                     @auth
                                                         @php
                                                             if(auth()->user()) {
-                                                                $favourite = App\Models\Favorite::where('property_id',$normal->id)->where('user_id',auth()->user()->id)->first();
+                                                                $favourite = App\Models\Favorite::where('property_id',$normal['id'])->where('user_id',auth()->user()->id)->first();
                                                             }else{
                                                                 $favourite = null;
                                                             }
@@ -682,7 +682,7 @@
                                                                 {{csrf_field()}}
                                                                 <button type="submit" style="margin-left:-13px;" class="mb-3 fw-bold btn"><i
                                                                         class="fas fa-heart me-3"></i>Save Property</button>
-                                                                <input type="hidden" name="prop_hidden_id" value="{{ $normal->id }}" />
+                                                                <input type="hidden" name="prop_hidden_id" value="{{ $normal['id'] }}" />
                                                             </form>
                                                         @else
                                                             <form action="{{route('frontend.propertyFavouriteDelete',$favourite->id)}}"
@@ -695,12 +695,12 @@
                                                             </form>
                                                         @endif
                                                     @else
-                                                        @if(is_favorite_cookie($normal->id))
-                                                            <a href="{{url('favourite_cookie_properties/remove',$normal->id)}}" class="mb-3 fw-bold btn" style="margin-left:-13px; text-decoration:none; color:red; background-color:white;"><i class="fas fa-heart me-3"></i>Unsave Property</a>
+                                                        @if(is_favorite_cookie($normal['id']))
+                                                            <a href="{{url('favourite_cookie_properties/remove',$normal['id'])}}" class="mb-3 fw-bold btn" style="margin-left:-13px; text-decoration:none; color:red; background-color:white;"><i class="fas fa-heart me-3"></i>Unsave Property</a>
                                                         @else 
                                                             <form action="{{route('frontend.favourite_cookie.store')}}" method="post" enctype="multipart/form-data">
                                                                 {{csrf_field()}}
-                                                                <input type="hidden" name="cookie_property_id" value="{{ $normal->id }}" />
+                                                                <input type="hidden" name="cookie_property_id" value="{{ $normal['id'] }}" />
                                                                 <button type="submit" style="margin-left:-13px;" class="mb-3 fw-bold btn"><i class="fas fa-heart me-3"></i>Save Property</button>
                                                             </form>
                                                         @endif
@@ -719,7 +719,7 @@
                         <div class="my-md-5">
                             <nav aria-label="Page navigation">
                                 <ul class="pagination justify-content-center">
-                                    
+                                    <li class="page-item">{{ $properties->links() }}</li>
                                 </ul>
                             </nav>
                         </div>
@@ -1315,13 +1315,13 @@ $('.filter-reset').click(function() {
 @if(count($properties) != 0 )
 @foreach($properties as $key => $normal)
 <script>
-var swiper = new Swiper("#swiper_small_2{{$normal->id}}", {
+var swiper = new Swiper("#swiper_small_2{{$normal['id']}}", {
     spaceBetween: 10,
     slidesPerView: 4,
     freeMode: true,
     watchSlidesProgress: true,
 });
-var swiper2 = new Swiper("#swiper_2{{$normal->id}}", {
+var swiper2 = new Swiper("#swiper_2{{$normal['id']}}", {
     spaceBetween: 10,
     loop: true,
     navigation: {

@@ -15,6 +15,9 @@ use App\Models\Search;
 use App\Models\EmailAlert;
 use App\Models\WatchListing;
 use GuzzleHttp;
+use Illuminate\Pagination\Paginator;
+use Illuminate\Pagination\LengthAwarePaginator;
+use App\Http\Controllers\Frontend\Input;
 
 /**
  * Class ForSaleController.
@@ -234,7 +237,7 @@ class ForSaleController extends Controller
    
 
 
-    public function for_sale($key_name,$min_price,$max_price,$transaction_type,$property_type,$beds,$baths,$land_size,$listed_since,$building_type,$open_house,$zoning_type,$units,$building_size,$farm_type,$parking_type,$city,$long,$lat,$area_coordinator)
+    public function for_sale(Request $request,$key_name,$min_price,$max_price,$transaction_type,$property_type,$beds,$baths,$land_size,$listed_since,$building_type,$open_house,$zoning_type,$units,$building_size,$farm_type,$parking_type,$city,$long,$lat,$area_coordinator)
     {
 
         // $property_types = PropertyType::where('status','=','1')->get();
@@ -368,8 +371,16 @@ class ForSaleController extends Controller
         $count_for_sale = count($properties->get());
 
 
-        $fe_properties = $properties->get();
+        // $fe_properties = $properties->get();
+
+        $fe_properties = self::arrayPaginator($properties->get()->toArray(), $request);
+        // dd($fe_properties);
+
+        // $fe_properties = new Paginator($properties, 3);
+        // dd($fe_properties->first());
+
         // $fe_properties = $properties->paginate(3);
+
 
 
         // dd($fe_properties);
@@ -396,6 +407,18 @@ class ForSaleController extends Controller
             'beds' => $beds,
             'area_coords'=>'area_coords'
         ]);
+    }
+
+
+    public static function arrayPaginator($array, $request) {
+        // dd($request);
+        $page = 1;
+        $perPage = 3; 
+        $offset = ($page * $perPage) - $perPage; 
+        return new LengthAwarePaginator(array_slice($array, $offset, $perPage, true), count($array), $perPage, $page, [
+            'path' => $request->url(), 
+            'query' => $request->query()
+        ]); 
     }
 
 
