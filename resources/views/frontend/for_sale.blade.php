@@ -719,7 +719,7 @@
                         <div class="my-md-5">
                             <nav aria-label="Page navigation">
                                 <ul class="pagination justify-content-center">
-                                    <li class="page-item">{{ $properties->links() }}</li>
+                                    
                                 </ul>
                             </nav>
                         </div>

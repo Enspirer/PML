@@ -243,19 +243,25 @@ class ForSaleController extends Controller
         // dd($transaction_type);
 
         if(get_country_cookie(request()) == null ){
-            $properties = Properties::where('admin_approval', 'Approved')->where('sold_request',null)->orderBy('id','desc');
+            $properties = Properties::select("id","long","lat","beds","baths","property_type","price","capacity","price_options","negotiable","land_size","listed_since","open_houses_only","zoning_type","number_of_units","building_size","farm_type","building_type","open_house_only","transaction_type","parking_type","country","area","city","name","main_category","meta_description","slug","flow_plan","video","image_ids","panaromal_status","panaromal_images","google_panaroma","user_id","feature_image_id","admin_approval","area_manager_approval","meta_keywords","postal_code","states","address_two","address_one","premium","promoted","featured","description","listning_type","sold_request", \DB::raw("6371 * acos(cos(radians(" . $lat . "))
+                * cos(radians(`lat`)) * cos(radians(`long`) - radians(" . $long . "))
+                + sin(radians(" .$lat. ")) * sin(radians(`lat`))) AS distance"))->having('distance', '<', 1000)->where('admin_approval', 'Approved')->where('sold_request',null)->orderBy('id','desc');
         }else{
-            $properties = Properties::where('admin_approval', 'Approved')->where('sold_request',null)->orderBy('id','desc')->where('country',get_country_cookie(request())->id);
+            $properties = Properties::select("id","long","lat","beds","baths","property_type","price","capacity","price_options","negotiable","land_size","listed_since","open_houses_only","zoning_type","number_of_units","building_size","farm_type","building_type","open_house_only","transaction_type","parking_type","country","area","city","name","main_category","meta_description","slug","flow_plan","video","image_ids","panaromal_status","panaromal_images","google_panaroma","user_id","feature_image_id","admin_approval","area_manager_approval","meta_keywords","postal_code","states","address_two","address_one","premium","promoted","featured","description","listning_type","sold_request", \DB::raw("6371 * acos(cos(radians(" . $lat . "))
+                * cos(radians(`lat`)) * cos(radians(`long`) - radians(" . $long . "))
+                + sin(radians(" .$lat. ")) * sin(radians(`lat`))) AS distance"))->having('distance', '<', 1000)->where('admin_approval', 'Approved')->where('sold_request',null)->orderBy('id','desc')->where('country',get_country_cookie(request())->id);
         }
+        // dd($properties->get());
         // ->where('sold_request',null)
         // ->where('country',get_country_cookie(request())->country_name)
         
+       
 
-        if($key_name != 'key_name'){
+        // if($key_name != 'key_name'){
 
-            $properties->where('name', 'like', '%' .  $key_name . '%')->orWhere('city', 'like', '%' .  $key_name . '%');
+        //     $properties->where('name', 'like', '%' .  $key_name . '%')->orWhere('city', 'like', '%' .  $key_name . '%');
 
-        }
+        // }
         // dd($properties->get());
 
 
@@ -347,10 +353,16 @@ class ForSaleController extends Controller
             $properties->where('city', $city);
         }
 
+        // dd($properties->get());
+
+
         
         $count_for_sale = count($properties->get());
 
-        $fe_properties = $properties->paginate(3);
+
+        $fe_properties = $properties->get();
+
+        // dd($fe_properties);
 
         if(get_country_cookie(request()) == null ){
             $properties_promoted = Properties::where('promoted','Enabled')->where('admin_approval','Approved')->take(3)->latest()->get();
