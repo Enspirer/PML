@@ -212,7 +212,7 @@
                     </div>
                         
                     <div class="modal-footer justify-content-center">
-                        <button type="button" class="btn rounded-pill me-2 p-0 p-2 filter-reset" style="border: 1px solid #CCCCCC; color: #23A1C0">Reset <i class="fas fa-undo"></i></button>
+                        <button type="button" class="btn rounded-pill me-2 p-0 p-2 filter-reset" style="border: 1px solid #CCCCCC; color: #23A1C0"><i class="fas fa-undo"></i> Reset</button>
                         <button type="submit" class="btn rounded-pill text-light px-4 py-2 ms-2" style="background-color: #94ca60;"><i class="fas fa-search"></i>Search</button>
                     </div>
                 </div>

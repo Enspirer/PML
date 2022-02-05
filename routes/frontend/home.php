@@ -22,6 +22,8 @@ use App\Http\Controllers\Frontend\MainMenuController;
 use App\Http\Controllers\Frontend\ArticleController;
 use App\Http\Controllers\Frontend\VideoController;
 use App\Http\Controllers\Frontend\PostAdController;
+use App\Http\Controllers\Frontend\AboutUsController;
+use App\Http\Controllers\Frontend\HelpAndSupportController;
 
 
 /*
@@ -54,6 +56,9 @@ Route::get('new-development', [NewDevelopmentController::class, 'index'])->name(
 Route::get('test', [TestController::class, 'index'])->name('test');
 Route::get('testtwo', [TestTwoController::class, 'index'])->name('testtwo');
 Route::get('pano/{image_id}', [PanoController::class, 'index'])->name('pano');
+
+Route::get('about-us', [AboutUsController::class, 'index'])->name('about_us');
+Route::get('help-and-support', [HelpAndSupportController::class, 'index'])->name('help_and_support');
 
 // Route::get('agents', [AgentsController::class, 'index'])->name('agents');
 

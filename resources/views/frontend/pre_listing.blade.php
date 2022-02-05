@@ -425,6 +425,7 @@
                             <div class="alert-body">
                                 <button type="button" class="btn-close"></button>
                                 <img src="{{url('img/warning.png')}}" alt="">
+                                <span class="alert-title">Alert!</span>
                                 <p>If You Want to Enable Panaroma, Call This Number</p>
                                 <a href="tel:+94778669990">+94 778669990</a>
                                 <div>
@@ -893,6 +894,9 @@ function geocodeLatLng(geocoder, map, infowindow) {
     $('.list-group-item').first().click(function(){
         $('.alert-btn-trigger').show();
     })
+
+    // Filter color change
+    
 
 </script>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEBj8LhHUJaf2MXpqIQ_MOXs7HkeUXnac&callback=initMap&libraries=places&v=weekly&channel=2"
