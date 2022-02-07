@@ -1,6 +1,6 @@
 @extends('backend.layouts.app')
 
-@section('title', __('Articles'))
+@section('title', __('Property News'))
 
 @section('content')
     
@@ -10,9 +10,9 @@
 
             <div class="card">
                 <div class="card-header">
-                    <strong>Articles&nbsp;</strong>
+                    <strong>Property News&nbsp;</strong>
 
-                    <a href="{{route('admin.post.create')}}" class="btn btn-primary pull-right ml-4">Create New</a>
+                    <a href="{{route('admin.property_news.create')}}" class="btn btn-primary pull-right ml-4">Create New</a>
                    
                 </div><!--card-header-->
 
@@ -23,9 +23,10 @@
                                 <th scope="col">#ID</th>
                                 <th scope="col">Feature Image</th>
                                 <th scope="col">Title</th>
-                                <th scope="col">Type</th>
                                 <th scope="col">Order</th>
                                 <th scope="col">Featured</th>
+                                <th scope="col">Most Viewed</th>
+                                <th scope="col">Trending</th>
                                 <th scope="col">Status</th>
                                 <th scope="col">Option</th>
                             </tr>
@@ -74,16 +75,17 @@
         $(function () {
             var table = $('#villadatatable').DataTable({
                 processing: true,
-                ajax: "{{route('admin.post.getdetails')}}",
+                ajax: "{{route('admin.property_news.getdetails')}}",
                 serverSide: true,
                 order: [[0, "desc"]],
                 columns: [
                     {data: 'id', name: 'id'},
                     {data: 'feature_image', name: 'feature_image'},
                     {data: 'title', name: 'title'},
-                    {data: 'type', name: 'type'},
                     {data: 'order', name: 'order'},
                     {data: 'featured', name: 'featured'},
+                    {data: 'most_viewed', name: 'most_viewed'},
+                    {data: 'trending', name: 'trending'},
                     {data: 'status', name: 'status'},
                     {data: 'action', name: 'action', orderable: false, searchable: false},
                 ]
@@ -99,7 +101,7 @@
 
             $('#ok_button').click(function(){
             $.ajax({
-            url:"post/delete/"+user_id,
+            url:"property_news/delete/"+user_id,
             
             success:function(data)
             {

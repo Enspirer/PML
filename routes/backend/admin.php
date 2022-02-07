@@ -18,6 +18,7 @@ use App\Http\Controllers\Backend\FreeListningController;
 use App\Http\Controllers\Backend\HomeFeaturedController;
 use App\Http\Controllers\Backend\SubscribedEmailsController;
 use App\Http\Controllers\Backend\PagesController;
+use App\Http\Controllers\Backend\PropertyNewsController;
 
 
 // All route names are prefixed with 'admin.'.
@@ -86,6 +87,14 @@ Route::get('post/getdetails', [PostController::class, 'getdetails'])->name('post
 Route::get('post/edit/{id}', [PostController::class, 'edit'])->name('post.edit');
 Route::post('post/update', [PostController::class, 'update'])->name('post.update');
 Route::get('post/delete/{id}', [PostController::class, 'destroy'])->name('post.destroy');
+
+Route::get('property_news', [PropertyNewsController::class, 'index'])->name('property_news.index');
+Route::get('property_news/create', [PropertyNewsController::class, 'create'])->name('property_news.create');
+Route::post('property_news/store', [PropertyNewsController::class, 'store'])->name('property_news.store');
+Route::get('property_news/getdetails', [PropertyNewsController::class, 'getdetails'])->name('property_news.getdetails');
+Route::get('property_news/edit/{id}', [PropertyNewsController::class, 'edit'])->name('property_news.edit');
+Route::post('property_news/update', [PropertyNewsController::class, 'update'])->name('property_news.update');
+Route::get('property_news/delete/{id}', [PropertyNewsController::class, 'destroy'])->name('property_news.destroy');
 
 Route::get('sidebar_ad', [AdvertisementController::class, 'index'])->name('sidebar_ad.index');
 Route::post('sidebar_ad/update1', [AdvertisementController::class, 'update1'])->name('sidebar_ad.update1');

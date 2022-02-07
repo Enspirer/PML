@@ -69,13 +69,23 @@ Breadcrumbs::for('admin.category.edit', function ($trail) {
 });
 
 Breadcrumbs::for('admin.post.index', function ($trail) {
-    $trail->push('Post', route('admin.post.index'));
+    $trail->push('Articles', route('admin.post.index'));
 });
 Breadcrumbs::for('admin.post.create', function ($trail) {
-    $trail->push('Create Post', route('admin.post.create'));
+    $trail->push('Create Articles', route('admin.post.create'));
 });
 Breadcrumbs::for('admin.post.edit', function ($trail) {
-    $trail->push('Edit Post', route('admin.post.edit',1));
+    $trail->push('Edit Articles', route('admin.post.edit',1));
+});
+
+Breadcrumbs::for('admin.property_news.index', function ($trail) {
+    $trail->push('Prtoperty News', route('admin.property_news.index'));
+});
+Breadcrumbs::for('admin.property_news.create', function ($trail) {
+    $trail->push('Create Prtoperty News', route('admin.property_news.create'));
+});
+Breadcrumbs::for('admin.property_news.edit', function ($trail) {
+    $trail->push('Edit Prtoperty News', route('admin.property_news.edit',1));
 });
 
 Breadcrumbs::for('admin.sidebar_ad.index', function ($trail) {

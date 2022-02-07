@@ -90,6 +90,21 @@
                     </li>                        
                 </ul>
             </li> 
+
+            <li class="nav-item nav-dropdown ">
+                <a class="nav-link nav-dropdown-toggle " href="#">
+                    <i class="nav-icon far fa-newspaper"></i>
+                    Property News
+                </a>
+
+                <ul class="nav-dropdown-items">
+                    <li class="nav-item">
+                        <a class="nav-link {{active_class(Route::is('admin/property_news'))}}" href="{{ route('admin.property_news.index') }}">
+                            News
+                        </a>
+                    </li> 
+                </ul>
+            </li> 
            
             <li class="nav-item nav-dropdown ">
                 <a class="nav-link nav-dropdown-toggle " href="#">
@@ -104,13 +119,13 @@
                         </a>
                     </li> 
                     <li class="nav-item">
-                        <a class="nav-link {{active_class(Route::is('admin/pro_tal_settings'))}}" href="{{ route('admin.pro_tal_settings') }}">
-                            Settings
+                        <a class="nav-link {{active_class(Route::is('admin/post'))}}" href="{{ route('admin.post.index') }}">
+                            Articles
                         </a>
                     </li> 
                     <li class="nav-item">
-                        <a class="nav-link {{active_class(Route::is('admin/post'))}}" href="{{ route('admin.post.index') }}">
-                            Articles
+                        <a class="nav-link {{active_class(Route::is('admin/pro_tal_settings'))}}" href="{{ route('admin.pro_tal_settings') }}">
+                            Settings
                         </a>
                     </li> 
                 </ul>
