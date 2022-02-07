@@ -21,7 +21,7 @@ class CreatePropertyNewsTable extends Migration
             $table->text('featured');
             $table->text('trending');
             $table->text('most_viewed');
-            $table->text('order');
+            $table->integer('order');
             $table->text('status');
             $table->timestamps();
         });
