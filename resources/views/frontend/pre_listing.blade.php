@@ -883,9 +883,6 @@ function geocodeLatLng(geocoder, map, infowindow) {
     }
 
     // Trigger panaroma details OK button
-    $('.alert-btn').click(function(){
-        $('.alert-btn-trigger').trigger("click");
-    })
 
     $('.toggle-submit').click(function(){
         $('.alert-btn-trigger').hide();
