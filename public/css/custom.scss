@@ -569,7 +569,22 @@
                 padding: 16px;
                 margin: 1rem;
 
+                &.active {
+                    border: 1px solid #39B54A;
+                    box-shadow: 0 0 4px -2px #39B54A;
 
+                    .black-icon {
+                        display: none;
+                    }
+
+                    .green-icon {
+                        display: block;
+                    }
+
+                    .slide-text {
+                        color: #39B54A;
+                    }
+                }
 
                 &:hover {
                     cursor: pointer;
@@ -596,6 +611,8 @@
                 img {
                     display: block;
                     margin: 0 auto;
+                    position: relative;
+                    z-index: -1;
                 }
 
                 .slide-text {
@@ -603,6 +620,8 @@
                     text-align: center;
                     display: block;
                     margin-top: 16px;
+                    position: relative;
+                    z-index: -1;
                 }
             }
         }
@@ -614,6 +633,14 @@
     .accordion-container {
         width: 60rem;
         margin: 0 auto;
+
+        .accordion-control {
+            display: none;
+
+            &.active {
+                display: block;
+            }
+        }
 
         .header-section {
             width: 35rem;
@@ -929,6 +956,7 @@
 
                 .content {
                     position: relative;
+                    width: 100%;
 
                     .news-para {
                         height: 130px;
