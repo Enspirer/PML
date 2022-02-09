@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 
 class MainMenuController extends Controller
 {
-    public function news($slug) {
+    public function property_talk($slug) {
 
         $category = Category::where('slug',$slug)->first();
         $categories = Category::where('status','Enabled')->orderBy('order','ASC')->get();

@@ -29,9 +29,9 @@
             @if(count($categories) != 0)
                 @foreach($categories as $cat)
                     @if($cat->id == $category->id)
-                        <a href="{{route('frontend.news',$cat->slug)}}" class="btn link-btn w-100 mb-3 main-menu-links active-menu"><img src="{{ uploaded_asset($cat->icon) }}" alt="" class="me-3">{{$cat->name}}</a>
+                        <a href="{{route('frontend.property_talk',$cat->slug)}}" class="btn link-btn w-100 mb-3 main-menu-links active-menu"><img src="{{ uploaded_asset($cat->icon) }}" alt="" class="me-3">{{$cat->name}}</a>
                     @else
-                        <a href="{{route('frontend.news',$cat->slug)}}" class="btn link-btn w-100 mb-3 main-menu-links"><img src="{{ uploaded_asset($cat->icon) }}" alt="" class="me-3">{{$cat->name}}</a>
+                        <a href="{{route('frontend.property_talk',$cat->slug)}}" class="btn link-btn w-100 mb-3 main-menu-links"><img src="{{ uploaded_asset($cat->icon) }}" alt="" class="me-3">{{$cat->name}}</a>
                     @endif
                 @endforeach
             @endif

@@ -646,8 +646,8 @@
 
                     @if($property_talk != null)
                         <div class="col-4 col-xs-12 col-tab-50 middle-card">
-                            <a href="{{url('news',App\Models\Category::where('id',$property_talk->category)->first()->slug)}}" style="color:black; text-decoration:none"></a>
-                                <div class="card position-relative" style="height: 27rem;"><a href="{{url('news',App\Models\Category::where('id',$property_talk->category)->first()->slug)}}" style="color:black; text-decoration:none">
+                            <a href="{{url('property_talk',App\Models\Category::where('id',$property_talk->category)->first()->slug)}}" style="color:black; text-decoration:none"></a>
+                                <div class="card position-relative" style="height: 27rem;"><a href="{{url('property_talk',App\Models\Category::where('id',$property_talk->category)->first()->slug)}}" style="color:black; text-decoration:none">
                                         
                                         <div class="px-4 py-2" style="-webkit-box-shadow: inset 0.5px 14px -8px rgba(0,0,0,0.75); -moz-box-shadow: inset 0.5px 14px -8px rgba(0,0,0,0.75); box-shadow: inset 0px 0.5px 14px -8px rgba(0,0,0,0.75);">
                                             <div class="row align-items-center">
@@ -659,14 +659,14 @@
                                         
                                     <img src="{{ uploaded_asset($property_talk->feature_image) }}" class="card-img-top" alt="..." style="object-fit: cover; height: 13rem;">
                                 </a>
-                                <div class="card-body"><a href="{{url('news',App\Models\Category::where('id',$property_talk->category)->first()->slug)}}" style="color:black; text-decoration:none">
+                                <div class="card-body"><a href="{{url('property_talk',App\Models\Category::where('id',$property_talk->category)->first()->slug)}}" style="color:black; text-decoration:none">
                                     <p class="card-text mb-1"
                                         style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical;">
                                             {{$property_talk->description}}</p>
                                             
-                                        </a><div class="text-right mb-1"><a href="{{url('news',App\Models\Category::where('id',$property_talk->category)->first()->slug)}}" style="color:black">
-                                                                                    </a><div class="position-absolute read" style="right:20px;"><a href="{{url('news',App\Models\Category::where('id',$property_talk->category)->first()->slug)}}" style="color:black; text-decoration:none">
-                                                </a><a href="{{url('news',App\Models\Category::where('id',$property_talk->category)->first()->slug)}}" style="color:black; text-decoration:none">View More</a>
+                                        </a><div class="text-right mb-1"><a href="{{url('property_talk',App\Models\Category::where('id',$property_talk->category)->first()->slug)}}" style="color:black">
+                                                                                    </a><div class="position-absolute read" style="right:20px;"><a href="{{url('property_talk',App\Models\Category::where('id',$property_talk->category)->first()->slug)}}" style="color:black; text-decoration:none">
+                                                </a><a href="{{url('property_talk',App\Models\Category::where('id',$property_talk->category)->first()->slug)}}" style="color:black; text-decoration:none">View More</a>
                                             </div>
                                                                                     
                                         </div>
