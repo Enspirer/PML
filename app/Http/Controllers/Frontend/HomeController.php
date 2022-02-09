@@ -17,6 +17,7 @@ use App\Models\Search;
 use App\Models\Settings;
 use App\Models\Upload;
 use App\Models\Favorite;
+use App\Models\PropertyNews;
 use App\Models\NearLocation;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Cookie;
@@ -108,6 +109,7 @@ class HomeController extends Controller
         $settings = Settings::where('key','home_page_featured')->first();
         $settings_latest = Settings::where('key','home_page_latest')->first();
 
+        $featured_property_news = PropertyNews::where('status','Enabled')->where('featured','Enabled')->first();
 
         // dd($featured_properties);
 
@@ -119,7 +121,8 @@ class HomeController extends Controller
             'property_types' => $property_types,
             'default_country' => $countryIso,
             'settings' => $settings,
-            'settings_latest' => $settings_latest
+            'settings_latest' => $settings_latest,
+            'featured_property_news' => $featured_property_news
         ]);
     }
 

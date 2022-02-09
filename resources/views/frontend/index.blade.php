@@ -610,44 +610,45 @@
                     <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fpropertymarketlive&tabs=timeline&width=340&height=500&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="100%" height="500" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
 
                 </div>               
-
-                               
                                 
-
-                    <div class="col-4 col-xs-12 col-tab-50">
-                        <a href="" style="color:black; text-decoration:none"></a>
-                            <div class="card position-relative" style="height: 27rem;"><a href="" style="color:black; text-decoration:none">
-                                    
-                                    <div class="px-4 py-2" style="-webkit-box-shadow: inset 0.5px 14px -8px rgba(0,0,0,0.75); -moz-box-shadow: inset 0.5px 14px -8px rgba(0,0,0,0.75); box-shadow: inset 0px 0.5px 14px -8px rgba(0,0,0,0.75);">
-                                        <div class="row align-items-center">
-                                            <div class="col-12 text-center">
-                                                <img src="{{ url('img/frontend/index/property-news.png') }}" alt="" class="img-fluid" style="height:60px;">
+                        <div class="col-4 col-xs-12 col-tab-50">
+                            <a href="{{url('news')}}" style="color:black; text-decoration:none"></a>
+                                <div class="card position-relative" style="height: 28.2rem;"><a href="{{url('news')}}" style="color:black; text-decoration:none">
+                                        
+                                        <div class="px-4 py-2" style="-webkit-box-shadow: inset 0.5px 14px -8px rgba(0,0,0,0.75); -moz-box-shadow: inset 0.5px 14px -8px rgba(0,0,0,0.75); box-shadow: inset 0px 0.5px 14px -8px rgba(0,0,0,0.75);">
+                                            <div class="row align-items-center">
+                                                <div class="col-12 text-center">
+                                                    <img src="{{ url('img/frontend/index/property-news.png') }}" alt="" class="img-fluid" style="height:60px;">
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    
-                                <img src="{{ url('img/frontend/index/PML-news.png') }}" class="card-img-top" alt="..." style="object-fit: cover; height: 13rem;">
-                            </a>
-                            <div class="card-body"><a href="" style="color:black; text-decoration:none">
-                                <p class="card-text mb-1"
-                                    style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical;">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                                         
-                                    </a><div class="text-right mb-1"><a href="" style="color:black">
-                                                                                </a><div class="position-absolute read" style="right:20px;"><a href="" style="color:black; text-decoration:none">
-                                            </a><a href="" style="color:black; text-decoration:none">View More</a>
+                                    <img src="{{ uploaded_asset($featured_property_news->feature_image)}}" class="card-img-top" alt="..." style="object-fit: cover; height: 13rem;">
+                                </a>
+                                <div class="card-body"><a href="{{url('news')}}" style="color:black; text-decoration:none">
+                                    <div style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical;">
+                                        <p class="card-text mb-1">
+                                            {!! $featured_property_news->description !!}
+                                        </p>
+                                    </div>
+                                        
+                                            
+                                        </a><div class="text-right mt-1 mb-1"><a href="{{url('news')}}" style="color:black">
+                                                                                    </a><div class="position-absolute read" style="right:20px;"><a href="{{url('news')}}" style="color:black; text-decoration:none">
+                                                </a><a href="{{url('news')}}" style="color:black; text-decoration:none">View More</a>
+                                            </div>
+                                                                                    
                                         </div>
-                                                                                
                                     </div>
                                 </div>
-                            </div>
-                            
-                    </div>
+                                
+                        </div>
+                    @endif                            
 
                     @if($property_talk != null)
                         <div class="col-4 col-xs-12 col-tab-50 middle-card">
                             <a href="{{url('property_talk',App\Models\Category::where('id',$property_talk->category)->first()->slug)}}" style="color:black; text-decoration:none"></a>
-                                <div class="card position-relative" style="height: 27rem;"><a href="{{url('property_talk',App\Models\Category::where('id',$property_talk->category)->first()->slug)}}" style="color:black; text-decoration:none">
+                                <div class="card position-relative" style="height: 28.2rem;"><a href="{{url('property_talk',App\Models\Category::where('id',$property_talk->category)->first()->slug)}}" style="color:black; text-decoration:none">
                                         
                                         <div class="px-4 py-2" style="-webkit-box-shadow: inset 0.5px 14px -8px rgba(0,0,0,0.75); -moz-box-shadow: inset 0.5px 14px -8px rgba(0,0,0,0.75); box-shadow: inset 0px 0.5px 14px -8px rgba(0,0,0,0.75);">
                                             <div class="row align-items-center">
@@ -660,11 +661,11 @@
                                     <img src="{{ uploaded_asset($property_talk->feature_image) }}" class="card-img-top" alt="..." style="object-fit: cover; height: 13rem;">
                                 </a>
                                 <div class="card-body"><a href="{{url('property_talk',App\Models\Category::where('id',$property_talk->category)->first()->slug)}}" style="color:black; text-decoration:none">
-                                    <p class="card-text mb-1"
-                                        style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical;">
-                                            {{$property_talk->description}}</p>
+                                        <p class="card-text mb-1" style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical;">
+                                            {{$property_talk->description}}
+                                        </p>
                                             
-                                        </a><div class="text-right mb-1"><a href="{{url('property_talk',App\Models\Category::where('id',$property_talk->category)->first()->slug)}}" style="color:black">
+                                        </a><div class="text-right mt-2 mb-1"><a href="{{url('property_talk',App\Models\Category::where('id',$property_talk->category)->first()->slug)}}" style="color:black">
                                                                                     </a><div class="position-absolute read" style="right:20px;"><a href="{{url('property_talk',App\Models\Category::where('id',$property_talk->category)->first()->slug)}}" style="color:black; text-decoration:none">
                                                 </a><a href="{{url('property_talk',App\Models\Category::where('id',$property_talk->category)->first()->slug)}}" style="color:black; text-decoration:none">View More</a>
                                             </div>
