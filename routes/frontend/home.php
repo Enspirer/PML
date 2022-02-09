@@ -24,7 +24,7 @@ use App\Http\Controllers\Frontend\VideoController;
 use App\Http\Controllers\Frontend\PostAdController;
 use App\Http\Controllers\Frontend\AboutUsController;
 use App\Http\Controllers\Frontend\HelpAndSupportController;
-
+use App\Http\Controllers\Frontend\NewsController;
 
 /*
  * Frontend Controllers
@@ -59,7 +59,7 @@ Route::get('pano/{image_id}', [PanoController::class, 'index'])->name('pano');
 
 Route::get('about-us', [AboutUsController::class, 'index'])->name('about_us');
 Route::get('help-and-support', [HelpAndSupportController::class, 'index'])->name('help_and_support');
-
+Route::get('news', [NewsController::class, 'index'])->name('news');
 // Route::get('agents', [AgentsController::class, 'index'])->name('agents');
 
 // Route::get('for-sale', [ForSaleController::class, 'index'])->name('for_sale');
