@@ -197,3 +197,20 @@ Breadcrumbs::for('admin.marketing_services', function ($trail) {
 Breadcrumbs::for('admin.watermark', function ($trail) {
     $trail->push('Watermark', route('admin.watermark'));
 });
+
+Breadcrumbs::for('admin.help_category.index', function ($trail) {
+    $trail->push('Category', route('admin.help_category.index'));
+});
+Breadcrumbs::for('admin.help_category.edit', function ($trail) {
+    $trail->push('Edit Category', route('admin.help_category.edit',1));
+});
+
+Breadcrumbs::for('admin.help_supports.index', function ($trail) {
+    $trail->push('Help & Supports', route('admin.help_supports.index'));
+});
+Breadcrumbs::for('admin.help_supports.create', function ($trail) {
+    $trail->push('Create Help & Support', route('admin.help_supports.create'));
+});
+Breadcrumbs::for('admin.help_supports.edit', function ($trail) {
+    $trail->push('Edit Help & Support', route('admin.help_supports.edit',1));
+});

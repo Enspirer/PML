@@ -19,6 +19,8 @@ use App\Http\Controllers\Backend\HomeFeaturedController;
 use App\Http\Controllers\Backend\SubscribedEmailsController;
 use App\Http\Controllers\Backend\PagesController;
 use App\Http\Controllers\Backend\PropertyNewsController;
+use App\Http\Controllers\Backend\HelpCategoryController;
+use App\Http\Controllers\Backend\HelpSupportsController;
 
 
 // All route names are prefixed with 'admin.'.
@@ -198,3 +200,20 @@ Route::post('commercial_resources/update', [PagesController::class, 'commercial_
 
 Route::get('marketing_services', [PagesController::class, 'marketing_services'])->name('marketing_services');
 Route::post('marketing_services/update', [PagesController::class, 'marketing_services_update'])->name('marketing_services_update');
+
+
+Route::get('help_category', [HelpCategoryController::class, 'index'])->name('help_category.index');
+Route::post('help_category/store', [HelpCategoryController::class, 'store'])->name('help_category.store');
+Route::get('help_category/getdetails', [HelpCategoryController::class, 'getdetails'])->name('help_category.getdetails');
+Route::get('help_category/edit/{id}', [HelpCategoryController::class, 'edit'])->name('help_category.edit');
+Route::post('help_category/update', [HelpCategoryController::class, 'update'])->name('help_category.update');
+Route::get('help_category/delete/{id}', [HelpCategoryController::class, 'destroy'])->name('help_category.destroy');
+
+Route::get('help_supports', [HelpSupportsController::class, 'index'])->name('help_supports.index');
+Route::get('help_supports/create', [HelpSupportsController::class, 'create'])->name('help_supports.create');
+Route::post('help_supports/store', [HelpSupportsController::class, 'store'])->name('help_supports.store');
+Route::get('help_supports/getdetails', [HelpSupportsController::class, 'getdetails'])->name('help_supports.getdetails');
+Route::get('help_supports/edit/{id}', [HelpSupportsController::class, 'edit'])->name('help_supports.edit');
+Route::post('help_supports/update', [HelpSupportsController::class, 'update'])->name('help_supports.update');
+Route::get('help_supports/delete/{id}', [HelpSupportsController::class, 'destroy'])->name('help_supports.destroy');
+
