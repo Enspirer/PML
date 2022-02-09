@@ -39,35 +39,35 @@
                 <div class="splide__track">
                         <ul class="splide__list">
                             <li class="splide__slide">
-                                <div class="inner-content">
+                                <div onclick="showContent(event,'getting-started')" class="inner-content active">
                                     <img class="black-icon" src="{{url('img/frontend/help-and-support/flag-black.png')}}" alt="">
                                     <img class="green-icon" src="{{url('img/frontend/help-and-support/flag-green.png')}}" alt="">
                                     <span class="slide-text">Getting Started</span>
                                 </div>
                             </li>
                             <li class="splide__slide">
-                                <div class="inner-content">
+                                <div onclick="showContent(event,'price-and-plans')" class="inner-content">
                                     <img class="black-icon" src="{{url('img/frontend/help-and-support/price-tag-black.png')}}" alt="">
                                     <img class="green-icon" src="{{url('img/frontend/help-and-support/price-tag-green.png')}}" alt="">
                                     <span class="slide-text">Price &amp; Plans</span>
                                 </div>
                             </li>
                             <li class="splide__slide">
-                                <div class="inner-content">
+                                <div onclick="showContent(event,'sales-question')" class="inner-content">
                                     <img class="black-icon" src="{{url('img/frontend/help-and-support/shopping-bag-black.png')}}" alt="">
                                     <img class="green-icon" src="{{url('img/frontend/help-and-support/shopping-bag-green.png')}}" alt="">
                                     <span class="slide-text">Sales Question</span>
                                 </div>
                             </li>
                             <li class="splide__slide">
-                                <div class="inner-content">
+                                <div onclick="showContent(event,'usage-guides')" class="inner-content">
                                     <img class="black-icon" src="{{url('img/frontend/help-and-support/guide-black.png')}}" alt="">
                                     <img class="green-icon" src="{{url('img/frontend/help-and-support/guide-green.png')}}" alt="">
                                     <span class="slide-text">Usage Guides</span>
                                 </div>
                             </li>
                             <li class="splide__slide">
-                                <div class="inner-content">
+                                <div onclick="showContent(event,'information')" class="inner-content">
                                     <img class="black-icon" src="{{url('img/frontend/help-and-support/info-black.png')}}" alt="">
                                     <img class="green-icon" src="{{url('img/frontend/help-and-support/info-green.png')}}" alt="">
                                     <span class="slide-text">Information</span>
@@ -82,11 +82,259 @@
 </section>
 
 <section class="section-accordion" id="section-accordion">
-    <div class="accordion-container">
-        <div class="price-and-plans">
+    <div class="accordion-container" id="accordion-list">
+        <div class="accordion-control active" id="getting-started">
+            <div class="row">
+                <div class="header-section">
+                    <span class="title">Getting Started</span>
+                    <p class="content">Tropical Property Realtor is your premium property and real estate listing
+                        website
+                        featuring exclusive properties from multiple locations around the</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="accordion accordion-flush" id="accordionFlushExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-headingOne">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#flush-collapseOne" aria-expanded="false"
+                                aria-controls="flush-collapseOne">
+                                Accordion Item #1
+                            </button>
+                        </h2>
+                        <div id="flush-collapseOne" class="accordion-collapse collapse"
+                            aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">Placeholder content for this accordion, which is intended to
+                                demonstrate the <code>.accordion-flush</code> class. This is the first item's accordion
+                                body.</div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-headingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#flush-collapseTwo" aria-expanded="false"
+                                aria-controls="flush-collapseTwo">
+                                Accordion Item #2
+                            </button>
+                        </h2>
+                        <div id="flush-collapseTwo" class="accordion-collapse collapse"
+                            aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">Placeholder content for this accordion, which is intended to
+                                demonstrate the <code>.accordion-flush</code> class. This is the second item's accordion
+                                body. Let's imagine this being filled with some actual content.</div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-headingThree">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#flush-collapseThree" aria-expanded="false"
+                                aria-controls="flush-collapseThree">
+                                Accordion Item #3
+                            </button>
+                        </h2>
+                        <div id="flush-collapseThree" class="accordion-collapse collapse"
+                            aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">Placeholder content for this accordion, which is intended to
+                                demonstrate the <code>.accordion-flush</code> class. This is the third item's accordion
+                                body. Nothing more exciting happening here in terms of content, but just filling up the
+                                space to make it look, at least at first glance, a bit more representative of how this
+                                would
+                                look in a real-world application.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-control" id="price-and-plans">
             <div class="row">
                 <div class="header-section">
                     <span class="title">Pricing Plans</span>
+                    <p class="content">Tropical Property Realtor is your premium property and real estate listing
+                        website
+                        featuring exclusive properties from multiple locations around the</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="accordion accordion-flush" id="accordionFlushExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-headingOne">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#flush-collapseOne" aria-expanded="false"
+                                aria-controls="flush-collapseOne">
+                                Accordion Item #1
+                            </button>
+                        </h2>
+                        <div id="flush-collapseOne" class="accordion-collapse collapse"
+                            aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">Placeholder content for this accordion, which is intended to
+                                demonstrate the <code>.accordion-flush</code> class. This is the first item's accordion
+                                body.</div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-headingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#flush-collapseTwo" aria-expanded="false"
+                                aria-controls="flush-collapseTwo">
+                                Accordion Item #2
+                            </button>
+                        </h2>
+                        <div id="flush-collapseTwo" class="accordion-collapse collapse"
+                            aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">Placeholder content for this accordion, which is intended to
+                                demonstrate the <code>.accordion-flush</code> class. This is the second item's accordion
+                                body. Let's imagine this being filled with some actual content.</div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-headingThree">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#flush-collapseThree" aria-expanded="false"
+                                aria-controls="flush-collapseThree">
+                                Accordion Item #3
+                            </button>
+                        </h2>
+                        <div id="flush-collapseThree" class="accordion-collapse collapse"
+                            aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">Placeholder content for this accordion, which is intended to
+                                demonstrate the <code>.accordion-flush</code> class. This is the third item's accordion
+                                body. Nothing more exciting happening here in terms of content, but just filling up the
+                                space to make it look, at least at first glance, a bit more representative of how this
+                                would
+                                look in a real-world application.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-control" id="sales-question">
+            <div class="row">
+                <div class="header-section">
+                    <span class="title">Sales Question</span>
+                    <p class="content">Tropical Property Realtor is your premium property and real estate listing
+                        website
+                        featuring exclusive properties from multiple locations around the</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="accordion accordion-flush" id="accordionFlushExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-headingOne">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#flush-collapseOne" aria-expanded="false"
+                                aria-controls="flush-collapseOne">
+                                Accordion Item #1
+                            </button>
+                        </h2>
+                        <div id="flush-collapseOne" class="accordion-collapse collapse"
+                            aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">Placeholder content for this accordion, which is intended to
+                                demonstrate the <code>.accordion-flush</code> class. This is the first item's accordion
+                                body.</div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-headingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#flush-collapseTwo" aria-expanded="false"
+                                aria-controls="flush-collapseTwo">
+                                Accordion Item #2
+                            </button>
+                        </h2>
+                        <div id="flush-collapseTwo" class="accordion-collapse collapse"
+                            aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">Placeholder content for this accordion, which is intended to
+                                demonstrate the <code>.accordion-flush</code> class. This is the second item's accordion
+                                body. Let's imagine this being filled with some actual content.</div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-headingThree">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#flush-collapseThree" aria-expanded="false"
+                                aria-controls="flush-collapseThree">
+                                Accordion Item #3
+                            </button>
+                        </h2>
+                        <div id="flush-collapseThree" class="accordion-collapse collapse"
+                            aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">Placeholder content for this accordion, which is intended to
+                                demonstrate the <code>.accordion-flush</code> class. This is the third item's accordion
+                                body. Nothing more exciting happening here in terms of content, but just filling up the
+                                space to make it look, at least at first glance, a bit more representative of how this
+                                would
+                                look in a real-world application.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-control" id="usage-guides">
+            <div class="row">
+                <div class="header-section">
+                    <span class="title">Usage Guides</span>
+                    <p class="content">Tropical Property Realtor is your premium property and real estate listing
+                        website
+                        featuring exclusive properties from multiple locations around the</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="accordion accordion-flush" id="accordionFlushExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-headingOne">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#flush-collapseOne" aria-expanded="false"
+                                aria-controls="flush-collapseOne">
+                                Accordion Item #1
+                            </button>
+                        </h2>
+                        <div id="flush-collapseOne" class="accordion-collapse collapse"
+                            aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">Placeholder content for this accordion, which is intended to
+                                demonstrate the <code>.accordion-flush</code> class. This is the first item's accordion
+                                body.</div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-headingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#flush-collapseTwo" aria-expanded="false"
+                                aria-controls="flush-collapseTwo">
+                                Accordion Item #2
+                            </button>
+                        </h2>
+                        <div id="flush-collapseTwo" class="accordion-collapse collapse"
+                            aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">Placeholder content for this accordion, which is intended to
+                                demonstrate the <code>.accordion-flush</code> class. This is the second item's accordion
+                                body. Let's imagine this being filled with some actual content.</div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-headingThree">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#flush-collapseThree" aria-expanded="false"
+                                aria-controls="flush-collapseThree">
+                                Accordion Item #3
+                            </button>
+                        </h2>
+                        <div id="flush-collapseThree" class="accordion-collapse collapse"
+                            aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">Placeholder content for this accordion, which is intended to
+                                demonstrate the <code>.accordion-flush</code> class. This is the third item's accordion
+                                body. Nothing more exciting happening here in terms of content, but just filling up the
+                                space to make it look, at least at first glance, a bit more representative of how this
+                                would
+                                look in a real-world application.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-control" id="information">
+            <div class="row">
+                <div class="header-section">
+                    <span class="title">Information</span>
                     <p class="content">Tropical Property Realtor is your premium property and real estate listing
                         website
                         featuring exclusive properties from multiple locations around the</p>
@@ -202,6 +450,22 @@
 } );
 
     splide.mount();
+
+    // Slider and accordion
+    function showContent(evt, accordion) {
+    var i, accordionControl, innerContent;
+    accordionControl = document.getElementsByClassName("accordion-control");
+    for (i = 0; i < accordionControl.length; i++) {
+      accordionControl[i].style.display = "none";
+    }
+    innerContent = document.getElementsByClassName("inner-content");
+    for (i = 0; i < innerContent.length; i++) {
+      innerContent[i].className = innerContent[i].className.replace(" active", "");
+    }
+    document.getElementById(accordion).style.display = "block";
+    evt.currentTarget.className += " active";
+  }
+
 </script>
 
 @endpush
