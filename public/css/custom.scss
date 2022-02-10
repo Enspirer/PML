@@ -1210,3 +1210,168 @@
         }
     }
 }
+
+// Feedback Modal
+
+.feedback-btn {
+    background-color: #35495E;
+    color: #fff;
+    border: 1px solid #35495E;
+    width: 140px;
+    height: 40px;
+    border-radius: 40px;
+    transform: rotate(-90deg);
+    position: fixed;
+    top: 40vh;
+    right: -3rem;
+    z-index: 9999;
+
+    &:hover {
+        background-color: #16202c;
+    }
+
+    i {
+        font-size: 1.4rem;
+        margin-right: 0.5rem;
+    }
+}
+
+#feedbackModal {
+    .modal-dialog {
+        .modal-content {
+            .modal-header {
+                background-color: #16202c;
+                display: block !important;
+
+                img {
+                    width: 200px;
+                    display: block;
+                    margin: 0 auto;
+                }
+
+                .btn-close {
+                    background: none;
+                    color: #fff;
+                    font-size: 2rem;
+                    line-height: 0;
+                    position: absolute;
+                    top: 0.5rem;
+                    right: 0.5rem;
+                }
+            }
+
+            .modal-body {
+
+                h4,
+                h6 {
+                    text-align: center;
+                }
+
+                .sub-title {
+                    margin-bottom: 2rem !important;
+                }
+
+                #starRating {
+
+                    /* use display:inline-flex to prevent whitespace issues. alternatively, you can put all the children of .rating-group on a single line */
+                    .rating-group {
+                        display: inline-flex;
+                    }
+
+                    /* make hover effect work properly in IE */
+                    .rating__icon {
+                        pointer-events: none;
+                    }
+
+                    /* hide radio inputs */
+                    .rating__input {
+                        position: absolute !important;
+                        left: -9999px !important;
+                    }
+
+                    /* hide 'none' input from screenreaders */
+                    .rating__input--none {
+                        display: none
+                    }
+
+                    /* set icon padding and size */
+                    .rating__label {
+                        cursor: pointer;
+                        padding: 0 0.1em;
+                        font-size: 1.5rem;
+                    }
+
+                    /* set default star color */
+                    .rating__icon--star {
+                        color: orange;
+                    }
+
+                    /* if any input is checked, make its following siblings grey */
+                    .rating__input:checked~.rating__label .rating__icon--star {
+                        color: #ddd;
+                    }
+
+                    /* make all stars orange on rating group hover */
+                    .rating-group:hover .rating__label .rating__icon--star {
+                        color: orange;
+                    }
+
+                    /* make hovered input's following siblings grey on hover */
+                    .rating__input:hover~.rating__label .rating__icon--star {
+                        color: #ddd;
+                    }
+                }
+
+                #feedbackBlock,
+                #issuesBlock {
+                    display: none;
+                }
+
+
+                .input-wrapper {
+                    margin-bottom: 1.5rem;
+
+                    .form-label {
+                        font-size: .9rem;
+                        margin-bottom: 0.25rem;
+                    }
+
+                    .form-check-label {
+                        font-size: .9rem;
+                    }
+
+                    select,
+                    input,
+                    textarea {
+                        font-size: .9rem !important;
+
+                        &:focus {
+                            box-shadow: none !important;
+                        }
+                    }
+
+                    textarea {
+                        resize: none;
+                    }
+
+                    .form-check-input {
+                        background: none;
+                        background-color: #fff;
+                        border: 1px solid #35495e;
+
+                        &:checked[type=radio] {
+                            background: none;
+                            border: 4px solid #35495e;
+                            background-color: #fff;
+                        }
+                    }
+                }
+
+                button[type=submit] {
+                    background-color: #35495e;
+                    border: 1px solid #35495E;
+                }
+            }
+        }
+    }
+}

@@ -312,6 +312,110 @@
 
 @include('frontend.includes.search')
 
+<!-- Feedback modal -->
+
+<button type="button" class="feedback-btn" data-bs-toggle="modal" data-bs-target="#feedbackModal">
+    <i class="bi bi-chat-dots"></i> Feedback
+</button>
+
+<div class="modal fade" id="feedbackModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <img src="{{url('img/frontend/logo.png')}}" alt="">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i
+                        class="bi bi-x"></i></button>
+            </div>
+            <div class="modal-body">
+                <h4 class="title">PML Visitor Feedback</h4>
+                <h6 class="sub-title">Please rate your experience on PML today.</h6>
+                <form action="">
+                    <div class="input-wrapper">
+                        <label for="feedbackTopic" class="form-label">What is your feedback regarding?</label>
+                        <select id="feedbackTopic" class="form-select" onchange="feedback()">
+                            <option value="0" selected>Choose a topic</option>
+                            <option value="1">User Experiance</option>
+                            <option value="2">Suggestion</option>
+                            <option value="3">Report a technical problem</option>
+                            <option value="4">General Inquiries</option>
+                        </select>
+                    </div>
+                    <div class="feedback-block" id="feedbackBlock">
+                        <div id="starRating">
+                            <div class="rating-group input-wrapper">
+                                <input disabled checked class="rating__input rating__input--none" name="rating3"
+                                    id="rating3-none" value="0" type="radio">
+                                <label aria-label="1 star" class="rating__label" for="rating3-1"><i
+                                        class="rating__icon rating__icon--star bi bi-star-fill"></i></label>
+                                <input class="rating__input" name="rating3" id="rating3-1" value="1" type="radio">
+                                <label aria-label="2 stars" class="rating__label" for="rating3-2"><i
+                                        class="rating__icon rating__icon--star bi bi-star-fill"></i></label>
+                                <input class="rating__input" name="rating3" id="rating3-2" value="2" type="radio">
+                                <label aria-label="3 stars" class="rating__label" for="rating3-3"><i
+                                        class="rating__icon rating__icon--star bi bi-star-fill"></i></label>
+                                <input class="rating__input" name="rating3" id="rating3-3" value="3" type="radio">
+                                <label aria-label="4 stars" class="rating__label" for="rating3-4"><i
+                                        class="rating__icon rating__icon--star bi bi-star-fill"></i></label>
+                                <input class="rating__input" name="rating3" id="rating3-4" value="4" type="radio">
+                                <label aria-label="5 stars" class="rating__label" for="rating3-5"><i
+                                        class="rating__icon rating__icon--star bi bi-star-fill"></i></label>
+                                <input class="rating__input" name="rating3" id="rating3-5" value="5" type="radio">
+                            </div>
+                        </div>
+                        <div class="input-wrapper" id="issuesBlock">
+                            <label for="issues" class="form-label">What issues are you having?</label>
+                            <select id="issues" class="form-select">
+                                <option selected>Choose...</option>
+                                <option value="1">Searching for Properties</option>
+                                <option value="2">Viewing Properties</option>
+                                <option value="3">Contacting a PML</option>
+                                <option value="4">Website Performance</option>
+                                <option value="5">PML Account</option>
+                            </select>
+                        </div>
+                        <div class="input-wrapper">
+                            <label for="feedbackComment" class="form-label" id="feedbackLabel">Click here to type your
+                                comment
+                                question</label>
+                            <textarea class="form-control" id="feedbackComment" rows="4"></textarea>
+                        </div>
+                        <div class="input-wrapper">
+                            <div class="form-label">Are you a First Time Buyer/Seller?</div>
+                            <div class="option form-check">
+                                <input class="form-check-input" type="radio" name="firstTime" id="option1" value="yes"
+                                    checked>
+                                <label class="form-check-label" for="option1">
+                                    Yes
+                                </label>
+                            </div>
+                            <div class="option form-check">
+                                <input class="form-check-input" type="radio" name="firstTime" id="option2" value="no">
+                                <label class="form-check-label" for="option2">
+                                    No
+                                </label>
+                            </div>
+                        </div>
+                        <div class="input-wrapper">
+                            <label for="stage" class="form-label">What stage in the property buying journey are you
+                                in?</label>
+                            <select id="stage" class="form-select">
+                                <option selected>Choose...</option>
+                                <option value="1">Just Borrowing</option>
+                                <option value="2">Getting Started</option>
+                                <option value="3">Seriously Hunting</option>
+                                <option value="4">Recently Purchased</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- End Feedback modal -->
+
 <div id="map"></div>
 
 <div id="preloader">
@@ -1212,6 +1316,34 @@ $('.filter-reset').click(function() {
     // .ajaxStop(function () {
     //     $loading.hide();
     // });
+</script>
+
+<script>
+    // Feedback Modal
+    function feedback() {
+        const selectVal = $('#feedbackTopic').val();
+
+        if (selectVal !== 0) {
+            $('#feedbackBlock').show();
+        }
+
+        if (selectVal !== 3) {
+            $('#issuesBlock').hide();
+        }
+
+        if (selectVal == 0) {
+            $('#feedbackBlock').hide();
+        } else if (selectVal == 1) {
+            $('#feedbackLabel').text('Click here to type your comment question');
+        } else if (selectVal == 2) {
+            $('#feedbackLabel').text('Please share your suggestion with us.');
+        } else if (selectVal == 3) {
+            $('#feedbackLabel').text('Please provide details and your email address if you would like a response');
+            $('#issuesBlock').show();
+        } else if (selectVal == 4) {
+            $('#feedbackLabel').text('Click here to type your comment question');
+        }
+    }
 </script>
 
 @endpush

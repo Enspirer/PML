@@ -728,7 +728,7 @@
 #section-news-body .news-list .single-news {
   border-bottom: 1px solid #707070;
   padding: 0.5rem;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 #section-news-body .news-list .single-news .title {
   text-transform: uppercase;
@@ -918,4 +918,132 @@
   #section-pagination .image img {
     width: 100% !important;
   }
+}
+.feedback-btn {
+  background-color: #35495E;
+  color: #fff;
+  border: 1px solid #35495E;
+  width: 140px;
+  height: 40px;
+  border-radius: 40px;
+  transform: rotate(-90deg);
+  position: fixed;
+  top: 40vh;
+  right: -3rem;
+  z-index: 9999;
+}
+.feedback-btn:hover {
+  background-color: #16202c;
+}
+.feedback-btn i {
+  font-size: 1.4rem;
+  margin-right: 0.5rem;
+}
+
+#feedbackModal .modal-dialog .modal-content .modal-header {
+  background-color: #16202c;
+  display: block !important;
+}
+#feedbackModal .modal-dialog .modal-content .modal-header img {
+  width: 200px;
+  display: block;
+  margin: 0 auto;
+}
+#feedbackModal .modal-dialog .modal-content .modal-header .btn-close {
+  background: none;
+  color: #fff;
+  font-size: 2rem;
+  line-height: 0;
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+}
+#feedbackModal .modal-dialog .modal-content .modal-body h4,
+#feedbackModal .modal-dialog .modal-content .modal-body h6 {
+  text-align: center;
+}
+#feedbackModal .modal-dialog .modal-content .modal-body .sub-title {
+  margin-bottom: 2rem !important;
+}
+#feedbackModal .modal-dialog .modal-content .modal-body #starRating {
+  /* use display:inline-flex to prevent whitespace issues. alternatively, you can put all the children of .rating-group on a single line */
+  /* make hover effect work properly in IE */
+  /* hide radio inputs */
+  /* hide 'none' input from screenreaders */
+  /* set icon padding and size */
+  /* set default star color */
+  /* if any input is checked, make its following siblings grey */
+  /* make all stars orange on rating group hover */
+  /* make hovered input's following siblings grey on hover */
+}
+#feedbackModal .modal-dialog .modal-content .modal-body #starRating .rating-group {
+  display: inline-flex;
+}
+#feedbackModal .modal-dialog .modal-content .modal-body #starRating .rating__icon {
+  pointer-events: none;
+}
+#feedbackModal .modal-dialog .modal-content .modal-body #starRating .rating__input {
+  position: absolute !important;
+  left: -9999px !important;
+}
+#feedbackModal .modal-dialog .modal-content .modal-body #starRating .rating__input--none {
+  display: none;
+}
+#feedbackModal .modal-dialog .modal-content .modal-body #starRating .rating__label {
+  cursor: pointer;
+  padding: 0 0.1em;
+  font-size: 1.5rem;
+}
+#feedbackModal .modal-dialog .modal-content .modal-body #starRating .rating__icon--star {
+  color: orange;
+}
+#feedbackModal .modal-dialog .modal-content .modal-body #starRating .rating__input:checked ~ .rating__label .rating__icon--star {
+  color: #ddd;
+}
+#feedbackModal .modal-dialog .modal-content .modal-body #starRating .rating-group:hover .rating__label .rating__icon--star {
+  color: orange;
+}
+#feedbackModal .modal-dialog .modal-content .modal-body #starRating .rating__input:hover ~ .rating__label .rating__icon--star {
+  color: #ddd;
+}
+#feedbackModal .modal-dialog .modal-content .modal-body #feedbackBlock,
+#feedbackModal .modal-dialog .modal-content .modal-body #issuesBlock {
+  display: none;
+}
+#feedbackModal .modal-dialog .modal-content .modal-body .input-wrapper {
+  margin-bottom: 1.5rem;
+}
+#feedbackModal .modal-dialog .modal-content .modal-body .input-wrapper .form-label {
+  font-size: 0.9rem;
+  margin-bottom: 0.25rem;
+}
+#feedbackModal .modal-dialog .modal-content .modal-body .input-wrapper .form-check-label {
+  font-size: 0.9rem;
+}
+#feedbackModal .modal-dialog .modal-content .modal-body .input-wrapper select,
+#feedbackModal .modal-dialog .modal-content .modal-body .input-wrapper input,
+#feedbackModal .modal-dialog .modal-content .modal-body .input-wrapper textarea {
+  font-size: 0.9rem !important;
+}
+#feedbackModal .modal-dialog .modal-content .modal-body .input-wrapper select:focus,
+#feedbackModal .modal-dialog .modal-content .modal-body .input-wrapper input:focus,
+#feedbackModal .modal-dialog .modal-content .modal-body .input-wrapper textarea:focus {
+  box-shadow: none !important;
+}
+#feedbackModal .modal-dialog .modal-content .modal-body .input-wrapper textarea {
+  resize: none;
+}
+#feedbackModal .modal-dialog .modal-content .modal-body .input-wrapper .form-check-input {
+  background: none;
+  background-color: #fff;
+  border: 1px solid #35495e;
+}
+#feedbackModal .modal-dialog .modal-content .modal-body .input-wrapper .form-check-input:checked[type=radio] {
+  background: none;
+  border: 4px solid #35495e;
+  background-color: #fff;
+}
+#feedbackModal .modal-dialog .modal-content .modal-body button[type=submit] {
+  background-color: #35495e;
+  border: 1px solid #35495E;
 }/*# sourceMappingURL=custom.css.map */
